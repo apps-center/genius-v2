@@ -1,0 +1,175 @@
+{
+  "contentKind": "qcm",
+  "sujet": "histoire",
+  "titre": "Grèce antique",
+  "items": [
+    {
+      "id": "grece-antique-01",
+      "question": "Qui invente la démocratie directe à Athènes en -508 av. J.-C. ?",
+      "choix": [
+        "Clisthène",
+        "Périclès",
+        "Solon",
+        "Thémistocle"
+      ],
+      "bonneReponse": 0,
+      "explication": "Clisthène réforme Athènes et crée la démocratie directe : chaque citoyen vote en assemblée (l'Ecclésia). Périclès portera ce système à son apogée un demi-siècle plus tard.",
+      "niveau": "6e",
+      "sujet": "Grèce Antique"
+    },
+    {
+      "id": "grece-antique-02",
+      "question": "La bataille des Thermopyles (-480) voit 300 Spartiates résister à qui ?",
+      "choix": [
+        "L'armée perse de Xerxès",
+        "Alexandre le Grand",
+        "L'armée carthaginoise",
+        "Les Romains"
+      ],
+      "bonneReponse": 0,
+      "explication": "Léonidas et ses 300 Spartiates (plus plusieurs milliers d'alliés) retardèrent l'armée de Xerxès aux Thermopyles, permettant à la Grèce de s'organiser pour la victoire de Salamine.",
+      "niveau": "6e",
+      "sujet": "Grèce Antique"
+    },
+    {
+      "id": "grece-antique-03",
+      "question": "Socrate est condamné à mort par…",
+      "choix": [
+        "Le tribunal d'Athènes, pour impiété",
+        "Alexandre le Grand",
+        "L'Oracle de Delphes",
+        "Les Perses"
+      ],
+      "bonneReponse": 0,
+      "explication": "En -399, le tribunal démocratique d'Athènes condamne Socrate pour impiété et corruption de la jeunesse. Il boit la ciguë. Son procès reste le symbole de l'injustice politique.",
+      "niveau": "6e",
+      "sujet": "Grèce Antique"
+    },
+    {
+      "id": "grece-antique-04",
+      "question": "Alexandre le Grand est le fils de quel roi ?",
+      "choix": [
+        "Philippe II de Macédoine",
+        "Périclès d'Athènes",
+        "Léonidas de Sparte",
+        "Darios de Perse"
+      ],
+      "bonneReponse": 0,
+      "explication": "Alexandre est le fils de Philippe II, roi de Macédoine, et de la princesse épirote Olympias. Aristote fut son précepteur de 13 à 16 ans.",
+      "niveau": "6e",
+      "sujet": "Grèce Antique"
+    },
+    {
+      "id": "grece-antique-05",
+      "question": "Qui fonde Massalia, la plus vieille ville de France ?",
+      "choix": [
+        "Des marins grecs de Phocée",
+        "Les Romains",
+        "Les Celtes gaulois",
+        "Des marins phéniciens"
+      ],
+      "bonneReponse": 0,
+      "explication": "Vers -600 av. J.-C., des Grecs venus de Phocée (actuelle Turquie) fondent Massalia sur une calanque - aujourd'hui Marseille, la plus ancienne ville de France.",
+      "niveau": "6e",
+      "sujet": "Grèce Antique"
+    },
+    {
+      "id": "grece-antique-06",
+      "question": "Quel était le nom du cheval légendaire d'Alexandre le Grand, auquel il dédia une ville en Inde ?",
+      "choix": [
+        "Bucéphale - la ville s'appelait Bucéphalie",
+        "Pégase - la ville s'appelait Pégasion",
+        "Arion - la ville s'appelait Ariona",
+        "Xanthos - la ville s'appelait Xanthia"
+      ],
+      "bonneReponse": 0,
+      "explication": "Bucéphale (tête de bœuf) refusait d'être monté par quiconque. Alexandre, 13 ans, remarqua qu'il avait peur de son ombre et l'apprivoisa en le tournant face au soleil. À sa mort en Inde, Alexandre lui dédia la ville de Bucéphalie.",
+      "niveau": "6e",
+      "sujet": "Grèce Antique"
+    },
+    {
+      "id": "grece-antique-07",
+      "question": "Quelle est la méthode philosophique inventée par Socrate, consistant à questionner pour faire émerger la vérité ?",
+      "choix": [
+        "La maïeutique (l'art d'accoucher les esprits)",
+        "La dialectique hégélienne",
+        "Le syllogisme aristotélicien",
+        "La rhétorique sophistique"
+      ],
+      "bonneReponse": 0,
+      "explication": "La maïeutique (du grec 'sage-femme') : Socrate se compare à une sage-femme qui aide à accoucher les idées déjà présentes dans l'esprit de l'interlocuteur par des questions successives.",
+      "niveau": "6e",
+      "sujet": "Grèce Antique"
+    },
+    {
+      "id": "grece-antique-08",
+      "question": "Aristote est le précepteur de quel futur conquérant, qu'il forma de l'âge de 13 à 16 ans ?",
+      "choix": [
+        "Alexandre le Grand",
+        "Philippe II de Macédoine",
+        "Ptolémée Ier",
+        "Antipater"
+      ],
+      "bonneReponse": 0,
+      "explication": "Aristote enseigne à Alexandre (futur Alexandre le Grand) à Mieza de -343 à -340. Il lui transmet philosophie, science, médecine et littérature grecque.",
+      "niveau": "6e",
+      "sujet": "Grèce Antique"
+    },
+    {
+      "id": "grece-antique-09",
+      "question": "À quelle distance mythique un messager court-il de Marathon à Athènes pour annoncer la victoire ?",
+      "choix": [
+        "42 km - distance qui donne son nom au marathon moderne",
+        "100 km",
+        "15 km",
+        "200 km"
+      ],
+      "bonneReponse": 0,
+      "explication": "Selon la légende, le soldat Phidippidès court les 42 km de Marathon à Athènes pour annoncer la victoire, puis tombe mort d'épuisement. Cette distance donne son nom au marathon olympique.",
+      "niveau": "6e",
+      "sujet": "Grèce Antique"
+    },
+    {
+      "id": "grece-antique-10",
+      "question": "Quel philosophe grec vivait dans une jarre et demanda à Alexandre le Grand de 's'ôter de son soleil' ?",
+      "choix": [
+        "Diogène de Sinope",
+        "Épicure",
+        "Zénon de Citium",
+        "Héraclite d'Éphèse"
+      ],
+      "bonneReponse": 0,
+      "explication": "Diogène, fondateur du cynisme, rejetait toute convention sociale. Alexandre, impressionné, lui demanda ce qu'il désirait. 'Que tu t'ôtes de mon soleil.' Alexandre dit : 'Si je n'étais pas Alexandre, je voudrais être Diogène.'",
+      "niveau": "6e",
+      "sujet": "Grèce Antique"
+    },
+    {
+      "id": "grece-antique-11",
+      "question": "Quel est le premier historien connu, surnommé 'père de l'Histoire' ?",
+      "choix": [
+        "Hérodote d'Halicarnasse",
+        "Thucydide d'Athènes",
+        "Polybe de Mégalopolis",
+        "Plutarque de Chéronée"
+      ],
+      "bonneReponse": 0,
+      "explication": "Hérodote (vers -484 à -425) écrit les Histoires, récit des guerres médiques. Il voyage en Égypte, Babylone et Scythie pour collecter témoignages et légendes - première démarche historiographique.",
+      "niveau": "6e",
+      "sujet": "Grèce Antique"
+    },
+    {
+      "id": "grece-antique-12",
+      "question": "En quelle année ont lieu les premiers Jeux Olympiques de l'Antiquité, et en l'honneur de quel dieu ?",
+      "choix": [
+        "−776 av. J.-C., en l'honneur de Zeus",
+        "−500 av. J.-C., en l'honneur d'Apollon",
+        "−1000 av. J.-C., en l'honneur d'Héra",
+        "−400 av. J.-C., en l'honneur d'Athéna"
+      ],
+      "bonneReponse": 0,
+      "explication": "Les premiers Jeux Olympiques datent de -776 av. J.-C. à Olympie. Pendant leur durée, toutes les guerres s'arrêtaient - la 'trêve sacrée'. Ils furent interdits par l'empereur Théodose en 393 ap. J.-C.",
+      "niveau": "6e",
+      "sujet": "Grèce Antique"
+    }
+  ]
+}

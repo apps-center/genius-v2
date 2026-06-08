@@ -1,0 +1,91 @@
+{
+  "contentKind": "qcm",
+  "sujet": "histoire",
+  "titre": "Premières civilisations",
+  "items": [
+    {
+      "id": "premieres-civilisations-01",
+      "question": "Quel est le nom du premier être humain dont on connaît le nom dans l'histoire ?",
+      "choix": [
+        "Kushim - un comptable d'Uruk",
+        "Gilgamesh - un roi sumérien",
+        "Ménès - pharaon égyptien",
+        "Hammurabi - roi de Babylone"
+      ],
+      "bonneReponse": 0,
+      "explication": "Kushim est un comptable sumérien d'Uruk dont le nom figure sur des tablettes d'argile vers -3 100 av. J.-C. C'est la première signature connue de l'histoire humaine.",
+      "niveau": "6e",
+      "sujet": "Premières Civilisations"
+    },
+    {
+      "id": "premieres-civilisations-02",
+      "question": "En quelle matière les premières tablettes d'écriture cunéiforme étaient-elles façonnées ?",
+      "choix": [
+        "En argile cuite",
+        "En pierre calcaire",
+        "En bois de cèdre",
+        "En or martelé"
+      ],
+      "bonneReponse": 0,
+      "explication": "L'argile était abondante en Mésopotamie. Les signes cunéiformes étaient gravés avec un stylet, puis la tablette était cuite pour la durcir et la conserver indéfiniment.",
+      "niveau": "6e",
+      "sujet": "Premières Civilisations"
+    },
+    {
+      "id": "premieres-civilisations-03",
+      "question": "De quelle région du Pays de Galles proviennent les bluestones de Stonehenge, transportées sur 240 km ?",
+      "choix": [
+        "Les collines de Preseli (Pembrokeshire)",
+        "Les Highlands d'Écosse",
+        "La vallée de la Tamise",
+        "Le Dartmoor (Devon)"
+      ],
+      "bonneReponse": 0,
+      "explication": "Les bluestones de Stonehenge pèsent jusqu'à 4 tonnes et ont été transportées depuis les collines de Preseli - un exploit logistique préhistorique encore inexpliqué aujourd'hui.",
+      "niveau": "6e",
+      "sujet": "Premières Civilisations"
+    },
+    {
+      "id": "premieres-civilisations-04",
+      "question": "Quel objet archéologique célèbre commémore l'unification de l'Égypte par Narmer ?",
+      "choix": [
+        "La palette de Narmer, au Musée du Caire",
+        "La pierre de Rosette, au British Museum",
+        "Le masque d'Agamemnon, à Athènes",
+        "La stèle de Hammurabi, au Louvre"
+      ],
+      "bonneReponse": 0,
+      "explication": "La palette de Narmer (vers -3 100 av. J.-C.) représente le pharaon portant la double couronne d'Égypte unifiée. C'est l'un des plus anciens documents historiques illustrés.",
+      "niveau": "6e",
+      "sujet": "Premières Civilisations"
+    },
+    {
+      "id": "premieres-civilisations-05",
+      "question": "Quelle est la précision extraordinaire de l'alignement cardinal de la Grande Pyramide ?",
+      "choix": [
+        "0,05 degré - plus précis que l'Observatoire de Paris",
+        "1 degré - précision remarquable pour l'époque",
+        "5 degrés - estimé à l'œil nu",
+        "0,5 degré - mesuré aux étoiles"
+      ],
+      "bonneReponse": 0,
+      "explication": "La Grande Pyramide est alignée sur les points cardinaux avec une précision de 0,05 degré - plus précise que l'Observatoire de Paris construit 4 400 ans plus tard avec nos instruments modernes.",
+      "niveau": "6e",
+      "sujet": "Premières Civilisations"
+    },
+    {
+      "id": "premieres-civilisations-06",
+      "question": "Quels deux métaux compose-t-on pour obtenir le bronze ?",
+      "choix": [
+        "Cuivre et étain",
+        "Fer et charbon",
+        "Or et argent",
+        "Plomb et zinc"
+      ],
+      "bonneReponse": 0,
+      "explication": "Le bronze = cuivre + étain. Cet alliage est plus dur et plus tranchant que le cuivre seul. Comme l'étain est rare, son commerce structure les premières routes commerciales à longue distance.",
+      "niveau": "6e",
+      "sujet": "Premières Civilisations"
+    }
+  ]
+}

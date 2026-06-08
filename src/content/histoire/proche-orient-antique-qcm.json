@@ -1,0 +1,119 @@
+{
+  "contentKind": "qcm",
+  "sujet": "histoire",
+  "titre": "Proche-Orient antique",
+  "items": [
+    {
+      "id": "proche-orient-antique-01",
+      "question": "Sous quel nom désigne-t-on la traduction grecque de la Bible hébraïque, réalisée vers −250 av. J.-C. à Alexandrie ?",
+      "choix": [
+        "La Septante (ou LXX)",
+        "La Vulgate",
+        "La Peshitta",
+        "La Torah"
+      ],
+      "bonneReponse": 0,
+      "explication": "La Septante (LXX) est traduite à Alexandrie par 72 sages juifs selon la tradition. C'est la version de la Bible utilisée par les premiers chrétiens - d'où son immense influence sur l'Occident.",
+      "niveau": "6e",
+      "sujet": "Proche-Orient antique"
+    },
+    {
+      "id": "proche-orient-antique-02",
+      "question": "Dans quelle roche la cité nabatéenne de Pétra est-elle principalement sculptée ?",
+      "choix": [
+        "Dans le grès rose-rouge",
+        "Dans le calcaire blanc",
+        "Dans le basalte noir",
+        "Dans le marbre"
+      ],
+      "bonneReponse": 0,
+      "explication": "Pétra (Jordanie actuelle) est taillée dans la roche de grès rose-rouge. Capitale des Nabatéens, elle contrôlait les routes de l'encens. Ses façades monumentales atteignent 40 mètres de haut.",
+      "niveau": "6e",
+      "sujet": "Proche-Orient antique"
+    },
+    {
+      "id": "proche-orient-antique-03",
+      "question": "Combien d'années dura le siège de Troie selon la tradition grecque ?",
+      "choix": [
+        "Dix ans",
+        "Cinq ans",
+        "Deux ans",
+        "Vingt ans"
+      ],
+      "bonneReponse": 0,
+      "explication": "Selon Homère, la guerre de Troie dura dix ans. Elle se termina grâce à la ruse du cheval de bois imaginé par Ulysse, permettant aux Grecs de pénétrer dans la cité.",
+      "niveau": "6e",
+      "sujet": "Proche-Orient antique"
+    },
+    {
+      "id": "proche-orient-antique-04",
+      "question": "Combien de lettres comptait l'alphabet phénicien original ?",
+      "choix": [
+        "22 consonnes - sans aucune voyelle",
+        "26 lettres dont voyelles",
+        "30 signes syllabiques",
+        "44 hiéroglyphes"
+      ],
+      "bonneReponse": 0,
+      "explication": "L'alphabet phénicien compte 22 consonnes, sans voyelles. Les Grecs l'adoptèrent vers -800 et ajoutèrent les voyelles, créant le premier alphabet complet - ancêtre direct du latin.",
+      "niveau": "6e",
+      "sujet": "Proche-Orient antique"
+    },
+    {
+      "id": "proche-orient-antique-05",
+      "question": "Quel roi hébreu fit de Jérusalem sa capitale vers −1000 av. J.-C. ?",
+      "choix": [
+        "Le roi David",
+        "Le roi Salomon",
+        "Le roi Saül",
+        "Le roi Josias"
+      ],
+      "bonneReponse": 0,
+      "explication": "David conquiert Jérusalem vers -1000 av. J.-C. sur les Jébuséens et en fait la 'Ville de David'. Son fils Salomon y construira le Premier Temple.",
+      "niveau": "6e",
+      "sujet": "Proche-Orient antique"
+    },
+    {
+      "id": "proche-orient-antique-06",
+      "question": "Dans quelle vallée se déroula le combat entre David et Goliath ?",
+      "choix": [
+        "La vallée d'Éla",
+        "La vallée du Jourdain",
+        "La vallée de Qadesh",
+        "La vallée de Josaphat"
+      ],
+      "bonneReponse": 0,
+      "explication": "Selon le premier livre de Samuel, David et Goliath s'affrontent dans la vallée d'Éla. David tue Goliath d'une pierre de fronde, puis lui tranche la tête avec sa propre épée.",
+      "niveau": "6e",
+      "sujet": "Proche-Orient antique"
+    },
+    {
+      "id": "proche-orient-antique-07",
+      "question": "Quelle ruse permit à la reine Didon de fonder Carthage avec un minimum de terrain ?",
+      "choix": [
+        "Elle découpa une peau de bœuf en fines lanières pour délimiter un grand cercle",
+        "Elle construisit une digue sur la mer pour gagner du terrain",
+        "Elle racheta des terres avec de l'or phénicien",
+        "Elle épousa le roi local pour obtenir la région en dot"
+      ],
+      "bonneReponse": 0,
+      "explication": "On dit à Didon qu'elle peut prendre autant de terrain qu'une peau de bœuf peut en couvrir. Elle la découpe en lanières pour former un immense périmètre - fondant ainsi Carthage vers -814 av. J.-C.",
+      "niveau": "6e",
+      "sujet": "Proche-Orient antique"
+    },
+    {
+      "id": "proche-orient-antique-08",
+      "question": "Quel roi perse libéra les Juifs exilés à Babylone dans le premier édit de tolérance religieuse connu ?",
+      "choix": [
+        "Cyrus le Grand (-538 av. J.-C.)",
+        "Darius Ier",
+        "Xerxès",
+        "Artaxerxès"
+      ],
+      "bonneReponse": 0,
+      "explication": "L'Édit de Cyrus (-538) est le premier document connu à accorder la liberté religieuse. La Bible appelle Cyrus 'le Messie' - unique non-juif à recevoir ce titre dans les textes hébraïques.",
+      "niveau": "6e",
+      "sujet": "Proche-Orient antique"
+    }
+  ]
+}

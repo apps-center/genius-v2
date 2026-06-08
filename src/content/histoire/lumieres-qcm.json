@@ -1,0 +1,35 @@
+{
+  "contentKind": "qcm",
+  "sujet": "histoire",
+  "titre": "Lumières",
+  "items": [
+    {
+      "id": "lumieres-01",
+      "question": "Jean-Jacques Rousseau affirme dans Du Contrat Social que la légitimité du gouvernement vient…",
+      "choix": [
+        "Du peuple, qui peut reprendre son pouvoir si trahi",
+        "De Dieu, transmis au roi par le sacre",
+        "Des nobles et du clergé réunis",
+        "De la raison naturelle universelle"
+      ],
+      "bonneReponse": 0,
+      "explication": "Rousseau révolutionne la pensée politique : le pouvoir est délégué par le peuple. Si le gouvernement trahit le peuple, celui-ci peut le renverser - théorie qui alimentera directement la Révolution de 1789.",
+      "niveau": "4e",
+      "sujet": "Lumières"
+    },
+    {
+      "id": "lumieres-02",
+      "question": "Louis XVI convoque les États Généraux en mai 1789 pour quelle raison principale ?",
+      "choix": [
+        "La France est au bord de la faillite et a besoin de lever de nouveaux impôts",
+        "Il veut réformer la constitution du royaume",
+        "Il veut préparer une guerre contre l'Angleterre",
+        "Il répond à une révolte populaire qui menaçait Versailles"
+      ],
+      "bonneReponse": 0,
+      "explication": "La France est criblée de dettes après la Guerre de Sept Ans et le soutien à la Révolution américaine. Louis XVI convoque les États Généraux pour lever de nouveaux impôts - déclenchant involontairement la Révolution.",
+      "niveau": "4e",
+      "sujet": "Lumières"
+    }
+  ]
+}

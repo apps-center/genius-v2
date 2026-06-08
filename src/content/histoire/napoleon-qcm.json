@@ -1,0 +1,35 @@
+{
+  "contentKind": "qcm",
+  "sujet": "histoire",
+  "titre": "Napoléon",
+  "items": [
+    {
+      "id": "napoleon-01",
+      "question": "Quel code juridique fondamental Napoléon fait-il adopter en 1804, encore en vigueur aujourd'hui ?",
+      "choix": [
+        "Le Code civil (Code Napoléon)",
+        "Le Code pénal",
+        "Le Code de commerce",
+        "Le Code d'instruction criminelle"
+      ],
+      "bonneReponse": 0,
+      "explication": "Le Code civil de 1804 établit l'égalité juridique, le droit de propriété et la laïcité du droit. Traduit en 40 langues, il inspire les systèmes juridiques de plus de 80 pays dans le monde.",
+      "niveau": "4e",
+      "sujet": "Napoléon"
+    },
+    {
+      "id": "napoleon-02",
+      "question": "À quel endroit Napoléon est-il vaincu définitivement en juin 1815 ?",
+      "choix": [
+        "Waterloo (actuelle Belgique)",
+        "Leipzig (Allemagne)",
+        "Trafalgar (Espagne)",
+        "Moscou (Russie)"
+      ],
+      "bonneReponse": 0,
+      "explication": "La bataille de Waterloo (18 juin 1815) oppose Napoléon aux armées anglaise (Wellington) et prussienne (Blücher). Sa défaite entraîne son exil à Sainte-Hélène où il mourra en 1821.",
+      "niveau": "4e",
+      "sujet": "Napoléon"
+    }
+  ]
+}

@@ -1,0 +1,175 @@
+{
+  "contentKind": "qcm",
+  "sujet": "histoire",
+  "titre": "Capétiens",
+  "items": [
+    {
+      "id": "capetiens-01",
+      "question": "Quelle conséquence inattendue la conquête normande de 1066 eut-elle sur la langue anglaise ?",
+      "choix": [
+        "La moitié des mots anglais viennent du français normand",
+        "L'anglais fut temporairement interdit en Angleterre",
+        "Le latin devint la seule langue officielle",
+        "Le français remplaça l'anglais pendant 3 siècles"
+      ],
+      "bonneReponse": 0,
+      "explication": "Beef, pork, justice, noble, adventure… Des milliers de mots anglais sont en réalité du vieux-français normand apporté par la noblesse de Guillaume. L'anglais moderne est un mélange d'anglo-saxon et de français.",
+      "niveau": "5e",
+      "sujet": "Capétiens"
+    },
+    {
+      "id": "capetiens-02",
+      "question": "Quel moine a inventé le style gothique en reconstruisant la basilique Saint-Denis en 1144 ?",
+      "choix": [
+        "Suger, abbé de Saint-Denis",
+        "Bernard de Clairvaux",
+        "Pierre Abélard",
+        "Hildegarde de Bingen"
+      ],
+      "bonneReponse": 0,
+      "explication": "L'abbé Suger voulait que les églises soient remplies de lumière pour symboliser la présence de Dieu. Il inventa l'arc-boutant et les grandes verrières - révolutionnant l'architecture médiévale.",
+      "niveau": "5e",
+      "sujet": "Capétiens"
+    },
+    {
+      "id": "capetiens-03",
+      "question": "Pourquoi Blanche de Castille est-elle une figure exceptionnelle dans l'histoire médiévale de France ?",
+      "choix": [
+        "Première femme étrangère à gouverner la France, pendant la minorité de Louis IX",
+        "Première reine à participer à une croisade",
+        "Première femme à siéger au Parlement de Paris",
+        "Première régente à diriger une armée en bataille"
+      ],
+      "bonneReponse": 0,
+      "explication": "Blanche de Castille, née en Espagne, assura la régence pour son fils Louis IX (12 ans) après la mort de Louis VIII en 1226. Elle repoussa les barons révoltés et maintint le royaume intact.",
+      "niveau": "5e",
+      "sujet": "Capétiens"
+    },
+    {
+      "id": "capetiens-04",
+      "question": "Quelle institution née en 1302 sous Philippe le Bel est l'ancêtre lointain de notre Assemblée Nationale ?",
+      "choix": [
+        "Les États Généraux",
+        "Le Parlement de Paris",
+        "Le Conseil du roi",
+        "Le Tribunal de l'Inquisition"
+      ],
+      "bonneReponse": 0,
+      "explication": "Les États Généraux réunissent clergé, noblesse et tiers état. Convoqués une dernière fois en 1789, ils déclenchent la Révolution française - devenant l'Assemblée nationale constituante.",
+      "niveau": "5e",
+      "sujet": "Capétiens"
+    },
+    {
+      "id": "capetiens-05",
+      "question": "Pendant combien d'années les papes ont-ils résidé à Avignon au lieu de Rome ?",
+      "choix": [
+        "68 ans - de 1309 à 1377",
+        "10 ans",
+        "200 ans",
+        "30 ans"
+      ],
+      "bonneReponse": 0,
+      "explication": "Sept papes successifs, tous français, résidèrent à Avignon de 1309 à 1377. Le retour à Rome provoqua le Grand Schisme d'Occident - deux papes rivaux pendant 40 ans.",
+      "niveau": "5e",
+      "sujet": "Capétiens"
+    },
+    {
+      "id": "capetiens-06",
+      "question": "Qu'arriva-t-il d'extraordinaire au roi Jean II de France lors de la bataille de Poitiers en 1356 ?",
+      "choix": [
+        "Il fut fait prisonnier par les Anglais et emmené à Londres",
+        "Il fut tué d'une flèche comme Harold à Hastings",
+        "Il se rendit aux Bourguignons pour sauver son armée",
+        "Il s'enfuit déguisé en paysan pour échapper aux Anglais"
+      ],
+      "bonneReponse": 0,
+      "explication": "Jean II le Bon est capturé à Poitiers par le Prince Noir et emmené à Londres. La France dut payer une rançon colossale de 3 millions d'écus d'or pour le récupérer - l'équivalent de plusieurs années de revenus royaux.",
+      "niveau": "5e",
+      "sujet": "Capétiens"
+    },
+    {
+      "id": "capetiens-07",
+      "question": "En quelle année les Juifs de France ont-ils obtenu les mêmes droits que tous les citoyens, après l'expulsion de 1394 ?",
+      "choix": [
+        "1791 - lors de la Révolution française",
+        "1848 - lors de la IIe République",
+        "1905 - lors de la séparation Église-État",
+        "1944 - après la Libération"
+      ],
+      "bonneReponse": 0,
+      "explication": "Il fallut attendre 397 ans après l'expulsion de 1394 pour que la Révolution française accorde en 1791 la pleine citoyenneté aux Juifs - première fois dans l'histoire européenne moderne.",
+      "niveau": "5e",
+      "sujet": "Capétiens"
+    },
+    {
+      "id": "capetiens-08",
+      "question": "Quel livre Christine de Pisan écrit-elle en 1405 pour défendre la valeur des femmes ?",
+      "choix": [
+        "La Cité des Dames",
+        "Le Roman de la Rose",
+        "Les Cent Nouvelles Nouvelles",
+        "Le Livre des Faits et Bonnes Mœurs"
+      ],
+      "bonneReponse": 0,
+      "explication": "La Cité des Dames (1405) imagine une cité imaginaire peuplée des femmes les plus remarquables de l'histoire. Christine de Pisan répond ainsi à la misogynie de son époque - première féministe littéraire française.",
+      "niveau": "5e",
+      "sujet": "Capétiens"
+    },
+    {
+      "id": "capetiens-09",
+      "question": "Quelle nouvelle arme permit à la France de remporter la victoire décisive de Castillon en 1453 ?",
+      "choix": [
+        "Les canons (l'artillerie à poudre)",
+        "La cavalerie lourde",
+        "Les arbalètes en acier",
+        "Les archers gallois"
+      ],
+      "bonneReponse": 0,
+      "explication": "L'artillerie française de Jean Bureau écrase la cavalerie anglaise à Castillon - rendant obsolètes les archers aux longbows qui avaient dominé Crécy et Azincourt. L'ère des chevaliers prend fin.",
+      "niveau": "5e",
+      "sujet": "Capétiens"
+    },
+    {
+      "id": "capetiens-10",
+      "question": "Sous quel roi les relais de poste furent-ils organisés en France en 1476, révolutionnant les communications ?",
+      "choix": [
+        "Louis XI, l'Universelle Araignée",
+        "Charles V le Sage",
+        "Philippe le Bel",
+        "François Ier"
+      ],
+      "bonneReponse": 0,
+      "explication": "Louis XI crée les relais de poste royaux en 1476 : des chevaux frais disponibles toutes les 4 lieues sur les grandes routes. Ce réseau permit au roi de recevoir des nouvelles en 24h depuis n'importe quelle province.",
+      "niveau": "5e",
+      "sujet": "Capétiens"
+    },
+    {
+      "id": "capetiens-11",
+      "question": "Comment la Provence est-elle devenue française en 1481, sans guerre ni mariage ?",
+      "choix": [
+        "Le comte de Provence mourut sans héritier et légua sa région à Louis XI",
+        "Louis XI l'acheta au Saint-Empire romain germanique",
+        "Charles le Téméraire la céda en échange de la Bourgogne",
+        "La population provençale vota son rattachement au royaume"
+      ],
+      "bonneReponse": 0,
+      "explication": "René d'Anjou, dernier comte de Provence, mourut sans héritier direct en 1480. Son successeur Charles III légua ses terres au roi de France Louis XI en 1481 - réunification pacifique et définitive.",
+      "niveau": "5e",
+      "sujet": "Capétiens"
+    },
+    {
+      "id": "capetiens-12",
+      "question": "Qui était Charles le Téméraire, et pourquoi sa mort en 1477 profita-t-elle tant à Louis XI ?",
+      "choix": [
+        "Duc de Bourgogne, le plus puissant rival du roi - sa mort permit à Louis XI de récupérer Bourgogne et Picardie",
+        "Roi d'Angleterre - sa mort mit fin à la Guerre de Cent Ans",
+        "Duc de Bretagne - sa mort permit l'annexion de la Bretagne",
+        "Duc d'Anjou - sa mort permit d'annexer la Provence et le Maine"
+      ],
+      "bonneReponse": 0,
+      "explication": "Charles le Téméraire rêvait d'un grand État entre France et Allemagne. Sa mort à Nancy (1477) fut un cadeau pour Louis XI, qui récupéra la Bourgogne et la Picardie, achevant le puzzle territorial français.",
+      "niveau": "5e",
+      "sujet": "Capétiens"
+    }
+  ]
+}

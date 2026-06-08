@@ -1,0 +1,63 @@
+{
+  "contentKind": "qcm",
+  "sujet": "histoire",
+  "titre": "Histoire du monde",
+  "items": [
+    {
+      "id": "histoire-du-monde-01",
+      "question": "L'alphabet latin, utilisé dans la plupart des langues européennes, vient de…",
+      "choix": [
+        "L'alphabet phénicien (via le grec)",
+        "L'alphabet cunéiforme",
+        "L'écriture hiéroglyphique",
+        "L'alphabet cyrillique"
+      ],
+      "bonneReponse": 0,
+      "explication": "La chaîne est : Phéniciens → Grecs → Étrusques → Romains. L'alphabet latin, que tu utilises en ce moment, est donc le descendant direct de l'invention phénicienne de -1 200 av. J.-C.",
+      "niveau": "5e",
+      "sujet": "Histoire du monde"
+    },
+    {
+      "id": "histoire-du-monde-02",
+      "question": "Qui rédige la première déclaration de liberté religieuse de l'histoire ?",
+      "choix": [
+        "Cyrus le Grand (roi perse, -538)",
+        "Moïse (-1 250)",
+        "Constantin (313)",
+        "Mahomet (622)"
+      ],
+      "bonneReponse": 0,
+      "explication": "L'Édit de Cyrus (-538) autorise tous les peuples déportés à rentrer chez eux et à pratiquer leur religion librement. C'est le premier document de tolérance religieuse connu de l'histoire.",
+      "niveau": "5e",
+      "sujet": "Histoire du monde"
+    },
+    {
+      "id": "histoire-du-monde-03",
+      "question": "Quel empire a survécu 977 ans après la 'chute de Rome' en 476 ?",
+      "choix": [
+        "L'Empire byzantin (Empire romain d'Orient)",
+        "L'Empire perse",
+        "L'Empire arabe",
+        "L'Empire ottoman"
+      ],
+      "bonneReponse": 0,
+      "explication": "L'Empire romain d'Orient (Byzance), avec Constantinople comme capitale, survit jusqu'en 1453 - date de la prise de Constantinople par les Ottomans. Rome n'est donc pas vraiment morte en 476.",
+      "niveau": "5e",
+      "sujet": "Histoire du monde"
+    },
+    {
+      "id": "histoire-du-monde-04",
+      "question": "L'université de Bologne, considérée comme la première université du monde, a été fondée en…",
+      "choix": [
+        "1088",
+        "1150",
+        "1167",
+        "1209"
+      ],
+      "bonneReponse": 0,
+      "explication": "L'Université de Bologne (1088) est la plus ancienne université en activité continue dans le monde. Paris suivra vers 1150, Oxford vers 1167, Cambridge en 1209.",
+      "niveau": "5e",
+      "sujet": "Histoire du monde"
+    }
+  ]
+}

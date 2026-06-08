@@ -1,0 +1,329 @@
+{
+  "contentKind": "qcm",
+  "sujet": "histoire",
+  "titre": "Rome antique",
+  "items": [
+    {
+      "id": "rome-antique-01",
+      "question": "Jules César franchit le Rubicon en disant…",
+      "choix": [
+        "Alea jacta est (le sort en est jeté)",
+        "Veni vidi vici",
+        "Ave Caesar",
+        "Roma locuta est"
+      ],
+      "bonneReponse": 0,
+      "explication": "En -49, César franchit le Rubicon - fleuve frontière qu'aucun général armé n'avait le droit de traverser. 'Alea jacta est' marque le début de la guerre civile romaine.",
+      "niveau": "6e",
+      "sujet": "Rome Antique"
+    },
+    {
+      "id": "rome-antique-02",
+      "question": "Auguste est le titre donné à qui lors de la fondation de l'Empire romain ?",
+      "choix": [
+        "Octave, petit-neveu de Jules César",
+        "Marc Antoine",
+        "Pompée",
+        "Tibère"
+      ],
+      "bonneReponse": 0,
+      "explication": "Octave reçoit le titre d'Auguste ('le Vénérable') en -27 av. J.-C. et devient le premier empereur romain. Il règne 44 ans et inaugure la Pax Romana.",
+      "niveau": "6e",
+      "sujet": "Rome Antique"
+    },
+    {
+      "id": "rome-antique-03",
+      "question": "En quelle année le Vésuve détruit-il Pompéi ?",
+      "choix": [
+        "79 ap. J.-C.",
+        "79 av. J.-C.",
+        "44 ap. J.-C.",
+        "14 ap. J.-C."
+      ],
+      "bonneReponse": 0,
+      "explication": "Le 24 août 79 ap. J.-C., le Vésuve entre en éruption et ensevelit Pompéi sous 6 mètres de cendres en quelques heures, conservant la ville comme une photographie romaine.",
+      "niveau": "6e",
+      "sujet": "Rome Antique"
+    },
+    {
+      "id": "rome-antique-04",
+      "question": "En quelle année l'Empire romain d'Occident s'effondre-t-il officiellement ?",
+      "choix": [
+        "476 ap. J.-C.",
+        "410 ap. J.-C.",
+        "313 ap. J.-C.",
+        "395 ap. J.-C."
+      ],
+      "bonneReponse": 0,
+      "explication": "Le 4 septembre 476, Odoacre destitue Romulus Augustule, dernier empereur d'Occident. C'est la date conventionnelle de la fin de l'Antiquité et du début du Moyen Âge.",
+      "niveau": "6e",
+      "sujet": "Rome Antique"
+    },
+    {
+      "id": "rome-antique-05",
+      "question": "L'Édit de Milan (313) accorde quelle liberté ?",
+      "choix": [
+        "La liberté de culte dans tout l'Empire",
+        "La citoyenneté romaine à tous les habitants",
+        "La libération des esclaves",
+        "La fin des gladiateurs"
+      ],
+      "bonneReponse": 0,
+      "explication": "Constantin et Licinius signent l'Édit de Milan en 313, accordant la liberté religieuse dans tout l'Empire. Le christianisme, religion illégale depuis des siècles, devient enfin légal.",
+      "niveau": "6e",
+      "sujet": "Rome Antique"
+    },
+    {
+      "id": "rome-antique-06",
+      "question": "Hannibal traverse les Alpes avec des éléphants pour attaquer…",
+      "choix": [
+        "Rome, lors de la 2e Guerre Punique",
+        "Carthage, pour reprendre le contrôle",
+        "Alexandrie, pour conquérir l'Égypte",
+        "Athènes, pour venger les Perses"
+      ],
+      "bonneReponse": 0,
+      "explication": "Lors de la 2e Guerre Punique (-218), Hannibal part de Carthage, traverse l'Espagne, les Pyrénées et les Alpes avec des éléphants pour surprendre Rome par le nord.",
+      "niveau": "6e",
+      "sujet": "Rome Antique"
+    },
+    {
+      "id": "rome-antique-07",
+      "question": "Selon la légende, qui allaita Romulus et Remus après leur abandon sur les rives du Tibre ?",
+      "choix": [
+        "Une louve",
+        "Une ourse",
+        "Une biche",
+        "Une chienne"
+      ],
+      "bonneReponse": 0,
+      "explication": "La louve capitoline allaitant Romulus et Remus est le symbole de Rome. Après avoir été abandonnés sur le Tibre par leur grand-oncle, les jumeaux auraient été nourris par une louve avant d'être recueillis par un berger.",
+      "niveau": "6e",
+      "sujet": "Rome Antique"
+    },
+    {
+      "id": "rome-antique-08",
+      "question": "Quelle phrase César aurait-il prononcée en franchissant le Rubicon en −49 av. J.-C. ?",
+      "choix": [
+        "Alea jacta est (le sort en est jeté)",
+        "Veni vidi vici (je suis venu, j'ai vu, j'ai vaincu)",
+        "Et tu, Brute ? (toi aussi, Brutus ?)",
+        "Gallia est omnis divisa (la Gaule est tout entière divisée)"
+      ],
+      "bonneReponse": 0,
+      "explication": "'Alea jacta est' - le sort en est jeté. En franchissant le Rubicon avec son armée, César trahit la République. La phrase illustre un point de non-retour - expression encore utilisée aujourd'hui.",
+      "niveau": "6e",
+      "sujet": "Rome Antique"
+    },
+    {
+      "id": "rome-antique-09",
+      "question": "Quelle est la pente remarquable du canal du Pont du Gard sur ses 50 km de longueur ?",
+      "choix": [
+        "34 cm de dénivelé total - soit 0,07 % d'inclinaison",
+        "5 mètres de dénivelé - pente de 1 %",
+        "50 cm de dénivelé - pente de 0,1 %",
+        "1 cm de dénivelé - pente quasi nulle"
+      ],
+      "bonneReponse": 0,
+      "explication": "Le canal romain de Nîmes descend de 34 cm sur 50 km - une précision d'orfèvre permettant à l'eau de couler par simple gravité. Le Pont du Gard, son aqueduc le plus haut (49 m), est l'œuvre de génie romain la mieux conservée.",
+      "niveau": "6e",
+      "sujet": "Rome Antique"
+    },
+    {
+      "id": "rome-antique-10",
+      "question": "Dans quelle œuvre biblique le nombre 666 désigne-t-il probablement Néron en code hébreu ?",
+      "choix": [
+        "L'Apocalypse de Jean",
+        "L'Évangile de Matthieu",
+        "Les Épîtres de Paul",
+        "Le Livre de Daniel"
+      ],
+      "bonneReponse": 0,
+      "explication": "En hébreu, les lettres ont une valeur numérique (guématrie). 'Neron Kaiser' en lettres hébraïques donne 666. L'Apocalypse, écrite sous persécution, utilise ce code pour désigner Néron sans le nommer.",
+      "niveau": "6e",
+      "sujet": "Rome Antique"
+    },
+    {
+      "id": "rome-antique-11",
+      "question": "Quel écrivain chrétien du IIe siècle formula la phrase 'Le sang des martyrs est semence de chrétiens' ?",
+      "choix": [
+        "Tertullien",
+        "Saint Augustin",
+        "Origène",
+        "Saint Cyprien"
+      ],
+      "bonneReponse": 0,
+      "explication": "Tertullien (vers 160-220) est l'un des Pères de l'Église latine. Sa formule résume le paradoxe des persécutions romaines : elles consolidèrent la foi chrétienne au lieu de l'éteindre.",
+      "niveau": "6e",
+      "sujet": "Rome Antique"
+    },
+    {
+      "id": "rome-antique-12",
+      "question": "Quel objet sacré du Temple de Jérusalem est représenté sur l'Arc de Titus à Rome ?",
+      "choix": [
+        "La Menorah (chandelier à 7 branches)",
+        "L'Arche d'Alliance",
+        "La Table des pains",
+        "Le brûle-parfum en or"
+      ],
+      "bonneReponse": 0,
+      "explication": "L'Arc de Titus (81 ap. J.-C.) commémore la destruction du Temple de Jérusalem en 70. On y voit des soldats romains emportant la Menorah en trophée - représentation la plus ancienne connue de cet objet sacré.",
+      "niveau": "6e",
+      "sujet": "Rome Antique"
+    },
+    {
+      "id": "rome-antique-13",
+      "question": "Que signifiait réellement le pouce levé dans les combats de gladiateurs, contrairement à la légende hollywoodienne ?",
+      "choix": [
+        "Tuer le vaincu - le pouce caché dans le poing signifiait la grâce",
+        "Épargner le vaincu - le pouce levé voulait dire 'laissez-le vivre'",
+        "Rien de certain - les historiens débattent encore du geste exact",
+        "Recommencer le combat"
+      ],
+      "bonneReponse": 0,
+      "explication": "L'historien Anthony Corbeill et d'autres chercheurs estiment que le pouce levé signifiait 'frappe' (imitant un coup d'épée) et le pouce caché 'rengaine'. Hollywood a inversé le sens. La foule criait 'mitte' (laisse-le) ou 'iugula' (égorge-le).",
+      "niveau": "6e",
+      "sujet": "Rome Antique"
+    },
+    {
+      "id": "rome-antique-14",
+      "question": "Comment s'appelait la pièce centrale d'une maison romaine, dotée d'un bassin pour recueillir l'eau de pluie ?",
+      "choix": [
+        "L'atrium",
+        "Le triclinium",
+        "Le péristyle",
+        "Le tablinum"
+      ],
+      "bonneReponse": 0,
+      "explication": "L'atrium était le cœur de la maison romaine : une grande pièce à ciel ouvert avec un bassin central (l'impluvium) pour récupérer l'eau de pluie. C'était l'espace de réception et de vie sociale.",
+      "niveau": "6e",
+      "sujet": "Rome Antique"
+    },
+    {
+      "id": "rome-antique-15",
+      "question": "Quel écrivain latin du Ier siècle a décrit la vallus, moissonneuse gauloise inventée 1 800 ans avant l'ère industrielle ?",
+      "choix": [
+        "Pline l'Ancien",
+        "Virgile",
+        "Cicéron",
+        "Columelle"
+      ],
+      "bonneReponse": 0,
+      "explication": "Pline l'Ancien décrit dans son Histoire Naturelle la vallus gauloise : un cadre à dents poussé par un âne qui arrachait les épis. Cette machine à moissonner disparut avec Rome et ne fut réinventée qu'au XIXe siècle.",
+      "niveau": "6e",
+      "sujet": "Rome Antique"
+    },
+    {
+      "id": "rome-antique-16",
+      "question": "Quel monument romain de Nîmes inspira Thomas Jefferson pour l'architecture du Capitole de Virginie ?",
+      "choix": [
+        "La Maison Carrée de Nîmes",
+        "Le Pont du Gard",
+        "Les Arènes de Nîmes",
+        "La Tour Magne"
+      ],
+      "bonneReponse": 0,
+      "explication": "Jefferson, ambassadeur à Paris, fit le voyage à Nîmes uniquement pour contempler la Maison Carrée (temple romain du Ier siècle). Il en fit faire des dessins qui inspirèrent directement le Virginia State Capitol (1788).",
+      "niveau": "6e",
+      "sujet": "Rome Antique"
+    },
+    {
+      "id": "rome-antique-17",
+      "question": "Combien d'empereurs Rome eut-elle en 50 ans lors de la terrible crise du IIIe siècle (235-284 ap. J.-C.) ?",
+      "choix": [
+        "50 empereurs en 50 ans",
+        "10 empereurs",
+        "5 empereurs",
+        "25 empereurs"
+      ],
+      "bonneReponse": 0,
+      "explication": "La crise du IIIe siècle (235-284) vit défiler près de 50 empereurs - dont la plupart moururent assassinés. Guerres civiles, invasions barbares, épidémies et effondrement économique faillirent anéantir l'Empire.",
+      "niveau": "6e",
+      "sujet": "Rome Antique"
+    },
+    {
+      "id": "rome-antique-18",
+      "question": "Sur quelle montagne parisienne est construit le Panthéon, qui tire son nom de sainte Geneviève ?",
+      "choix": [
+        "La Montagne Sainte-Geneviève",
+        "La Butte Montmartre",
+        "La Butte-aux-Cailles",
+        "Les hauteurs de Belleville"
+      ],
+      "bonneReponse": 0,
+      "explication": "Sainte Geneviève (422-512), bergère devenue patronne de Paris, aurait sauvé la ville d'Attila par ses prières en 451. La montagne qui porte son nom, au cœur du Quartier Latin, accueille le Panthéon et la Sorbonne.",
+      "niveau": "6e",
+      "sujet": "Rome Antique"
+    },
+    {
+      "id": "rome-antique-19",
+      "question": "Que signifie la phrase 'Veni, vidi, vici' de Jules César ?",
+      "choix": [
+        "Je suis venu, j'ai vu, j'ai vaincu",
+        "Je suis venu, j'ai voulu, j'ai conquis",
+        "Je viens, je vois, je vaincs",
+        "Je suis arrivé, j'ai observé, j'ai gagné"
+      ],
+      "bonneReponse": 0,
+      "explication": "'Veni, vidi, vici' résume la victoire éclair de César à Zéla (-47) en Asie Mineure, acquise en 4 heures. Ce laconisme fut jugé arrogant par ses ennemis, admirable par ses partisans.",
+      "niveau": "6e",
+      "sujet": "Rome Antique"
+    },
+    {
+      "id": "rome-antique-20",
+      "question": "Quelle est la capacité du Colisée de Rome, inauguré en 80 ap. J.-C. ?",
+      "choix": [
+        "50 000 spectateurs",
+        "20 000 spectateurs",
+        "100 000 spectateurs",
+        "10 000 spectateurs"
+      ],
+      "bonneReponse": 0,
+      "explication": "Le Colisée pouvait accueillir 50 000 spectateurs. Il fut inauguré par Titus avec 100 jours de jeux consécutifs - 9 000 animaux tués, des milliers de gladiateurs engagés.",
+      "niveau": "6e",
+      "sujet": "Rome Antique"
+    },
+    {
+      "id": "rome-antique-21",
+      "question": "Sous quel surnom désigne-t-on la période de paix et de prospérité romaine de −27 à 180 ap. J.-C. ?",
+      "choix": [
+        "Pax Romana",
+        "Pax Augusta",
+        "Imperium Romanum",
+        "Aetas Aurea"
+      ],
+      "bonneReponse": 0,
+      "explication": "La Pax Romana (27 av. J.-C. - 180 ap. J.-C.) est une période de relative paix sur 200 ans dans l'Empire romain. Elle commence avec Auguste et se termine avec Marc Aurèle.",
+      "niveau": "6e",
+      "sujet": "Rome Antique"
+    },
+    {
+      "id": "rome-antique-22",
+      "question": "Quel édifice romain près de Nîmes, construit vers −19 av. J.-C., est l'aqueduc le plus haut du monde romain ?",
+      "choix": [
+        "Le Pont du Gard (49 m)",
+        "Le Panthéon de Rome",
+        "Les thermes de Caracalla",
+        "L'aqueduc de Ségovie"
+      ],
+      "bonneReponse": 0,
+      "explication": "Le Pont du Gard culmine à 49 mètres sur 3 niveaux d'arcades. Il transportait 20 000 m³ d'eau par jour vers Nîmes. Classé UNESCO, c'est l'un des aqueducs romains les mieux conservés au monde.",
+      "niveau": "6e",
+      "sujet": "Rome Antique"
+    },
+    {
+      "id": "rome-antique-23",
+      "question": "Pourquoi franchir le Rubicon avec son armée était-il un acte de guerre civile ?",
+      "choix": [
+        "C'était la frontière interdite aux généraux armés - le franchir revenait à se rebeller contre le Sénat",
+        "Le Rubicon était la frontière entre Rome et Carthage",
+        "Le Sénat avait expressément interdit à César de s'approcher de Rome",
+        "Cela signifiait abandonner la Gaule aux barbares"
+      ],
+      "bonneReponse": 0,
+      "explication": "Le Rubicon séparait la province de Cisalpine (où César commandait légalement) de l'Italie. Passer avec son armée était un acte de rébellion - d'où 'franchir le Rubicon' pour désigner un point de non-retour.",
+      "niveau": "6e",
+      "sujet": "Rome Antique"
+    }
+  ]
+}
