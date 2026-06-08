@@ -92,15 +92,43 @@
   gap: var(--space-5);
 }
 
+/* Carte cliquable : tout le bloc est un lien vers l'ecran de niveau inferieur. */
+.cardLink {
+  display: block;
+  block-size: 100%;
+  border-radius: var(--radius-lg);
+}
+
+.cardLink:hover .card {
+  border-color: var(--color-gold);
+  box-shadow: var(--shadow-glow);
+}
+
+/* Etat "a venir" : presence attenuee mais lisible (contraste AA conserve). */
+.cardComing .card {
+  opacity: 0.78;
+}
+
+.cardComing[aria-disabled='true'] {
+  cursor: default;
+}
+
 .card {
   display: flex;
   flex-direction: column;
   gap: var(--space-3);
+  block-size: 100%;
   background: var(--color-card-bg);
   border: 1px solid var(--color-border);
   border-radius: var(--radius-lg);
   box-shadow: var(--shadow-card);
   padding: var(--space-5);
+  transition: border-color var(--transition), box-shadow var(--transition);
+}
+
+.cardIcon {
+  font-size: var(--font-xl);
+  line-height: 1;
 }
 
 .cardHead {
@@ -116,6 +144,18 @@
   text-transform: uppercase;
   color: var(--color-gold);
   border: 1px solid var(--color-border);
+  border-radius: var(--radius-sm);
+  padding: var(--space-1) var(--space-2);
+}
+
+/* Badge de l'etat "a venir" : grise, sans accent dore. */
+.badgeComing {
+  font-family: var(--font-display);
+  font-size: var(--font-xs);
+  letter-spacing: var(--tracking);
+  text-transform: uppercase;
+  color: var(--color-text-muted);
+  border: 1px solid var(--color-line);
   border-radius: var(--radius-sm);
   padding: var(--space-1) var(--space-2);
 }
@@ -143,31 +183,123 @@
   flex: 1;
 }
 
-.cardActions {
+/* Rangee de tags d'une carte d'accueil. */
+.tags {
   display: flex;
   flex-wrap: wrap;
   gap: var(--space-2);
-  margin-top: var(--space-2);
+  margin-top: auto;
+  padding-top: var(--space-2);
 }
 
-.play {
-  display: inline-flex;
-  align-items: center;
-  min-height: var(--tap-min);
-  padding: 0 var(--space-4);
-  border: 1px solid var(--color-gold);
-  border-radius: var(--radius);
-  color: var(--color-gold);
+.tag {
   font-family: var(--font-display);
   font-size: var(--font-xs);
   letter-spacing: var(--tracking);
   text-transform: uppercase;
-  transition: background var(--transition), color var(--transition);
+  color: var(--color-text-muted);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-pill);
+  padding: var(--space-1) var(--space-3);
 }
 
-.play:hover {
-  background: var(--color-gold);
-  color: var(--color-bg);
+/* Badge de mode (ex. "QCM · 4 choix · Histoire") au pied d'une carte de mode. */
+.modeBadge {
+  margin-top: var(--space-2);
+  font-family: var(--font-display);
+  font-size: var(--font-xs);
+  letter-spacing: var(--tracking);
+  text-transform: uppercase;
+  color: var(--color-gold);
+}
+
+/* --- Ecrans de niveau 2 / 3 --- */
+.screen {
+  max-width: 980px;
+  margin: 0 auto;
+  padding: var(--space-5) var(--space-4) var(--space-8);
+}
+
+.screenHead {
+  text-align: center;
+  padding: var(--space-4) 0 var(--space-6);
+}
+
+.screenTitle {
+  font-size: var(--font-2xl);
+  text-transform: uppercase;
+  letter-spacing: var(--tracking-tight);
+  background: var(--gradient-gold);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+  margin: var(--space-2) 0;
+}
+
+/* Bandeau de statistiques (entree quiz) : chiffres reels, jamais aspirationnels. */
+.statsBar {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: var(--space-6);
+  margin: 0 auto var(--space-6);
+  padding: var(--space-4) var(--space-5);
+  background: var(--color-card-bg);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-lg);
+}
+
+.stat {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: var(--space-1);
+  min-inline-size: 96px;
+}
+
+.statValue {
+  font-family: var(--font-display);
+  font-weight: var(--weight-bold);
+  font-size: var(--font-xl);
+  color: var(--color-gold);
+}
+
+.statLabel {
+  font-family: var(--font-display);
+  font-size: var(--font-xs);
+  letter-spacing: var(--tracking-wide);
+  text-transform: uppercase;
+  color: var(--color-text-muted);
+  text-align: center;
+}
+
+/* Placeholder "bientot disponible" (modules non migres / modes a venir). */
+.placeholder {
+  max-width: 560px;
+  margin: var(--space-6) auto 0;
+  text-align: center;
+  background: var(--color-card-bg);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-lg);
+  padding: var(--space-7) var(--space-5);
+}
+
+.placeholderBadge {
+  display: inline-block;
+  font-family: var(--font-display);
+  font-size: var(--font-xs);
+  letter-spacing: var(--tracking);
+  text-transform: uppercase;
+  color: var(--color-text-muted);
+  border: 1px solid var(--color-line);
+  border-radius: var(--radius-sm);
+  padding: var(--space-1) var(--space-3);
+}
+
+.placeholderMsg {
+  margin-top: var(--space-4);
+  color: var(--color-text-muted);
+  font-style: italic;
 }
 
 .empty {
@@ -220,6 +352,8 @@
 }
 
 .fallbackBtn {
+  display: inline-flex;
+  align-items: center;
   min-height: var(--tap-min);
   padding: 0 var(--space-5);
   background: transparent;

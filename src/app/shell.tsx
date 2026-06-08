@@ -1,10 +1,17 @@
 import { Link, Outlet, useLocation } from 'react-router-dom';
-import { CONTENT, briquesPour } from './registry';
+import {
+  ENTRIES,
+  entreesParSection,
+  libelleSection,
+  type NavEntry,
+  type SectionAccueil,
+} from './entries';
 import styles from './shell.module.css';
 
 /*
   Shell - layout + navigation GENEREE depuis le registre (rien code en dur).
-  Le Hub liste les packs de CONTENT et, pour chacun, les briques capables de le jouer.
+  Le Hub liste les ENTREES de nav (activites + modules), groupees par section.
+  En-tete, lien retour et pied de page sont les elements transverses de l'audit.
 */
 
 export function Shell() {
@@ -23,10 +30,15 @@ export function Shell() {
       <main className={styles.main}>
         <Outlet />
       </main>
-      <footer className={styles.footer}>L'Encyclopedie des Explorateurs</footer>
+      <footer className={styles.footer}>
+        L'Encyclopedie des Explorateurs · Culture generale interactive
+      </footer>
     </div>
   );
 }
+
+// Ordre des sections d'accueil (chaque section liste ses entrees depuis le registre).
+const SECTIONS: readonly SectionAccueil[] = ['entrainement', 'modules'];
 
 export function Hub() {
   return (
@@ -38,45 +50,53 @@ export function Hub() {
         <div className={styles.rule} />
       </header>
 
-      <section className={styles.section}>
-        <h2 className={styles.sectionTitle}>Entrainement</h2>
-        {CONTENT.length === 0 ? (
-          <p className={styles.empty}>Aucun pack de contenu declare pour le moment.</p>
-        ) : (
-          <div className={styles.grid}>
-            {CONTENT.map((pack) => {
-              const briques = briquesPour(pack.contentKind);
-              return (
-                <article key={`${pack.sujet}:${pack.titre}`} className={styles.card}>
-                  <div className={styles.cardHead}>
-                    <span className={styles.cardKicker}>{pack.sujet}</span>
-                    <span className={styles.badge}>Disponible</span>
-                  </div>
-                  <h3 className={styles.cardTitle}>{pack.titre}</h3>
-                  <p className={styles.cardDesc}>
-                    {briques.length > 0
-                      ? briques[0]!.manifest.description
-                      : 'Aucune activite ne sait encore jouer ce contenu.'}
-                  </p>
-                  <div className={styles.cardActions}>
-                    {briques.map((b) => (
-                      <Link
-                        key={b.manifest.id}
-                        to={`/play/${b.manifest.id}?sujet=${encodeURIComponent(
-                          pack.sujet,
-                        )}&titre=${encodeURIComponent(pack.titre)}`}
-                        className={styles.play}
-                      >
-                        {b.manifest.name}
-                      </Link>
-                    ))}
-                  </div>
-                </article>
-              );
-            })}
-          </div>
-        )}
-      </section>
+      {ENTRIES.length === 0 ? (
+        <section className={styles.section}>
+          <p className={styles.empty}>Aucune entree declaree pour le moment.</p>
+        </section>
+      ) : (
+        SECTIONS.map((section) => (
+          <section key={section} className={styles.section}>
+            <h2 className={styles.sectionTitle}>{libelleSection(section)}</h2>
+            <div className={styles.grid}>
+              {entreesParSection(section).map((entree) => (
+                <EntryCard key={entree.id} entree={entree} />
+              ))}
+            </div>
+          </section>
+        ))
+      )}
     </>
+  );
+}
+
+function EntryCard({ entree }: { entree: NavEntry }) {
+  const aVenir = entree.etat === 'a-venir';
+  return (
+    <Link
+      to={`/activite/${entree.id}`}
+      className={`${styles.cardLink} ${aVenir ? styles.cardComing : ''}`}
+    >
+      <article className={styles.card}>
+        <div className={styles.cardHead}>
+          <span className={styles.cardIcon} aria-hidden="true">
+            {entree.icone}
+          </span>
+          <span className={aVenir ? styles.badgeComing : styles.badge}>
+            {aVenir ? 'À venir' : 'Disponible'}
+          </span>
+        </div>
+        <h3 className={styles.cardTitle}>{entree.titre}</h3>
+        {entree.sousTitre && <p className={styles.cardKicker}>{entree.sousTitre}</p>}
+        <p className={styles.cardDesc}>{entree.description}</p>
+        <div className={styles.tags}>
+          {entree.tags.map((t) => (
+            <span key={t} className={styles.tag}>
+              {t}
+            </span>
+          ))}
+        </div>
+      </article>
+    </Link>
   );
 }

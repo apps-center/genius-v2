@@ -1,11 +1,17 @@
 import type { ContentEntry } from '../core/content/client';
+import type { ContentKind } from '../core/content/load';
 import * as quizBrick from '../bricks/quiz/brick';
 
 /*
-  REGISTRE - source unique de verite : briques + packs de contenu.
+  REGISTRE - source unique de verite : briques + packs de contenu + entrees de nav.
   AJOUTER UN SUJET = 1 ligne dans CONTENT + 1 .json. ZERO code metier.
   AJOUTER UNE ACTIVITE = 1 entree dans BRICKS pointant une brique conforme 5.2.
+  AJOUTER UNE ENTREE D'ACCUEIL (activite/module) = 1 declaration dans ./entries.
 */
+
+// Niveaux 1 et 2 de la nav (accueil + ecrans d'entree). Re-exporte ici pour
+// garder le registre comme facade unique de la navigation generee.
+export * from './entries';
 
 // Une brique declaree : son manifest + sa frontiere mount/unmount.
 export interface BrickModule {
@@ -56,6 +62,11 @@ export function briquesPour(contentKind: string): BrickModule[] {
   return BRICKS.filter((b) =>
     (b.manifest.contentKinds as readonly string[]).includes(contentKind),
   );
+}
+
+// Les packs de contenu d'un contentKind donne (themes proposes a l'ecran de niveau 3).
+export function packsPour(contentKind: ContentKind): ContentEntry[] {
+  return CONTENT.filter((e) => e.contentKind === contentKind);
 }
 
 export function briqueParId(id: string): BrickModule | undefined {
