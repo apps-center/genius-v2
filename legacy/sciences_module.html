@@ -1,0 +1,666 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Sciences — L'Encyclopédie des Explorateurs</title>
+<link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;700;900&family=Crimson+Pro:ital,wght@0,300;0,400;0,600;1,300&display=swap" rel="stylesheet">
+<style>
+:root{
+  --bg:#060a14; --gold:#d4a843; --gold-dim:rgba(200,180,120,.18);
+  --text:#e8dfc4; --text-dim:rgba(232,223,196,.48);
+  --card-bg:rgba(8,13,26,.94); --border:rgba(200,180,120,.18);
+  --green:#4edd8a; --green-dim:rgba(78,221,138,.15);
+  --blue:#4a9edd; --red:#e84848; --purple:#a87be8; --orange:#f0a060;
+}
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0;}
+html{scroll-behavior:smooth;}
+body{background:var(--bg);color:var(--text);font-family:'Crimson Pro',Georgia,serif;min-height:100vh;overflow-x:hidden;}
+#stars{position:fixed;inset:0;z-index:0;pointer-events:none;}
+.content{position:relative;z-index:1;}
+.back{position:fixed;top:22px;left:24px;z-index:100;font-family:'Cinzel',serif;font-size:.6rem;letter-spacing:.25em;text-transform:uppercase;color:rgba(212,168,67,.5);text-decoration:none;display:flex;align-items:center;gap:8px;transition:color .2s;}
+.back:hover{color:var(--gold);}
+
+/* HEADER */
+header{text-align:center;padding:60px 20px 32px;}
+.enc-label{font-size:.68rem;letter-spacing:.38em;text-transform:uppercase;color:var(--text-dim);margin-bottom:12px;}
+h1{font-family:'Cinzel',serif;font-weight:900;font-size:clamp(1.8rem,5vw,3.4rem);background:linear-gradient(135deg,#a0f0c0,#4edd8a 38%,#80f0a0 68%,#e0fff0);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;line-height:1.1;}
+.tagline{margin-top:10px;font-size:.95rem;color:var(--text-dim);font-style:italic;}
+
+/* TABS */
+.nav-tabs{display:flex;justify-content:center;gap:4px;padding:28px 20px 0;flex-wrap:wrap;}
+.tab-btn{font-family:'Cinzel',serif;font-size:.65rem;letter-spacing:.2em;text-transform:uppercase;padding:12px 28px;border:1px solid var(--border);background:rgba(6,10,20,.9);color:var(--text-dim);cursor:pointer;transition:all .25s;border-radius:3px;}
+.tab-btn:hover{border-color:rgba(78,221,138,.4);color:var(--green);}
+.tab-btn.active{border-color:var(--green);color:var(--green);background:rgba(78,221,138,.07);box-shadow:0 0 20px rgba(78,221,138,.1);}
+.tab-divider{height:1px;background:linear-gradient(to right,transparent,rgba(200,180,120,.2),transparent);margin:20px 40px 0;}
+.panel{display:none;padding:0 20px 80px;}
+.panel.active{display:block;}
+
+/* ══════════════ FRISE ══════════════ */
+.frise-container{max-width:960px;margin:40px auto 0;position:relative;}.frise-items-wrap{position:relative;}
+.frise-line{position:absolute;left:50%;top:0;bottom:0;width:2px;background:linear-gradient(to bottom,transparent,rgba(78,221,138,.4) 5%,rgba(78,221,138,.4) 95%,transparent);transform:translateX(-50%);}
+.frise-item{display:flex;gap:40px;margin-bottom:64px;align-items:flex-start;}
+
+.frise-side{flex:1;display:flex;flex-direction:column;}
+.frise-item.left .frise-side{align-items:flex-end;text-align:right;}
+.frise-item.right .frise-side{align-items:flex-start;text-align:left;}
+.frise-dot{width:18px;height:18px;border-radius:50%;background:var(--green);border:3px solid var(--bg);box-shadow:0 0 14px rgba(78,221,138,.6);flex-shrink:0;margin-top:8px;position:relative;z-index:2;}
+.frise-period{font-size:.58rem;letter-spacing:.22em;text-transform:uppercase;color:var(--green);margin-bottom:6px;opacity:.85;}
+.frise-discipline{display:inline-block;font-size:.5rem;letter-spacing:.16em;text-transform:uppercase;padding:2px 8px;border-radius:2px;border:1px solid rgba(78,221,138,.25);color:rgba(78,221,138,.6);margin-bottom:8px;}
+.frise-title{font-family:'Cinzel',serif;font-size:1.08rem;font-weight:700;color:var(--text);margin-bottom:8px;}
+.frise-desc{font-size:.9rem;line-height:1.7;color:var(--text-dim);max-width:360px;}
+.frise-anecdote{margin-top:12px;padding:12px 16px;border-left:2px solid rgba(212,168,67,.4);background:rgba(212,168,67,.04);border-radius:0 6px 6px 0;font-size:.85rem;line-height:1.6;color:rgba(232,223,196,.6);font-style:italic;}
+.frise-item.left .frise-anecdote{border-left:none;border-right:2px solid rgba(212,168,67,.4);border-radius:6px 0 0 6px;text-align:right;}
+.frise-anecdote-icon{font-size:1rem;margin-bottom:4px;display:block;}
+
+/* ══════════════ EXPÉRIENCES ══════════════ */
+.demos-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(340px,1fr));gap:24px;max-width:1100px;margin:36px auto 0;}
+.demo-card{background:var(--card-bg);border:1px solid rgba(200,180,120,.14);border-radius:10px;overflow:hidden;}
+.demo-header{padding:22px 24px 16px;border-bottom:1px solid rgba(200,180,120,.1);}
+.demo-badge{font-size:.52rem;letter-spacing:.18em;text-transform:uppercase;color:var(--green);border:1px solid rgba(78,221,138,.3);padding:3px 10px;border-radius:2px;display:inline-block;margin-bottom:10px;}
+.demo-titre{font-family:'Cinzel',serif;font-size:1rem;font-weight:700;color:var(--text);margin-bottom:6px;}
+.demo-intro{font-size:.88rem;line-height:1.65;color:var(--text-dim);}
+.demo-svg-zone{padding:20px 24px;background:rgba(4,10,24,.6);display:flex;justify-content:center;align-items:center;min-height:200px;}
+.demo-svg-zone svg{max-width:100%;}
+.demo-explication{padding:18px 24px 22px;}
+.demo-etapes{display:flex;flex-direction:column;gap:10px;}
+.demo-etape{display:flex;gap:12px;align-items:flex-start;}
+.demo-etape-num{width:22px;height:22px;border-radius:50%;background:rgba(78,221,138,.12);border:1px solid rgba(78,221,138,.35);display:flex;align-items:center;justify-content:center;font-family:'Cinzel',serif;font-size:.6rem;color:var(--green);flex-shrink:0;margin-top:2px;}
+.demo-etape-txt{font-size:.88rem;line-height:1.65;color:rgba(232,223,196,.72);}
+.demo-etape-txt strong{color:var(--green);}
+
+/* ══════════════ ANECDOTES ══════════════ */
+.anecdotes-list{max-width:820px;margin:36px auto 0;display:flex;flex-direction:column;gap:28px;}
+.anecdote-card{background:var(--card-bg);border:1px solid rgba(200,180,120,.14);border-radius:10px;overflow:hidden;display:flex;}
+.anecdote-icon-col{width:72px;flex-shrink:0;background:rgba(78,221,138,.05);display:flex;align-items:flex-start;justify-content:center;padding-top:24px;font-size:2rem;border-right:1px solid rgba(200,180,120,.1);}
+.anecdote-body{padding:24px 28px;}
+.anecdote-periode{font-size:.55rem;letter-spacing:.2em;text-transform:uppercase;color:var(--green);margin-bottom:8px;opacity:.8;}
+.anecdote-titre{font-family:'Cinzel',serif;font-size:1rem;font-weight:700;color:var(--text);margin-bottom:12px;}
+.anecdote-texte{font-size:.92rem;line-height:1.75;color:rgba(232,223,196,.68);}
+.anecdote-texte em{color:var(--gold);font-style:normal;}
+.anecdote-enigme{margin-top:16px;padding:14px 18px;border-radius:6px;background:rgba(212,168,67,.05);border:1px solid rgba(212,168,67,.2);}
+.anecdote-enigme-label{font-size:.55rem;letter-spacing:.18em;text-transform:uppercase;color:var(--gold);margin-bottom:8px;opacity:.8;}
+.anecdote-enigme-q{font-size:.92rem;line-height:1.65;color:rgba(232,223,196,.75);font-style:italic;}
+.anecdote-spoiler{margin-top:10px;cursor:pointer;font-size:.78rem;color:rgba(78,221,138,.6);display:flex;align-items:center;gap:6px;border:none;background:none;padding:0;font-family:'Cinzel',serif;letter-spacing:.12em;}
+.anecdote-spoiler:hover{color:var(--green);}
+.anecdote-reponse{margin-top:10px;padding:10px 14px;border-radius:4px;background:rgba(78,221,138,.06);border:1px solid rgba(78,221,138,.18);font-size:.88rem;color:rgba(232,223,196,.7);display:none;line-height:1.6;}
+.anecdote-reponse.visible{display:block;}
+
+/* ANIMATIONS */
+@keyframes fill-sc{from{opacity:0}to{opacity:1}}
+@keyframes grow-sc{from{transform:scaleY(0)}to{transform:scaleY(1)}}
+@keyframes travel{0%{transform:translateX(0)}100%{transform:translateX(180px)}}
+@keyframes pulse-green{0%,100%{opacity:.4}50%{opacity:1}}
+@keyframes fall{0%{transform:translateY(0)}100%{transform:translateY(80px)}}
+
+@media(max-width:700px){
+  .frise-line{left:20px;}
+  .frise-item,.frise-item.right{flex-direction:column;padding-left:48px;}
+  .frise-side,.frise-item:nth-child(odd) .frise-side,.frise-item.right .frise-side{align-items:flex-start;text-align:left;}
+  .frise-item.left .frise-anecdote{border-left:2px solid rgba(212,168,67,.4);border-right:none;border-radius:0 6px 6px 0;text-align:left;}
+  .frise-dot{position:absolute;left:12px;}
+  .demos-grid{grid-template-columns:1fr;}
+  .anecdote-card{flex-direction:column;}
+  .anecdote-icon-col{width:100%;padding:16px;border-right:none;border-bottom:1px solid rgba(200,180,120,.1);}
+}
+</style>
+</head>
+<body>
+<canvas id="stars"></canvas>
+<a class="back" href="accueil.html">← Accueil</a>
+
+<div class="content">
+<header>
+  <div class="enc-label">L'Encyclopédie des Explorateurs</div>
+  <h1>Sciences & Nature</h1>
+  <p class="tagline">Histoire des découvertes · Expériences emblématiques · Anecdotes & énigmes</p>
+</header>
+
+<div class="nav-tabs">
+  <button class="tab-btn active" onclick="showTab('frise',this)">📅 Frise des découvertes</button>
+  <button class="tab-btn" onclick="showTab('demos',this)">🔬 Expériences clés</button>
+  <button class="tab-btn" onclick="showTab('anecdotes',this)">💡 Anecdotes & Énigmes</button>
+</div>
+<div class="tab-divider"></div>
+
+<!-- ══════════ FRISE ══════════ -->
+<div class="panel active" id="panel-frise">
+<div class="frise-container">
+<div class="frise-items-wrap">
+<div class="frise-line"></div>
+
+<div class="frise-item left">
+  <div class="frise-side">
+    <div class="frise-period">− 350 av. J.-C.</div>
+    <div class="frise-discipline">Biologie · Physique</div>
+    <div class="frise-title">Aristote — la première classification du vivant</div>
+    <div class="frise-desc">Aristote observe, dissèque et classe plus de 500 espèces animales. Il distingue les animaux à sang (vertébrés) et sans sang (invertébrés). Sa physique — "les objets lourds tombent plus vite" — sera erronée pendant 2 000 ans.</div>
+    <div class="frise-anecdote"><span class="frise-anecdote-icon">📚</span>Aristote a quand même raison sur l'essentiel : observer avant de conclure. Son erreur sur la chute des corps montre qu'une autorité, même génie, peut bloquer le progrès pendant des siècles. Ce n'est qu'en 1589 que Galilée le contredit.</div>
+  </div>
+  <div class="frise-dot"></div>
+  <div style="flex:1"></div>
+</div>
+
+<div class="frise-item right">
+  <div style="flex:1"></div>
+  <div class="frise-dot"></div>
+  <div class="frise-side">
+    <div class="frise-period">− 250 av. J.-C.</div>
+    <div class="frise-discipline">Physique</div>
+    <div class="frise-title">Archimède — la poussée et la couronne d'or</div>
+    <div class="frise-desc">Archimède est chargé de vérifier si la couronne du roi Hiéron est en or pur. En entrant dans son bain, il réalise que son corps déplace de l'eau — et que ce volume révèle sa densité. Eurêka ! Il court nu dans les rues de Syracuse.</div>
+    <div class="frise-anecdote"><span class="frise-anecdote-icon">🛁</span>Archimède a aussi inventé la vis qui porte son nom, calculé π avec une précision remarquable, et conçu des machines de guerre capables de soulever des navires romains avec des grues. Il aurait dit : "Donnez-moi un point d'appui et je soulèverai le monde."</div>
+  </div>
+</div>
+
+<div class="frise-item left">
+  <div class="frise-side">
+    <div class="frise-period">1543</div>
+    <div class="frise-discipline">Astronomie</div>
+    <div class="frise-title">Copernic — la Terre tourne autour du Soleil</div>
+    <div class="frise-desc">Nicolas Copernic publie son modèle héliocentrique l'année de sa mort — prudemment. Il bouleverse 1 400 ans de géocentrisme ptoléméen. L'Église mettra son livre à l'Index. Galilée paiera cher d'y croire.</div>
+    <div class="frise-anecdote"><span class="frise-anecdote-icon">🌞</span>Copernic n'avait pas de télescope — il n'était pas encore inventé. Son modèle repose uniquement sur des observations à l'œil nu et des calculs géométriques. Il faudra attendre Kepler (orbites elliptiques) et Newton (gravitation) pour tout expliquer.</div>
+  </div>
+  <div class="frise-dot"></div>
+  <div style="flex:1"></div>
+</div>
+
+<div class="frise-item right">
+  <div style="flex:1"></div>
+  <div class="frise-dot"></div>
+  <div class="frise-side">
+    <div class="frise-period">1589</div>
+    <div class="frise-discipline">Physique</div>
+    <div class="frise-title">Galilée — la chute des corps et la Tour de Pise</div>
+    <div class="frise-desc">Aristote affirmait qu'un objet lourd tombe plus vite qu'un objet léger. Galilée démontre expérimentalement le contraire. La légende dit qu'il lâche deux boulets du haut de la Tour de Pise devant une foule médusée. Les deux touchent le sol en même temps.</div>
+    <div class="frise-anecdote"><span class="frise-anecdote-icon">🏛️</span>L'expérience de la Tour de Pise est peut-être apocryphe — Galilée n'en parle pas dans ses écrits. En revanche, il a bien réalisé l'expérience via un plan incliné, roulant des billes de masses différentes et les chronométrant avec son propre pouls.</div>
+  </div>
+</div>
+
+<div class="frise-item left">
+  <div class="frise-side">
+    <div class="frise-period">1628</div>
+    <div class="frise-discipline">Biologie · Médecine</div>
+    <div class="frise-title">Harvey — le sang circule en boucle fermée</div>
+    <div class="frise-desc">William Harvey démontre que le cœur est une pompe et que le sang circule en circuit fermé — artères vers les tissus, veines vers le cœur. Révolution : pendant 1 500 ans, on croyait que le sang était fabriqué par le foie et consumé par les organes.</div>
+    <div class="frise-anecdote"><span class="frise-anecdote-icon">❤️</span>Harvey calcule qu'en une heure, le cœur pompe environ 245 litres de sang — bien plus que ce que le foie pourrait produire. Donc le sang doit circuler. Simple, élégant, révolutionnaire. Il ne découvrira pas les capillaires — trop petits pour ses instruments. Malpighi les verra en 1661, après l'invention du microscope.</div>
+  </div>
+  <div class="frise-dot"></div>
+  <div style="flex:1"></div>
+</div>
+
+<div class="frise-item right">
+  <div style="flex:1"></div>
+  <div class="frise-dot"></div>
+  <div class="frise-side">
+    <div class="frise-period">1666</div>
+    <div class="frise-discipline">Physique</div>
+    <div class="frise-title">Newton — la pomme et la gravitation universelle</div>
+    <div class="frise-desc">Isaac Newton, fuyant la peste de Londres à Woolsthorpe, observe (peut-être) une pomme tomber. Il se demande si la même force qui attire la pomme pourrait retenir la Lune sur son orbite. Il invente le calcul infinitésimal pour le vérifier.</div>
+    <div class="frise-anecdote"><span class="frise-anecdote-icon">🍎</span>Newton lui-même raconte l'histoire de la pomme à la fin de sa vie. Mais la vraie révolution n'est pas la pomme — c'est l'intuition que la même loi gouverne la Terre ET les étoiles. F = GMm/r². Une formule unique pour l'univers entier.</div>
+  </div>
+</div>
+
+<div class="frise-item left">
+  <div class="frise-side">
+    <div class="frise-period">1789</div>
+    <div class="frise-discipline">Chimie</div>
+    <div class="frise-title">Lavoisier — rien ne se crée, rien ne se perd</div>
+    <div class="frise-desc">Antoine Lavoisier démontre la conservation de la masse lors des réactions chimiques. Il nomme l'oxygène, l'hydrogène, établit la première liste d'éléments chimiques et réfute la théorie du phlogistique. Il est considéré comme le père de la chimie moderne.</div>
+    <div class="frise-anecdote"><span class="frise-anecdote-icon">⚗️</span>Lavoisier travaille avec sa femme Marie-Anne, qui traduit les textes scientifiques anglais et illustre ses expériences. Il sera guillotiné en 1794 pendant la Terreur révolutionnaire — accusé de spéculation. Le mathématicien Lagrange commente : "Il n'a fallu qu'un moment pour faire tomber cette tête, et cent ans ne suffiront pas pour en reproduire une semblable."</div>
+  </div>
+  <div class="frise-dot"></div>
+  <div style="flex:1"></div>
+</div>
+
+<div class="frise-item right">
+  <div style="flex:1"></div>
+  <div class="frise-dot"></div>
+  <div class="frise-side">
+    <div class="frise-period">1859</div>
+    <div class="frise-discipline">Biologie</div>
+    <div class="frise-title">Darwin — l'évolution par sélection naturelle</div>
+    <div class="frise-desc">Après 20 ans de réflexion depuis son voyage sur le Beagle, Darwin publie "De l'origine des espèces". Les espèces ne sont pas immuables — elles évoluent lentement. Les individus les mieux adaptés survivent et transmettent leurs caractères.</div>
+    <div class="frise-anecdote"><span class="frise-anecdote-icon">🐢</span>Darwin a attendu 20 ans avant de publier, conscient du scandale. Alfred Russel Wallace est arrivé indépendamment aux mêmes conclusions en 1858. Darwin dit de lui : "Wallace a fait avec moi exactement ce que j'aurais pu faire avec lui il y a 20 ans." Ils co-publient en 1858.</div>
+  </div>
+</div>
+
+<div class="frise-item left">
+  <div class="frise-side">
+    <div class="frise-period">1865</div>
+    <div class="frise-discipline">Biologie · Génétique</div>
+    <div class="frise-title">Mendel — les lois de l'hérédité</div>
+    <div class="frise-desc">Gregor Mendel, moine silésien, croise des milliers de plants de petits pois dans son jardin de monastère. Il découvre les lois de transmission des caractères héréditaires. Son travail, ignoré de son vivant, sera redécouvert 35 ans après sa mort.</div>
+    <div class="frise-anecdote"><span class="frise-anecdote-icon">🌱</span>Mendel a croisé plus de 28 000 plants de petits pois sur 8 ans. Il avait choisi 7 caractères qui se trouvent être sur 7 chromosomes différents — une chance extraordinaire. Avec des caractères liés, ses résultats auraient été incompréhensibles. Le hasard a souri au génie.</div>
+  </div>
+  <div class="frise-dot"></div>
+  <div style="flex:1"></div>
+</div>
+
+<div class="frise-item right">
+  <div style="flex:1"></div>
+  <div class="frise-dot"></div>
+  <div class="frise-side">
+    <div class="frise-period">1895 → 1905</div>
+    <div class="frise-discipline">Physique</div>
+    <div class="frise-title">La révolution quantique et relativiste</div>
+    <div class="frise-desc">Röntgen découvre les rayons X (1895). Curie isole le radium (1898). Planck propose le quantum d'énergie (1900). Einstein publie la relativité restreinte et E=mc² (1905). En 10 ans, la physique est entièrement reconstruite.</div>
+    <div class="frise-anecdote"><span class="frise-anecdote-icon">⚛️</span>En 1905, année miraculeuse, Einstein a 26 ans et publie 4 articles révolutionnaires en quelques mois : l'effet photoélectrique (Nobel 1921), le mouvement brownien, la relativité restreinte et E=mc². Il travaillait alors comme examinateur dans un bureau des brevets à Berne.</div>
+  </div>
+</div>
+
+<div class="frise-item left">
+  <div class="frise-side">
+    <div class="frise-period">1953</div>
+    <div class="frise-discipline">Biologie · Génétique</div>
+    <div class="frise-title">Watson & Crick — la structure de l'ADN</div>
+    <div class="frise-desc">James Watson et Francis Crick élucident la structure en double hélice de l'ADN, s'appuyant sur les clichés de diffraction X de Rosalind Franklin. Cette découverte ouvre l'ère de la biologie moléculaire et, 70 ans plus tard, de l'édition génomique CRISPR.</div>
+    <div class="frise-anecdote"><span class="frise-anecdote-icon">🧬</span>Rosalind Franklin a produit la Photo 51 — le cliché de diffraction X le plus net de l'ADN. Watson l'a vue sans sa permission, via son directeur Wilkins. Elle est morte en 1958, 4 ans avant que Watson, Crick et Wilkins reçoivent le Nobel — qui ne se décerne pas à titre posthume.</div>
+  </div>
+  <div class="frise-dot"></div>
+  <div style="flex:1"></div>
+</div>
+
+<div class="frise-item right">
+  <div style="flex:1"></div>
+  <div class="frise-dot"></div>
+  <div class="frise-side">
+    <div class="frise-period">1969 → aujourd'hui</div>
+    <div class="frise-discipline">Physique · Biologie · Informatique</div>
+    <div class="frise-title">La science du XXIe siècle</div>
+    <div class="frise-desc">Premiers pas sur la Lune (1969), Internet (1991), séquençage du génome humain (2003), détection des ondes gravitationnelles (LIGO, 2015), première image d'un trou noir (2019), vaccins ARNm contre le Covid (2020). La science accélère.</div>
+    <div class="frise-anecdote"><span class="frise-anecdote-icon">🚀</span>Le télescope spatial James Webb (2022) observe des galaxies formées 300 millions d'années après le Big Bang. CRISPR-Cas9 permet d'éditer un gène avec une précision chirurgicale. Les ordinateurs quantiques commencent à surpasser les classiques. Le siècle qui s'ouvre sera peut-être le plus transformateur de l'histoire des sciences.</div>
+  </div>
+</div>
+
+</div><!-- /frise-items-wrap -->
+</div><!-- /frise-container -->
+</div><!-- /panel-frise -->
+
+<!-- ══════════ EXPÉRIENCES ══════════ -->
+<div class="panel" id="panel-demos">
+<div class="demos-grid">
+
+  <!-- ARCHIMÈDE -->
+  <div class="demo-card">
+    <div class="demo-header">
+      <div class="demo-badge">Physique · − 250 av. J.-C.</div>
+      <div class="demo-titre">La poussée d'Archimède</div>
+      <div class="demo-intro">Tout corps plongé dans un fluide reçoit une poussée verticale vers le haut égale au poids du fluide déplacé.</div>
+    </div>
+    <div class="demo-svg-zone">
+      <svg viewBox="0 0 280 200" xmlns="http://www.w3.org/2000/svg">
+        <!-- Récipient eau -->
+        <rect x="40" y="60" width="180" height="120" rx="4" fill="rgba(74,158,221,.12)" stroke="#4a9edd" stroke-width="1.5"/>
+        <!-- Eau -->
+        <rect x="42" y="100" width="176" height="78" fill="rgba(74,158,221,.2)" rx="2"/>
+        <!-- Objet immergé -->
+        <rect x="100" y="105" width="60" height="50" fill="rgba(212,168,67,.25)" stroke="#d4a843" stroke-width="2" rx="3"/>
+        <!-- Flèche poids (bas) -->
+        <line x1="130" y1="155" x2="130" y2="185" stroke="#e84848" stroke-width="2.5" marker-end="url(#arr-red)"/>
+        <text x="138" y="178" fill="#e84848" font-size="9" font-family="serif">Poids P</text>
+        <!-- Flèche poussée (haut) -->
+        <line x1="130" y1="105" x2="130" y2="75" stroke="#4edd8a" stroke-width="2.5" marker-end="url(#arr-green)"/>
+        <text x="138" y="82" fill="#4edd8a" font-size="9" font-family="serif">Poussée F</text>
+        <!-- Volume déplacé -->
+        <text x="155" y="135" fill="rgba(212,168,67,.7)" font-size="8" font-family="Cinzel,serif">objet</text>
+        <!-- Formule -->
+        <text x="60" y="50" fill="rgba(78,221,138,.7)" font-size="9" font-family="serif">F = ρ × V × g</text>
+        <defs>
+          <marker id="arr-red" markerWidth="6" markerHeight="6" refX="3" refY="3" orient="auto"><path d="M0,0 L6,3 L0,6 Z" fill="#e84848"/></marker>
+          <marker id="arr-green" markerWidth="6" markerHeight="6" refX="3" refY="3" orient="auto"><path d="M0,0 L6,3 L0,6 Z" fill="#4edd8a"/></marker>
+        </defs>
+      </svg>
+    </div>
+    <div class="demo-explication">
+      <div class="demo-etapes">
+        <div class="demo-etape"><div class="demo-etape-num">1</div><div class="demo-etape-txt">Un objet dans l'eau déplace un volume d'eau égal à son propre volume immergé.</div></div>
+        <div class="demo-etape"><div class="demo-etape-num">2</div><div class="demo-etape-txt">L'eau "voudrait" revenir — elle pousse l'objet vers le haut : c'est la <strong>poussée d'Archimède</strong>.</div></div>
+        <div class="demo-etape"><div class="demo-etape-num">3</div><div class="demo-etape-txt">F = ρ × V × g (densité de l'eau × volume immergé × gravité).</div></div>
+        <div class="demo-etape"><div class="demo-etape-num">4</div><div class="demo-etape-txt">Si F > Poids → <strong>flotte</strong>. Si F < Poids → <strong>coule</strong>. Si F = Poids → équilibre.</div></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- GALILÉE - CHUTE -->
+  <div class="demo-card">
+    <div class="demo-header">
+      <div class="demo-badge">Physique · 1589</div>
+      <div class="demo-titre">La chute des corps — Galilée contre Aristote</div>
+      <div class="demo-intro">Aristote : un objet 10× plus lourd tombe 10× plus vite. Galilée : tous les objets tombent à la même vitesse (sans frottement).</div>
+    </div>
+    <div class="demo-svg-zone">
+      <svg viewBox="0 0 280 200" xmlns="http://www.w3.org/2000/svg">
+        <!-- Tour -->
+        <rect x="110" y="10" width="60" height="160" fill="rgba(200,180,120,.08)" stroke="rgba(200,180,120,.3)" stroke-width="1.5" rx="2"/>
+        <text x="140" y="26" text-anchor="middle" fill="rgba(232,223,196,.4)" font-size="8" font-family="serif">Tour de Pise</text>
+        <!-- Boulet lourd -->
+        <circle cx="100" cy="50" r="14" fill="rgba(212,168,67,.3)" stroke="#d4a843" stroke-width="1.5"/>
+        <text x="100" y="54" text-anchor="middle" fill="#d4a843" font-size="8" font-family="Cinzel">10 kg</text>
+        <!-- Boulet léger -->
+        <circle cx="182" cy="50" r="7" fill="rgba(78,221,138,.3)" stroke="#4edd8a" stroke-width="1.5"/>
+        <text x="182" y="72" text-anchor="middle" fill="#4edd8a" font-size="8" font-family="Cinzel">1 kg</text>
+        <!-- Flèches chute (mêmes longueurs) -->
+        <line x1="100" y1="65" x2="100" y2="155" stroke="#d4a843" stroke-width="1.5" stroke-dasharray="4,3"/>
+        <line x1="182" y1="58" x2="182" y2="155" stroke="#4edd8a" stroke-width="1.5" stroke-dasharray="4,3"/>
+        <!-- Sol -->
+        <line x1="40" y1="170" x2="240" y2="170" stroke="rgba(232,223,196,.3)" stroke-width="2"/>
+        <!-- Impact simultané -->
+        <circle cx="100" cy="170" r="8" fill="rgba(212,168,67,.4)" stroke="#d4a843" stroke-width="1.5"/>
+        <circle cx="182" cy="170" r="5" fill="rgba(78,221,138,.4)" stroke="#4edd8a" stroke-width="1.5"/>
+        <text x="140" y="190" text-anchor="middle" fill="rgba(78,221,138,.7)" font-size="9" font-family="serif">Arrivent en même temps !</text>
+      </svg>
+    </div>
+    <div class="demo-explication">
+      <div class="demo-etapes">
+        <div class="demo-etape"><div class="demo-etape-num">1</div><div class="demo-etape-txt">Aristote raisonnait logiquement : plus c'est lourd, plus ça tombe vite. Plausible… mais faux.</div></div>
+        <div class="demo-etape"><div class="demo-etape-num">2</div><div class="demo-etape-txt">Galilée <strong>expérimente</strong>. Résultat : masse ≠ vitesse de chute. Tous tombent pareil.</div></div>
+        <div class="demo-etape"><div class="demo-etape-num">3</div><div class="demo-etape-txt">Newton expliquera pourquoi : F = ma et F = mg → <strong>a = g</strong>, indépendant de m.</div></div>
+        <div class="demo-etape"><div class="demo-etape-num">4</div><div class="demo-etape-txt">En 1971, l'astronaute David Scott lâche un marteau et une plume sur la Lune : <strong>même vitesse</strong>. Galilée confirmé.</div></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- PASTEUR -->
+  <div class="demo-card">
+    <div class="demo-header">
+      <div class="demo-badge">Biologie · 1859</div>
+      <div class="demo-titre">L'expérience de Pasteur — mort de la génération spontanée</div>
+      <div class="demo-intro">Pendant 2 000 ans, on croyait que la vie pouvait apparaître spontanément dans la matière morte. Pasteur le réfute avec une expérience élégante.</div>
+    </div>
+    <div class="demo-svg-zone">
+      <svg viewBox="0 0 280 200" xmlns="http://www.w3.org/2000/svg">
+        <!-- Fiole col droit (contaminée) -->
+        <ellipse cx="75" cy="160" rx="35" ry="20" fill="rgba(78,221,138,.15)" stroke="#4edd8a" stroke-width="1.5"/>
+        <rect x="55" y="90" width="40" height="70" fill="rgba(78,221,138,.1)" stroke="#4edd8a" stroke-width="1.5"/>
+        <rect x="67" y="55" width="16" height="38" fill="none" stroke="#4edd8a" stroke-width="1.5"/>
+        <!-- Microbes col droit -->
+        <circle cx="75" cy="140" r="3" fill="#e84848" opacity=".7"/>
+        <circle cx="85" cy="155" r="2" fill="#e84848" opacity=".7"/>
+        <circle cx="65" cy="150" r="2.5" fill="#e84848" opacity=".7"/>
+        <text x="75" y="185" text-anchor="middle" fill="#e84848" font-size="8" font-family="serif">Bouillon trouble</text>
+        <text x="75" y="50" text-anchor="middle" fill="rgba(232,223,196,.4)" font-size="7" font-family="serif">col droit</text>
+        <!-- Fiole col de cygne (stérile) -->
+        <ellipse cx="200" cy="160" rx="35" ry="20" fill="rgba(74,158,221,.12)" stroke="#4a9edd" stroke-width="1.5"/>
+        <rect x="180" y="90" width="40" height="70" fill="rgba(74,158,221,.08)" stroke="#4a9edd" stroke-width="1.5"/>
+        <!-- Col de cygne courbe -->
+        <path d="M196,90 Q196,55 215,45 Q230,38 225,60" fill="none" stroke="#4a9edd" stroke-width="2"/>
+        <text x="200" y="185" text-anchor="middle" fill="#4a9edd" font-size="8" font-family="serif">Bouillon limpide</text>
+        <text x="215" y="35" text-anchor="middle" fill="rgba(232,223,196,.4)" font-size="7" font-family="serif">col de cygne</text>
+        <!-- VS -->
+        <text x="140" y="130" text-anchor="middle" fill="rgba(232,223,196,.5)" font-size="16" font-family="Cinzel">VS</text>
+        <!-- Explication -->
+        <text x="140" y="20" text-anchor="middle" fill="rgba(78,221,138,.6)" font-size="8" font-family="serif">Même bouillon · Même air · Résultats différents</text>
+      </svg>
+    </div>
+    <div class="demo-explication">
+      <div class="demo-etapes">
+        <div class="demo-etape"><div class="demo-etape-num">1</div><div class="demo-etape-txt">Pasteur prépare le même bouillon nutritif dans deux fioles stérilisées.</div></div>
+        <div class="demo-etape"><div class="demo-etape-num">2</div><div class="demo-etape-txt">Col droit : l'air entre librement → les microbes de l'air tombent → le bouillon <strong>se trouble</strong>.</div></div>
+        <div class="demo-etape"><div class="demo-etape-num">3</div><div class="demo-etape-txt">Col de cygne courbé : l'air entre mais les microbes restent piégés dans la courbe → <strong>bouillon limpide</strong>.</div></div>
+        <div class="demo-etape"><div class="demo-etape-num">4</div><div class="demo-etape-txt">Conclusion : c'est la <strong>contamination par l'air</strong> qui cause la putréfaction, pas la vie spontanée.</div></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- PHOTOSYNTHÈSE -->
+  <div class="demo-card">
+    <div class="demo-header">
+      <div class="demo-badge">Biologie · Chimie</div>
+      <div class="demo-titre">La photosynthèse — usine à oxygène</div>
+      <div class="demo-intro">Les plantes fabriquent leur propre nourriture à partir de lumière, d'eau et de CO₂. En échange, elles produisent l'oxygène que nous respirons.</div>
+    </div>
+    <div class="demo-svg-zone">
+      <svg viewBox="0 0 300 200" xmlns="http://www.w3.org/2000/svg">
+        <!-- Feuille -->
+        <ellipse cx="150" cy="100" rx="75" ry="55" fill="rgba(50,180,80,.2)" stroke="#2eb85c" stroke-width="2"/>
+        <!-- Nervure -->
+        <line x1="150" y1="45" x2="150" y2="155" stroke="#2eb85c" stroke-width="1.5" opacity=".5"/>
+        <line x1="150" y1="80" x2="115" y2="100" stroke="#2eb85c" stroke-width="1" opacity=".4"/>
+        <line x1="150" y1="100" x2="185" y2="120" stroke="#2eb85c" stroke-width="1" opacity=".4"/>
+        <!-- Soleil -->
+        <circle cx="35" cy="35" r="18" fill="rgba(245,166,35,.25)" stroke="#f5a623" stroke-width="1.5"/>
+        <text x="35" y="39" text-anchor="middle" fill="#f5a623" font-size="12">☀</text>
+        <!-- Flèche lumière -->
+        <line x1="53" y1="48" x2="88" y2="72" stroke="#f5a623" stroke-width="1.5" stroke-dasharray="4,2"/>
+        <text x="58" y="68" fill="rgba(245,166,35,.7)" font-size="7" font-family="serif">Lumière</text>
+        <!-- CO2 entrant -->
+        <text x="10" y="115" fill="rgba(74,158,221,.8)" font-size="9" font-family="serif">CO₂</text>
+        <line x1="38" y1="112" x2="72" y2="103" stroke="#4a9edd" stroke-width="1.5" stroke-dasharray="3,2"/>
+        <!-- H2O entrant -->
+        <text x="10" y="140" fill="rgba(74,158,221,.8)" font-size="9" font-family="serif">H₂O</text>
+        <line x1="38" y1="137" x2="72" y2="118" stroke="#4a9edd" stroke-width="1.5" stroke-dasharray="3,2"/>
+        <!-- O2 sortant -->
+        <text x="235" y="90" fill="rgba(78,221,138,.9)" font-size="9" font-family="serif">O₂</text>
+        <line x1="228" y1="92" x2="210" y2="100" stroke="#4edd8a" stroke-width="1.5"/>
+        <!-- Glucose sortant -->
+        <text x="228" y="115" fill="rgba(212,168,67,.9)" font-size="8" font-family="serif">Glucose</text>
+        <line x1="226" y1="118" x2="210" y2="115" stroke="#d4a843" stroke-width="1.5"/>
+        <!-- Formule -->
+        <text x="150" y="185" text-anchor="middle" fill="rgba(232,223,196,.5)" font-size="8" font-family="serif">6CO₂ + 6H₂O + lumière → C₆H₁₂O₆ + 6O₂</text>
+      </svg>
+    </div>
+    <div class="demo-explication">
+      <div class="demo-etapes">
+        <div class="demo-etape"><div class="demo-etape-num">1</div><div class="demo-etape-txt">Les chloroplastes captent la lumière grâce à la <strong>chlorophylle</strong> (le pigment vert).</div></div>
+        <div class="demo-etape"><div class="demo-etape-num">2</div><div class="demo-etape-txt">La lumière sert d'énergie pour "casser" l'eau (H₂O) et assembler le CO₂ en glucose.</div></div>
+        <div class="demo-etape"><div class="demo-etape-num">3</div><div class="demo-etape-txt">L'oxygène est un <strong>déchet</strong> de cette réaction — mais un déchet essentiel pour toute vie animale.</div></div>
+        <div class="demo-etape"><div class="demo-etape-num">4</div><div class="demo-etape-txt">Sans photosynthèse : pas d'O₂, pas de glucose, pas de chaînes alimentaires. Toute vie complexe disparaît.</div></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ADN -->
+  <div class="demo-card">
+    <div class="demo-header">
+      <div class="demo-badge">Génétique · 1953</div>
+      <div class="demo-titre">La double hélice de l'ADN</div>
+      <div class="demo-intro">L'ADN (acide désoxyribonucléique) est la molécule qui porte toute l'information génétique du vivant, dans une structure en double hélice.</div>
+    </div>
+    <div class="demo-svg-zone">
+      <svg viewBox="0 0 280 200" xmlns="http://www.w3.org/2000/svg">
+        <!-- Hélice gauche -->
+        <path d="M100,10 Q80,30 100,50 Q120,70 100,90 Q80,110 100,130 Q120,150 100,170 Q80,190 100,210" fill="none" stroke="#4a9edd" stroke-width="3" stroke-linecap="round"/>
+        <!-- Hélice droite -->
+        <path d="M180,10 Q200,30 180,50 Q160,70 180,90 Q200,110 180,130 Q160,150 180,170 Q200,190 180,210" fill="none" stroke="#4edd8a" stroke-width="3" stroke-linecap="round"/>
+        <!-- Barreaux (bases) -->
+        <line x1="100" y1="30" x2="180" y2="30" stroke="rgba(212,168,67,.6)" stroke-width="2.5"/>
+        <line x1="104" y1="50" x2="176" y2="50" stroke="rgba(232,80,80,.5)" stroke-width="2.5"/>
+        <line x1="100" y1="70" x2="180" y2="70" stroke="rgba(168,123,232,.5)" stroke-width="2.5"/>
+        <line x1="104" y1="90" x2="176" y2="90" stroke="rgba(212,168,67,.6)" stroke-width="2.5"/>
+        <line x1="100" y1="110" x2="180" y2="110" stroke="rgba(232,80,80,.5)" stroke-width="2.5"/>
+        <line x1="104" y1="130" x2="176" y2="130" stroke="rgba(78,221,138,.5)" stroke-width="2.5"/>
+        <line x1="100" y1="150" x2="180" y2="150" stroke="rgba(168,123,232,.5)" stroke-width="2.5"/>
+        <line x1="104" y1="170" x2="176" y2="170" stroke="rgba(212,168,67,.6)" stroke-width="2.5"/>
+        <!-- Labels bases -->
+        <text x="22" y="53" fill="rgba(212,168,67,.7)" font-size="8" font-family="serif">A — T</text>
+        <text x="22" y="73" fill="rgba(232,80,80,.7)" font-size="8" font-family="serif">G — C</text>
+        <text x="22" y="93" fill="rgba(168,123,232,.7)" font-size="8" font-family="serif">C — G</text>
+        <text x="22" y="113" fill="rgba(212,168,67,.7)" font-size="8" font-family="serif">T — A</text>
+        <!-- Labels brins -->
+        <text x="88" y="8" fill="#4a9edd" font-size="8" font-family="Cinzel">Brin 1</text>
+        <text x="168" y="8" fill="#4edd8a" font-size="8" font-family="Cinzel">Brin 2</text>
+        <!-- Info -->
+        <text x="250" y="100" fill="rgba(232,223,196,.4)" font-size="7" font-family="serif" transform="rotate(90,250,100)">3 milliards de paires de bases</text>
+      </svg>
+    </div>
+    <div class="demo-explication">
+      <div class="demo-etapes">
+        <div class="demo-etape"><div class="demo-etape-num">1</div><div class="demo-etape-txt">L'ADN est formé de deux brins enroulés en hélice, reliés par des <strong>paires de bases</strong> (A-T et G-C).</div></div>
+        <div class="demo-etape"><div class="demo-etape-num">2</div><div class="demo-etape-txt">L'ordre des bases (A, T, G, C) constitue le <strong>code génétique</strong> — comme un alphabet à 4 lettres.</div></div>
+        <div class="demo-etape"><div class="demo-etape-num">3</div><div class="demo-etape-txt">L'ADN humain contient <strong>3 milliards de paires de bases</strong>. Imprimé, il remplirait 1 000 livres de 1 000 pages.</div></div>
+        <div class="demo-etape"><div class="demo-etape-num">4</div><div class="demo-etape-txt">Déroulé, l'ADN d'une cellule mesure <strong>2 mètres</strong> — compressé dans un noyau de 6 microns de diamètre.</div></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- RELATIVITÉ -->
+  <div class="demo-card">
+    <div class="demo-header">
+      <div class="demo-badge">Physique · Einstein 1905</div>
+      <div class="demo-titre">E = mc² — masse et énergie sont équivalentes</div>
+      <div class="demo-intro">La formule la plus célèbre du monde : une petite masse peut libérer une énergie colossale. La vitesse de la lumière au carré est un nombre astronomique.</div>
+    </div>
+    <div class="demo-svg-zone" style="flex-direction:column;gap:12px;padding:20px 24px;">
+      <svg viewBox="0 0 280 160" xmlns="http://www.w3.org/2000/svg">
+        <!-- Formule centrale -->
+        <text x="140" y="55" text-anchor="middle" fill="rgba(78,221,138,.9)" font-size="32" font-family="Cinzel" font-weight="900">E = mc²</text>
+        <!-- Légende E -->
+        <rect x="20" y="75" width="60" height="28" rx="3" fill="rgba(212,168,67,.1)" stroke="#d4a843" stroke-width="1"/>
+        <text x="50" y="87" text-anchor="middle" fill="#d4a843" font-size="9" font-family="Cinzel">E</text>
+        <text x="50" y="98" text-anchor="middle" fill="rgba(232,223,196,.5)" font-size="7" font-family="serif">énergie (J)</text>
+        <!-- Légende m -->
+        <rect x="110" y="75" width="60" height="28" rx="3" fill="rgba(74,158,221,.1)" stroke="#4a9edd" stroke-width="1"/>
+        <text x="140" y="87" text-anchor="middle" fill="#4a9edd" font-size="9" font-family="Cinzel">m</text>
+        <text x="140" y="98" text-anchor="middle" fill="rgba(232,223,196,.5)" font-size="7" font-family="serif">masse (kg)</text>
+        <!-- Légende c² -->
+        <rect x="200" y="75" width="60" height="28" rx="3" fill="rgba(232,80,80,.1)" stroke="#e84848" stroke-width="1"/>
+        <text x="230" y="87" text-anchor="middle" fill="#e84848" font-size="9" font-family="Cinzel">c²</text>
+        <text x="230" y="98" text-anchor="middle" fill="rgba(232,223,196,.5)" font-size="7" font-family="serif">(3×10⁸)² m²/s²</text>
+        <!-- Exemple -->
+        <text x="140" y="130" text-anchor="middle" fill="rgba(232,223,196,.5)" font-size="8" font-family="serif">1g de matière → 90 000 milliards de Joules</text>
+        <text x="140" y="145" text-anchor="middle" fill="rgba(232,223,196,.4)" font-size="8" font-family="serif">≈ énergie consommée par 3 000 foyers pendant 1 an</text>
+      </svg>
+    </div>
+    <div class="demo-explication">
+      <div class="demo-etapes">
+        <div class="demo-etape"><div class="demo-etape-num">1</div><div class="demo-etape-txt">c = vitesse de la lumière ≈ 300 000 km/s. c² = <strong>90 000 milliards de m²/s²</strong>.</div></div>
+        <div class="demo-etape"><div class="demo-etape-num">2</div><div class="demo-etape-txt">1 gramme × c² = 90 000 milliards de Joules. C'est l'énergie d'une bombe de Hiroshima.</div></div>
+        <div class="demo-etape"><div class="demo-etape-num">3</div><div class="demo-etape-txt">Le Soleil convertit 4 millions de tonnes de masse en énergie <strong>chaque seconde</strong>.</div></div>
+        <div class="demo-etape"><div class="demo-etape-num">4</div><div class="demo-etape-txt">Les centrales nucléaires exploitent ce principe : fission de l'uranium → perte de masse → <strong>énergie colossale</strong>.</div></div>
+      </div>
+    </div>
+  </div>
+
+</div>
+</div>
+
+<!-- ══════════ ANECDOTES ══════════ -->
+<div class="panel" id="panel-anecdotes">
+<div class="anecdotes-list">
+
+  <div class="anecdote-card">
+    <div class="anecdote-icon-col">🛁</div>
+    <div class="anecdote-body">
+      <div class="anecdote-periode">− 250 av. J.-C. · Syracuse</div>
+      <div class="anecdote-titre">Archimède nu dans les rues — Eurêka !</div>
+      <div class="anecdote-texte">Le roi Hiéron II suspecte son orfèvre d'avoir remplacé de l'or par de l'argent dans sa couronne royale. Il charge Archimède de le vérifier — sans fondre la couronne. Archimède cherche en vain pendant des semaines.<br><br>
+      En entrant dans son bain, il remarque que l'eau déborde proportionnellement à son volume. Illumination : le volume d'eau déplacé par la couronne révèle sa densité, et donc sa composition. Tellement excité, il court nu dans les rues en criant <em>Εὕρηκα</em> ("J'ai trouvé !").</div>
+      <div class="anecdote-enigme">
+        <div class="anecdote-enigme-label">🤔 À vous de jouer</div>
+        <div class="anecdote-enigme-q">L'or a une densité de 19,3 g/cm³ et l'argent de 10,5 g/cm³. Si une couronne pèse 1 kg et déplace 60 cm³ d'eau, est-elle en or pur ?</div>
+        <button class="anecdote-spoiler" onclick="toggleSpoiler(this)">▶ Voir la réponse</button>
+        <div class="anecdote-reponse">Or pur : 1 000 g ÷ 19,3 g/cm³ ≈ <strong>51,8 cm³</strong>. La couronne déplace 60 cm³ > 51,8 cm³ → elle est moins dense que l'or pur. Elle contient donc un métal moins dense, probablement de l'argent. <strong>L'orfèvre est coupable !</strong></div>
+      </div>
+    </div>
+  </div>
+
+  <div class="anecdote-card">
+    <div class="anecdote-icon-col">🍎</div>
+    <div class="anecdote-body">
+      <div class="anecdote-periode">1666 · Woolsthorpe, Angleterre</div>
+      <div class="anecdote-titre">Newton, la pomme et la Lune</div>
+      <div class="anecdote-texte">Isaac Newton fuit la grande peste de Londres dans la ferme familiale de Woolsthorpe. Selon la légende (rapportée par lui-même à la fin de sa vie), il observe une pomme tomber d'un arbre. Et il se pose une question que personne n'avait posée avant lui : <em>si la gravité s'exerce jusqu'au sommet de la montagne la plus haute, pourquoi pas jusqu'à la Lune ?</em><br><br>
+      Il calcule alors si la Lune "tombe" vers la Terre à la même vitesse qu'un objet sur Terre — et c'est exactement le cas, en tenant compte de la distance. La même force, la même loi.</div>
+      <div class="anecdote-enigme">
+        <div class="anecdote-enigme-label">💡 Le saviez-vous ?</div>
+        <div class="anecdote-enigme-q">La Lune "tombe" bien vers la Terre, mais pourquoi ne s'y écrase-t-elle pas ?</div>
+        <button class="anecdote-spoiler" onclick="toggleSpoiler(this)">▶ Voir la réponse</button>
+        <div class="anecdote-reponse">La Lune a une vitesse latérale suffisante pour que sa "chute" courbe son trajet en cercle autour de la Terre. Elle tombe en permanence mais "rate" toujours la Terre car la Terre est ronde. C'est exactement ce principe qui fait fonctionner tous les satellites artificiels.</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="anecdote-card">
+    <div class="anecdote-icon-col">🦠</div>
+    <div class="anecdote-body">
+      <div class="anecdote-periode">1928 · Londres</div>
+      <div class="anecdote-titre">Fleming découvre la pénicilline par accident</div>
+      <div class="anecdote-texte">Alexander Fleming part en vacances en août 1928 en laissant des boîtes de Petri avec des cultures de staphylocoques. À son retour, il remarque qu'une moisissure (<em>Penicillium notatum</em>) a contaminé une boîte — et que les bactéries autour de la moisissure sont mortes.<br><br>
+      Un autre chercheur aurait jeté la boîte contaminée. Fleming, lui, observe. Il comprend que la moisissure produit une substance qui tue les bactéries. La pénicilline sauvera des centaines de millions de vies. Nobel 1945.</div>
+      <div class="anecdote-enigme">
+        <div class="anecdote-enigme-label">💡 Le saviez-vous ?</div>
+        <div class="anecdote-enigme-q">Pourquoi la résistance aux antibiotiques est-elle un problème croissant aujourd'hui ?</div>
+        <button class="anecdote-spoiler" onclick="toggleSpoiler(this)">▶ Voir la réponse</button>
+        <div class="anecdote-reponse">Les bactéries évoluent par sélection naturelle (Darwin !). Quand un antibiotique ne tue pas toutes les bactéries, les survivantes sont naturellement résistantes et se reproduisent. Usage excessif ou incomplet = sélection artificielle de super-bactéries résistantes. L'OMS qualifie la résistance aux antimicrobiens de l'une des 10 plus grandes menaces pour la santé mondiale.</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="anecdote-card">
+    <div class="anecdote-icon-col">☢️</div>
+    <div class="anecdote-body">
+      <div class="anecdote-periode">1898 · Paris</div>
+      <div class="anecdote-titre">Marie Curie — deux Nobel, une vie de combat</div>
+      <div class="anecdote-texte">Marie Skłodowska-Curie est la première femme à obtenir un Prix Nobel (Physique, 1903 — partagé avec son mari Pierre et Becquerel), et la première personne à en obtenir deux (Chimie, 1911, seule). Elle découvre le polonium et le radium.<br><br>
+      L'Académie des sciences française lui refusera toujours l'adhésion — réservée aux hommes. Elle travaille toute sa vie avec des matières radioactives sans protection. Son carnet de laboratoire est encore trop radioactif pour être consulté sans combinaison. Elle mourra en 1934 d'anémie aplasique causée par les rayonnements.</div>
+      <div class="anecdote-enigme">
+        <div class="anecdote-enigme-label">💡 Le saviez-vous ?</div>
+        <div class="anecdote-enigme-q">Pourquoi a-t-elle nommé un élément "polonium" ?</div>
+        <button class="anecdote-spoiler" onclick="toggleSpoiler(this)">▶ Voir la réponse</button>
+        <div class="anecdote-reponse">En hommage à la Pologne, sa patrie occupée par les empires russe, prussien et austro-hongrois depuis 1795. La Pologne n'existait plus officiellement en tant qu'État. En nommant cet élément, Marie Curie faisait un geste politique — inscrire son pays sur la carte du monde scientifique alors qu'il avait disparu de la carte politique.</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="anecdote-card">
+    <div class="anecdote-icon-col">🥚</div>
+    <div class="anecdote-body">
+      <div class="anecdote-periode">Physique du quotidien</div>
+      <div class="anecdote-titre">Pourquoi l'œuf dur cuit plus vite en plaine qu'en montagne ?</div>
+      <div class="anecdote-texte">À Paris (altitude 35 m), l'eau bout à <em>100°C</em>. Au sommet du Mont-Blanc (4 808 m), elle bout à seulement <em>84°C</em>. En altitude, la pression atmosphérique est plus faible — les molécules d'eau s'échappent plus facilement en vapeur à une température plus basse.<br><br>
+      Un œuf dur nécessite 10 min à Paris mais 13-15 min au Mont-Blanc, car la température de l'eau est insuffisante. À l'Everest (8 848 m), l'eau bout à ~70°C — impossible de faire un vrai œuf dur.</div>
+      <div class="anecdote-enigme">
+        <div class="anecdote-enigme-label">🤔 À vous de jouer</div>
+        <div class="anecdote-enigme-q">À l'inverse, dans une cocotte-minute (pression 2 atmosphères), à quelle température environ bout l'eau ?</div>
+        <button class="anecdote-spoiler" onclick="toggleSpoiler(this)">▶ Voir la réponse</button>
+        <div class="anecdote-reponse">À 2 atmosphères de pression, l'eau bout à environ <strong>120°C</strong>. C'est le principe de la cocotte-minute : en augmentant la pression, on augmente la température d'ébullition, ce qui cuit les aliments beaucoup plus vite. Les autoclave médicaux utilisent le même principe pour stériliser à 134°C.</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="anecdote-card">
+    <div class="anecdote-icon-col">🌌</div>
+    <div class="anecdote-body">
+      <div class="anecdote-periode">1929 · Observatoire de Mount Wilson</div>
+      <div class="anecdote-titre">Hubble découvre que l'univers est en expansion</div>
+      <div class="anecdote-texte">Edwin Hubble observe que toutes les galaxies lointaines s'éloignent de nous, et que plus elles sont loin, plus elles s'éloignent vite. L'univers n'est pas statique — il est en <em>expansion</em>. En remontant le temps, tout converge vers un point : le Big Bang.<br><br>
+      Einstein avait lui-même introduit une "constante cosmologique" dans ses équations pour forcer un univers statique (contre les prédictions de ses propres équations). À la lumière du travail de Hubble, il qualifiera cela de "la plus grande erreur de ma carrière".</div>
+      <div class="anecdote-enigme">
+        <div class="anecdote-enigme-label">🤔 À vous de jouer</div>
+        <div class="anecdote-enigme-q">Si l'univers est en expansion, vers quoi s'expand-il ? Qu'y a-t-il "en dehors" ?</div>
+        <button class="anecdote-spoiler" onclick="toggleSpoiler(this)">▶ Voir la réponse</button>
+        <div class="anecdote-reponse">C'est l'une des questions les plus profondes de la cosmologie. La réponse la plus précise : l'univers ne s'expand pas <em>dans</em> quelque chose — c'est l'espace lui-même qui s'étire. La question "qu'y a-t-il dehors" n'a peut-être pas de sens, car "dehors" n'existe pas si l'espace est tout ce qui existe. Certains modèles envisagent un multivers, mais c'est spéculatif.</div>
+      </div>
+    </div>
+  </div>
+
+</div>
+</div>
+
+</div><!-- /content -->
+</div><!-- EXTRA CLOSE -->
+
+<script>
+function showTab(tab, btn){
+  document.querySelectorAll('.tab-btn').forEach(b=>b.classList.remove('active'));
+  document.querySelectorAll('.panel').forEach(p=>p.classList.remove('active'));
+  btn.classList.add('active');
+  document.getElementById('panel-'+tab).classList.add('active');
+}
+function toggleSpoiler(btn){
+  const rep=btn.nextElementSibling;
+  rep.classList.toggle('visible');
+  btn.textContent=rep.classList.contains('visible')?'▼ Masquer la réponse':'▶ Voir la réponse';
+}
+(function(){
+  const c=document.getElementById('stars'),ctx=c.getContext('2d');let W,H,stars=[];
+  function resize(){W=c.width=innerWidth;H=c.height=innerHeight;}
+  function init(){stars=[];for(let i=0;i<180;i++)stars.push({x:Math.random()*W,y:Math.random()*H,r:Math.random()*1.1+.2,a:Math.random()*.5+.1,sp:Math.random()*.4+.1,ph:Math.random()*Math.PI*2});}
+  function draw(t){ctx.clearRect(0,0,W,H);stars.forEach(s=>{const a=s.a*(0.6+0.4*Math.sin(t*.001*s.sp+s.ph));ctx.beginPath();ctx.arc(s.x,s.y,s.r,0,Math.PI*2);ctx.fillStyle=`rgba(200,255,220,${a})`;ctx.fill();});requestAnimationFrame(draw);}
+  window.addEventListener('resize',()=>{resize();init();});
+  resize();init();requestAnimationFrame(draw);
+})();
+</script>
+</body>
+</html>

@@ -1,0 +1,619 @@
+[
+  {
+    "id": "colomb",
+    "label": "Christophe Colomb",
+    "emoji": "⛵",
+    "annee": "1492–1504",
+    "couleur": "#2080c0",
+    "description": "4 voyages vers les Amériques. Colomb mourut convaincu d'avoir atteint l'Asie. C'est Amerigo Vespucci qui comprit qu'il s'agissait d'un Nouveau Monde.",
+    "anecdote": "Colomb sous-estima la taille de la Terre de 25%. Il arriva aux Caraïbes en pensant être au Japon.",
+    "routes": [
+      {
+        "nom": "1er voyage (1492)",
+        "couleur": "#4090d0",
+        "pts": [
+          [
+            -6.9,
+            37.2
+          ],
+          [
+            -17.0,
+            28.0
+          ],
+          [
+            -24.0,
+            16.0
+          ],
+          [
+            -77.0,
+            24.0
+          ],
+          [
+            -74.5,
+            18.5
+          ],
+          [
+            -73.0,
+            19.0
+          ]
+        ]
+      },
+      {
+        "nom": "2e voyage (1493)",
+        "couleur": "#2060a0",
+        "pts": [
+          [
+            -6.9,
+            37.2
+          ],
+          [
+            -17.0,
+            28.0
+          ],
+          [
+            -60.0,
+            15.0
+          ],
+          [
+            -66.0,
+            18.0
+          ],
+          [
+            -75.0,
+            20.0
+          ]
+        ]
+      }
+    ],
+    "points": [
+      {
+        "nom": "Palos de la Frontera",
+        "lon": -6.9,
+        "lat": 37.2,
+        "desc": "Port de départ, 3 août 1492"
+      },
+      {
+        "nom": "San Salvador (Bahamas)",
+        "lon": -74.5,
+        "lat": 24.0,
+        "desc": "1er contact avec les Amériques, 12 octobre 1492"
+      },
+      {
+        "nom": "Cuba",
+        "lon": -79.5,
+        "lat": 22.0,
+        "desc": "Colomb crut trouver le Japon"
+      },
+      {
+        "nom": "Hispaniola (Haïti)",
+        "lon": -72.3,
+        "lat": 18.9,
+        "desc": "Première colonie européenne permanente"
+      }
+    ]
+  },
+  {
+    "id": "vasco",
+    "label": "Vasco de Gama",
+    "emoji": "🧭",
+    "annee": "1497–1499",
+    "couleur": "#20a040",
+    "description": "Premier Européen à atteindre l'Inde par mer en contournant l'Afrique. Ouvre la route des épices et met fin au monopole arabe.",
+    "anecdote": "Le voyage aller dura 10 mois. Vasco de Gama perdit la moitié de ses hommes au scorbut. La route des épices rapporta 60x le coût de l'expédition.",
+    "routes": [
+      {
+        "nom": "Route des Indes (1497)",
+        "couleur": "#30c060",
+        "pts": [
+          [
+            -9.1,
+            38.7
+          ],
+          [
+            0.0,
+            20.0
+          ],
+          [
+            18.4,
+            -33.9
+          ],
+          [
+            32.0,
+            -26.0
+          ],
+          [
+            40.0,
+            -10.0
+          ],
+          [
+            44.0,
+            11.0
+          ],
+          [
+            73.0,
+            15.0
+          ],
+          [
+            80.0,
+            11.0
+          ]
+        ]
+      }
+    ],
+    "points": [
+      {
+        "nom": "Lisbonne",
+        "lon": -9.1,
+        "lat": 38.7,
+        "desc": "Port de départ, 8 juillet 1497"
+      },
+      {
+        "nom": "Cap de Bonne-Espérance",
+        "lon": 18.4,
+        "lat": -34.4,
+        "desc": "Contourné en novembre 1497"
+      },
+      {
+        "nom": "Malindi (Kenya)",
+        "lon": 40.1,
+        "lat": -3.2,
+        "desc": "Rencontre avec un pilote arabe qui le guide vers l'Inde"
+      },
+      {
+        "nom": "Calicut (Inde)",
+        "lon": 75.8,
+        "lat": 11.2,
+        "desc": "Arrivée en mai 1498 — but final du voyage"
+      }
+    ]
+  },
+  {
+    "id": "magellan",
+    "label": "Tour du Monde — Magellan",
+    "emoji": "🌍",
+    "annee": "1519–1522",
+    "couleur": "#c04080",
+    "description": "Premier tour du monde. Magellan mourut aux Philippines. Seuls 18 hommes sur 270 revinrent, commandés par Elcano. Prouve définitivement que la Terre est ronde.",
+    "anecdote": "L'expédition dura 1 083 jours. Au retour, les survivants avaient perdu un jour dans leur journal de bord — première preuve des fuseaux horaires.",
+    "routes": [
+      {
+        "nom": "Tour du monde (1519-1522)",
+        "couleur": "#e050a0",
+        "pts": [
+          [
+            -6.9,
+            37.2
+          ],
+          [
+            -25.0,
+            15.0
+          ],
+          [
+            -35.0,
+            -5.0
+          ],
+          [
+            -52.0,
+            -52.0
+          ],
+          [
+            -70.0,
+            -53.0
+          ],
+          [
+            -100.0,
+            -10.0
+          ],
+          [
+            -120.0,
+            10.0
+          ],
+          [
+            140.0,
+            10.0
+          ],
+          [
+            125.0,
+            10.0
+          ],
+          [
+            100.0,
+            5.0
+          ],
+          [
+            50.0,
+            10.0
+          ],
+          [
+            20.0,
+            -30.0
+          ],
+          [
+            0.0,
+            0.0
+          ],
+          [
+            -9.1,
+            38.7
+          ]
+        ]
+      }
+    ],
+    "points": [
+      {
+        "nom": "Séville",
+        "lon": -5.9,
+        "lat": 37.4,
+        "desc": "Départ le 20 septembre 1519"
+      },
+      {
+        "nom": "Détroit de Magellan",
+        "lon": -70.0,
+        "lat": -53.0,
+        "desc": "38 jours pour franchir ce détroit en novembre 1520"
+      },
+      {
+        "nom": "Cebu (Philippines)",
+        "lon": 123.9,
+        "lat": 10.3,
+        "desc": "Magellan tué au combat le 27 avril 1521"
+      },
+      {
+        "nom": "Séville (retour)",
+        "lon": -5.9,
+        "lat": 37.4,
+        "desc": "6 septembre 1522 — 18 survivants sur 270"
+      }
+    ]
+  },
+  {
+    "id": "soie",
+    "label": "Routes de la Soie",
+    "emoji": "🧵",
+    "annee": "Ier–XVe siècle",
+    "couleur": "#c08020",
+    "description": "Réseau de routes commerciales reliant la Chine à l'Europe pendant 1500 ans. Soie, épices, papier, poudre à canon et idées circulaient sur ces routes.",
+    "anecdote": "La soie resta un secret chinois pendant 3000 ans. Les Romains pensaient qu'elle poussait sur des arbres. La Route de la Soie transmit aussi la Peste Noire en 1347.",
+    "routes": [
+      {
+        "nom": "Route terrestre",
+        "couleur": "#e0a030",
+        "pts": [
+          [
+            116.4,
+            39.9
+          ],
+          [
+            87.6,
+            43.8
+          ],
+          [
+            66.9,
+            39.7
+          ],
+          [
+            59.6,
+            37.2
+          ],
+          [
+            51.2,
+            36.3
+          ],
+          [
+            44.4,
+            33.3
+          ],
+          [
+            36.3,
+            33.5
+          ],
+          [
+            28.9,
+            41.0
+          ],
+          [
+            12.5,
+            41.9
+          ]
+        ]
+      },
+      {
+        "nom": "Route maritime",
+        "couleur": "#4090c0",
+        "pts": [
+          [
+            116.4,
+            22.3
+          ],
+          [
+            104.9,
+            1.4
+          ],
+          [
+            95.0,
+            5.0
+          ],
+          [
+            80.3,
+            13.1
+          ],
+          [
+            73.0,
+            15.0
+          ],
+          [
+            55.0,
+            24.0
+          ],
+          [
+            44.0,
+            12.0
+          ],
+          [
+            50.0,
+            25.0
+          ],
+          [
+            55.3,
+            25.3
+          ],
+          [
+            33.0,
+            31.0
+          ],
+          [
+            29.9,
+            31.2
+          ]
+        ]
+      }
+    ],
+    "points": [
+      {
+        "nom": "Xi'an (Chang'an)",
+        "lon": 108.9,
+        "lat": 34.3,
+        "desc": "Capitale de la Chine, point de départ oriental"
+      },
+      {
+        "nom": "Samarkand",
+        "lon": 66.9,
+        "lat": 39.7,
+        "desc": "Carrefour central, ville la plus cosmopolite du monde médiéval"
+      },
+      {
+        "nom": "Bagdad",
+        "lon": 44.4,
+        "lat": 33.3,
+        "desc": "Capital abbasside, hub intellectuel et commercial"
+      },
+      {
+        "nom": "Venise",
+        "lon": 12.3,
+        "lat": 45.4,
+        "desc": "Terminus occidental, Marco Polo en partît en 1271"
+      },
+      {
+        "nom": "Hormuz",
+        "lon": 56.5,
+        "lat": 26.5,
+        "desc": "Nœud de la route maritime des épices"
+      }
+    ]
+  },
+  {
+    "id": "traite",
+    "label": "Traite Négrière",
+    "emoji": "⛓️",
+    "annee": "1500–1900",
+    "couleur": "#602000",
+    "description": "12 millions d'Africains déportés vers les Amériques entre 1500 et 1900. 2 millions moururent pendant la traversée. La plus grande déportation forcée de l'histoire.",
+    "anecdote": "Les navires négriers transportaient les esclaves dans des conditions inhumaines — entassés sous le pont. Le commerce triangulaire enrichit l'Europe à un coût humain incalculable.",
+    "routes": [
+      {
+        "nom": "Triangle atlantique",
+        "couleur": "#a03010",
+        "pts": [
+          [
+            -5.0,
+            36.0
+          ],
+          [
+            -15.0,
+            10.0
+          ],
+          [
+            -15.0,
+            5.0
+          ],
+          [
+            -40.0,
+            -5.0
+          ],
+          [
+            -43.0,
+            -23.0
+          ],
+          [
+            -60.0,
+            10.0
+          ],
+          [
+            -75.0,
+            20.0
+          ],
+          [
+            -5.0,
+            50.0
+          ],
+          [
+            -5.0,
+            36.0
+          ]
+        ]
+      }
+    ],
+    "points": [
+      {
+        "nom": "Gorée (Sénégal)",
+        "lon": -17.4,
+        "lat": 14.7,
+        "desc": "'Maison des Esclaves' — symbole de la traite atlantique"
+      },
+      {
+        "nom": "Ouidah (Bénin)",
+        "lon": 2.1,
+        "lat": 6.4,
+        "desc": "Plus grand port négrier d'Afrique de l'Ouest"
+      },
+      {
+        "nom": "Luanda (Angola)",
+        "lon": 13.2,
+        "lat": -8.8,
+        "desc": "Principal port de départ d'Afrique centrale"
+      },
+      {
+        "nom": "Salvador de Bahia",
+        "lon": -38.5,
+        "lat": -13.0,
+        "desc": "Première destination — 40% des esclaves vers le Brésil"
+      },
+      {
+        "nom": "La Nouvelle-Orléans",
+        "lon": -90.1,
+        "lat": 29.9,
+        "desc": "Hub de la traite interne aux États-Unis"
+      }
+    ]
+  },
+  {
+    "id": "colonisation",
+    "label": "Colonisation Européenne",
+    "emoji": "🗺️",
+    "annee": "1500–1960",
+    "couleur": "#805020",
+    "description": "Entre 1500 et 1960, l'Europe colonise progressivement le monde entier. En 1900, 90% de l'Afrique est sous domination européenne.",
+    "anecdote": "La Conférence de Berlin (1884-85) partagea l'Afrique entre puissances européennes sans consulter un seul Africain. Les frontières tracées créent encore des conflits aujourd'hui.",
+    "pays_colonisateurs": {
+      "GB": [
+        "IN",
+        "PK",
+        "BD",
+        "AU",
+        "NZ",
+        "ZA",
+        "NG",
+        "KE",
+        "GH",
+        "ZW",
+        "CA",
+        "JM",
+        "TT",
+        "MY",
+        "SG",
+        "BN",
+        "MM",
+        "SL",
+        "GM",
+        "LR"
+      ],
+      "FR": [
+        "DZ",
+        "MA",
+        "TN",
+        "SN",
+        "CI",
+        "CM",
+        "MG",
+        "CD",
+        "ML",
+        "NE",
+        "TD",
+        "CG",
+        "GA",
+        "VN",
+        "KH",
+        "LA",
+        "HT",
+        "GF"
+      ],
+      "ES": [
+        "MX",
+        "PE",
+        "CO",
+        "AR",
+        "CL",
+        "BO",
+        "VE",
+        "EC",
+        "CU",
+        "DO",
+        "GT",
+        "HN",
+        "NI",
+        "SV",
+        "PY",
+        "UY",
+        "PH"
+      ],
+      "PT": [
+        "BR",
+        "AO",
+        "MZ",
+        "GW",
+        "CV",
+        "ST",
+        "TL"
+      ],
+      "NL": [
+        "ID",
+        "SR",
+        "AW"
+      ],
+      "BE": [
+        "CD",
+        "RW",
+        "BI"
+      ],
+      "DE": [
+        "TZ",
+        "NA",
+        "CM",
+        "TG",
+        "PG"
+      ],
+      "IT": [
+        "LY",
+        "ER",
+        "SO",
+        "ET"
+      ]
+    },
+    "points": [
+      {
+        "nom": "Berlin (1884)",
+        "lon": 13.4,
+        "lat": 52.5,
+        "desc": "Conférence qui partagea l'Afrique entre puissances européennes"
+      },
+      {
+        "nom": "Goa (Inde)",
+        "lon": 73.8,
+        "lat": 15.5,
+        "desc": "Première colonie portugaise en Asie (1510)"
+      },
+      {
+        "nom": "Batavia (Jakarta)",
+        "lon": 106.8,
+        "lat": -6.2,
+        "desc": "Capitale des Indes néerlandaises"
+      },
+      {
+        "nom": "Saïgon (Ho Chi Minh)",
+        "lon": 106.7,
+        "lat": 10.8,
+        "desc": "Capitale de l'Indochine française"
+      }
+    ]
+  }
+]

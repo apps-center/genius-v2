@@ -1,0 +1,1337 @@
+[
+  {
+    "era": "✦ Origines de l'Humanité",
+    "cls": "paleo",
+    "events": [
+      {
+        "icon": "🌍",
+        "tag": "Événement",
+        "date": "–65 000 ans",
+        "title": "Les Aborigènes d'Australie — La Plus Ancienne Culture",
+        "desc": "Des groupes humains traversent la mer depuis l'Asie du Sud-Est et peuplent l'Australie. C'est la première navigation maritime connue et la culture humaine continue la plus ancienne au monde.",
+        "anecdotes": [
+          {
+            "e": "🎵",
+            "t": "<b>Les « songlines »</b> sont des chemins invisibles qui traversent toute l'Australie. En chantant les chansons correspondantes, un Aborigène peut naviguer sur des milliers de km à travers le désert sans carte."
+          },
+          {
+            "e": "🎨",
+            "t": "<b>L'art rupestre australien est le plus vieux du monde</b> — plus de 40 000 ans. Les grottes de Chauvet en France (36 000 ans) sont plus récentes."
+          },
+          {
+            "e": "👧",
+            "t": "<b>Les « Générations Volées » (1910-1970) :</b> le gouvernement australien enleva systématiquement les enfants aborigènes de leurs familles pour les « assimiler ». Des milliers perdirent leur langue, leur culture et leur famille."
+          }
+        ],
+        "kind": "histoire",
+        "img": "histoire/aborigene.webp"
+      },
+      {
+        "icon": "🧠",
+        "tag": "Événement",
+        "date": "–40 000 ans",
+        "title": "Homo Sapiens Colonise le Monde",
+        "desc": "Notre espèce, venue d'Afrique il y a ~70 000 ans, peuple l'Eurasie, l'Australie, puis les Amériques (~15 000 ans). Partout elle développe art, rites et langages.",
+        "anecdotes": [
+          {
+            "e": "🎨",
+            "t": "<b>Les peintures de la grotte Chauvet</b> (France, –36 000 ans) et de Lascaux (–17 000 ans) montrent une maîtrise artistique stupéfiante. L'art rupestre est universel — il apparaît sur tous les continents."
+          },
+          {
+            "e": "🧊",
+            "t": "<b>Les ancêtres des Amérindiens</b> traversèrent le détroit de Béring (alors à sec) il y a ~15 000 à 20 000 ans et peuplèrent l'Amérique de la Sibérie jusqu'à la Patagonie en quelques millénaires."
+          }
+        ],
+        "kind": "histoire",
+        "img": "histoire/sortie_afrique.webp"
+      },
+      {
+        "icon": "🧊",
+        "tag": "Peuple",
+        "date": "~2 500 av. J.-C. – 1 100 ap. J.-C.",
+        "title": "Les Inuits — Maîtres de l'Arctique",
+        "desc": "Les peuples paléo-inuits (culture de Dorset) colonisent l'Arctique dès ~2 500 av. J.-C. La culture thuléenne — ancêtre direct des Inuit actuels — émerge vers 1 100 ap. J.-C. en Alaska et atteint le Groenland vers 1 200.",
+        "anecdotes": [
+          {
+            "e": "🏠",
+            "t": "<b>L'igloo est un chef-d'œuvre thermique :</b> à –50°C dehors, il fait 16°C à l'intérieur grâce à la seule chaleur des corps et d'une lampe à graisse."
+          },
+          {
+            "e": "🌬️",
+            "t": "<b>Les Inuits ont des dizaines de mots pour la neige,</b> chacun décrivant un type précis : neige bonne pour l'igloo, neige qui fait trébucher, neige glacée... Une précision linguistique vitale pour la survie."
+          },
+          {
+            "e": "🌡️",
+            "t": "<b>Le réchauffement climatique menace directement</b> la culture inuite. La banquise qui fond change les routes de chasse et rend les igloos impossibles à construire."
+          }
+        ],
+        "kind": "histoire",
+        "img": "histoire/peuplement_amerique_traversée_béring.webp"
+      }
+    ]
+  },
+  {
+    "era": "✦ Premières Civilisations (–3500 à –500 av. J.-C.)",
+    "cls": "meso",
+    "events": [
+      {
+        "icon": "🏺",
+        "tag": "Civilisation",
+        "date": "–3 500 av. J.-C.",
+        "title": "Sumer — Les Premières Villes",
+        "desc": "En Mésopotamie (Irak actuel), entre le Tigre et l'Euphrate, naissent les premières grandes villes : Uruk, Ur, Lagash. La civilisation commence ici.",
+        "anecdotes": [
+          {
+            "e": "📝",
+            "t": "<b>L'écriture cunéiforme</b> fut inventée pour la comptabilité, pas la littérature. Les premières tablettes sont des reçus de livraison d'orge et de bière."
+          },
+          {
+            "e": "📜",
+            "t": "<b>L'Épopée de Gilgamesh (~2100 av. J.-C.)</b> est le premier texte littéraire connu. Il raconte un déluge et un héros qui cherche l'immortalité — 1 500 ans avant la Bible."
+          },
+          {
+            "e": "⚖️",
+            "t": "<b>Le Code d'Hammurabi (~1792 av. J.-C.)</b> est le premier grand code de lois. « Œil pour œil » était un progrès : la vengeance illimitée était remplacée par une peine proportionnelle au crime."
+          }
+        ],
+        "kind": "histoire",
+        "img": "histoire/Ville antique de Sumer en soirée.webp"
+      },
+      {
+        "kind": "histoire",
+        "icon": "⚙️",
+        "date": "–3 500 av. J.-C.",
+        "title": "Invention de la Roue (Mésopotamie)",
+        "desc": "En Mésopotamie, la roue apparaît d'abord comme tour de potier, puis comme roue de transport. Elle révolutionne le commerce et l'agriculture sur tous les continents.",
+        "anecdotes": [
+          {
+            "e": "🏺",
+            "t": "<b>La roue a d'abord servi à faire des pots</b>, pas à transporter. Le tour de potier précède la roue de transport d'environ 300 ans."
+          },
+          {
+            "e": "🌍",
+            "t": "<b>Les Aztèques connaissaient la roue</b> mais ne l'utilisaient pas pour le transport — ils n'avaient pas d'animaux de trait. Ils s'en servaient uniquement dans des jouets d'enfants."
+          }
+        ],
+        "img": "histoire/Atelier_de_charpentier_ancien.webp"
+      },
+      {
+        "kind": "histoire",
+        "icon": "📝",
+        "date": "–3 200 av. J.-C.",
+        "title": "Invention de l'Écriture Cunéiforme",
+        "desc": "Les Sumériens inventent l'écriture pour gérer leurs échanges commerciaux. C'est la première écriture connue de l'humanité.",
+        "anecdotes": [
+          {
+            "e": "📋",
+            "t": "<b>Les premières tablettes sont des reçus</b> de livraison d'orge et de bière. L'écriture est née de la comptabilité, pas de la poésie."
+          },
+          {
+            "e": "🔍",
+            "t": "<b>Le cunéiforme fut déchiffré en 1857</b> grâce à l'inscription trilingue de Behistun — le « Rosette de la Mésopotamie »."
+          }
+        ],
+        "img": "histoire/Main_d'un_scribe_sur_tablette_d'argile.webp"
+      },
+      {
+        "icon": "🔺",
+        "tag": "Civilisation",
+        "date": "–3 100 av. J.-C.",
+        "title": "Égypte Ancienne — Naissance",
+        "desc": "Le roi Narmer unifie la Haute et la Basse Égypte. Commence alors une civilisation de 3 000 ans ininterrompus — la plus durable de l'histoire.",
+        "anecdotes": [
+          {
+            "e": "⏳",
+            "t": "<b>Cléopâtre est plus proche de nous que des pyramides :</b> il y a plus de temps entre Cléopâtre (–30 av. J.-C.) et la Grande Pyramide (–2560 av. J.-C.) qu'entre Cléopâtre et nous."
+          },
+          {
+            "e": "🐱",
+            "t": "<b>Le chat s'est lui-même domestiqué en Égypte</b> en suivant les greniers à céréales. Les Égyptiens l'ont ensuite déifié."
+          },
+          {
+            "e": "👷",
+            "t": "<b>Les bâtisseurs des pyramides étaient des artisans payés</b> en pain, bière et viande — pas des esclaves. Bâtir la pyramide était un honneur religieux."
+          }
+        ],
+        "kind": "histoire",
+        "img": "histoire/Pharaon Ménès et l'unification de l'Égypte.webp"
+      },
+      {
+        "icon": "🏙️",
+        "tag": "Civilisation",
+        "date": "–3 000 av. J.-C.",
+        "title": "Civilisation de l'Indus — Mohenjo-Daro",
+        "desc": "Dans la vallée de l'Indus (Pakistan actuel), une civilisation sophistiquée développe des villes planifiées avec égouts et bains publics — 4 000 ans avant Paris.",
+        "anecdotes": [
+          {
+            "e": "🚿",
+            "t": "<b>Mohenjo-Daro avait des sanitaires dans chaque maison</b> et un système d'égouts public — l'un des premiers au monde."
+          },
+          {
+            "e": "🔍",
+            "t": "<b>L'écriture de l'Indus reste indéchiffrée.</b> Des centaines de tablettes couvertes de signes attendent encore leur Champollion."
+          }
+        ],
+        "kind": "histoire",
+        "img": "histoire/mohenjo daro.webp"
+      },
+      {
+        "kind": "histoire",
+        "icon": "🎵",
+        "date": "~–3 000 av. J.-C.",
+        "title": "Premières Musiques — Flûtes & Harpes",
+        "desc": "Les plus anciennes flûtes connues datent de –40 000 ans (Allemagne). Les premières partitions écrites viennent de Mésopotamie vers –2 000 av. J.-C. La musique est aussi ancienne que l'humanité.",
+        "anecdotes": [
+          {
+            "e": "🪈",
+            "t": "<b>La plus ancienne flûte connue</b> (–40 000 ans, Allemagne) est taillée dans un os de vautour. La musique est l'un des comportements les plus anciens de notre espèce — bien avant l'agriculture."
+          }
+        ],
+        "img": "histoire/Homme_préhistorique_jouant_une_flûte_osseuse.webp"
+      },
+      {
+        "kind": "histoire",
+        "icon": "🎨",
+        "date": "~–2 500 av. J.-C.",
+        "title": "Art Égyptien — Les Pyramides comme Œuvres",
+        "desc": "L'art égyptien développe un style reconnaissable immédiatement : hiérarchie des tailles, vue de profil, couleurs symboliques. Il restera stable pendant 3 000 ans — la plus longue tradition artistique de l'histoire.",
+        "anecdotes": [
+          {
+            "e": "🖼️",
+            "t": "<b>La perspective frontale égyptienne</b> — où chaque partie du corps est montrée sous son angle le plus caractéristique (tête de profil, épaules de face, jambes de profil) — n'est pas un manque de talent mais un choix délibéré pour la clarté."
+          }
+        ],
+        "img": "histoire/La construction de la pyramide.webp"
+      },
+      {
+        "kind": "histoire",
+        "icon": "📖",
+        "date": "~–2 100 av. J.-C.",
+        "title": "Épopée de Gilgamesh",
+        "desc": "Premier texte littéraire connu de l'humanité — un roi sumérien cherche l'immortalité et traverse un déluge. Écrit sur des tablettes d'argile 1 500 ans avant la Bible.",
+        "anecdotes": [
+          {
+            "e": "🌊",
+            "t": "<b>Le déluge de Gilgamesh</b> précède le déluge biblique de Noé de plus de 1 000 ans et lui ressemble étrangement : un homme prévenu par un dieu, un bateau, des animaux sauvés, une colombe envoyée."
+          },
+          {
+            "e": "💀",
+            "t": "<b>Gilgamesh perd son ami Enkidu</b> et part chercher l'immortalité pour ne plus jamais perdre un être aimé. C'est la première exploration littéraire du deuil et de la mort — toujours aussi universelle 4 000 ans plus tard."
+          }
+        ],
+        "img": "histoire/gilgamesh.webp"
+      },
+      {
+        "icon": "📿",
+        "tag": "Religion",
+        "date": "–1 500 av. J.-C.",
+        "title": "Hindouisme — Les Védas",
+        "desc": "Les textes védiques fondent l'hindouisme, la plus ancienne religion encore pratiquée. Naissance du concept de karma, de dharma et du cycle des réincarnations.",
+        "anecdotes": [
+          {
+            "e": "🔢",
+            "t": "<b>L'Inde a inventé le zéro et les chiffres que le monde entier utilise.</b> Les « chiffres arabes » sont en réalité des chiffres indiens transmis par les mathématiciens arabes."
+          },
+          {
+            "e": "🧘",
+            "t": "<b>Le yoga existe depuis plus de 5 000 ans.</b> Les premières postures sont représentées sur des sceaux de la civilisation de l'Indus."
+          }
+        ],
+        "kind": "histoire",
+        "img": "histoire/indouisme.webp"
+      },
+      {
+        "icon": "🗿",
+        "tag": "Civilisation",
+        "date": "–1 200 av. J.-C.",
+        "title": "Phéniciens — Inventeurs de l'Alphabet",
+        "desc": "Les Phéniciens du Liban actuel développent le premier alphabet de 22 lettres — ancêtre direct des alphabets grec, latin, arabe, hébreu et de presque tous les alphabets modernes.",
+        "anecdotes": [
+          {
+            "e": "🔤",
+            "t": "<b>Les lettres que tu utilises viennent des Phéniciens.</b> Notre A est un « aleph » phénicien (tête de bœuf retournée). Notre B vient de « beth » (maison)."
+          },
+          {
+            "e": "🎨",
+            "t": "<b>« Phénicien » vient du grec « phoinix » (pourpre).</b> Leur colorant pourpre extrait de murex était si rare qu'il fallait 12 000 escargots pour teindre un seul vêtement — réservé aux rois."
+          }
+        ],
+        "kind": "histoire",
+        "img": "histoire/Scène de commerce phénicien au port.webp"
+      },
+      {
+        "icon": "🏛️",
+        "tag": "Civilisation",
+        "date": "–800 av. J.-C.",
+        "title": "Grèce archaïque & classique — Philosophie, Olympiques, Démocratie",
+        "desc": "Les cités-États grecques inventent la philosophie, le théâtre et les Jeux Olympiques. La démocratie athénienne naît des réformes de Clisthène en 508/507 av. J.-C. Socle intellectuel de toute la civilisation occidentale.",
+        "anecdotes": [
+          {
+            "e": "🗳️",
+            "t": "<b>La démocratie athénienne excluait les femmes, les esclaves et les étrangers</b> — soit 80-90 % de la population. Révolutionnaire pour l'époque, mais très imparfait."
+          },
+          {
+            "e": "🏃",
+            "t": "<b>Le « Marathon » commémore la course du soldat Phidippidès</b> — 42 km pour annoncer la victoire sur les Perses (490 av. J.-C.). Il cria « Victoire ! » et mourut."
+          }
+        ],
+        "kind": "histoire",
+        "img": "histoire/Les jeux olympiques antiques à Olympie.webp"
+      },
+      {
+        "kind": "histoire",
+        "icon": "📖",
+        "date": "~–800 av. J.-C.",
+        "title": "Homère — Iliade & Odyssée",
+        "desc": "Ces deux épopées fondatrices de la littérature occidentale racontent la guerre de Troie et le voyage d'Ulysse. Elles ont influencé 2 800 ans de culture.",
+        "anecdotes": [
+          {
+            "e": "🎭",
+            "t": "<b>L'Iliade et l'Odyssée étaient récitées oralement</b> lors de festivals, des heures durant. Les aèdes mémorisaient les 15 000 et 12 000 vers respectivement."
+          }
+        ],
+        "img": "histoire/L'odyssée d'Ulysse et les créatures mythologiques.webp"
+      },
+      {
+        "icon": "🌟",
+        "tag": "Civilisation",
+        "date": "–550 av. J.-C.",
+        "title": "Perse — Cyrus le Grand",
+        "desc": "Cyrus le Grand conquiert la Médie, la Lydie et Babylone. Il crée le premier grand empire tolérant : liberté de culte, retour des peuples déportés (dont les Juifs).",
+        "anecdotes": [
+          {
+            "e": "📜",
+            "t": "<b>Le « Cylindre de Cyrus »</b> est souvent appelé la première déclaration des droits de l'homme. Il proclame la liberté de culte — 2 500 ans avant la Déclaration universelle de l'ONU."
+          },
+          {
+            "e": "🛤️",
+            "t": "<b>La « Route Royale » de Darius</b> : 2 700 km avec des relais de poste. Un message royal la parcourait en 7 jours — 3 mois pour un voyageur ordinaire."
+          }
+        ],
+        "kind": "histoire",
+        "img": "histoire/Cyrus libère les captifs juifs.webp"
+      }
+    ]
+  },
+  {
+    "era": "✦ Naissance des Grandes Religions (–600 à –400 av. J.-C.)",
+    "cls": "religio",
+    "events": [
+      {
+        "icon": "☯️",
+        "tag": "Religion",
+        "date": "~–600 av. J.-C.",
+        "title": "Taoïsme — Lao-Tseu",
+        "desc": "Lao-Tseu rédige le Tao Te Ching : 81 courts chapitres sur la Voie, l'harmonie avec la nature et le « non-agir ». Philosophie qui influencera toute l'Asie.",
+        "anecdotes": [
+          {
+            "e": "💧",
+            "t": "<b>« L'eau est la chose la plus douce du monde, et pourtant elle creuse la pierre. »</b> Cette image résume le taoïsme : la douceur persistante vaut mieux que la force brutale."
+          },
+          {
+            "e": "🦋",
+            "t": "<b>Zhuangzi rêva qu'il était un papillon.</b> À son réveil : était-il un homme qui avait rêvé être papillon, ou un papillon qui rêvait être homme ? La plus belle question sur l'identité."
+          }
+        ],
+        "kind": "histoire",
+        "img": "histoire/Lao-Tzu.webp"
+      },
+      {
+        "icon": "🪷",
+        "tag": "Religion",
+        "date": "~–563 av. J.-C.",
+        "title": "Siddhartha Gautama — Le Bouddha",
+        "desc": "Prince indien qui quitte son palais à 29 ans, choqué par la souffrance. Après 6 ans de méditation, il atteint l'Éveil sous l'arbre Bodhi. Le bouddhisme naît.",
+        "anecdotes": [
+          {
+            "e": "🏰",
+            "t": "<b>Siddhartha fut élevé dans un luxe absolu.</b> Son père fit entourer le palais de jardins pour lui cacher toute souffrance. Quand il découvrit la maladie et la mort à 29 ans, ce fut un choc fondateur."
+          },
+          {
+            "e": "☯️",
+            "t": "<b>Le Bouddha ne se déclarait pas dieu</b> et demandait à chacun de vérifier ses enseignements par l'expérience. C'est une philosophie de l'éveil personnel, pas un acte de foi aveugle."
+          }
+        ],
+        "kind": "histoire",
+        "img": "histoire/boudha.webp"
+      },
+      {
+        "icon": "📜",
+        "tag": "Religion",
+        "date": "~–551 av. J.-C.",
+        "title": "Confucius — La Philosophie Chinoise",
+        "desc": "Confucius enseigne le respect, la famille, l'harmonie et le gouvernement juste. Sa philosophie influencera la Chine pendant 2 500 ans.",
+        "anecdotes": [
+          {
+            "e": "🎓",
+            "t": "<b>Confucius fut d'abord un fonctionnaire raté.</b> Incapable de convaincre les princes d'appliquer ses idées, il parcourut la Chine pendant 13 ans avec ses disciples avant de rentrer déçu."
+          },
+          {
+            "e": "🌏",
+            "t": "<b>Le confucianisme ne porte pas sur les dieux</b> mais sur les relations humaines : entre enfants et parents, élèves et maîtres, sujets et souverains."
+          }
+        ],
+        "kind": "histoire",
+        "img": "histoire/confucius.webp"
+      }
+    ]
+  },
+  {
+    "era": "✦ Antiquité Classique (–500 à 500 ap. J.-C.)",
+    "cls": "antique",
+    "events": [
+      {
+        "icon": "⚓",
+        "tag": "Civilisation",
+        "date": "~814 av. J.-C.",
+        "title": "Carthage — La Rivale de Rome",
+        "desc": "Fondée par les Phéniciens, Carthage domine la Méditerranée occidentale. Hannibal traverse les Alpes avec 37 éléphants. Rome finira par la raser en 146 av. J.-C.",
+        "anecdotes": [
+          {
+            "e": "🐘",
+            "t": "<b>Traverser les Alpes en novembre avec des éléphants</b> est l'une des prouesses militaires les plus extraordinaires de l'Antiquité. La moitié de l'armée mourut de froid."
+          },
+          {
+            "e": "⚔️",
+            "t": "<b>À Cannes (–216 av. J.-C.),</b> Hannibal encercla et détruisit 85 000 Romains avec 40 000 hommes. La manœuvre d'encerclement parfaite, encore étudiée dans les académies militaires."
+          }
+        ],
+        "kind": "histoire",
+        "img": "histoire/La fondation de Carthage par Didon.webp"
+      },
+      {
+        "icon": "⚡",
+        "tag": "Roi",
+        "date": "–356 – –323 av. J.-C.",
+        "title": "Alexandre le Grand",
+        "desc": "En 13 ans, il conquiert la Perse, l'Égypte, l'Afghanistan et l'Inde. Il meurt à 32 ans après avoir créé le plus grand empire qu'un seul homme ait jamais dirigé.",
+        "anecdotes": [
+          {
+            "e": "🐴",
+            "t": "<b>Son cheval Bucéphale</b> ne pouvait être monté par personne d'autre. Alexandre, 13 ans, remarqua qu'il avait peur de son ombre et le fit tourner vers le soleil. Son père dit : « Mon fils, cherche un royaume digne de toi. »"
+          },
+          {
+            "e": "🔪",
+            "t": "<b>Le « nœud gordien » :</b> une prophétie disait que celui qui le dénouerait régnerait sur l'Asie. Alexandre trancha simplement le nœud avec son épée. Expression restée dans la langue."
+          }
+        ],
+        "kind": "histoire",
+        "img": "histoire/Alexandre le grand Le général au coucher du soleil.webp"
+      },
+      {
+        "kind": "histoire",
+        "icon": "📐",
+        "date": "–240 av. J.-C.",
+        "title": "Ératosthène — Circumférence de la Terre",
+        "desc": "Depuis Alexandrie, Ératosthène calcule la circonférence de la Terre avec deux bâtons et des ombres. Son résultat est à 1,7 % de la valeur exacte.",
+        "anecdotes": [
+          {
+            "e": "🌍",
+            "t": "<b>Son résultat : ~39 375 km. La vraie valeur : 40 075 km.</b> Une erreur de 1,7 % — sans satellite ni GPS, juste deux bâtons et de la trigonométrie."
+          }
+        ],
+        "img": "histoire/eratosthene.webp"
+      },
+      {
+        "kind": "histoire",
+        "icon": "📐",
+        "date": "~–570 av. J.-C.",
+        "title": "Thalès — Géométrie & Astronomie",
+        "desc": "Thalès de Milet est le premier philosophe grec connu à chercher des explications naturelles (et non divines) aux phénomènes. Il mesure la hauteur des pyramides grâce aux ombres.",
+        "anecdotes": [
+          {
+            "e": "🌑",
+            "t": "<b>Thalès prédit la première éclipse solaire connue</b> de l'histoire en –585 av. J.-C. Elle eut lieu pendant une bataille entre Mèdes et Lydiens qui, effrayés, arrêtèrent le combat. Sa prédiction stoppa une guerre."
+          },
+          {
+            "e": "📐",
+            "t": "<b>Le « théorème de Thalès »</b> sur les triangles semblables lui permit de mesurer la hauteur de la Grande Pyramide en comparant son ombre à celle d'un bâton. Simple, élégant, révolutionnaire."
+          }
+        ],
+        "img": "histoire/thales.webp"
+      },
+      {
+        "kind": "histoire",
+        "icon": "📐",
+        "date": "~–530 av. J.-C.",
+        "title": "Pythagore — Le Théorème",
+        "desc": "Dans un triangle rectangle, le carré de l'hypoténuse est égal à la somme des carrés des deux autres côtés. Démontré il y a 2 500 ans, ce théorème est encore enseigné dans toutes les écoles du monde.",
+        "anecdotes": [
+          {
+            "e": "🔢",
+            "t": "<b>Les Babyloniens et Égyptiens connaissaient cette relation</b> 1 000 ans avant Pythagore — mais lui en fit la première démonstration rigoureuse. Il ne l'a pas découverte, il l'a prouvée."
+          },
+          {
+            "e": "🎵",
+            "t": "<b>Pythagore découvrit aussi les harmonies musicales.</b> En jouant sur des cordes de longueurs différentes, il remarqua que des rapports simples (1/2, 2/3) produisaient des sons harmonieux. Il inventait ainsi l'acoustique mathématique."
+          }
+        ],
+        "img": "histoire/pythagore.webp"
+      },
+      {
+        "kind": "histoire",
+        "icon": "🏛️",
+        "date": "~–447 av. J.-C.",
+        "title": "Le Parthénon & Phidias",
+        "desc": "Phidias supervise la construction du Parthénon à Athènes et sculpte la statue d'Athéna Parthénos en or et ivoire. C'est l'apogée de la sculpture et de l'architecture grecques classiques.",
+        "anecdotes": [
+          {
+            "e": "📐",
+            "t": "<b>Le Parthénon ne contient pas une seule ligne droite.</b> Toutes ses colonnes sont légèrement incurvées et penchées vers l'intérieur pour corriger les illusions d'optique. Le résultat paraît parfaitement droit à l'œil."
+          },
+          {
+            "e": "💣",
+            "t": "<b>Le Parthénon fut partiellement détruit en 1687</b> quand les Vénitiens bombardèrent les Ottomans qui y stockaient de la poudre à canon. 2 000 ans de conservation détruits en une explosion."
+          }
+        ],
+        "img": "histoire/parthenon.webp"
+      },
+      {
+        "kind": "histoire",
+        "icon": "⚙️",
+        "date": "~–260 av. J.-C.",
+        "title": "Archimède — La Poulie & le Levier",
+        "desc": "Archimède formule le principe du levier et invente la vis sans fin, la poulie composée et le principe de la poussée hydrostatique. « Donnez-moi un point d'appui et je soulèverai le monde. »",
+        "anecdotes": [
+          {
+            "e": "🛁",
+            "t": "<b>« Eurêka ! »</b> En entrant dans son bain et voyant l'eau déborder, Archimède comprit comment mesurer le volume d'un objet irrégulier — et donc si la couronne du roi était en or pur. Il courut nu dans la rue de joie."
+          },
+          {
+            "e": "⚙️",
+            "t": "<b>Ses machines de guerre</b> défendirent Syracuse contre les Romains pendant 3 ans. Des grues géantes soulevaient les navires romains hors de l'eau et les retournaient."
+          }
+        ],
+        "img": "histoire/archimede.webp"
+      },
+      {
+        "kind": "histoire",
+        "icon": "💨",
+        "date": "~–200 av. J.-C.",
+        "title": "Invention du Moulin à Eau",
+        "desc": "Le moulin à eau est l'une des premières machines à exploiter une source d'énergie autre que la force humaine ou animale. Il révolutionne la mouture des céréales en Europe et en Asie.",
+        "anecdotes": [
+          {
+            "e": "💨",
+            "t": "<b>Un moulin à eau peut moudre autant en une heure</b> que 40 esclaves en une journée. Son adoption progressive contribua à réduire le recours à la main-d'œuvre servile."
+          },
+          {
+            "e": "⚙️",
+            "t": "<b>Le moulin à vent</b> apparaît en Perse vers 500-600 ap. J.-C., puis en Europe au XIIe siècle. Les moulins domineront la production d'énergie mécanique pendant 1 500 ans — jusqu'à la vapeur."
+          }
+        ],
+        "img": "histoire/moulins a vent.webp"
+      },
+      {
+        "icon": "🐉",
+        "tag": "Civilisation",
+        "date": "–221 av. J.-C.",
+        "title": "Chine — Qin Shi Huang & la Grande Muraille",
+        "desc": "Le roi Ying Zheng unifie 7 royaumes en guerre et devient le premier Empereur de Chine. Il lance la construction de la Grande Muraille et standardise l'écriture, les poids et les mesures.",
+        "anecdotes": [
+          {
+            "e": "😤",
+            "t": "<b>Qin Shi Huang standardisa même la largeur des essieux des chariots</b> pour que les routes (faites de sillons) fonctionnent partout dans l'empire."
+          },
+          {
+            "e": "⚔️",
+            "t": "<b>Son armée de 8 000 soldats en terre cuite</b> fut découverte en 1974 par des paysans creusant un puits. Chaque visage est unique. L'une des plus grandes découvertes archéologiques du XXe siècle."
+          },
+          {
+            "e": "🧱",
+            "t": "<b>La Grande Muraille n'est pas visible de la Lune :</b> c'est un mythe. Sa largeur (~5 m) est trop petite pour être vue à l'œil nu depuis l'espace."
+          }
+        ],
+        "kind": "histoire",
+        "img": "histoire/Qin Shi Huang & la Grande Muraille.webp"
+      },
+      {
+        "icon": "🐺",
+        "tag": "Civilisation",
+        "date": "–27 av. J.-C.",
+        "title": "Empire Romain — Auguste à la Chute",
+        "desc": "Auguste devient le premier Empereur. La Pax Romana offre 2 siècles de paix. Rome atteint 1 million d'habitants, 80 000 km de routes, des aqueducs et le droit romain.",
+        "anecdotes": [
+          {
+            "e": "🌊",
+            "t": "<b>Les aqueducs romains</b> apportaient de l'eau fraîche sur 100 km. Rome distribuait 1 million de m³ d'eau par jour — davantage qu'une ville moderne de même taille."
+          },
+          {
+            "e": "🍝",
+            "t": "<b>Le « garum »</b> — sauce de poisson fermenté — était le ketchup romain. Ils le mettaient sur tout. Des amphores de garum ont été trouvées jusqu'en Bretagne."
+          }
+        ],
+        "kind": "histoire",
+        "img": "histoire/Auguste.webp"
+      },
+      {
+        "icon": "✝️",
+        "tag": "Religion",
+        "date": "~33 ap. J.-C.",
+        "title": "Naissance du Christianisme",
+        "desc": "L'enseignement de Jésus de Nazareth se répand dans tout l'Empire romain. En 380, Théodose en fait la religion officielle de l'Empire.",
+        "anecdotes": [
+          {
+            "e": "📅",
+            "t": "<b>Jésus n'est probablement pas né l'an 0.</b> Une erreur de calcul du moine Denys le Petit au VIe siècle. Jésus serait né entre –6 et –4 av. J.-C."
+          },
+          {
+            "e": "🏛️",
+            "t": "<b>En moins de 4 siècles,</b> une religion persécutée devint la religion d'État de l'empire le plus puissant du monde. Une révolution historique sans précédent."
+          }
+        ],
+        "kind": "histoire",
+        "img": "histoire/L'expansion du christianisme au Ier siècle.webp"
+      },
+      {
+        "kind": "histoire",
+        "icon": "🧭",
+        "date": "~XIe siècle",
+        "title": "La Boussole (Chine → Monde)",
+        "desc": "Inventée en Chine pour la géomancie (feng shui), la boussole est adaptée à la navigation maritime au XIe siècle. Elle permettra les Grandes Découvertes européennes.",
+        "anecdotes": [
+          {
+            "e": "🧭",
+            "t": "<b>La boussole fut d'abord utilisée pour orienter les maisons</b> selon les principes du feng shui — pas pour la navigation. C'est son usage maritime qui changea le monde."
+          }
+        ],
+        "img": "histoire/Schéma et histoire du compas.webp"
+      },
+      {
+        "kind": "histoire",
+        "icon": "📖",
+        "date": "~1 010",
+        "title": "Le Dit du Genji — Premier Roman du Monde",
+        "desc": "Murasaki Shikibu, dame de cour japonaise, écrit Le Dit du Genji — le premier roman de l'histoire humaine. Un récit de 54 chapitres sur les amours de la cour impériale.",
+        "anecdotes": [
+          {
+            "e": "✍️",
+            "t": "<b>Le premier roman de l'histoire est écrit par une femme,</b> au Japon, il y a 1 000 ans. C'est aussi l'un des plus longs et des plus complexes — psychologiquement, il n'a rien à envier aux romans modernes."
+          }
+        ],
+        "img": "histoire/Lady Murasaki écrivant sous la lueur de la bougie.webp"
+      },
+      {
+        "kind": "histoire",
+        "icon": "🧪",
+        "date": "105 ap. J.-C.",
+        "title": "Invention du Papier (Chine)",
+        "desc": "Cai Lun améliore le procédé de fabrication du papier en Chine. Cette invention mettra 1 000 ans à atteindre l'Europe, révolutionnant la transmission du savoir.",
+        "anecdotes": [
+          {
+            "e": "📄",
+            "t": "<b>Avant le papier, on écrivait sur des soies ou des bambous</b> — beaucoup plus lourds et coûteux. Un seul livre nécessitait des dizaines de bambous."
+          },
+          {
+            "e": "⏰",
+            "t": "<b>Le papier mit 1 000 ans à atteindre l'Europe</b> (XIe-XIIe siècle, via les Arabes). Sans papier, pas d'imprimerie possible."
+          }
+        ],
+        "img": "histoire/papier.webp"
+      },
+      {
+        "icon": "🌸",
+        "tag": "Civilisation",
+        "date": "~300 ap. J.-C.",
+        "title": "Japon Ancien — Shintô & Premiers Clans",
+        "desc": "Les premiers clans japonais se fédèrent. Le shintô, religion indigène, vénère les kami — les esprits qui habitent la nature. L'Empereur descend de la déesse du Soleil Amaterasu.",
+        "anecdotes": [
+          {
+            "e": "⛩️",
+            "t": "<b>Le « torii » rouge</b> marque l'entrée dans un espace sacré shintô. Le Japon compte plus de 80 000 sanctuaires shintô."
+          },
+          {
+            "e": "🌸",
+            "t": "<b>Le « hanami »</b> (contemplation des cerisiers en fleurs) est une tradition née à la période Heian (~800 ap.). 1 200 ans plus tard, tout le Japon le pratique encore."
+          }
+        ],
+        "kind": "histoire",
+        "img": "histoire/Prêtre shintoïste.webp"
+      },
+      {
+        "icon": "⚜️",
+        "tag": "Civilisation",
+        "date": "330 ap. J.-C.",
+        "title": "Byzance — La Rome Orientale",
+        "desc": "Constantin fonde Constantinople sur le Bosphore. L'Empire romain d'Orient survivra 1 123 ans de plus que celui d'Occident, gardant vivant l'héritage grec et romain.",
+        "anecdotes": [
+          {
+            "e": "🧱",
+            "t": "<b>Les murailles de Théodose</b> résistèrent à 23 sièges en 1 000 ans. Elles ne tombèrent qu'avec la poudre à canon en 1453. Ces murs sauvèrent l'Europe chrétienne à plusieurs reprises."
+          },
+          {
+            "e": "🔥",
+            "t": "<b>Le « Feu Grégeois »</b> brûlait sur l'eau et ne pouvait être éteint. Il détruisit plusieurs flottes arabes. Sa formule reste inconnue à ce jour."
+          }
+        ],
+        "kind": "histoire",
+        "img": "histoire/byzance.webp"
+      }
+    ]
+  },
+  {
+    "era": "✦ Moyen Âge Mondial (500 – 1300)",
+    "cls": "medieval",
+    "events": [
+      {
+        "icon": "🌍",
+        "tag": "Civilisation",
+        "date": "1 235 – 1 600",
+        "title": "Empire du Mali — Mansa Musa, l'Homme le Plus Riche",
+        "desc": "L'empire du Mali contrôle les routes de l'or. Mansa Musa est probablement l'homme le plus riche de toute l'histoire humaine. Tombouctou est l'une des grandes capitales intellectuelles du monde.",
+        "anecdotes": [
+          {
+            "e": "💰",
+            "t": "<b>Le pèlerinage de Mansa Musa à La Mecque (1324)</b> avec 60 000 personnes et des tonnes d'or distribua tant de richesses que le cours de l'or s'effondra pendant 12 ans dans toute la Méditerranée."
+          },
+          {
+            "e": "📚",
+            "t": "<b>Tombouctou possédait 180 écoles coraniques</b> et une université (Sankore) attirant des érudits de toute l'Afrique. Elle avait plus de livres que n'importe quelle ville européenne de l'époque."
+          }
+        ],
+        "kind": "histoire",
+        "img": "histoire/Tombuctu le marché animé d'une cité ancienne.webp"
+      },
+      {
+        "icon": "🌍",
+        "tag": "Événement",
+        "date": "1 464 – 1 591",
+        "title": "Empire Songhaï — Le Plus Grand d'Afrique",
+        "desc": "L'un des plus vastes empires d'Afrique précoloniale couvre une superficie comparable à l'Europe occidentale. Tombouctou est l'un des grands centres intellectuels mondiaux avec ses 700 000 manuscrits.",
+        "anecdotes": [
+          {
+            "e": "📜",
+            "t": "<b>Des familles de Tombouctou conservent encore aujourd'hui</b> des milliers de manuscrits anciens sur les mathématiques, l'astronomie et la philosophie."
+          },
+          {
+            "e": "⚔️",
+            "t": "<b>L'empire fut détruit en 1591 par une armée marocaine armée de mousquets</b> — les premières armes à feu en Afrique subsaharienne. La technologie changea l'équilibre des puissances."
+          }
+        ],
+        "kind": "histoire",
+        "img": "histoire/Empire Songhaï — Tombouctou.webp"
+      },
+      {
+        "icon": "⡐",
+        "tag": "Civilisation",
+        "date": "~500 – 900",
+        "title": "Mayas Classiques — Astronomie & Écriture",
+        "desc": "Les Mayas construisent des cités-pyramides, développent l'écriture, calculent un calendrier d'une précision extraordinaire et inventent le zéro indépendamment de l'Inde.",
+        "anecdotes": [
+          {
+            "e": "⭐",
+            "t": "<b>Les Mayas calculèrent l'année solaire à 365,2420 jours</b> — la valeur exacte est 365,2422. Plus précis que le calendrier julien romain."
+          },
+          {
+            "e": "📚",
+            "t": "<b>Les Espagnols brûlèrent presque tous les livres mayas.</b> Il n'en reste que 4. Une destruction culturelle irréparable — l'équivalent de brûler toutes les bibliothèques d'Europe."
+          }
+        ],
+        "kind": "histoire",
+        "img": "histoire/Mayas.webp"
+      },
+      {
+        "kind": "histoire",
+        "icon": "🎨",
+        "date": "~1 500",
+        "title": "Léonard & Michel-Ange — Renaissance Italienne",
+        "desc": "La Renaissance italienne produit en 50 ans plus de chefs-d'œuvre que n'importe quelle autre période. Léonard, Michel-Ange, Raphaël, Botticelli redéfinissent l'art occidental.",
+        "anecdotes": [
+          {
+            "e": "💰",
+            "t": "<b>Les Médicis financèrent la Renaissance</b> — banquiers florentins devenus mécènes par passion et par prestige. Sans leur argent, Léonard, Michel-Ange et Botticelli n'auraient peut-être jamais pu créer librement."
+          }
+        ],
+        "img": "histoire/Leonard et Michel-Ange.webp"
+      },
+      {
+        "icon": "🌙",
+        "tag": "Religion",
+        "date": "622",
+        "title": "Naissance de l'Islam — L'Hégire",
+        "desc": "Mahomet fuit La Mecque pour Médine. Cette date marque le début du calendrier musulman. En 10 ans, ses successeurs conquièrent la Perse, l'Égypte et la Syrie.",
+        "anecdotes": [
+          {
+            "e": "📅",
+            "t": "<b>Le calendrier musulman commence en 622.</b> Nous sommes actuellement en l'an 1446 de l'Hégire. L'année lunaire (354 jours) fait que le Ramadan tourne sur toute l'année solaire."
+          },
+          {
+            "e": "🌍",
+            "t": "<b>En 80 ans, l'islam s'étendit de l'Espagne à l'Inde.</b> Une vitesse d'expansion sans précédent — Rome avait mis 5 siècles pour bâtir son empire."
+          }
+        ],
+        "kind": "histoire",
+        "img": "histoire/La_migration_du_prophète_Muhammad.webp"
+      },
+      {
+        "icon": "📚",
+        "tag": "Civilisation",
+        "date": "750 – 1 258",
+        "title": "Âge d'Or de l'Islam — Bagdad",
+        "desc": "Bagdad devient la capitale intellectuelle du monde. La Maison de la Sagesse traduit tout le savoir grec, perse et indien. Mathématiques, médecine, astronomie atteignent leur apogée.",
+        "anecdotes": [
+          {
+            "e": "🔢",
+            "t": "<b>L'algèbre, les chiffres 0-9, la trigonométrie :</b> inventés ou transmis par les mathématiciens arabes. Sans eux, les mathématiques européennes auraient des siècles de retard."
+          },
+          {
+            "e": "🌟",
+            "t": "<b>La moitié des étoiles ont des noms arabes :</b> Algol, Aldébaran, Rigel, Véga, Bételgeuse... Les astronomes arabes médiévaux avaient cartographié le ciel quand l'Europe traversait le haut Moyen Âge."
+          }
+        ],
+        "kind": "histoire",
+        "img": "histoire/La Maison de la Sagesse à Bagdad.webp"
+      },
+      {
+        "icon": "⚡",
+        "tag": "Peuple",
+        "date": "793 – 1 066",
+        "title": "Les Vikings — Explorateurs du Monde",
+        "desc": "Les Vikings partis de Scandinavie attaquent les côtes européennes, remontent les fleuves jusqu'à Bagdad, colonisent l'Islande et le Groenland, et atteignent l'Amérique 500 ans avant Colomb.",
+        "anecdotes": [
+          {
+            "e": "🪓",
+            "t": "<b>Les Vikings ne portaient pas de casques à cornes !</b> Cette image est un mythe du XIXe siècle. Les vrais casques étaient en métal simple, parfois avec un protège-nez."
+          },
+          {
+            "e": "🌲",
+            "t": "<b>Leif Eriksson atteignit l'Amérique vers l'an 1000.</b> L'établissement viking de L'Anse aux Meadows (Canada) a été prouvé par l'archéologie. Les Vikings abandonnèrent face aux indigènes — contrairement aux Espagnols 500 ans plus tard."
+          },
+          {
+            "e": "🔱",
+            "t": "<b>La Garde Varègue</b> était une unité d'élite de l'armée byzantine composée exclusivement de Vikings nordiques. Les empereurs byzantins leur faisaient plus confiance qu'à leurs propres soldats."
+          }
+        ],
+        "kind": "histoire",
+        "img": "histoire/raids_vikings.webp"
+      },
+      {
+        "icon": "🏯",
+        "tag": "Civilisation",
+        "date": "1185",
+        "title": "Japon Féodal — Les Samouraïs",
+        "desc": "Le premier shogunat de Kamakura est créé. Les samouraïs deviennent la classe dirigeante. Le Bushidô (voie du guerrier) codifie l'honneur, la loyauté et le sacrifice.",
+        "anecdotes": [
+          {
+            "e": "🗡️",
+            "t": "<b>Le katana</b> était considéré comme l'âme du guerrier, fabriqué sur des semaines avec un acier plié des centaines de fois. Il avait un nom propre."
+          },
+          {
+            "e": "🌊",
+            "t": "<b>En 1274 et 1281, deux typhons</b> (les « kamikaze » — vent divin) détruisirent la flotte mongole qui tentait d'envahir le Japon. Les Japonais en conclurent que les dieux les protégeaient."
+          }
+        ],
+        "kind": "histoire",
+        "img": "histoire/Samouraï_noble_au_lever_du_jour.webp"
+      },
+      {
+        "icon": "🏹",
+        "tag": "Civilisation",
+        "date": "1206",
+        "title": "Gengis Khan — L'Empire Mongol",
+        "desc": "Temüjin unifie les tribus mongoles et devient Gengis Khan. En 20 ans, il conquiert la Chine du Nord, l'Asie centrale et la Perse. Son empire sera le plus grand jamais créé.",
+        "anecdotes": [
+          {
+            "e": "⚡",
+            "t": "<b>La cavalerie mongole pouvait parcourir 100 km par jour</b> — 4 fois plus vite que les armées européennes. Chaque cavalier avait 3 à 5 chevaux."
+          },
+          {
+            "e": "🧬",
+            "t": "<b>~0,5 % de la population mondiale</b> (16 millions de personnes) descendrait directement de Gengis Khan selon les analyses génétiques."
+          },
+          {
+            "e": "📚",
+            "t": "<b>La destruction de Bagdad (1258) par les Mongols</b> fut une catastrophe culturelle : la Grande Bibliothèque fut détruite. On dit que le Tigre coula noir d'encre."
+          }
+        ],
+        "kind": "histoire",
+        "img": "histoire/Gengis_Khan_sur_les_steppes_mongoles.webp"
+      },
+      {
+        "kind": "histoire",
+        "icon": "🔢",
+        "date": "1202",
+        "title": "Fibonacci — Les Chiffres Arabes en Europe",
+        "desc": "Leonardo Fibonacci publie le Liber Abaci et introduit les chiffres arabes (0-9) en Europe. Ils remplacent progressivement les chiffres romains et rendent le calcul infiniment plus simple.",
+        "anecdotes": [
+          {
+            "e": "🔢",
+            "t": "<b>Essayez de faire une multiplication en chiffres romains :</b> XIV × XXIII = ? Avec les chiffres arabes : 14 × 23 = 322. La différence explique pourquoi les chiffres arabes s'imposèrent en moins d'un siècle."
+          },
+          {
+            "e": "🐰",
+            "t": "<b>La suite de Fibonacci</b> (1, 1, 2, 3, 5, 8, 13...) apparaît partout dans la nature : pétales de fleurs, spirales de coquillages, disposition des graines de tournesol. Une des formules les plus magiques des mathématiques."
+          }
+        ],
+        "img": "histoire/fibonacci.webp"
+      },
+      {
+        "kind": "histoire",
+        "icon": "💣",
+        "date": "~1267",
+        "title": "Roger Bacon — La Poudre à Canon en Europe",
+        "desc": "Le moine franciscain Roger Bacon décrit pour la première fois la poudre à canon en Europe dans ses écrits. Il prédit aussi le télescope, les lunettes et les avions — 600 ans avant leur invention.",
+        "anecdotes": [
+          {
+            "e": "🔮",
+            "t": "<b>Roger Bacon écrivit en 1267 :</b> « Un char peut être construit qui se meut avec une vitesse incroyable sans animaux pour le tirer. » Il décrivit aussi des machines volantes et des navires sans rameurs. Il fut emprisonné pour ces idées jugées diaboliques."
+          },
+          {
+            "e": "💣",
+            "t": "<b>Bacon chiffra sa recette de poudre à canon</b> en anagramme pour éviter d'être condamné. Son code ne fut déchiffré qu'en 1904 — 637 ans après avoir été écrit."
+          }
+        ],
+        "img": "histoire/bacon.webp"
+      },
+      {
+        "kind": "histoire",
+        "icon": "👓",
+        "date": "~1286",
+        "title": "Invention des Lunettes",
+        "desc": "Les premières lunettes correctrices sont fabriquées en Italie vers 1286. Elles permettent aux clercs et artisans âgés de continuer à travailler. La productivité intellectuelle de l'Europe fait un bond.",
+        "anecdotes": [
+          {
+            "e": "👓",
+            "t": "<b>Sans lunettes, un moine copiste ou un artisan</b> devenait inutile après 40-45 ans quand sa vue baissait. Les lunettes allongèrent la vie productive des lettrés de 20 ans — un impact considérable sur la transmission du savoir."
+          },
+          {
+            "e": "🔭",
+            "t": "<b>Les lunettes sont à l'origine du télescope et du microscope.</b> Galilée améliora simplement une lunette de spectacle pour regarder le ciel en 1609. Toute la révolution astronomique commence avec un correcteur de presbytie."
+          }
+        ],
+        "img": "histoire/lunettes.webp"
+      },
+      {
+        "kind": "histoire",
+        "icon": "⏰",
+        "date": "~1300",
+        "title": "L'Horloge Mécanique",
+        "desc": "Les premières horloges mécaniques à échappement apparaissent dans les cathédrales européennes. Pour la première fois, le temps est mesuré, divisé, et partagé publiquement — naissance de la ponctualité.",
+        "anecdotes": [
+          {
+            "e": "⏰",
+            "t": "<b>Avant l'horloge mécanique,</b> le temps était flou : les cloches sonnaient approximativement les heures canoniques. L'horloge mécanique inventa la notion de « rendez-vous précis » et transforma l'organisation du travail."
+          },
+          {
+            "e": "⚙️",
+            "t": "<b>Le mécanisme d'échappement</b> — l'engrenage qui transforme un mouvement continu en battements réguliers — est l'une des inventions les plus ingénieuses de l'histoire. Il est encore au cœur de toutes les montres mécaniques modernes."
+          }
+        ],
+        "img": "histoire/l'horloge médiévale.webp"
+      },
+      {
+        "kind": "histoire",
+        "icon": "📖",
+        "date": "1305",
+        "title": "Dante — La Divine Comédie",
+        "desc": "Dante Alighieri écrit en italien (et non en latin) un voyage poétique à travers l'Enfer, le Purgatoire et le Paradis. C'est le fondement de la langue italienne et l'un des plus grands textes de la littérature mondiale.",
+        "anecdotes": [
+          {
+            "e": "💔",
+            "t": "<b>Toute la Divine Comédie est dédiée à Béatrice</b> — une femme que Dante vit une seule fois à 9 ans, puis une autre fois à 18 ans. Il en tomba éperdument amoureux. Elle mourut à 24 ans sans qu'il lui parle vraiment."
+          },
+          {
+            "e": "😤",
+            "t": "<b>Dante place ses ennemis politiques en Enfer</b> par leur nom, dans des supplices précis et inventifs. La Divine Comédie est aussi un règlement de comptes littéraire d'une rare vengeance."
+          }
+        ],
+        "img": "histoire/dante.webp"
+      },
+      {
+        "kind": "histoire",
+        "icon": "🎨",
+        "date": "~1305",
+        "title": "Giotto — La Révolution du Réalisme",
+        "desc": "Giotto di Bondone peint les fresques de la chapelle des Scrovegni à Padoue. Pour la première fois depuis l'Antiquité, les personnages ont un volume, des émotions, une profondeur. Il invente la peinture moderne.",
+        "anecdotes": [
+          {
+            "e": "🎨",
+            "t": "<b>Avant Giotto, les personnages peints étaient plats,</b> hiératiques, sur fond or. Giotto leur donna des corps solides, des visages expressifs, des gestes naturels. Dante le cite dans la Divine Comédie — preuve de sa célébrité immédiate."
+          },
+          {
+            "e": "🥚",
+            "t": "<b>La technique de la fresque</b> (peinture sur plâtre frais) ne permet pas les repentirs — impossible d'effacer. Giotto peignait directement, sans esquisse, sur des surfaces de plusieurs mètres carrés. Un exploit de précision et de rapidité."
+          }
+        ],
+        "img": "histoire/Giotto peint les fresques à Padoue.webp"
+      },
+      {
+        "kind": "histoire",
+        "icon": "🌍",
+        "date": "1543",
+        "title": "Copernic — Révolution Héliocentrique",
+        "desc": "La Terre tourne autour du Soleil. Cette idée, publiée en 1543, déclenche la révolution scientifique et brise 1 400 ans de cosmologie ptolémaïque.",
+        "anecdotes": [
+          {
+            "e": "🔭",
+            "t": "<b>Galilée confirma Copernic par l'observation</b> en 1609-1610 et fut condamné par l'Inquisition en 1633. L'Église réhabilita officiellement Galilée en... 1992."
+          }
+        ],
+        "img": "histoire/copernic.webp"
+      }
+    ]
+  },
+  {
+    "era": "✦ Temps Modernes (1300 – 1600)",
+    "cls": "empire",
+    "events": [
+      {
+        "icon": "🌞",
+        "tag": "Civilisation",
+        "date": "1 325 – 1 521",
+        "title": "Les Aztèques — Tenochtitlan",
+        "desc": "Les Aztèques fondent Tenochtitlan (Mexico actuelle) sur un lac. En 200 ans, ils bâtissent l'empire le plus puissant de Mésoamérique avec 200 000 habitants — plus que Madrid ou Paris.",
+        "anecdotes": [
+          {
+            "e": "🍫",
+            "t": "<b>Le chocolat vient des Aztèques.</b> Ils buvaient le cacao comme une boisson amère et sacrée, réservée aux élites. Ils l'utilisaient aussi comme monnaie."
+          },
+          {
+            "e": "🦠",
+            "t": "<b>La variole fut l'arme principale de Cortés</b> (1519-1521) sans qu'il le sache. 50 à 90 % de la population indigène mourut de maladies européennes en moins d'un siècle."
+          }
+        ],
+        "kind": "histoire",
+        "img": "histoire/Tenochtitlan.webp"
+      },
+      {
+        "icon": "🧱",
+        "tag": "Civilisation",
+        "date": "1 368 – 1 644",
+        "title": "Chine Ming — Zheng He & la Muraille Reconstruite",
+        "desc": "Les Ming reconstruisent la Grande Muraille en briques. L'amiral Zheng He explore l'Afrique avec une flotte gigantesque — 87 ans avant Vasco de Gama. Puis la Chine choisit l'isolement.",
+        "anecdotes": [
+          {
+            "e": "⛵",
+            "t": "<b>Zheng He commandait des navires de 130 mètres de long</b> — les plus grands bateaux en bois jamais construits. Sa flotte de 317 navires fit 7 grandes expéditions en Asie du Sud-Est, en Inde et en Afrique."
+          },
+          {
+            "e": "🚫",
+            "t": "<b>La Chine abandonna ensuite l'exploration</b> par décision politique. Si elle avait continué, l'histoire du monde aurait été radicalement différente."
+          }
+        ],
+        "kind": "histoire",
+        "img": "histoire/La flotte de trésor de Zheng He.webp"
+      },
+      {
+        "icon": "🏔️",
+        "tag": "Civilisation",
+        "date": "1 438 – 1 533",
+        "title": "Les Incas — L'Empire des Andes",
+        "desc": "En moins d'un siècle, les Incas bâtissent un empire de 5 000 km de long dans les Andes, relié par 40 000 km de routes pavées, sans roue ni écriture.",
+        "anecdotes": [
+          {
+            "e": "🏗️",
+            "t": "<b>Le Machu Picchu (1450)</b> fut construit sans roue, sans fer et sans ciment. Les pierres s'emboîtent si parfaitement qu'une feuille de papier ne passe pas entre elles."
+          },
+          {
+            "e": "📨",
+            "t": "<b>Les Incas n'avaient pas d'écriture</b> mais utilisaient les « quipus » — systèmes de nœuds colorés — pour enregistrer des données. On commence seulement à les déchiffrer."
+          }
+        ],
+        "kind": "histoire",
+        "img": "histoire/machu pitchu.webp"
+      },
+      {
+        "icon": "💀",
+        "tag": "Événement",
+        "date": "1347 – 1351",
+        "title": "La Peste Noire — Une Catastrophe Mondiale",
+        "desc": "La peste bubonique, venue d'Asie centrale via les routes mongoles, tue 25 à 50 millions de personnes en Europe — un tiers de la population. Elle dévaste aussi l'Asie et le Moyen-Orient.",
+        "anecdotes": [
+          {
+            "e": "🐀",
+            "t": "<b>La Peste voyagea le long des routes mongoles.</b> C'est la Pax Mongolica — qui facilitait les échanges — qui transporta également la mort."
+          },
+          {
+            "e": "💸",
+            "t": "<b>Les survivants héritèrent des terres des morts.</b> La Peste accéléra paradoxalement la fin du servage en Europe et modifia les rapports de force sociaux."
+          }
+        ],
+        "kind": "histoire",
+        "img": "histoire/peste.webp"
+      },
+      {
+        "icon": "💀",
+        "tag": "Événement",
+        "date": "1453",
+        "title": "Chute de Constantinople — Fin du Moyen Âge",
+        "desc": "Le sultan Mehmed II (21 ans) prend Constantinople avec des canons géants. Fin de l'Empire byzantin. Des milliers de savants fuient en Italie avec leurs manuscrits grecs et nourrissent la Renaissance.",
+        "anecdotes": [
+          {
+            "e": "💣",
+            "t": "<b>Le canon de Mehmed mesurait 8 mètres</b> et tirait des boulets de 600 kg. Il ouvrit des brèches dans des murs qui avaient résisté 1 000 ans."
+          },
+          {
+            "e": "📚",
+            "t": "<b>La chute de Byzance accéléra la Renaissance italienne :</b> les savants grecs qui fuyaient apportèrent en Italie des manuscrits anciens que l'Europe croyait perdus."
+          }
+        ],
+        "kind": "histoire",
+        "img": "histoire/Le_siège_de_Constantinople,_1453.webp"
+      },
+      {
+        "icon": "🖨️",
+        "tag": "Invention",
+        "date": "~1450",
+        "title": "Gutenberg — L'Imprimerie",
+        "desc": "Caractères mobiles en métal à Mayence. En 50 ans, 15 millions de livres imprimés en Europe. Le savoir devient accessible à tous.",
+        "anecdotes": [
+          {
+            "e": "📖",
+            "t": "<b>Un moine copiste mettait 5 mois pour copier une Bible.</b> Une presse Gutenberg en produisait 180 en une semaine."
+          },
+          {
+            "e": "😅",
+            "t": "<b>Gutenberg mourut ruiné :</b> son associé Fust lui prit ses presses par un procès. L'inventeur de l'imprimerie ne profita pas de son invention."
+          }
+        ],
+        "kind": "histoire",
+        "img": "histoire/Gutenberg.webp"
+      },
+      {
+        "kind": "histoire",
+        "icon": "⚙️",
+        "date": "~1450",
+        "title": "Le Haut-Fourneau — Révolution de l'Acier",
+        "desc": "Le haut-fourneau européen permet de produire de la fonte liquide en grande quantité. Pour la première fois, on peut couler le métal en formes complexes. L'industrialisation devient possible.",
+        "anecdotes": [
+          {
+            "e": "🔥",
+            "t": "<b>Le haut-fourneau médiéval atteignait 1 500°C,</b> contre 1 100°C pour les forges traditionnelles. Cette différence de température transforme le fer en fonte liquide, qu'on peut couler dans des moules — révolution technique."
+          },
+          {
+            "e": "⚙️",
+            "t": "<b>La production d'acier en Europe</b> multiplia par 10 en moins d'un siècle après le haut-fourneau. Sans lui, pas de Révolution industrielle — les machines à vapeur nécessitaient des pièces en fonte usinées."
+          }
+        ],
+        "img": "histoire/haut fourneau.webp"
+      },
+      {
+        "icon": "🌏",
+        "tag": "Événement",
+        "date": "1492 – 1522",
+        "title": "Les Grandes Découvertes",
+        "desc": "Colomb atteint l'Amérique (1492), Vasco de Gama l'Inde (1498), Magellan fait le tour du monde (1519-1522). La planète se connecte pour la première fois. Début de la mondialisation.",
+        "anecdotes": [
+          {
+            "e": "🌎",
+            "t": "<b>Colomb mourut convaincu d'avoir atteint l'Asie.</b> C'est Amerigo Vespucci qui comprit le premier qu'il s'agissait d'un « Nouveau Monde » — d'où le nom « Amérique »."
+          },
+          {
+            "e": "🦠",
+            "t": "<b>Le contact entre Ancien et Nouveau Monde</b> tua 90 % des populations amérindiennes par les maladies européennes. La plus grande catastrophe démographique de l'histoire."
+          }
+        ],
+        "kind": "histoire",
+        "img": "histoire/decouverte amerique.webp"
+      },
+      {
+        "icon": "⛪",
+        "tag": "Religion",
+        "date": "1517",
+        "title": "Luther — Naissance du Protestantisme",
+        "desc": "Luther diffuse ses 95 thèses contre les indulgences. L'Europe chrétienne se fracture durablement entre catholiques et protestants.",
+        "anecdotes": [
+          {
+            "e": "🍺",
+            "t": "<b>Luther brassait de la bière avec sa femme Katharina.</b> La Réforme et la bière : deux spécialités allemandes."
+          }
+        ],
+        "kind": "histoire",
+        "img": "histoire/luther.webp"
+      }
+    ]
+  },
+  {
+    "era": "✦ Époque Contemporaine (1600 – aujourd'hui)",
+    "cls": "contemp",
+    "events": [
+      {
+        "icon": "⛩️",
+        "tag": "Civilisation",
+        "date": "1 603 – 1 868",
+        "title": "Japon Tokugawa — 250 Ans de Paix",
+        "desc": "Le shogunat Tokugawa unifie le Japon et impose 250 ans de paix. Le pays se ferme volontairement au monde extérieur. La culture samouraï atteint son apogée. L'art ukiyo-e, le haïku et le kabuki fleurissent.",
+        "anecdotes": [
+          {
+            "e": "🚪",
+            "t": "<b>Le Japon s'isola volontairement en 1639.</b> Seuls les Hollandais pouvaient commercer, depuis une minuscule île artificielle à Nagasaki. 200 ans d'isolement choisi."
+          },
+          {
+            "e": "🗡️",
+            "t": "<b>Le « seppuku »</b> (suicide rituel) permettait à un samouraï déshonoré de mourir avec dignité. Un ami se tenait prêt à décapiter le mourant pour abréger sa souffrance."
+          }
+        ],
+        "kind": "histoire",
+        "img": "histoire/Japon Tokugawa — 250 Ans de Paix.webp"
+      },
+      {
+        "kind": "histoire",
+        "icon": "📖",
+        "date": "1595 – 1616",
+        "title": "Shakespeare — Hamlet, Roméo & Juliette",
+        "desc": "Shakespeare écrit 37 pièces et invente ou popularise 1 700 mots anglais. Il explore l'âme humaine avec une profondeur qui n'a jamais été égalée.",
+        "anecdotes": [
+          {
+            "e": "🌍",
+            "t": "<b>Shakespeare est l'auteur le plus joué au monde,</b> dans toutes les langues. Ses pièces sont jouées quelque part dans le monde chaque jour depuis 400 ans."
+          }
+        ],
+        "img": "histoire/shakespeare.webp"
+      },
+      {
+        "icon": "☀️",
+        "tag": "Événement",
+        "date": "1600 – 1900",
+        "title": "Colonisation Européenne & Traite Négrière",
+        "desc": "L'Europe colonise progressivement l'Afrique, l'Asie et les Amériques. La traite négrière déporte 12 millions d'Africains vers les Amériques. Des civilisations millénnaires sont détruites ou soumises.",
+        "anecdotes": [
+          {
+            "e": "😢",
+            "t": "<b>La traite négrière fut la plus grande déportation forcée de l'histoire.</b> 12 millions d'Africains déportés entre 1500 et 1900, dont 2 millions moururent pendant la traversée."
+          },
+          {
+            "e": "🌍",
+            "t": "<b>L'Afrique en 1900 :</b> 90 % du continent était sous domination européenne. Les frontières tracées sans égard aux peuples créent encore aujourd'hui des conflits."
+          }
+        ],
+        "kind": "histoire",
+        "img": "histoire/Le_commerce_triangulaire_transatlantique.webp"
+      },
+      {
+        "kind": "histoire",
+        "icon": "🎨",
+        "date": "1642",
+        "title": "Rembrandt — La Ronde de Nuit",
+        "desc": "Rembrandt van Rijn peint La Ronde de Nuit — une scène de milice hollandaise d'une vie et d'un mouvement jamais vus. Chef-d'œuvre de l'âge d'or hollandais.",
+        "anecdotes": [
+          {
+            "e": "✂️",
+            "t": "<b>La Ronde de Nuit fut recoupée</b> pour tenir dans une nouvelle salle au XVIIIe siècle. Les bords furent coupés, perdant 3 personnages et rompant la composition originale. On vient seulement de reconstituer numériquement la version intégrale."
+          },
+          {
+            "e": "💸",
+            "t": "<b>Rembrandt mourut ruiné</b> malgré son immense talent. Il dépensait sans compter en objets d'art et faisait faillite. Comme Gutenberg, comme Mozart — les génies créateurs ne sont pas toujours de bons gestionnaires."
+          }
+        ],
+        "img": "histoire/rembrant.webp"
+      },
+      {
+        "kind": "histoire",
+        "icon": "🔭",
+        "date": "1687",
+        "title": "Newton — La Gravitation Universelle",
+        "desc": "Isaac Newton publie les « Principia Mathematica » : la même force qui fait tomber une pomme maintient la Lune en orbite. La gravitation universelle unifie la physique terrestre et céleste.",
+        "anecdotes": [
+          {
+            "e": "🍎",
+            "t": "<b>La pomme de Newton est peut-être vraie !</b> Newton lui-même raconta l'histoire à la fin de sa vie. Mais elle lui inspira la question — pas la réponse. Il mit 20 ans de calculs pour démontrer sa théorie."
+          },
+          {
+            "e": "🌊",
+            "t": "<b>Newton inventa aussi le calcul infinitésimal</b> (simultanément avec Leibniz). Ces deux inventions — gravitation et calcul — sont les fondements de toute la physique et ingénierie modernes."
+          }
+        ],
+        "img": "histoire/newton.webp"
+      },
+      {
+        "kind": "histoire",
+        "icon": "🎵",
+        "date": "1685 – 1750",
+        "title": "Jean-Sébastien Bach — Le Baroque",
+        "desc": "Bach compose plus de 1 000 œuvres en 65 ans : fugues, cantates, passions, concertos. Il représente l'apogée de la musique baroque et est considéré comme l'un des plus grands compositeurs de l'histoire.",
+        "anecdotes": [
+          {
+            "e": "👶",
+            "t": "<b>Bach eut 20 enfants</b> de deux mariages. 10 survécurent, dont 4 devinrent eux-mêmes compositeurs célèbres."
+          },
+          {
+            "e": "🎹",
+            "t": "<b>Bach fut presque oublié après sa mort.</b> C'est Mendelssohn qui redécouvrit la Passion selon Saint Matthieu en 1829 — 79 ans après sa composition — et la fit rejouer."
+          }
+        ],
+        "img": "histoire/bach.webp"
+      },
+      {
+        "kind": "histoire",
+        "icon": "🎵",
+        "date": "1750 – 1820",
+        "title": "Haydn, Mozart & Beethoven — Le Classicisme",
+        "desc": "Le classicisme musical réunit Haydn, Mozart et le premier Beethoven. Symphonies, concertos et opéras atteignent une perfection formelle. Mozart compose plus de 600 œuvres en 35 ans de vie.",
+        "anecdotes": [
+          {
+            "e": "👶",
+            "t": "<b>Mozart composait dans sa tête des œuvres complètes</b> avant de les écrire. Les partitions n'avaient presque pas de ratures — il les « copiait » depuis sa mémoire sonore."
+          },
+          {
+            "e": "💀",
+            "t": "<b>Mozart mourut à 35 ans dans la misère</b> et fut enterré dans une fosse commune à Vienne. Le génie le plus admiré d'Europe mourut sans sou et sans sépulture connue."
+          }
+        ],
+        "img": "histoire/mozart.webp"
+      },
+      {
+        "kind": "histoire",
+        "icon": "⚙️",
+        "date": "1769",
+        "title": "Machine à Vapeur — Révolution Industrielle",
+        "desc": "James Watt améliore la machine à vapeur et déclenche la Révolution Industrielle. La production d'énergie mécanique à grande échelle transforme le monde en quelques décennies.",
+        "anecdotes": [
+          {
+            "e": "🚂",
+            "t": "<b>En 1800, 80 % des humains travaillaient la terre.</b> En 1900, l'Angleterre était urbanisée à 80 %. La machine à vapeur fit cette transformation en 100 ans — contre 10 000 ans pour la révolution agricole."
+          }
+        ],
+        "img": "histoire/machine a vapeur.webp"
+      },
+      {
+        "kind": "histoire",
+        "icon": "🎨",
+        "date": "1874",
+        "title": "Impressionnisme — Monet, Renoir, Degas",
+        "desc": "Le mouvement impressionniste brise les règles académiques : peindre la lumière changeante, les impressions du moment, en plein air. Il ouvre la porte à tout l'art moderne.",
+        "anecdotes": [
+          {
+            "e": "😂",
+            "t": "<b>Le mot « impressionnisme » est une insulte recyclée.</b> Le critique Louis Leroy raillait Monet en disant que ses toiles n'étaient que des « impressions ». Les artistes adoptèrent le terme avec fierté."
+          }
+        ],
+        "img": "histoire/impressionnisme.webp"
+      },
+      {
+        "kind": "histoire",
+        "icon": "🎵",
+        "date": "1920s",
+        "title": "Jazz & Blues — Révolution Musicale",
+        "desc": "Nés des communautés afro-américaines, le blues et le jazz révolutionnent la musique mondiale. Ce sont les ancêtres du rock, de la soul, du R&B et de toute la musique populaire contemporaine.",
+        "anecdotes": [
+          {
+            "e": "🎸",
+            "t": "<b>Le blues est né de la fusion</b> des chants de travail africains, des spirituals et des harmonies européennes. C'est la musique de la souffrance transformée en art — et l'ancêtre de toute la musique populaire moderne."
+          }
+        ],
+        "img": "histoire/annees folles.webp"
+      },
+      {
+        "icon": "🌐",
+        "tag": "Événement",
+        "date": "1945 – aujourd'hui",
+        "title": "Décolonisation & Monde Contemporain",
+        "desc": "Après la 2ème Guerre Mondiale, les peuples colonisés obtiennent leur indépendance. L'ONU est fondée. La mondialisation connecte toutes les cultures. Un nouveau chapitre de l'histoire humaine s'écrit.",
+        "anecdotes": [
+          {
+            "e": "🌍",
+            "t": "<b>Entre 1945 et 1975, plus de 70 pays</b> accèdent à l'indépendance. La carte du monde est redessinée plus vite qu'elle ne l'avait jamais été."
+          },
+          {
+            "e": "🌐",
+            "t": "<b>Aujourd'hui, 8 milliards d'humains</b> parlent ~7 000 langues, pratiquent des milliers de religions et cultures différentes — héritage vivant de toutes les civilisations que cette chronologie retrace."
+          }
+        ],
+        "kind": "histoire",
+        "img": "histoire/Nelson_Mandela_et_la_lutte_pour_la_liberté.webp"
+      }
+    ]
+  }
+]

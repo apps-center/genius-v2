@@ -1,0 +1,247 @@
+{
+  "_meta": {
+    "title": "Migrations Humaines Préhistoriques",
+    "emoji": "🧬"
+  },
+  "description": "Homo Sapiens quitte l'Afrique il y a ~70 000 ans et peuple toute la planète en ~60 000 ans.",
+  "routes": [
+    {
+      "nom": "Sortie d'Afrique (–70 000 ans)",
+      "couleur": "#e08020",
+      "pts": [
+        [
+          36.0,
+          3.0
+        ],
+        [
+          43.0,
+          12.0
+        ],
+        [
+          55.0,
+          23.0
+        ],
+        [
+          45.0,
+          30.0
+        ],
+        [
+          35.0,
+          32.0
+        ]
+      ]
+    },
+    {
+      "nom": "Peuplement de l'Eurasie (–60 000 ans)",
+      "couleur": "#c04020",
+      "pts": [
+        [
+          45.0,
+          30.0
+        ],
+        [
+          60.0,
+          35.0
+        ],
+        [
+          75.0,
+          25.0
+        ],
+        [
+          90.0,
+          30.0
+        ],
+        [
+          100.0,
+          15.0
+        ],
+        [
+          120.0,
+          20.0
+        ]
+      ]
+    },
+    {
+      "nom": "Peuplement de l'Europe (–45 000 ans)",
+      "couleur": "#8060c0",
+      "pts": [
+        [
+          45.0,
+          30.0
+        ],
+        [
+          30.0,
+          38.0
+        ],
+        [
+          20.0,
+          42.0
+        ],
+        [
+          10.0,
+          45.0
+        ],
+        [
+          0.0,
+          47.0
+        ],
+        [
+          -5.0,
+          40.0
+        ]
+      ]
+    },
+    {
+      "nom": "Australie (–50 000 ans)",
+      "couleur": "#20a060",
+      "pts": [
+        [
+          100.0,
+          5.0
+        ],
+        [
+          110.0,
+          -5.0
+        ],
+        [
+          125.0,
+          -15.0
+        ],
+        [
+          135.0,
+          -20.0
+        ],
+        [
+          145.0,
+          -25.0
+        ],
+        [
+          150.0,
+          -30.0
+        ]
+      ]
+    },
+    {
+      "nom": "Peuplement des Amériques (–15 000 ans)",
+      "couleur": "#2060c0",
+      "pts": [
+        [
+          150.0,
+          60.0
+        ],
+        [
+          170.0,
+          65.0
+        ],
+        [
+          -170.0,
+          65.0
+        ],
+        [
+          -150.0,
+          60.0
+        ],
+        [
+          -130.0,
+          50.0
+        ],
+        [
+          -100.0,
+          40.0
+        ],
+        [
+          -80.0,
+          20.0
+        ],
+        [
+          -70.0,
+          -10.0
+        ],
+        [
+          -65.0,
+          -35.0
+        ],
+        [
+          -68.0,
+          -55.0
+        ]
+      ]
+    },
+    {
+      "nom": "Peuplement du Pacifique (–3 000 ans)",
+      "couleur": "#40c0c0",
+      "pts": [
+        [
+          120.0,
+          15.0
+        ],
+        [
+          130.0,
+          10.0
+        ],
+        [
+          150.0,
+          5.0
+        ],
+        [
+          170.0,
+          -15.0
+        ],
+        [
+          180.0,
+          -18.0
+        ],
+        [
+          -160.0,
+          -18.0
+        ],
+        [
+          -150.0,
+          -18.0
+        ],
+        [
+          -149.9,
+          -17.5
+        ]
+      ]
+    }
+  ],
+  "points": [
+    {
+      "nom": "Jebel Irhoud (Maroc)",
+      "lon": -8.8,
+      "lat": 32.5,
+      "desc": "–300 000 ans : plus anciens Homo Sapiens connus"
+    },
+    {
+      "nom": "Sortie d'Afrique",
+      "lon": 43.0,
+      "lat": 12.0,
+      "desc": "–70 000 ans : migration principale via le détroit de Bab-el-Mandeb"
+    },
+    {
+      "nom": "Grotte Chauvet (France)",
+      "lon": 4.4,
+      "lat": 44.4,
+      "desc": "–36 000 ans : art rupestre le plus ancien d'Europe"
+    },
+    {
+      "nom": "Détroit de Béring",
+      "lon": -168.0,
+      "lat": 65.5,
+      "desc": "–15 000 ans : passage à pied sec vers les Amériques"
+    },
+    {
+      "nom": "Monte Verde (Chili)",
+      "lon": -73.2,
+      "lat": -41.5,
+      "desc": "–14 500 ans : plus ancienne trace humaine en Amérique du Sud"
+    },
+    {
+      "nom": "Tonga",
+      "lon": -175.2,
+      "lat": -21.1,
+      "desc": "–3 000 ans : base du peuplement polynésien"
+    }
+  ]
+}

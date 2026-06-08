@@ -1,0 +1,1190 @@
+{
+  "PT": {
+    "name": "Portugal",
+    "flag": "🇵🇹",
+    "capitale": "Lisbonne",
+    "continent": "Europe",
+    "population": "10,3 millions (2024)",
+    "superficie": "92 212 km²",
+    "langues": ["Portugais (officiel) — 5e langue mondiale, 260 millions de locuteurs"],
+    "monnaie": "Euro (EUR) — depuis 2002",
+
+    "histoire": {
+      "independance": "5 octobre 1143 (Royaume du Portugal — l'un des plus anciens États-nations d'Europe).",
+      "evenements_majeurs": [
+        "Reconquête chrétienne (1139-1249) : chasse les Maures de la péninsule Ibérique",
+        "Époque des Grandes Découvertes (XVe-XVIe s.) : Vasco de Gama, Cabral, Magellan — 1er empire maritime mondial",
+        "Empire colonial : Brésil, Angola, Mozambique, Goa, Macao, Timor...",
+        "Tremblement de terre de Lisbonne (1755) : l'une des plus grandes catastrophes naturelles de l'histoire européenne",
+        "Invasions napoléoniennes (1807-1811) : fuite de la famille royale au Brésil",
+        "Indépendance du Brésil (1822) : perte de la plus grande colonie",
+        "République proclamée (1910) : fin de la monarchie",
+        "Dictature de Salazar (Estado Novo, 1933-1974) : régime corporatiste isolationniste",
+        "Révolution des Œillets (25 avril 1974) : coup militaire pacifique, transition démocratique",
+        "Décolonisation (1974-1975) : Angola, Mozambique, Cap-Vert indépendants",
+        "Adhésion à l'UE (1986) : transformation économique majeure",
+        "Rétrocession de Macao à la Chine (1999) — fin du dernier territoire colonial"
+      ],
+      "role_historique": "Le Portugal a ouvert l'ère de la mondialisation au XVe siècle. Sa langue est parlée sur 5 continents. Sa Révolution des Œillets est l'un des rares exemples de transition démocratique pacifique depuis une dictature."
+    },
+
+    "politique": {
+      "regime": "République semi-présidentielle. Démocratie parlementaire stable depuis 1976. Constitution progressiste.",
+      "chef_etat": "Marcelo Rebelo de Sousa (Président depuis 2016, réélu 2021). Luís Montenegro (Premier ministre depuis mars 2024 — PSD, centre-droit).",
+      "stabilite": "Démocratie consolidée. Alternances politiques régulières. Montée de Chega (extrême droite, 18% en 2024 — inédit). Pays parmi les plus sûrs du monde (4e Global Peace Index).",
+      "alliances": [
+        "UE (depuis 1986) — zone euro",
+        "OTAN (co-fondateur, 1949)",
+        "CPLP (Communauté des Pays de Langue Portugaise — 9 pays, 260 M de personnes)",
+        "Relations privilégiées avec le Brésil, l'Angola et le Mozambique"
+      ]
+    },
+
+    "economie": {
+      "pib": "287 milliards $ (2023, 50e mondiale)",
+      "pib_hab": "27 800 $ (2023)",
+      "ressources": [
+        "Liège (50% de la production mondiale — Portugal seul fournisseur viable)",
+        "Vin (porto, vinho verde — exportations majeures)",
+        "Poisson (sardines, bacalhau — identité nationale)",
+        "Énergie éolienne et solaire (75% de l'électricité renouvelable en 2023)",
+        "Lithium (4e réserves mondiales — enjeu stratégique)"
+      ],
+      "secteurs": [
+        "Tourisme (25% du PIB — 30 millions de touristes en 2023, record)",
+        "Services et technologies (hub de nearshoring européen croissant)",
+        "Textile et chaussures (industrie traditionnelle en montée en gamme)",
+        "Agroalimentaire (vin, huile d'olive, conserves de poisson)",
+        "Énergie renouvelable (leader européen)"
+      ],
+      "grandes_villes": [
+        "Lisbonne (550 000 hab., 2,8 M agglomération — hub tech et tourisme)",
+        "Porto (250 000 hab. — 2e ville, vin, industrie)",
+        "Braga (hub industriel et universitaire)",
+        "Faro (Algarve — tourisme balnéaire)"
+      ],
+      "places_economiques": [
+        "Euronext Lisbonne",
+        "Web Summit (Lisbonne) : plus grande conférence tech d'Europe",
+        "Hub de nearshoring : sièges européens de Google, Mercedes, Volkswagen, Natixis",
+        "Port de Sines : hub de GNL (gaz naturel liquéfié) entre US et Europe"
+      ],
+      "voies_communication": [
+        "Aéroport Humberto Delgado (Lisbonne) — hub atlantique",
+        "Port de Sines : 1er port en eau profonde de la péninsule Ibérique",
+        "Réseau ferroviaire en développement (LGV Lisbonne-Porto en projet)",
+        "Position atlantique : porte d'entrée maritime de l'Europe depuis les Amériques"
+      ]
+    },
+
+    "societe": {
+      "demographie": "Population stagnante, vieillissante. Forte diaspora (5 millions de Portugais à l'étranger — France, Suisse, UK, Brésil). Retour des descendants de colons (Brésiliens, Angolais s'installant au Portugal).",
+      "idh": "0,866 (rang 38/191 en 2022, catégorie « très élevé »)",
+      "education": "Universités de Coimbra (fondée 1290 — parmi les plus anciennes d'Europe), Lisbonne, Porto. Progression spectaculaire du niveau d'études depuis les années 1980.",
+      "sante": "Espérance de vie 82 ans. Système de santé public universel (SNS) sous pression budgétaire.",
+      "inegalites": "Gini ~34 — inégalités modérées mais classes moyennes fragiles. Salaire minimum : 820 €/mois (2024) — l'un des plus bas d'Europe occidentale.",
+      "urbanisation": "67 % (2023). Forte concentration sur le littoral."
+    },
+
+    "environnement": {
+      "pollution": "Incendies de forêt dévastateurs (2017 : 100+ morts). Sécheresses récurrentes. Érosion côtière.",
+      "dev_durable": "Leader européen des énergies renouvelables (75% d'électricité verte). Objectif 80% en 2026. Réserves de lithium stratégiques pour les batteries (convoitées par l'UE et les USA).",
+      "recherche": "Université de Coimbra, patrimoine UNESCO. Startups tech à Lisbonne (hub croissant). Web Summit : vitrine tech mondiale.",
+      "militaire": "Forces armées de 32 000 actifs. Membre OTAN. Base des Açores (Lajes) : base stratégique américaine en Atlantique.",
+      "defis": [
+        "Incendies de forêt (eucalyptus envahissant — monoculture industrielle problématique)",
+        "Pression touristique excessive (over-tourism à Lisbonne et Porto)",
+        "Brain drain vers le reste de l'Europe (salaires bas)",
+        "Vieillissement démographique accéléré",
+        "Hausse des prix immobiliers chassant les locaux (gentrification)"
+      ]
+    },
+
+    "importance": {
+      "historique": "Le Portugal a déclenché la mondialisation. Sa langue est la 5e du monde. Sa Révolution des Œillets est un modèle de transition démocratique pacifique étudié partout.",
+      "economique": "Réserves de lithium stratégiques pour la transition énergétique. Hub atlantique entre Europe et Amériques. Nearshoring tech en pleine croissance.",
+      "geopolitique": "Pont entre l'Europe, l'Atlantique, l'Afrique lusophone et le Brésil. Membre fondateur de l'OTAN avec base stratégique atlantique (Açores).",
+      "atouts": [
+        "Lusophonie : pont avec 260 millions de locuteurs sur 5 continents",
+        "4e réserves mondiales de lithium (métal clé de la transition énergétique)",
+        "Leader mondial du liège (monopole naturel)",
+        "Stabilité et qualité de vie (4e pays le plus sûr du monde)",
+        "Position atlantique stratégique (Açores, Madère)"
+      ],
+      "fragilites": [
+        "Petite économie très dépendante du tourisme",
+        "Salaires parmi les plus bas d'Europe occidentale",
+        "Fuite des cerveaux vers les pays de l'UE à plus hauts salaires",
+        "Vieillissement démographique",
+        "Vulnérabilité climatique (sécheresses, incendies)"
+      ]
+    }
+  },
+
+  "BD": {
+    "name": "Bangladesh",
+    "flag": "🇧🇩",
+    "capitale": "Dacca (Dhaka)",
+    "continent": "Asie",
+    "population": "172 millions (2024)",
+    "superficie": "147 570 km² (à peu près la taille de l'Angleterre — mais 172 millions d'habitants)",
+    "langues": ["Bengali / Bangla (officiel)"],
+    "monnaie": "Taka bangladais (BDT)",
+
+    "histoire": {
+      "independance": "26 mars 1971 (Déclaration d'indépendance du Pakistan). Reconnue le 16 décembre 1971 après la guerre de libération.",
+      "evenements_majeurs": [
+        "Partition des Indes (1947) : naissance du Pakistan oriental (majoritairement bengali et musulman)",
+        "Mouvement linguistique (21 février 1952) : répression de manifestants réclamant le droit au bengali — journée commémorée comme Journée Internationale de la Langue Maternelle (UNESCO)",
+        "Guerre de libération (1971) : génocide par le Pakistan occidental (300 000 à 3 millions de morts selon les sources), intervention indienne, indépendance",
+        "Famines récurrentes (1974) : 1 à 1,5 million de morts",
+        "Assassinat du père fondateur Sheikh Mujibur Rahman (1975)",
+        "Dictatures militaires (1975-1990)",
+        "Retour à la démocratie (1990) — alternance entre Liga Awami et BNP",
+        "Cyclone Sidr (2007) : 3 000 morts — pays très vulnérable aux catastrophes",
+        "Effondrement du Rana Plaza (24 avril 2013) : 1 134 ouvrières tuées — scandale mondial du textile",
+        "Cheikh Hasina au pouvoir (2009-2024) — puis renversée par une révolution étudiante (août 2024)",
+        "Révolution étudiante (juillet-août 2024) : renversement du gouvernement Hasina"
+      ],
+      "role_historique": "Le Bangladesh illustre la capacité d'un pays extrêmement pauvre et surpeuplé à réaliser des progrès sociaux remarquables (réduction de la pauvreté, émancipation des femmes, microfinance). Pays symbole du changement climatique à venir."
+    },
+
+    "politique": {
+      "regime": "République parlementaire. Démocratie fragile, souvent instable. Après la révolution étudiante d'août 2024, gouvernement intérimaire dirigé par Muhammad Yunus (prix Nobel de la paix, fondateur de la Grameen Bank).",
+      "chef_etat": "Muhammad Yunus (chef du gouvernement intérimaire depuis août 2024 — prix Nobel de la paix 2006).",
+      "stabilite": "Instabilité politique chronique. Alternance entre Liga Awami (Hasina) et BNP (Khaleda Zia). Révolution étudiante de 2024 : tournant historique.",
+      "alliances": [
+        "Inde (voisin dominant, relations complexes : eau du Gange, frontières, réfugiés Rohingyas)",
+        "Chine (investissements croissants, concurrent de l'Inde pour l'influence)",
+        "OCI (Organisation de la Coopération Islamique)",
+        "Commonwealth",
+        "Contributeur majeur aux forces de maintien de la paix de l'ONU (1er mondial)"
+      ]
+    },
+
+    "economie": {
+      "pib": "460 milliards $ (2023, PPP — 35e mondiale)",
+      "pib_hab": "2 800 $ (nominal 2023) — mais croissance parmi les plus rapides d'Asie (~6-7%/an)",
+      "ressources": [
+        "Gaz naturel (réserves côtières — en déclin)",
+        "Jute (fibre naturelle historique)",
+        "Terres agricoles fertiles (delta du Gange-Brahmapoutre)",
+        "Main-d'œuvre jeune et abondante (160 M d'actifs potentiels)"
+      ],
+      "secteurs": [
+        "Industrie textile et confection (2e exportateur mondial de vêtements après la Chine — 85% des exports)",
+        "Microfinance (Grameen Bank : modèle mondial inventé ici)",
+        "Transferts de migrants (20 Mds$/an — 6% du PIB)",
+        "Agriculture (riz, jute, poisson)",
+        "Pharmaceutique (export de génériques)"
+      ],
+      "grandes_villes": [
+        "Dacca (22 M hab. agglomération — l'une des villes les plus denses du monde, 44 000 hab/km²)",
+        "Chittagong (hub portuaire industriel, 8 M hab.)",
+        "Sylhet (diaspora au Royaume-Uni — «Banglatown» à Londres)",
+        "Khulna (delta, mangroves Sundarbans)"
+      ],
+      "places_economiques": [
+        "Zone franche d'exportation d'Epz (hubs textiles)",
+        "Port de Chittagong : seul grand port du Bangladesh",
+        "Grameen Bank (Dacca) : modèle mondial de microfinance"
+      ],
+      "voies_communication": [
+        "Port de Chittagong : 98% du commerce extérieur du Bangladesh",
+        "Réseau fluvial (700 rivières) : transport majeur dans le delta",
+        "Pont Padma (2022) : premier grand pont sur le Gange — révolution logistique interne",
+        "Aéroport international Hazrat Shahjalal (Dacca)"
+      ]
+    },
+
+    "societe": {
+      "demographie": "172 millions d'habitants sur 147 000 km² = 1 165 hab/km² (8e pays le plus dense du monde). Population jeune, mais croissance ralentie (de 6 enfants/femme en 1970 à 2 aujourd'hui).",
+      "idh": "0,670 (rang 129/191 en 2022, catégorie « moyen ») — mais progrès exceptionnels depuis 1990.",
+      "education": "Parité scolaire filles/garçons atteinte (unique en Asie du Sud). Microfinance et aide de la Grameen Bank aux femmes : facteur clé. Alphabétisation passée de 26% (1981) à 74% (2022).",
+      "sante": "Espérance de vie 74 ans (était 47 ans en 1971 — l'une des progressions les plus rapides de l'histoire). Vaccination exemplaire. BRAC (ONG bangladaise) : plus grande ONG du monde.",
+      "inegalites": "Gini ~33. Réduction de la pauvreté spectaculaire : 70% en 1990 → 18% en 2022. Émancipation des femmes via le textile (80% des ouvrières sont des femmes).",
+      "urbanisation": "40 % (2023) — mais urbanisation très rapide."
+    },
+
+    "environnement": {
+      "pollution": "Le Bangladesh sera l'un des pays les plus touchés par le changement climatique : 1 mètre de montée des eaux = 17% du territoire submergé, 20 millions de réfugiés climatiques. Delta du Gange : inondations annuelles.",
+      "dev_durable": "Vulnérabilité extrême. Innovation : construction de maisons flottantes, agriculture sur radeaux, école-bateaux. Leadership international sur les droits des pays vulnérables au changement climatique.",
+      "recherche": "BRAC University. Recherche agronomique (rizicultures résistantes aux inondations). Grameen Bank : recherche-action en microfinance.",
+      "militaire": "Forces armées de 160 000 actifs. 1er contributeur mondial aux missions de paix de l'ONU (125 000 soldats déployés cumulés).",
+      "defis": [
+        "Changement climatique : menace existentielle (submersion, cyclones, salinisation des sols)",
+        "Surpopulation et densité extrême",
+        "Réfugiés Rohingyas (1 million de Rohingyas dans les camps de Cox's Bazar — plus grande crise de réfugiés d'Asie)",
+        "Transition post-textile : montée en gamme économique",
+        "Gouvernance et corruption"
+      ]
+    },
+
+    "importance": {
+      "historique": "Le Bangladesh a émergé d'un génocide (1971) pour devenir un modèle de réduction de la pauvreté. Il a inventé la microfinance (Grameen Bank) et représente l'avant-garde des pays face au changement climatique.",
+      "economique": "2e exportateur mondial de vêtements. Réservoir de main-d'œuvre pour l'industrie mondiale. Modèle de croissance malgré les catastrophes naturelles.",
+      "geopolitique": "Pris en étau entre l'Inde et la Chine. Accueille la plus grande crise de réfugiés d'Asie (Rohingyas). Symbole des enjeux migratoires climatiques du XXIe siècle.",
+      "atouts": [
+        "Main-d'œuvre jeune, abondante et de moins en moins chère",
+        "Dynamisme économique exceptionnel (~7% de croissance annuelle)",
+        "Grameen Bank : modèle mondial de microfinance copié sur 5 continents",
+        "Résilience remarquable face aux catastrophes naturelles répétées",
+        "Émancipation des femmes via le textile (facteur de développement)"
+      ],
+      "fragilites": [
+        "Vulnérabilité climatique existentielle (submersion du delta)",
+        "Surpopulation dans un espace très réduit",
+        "1 million de réfugiés Rohingyas à charge",
+        "Dépendance excessive au textile (85% des exports)",
+        "Instabilité politique chronique"
+      ]
+    }
+  },
+
+  "TH": {
+    "name": "Thaïlande",
+    "flag": "🇹🇭",
+    "capitale": "Bangkok (Krung Thep Maha Nakhon)",
+    "continent": "Asie",
+    "population": "71 millions (2024)",
+    "superficie": "513 120 km²",
+    "langues": ["Thaï (officiel)"],
+    "monnaie": "Baht thaïlandais (THB)",
+
+    "histoire": {
+      "independance": "Jamais colonisée — seul pays d'Asie du Sud-Est à avoir résisté à la colonisation européenne (tampon entre les empires britannique et français).",
+      "evenements_majeurs": [
+        "Royaumes de Sukhothai (XIIIe s.) et Ayutthaya (XIVe-XVIIIe s.) : grandes civilisations bouddhistes",
+        "Destruction d'Ayutthaya par la Birmanie (1767) : trauma national",
+        "Fondation de Bangkok et de la dynastie Chakri (1782 — en cours)",
+        "Modernisation sous Rama V (Chulalongkorn, 1868-1910) : réformes pour éviter la colonisation",
+        "Passage à la monarchie constitutionnelle (1932)",
+        "Occupation japonaise (1941-1945) : Thaïlande collabore, évite la destruction",
+        "Guerre du Vietnam : base américaine majeure (R&R des soldats — boom du tourisme)",
+        "19 coups d'État depuis 1932 (record mondial)",
+        "Crise des «Chemises rouges» et «Chemises jaunes» (2006-2010) : polarisation politique profonde",
+        "Dernier coup d'État (2014) : général Prayuth Chan-ocha au pouvoir jusqu'en 2023",
+        "Mouvement étudiant pro-démocratie (2020-2021) : remise en cause de la monarchie (inédit)"
+      ],
+      "role_historique": "La Thaïlande est le seul État d'Asie du Sud-Est n'ayant jamais été colonisé. Son modèle de modernisation (diplomatie + réforme) lui a permis de préserver son indépendance. Hub économique et touristique de l'ASEAN."
+    },
+
+    "politique": {
+      "regime": "Monarchie constitutionnelle. Démocratie formelle mais avec 19 coups d'État depuis 1932. Armée omniprésente dans la politique. Institution monarchique ultra-respectée (lèse-majesté : jusqu'à 15 ans de prison).",
+      "chef_etat": "Roi Rama X (Vajiralongkorn, depuis 2016). Paetongtarn Shinawatra (Première ministre depuis août 2024 — fille de l'ancien PM Thaksin Shinawatra).",
+      "stabilite": "Instabilité politique chronique derrière une façade de stabilité économique. Monarchie puissante. Armée arbitre politique. Mouvement étudiant contestataire depuis 2020.",
+      "alliances": [
+        "ASEAN (co-fondateur, 1967)",
+        "Allié majeur des États-Unis (SEATO historique, Cobra Gold — plus grandes manœuvres militaires d'Asie)",
+        "Partenariat croissant avec la Chine",
+        "Relations avec le Myanmar (réfugiés, économie)"
+      ]
+    },
+
+    "economie": {
+      "pib": "574 milliards $ (2023, 26e mondiale)",
+      "pib_hab": "7 900 $ (2023)",
+      "ressources": [
+        "Riz (4e exportateur mondial — riz jasmin réputé mondialement)",
+        "Caoutchouc naturel (1er producteur mondial)",
+        "Crevettes et fruits de mer",
+        "Gemmes (rubis, saphirs — Chanthaburi)",
+        "Énergie (gaz offshore dans le golfe de Thaïlande)"
+      ],
+      "secteurs": [
+        "Tourisme (1er secteur : 40 millions de touristes en 2023, 22% du PIB)",
+        "Automobile (Détroit de l'Asie du Sud-Est : Toyota, Honda, Ford — hub régional)",
+        "Électronique (disques durs : 25% de la production mondiale)",
+        "Agriculture (riz, sucre, tapioca, caoutchouc)",
+        "Agroalimentaire (exportateur majeur)"
+      ],
+      "grandes_villes": [
+        "Bangkok (11 M hab. — mégapole et hub régional d'Asie du Sud-Est)",
+        "Chiang Mai (nord — tourisme culturel)",
+        "Phuket (île — tourisme balnéaire mondial)",
+        "Chonburi / Eastern Seaboard (zone industrielle automobile)"
+      ],
+      "places_economiques": [
+        "Bourse de Thaïlande (SET) — Bangkok",
+        "Eastern Economic Corridor (EEC) : zone high-tech sur 30 000 km² (investissements japonais, chinois, taïwanais)",
+        "Aéroport de Suvarnabhumi (Bangkok) : hub régional"
+      ],
+      "voies_communication": [
+        "Aéroport Suvarnabhumi (Bangkok) : 65 millions de passagers/an, hub régional",
+        "Port de Laem Chabang (5e port d'Asie du Sud-Est)",
+        "Projet de corridor ferroviaire vers la Chine (via Laos — LGV Kunming-Bangkok en cours)"
+      ]
+    },
+
+    "societe": {
+      "demographie": "Population vieillissante rapidement (l'un des pays d'Asie qui vieillit le plus vite). Société bouddhiste (95% de bouddhistes). Minorité musulmane dans le sud (séparatisme latent).",
+      "idh": "0,803 (rang 66/191 en 2022, catégorie « élevé »)",
+      "education": "Taux d'alphabétisation 94%. Universités Chulalongkorn et Mahidol (références régionales). STEM en développement.",
+      "sante": "Espérance de vie 80 ans. Tourisme médical : 3 M de patients étrangers/an (4e destination mondiale). Système de couverture universelle depuis 2002.",
+      "inegalites": "Gini ~43 — inégalités élevées. Bangkok concentre 50% de la richesse nationale. Tension ville/campagne à l'origine des crises politiques.",
+      "urbanisation": "53 % (2023). Bangkok primauté écrasante."
+    },
+
+    "environnement": {
+      "pollution": "Bangkok : risque d'inondation permanent (s'enfonce de 2 cm/an). Pollution atmosphérique saisonnière (brûlis agricoles). Blanchissement des coraux (réchauffement des mers).",
+      "dev_durable": "Vulnérabilité climatique forte (inondations 2011 : pires de l'histoire, 800 morts, 45 Mds$ de dégâts). Investissements croissants dans les renouvelables et VE.",
+      "recherche": "Tourisme médical : hub de biotechnologie et médecine. Industries automobiles investissant dans les VE (Toyota, BYD).",
+      "militaire": "Forces armées de 360 000 actifs. Budget ~1,3% du PIB. Armée très influente en politique (19 coups d'État).",
+      "defis": [
+        "Instabilité politique chronique (coups d'État récurrents)",
+        "Vieillissement démographique (parmi les plus rapides d'Asie)",
+        "Affaissement de Bangkok (inondations, montée des eaux)",
+        "Inégalités villes-campagnes source de tensions politiques",
+        "Insurrection islamiste dans le sud (3 provinces)"
+      ]
+    },
+
+    "importance": {
+      "historique": "Seul pays d'Asie du Sud-Est à n'avoir jamais été colonisé. Modèle de modernisation préservant la souveraineté. Hub culturel bouddhiste.",
+      "economique": "Moteur économique d'Asie du Sud-Est continentale. Hub automobile (Toyota, Honda). 1er producteur mondial de caoutchouc. 40 millions de touristes.",
+      "geopolitique": "Pivot entre la Chine et les États-Unis (équilibre traditionnel). Carrefour de l'ASEAN entre Indochine et péninsule malaise. Refuge de réfugiés de Birmanie et Cambodge.",
+      "atouts": [
+        "Seul pays d'Asie du Sud-Est jamais colonisé (avantage historique unique)",
+        "Hub touristique mondial (40 M de visiteurs)",
+        "Industrie automobile régionale (Toyota — hub d'Asie du Sud-Est)",
+        "Tourisme médical de classe mondiale",
+        "Position géographique centrale en ASEAN"
+      ],
+      "fragilites": [
+        "Instabilité politique (19 coups d'État — record mondial)",
+        "Vieillissement démographique parmi les plus rapides d'Asie",
+        "Inégalités structurelles (Bangkok vs provinces)",
+        "Vulnérabilité climatique (Bangkok qui s'enfonce, inondations)",
+        "Dépendance au tourisme (vulnérabilité au Covid, guerres, catastrophes)"
+      ]
+    }
+  },
+
+  "MM": {
+    "name": "Myanmar (Birmanie)",
+    "flag": "🇲🇲",
+    "capitale": "Naypyidaw (capitale artificielle depuis 2006) — Rangoun / Yangon (capitale économique)",
+    "continent": "Asie",
+    "population": "54 millions (2024)",
+    "superficie": "676 578 km²",
+    "langues": ["Birman (officiel)", "Nombreuses langues ethniques : karen, shan, kachin, chin, mon..."],
+    "monnaie": "Kyat birman (MMK)",
+
+    "histoire": {
+      "independance": "4 janvier 1948 (indépendance du Royaume-Uni — Birmanie).",
+      "evenements_majeurs": [
+        "Empires birmans de Pagan (IXe-XIIIe s.) : grande civilisation bouddhiste",
+        "Colonisation britannique (1824-1948) : Birmanie incorporée à l'Empire des Indes",
+        "Occupation japonaise (1941-1945)",
+        "Indépendance (1948) : Aung San assassiné — père fondateur",
+        "Coup d'État de Ne Win (1962-1988) : dictature socialiste isolationniste",
+        "Soulèvement 8888 (août 1988) : répression sanglante (3 000+ morts)",
+        "Élections (1990) : Aung San Suu Kyi et la NLD remportent 80% — résultats annulés par l'armée (Tatmadaw)",
+        "Aung San Suu Kyi : 15 ans de résidence surveillée (Nobel de la paix 1991)",
+        "Transition démocratique partielle (2011-2021)",
+        "Génocide des Rohingyas (2016-2017) : 700 000 réfugiés en 3 mois au Bangladesh",
+        "Coup d'État militaire (1er février 2021) : armée reprend le pouvoir, Suu Kyi arrêtée",
+        "Guerre civile généralisée (2021-présent) : résistance armée de la population (PDF)"
+      ],
+      "role_historique": "Le Myanmar illustre la difficulté de la transition démocratique, la puissance des armées dans les États post-coloniaux, et l'une des pires crises humanitaires d'Asie (Rohingyas, guerre civile)."
+    },
+
+    "politique": {
+      "regime": "Junte militaire (depuis le coup d'État du 1er février 2021). Conseil d'Administration de l'État (SAC) dirigé par le général Min Aung Hlaing. Gouvernement civil en exil (NUG).",
+      "chef_etat": "Général Min Aung Hlaing (chef de la junte). Aung San Suu Kyi (prix Nobel emprisonnée, condamnée à 27 ans de prison).",
+      "stabilite": "Guerre civile généralisée depuis 2021. Forces de résistance populaire (PDF) + armées ethniques contre la Tatmadaw. Armée en difficulté croissante (2023-2024).",
+      "alliances": [
+        "Chine (soutien à la junte, frontière commune, investissements — oléoduc Myanmar-Yunnan)",
+        "Russie (fournisseur d'armes)",
+        "Inde (pragmatique — frontière commune, projet de corridor)",
+        "Isolement de l'Occident (sanctions UE, USA, UK)"
+      ]
+    },
+
+    "economie": {
+      "pib": "65 milliards $ (2023 — effondré depuis le coup d'État : -18% en 2021)",
+      "pib_hab": "1 200 $ (2023)",
+      "ressources": [
+        "Gaz naturel (exporté vers la Thaïlande et la Chine via oléoduc)",
+        "Jadéite (90% de la production mondiale — Myanmar = «pays du jade»)",
+        "Rubis et pierres précieuses (réputation mondiale)",
+        "Teck (forêts tropicales déforestées)",
+        "Terres rares (en cours d'exploitation par la Chine)"
+      ],
+      "secteurs": [
+        "Agriculture (riz, haricots, légumineuses)",
+        "Gaz naturel et pétrole",
+        "Textile (en fort déclin depuis 2021)",
+        "Mines (jade, pierres précieuses, terres rares)",
+        "Trafics illicites (opium — Triangle d'Or — et drogues synthétiques)"
+      ],
+      "grandes_villes": [
+        "Yangon / Rangoun (7 M hab. — capitale économique)",
+        "Mandalay (2e ville, culture bouddhiste)",
+        "Naypyidaw (capitale administrative construite de toutes pièces en 2005)"
+      ],
+      "places_economiques": [
+        "Zone économique de Thilawa (Yangon — hub manufacturier)",
+        "Port de Kyaukphyu (accès à l'océan Indien — concédé à la Chine)"
+      ],
+      "voies_communication": [
+        "Oléoduc et gazoduc Myanmar-Chine (Kyaukphyu-Kunming)",
+        "Port de Yangon et Kyaukphyu",
+        "Projet de corridor Inde-Myanmar-Thaïlande (en suspens)"
+      ]
+    },
+
+    "societe": {
+      "demographie": "Société multiethnique extrêmement fragmentée (135 groupes ethniques officiels). Bouddhisme dominant (88%). Muslmans Rohingyas apatrides depuis 1982.",
+      "idh": "0,585 (rang 157/191 en 2022, catégorie « moyen »)",
+      "education": "Taux d'alphabétisation 89%. Universités fermées ou perturbées depuis 2021. Fuite des cerveaux massive.",
+      "sante": "Espérance de vie 67 ans. Système de santé en ruine depuis le coup d'État (le personnel médical a rejoint le mouvement de désobéissance civile).",
+      "inegalites": "Extrêmes et croissantes. Jade et gaz profitent à l'élite militaire. 40% de la population sous le seuil de pauvreté en 2022.",
+      "urbanisation": "32 % (2023)."
+    },
+
+    "environnement": {
+      "pollution": "Déforestation massive (teck, agriculture). Triangle d'Or : production d'opium et drogues synthétiques (en hausse depuis le coup d'État). Pollution minière.",
+      "dev_durable": "Aucune politique environnementale sous la junte. Ressources naturelles pillées (jade, terres rares vendues à la Chine).",
+      "recherche": "Néant sous la junte. Exode des élites.",
+      "militaire": "Tatmadaw (armée) : 300 000-400 000 soldats. Guerre civile en cours. Dépendant des armes chinoises et russes.",
+      "defis": [
+        "Guerre civile generalisée (500 000+ morts et blessés, 2 millions de déplacés)",
+        "Génocide des Rohingyas (700 000 réfugiés au Bangladesh)",
+        "Effondrement économique post-coup d'État",
+        "Myanmar = plus grand producteur mondial d'opium depuis 2023 (devant l'Afghanistan)",
+        "Isolement international et risque d'État faillit"
+      ]
+    },
+
+    "importance": {
+      "historique": "Le Myanmar illustre l'échec de la démocratisation, la puissance des armées postcoloniales, et la tragédie d'un peuple (Rohingyas) dont le génocide est resté impuni malgré la CIJ.",
+      "economique": "Ressources naturelles considérables (jade, gaz, terres rares) captées par la junte et la Chine. Triangle d'Or : premier producteur mondial de drogues (économie criminelle globale).",
+      "geopolitique": "Pris entre la Chine (soutien à la junte) et l'Inde (corridor d'accès à l'océan Indien). Déstabilisation de l'ASEAN et de la région. Test de la solidarité internationale face aux génocides.",
+      "atouts": [
+        "Ressources naturelles exceptionnelles (jade, gaz, terres rares)",
+        "Position géographique entre Inde, Chine et ASEAN",
+        "Résistance populaire armée remarquable (contre une armée professionnelle)"
+      ],
+      "fragilites": [
+        "Junte militaire isolant le pays de l'économie mondiale",
+        "Guerre civile sans issue claire",
+        "État génocidaire (Rohingyas) condamné par la CIJ",
+        "Économie de narco-État en développement",
+        "Fragmentation ethnique extrême (135 groupes)"
+      ]
+    }
+  },
+
+  "CL": {
+    "name": "Chili",
+    "flag": "🇨🇱",
+    "capitale": "Santiago",
+    "continent": "Amérique",
+    "population": "19,6 millions (2024)",
+    "superficie": "756 102 km² (le pays le plus long du monde : 4 300 km du nord au sud)",
+    "langues": ["Espagnol (officiel)"],
+    "monnaie": "Peso chilien (CLP)",
+
+    "histoire": {
+      "independance": "18 septembre 1810 (début du processus) — 12 février 1818 (indépendance effective d'Espagne).",
+      "evenements_majeurs": [
+        "Peuplement mapuche précolombien : seul peuple à avoir résisté à l'empire Inca et aux conquistadors espagnols",
+        "Colonisation espagnole (1541) : Pedro de Valdivia fonde Santiago",
+        "Indépendance (1818) : Bernardo O'Higgins et José de San Martín",
+        "Guerre du Pacifique (1879-1884) : Chili s'empare des régions minières de Bolivie et du Pérou (Atacama)",
+        "Élection de Salvador Allende (1970) : premier président marxiste élu démocratiquement au monde",
+        "Coup d'État de Pinochet (11 septembre 1973) : Allende mort, 3 000 disparus et exécutions",
+        "Dictature de Pinochet (1973-1990) : «Chicago Boys» — néolibéralisme radical imposé",
+        "Référendum (1988) : Pinochet bat par «Non» — transition démocratique",
+        "Crise sociale d'octobre 2019 (Estallido Social) : manifestations massives contre les inégalités",
+        "Processus constituant (2021-2023) : deux projets de constitution rejetés par referendum"
+      ],
+      "role_historique": "Le Chili est un laboratoire politique : il a vécu le premier gouvernement socialiste démocratique au monde (Allende), la dictature la plus étudiée d'Amérique latine (Pinochet), et l'expérimentation néolibérale la plus radicale. Aujourd'hui, il est le pays le plus développé d'Amérique latine."
+    },
+
+    "politique": {
+      "regime": "République présidentielle. Démocratie consolidée depuis 1990. Constitution de 1980 (Pinochet) toujours en vigueur (deux tentatives de la remplacer ont échoué en 2022 et 2023).",
+      "chef_etat": "Gabriel Boric (président depuis mars 2022 — plus jeune président de l'histoire chilienne, 36 ans à l'élection, gauche progressiste).",
+      "stabilite": "Démocratie stable mais polarisation croissante. Constitution de Pinochet contestée mais toujours en vigueur. Crise migratoire au nord (Venezuela, Haïti).",
+      "alliances": [
+        "Alliance du Pacifique (avec Colombie, Mexique, Pérou)",
+        "CELAC, OEA",
+        "OCDE (depuis 2010 — seul pays d'Amérique du Sud)",
+        "Accord de libre-échange avec l'UE, les USA, la Chine"
+      ]
+    },
+
+    "economie": {
+      "pib": "344 milliards $ (2023, 42e mondiale)",
+      "pib_hab": "17 100 $ (2023 — le plus élevé d'Amérique du Sud)",
+      "ressources": [
+        "Cuivre (1er producteur mondial — 27% de la production, réserves de Chuquicamata et Escondida)",
+        "Lithium (2e producteur mondial, 1ères réserves mondiales — «Triangle du lithium» avec Bolivie et Argentine)",
+        "Nitrates (désert d'Atacama — historiquement, engrais)",
+        "Saumon d'élevage (2e exportateur mondial)",
+        "Vin (reconnu mondialement)"
+      ],
+      "secteurs": [
+        "Mines (cuivre : 60% des exports — Codelco, entreprise publique)",
+        "Agroalimentaire (saumon, vins, fruits — Chili = verger de l'hémisphère sud)",
+        "Énergie (transition rapide vers renouvelables — désert d'Atacama : meilleur solaire du monde)",
+        "Services et finance (le plus avancé d'Amérique du Sud)",
+        "Lithium (croissance explosive attendue)"
+      ],
+      "grandes_villes": [
+        "Santiago (7,5 M hab. — concentre 40% de la population et 45% du PIB)",
+        "Valparaíso (port historique, patrimoine UNESCO)",
+        "Concepción (industrie, université)",
+        "Antofagasta (capitale du cuivre)"
+      ],
+      "places_economiques": [
+        "Bourse de Santiago (BCS) — 1ère d'Amérique du Sud",
+        "Atacama : plus grand gisement de lithium du monde (Salar d'Atacama)",
+        "Port de San Antonio (1er d'Amérique du Sud en nombre de conteneurs)"
+      ],
+      "voies_communication": [
+        "Aéroport international Arturo Merino Benítez (Santiago)",
+        "Port de San Antonio et Valparaíso",
+        "Réseau autoroutier moderne (concédé — le meilleur d'Amérique latine)",
+        "Défi : traverser les Andes pour relier l'Atlantique (corridor biocéanique Brésil-Chili)"
+      ]
+    },
+
+    "societe": {
+      "demographie": "Société vieillissante. Immigration forte depuis Venezuela, Haïti (tension sociale). Peuple mapuche : 12% de la population, revendications territoriales dans le sud.",
+      "idh": "0,860 (rang 42/191 en 2022, catégorie « très élevé » — 1er d'Amérique du Sud)",
+      "education": "Système universitaire le plus développé d'Amérique latine. Université du Chili et PUC dans le top 10 latinoaméricain. Mouvement étudiant (2011) à l'origine des réformes sociales.",
+      "sante": "Espérance de vie 80,8 ans (la plus haute d'Amérique latine). Système mixte public/privé (Isapres). Couverture universelle AUGE.",
+      "inegalites": "Gini ~45 — inégalités parmi les plus fortes de l'OCDE (paradoxe : pays riche, inégalités élevées — cause de l'Estallido 2019).",
+      "urbanisation": "88 % (2023) — fortement urbanisé."
+    },
+
+    "environnement": {
+      "pollution": "Désert d'Atacama : décharge textile mondiale (vêtements usagés du monde entier). Exploitation cuprifère : pollution des eaux et des sols dans le nord.",
+      "dev_durable": "Désert d'Atacama : potentiel solaire considérable (meilleur ensoleillement au monde). Objectif 70% d'électricité renouvelable en 2030. Leader mondial potentiel du lithium pour les batteries.",
+      "recherche": "Atacama : meilleur ciel du monde pour l'astronomie (5 grands télescopes internationaux dont le futur ELT — plus grand télescope du monde). Université du Chili en biomédecine.",
+      "militaire": "Forces armées de 80 000 actifs. Budget ~2% du PIB. Conflit latent avec la Bolivie et le Pérou (héritage de la Guerre du Pacifique 1879).",
+      "defis": [
+        "Inégalités extrêmes malgré la richesse (Gini ~45 — cause de l'Estallido 2019)",
+        "Question mapuche : conflits dans la région de l'Araucanía",
+        "Dépendance au cuivre (vulnérabilité aux prix mondiaux)",
+        "Crise migratoire (nord — Vénézuéliens, Haïtiens)",
+        "Sécheresse chronique (glaciers andins en recul)"
+      ]
+    },
+
+    "importance": {
+      "historique": "Allende + Pinochet = laboratoire mondial des idéologies du XXe siècle. Le Chili est le pays d'Amérique latine le plus étudié en économie politique.",
+      "economique": "1er producteur mondial de cuivre. 2e producteur de lithium (l'or du XXIe siècle). PIB/habitant le plus élevé d'Amérique du Sud.",
+      "geopolitique": "Modèle de développement en Amérique latine. Détenteur de ressources clés pour la transition énergétique mondiale (lithium, cuivre). Pont entre Pacifique et Atlantique.",
+      "atouts": [
+        "Cuivre (27% de la production mondiale — ressource stratégique)",
+        "Lithium (1ères réserves mondiales — métal clé de la transition énergétique)",
+        "Stabilité institutionnelle et état de droit (1er d'Amérique du Sud)",
+        "Meilleur ciel du monde (astronomie — avantage scientifique unique)",
+        "Désert d'Atacama : potentiel solaire exceptionnel"
+      ],
+      "fragilites": [
+        "Inégalités extrêmes (Gini ~45 malgré la richesse)",
+        "Constitution de Pinochet toujours en vigueur (blocage institutionnel)",
+        "Dépendance excessive au cuivre",
+        "Question mapuche non résolue",
+        "Vulnérabilité sismique (anneau de feu du Pacifique)"
+      ]
+    }
+  },
+
+  "NO": {
+    "name": "Norvège",
+    "flag": "🇳🇴",
+    "capitale": "Oslo",
+    "continent": "Europe",
+    "population": "5,5 millions (2024)",
+    "superficie": "385 207 km²",
+    "langues": ["Norvégien (officiel, deux formes : bokmål et nynorsk)", "Sami (officiel dans certaines communes)"],
+    "monnaie": "Couronne norvégienne (NOK) — hors zone euro",
+
+    "histoire": {
+      "independance": "7 juin 1905 (dissolution de l'union avec la Suède — indépendance pacifique).",
+      "evenements_majeurs": [
+        "Âge des Vikings (IXe-XIe s.) : exploration de l'Islande, du Groenland et de l'Amérique du Nord (Leif Erikson, 1000 apr. J.-C.)",
+        "Union avec le Danemark (1397-1814) puis avec la Suède (1814-1905)",
+        "Indépendance pacifique (1905) — referendum, choix d'un roi danois",
+        "Neutralité pendant la 1ère Guerre Mondiale",
+        "Occupation nazie (1940-1945) : résistance héroïque, Vidkun Quisling (collaborateur — son nom est devenu synonyme de traître)",
+        "Découverte du pétrole en mer du Nord (1969) : révolution économique",
+        "Référendum sur l'UE (1972, 1994) : refus deux fois — hors UE",
+        "Création du fonds pétrolier (1990) : placement des revenus pétroliers pour les générations futures",
+        "Attentats terroristes d'Anders Breivik (22 juillet 2011) : 77 morts",
+        "Fonds souverain dépasse 1 000 milliards $ (2017) puis 1 700 milliards $ (2024)"
+      ],
+      "role_historique": "La Norvège a géré sa richesse pétrolière avec une sagesse unique : au lieu de la dépenser, elle a créé le plus grand fonds souverain du monde pour les générations futures. Modèle mondial de gouvernance des ressources naturelles."
+    },
+
+    "politique": {
+      "regime": "Monarchie constitutionnelle parlementaire. Roi sans pouvoir réel. Parlement unicaméral (Storting). Multipartisme, gouvernements de coalition.",
+      "chef_etat": "Roi Harald V (depuis 1991). Jonas Gahr Støre (Premier ministre depuis 2021 — coalition centre-gauche).",
+      "stabilite": "Très stable. Démocratie exemplaire. Faible corruption. Pays parmi les plus heureux du monde (World Happiness Report).",
+      "alliances": [
+        "OTAN (co-fondateur, 1949 — frontière avec la Russie de 196 km)",
+        "Espace économique européen (EEE) — hors UE mais dans le marché unique",
+        "Conseil nordique",
+        "ONU : très active (médiation internationale — accords d'Oslo Israël-OLP 1993)"
+      ]
+    },
+
+    "economie": {
+      "pib": "549 milliards $ (2023, 29e mondiale pour 5,5 millions d'habitants)",
+      "pib_hab": "101 000 $ (2023, 2e mondial)",
+      "ressources": [
+        "Pétrole et gaz naturel (mer du Nord — 1er producteur d'Europe occidentale, 3e exportateur mondial de gaz depuis 2022)",
+        "Hydroélectricité (92% de l'électricité norvégienne — renouvelable)",
+        "Saumon d'élevage (1er exportateur mondial)",
+        "Aluminium (énergie hydroélectrique bon marché)",
+        "Minerai de fer (nord de la Norvège)"
+      ],
+      "secteurs": [
+        "Pétrole et gaz (25% du PIB, 50% des exports — Equinor)",
+        "Maritime (2e flotte marchande mondiale, armateurs historiques)",
+        "Aquaculture (saumon — Mowi, SalMar)",
+        "Technologie maritime et offshore",
+        "Finance (le fonds souverain seul représente 300% du PIB)"
+      ],
+      "grandes_villes": [
+        "Oslo (700 000 hab., 1 M agglomération — hub économique et politique)",
+        "Bergen (2e ville, port, pétrole)",
+        "Stavanger (capitale du pétrole offshore)",
+        "Tromsø (nord, Arctique)"
+      ],
+      "places_economiques": [
+        "Oslo Bors (bourse d'Oslo) — forte en valeurs pétrolières et maritimes",
+        "Fonds Souverain (GPFG) : 1 700 milliards $ — 1er fonds souverain mondial",
+        "Stavanger : hub offshore mondial (expertise pétrolière exportée mondiallement)"
+      ],
+      "voies_communication": [
+        "Fjords : voies navigables intérieures (ferries essentiels)",
+        "Aéroport d'Oslo Gardermoen",
+        "Train Oslo-Bergen (l'un des plus beaux voyages ferroviaires du monde)",
+        "Route Arctique (importance stratégique croissante)"
+      ]
+    },
+
+    "societe": {
+      "demographie": "Population très faible pour un grand pays. 18% d'immigrés. État providence très généreux (congé parental : 49 semaines à 100% ou 59 semaines à 80%, partageable).",
+      "idh": "0,966 (rang 2/191 en 2022, catégorie « très élevé » — régulièrement 1er ou 2e mondial)",
+      "education": "Universités gratuites (même pour les étrangers). NTNU et Université d'Oslo dans le top mondial. Niveau d'éducation très élevé.",
+      "sante": "Espérance de vie 83,2 ans. Système de santé universel. Un des meilleurs rapports médecins/habitants du monde.",
+      "inegalites": "Gini ~26 — l'une des sociétés les plus égalitaires du monde. Salaire minimum parmi les plus élevés du monde.",
+      "urbanisation": "84 % (2023)."
+    },
+
+    "environnement": {
+      "pollution": "Paradoxe : 1er exportateur de pétrole d'Europe mais 92% d'électricité renouvelable (hydroélectricité). Leader mondial de l'électromobilité (80% de nouvelles voitures vendues = électriques — record mondial).",
+      "dev_durable": "Objectif neutralité carbone 2030. Champion des VE (exonération de TVA, gratuité du stationnement). Fonds souverain : vote d'exclusion des entreprises trop polluantes.",
+      "recherche": "Lauréats du prix Nobel (Nansen, Lie). Recherche arctique de niveau mondial. Technologies offshore et maritimes exportées mondialement.",
+      "militaire": "Forces armées de 23 000 actifs. Frontière de 196 km avec la Russie (sensible depuis 2022). Membre OTAN actif. Participation à l'Afghanistan, Libye.",
+      "defis": [
+        "Paradoxe pétrolier : financer la transition tout en produisant du pétrole",
+        "Voisin de la Russie (tension croissante post-Ukraine)",
+        "Fonds souverain : comment l'utiliser sans créer de l'inflation?",
+        "Après-pétrole : quand les réserves déclinent, comment maintenir le modèle?",
+        "Intégration des immigrés (dans un pays à forte identité culturelle)"
+      ]
+    },
+
+    "importance": {
+      "historique": "Les Vikings ont «découvert» l'Amérique 500 ans avant Colomb. La Norvège a inventé le modèle de gestion des ressources naturelles le plus sage du monde (fonds souverain).",
+      "economique": "Fonds souverain de 1 700 milliards $ = 300 000 $ par Norvégien. 3e exportateur mondial de gaz. 1er exportateur mondial de saumon.",
+      "geopolitique": "Frontière avec la Russie = flancière OTAN. Accords d'Oslo (paix israélo-palestinienne 1993 — prix Nobel remis à Oslo). Présence arctique stratégique.",
+      "atouts": [
+        "Fonds souverain : 1 700 Mds$ — modèle mondial de gestion des ressources",
+        "1er d'Europe en PIB/habitant (hors Luxembourg et Suisse parfois)",
+        "Modèle social : égalité, bonheur, qualité de vie (régulièrement n°1 mondial)",
+        "Hydro-électricité : 92% d'électricité verte, énergie bon marché",
+        "Expertise offshore exportée mondialement (Equinor, DNV)"
+      ],
+      "fragilites": [
+        "Mono-dépendance au pétrole (50% des exports)",
+        "Population trop petite pour un grand territoire (difficultés de défense)",
+        "Frontière avec la Russie (vulnérabilité géopolitique)",
+        "Vieillissement de la population (dépendance au fonds souverain à terme)",
+        "Coût de la vie extrêmement élevé"
+      ]
+    }
+  },
+
+  "QA": {
+    "name": "Qatar",
+    "flag": "🇶🇦",
+    "capitale": "Doha",
+    "continent": "Asie",
+    "population": "2,9 millions (2024) — dont 90% d'expatriés",
+    "superficie": "11 586 km² (plus petit que la Corse)",
+    "langues": ["Arabe (officiel)", "Anglais (langue des affaires)"],
+    "monnaie": "Riyal qatari (QAR) — arrimé au dollar",
+
+    "histoire": {
+      "independance": "3 septembre 1971 (indépendance du protectorat britannique).",
+      "evenements_majeurs": [
+        "Pêche aux perles et bédouins : mode de vie traditionnel jusqu'au XXe s.",
+        "Protectorat britannique (1916-1971)",
+        "Découverte du pétrole (1940) puis du gaz naturel (1971)",
+        "Coup d'État pacifique : l'émir Hamad renverse son père (1995) — modernisation accélérée",
+        "Création d'Al-Jazeera (1996) : révolution des médias arabes",
+        "Lancement de Qatar Airways (1997) : devenue 1ère compagnie mondiale",
+        "Candidature et attribution de la Coupe du Monde FIFA 2022 (2010)",
+        "Blocus par l'Arabie Saoudite, EAU, Bahreïn, Égypte (2017-2021)",
+        "Coupe du Monde FIFA 2022 : 1ère en pays arabe, controverses sur les droits des travailleurs",
+        "Qatar = 1er exportateur mondial de GNL (gaz naturel liquéfié)"
+      ],
+      "role_historique": "En moins de 30 ans, le Qatar est passé d'un petit émirat pétrolier sans influence à un acteur géopolitique mondial majeur via le gaz, Al-Jazeera, les investissements et le soft power sportif."
+    },
+
+    "politique": {
+      "regime": "Monarchie absolue. Émirat héréditaire de la famille Al-Thani. Conseil consultatif partiellement élu depuis 2021 (sans réel pouvoir). Aucune liberté de presse ou d'opposition.",
+      "chef_etat": "Émir Sheikh Tamim bin Hamad Al-Thani (depuis 2013 — fils de l'émir réformateur Hamad).",
+      "stabilite": "Stable. Richesse redistribuée aux 300 000 citoyens qataris. Travailleurs étrangers sans droits politiques. Kafala critiqué (réformé partiellement après la pression de la Coupe du Monde).",
+      "alliances": [
+        "Relations avec tous les bords : Hamas, Frères musulmans, Occident, Iran, Turquie",
+        "Base militaire américaine d'Al-Udeid (la plus grande au Moyen-Orient : 10 000 soldats)",
+        "Médiateur reconnu (Hamas-Israël, Taliban-USA, Éthiopie-Tigré...)",
+        "CCG (Conseil de Coopération du Golfe — après réconciliation 2021)"
+      ]
+    },
+
+    "economie": {
+      "pib": "220 milliards $ (2023)",
+      "pib_hab": "80 000 $ (pour les citoyens qataris : >300 000 $)",
+      "ressources": [
+        "Gaz naturel (3e réserves mondiales — champ North Field partagé avec l'Iran)",
+        "Pétrole (réserves modestes comparées au gaz)",
+        "GNL (1er exportateur mondial — Europe dépendante depuis 2022)"
+      ],
+      "secteurs": [
+        "Hydrocarbures (gaz et GNL : 60% du PIB, 85% des exports)",
+        "Finance (Qatar Investment Authority — QIA : 450 Mds$)",
+        "Tourisme et MICE (Doha comme hub régional)",
+        "Construction (infrastructure Coupe du Monde — 8 stades, métro, autoroutes)",
+        "Médias (Al-Jazeera : réseau mondial controversé)"
+      ],
+      "grandes_villes": [
+        "Doha (2,3 M hab. — toute la population est concentrée dans la capitale et sa périphérie)"
+      ],
+      "places_economiques": [
+        "Qatar Financial Centre (QFC) : hub financier",
+        "Qatar Investment Authority (QIA) : fonds souverain de 450 Mds$ (actionnaire de Volkswagen, Harrods, Barclays, Paris Saint-Germain...)",
+        "Port de Hamad (inauguré 2016 — hub régional)"
+      ],
+      "voies_communication": [
+        "Aéroport international Hamad (Doha) : hub de Qatar Airways (meilleure compagnie mondiale 2024)",
+        "Port de Hamad",
+        "Métro de Doha (inauguré 2019 — ultra-moderne)",
+        "GNL : tankers vers l'Europe, l'Asie"
+      ]
+    },
+
+    "societe": {
+      "demographie": "2,9 M d'habitants dont 88% d'étrangers (Indiens, Népalais, Bangladais, Philippins, Pakistanais). 300 000 citoyens qataris ultra-privilégiés.",
+      "idh": "0,855 (rang 42/191 en 2022) — mais indicateur biaisé par le nombre d'expatriés.",
+      "education": "Education City (Doha) : campus de 8 universités américaines et européennes dont Cornell, Georgetown, HEC Paris. Gratuite pour les citoyens.",
+      "sante": "Système de santé ultra-moderne pour les citoyens. Travailleurs migrants : accès limité. Espérance de vie 80 ans.",
+      "inegalites": "Apartheid de facto entre citoyens (riches) et travailleurs migrants (pauvres, sans droits). Salaires des ouvriers : 200-400 $/mois.",
+      "urbanisation": "99 % (2023) — quasi entièrement urbain."
+    },
+
+    "environnement": {
+      "pollution": "Empreinte carbone par habitant : parmi les 3 plus élevées du monde. Chaleur extrême (50°C). 100% de l'eau potable désalinisée. Aucune ressource hydrique naturelle.",
+      "dev_durable": "Qatar National Vision 2030 vise la diversification. Stades solaires pour la Coupe du Monde. Mais économie fondamentalement carbonée.",
+      "recherche": "Qatar Foundation (Sheikha Moza) : investissements dans l'éducation et la recherche. QNRF (Qatar National Research Fund).",
+      "militaire": "Forces armées de 16 000 actifs. Base américaine d'Al-Udeid (10 000 soldats US, commandement CENTCOM). Budget militaire ~2% du PIB.",
+      "defis": [
+        "Après-pétrole et gaz : Vision 2030 de diversification (difficile)",
+        "Droits des travailleurs migrants (pression internationale post-Coupe du Monde)",
+        "Dépendance hydrique absolue (100% de désalinisation)",
+        "Chaleur extrême aggravée par le changement climatique",
+        "Légitimité internationale : droits humains vs soft power"
+      ]
+    },
+
+    "importance": {
+      "historique": "En 30 ans, le Qatar est passé d'un émirat inconnu à un acteur géopolitique majeur grâce au gaz et au soft power. Al-Jazeera a révolutionné les médias arabes. La Coupe du Monde 2022 a mis en lumière les contradictions du sport business.",
+      "economique": "1er exportateur mondial de GNL — ressource stratégique devenue clé pour l'Europe depuis le choc de 2022 (remplacement du gaz russe). Fonds souverain de 450 Mds$ présent dans les plus grandes entreprises mondiales.",
+      "geopolitique": "Médiateur universel (Qatar parle à tous : Hamas, Taliban, Frères musulmans, USA, Iran). Pivot entre Occident et monde arabe. Base américaine = protection militaire totale.",
+      "atouts": [
+        "3es réserves mondiales de gaz (ressource stratégique pour décennies)",
+        "Soft power exceptionnel (Al-Jazeera, PSG, Coupe du Monde, Qatar Airways)",
+        "Médiateur reconnu dans tous les conflits régionaux",
+        "QIA : actionnaire de multinationales mondiales (levier d'influence)",
+        "Base militaire américaine = protection totale"
+      ],
+      "fragilites": [
+        "Micro-État de 11 000 km² avec 300 000 citoyens — vulnérabilité géographique",
+        "100% dépendant du gaz pour sa puissance",
+        "Travailleurs migrants sans droits = bombe sociale et image internationale",
+        "Entouré de voisins puissants (Arabie Saoudite, Iran)",
+        "Richesse sans diversification réelle"
+      ]
+    }
+  },
+
+  "PH": {
+    "name": "Philippines",
+    "flag": "🇵🇭",
+    "capitale": "Manille",
+    "continent": "Asie",
+    "population": "115 millions (2024)",
+    "superficie": "300 000 km² — archipel de 7 641 îles",
+    "langues": ["Filipino/Tagalog (officiel)", "Anglais (officiel)", "175 langues régionales"],
+    "monnaie": "Peso philippin (PHP)",
+
+    "histoire": {
+      "independance": "12 juin 1898 (indépendance de l'Espagne) — mais immédiatement cédées aux États-Unis (Traité de Paris 1898). Indépendance effective : 4 juillet 1946.",
+      "evenements_majeurs": [
+        "Civilisations précoloniales : royaumes malais, sultanats de Mindanao",
+        "Colonisation espagnole (1565-1898) : 333 ans — seul pays d'Asie à majorité catholique",
+        "Révolution philippine (1896) : José Rizal, Andres Bonifacio — héros nationaux",
+        "Guerre hispano-américaine (1898) : Philippines vendues aux USA pour 20 millions $",
+        "Guerre philippines-américaine (1899-1902) : 200 000-600 000 morts philippins",
+        "Occupation japonaise (1941-1945) : Manille rasée, 500 000+ morts",
+        "Indépendance (4 juillet 1946)",
+        "Dictature de Ferdinand Marcos (1972-1986) : loi martiale, corruption massive",
+        "Révolution du People Power (1986) : renverse Marcos sans violence (modèle mondial)",
+        "Rodrigo Duterte (2016-2022) : guerre contre la drogue (12 000+ morts extra-judiciaires)",
+        "Ferdinand Marcos Jr. (Bongbong) élu président (2022) : retour de la famille Marcos"
+      ],
+      "role_historique": "Les Philippines sont le seul pays d'Asie à majorité catholique, profondément marqué par 333 ans de colonisation espagnole et 48 ans de domination américaine. La Révolution du People Power (1986) est un modèle de résistance non-violente."
+    },
+
+    "politique": {
+      "regime": "République présidentielle. Démocratie fragile, dynasties politiques dominantes. Institutions calquées sur le modèle américain.",
+      "chef_etat": "Ferdinand Marcos Jr. «Bongbong» (président depuis 2022 — fils de l'ancien dictateur). Sara Duterte (vice-présidente — fille de l'ancien président).",
+      "stabilite": "Démocratie formelle mais fragile. Dynasties politiques. Insurrections islamistes dans le sud (Mindanao — depuis 1970). Conflit de la mer de Chine du Sud (îles Spratleys).",
+      "alliances": [
+        "Alliance militaire avec les États-Unis (MDT, 1951 — alliance la plus ancienne d'Asie)",
+        "ASEAN (fondateur, 1967)",
+        "Relations complexes avec la Chine (mer de Chine du Sud vs commerce)",
+        "Accord de Forces Visiteurs (VFA) avec les USA — bases militaires rotatives"
+      ]
+    },
+
+    "economie": {
+      "pib": "437 milliards $ (2023, 34e mondiale)",
+      "pib_hab": "3 900 $ (2023)",
+      "ressources": [
+        "Nickel (3e producteur mondial)",
+        "Or, cuivre",
+        "Géothermie (2e producteur mondial)",
+        "Ressources marines (mer de Corail, mer des Philippines)",
+        "Agriculture (riz, noix de coco, sucre, bananes)"
+      ],
+      "secteurs": [
+        "BPO / centres d'appels (1er du monde en revenus — 1,5 M d'emplois, 30 Mds$)",
+        "Transferts de migrants (Overseas Filipino Workers — OFW : 35 M à l'étranger, 37 Mds$/an)",
+        "Agriculture et pêche",
+        "Tourisme (6 millions de touristes/an)",
+        "Électronique (semi-conducteurs, circuits imprimés)"
+      ],
+      "grandes_villes": [
+        "Manille / Metro Manila (14 M hab. — mégapole hypercongestionnée)",
+        "Quezon City (deuxième agglomération)",
+        "Davao (Mindanao — tropicale, ex-ville de Duterte)",
+        "Cebu (hub économique des Visayas)"
+      ],
+      "places_economiques": [
+        "Philippine Stock Exchange (PSE) — Manille",
+        "Makati (CBD financier de Manille)",
+        "Bonifacio Global City (BGC) — hub BPO et tech"
+      ],
+      "voies_communication": [
+        "Aéroport NAIA (Manille) — hub régional",
+        "Port de Manille : 1er port des Philippines",
+        "Réseau maritime inter-îles (essentiel dans un archipel de 7 641 îles)",
+        "Mer de Chine du Sud : routes maritimes stratégiques (disputées avec la Chine)"
+      ]
+    },
+
+    "societe": {
+      "demographie": "115 millions — 11e pays le plus peuplé du monde. Population très jeune (âge médian 25 ans). 10 millions de Filipins travaillent à l'étranger (OFW) : infirmières, marins, employées de maison.",
+      "idh": "0,710 (rang 116/191 en 2022, catégorie « élevé »)",
+      "education": "Alphabétisation 96%. English-speaking : atout économique majeur (BPO, nurses exportées). Université des Philippines — référence nationale.",
+      "sante": "Espérance de vie 74 ans. Système de santé insuffisant. Exportation de médecins et infirmières (1ère exportatrice mondiale d'infirmières).",
+      "inegalites": "Gini ~42 — inégalités fortes. 10 familles contrôlent 30% du PIB (dynasties). Pauvreté dans les provinces rurales et Mindanao.",
+      "urbanisation": "48 % (2023) — mais méga-urbanisation autour de Manille."
+    },
+
+    "environnement": {
+      "pollution": "20 typhons par an en moyenne (don't certains parmi les plus violents du monde — typhon Haiyan 2013 : 6 300 morts). Risque sismique majeur (anneau de feu). Déforestation massive.",
+      "dev_durable": "Vulnérabilité climatique extrême (4e pays le plus vulnérable selon l'Indice Mondial des Risques). Géothermie (20% de l'électricité). Énergie solaire en développement.",
+      "recherche": "International Rice Research Institute (IRRI) à Los Baños : recherche mondiale sur le riz.",
+      "militaire": "Forces armées de 137 000 actifs. Alliance militaire avec les USA (MDT). Tension en mer de Chine du Sud (îles Spratleys, Scarborough Shoal).",
+      "defis": [
+        "Mer de Chine du Sud : confrontation croissante avec la Chine (îles, ZEE)",
+        "Typhons et catastrophes naturelles (20/an) aggravés par le changement climatique",
+        "Dynasties politiques et corruption",
+        "Manque de diversification économique (dépendance aux OFW et BPO)",
+        "Insurrection islamiste dans le sud (Mindanao)"
+      ]
+    },
+
+    "importance": {
+      "historique": "Seul pays d'Asie à majorité catholique après 333 ans de colonisation espagnole. La Révolution du People Power (1986) est un modèle mondial de résistance non-violente. Première nation asiatique à déclarer son indépendance (1898).",
+      "economique": "1er exportateur mondial d'infirmières. 1er pays mondial en BPO (call centers). Les OFW envoient 37 Mds$/an (équivalent aux investissements étrangers). Nickel clé pour la transition énergétique.",
+      "geopolitique": "Front de la confrontation USA-Chine en mer de Chine du Sud. Alliance américaine historique en Asie du Sud-Est. Archipel contrôlant des routes maritimes stratégiques.",
+      "atouts": [
+        "Anglophonie : atout économique unique en Asie (BPO, nurses, marins)",
+        "Diaspora de 10 millions d'OFW (transferts massifs)",
+        "Alliance militaire américaine (protection)",
+        "Jeunesse et dynamisme démographique",
+        "Ressources marines (ZEE de 2,2 M de km²)"
+      ],
+      "fragilites": [
+        "Vulnérabilité climatique extrême (typhons, montée des eaux)",
+        "Dynasties politiques et corruption systémique",
+        "Confrontation croissante avec la Chine (mer de Chine du Sud)",
+        "Économie dépendante des OFW (vulnérable aux chocs externes)",
+        "Manille : l'une des villes les plus congestionnées et inégalitaires d'Asie"
+      ]
+    }
+  },
+
+  "TZ": {
+    "name": "Tanzanie",
+    "flag": "🇹🇿",
+    "capitale": "Dodoma (officielle) — Dar es Salam (économique et principale)",
+    "continent": "Afrique",
+    "population": "67 millions (2024)",
+    "superficie": "945 087 km²",
+    "langues": ["Swahili (officiel et lingua franca d'Afrique de l'Est)", "Anglais (officiel)", "128 langues ethniques"],
+    "monnaie": "Shilling tanzanien (TZS)",
+
+    "histoire": {
+      "independance": "9 décembre 1961 (Tanganyika) et 10 décembre 1963 (Zanzibar). Union le 26 avril 1964 : Tanzanie.",
+      "evenements_majeurs": [
+        "Empire swahili côtier (Xe-XVIe s.) : commerce avec l'Inde, l'Arabie, la Perse",
+        "Sultanat de Zanzibar (XIXe s.) : plus grand marché aux esclaves de l'océan Indien",
+        "Colonisation allemande (Afrique orientale allemande, 1885-1919)",
+        "Révolte des Maji Maji (1905-1907) : résistance anti-allemande (200 000-300 000 morts)",
+        "Mandat britannique (Tanganyika, 1919-1961)",
+        "Indépendance et Julius Nyerere (1961) : père fondateur et philosophe (Ujamaa — socialisme africain)",
+        "Union Tanganyika-Zanzibar (1964) : naissance de la Tanzanie",
+        "Guerre ougando-tanzanienne (1978-1979) : la Tanzanie renverse Idi Amin Dada",
+        "Multipartisme (depuis 1992)",
+        "Découverte de gaz naturel offshore (2010) : potentiel transformateur",
+        "Tanzanie : l'un des pays africains à la croissance la plus rapide (6-7%/an)"
+      ],
+      "role_historique": "Julius Nyerere a proposé l'Ujamaa (socialisme africain fondé sur la communauté) — expérience philosophique unique en Afrique. La Tanzanie est remarquablement stable dans une région turbulente."
+    },
+
+    "politique": {
+      "regime": "République unitaire. Multipartisme depuis 1992, mais domination du CCM (Chama Cha Mapinduzi) depuis l'indépendance — 60 ans au pouvoir.",
+      "chef_etat": "Samia Suluhu Hassan (présidente depuis 2021 — première femme présidente d'Afrique de l'Est, après le décès de John Magufuli).",
+      "stabilite": "Relativement stable pour la région. Zanzibar autonome (régime semi-séparé). Absence des conflits qui ravagent les voisins (RDC, Burundi, Mozambique).",
+      "alliances": [
+        "EAC (Communauté d'Afrique de l'Est)",
+        "SADC (Communauté d'Afrique australe)",
+        "Commonwealth",
+        "Union africaine"
+      ]
+    },
+
+    "economie": {
+      "pib": "85 milliards $ (2023 — 3e d'Afrique de l'Est après l'Éthiopie et le Kenya)",
+      "pib_hab": "1 250 $ (2023) — mais croissance de 6-7%/an depuis 15 ans",
+      "ressources": [
+        "Or (4e producteur africain)",
+        "Tanzanite (gemme unique au monde — trouvée uniquement au pied du Kilimandjaro)",
+        "Gaz naturel offshore (réserves estimées : 57 billions de pieds cubes)",
+        "Diamants (mine de Williamson)",
+        "Agriculture : café, thé, coton, sisal, girofle (Zanzibar = «l'île aux épices»)"
+      ],
+      "secteurs": [
+        "Agriculture (27% du PIB, 65% de l'emploi)",
+        "Tourisme (safari — Serengeti, Ngorongoro, Zanzibar — 1,5 M de touristes/an)",
+        "Mines (or, diamants, tanzanite)",
+        "Transport et logistique (port de Dar es Salam — transit pour les pays landlockés)"
+      ],
+      "grandes_villes": [
+        "Dar es Salam (7 M hab. — capitale économique, port majeur)",
+        "Dodoma (capitale officielle, 500 000 hab.)",
+        "Mwanza (lac Victoria, 2e ville)",
+        "Zanzibar Town (Stone Town — patrimoine UNESCO)"
+      ],
+      "places_economiques": [
+        "Bourse de Dar es Salam (DSE)",
+        "Port de Dar es Salam : hub pour RDC, Rwanda, Burundi, Ouganda, Zambie, Malawi",
+        "Zone économique spéciale de Bagamoyo (en développement avec la Chine)"
+      ],
+      "voies_communication": [
+        "Port de Dar es Salam : 1er port d'Afrique de l'Est (en expansion)",
+        "Chemin de fer TAZARA (Dar es Salam-Lusaka, Zambie — construit par la Chine 1970-1975)",
+        "Standard Gauge Railway (SGR) : nouveau train Dar es Salam-Mwanza (en construction)",
+        "Aéroport Julius Nyerere (Dar es Salam)"
+      ]
+    },
+
+    "societe": {
+      "demographie": "Population très jeune (âge médian 17 ans) et en forte croissance. Extrêmement diverse : 128 ethnies sans groupe dominant. Le swahili comme facteur d'unité nationale.",
+      "idh": "0,532 (rang 163/191 en 2022, catégorie « faible »)",
+      "education": "Taux d'alphabétisation 81%. Université de Dar es Salam — référence régionale. Accès à l'éducation secondaire en forte amélioration.",
+      "sante": "Espérance de vie 68 ans. Progrès contre le paludisme et le VIH. Mortalité infantile encore élevée dans les zones rurales.",
+      "inegalites": "Gini ~40. Inégalités entre zones urbaines et rurales profondes. 26% de la population sous le seuil de pauvreté.",
+      "urbanisation": "36 % (2023) — mais croissance urbaine de 5%/an."
+    },
+
+    "environnement": {
+      "pollution": "Déforestation (besoin de bois de chauffe). Braconnage d'éléphants et rhinocéros (en baisse grâce aux gardes). Pollution de Dar es Salam.",
+      "dev_durable": "Kilimandjaro : glaciers fondant (90% perdus depuis 1912 — symbole du changement climatique). Parc Serengeti : biodiversité exceptionnelle (1,5 M de gnous). Hydroélectricité (60% de l'électricité).",
+      "recherche": "COSTECH (Tanzania Commission for Science and Technology). Tourisme scientifique (Ngorongoro — évolution humaine). Site de Laetoli : empreintes humaines de 3,7 M d'années.",
+      "militaire": "Forces armées de 27 000 actifs. Participation aux missions de paix de l'ONU.",
+      "defis": [
+        "Croissance démographique très rapide (doublement de la population d'ici 2050)",
+        "Pauvreté rurale persistante (65% de la population est agricole)",
+        "Infrastructure insuffisante pour relier un grand territoire",
+        "Changement climatique : sécheresses, fonte du Kilimandjaro",
+        "Développer le gaz naturel sans reproduire la «malédiction des ressources»"
+      ]
+    },
+
+    "importance": {
+      "historique": "Berceau de l'humanité (Olduvai Gorge — Lucy et les premiers hominidés). Julius Nyerere et l'Ujamaa : expérience philosophique africaine unique. Modèle de stabilité en Afrique de l'Est.",
+      "economique": "Réserves de gaz naturel qui pourraient transformer l'économie (parmi les plus grandes d'Afrique). Hub logistique pour 6 pays landlockés. Safari : or vert du tourisme.",
+      "geopolitique": "Îlot de stabilité entre des voisins souvent en crise (RDC, Burundi, Mozambique). Port de Dar es Salam = porte maritime de l'Afrique centrale. Compétition Chine-Occident pour les infrastructures.",
+      "atouts": [
+        "Stabilité remarquable (modèle pour la région)",
+        "Biodiversité exceptionnelle (Serengeti, Ngorongoro, Zanzibar)",
+        "Réserves de gaz (potentiel transformateur)",
+        "Hub logistique régional (port de Dar es Salam)",
+        "Tanzanite : monopole mondial unique"
+      ],
+      "fragilites": [
+        "Pauvreté persistante (IDH 163/191)",
+        "Croissance démographique supérieure à la croissance économique",
+        "Infrastructure insuffisante dans un grand territoire",
+        "Dépendance à l'agriculture pluviale (vulnérabilité climatique)",
+        "Corruption et gouvernance à améliorer"
+      ]
+    }
+  },
+
+  "UZ": {
+    "name": "Ouzbékistan",
+    "flag": "🇺🇿",
+    "capitale": "Tachkent",
+    "continent": "Asie",
+    "population": "36 millions (2024)",
+    "superficie": "448 978 km²",
+    "langues": ["Ouzbek (officiel)", "Russe (langue de communication inter-ethnique)"],
+    "monnaie": "Sum ouzbek (UZS)",
+
+    "histoire": {
+      "independance": "1er septembre 1991 (dissolution de l'URSS).",
+      "evenements_majeurs": [
+        "Civilisations de la Route de la Soie (IVe s. av. J.-C.) : Samarkand et Boukhara — carrefour de l'Eurasie",
+        "Conquête d'Alexandre le Grand (329 av. J.-C.) — «Sogdiane»",
+        "Âge d'or islamique (IXe-XIIe s.) : Avicenne (médecine), Al-Biruni (astronomie) nés en Ouzbékistan",
+        "Empire de Tamerlan (Timour, 1370-1405) : Samarkand devient capitale d'un empire de l'Inde à la Turquie",
+        "Khânats de Khiva, Boukhara, Kokand (XVIe-XIXe s.)",
+        "Conquête russe (1865-1876) : intégration à l'Empire russe",
+        "RSS d'Ouzbékistan (1924-1991) : monoculture du coton imposée (désastre de la mer d'Aral)",
+        "Catastrophe de la mer d'Aral : assèchement quasi-total (70% de la surface perdue)",
+        "Islam Karimov (1991-2016) : dictature post-soviétique",
+        "Ouverture sous Shavkat Mirziyoyev (depuis 2016) : réformes économiques et diplomatiques",
+        "Massacre d'Andijan (2005) : répression sanglante (800+ morts)"
+      ],
+      "role_historique": "Samarkand et Boukhara sont parmi les villes les plus importantes de l'histoire de l'humanité — carrefour de la Route de la Soie, berceau de la science islamique médiévale, capitale de l'empire de Tamerlan. L'Ouzbékistan porte un héritage civilisationnel exceptionnel."
+    },
+
+    "politique": {
+      "regime": "République présidentielle autoritaire. Parti au pouvoir dominant. Liberté de presse quasi-nulle. Réformes économiques sous Mirziyoyev mais pas politiques.",
+      "chef_etat": "Shavkat Mirziyoyev (Président depuis 2016 — réformateur économique, maintien du contrôle politique).",
+      "stabilite": "Stable sous contrôle autoritaire. Réformes économiques ouvertes (visa facilité, investissements étrangers bienvenus). Tensions ethniques avec les minorités (Tadjiks).",
+      "alliances": [
+        "OCS (Organisation de Coopération de Shanghai)",
+        "CEI (Communauté des États Indépendants)",
+        "Partenariats avec la Chine (Route de la Soie, BRI)",
+        "Relations pragmatiques avec la Russie (mais de plus en plus équilibrées avec l'Occident et la Chine)",
+        "Membres de l'Organisation turque des États"
+      ]
+    },
+
+    "economie": {
+      "pib": "100 milliards $ (2023, 1er d'Asie centrale)",
+      "pib_hab": "2 780 $ (2023) — croissance ~6%/an",
+      "ressources": [
+        "Or (4e réserves mondiales — mine de Muruntau, l'une des plus grandes à ciel ouvert du monde)",
+        "Uranium (4e producteur mondial)",
+        "Gaz naturel et pétrole",
+        "Coton (héritage soviétique — 4e producteur mondial, travail forcé historique)",
+        "Cuivre, zinc, molybdène"
+      ],
+      "secteurs": [
+        "Agriculture et coton (en modernisation)",
+        "Mines (or, uranium, gaz)",
+        "Textile (reconversion du coton en industrie textile)",
+        "Tourisme (Samarkand, Boukhara, Khiva — patrimoine UNESCO)",
+        "Automobile (UzAuto Motors — partenariat avec GM, Chevrolet)"
+      ],
+      "grandes_villes": [
+        "Tachkent (2,5 M hab. — la plus grande ville d'Asie centrale)",
+        "Samarkand (ville mythique de la Route de la Soie, patrimoine UNESCO)",
+        "Boukhara (cité médiévale — 140 monuments historiques)",
+        "Namangan et Andijan (vallée de Fergana — zone densément peuplée)"
+      ],
+      "places_economiques": [
+        "Bourse de Tachkent (RSE)",
+        "Zone économique spéciale de Navoi (hub logistique entre Chine et Europe)",
+        "Aéroport de Navoi (hub de fret — entre Asie et Europe)"
+      ],
+      "voies_communication": [
+        "Carrefour historique eurasiatique : entre Chine, Russie, Iran et Europe",
+        "Chemin de fer : Tachkent connectée à la Chine et à la Russie",
+        "LGV Tachkent-Samarkand (train à grande vitesse «Afrosiyob»)",
+        "Aéroport de Tachkent — hub d'Asie centrale"
+      ]
+    },
+
+    "societe": {
+      "demographie": "36 millions — la population la plus importante d'Asie centrale (50% de la population totale de la région). Très jeune (âge médian 28 ans). 80% de Musulmans sunnites.",
+      "idh": "0,727 (rang 106/191 en 2022, catégorie « élevé »)",
+      "education": "Taux d'alphabétisation 100% (héritage soviétique). Universités d'État en développement. Branches d'universités étrangères ouvertes à Tachkent (Turin, Westminster, Singapore Management).",
+      "sante": "Espérance de vie 75 ans. Système de santé soviétique en cours de modernisation.",
+      "inegalites": "Gini ~36. Inégalités entre Tachkent (moderne) et vallée de Fergana (surpeuplée, pauvre). Travailleurs migrants en Russie : 5-6 millions (transferts = 15% du PIB).",
+      "urbanisation": "52 % (2023)."
+    },
+
+    "environnement": {
+      "pollution": "Catastrophe de la mer d'Aral : 4e plus grand lac du monde en 1960, réduit à 10% de sa surface en 2024. Pesticides et sel soulevés par le vent = cancer et maladies chroniques dans la région. Pollution industrielle de l'ère soviétique.",
+      "dev_durable": "Projet de réhabilitation de la mer d'Aral (plantation de saxaouls sur les anciens fonds). Transition vers l'énergie solaire (ensoleillement exceptionnel). Réforme de la culture du coton.",
+      "recherche": "Héritage scientifique islamique médiévale (Avicenne, Al-Biruni). Astronomie (Institut astronomique de Tachkent — héritage soviétique). Ulugh Beg (XVe s.) — observatoire de Samarkand.",
+      "militaire": "Forces armées de 48 000 actifs. Armée la plus puissante d'Asie centrale. Pas d'alliance militaire formelle (hors OCS).",
+      "defis": [
+        "Catastrophe de la mer d'Aral (irréversible à court terme)",
+        "Économie encore très dépendante de la Russie (transferts migrants)",
+        "Pénurie d'eau chronique (Amou-Daria et Syr-Daria partagés avec plusieurs pays)",
+        "Enclavement : pas d'accès à la mer (deux fois enclavé)",
+        "Autoritarisme limitant les libertés et l'innovation"
+      ]
+    },
+
+    "importance": {
+      "historique": "Samarkand et Boukhara sont parmi les villes les plus chargées d'histoire du monde. L'Ouzbékistan est le berceau d'Avicenne (médecine), d'Al-Biruni (astronomie) et de Tamerlan. La Route de la Soie passait par ses cités.",
+      "economique": "1ère économie d'Asie centrale. 4e réserves mondiales d'or. 4e producteur mondial d'uranium (métal clé du nucléaire et de la transition énergétique). Carrefour logistique entre Chine et Europe.",
+      "geopolitique": "Cœur de l'Asie centrale — région disputée entre Chine (BRI), Russie (hégémonie historique) et Occident (gaz, uranium). Pivot stratégique entre civilisations.",
+      "atouts": [
+        "Patrimoine civilisationnel exceptionnel (Route de la Soie, Samarkand, Boukhara)",
+        "4e réserves mondiales d'or et 4e producteur d'uranium",
+        "Population la plus nombreuse d'Asie centrale (levier démographique)",
+        "Ouverture économique sous Mirziyoyev (tourisme, investissements)",
+        "Position carrefour entre Chine, Russie, Iran et Europe"
+      ],
+      "fragilites": [
+        "Double enclavement (pas d'accès à la mer et entouré de pays eux-mêmes enclavés)",
+        "Catastrophe écologique de la mer d'Aral",
+        "Pénurie d'eau structurelle",
+        "Dépendance aux transferts de migrants depuis la Russie",
+        "Régime autoritaire freinant le développement humain"
+      ]
+    }
+  }
+}

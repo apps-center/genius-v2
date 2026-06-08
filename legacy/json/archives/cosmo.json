@@ -1,0 +1,314 @@
+[
+  {
+    "era": "✦ Ère Cosmique",
+    "cls": "cosmic",
+    "events": [
+      {
+        "icon": "💥",
+        "tag": "Événement",
+        "date": "–13,8 milliards d'années",
+        "title": "Naissance de l'Univers",
+        "desc": "Le Big Bang : espace, temps et matière apparaissent en une fraction de seconde. Toute l'énergie de l'univers concentrée en un point.",
+        "anecdotes": [
+          {
+            "e": "🌡️",
+            "t": "<b>10 milliards de degrés</b> à la naissance — le cœur du Soleil n'est « que » 15 millions de degrés."
+          },
+          {
+            "e": "🕰️",
+            "t": "<b>Le temps lui-même est né avec le Big Bang.</b> Demander « qu'y avait-il avant ? » n'a pas de sens : il n'y avait pas de « avant »."
+          },
+          {
+            "e": "🔇",
+            "t": "<b>Le Big Bang ne fait pas « bang » !</b> Pas d'espace pour transmettre un son. L'explosion s'est produite partout à la fois."
+          }
+        ],
+        "kind": "histoire"
+      },
+      {
+        "icon": "☀️",
+        "tag": "Événement",
+        "date": "–4,6 milliards d'années",
+        "title": "Naissance du Système Solaire",
+        "desc": "Un nuage de gaz s'effondre sur lui-même. Le Soleil s'allume. Les planètes se forment par accrétion de roches.",
+        "anecdotes": [
+          {
+            "e": "⚖️",
+            "t": "<b>Le Soleil représente 99,86 % de la masse du système solaire.</b> Toutes les planètes réunies font à peine 0,14 %."
+          },
+          {
+            "e": "🪐",
+            "t": "<b>Jupiter protège probablement la Terre</b> en capturant avec sa gravité les gros astéroïdes qui nous menaceraient."
+          }
+        ],
+        "kind": "histoire"
+      },
+      {
+        "icon": "🌍",
+        "tag": "Événement",
+        "date": "–4,5 milliards d'années",
+        "title": "Naissance de la Terre",
+        "desc": "La Terre se forme. La Lune naît d'un impact géant avec la proto-planète Théia. Les océans apparaissent.",
+        "anecdotes": [
+          {
+            "e": "🌕",
+            "t": "<b>La Lune s'éloigne de 3,8 cm par an.</b> À sa formation, elle était 15 fois plus proche — un disque immense dans le ciel."
+          },
+          {
+            "e": "🌊",
+            "t": "<b>L'eau terrestre vient de l'espace :</b> comètes et astéroïdes riches en glace ont bombardé la Terre dans ses premiers millions d'années."
+          }
+        ],
+        "kind": "histoire"
+      }
+    ]
+  },
+  {
+    "era": "✦ Ère Biologique",
+    "cls": "geo",
+    "events": [
+      {
+        "icon": "🧫",
+        "tag": "Événement",
+        "date": "–3,8 milliards d'années",
+        "title": "Naissance de la Vie",
+        "desc": "Premières cellules procaryotes dans les océans primitifs, probablement autour de sources hydrothermales sous-marines.",
+        "anecdotes": [
+          {
+            "e": "🔬",
+            "t": "<b>Toute vie sur Terre partage le même code ADN</b> — bactérie ou être humain, mêmes 4 lettres chimiques. Nous sommes tous cousins."
+          },
+          {
+            "e": "🧬",
+            "t": "<b>Nos mitochondries sont des bactéries apprivoisées.</b> Une cellule en avala une autre sans la digérer il y a 2 milliards d'années — elle est devenue notre centrale énergétique."
+          }
+        ],
+        "kind": "histoire"
+      },
+      {
+        "icon": "🟢",
+        "tag": "Événement",
+        "date": "–1 200 millions d'années",
+        "title": "Premières Algues",
+        "desc": "Les algues pluricellulaires apparaissent. Via endosymbiose, elles sont à l'origine des chloroplastes — base de la photosynthèse chez tous les végétaux futurs.",
+        "anecdotes": [
+          {
+            "e": "🌞",
+            "t": "<b>Les algues produisent encore aujourd'hui la moitié de l'oxygène mondial.</b> Sans elles, l'atmosphère serait irrespirable."
+          }
+        ],
+        "kind": "histoire"
+      },
+      {
+        "icon": "🐚",
+        "tag": "Événement",
+        "date": "~538,8 millions d'années",
+        "title": "Explosion Cambrienne — Premiers Animaux",
+        "desc": "Début du Cambrien : diversification majeure des animaux marins en quelques millions d'années. La plupart des grands embranchements animaux modernes apparaissent dans les archives fossiles.",
+        "anecdotes": [
+          {
+            "e": "👁️",
+            "t": "<b>Les yeux sont apparus au Cambrien</b> et ont déclenché une « course aux armements » entre prédateurs et proies."
+          },
+          {
+            "e": "🧮",
+            "t": "<b>97 % des espèces animales sont des invertébrés.</b> Les vertébrés (dont nous) sont une infime minorité."
+          }
+        ],
+        "kind": "histoire"
+      },
+      {
+        "icon": "🌿",
+        "tag": "Événement",
+        "date": "–470 millions d'années",
+        "title": "Plantes Terrestres",
+        "desc": "Les plantes colonisent les continents depuis les océans. Elles créeront les premiers sols et transformeront l'atmosphère.",
+        "anecdotes": [
+          {
+            "e": "🪨",
+            "t": "<b>Les plantes ont créé les sols.</b> Avant elles, les continents n'étaient que roche nue et désert de pierre."
+          }
+        ],
+        "kind": "histoire"
+      },
+      {
+        "icon": "🦕",
+        "tag": "Événement",
+        "date": "–230 millions d'années",
+        "title": "Premiers Dinosaures",
+        "desc": "Les dinosaures domineront la Terre pendant 165 millions d'années avant d'être balayés par un astéroïde.",
+        "anecdotes": [
+          {
+            "e": "🐦",
+            "t": "<b>Les oiseaux sont des dinosaures.</b> Scientifiquement, un moineau est un dinosaure à plumes. Ils n'ont pas totalement disparu."
+          },
+          {
+            "e": "☄️",
+            "t": "<b>L'astéroïde Chicxulub (–66 Ma)</b> libéra l'énergie d'un milliard de bombes atomiques. Les poussières bloquèrent le Soleil pendant des années."
+          }
+        ],
+        "kind": "histoire"
+      }
+    ]
+  },
+  {
+    "era": "✦ Préhistoire",
+    "cls": "paleo",
+    "events": [
+      {
+        "icon": "🦴",
+        "tag": "Événement",
+        "date": "–7 millions d'années",
+        "title": "Premiers Hominidés",
+        "desc": "Sahelanthropus tchadensis au Tchad — le plus ancien fossile de notre lignée, à la séparation avec les grands singes.",
+        "anecdotes": [
+          {
+            "e": "🧬",
+            "t": "<b>98,7 % d'ADN commun avec les chimpanzés.</b> Cet infime écart suffit pourtant à tout changer."
+          },
+          {
+            "e": "🚶",
+            "t": "<b>La bipédie est venue avant le gros cerveau</b> — nos ancêtres marchaient debout 2 millions d'années avant que leur cerveau grossisse."
+          }
+        ],
+        "kind": "histoire"
+      },
+      {
+        "kind": "histoire",
+        "icon": "🪨",
+        "date": "–1,7 MILLION D'ANNEES",
+        "title": "Le Biface",
+        "desc": "Le biface acheuléen est le premier outil façonné des deux côtés. Taillé dans le silex ou le quartzite, il est couteau, hache et grattoir à la fois. Il sera utilisé sans changement pendant 1,5 million d'années.",
+        "anecdotes": [
+          {
+            "e": "🔪",
+            "t": "<b>Un biface bien taillé est plus tranchant qu'un scalpel chirurgical.</b> La technique de taille par percussion contrôlée est si difficile que peu de gens peuvent la reproduire aujourd'hui."
+          },
+          {
+            "e": "⏰",
+            "t": "<b>1,5 million d'années sans innovation</b> — c'est la plus longue tradition technologique de l'histoire humaine. Nous innovons plus en un an que nos ancêtres en 100 000 ans."
+          }
+        ]
+      },
+      {
+        "icon": "🔥",
+        "tag": "Événement",
+        "date": "–1 million d'années",
+        "title": "Maîtrise du Feu",
+        "desc": "Homo erectus contrôle le feu. Révolution alimentaire : la cuisson libère plus de calories, permettant le développement d'un cerveau plus grand.",
+        "anecdotes": [
+          {
+            "e": "🌙",
+            "t": "<b>Le feu a inventé la soirée.</b> La veillée est probablement à l'origine du langage, des récits et des mythes."
+          }
+        ],
+        "kind": "histoire"
+      },
+      {
+        "icon": "🧠",
+        "tag": "Événement",
+        "date": "–300 000 ans",
+        "title": "Homo Sapiens",
+        "desc": "Notre espèce apparaît en Afrique (Jebel Irhoud, Maroc) et se dispersera sur toute la planète.",
+        "anecdotes": [
+          {
+            "e": "🧡",
+            "t": "<b>Nous avons des gènes néandertaliens.</b> Les Européens et Asiatiques portent 1 à 4 % d'ADN néandertalien — héritage de croisements anciens."
+          },
+          {
+            "e": "🌏",
+            "t": "<b>Toute l'humanité descend d'un petit groupe africain</b> de ~1 000 à 10 000 individus ayant quitté l'Afrique il y a ~70 000 ans."
+          }
+        ],
+        "kind": "histoire"
+      },
+      {
+        "kind": "histoire",
+        "icon": "🏹",
+        "date": "–35 000 av. J.-C.",
+        "title": "La Lance & le Propulseur",
+        "desc": "Le propulseur (atlatl) est un bras de levier qui multiplie par 3 la portée et la puissance d'une lance. Il permet de chasser à distance et transforme les rapports de force avec la faune.",
+        "anecdotes": [
+          {
+            "e": "🎯",
+            "t": "<b>Le propulseur peut lancer une lance à 100 mètres</b> avec une force suffisante pour transpercer un mammouth. Une innovation qui permit aux Homo Sapiens de dominer tous les grands prédateurs."
+          },
+          {
+            "e": "🏹",
+            "t": "<b>L'arc et la flèche</b> ne sont inventés que vers –20 000 ans en Afrique du Sud. Le propulseur est donc bien antérieur — et restera l'arme de chasse principale pendant des dizaines de millénaires."
+          }
+        ]
+      },
+      {
+        "kind": "histoire",
+        "icon": "🏺",
+        "date": "–17 500 av. J.-C.",
+        "title": "La Poterie",
+        "desc": "Les premières poteries connues (Chine, Japon) permettent de cuire, stocker et transporter les aliments. Une révolution silencieuse qui précède l'agriculture de plusieurs millénaires.",
+        "anecdotes": [
+          {
+            "e": "🍲",
+            "t": "<b>La poterie précède l'agriculture de 5 000 ans.</b> Les chasseurs-cueilleurs utilisaient des pots pour cuire et conserver les aliments bien avant de cultiver."
+          },
+          {
+            "e": "🔥",
+            "t": "<b>La cuisson des aliments dans l'eau</b> rendue possible par la poterie libère des nutriments inaccessibles autrement. Elle a probablement autant contribué à la santé humaine que la médecine."
+          }
+        ]
+      },
+      {
+        "kind": "histoire",
+        "icon": "🐕",
+        "date": "–15 000 av. J.-C.",
+        "title": "Domestication du Chien",
+        "desc": "Le chien est le premier animal domestiqué par l'homme — bien avant les vaches, moutons ou chevaux. Issu du loup gris, il devient aide à la chasse, gardien et compagnon.",
+        "anecdotes": [
+          {
+            "e": "🐺",
+            "t": "<b>Le chien s'est peut-être domestiqué lui-même :</b> des loups moins craintifs auraient appris à suivre les camps humains pour se nourrir des restes, développant progressivement une relation symbiotique."
+          },
+          {
+            "e": "🧬",
+            "t": "<b>Toutes les races de chiens</b> — du chihuahua au saint-bernard — descendent d'une même population de loups domestiqués. La sélection humaine en 15 000 ans a créé une diversité morphologique sans équivalent dans la nature."
+          }
+        ]
+      },
+      {
+        "icon": "🌾",
+        "tag": "Événement",
+        "date": "–10 000 ans",
+        "title": "Révolution Néolithique",
+        "desc": "Agriculture et élevage au Croissant Fertile. Fin du nomadisme. Les premiers villages apparaissent — naissance de la civilisation.",
+        "anecdotes": [
+          {
+            "e": "⏰",
+            "t": "<b>L'agriculture a inventé la notion de futur :</b> semer pour récolter plus tard. C'est l'origine des calendriers, de l'écriture et des contrats."
+          },
+          {
+            "e": "🦠",
+            "t": "<b>Les premiers villages ont inventé les épidémies.</b> Vivre entassés avec des animaux a permis aux virus de franchir la barrière des espèces."
+          }
+        ],
+        "kind": "histoire"
+      },
+      {
+        "icon": "🧊",
+        "tag": "Événement",
+        "date": "~–3 300 av. J.-C.",
+        "title": "Ötzi — L'Homme des Glaces",
+        "desc": "Dans les Alpes tyroliennes, un chasseur néolithique meurt à 3 210 m d'altitude. Préservé 5 300 ans dans la glace, il est découvert en 1991 et livre un portrait saisissant de l'homme de la fin du Néolithique.",
+        "anecdotes": [
+          {
+            "e": "🏹",
+            "t": "<b>Ötzi a été assassiné :</b> une pointe de flèche est logée dans son épaule, sectionnant une artère. Premier « cold case » de l'histoire, vieux de 5 300 ans."
+          },
+          {
+            "e": "🧬",
+            "t": "<b>Son ADN révèle qu'Ötzi est le cousin génétique</b> de nombreux Sardes et Corses actuels. Il était intolérant au lactose, avait les yeux marron et souffrait de maladie de Lyme."
+          }
+        ],
+        "kind": "histoire"
+      }
+    ]
+  }
+]

@@ -1,0 +1,677 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Flashcards Historiques — L'Encyclopédie des Explorateurs</title>
+<link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;700;900&family=Crimson+Pro:ital,wght@0,300;0,400;1,300&display=swap" rel="stylesheet">
+<style>
+:root {
+  --bg: #060a14; --gold: #d4a843; --gold-dim: rgba(200,180,120,0.18);
+  --text: #e8dfc4; --text-dim: rgba(232,223,196,0.48);
+  --card-bg: rgba(8,13,26,0.94); --border: rgba(200,180,120,0.18);
+}
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+body { background: var(--bg); color: var(--text); font-family: 'Crimson Pro', Georgia, serif; min-height: 100vh; overflow-x: hidden; user-select: none; }
+#stars-canvas { position: fixed; inset: 0; z-index: 0; pointer-events: none; }
+.content { position: relative; z-index: 1; }
+
+/* HEADER */
+header { text-align: center; padding: 52px 20px 28px; }
+.enc-label { font-size: .72rem; letter-spacing: .38em; text-transform: uppercase; color: var(--text-dim); margin-bottom: 14px; }
+h1 { font-family: 'Cinzel', serif; font-weight: 900; font-size: clamp(1.7rem, 4.5vw, 3.2rem); background: linear-gradient(135deg, #f5e6a3, #d4a843 38%, #f0c060 68%, #fff8e0); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; line-height: 1.1; }
+.tagline { margin-top: 10px; font-size: .95rem; color: var(--text-dim); font-style: italic; }
+.divider { height: 1px; background: var(--gold-dim); max-width: 300px; margin: 20px auto; }
+
+/* PROGRESS */
+.progress-wrap { max-width: 520px; margin: 0 auto 28px; text-align: center; }
+.progress-text { font-family: 'Cinzel', serif; font-size: .72rem; letter-spacing: .2em; text-transform: uppercase; color: var(--text-dim); margin-bottom: 10px; }
+.progress-bar { height: 2px; background: var(--gold-dim); border-radius: 2px; overflow: hidden; }
+.progress-fill { height: 100%; background: var(--gold); transition: width .4s ease; border-radius: 2px; }
+
+/* FLASHCARD */
+.stage { display: flex; justify-content: center; align-items: center; perspective: 1200px; padding: 8px 0 20px; }
+.fc-wrap {
+  width: 420px; max-width: 88vw; height: 540px;
+  position: relative; transform-style: preserve-3d;
+  transition: transform .6s cubic-bezier(0.34, 1.4, 0.64, 1);
+  cursor: pointer;
+  will-change: transform;
+}
+
+.fc-wrap.flipped { transform: rotateY(180deg); }
+.fc-wrap.no-anim { transition: none !important; }
+
+.face {
+  position: absolute; inset: 0; border-radius: 14px;
+  backface-visibility: hidden; -webkit-backface-visibility: hidden;
+  border: 1px solid var(--border);
+  box-shadow: 0 20px 60px rgba(0,0,0,.7), 0 0 0 1px rgba(200,180,120,.06);
+  overflow: hidden;
+  transform: translateZ(0);
+}
+
+/* RECTO */
+.face-front { background: var(--card-bg); display: flex; flex-direction: column; }
+.face-front img { width: 100%; height: 400px; object-fit: contain; display: block; background: var(--card-bg); }
+
+.front-footer { flex: 1; display: flex; align-items: center; justify-content: center; gap: 10px; padding: 14px 20px; border-top: 1px solid var(--border); }
+.flip-hint { font-size: .7rem; letter-spacing: .2em; text-transform: uppercase; color: var(--text-dim); }
+.flip-arrow { color: var(--gold); opacity: .7; font-size: 1rem; }
+
+/* VERSO */
+.face-back {
+  transform: rotateY(180deg);
+  background: linear-gradient(145deg, #0a1220 0%, #111e33 50%, #0d1828 100%);
+  display: flex; flex-direction: column; align-items: center; justify-content: center;
+  text-align: center; padding: 44px 36px; border-color: rgba(200,180,120,.38);
+}
+.face-back::before { content: ''; position: absolute; inset: 0; border-radius: 14px; background: radial-gradient(ellipse at 50% 20%, rgba(212,168,67,.07) 0%, transparent 65%); pointer-events: none; }
+.b-era { font-size: .64rem; letter-spacing: .22em; text-transform: uppercase; color: var(--gold); border: 1px solid rgba(212,168,67,.45); padding: 4px 16px; border-radius: 3px; margin-bottom: 28px; opacity: .9; }
+.b-date { font-family: 'Cinzel', serif; font-size: 2rem; font-weight: 900; background: linear-gradient(135deg, #f5e6a3, #d4a843); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; margin-bottom: 16px; line-height: 1.2; }
+.b-title { font-family: 'Cinzel', serif; font-size: 1.05rem; font-weight: 700; color: var(--text); line-height: 1.4; margin-bottom: 22px; }
+.b-desc { font-size: .95rem; line-height: 1.75; color: rgba(232,223,196,.62); font-style: italic; max-width: 280px; }
+
+/* OVERLAY NOIR */
+.overlay { position: absolute; inset: 0; border-radius: 14px; background: rgba(6,10,20,.95); z-index: 30; opacity: 0; pointer-events: none; transition: opacity 0.18s ease; }
+.overlay.dark { opacity: 1; }
+
+/* IRIS depuis le centre */
+@keyframes iris {
+  from { clip-path: inset(50% 50% 50% 50% round 8px); opacity: 0; }
+  to   { clip-path: inset(0% 0% 0% 0% round 14px); opacity: 1; }
+}
+.face-front.iris { animation: iris 0.4s cubic-bezier(0.34, 1.2, 0.64, 1) forwards; }
+
+/* BUTTONS */
+.controls { display: flex; justify-content: center; gap: 12px; margin-top: 20px; flex-wrap: wrap; }
+.btn { font-family: 'Cinzel', serif; font-size: .72rem; letter-spacing: .18em; text-transform: uppercase; padding: 11px 26px; border-radius: 4px; border: 1px solid var(--border); background: rgba(6,10,20,.9); color: var(--text-dim); cursor: pointer; transition: all .2s; }
+.btn:hover { border-color: rgba(200,180,120,.5); color: var(--text); background: rgba(200,180,120,.07); }
+.btn-gold { border-color: rgba(212,168,67,.6); color: var(--gold); background: rgba(212,168,67,.07); }
+.btn-gold:hover { background: rgba(212,168,67,.16); box-shadow: 0 0 18px rgba(212,168,67,.2); }
+.btn-green { border-color: rgba(94,196,138,.5); color: #5ec48a; }
+.btn-green:hover { background: rgba(94,196,138,.1); }
+.btn-red { border-color: rgba(232,80,80,.5); color: #e84848; }
+.btn-red:hover { background: rgba(232,80,80,.1); }
+.review-row { display: flex; justify-content: center; gap: 12px; margin-top: 12px; flex-wrap: wrap; }
+.review-label { text-align: center; margin-top: 16px; font-size: .65rem; letter-spacing: .18em; text-transform: uppercase; color: var(--text-dim); }
+
+/* COUNTERS */
+.known-bar { max-width: 520px; margin: 20px auto 0; display: flex; gap: 20px; justify-content: center; }
+.known-stat { font-family: 'Cinzel', serif; font-size: .68rem; letter-spacing: .14em; text-transform: uppercase; color: var(--text-dim); }
+.known-stat span { color: var(--text); font-weight: 700; }
+
+/* EPOCH FILTER */
+.epoch-wrap { max-width: 680px; margin: 0 auto 28px; padding: 0 20px; }
+.epoch-label { font-family: 'Cinzel', serif; font-size: .6rem; letter-spacing: .32em; text-transform: uppercase; color: rgba(212,168,67,.38); text-align: center; margin-bottom: 14px; }
+.epoch-pills { display: flex; flex-wrap: wrap; justify-content: center; gap: 8px; }
+.ep-pill {
+  font-family: 'Cinzel', serif; font-size: .58rem; letter-spacing: .18em; text-transform: uppercase;
+  padding: 7px 16px; border-radius: 20px; border: 1px solid rgba(200,180,120,.18);
+  background: rgba(6,10,20,.8); color: rgba(232,223,196,.38);
+  cursor: pointer; transition: all .22s; white-space: nowrap;
+}
+.ep-pill:hover { border-color: rgba(212,168,67,.45); color: rgba(212,168,67,.75); background: rgba(212,168,67,.06); }
+.ep-pill.active {
+  border-color: rgba(212,168,67,.75); color: var(--gold);
+  background: rgba(212,168,67,.12); box-shadow: 0 0 14px rgba(212,168,67,.15);
+}
+.epoch-count { text-align: center; font-size: .7rem; color: rgba(232,223,196,.3); font-style: italic; margin-top: 10px; transition: color .3s; }
+
+/* STRIP */
+.strip { display: flex; gap: 8px; overflow-x: auto; padding: 12px 20px; scrollbar-width: none; }
+.strip::-webkit-scrollbar { display: none; }
+.thumb { width: 52px; height: 38px; object-fit: cover; border-radius: 4px; border: 1px solid var(--border); flex-shrink: 0; opacity: .45; transition: opacity .2s; cursor: pointer; }
+.thumb:hover { opacity: .7; }
+.thumb.cur { opacity: 1; border-color: var(--gold); }
+
+.back{position:fixed;top:22px;left:24px;z-index:100;font-family:'Cinzel',serif;font-size:.6rem;letter-spacing:.25em;text-transform:uppercase;color:rgba(212,168,67,.5);text-decoration:none;display:flex;align-items:center;gap:8px;transition:color .2s;}
+.back:hover{color:#d4a843;}
+@media (max-width: 600px) {
+  .fc-wrap { height: 460px; }
+  .face-front img { height: 330px; }
+  .b-date { font-size: 1.5rem; }
+}
+
+/* APPROFONDIR BUTTON */
+.btn-deepen{position:absolute;bottom:16px;left:50%;transform:translateX(-50%);white-space:nowrap;font-family:'Cinzel',serif;font-size:.55rem;letter-spacing:.18em;text-transform:uppercase;padding:7px 18px;border-radius:3px;border:1px solid rgba(212,168,67,.28);background:rgba(212,168,67,.06);color:rgba(212,168,67,.52);cursor:pointer;transition:all .2s;z-index:2;}
+.btn-deepen:hover{border-color:rgba(212,168,67,.62);color:var(--gold);background:rgba(212,168,67,.13);}
+
+/* CHRONO DRAWER */
+#chd-backdrop{position:fixed;inset:0;z-index:200;background:rgba(0,0,0,.55);backdrop-filter:blur(3px);opacity:0;pointer-events:none;transition:opacity .3s;}
+#chd-backdrop.open{opacity:1;pointer-events:all;}
+#chd-panel{position:fixed;top:0;right:0;bottom:0;width:min(460px,95vw);z-index:201;background:rgba(10,18,36,.97);border-left:1px solid rgba(200,180,120,.22);box-shadow:-10px 0 50px rgba(0,0,0,.7);transform:translateX(100%);transition:transform .35s cubic-bezier(.4,0,.2,1);display:flex;flex-direction:column;overflow:hidden;}
+#chd-panel.open{transform:translateX(0);}
+#chd-close{position:absolute;top:16px;right:18px;z-index:10;background:none;border:1px solid rgba(200,180,120,.2);color:rgba(232,223,196,.5);font-size:.7rem;font-family:'Cinzel',serif;letter-spacing:.1em;text-transform:uppercase;padding:6px 14px;border-radius:3px;cursor:pointer;transition:all .2s;}
+#chd-close:hover{border-color:rgba(232,80,80,.5);color:#e84848;}
+#chd-inner{flex:1;overflow-y:auto;padding:52px 28px 40px;scrollbar-width:thin;scrollbar-color:rgba(200,180,120,.15) transparent;}
+#chd-loading{text-align:center;padding:60px 20px;font-family:'Cinzel',serif;font-size:.72rem;letter-spacing:.22em;text-transform:uppercase;color:rgba(232,223,196,.35);animation:chdPulse 1.4s ease infinite;}
+@keyframes chdPulse{0%,100%{opacity:.35;}50%{opacity:.9;}}
+#chd-img{width:100%;max-height:200px;object-fit:cover;border-radius:6px;border:1px solid rgba(200,180,120,.15);margin-bottom:22px;display:none;}
+#chd-era-badge{display:inline-block;font-family:'Cinzel',serif;font-size:.52rem;letter-spacing:.2em;text-transform:uppercase;color:var(--gold);border:1px solid rgba(212,168,67,.4);padding:3px 12px;border-radius:3px;margin-bottom:14px;}
+#chd-title{font-family:'Cinzel',serif;font-size:1.1rem;font-weight:700;color:var(--text);line-height:1.45;margin-bottom:18px;}
+#chd-desc{font-size:.95rem;line-height:1.8;color:rgba(232,223,196,.68);font-style:italic;margin-bottom:22px;}
+#chd-anec-head{font-family:'Cinzel',serif;font-size:.58rem;letter-spacing:.22em;text-transform:uppercase;color:rgba(212,168,67,.48);border-top:1px solid rgba(200,180,120,.1);padding-top:18px;margin-bottom:14px;}
+.chd-anec-item{display:flex;gap:12px;margin-bottom:14px;background:rgba(6,10,20,.55);border:1px solid rgba(200,180,120,.1);border-radius:6px;padding:12px 14px;}
+.chd-anec-emoji{font-size:1.35rem;flex-shrink:0;line-height:1.4;}
+.chd-anec-text{font-size:.87rem;line-height:1.65;color:rgba(232,223,196,.62);}
+#chd-notfound{text-align:center;padding:48px 20px;color:rgba(232,223,196,.38);font-style:italic;font-size:.9rem;line-height:1.7;}
+</style>
+</head>
+<body>
+<canvas id="stars-canvas"></canvas>
+<a class="back" href="/flashcards/index.html">← Flashcards</a>
+<div class="content">
+
+  <header>
+    <div class="enc-label">L'Encyclopédie des Explorateurs</div>
+    <h1>Flashcards Historiques</h1>
+    <div class="tagline">Voyage à travers le temps — testez vos connaissances</div>
+  </header>
+
+  <div style="padding: 0 20px 80px;">
+
+    <div class="epoch-wrap">
+      <div class="epoch-label">Filtrer par époque</div>
+      <div class="epoch-pills">
+        <button class="ep-pill active" onclick="setEpoch('all')"     id="ep-all">⏳ Toutes les époques</button>
+        <button class="ep-pill"        onclick="setEpoch('prehistoire')" id="ep-prehistoire">🦕 Préhistoire</button>
+        <button class="ep-pill"        onclick="setEpoch('antiquite')"   id="ep-antiquite">🏛️ Antiquité</button>
+        <button class="ep-pill"        onclick="setEpoch('moyenage')"    id="ep-moyenage">⚔️ Moyen Âge</button>
+        <button class="ep-pill"        onclick="setEpoch('modernes')"    id="ep-modernes">⚜️ Temps Modernes</button>
+        <button class="ep-pill"        onclick="setEpoch('contemporaine')" id="ep-contemporaine">🏭 Époque Contemporaine</button>
+      </div>
+      <div class="epoch-count" id="epoch-count">205 cartes</div>
+    </div>
+
+    <div class="progress-wrap">
+      <div class="progress-text" id="p-text">Carte 1 / 109</div>
+      <div class="progress-bar"><div class="progress-fill" id="p-fill" style="width:0%"></div></div>
+    </div>
+
+    <div class="stage">
+      <div class="fc-wrap" id="fc" onclick="flipCard()">
+        <div class="overlay" id="overlay"></div>
+        <div class="face face-front" id="front">
+          <img id="fc-img" src="" alt="Illustration historique">
+          <div class="front-footer">
+            <span class="flip-arrow">↩</span>
+            <span class="flip-hint">Cliquez pour révéler · re-cliquez pour passer</span>
+          </div>
+        </div>
+        <div class="face face-back">
+          <div class="b-era"   id="fc-era"></div>
+          <div class="b-date"  id="fc-date"></div>
+          <div class="b-title" id="fc-title"></div>
+          <div class="b-desc"  id="fc-desc"></div>
+          <button class="btn-deepen" onclick="event.stopPropagation();openDeepDrawer()">📜 Approfondir</button>
+        </div>
+      </div>
+    </div>
+
+    <div class="controls">
+      <button class="btn"      onclick="prevCard()">← Précédente</button>
+      <button class="btn btn-gold" onclick="nextCard()">Suivante →</button>
+      <button class="btn"      onclick="shuffleCards()">🔀 Mélanger</button>
+    </div>
+
+    <div class="review-label">Après avoir révélé la carte :</div>
+    <div class="review-row">
+      <button class="btn btn-green" onclick="markKnown()">✓ Je savais</button>
+      <button class="btn btn-red"   onclick="markReview()">↩ À revoir</button>
+    </div>
+
+    <div class="known-bar">
+      <div class="known-stat">Connues : <span id="k-count">0</span></div>
+      <div class="known-stat">À revoir : <span id="r-count">0</span></div>
+      <div class="known-stat">Restantes : <span id="rem-count">109</span></div>
+    </div>
+
+    <div class="divider"></div>
+    <div class="strip" id="strip"></div>
+  </div>
+
+</div>
+
+<div id="chd-backdrop"></div>
+<aside id="chd-panel">
+  <button id="chd-close">✕</button>
+  <div id="chd-inner">
+    <div id="chd-loading">Chargement…</div>
+    <div id="chd-content" style="display:none">
+      <img id="chd-img" src="" alt="">
+      <div id="chd-era-badge"></div>
+      <h2 id="chd-title"></h2>
+      <p id="chd-desc"></p>
+      <div id="chd-anec-head">✦ Anecdotes &amp; curiosités</div>
+      <div id="chd-anec"></div>
+    </div>
+    <div id="chd-notfound" style="display:none"></div>
+  </div>
+</aside>
+
+<script>
+const CARDS = [
+  { id:1, img:"Naissance_de_l'univers_lumineux.webp", title:"Naissance de l'Univers", date:"-13,8 milliards d'années", year:0, era:"Ère Cosmique", desc:"Avant le Big Bang : rien. Pas le vide — le vide, c'est quelque chose. Rien. Pas d'espace, pas de temps, pas de matière." },
+  { id:2, img:"creation_syst_solaire.webp", title:"Naissance du Système Solaire", date:"-4,6 milliards d'années", year:0, era:"Ère Cosmique", desc:"Un immense nuage de gaz et de poussières — restes d'étoiles mortes depuis longtemps — commence à s'effondrer sur lui-même sous l'effet de sa propre gravité." },
+  { id:3, img:"La formation de la Terre primordiale.webp", title:"Naissance de la Terre", date:"-4,5 milliards d'années", year:0, era:"Ère Cosmique", desc:"La Terre se forme en agglomérant des millions de rochers en orbite. Mais à peine née, elle reçoit un impact catastrophique : une planète de la taille de Mars, baptisée Théia, la percute de plein fouet." },
+  { id:4, img:"Vents_hydrothermaux_et_vie_abyssale.webp", title:"Naissance de la Vie", date:"-3,8 milliards d'années", year:0, era:"Ère Biologique", desc:"Dans les océans primitifs brûlants, autour de cheminées hydrothermales crachant des minéraux à 300°C, quelque chose d'extraordinaire se produit : des molécules chimiques commencent à se copier elles-mêmes." },
+  { id:5, img:"Vue_préhistorique_sur_une_mer_d'algues.webp", title:"Premières Algues", date:"-1,2 milliards d'années", year:0, era:"Ère Biologique", desc:"Une cellule avale une bactérie photosynthétique — et au lieu de la digérer, elle la garde prisonnière. Cette bactérie devient un chloroplaste, une mini-usine à capter la lumière du Soleil." },
+  { id:6, img:"Écosystème_préhistorique_sous-marin_du_Cambrien.webp", title:"Explosion Cambrienne — Premiers Animaux", date:"-538,8 millions d'années", year:0, era:"Ère Biologique", desc:"Pendant des milliards d'années, la vie est restée microscopique et molle. Puis, en quelques millions d'années — un claquement de doigts à l'échelle géologique — une explosion de formes de vie nouvelles envahit les." },
+  { id:7, img:"Premiers_pas_de_la_vie_végétale.webp", title:"Les Plantes Conquièrent la Terre", date:"-470 millions d'années", year:0, era:"Ère Biologique", desc:"Pendant des milliards d'années, les continents sont des déserts de roche nue, battus par le vent et les pluies acides. Aucune plante, aucun animal." },
+  { id:8, img:"Dinosaures au bord de l'eau.webp", title:"Premiers Dinosaures", date:"-230 millions d'années", year:0, era:"Ère Biologique", desc:"Après une extinction massive qui a failli effacer toute la vie complexe , la vie repart de zéro. Parmi les survivants qui se disputent la Terre vide, un groupe se distingue : les dinosaures." },
+  { id:9, img:"Chute_d'astéroïde_et_fuite_des_dinosaures.webp", title:"Extinction des Dinosaures", date:"-66 millions d'années", year:0, era:"Ère Biologique", desc:"Un mardi ordinaire, il y a 66 millions d'années. Un rocher de 10 km de diamètre — gros comme le Mont Blanc — pénètre l'atmosphère à 72 000 km/h. En quelques secondes, il percute le Yucatán (Mexique)." },
+  { id:10, img:"bipedie.webp", title:"Premiers Hominidés", date:"-7 millions d'années", year:0, era:"Préhistoire", desc:"Sahelanthropus tchadensis (Tchad) — le plus ancien fossile de notre lignée, juste après la séparation évolutive avec les chimpanzés." },
+  { id:11, img:"L'artisanat_préhistorique_à_l'ère_de_la_pierre.webp", title:"Le Biface — Premier Chef-d'Œuvre Humain", date:"-1,7 million d'années", year:0, era:"Préhistoire", desc:"Homo erectus ramasse un bloc de silex brut et, à force de coups précis avec un percuteur en pierre, en fait émerger une lame symétrique, pointue, tranchante des deux côtés." },
+  { id:12, img:"feu_prehistoire.webp", title:"Maîtrise du Feu", date:"-1 million à -400 000 ans", year:0, era:"Préhistoire", desc:"Homo erectus apprivoise le feu — mais à quelle date exacte ? Les sources se contredisent légitimement, car il y a deux seuils distincts." },
+  { id:13, img:"Chasseur préhistorique prêt à lancer sa lance.webp", title:"La Lance en Bois — Première Arme à Distance", date:"-400 000 ans", year:0, era:"Préhistoire", desc:"À Schöningen (Allemagne), huit épieux en bois d'épicéa sont retrouvés intacts, vieux de 400 000 ans. Taillés en pointe, équilibrés comme des javelots modernes, ils sont l'œuvre d'Homo heidelbergensis." },
+  { id:14, img:"Premiers regards sur l'horizon préhistorique.webp", title:"Homo Sapiens — Notre Espèce Apparaît", date:"-300 000 ans", year:0, era:"Préhistoire", desc:"Au Maroc, dans les rochers de Jebel Irhoud, des fossiles vieux de 300 000 ans révèlent les premiers visages reconnaissables comme les nôtres." },
+  { id:15, img:"Confrontation_préhistorique_dans_la_nuit.webp", title:"La Lance à Pointe de Silex — L'Arme de Néandertal", date:"-250 000 ans", year:0, era:"Préhistoire", desc:"Une révolution dans l'armement : on fixe une pointe de silex taillée sur une hampe en bois grâce à de la résine de bouleau chauffée et des ligatures en tendon." },
+  { id:16, img:"Mains_préhistoriques_tissant_des_coquillages.webp", title:"Premières Parures & Sépultures", date:"-100 000 ans", year:0, era:"Préhistoire", desc:"À Blombos Cave (Afrique du Sud), des coquillages percés sont enfilés en colliers — les plus anciens bijoux connus. Les morts commencent à être enterrés avec intention, parfois saupoudrés d'ocre rouge." },
+  { id:17, img:"Chasseurs_sur_la_savane_au_lever_du_soleil.webp", title:"Premiers Vêtements en Peaux", date:"-80 000 ans", year:0, era:"Préhistoire", desc:"Les premiers hommes taillaient des peaux d'animaux avec des grattoirs en silex pour fabriquer des vêtements. Ces peaux permettaient de résister au froid glaciaire et de survivre hors d'Afrique — sans elles, la conquête de l'Europe et de l'Asie était impossible." },
+  { id:18, img:"sortie_afrique.webp", title:"La Grande Sortie d'Afrique", date:"-70 000 ans", year:0, era:"Préhistoire", desc:"Un petit groupe d'Homo Sapiens — peut-être quelques milliers d'individus — franchit le détroit de Bab-el-Mandeb et quitte l'Afrique. Tous les non-Africains vivant aujourd'hui descendent de ce groupe fondateur." },
+  { id:19, img:"Traversée_en_mer_au_coucher_du_soleil.webp", title:"Peuplement de l'Australie", date:"-50 000 ans", year:0, era:"Préhistoire", desc:"Des Homo Sapiens atteignent l'Australie en traversant au moins 90 km d'océan ouvert depuis l'Asie du Sud-Est — la première grande navigation de l'histoire humaine. Ce sont les ancêtres des Aborigènes d'aujourd'hui." },
+  { id:20, img:"Homme_des_Neandertals_dans_la_neige.webp", title:"Disparition des Néandertaliens", date:"-40 000 ans", year:0, era:"Préhistoire", desc:"Homo neanderthalensis, qui peuplait l'Europe et le Proche-Orient depuis 400 000 ans, disparaît peu après l'arrivée de Sapiens sur le continent. Compétition, assimilation ou épidémies ? Le débat reste ouvert." },
+  { id:21, img:"peintures_grotte_chauvet.webp", title:"Grotte Chauvet", date:"-36 000 av. J.-C.", year:0, era:"Préhistoire", desc:"Dans l'Ardèche, des Homo Sapiens peignent sur les parois de la grotte Chauvet les premières grandes œuvres d'art de l'humanité : mammouths, rhinocéros laineux, lions des cavernes — avec un sens du mouvement et de la." },
+  { id:22, img:"Chasseur préhistorique et troupeau de rennes.webp", title:"Le Propulseur & la Sagaie — Un Système Révolutionnaire", date:"-35 000 av. J.-C.", year:0, era:"Préhistoire", desc:"Le propulseur (un bâton crocheté qui prolonge le bras) lance la sagaie (un javelot léger) beaucoup plus loin qu'à la main : jusqu'à 80 mètres avec précision. Un chasseur pouvait ainsi tuer un mammouth sans s'approcher — une vraie révolution militaire et alimentaire." },
+  { id:23, img:"Homme_préhistorique_jouant_une_flûte_osseuse.webp", title:"Les Premières Flûtes", date:"-35 000 av. J.-C.", year:0, era:"Préhistoire", desc:"Dans les grottes d'Allemagne du Sud (Hohle Fels, Vogelherd), des artisans taillent des flûtes dans des os d'oiseaux et de l'ivoire de mammouth." },
+  { id:24, img:"Chasse_dans_la_tempête_de_neige.webp", title:"La Grande Chasse au Mammouth", date:"-25 000 av. J.-C.", year:0, era:"Préhistoire", desc:"Le mammouth laineux était la ressource centrale des hommes du Paléolithique : sa viande nourrissait des familles entières, sa fourrure protégeait du froid, ses os servaient à construire des cabanes. Chasser un mammouth nécessitait une organisation collective et des stratégies élaborées." },
+  { id:25, img:"Aiguille_en_os_sur_pierre_éclairée.webp", title:"L'Aiguille à Coudre", date:"-22 000 av. J.-C.", year:0, era:"Préhistoire", desc:"Taillée dans un fragment d'os ou de bois de renne, percée d'un chas minuscule avec un burin en silex : l'aiguille à coudre permet d'assembler des pièces de peau avec précision." },
+  { id:26, img:"Crépuscule_sur_l'immensité_glacée.webp", title:"Maximum Glaciaire", date:"-20 000 av. J.-C.", year:0, era:"Préhistoire", desc:"Pic de la dernière ère glaciaire : les glaces couvrent l'Europe du Nord, les Alpes et les Pyrénées. Le niveau des mers est 120 mètres plus bas qu'aujourd'hui. Des continents entiers sont reliés à pied." },
+  { id:27, img:"Modelage_d'un_pot_en_argile.webp", title:"La Poterie", date:"-17 500 av. J.-C.", year:0, era:"Préhistoire", desc:"Les premières poteries connues (Chine, Japon) permettent de cuire, stocker et transporter les aliments. Une révolution silencieuse qui précède l'agriculture de plusieurs millénaires." },
+  { id:28, img:"Artiste_préhistorique_peignant_un_cheval.webp", title:"Grotte de Lascaux", date:"-17 000 av. J.-C.", year:0, era:"Préhistoire", desc:"Dans une grotte de Dordogne, des artistes de la culture magdalénienne ont peint plus de 600 animaux — taureaux, chevaux, cerfs — avec une maîtrise stupéfiante du relief et du mouvement. Lascaux est le chef-d'œuvre de l'art préhistorique, fermé au public en 1963 pour le préserver." },
+  { id:29, img:"L'homme_préhistorique_et_son_chien.webp", title:"Domestication du Chien", date:"-15 000 av. J.-C.", year:0, era:"Préhistoire", desc:"Le chien est le premier animal domestiqué par l'homme — bien avant les vaches, moutons ou chevaux. Issu du loup gris, il devient aide à la chasse, gardien et compagnon." },
+  { id:30, img:"peuplement_amerique_traversée_béring.webp", title:"Peuplement des Amériques", date:"-13 000 av. J.-C.", year:0, era:"Préhistoire", desc:"Des chasseurs sibériens franchissent le pont terrestre de Béringie — une vaste plaine aujourd'hui engloutie sous le détroit de Béring — et s'installent en Amérique du Nord." },
+  { id:31, img:"Village néolithique au coucher du soleil.webp", title:"Révolution Néolithique — L'Invention du Futur", date:"-10 000 ans", year:0, era:"Préhistoire", desc:"Pendant 300 000 ans, Homo sapiens a vécu en chassant et en cueillant — nomade, libre, bien nourri, travaillant environ 4 heures par jour." },
+  { id:32, img:"Lever_de_soleil_sur_Göbekli_Tepe.webp", title:"Göbekli Tepe", date:"-9 500 av. J.-C.", year:0, era:"Préhistoire", desc:"En Turquie actuelle, des chasseurs-cueilleurs érigent les premiers grands monuments en pierre de l'humanité : des cercles de piliers en T de 6 mètres de haut, ornés de bas-reliefs d'animaux." },
+  { id:33, img:"trepanations-neolithiques-688po.webp", title:"La Trépanation — Première Chirurgie", date:"-6 500 av. J.-C.", year:0, era:"Préhistoire", desc:"Des crânes néolithiques retrouvés en Europe et au Proche-Orient portent des trous soigneusement percés avec des outils en silex — et des bords recalcifiés, prouvant que les patients ont survécu." },
+  { id:34, img:"Lever_de_soleil_sur_les_menhirs_de_Bretagne.webp", title:"Menhirs, Dolmens & Carnac", date:"-4 500 av. J.-C.", year:0, era:"Préhistoire", desc:"En Bretagne, des milliers de menhirs sont dressés en alignements sur des kilomètres. Les dolmens — chambres funéraires collectives en dalles de pierre — parsèment l'Europe de l'Atlantique à la mer du Nord." },
+  { id:35, img:"Premier_contact_au_lever_du_soleil.webp", title:"Domestication du Cheval", date:"-3 500 av. J.-C.", year:0, era:"Préhistoire", desc:"Le cheval sauvage devient animal domestique dans les steppes d'Asie centrale vers –3 500 av. J.-C. D'abord élevé pour sa viande et son lait, il devient rapidement une monture de guerre et un moteur de transport — révolutionnant les communications et la conquête sur toute l'Eurasie." },
+  { id:36, img:"Atelier_de_charpentier_ancien.webp", title:"La Roue — L'Invention qui Change Tout", date:"-3 500 av. J.-C.", year:0, era:"Préhistoire", desc:"La roue apparaît en Mésopotamie et dans les steppes d'Eurasie vers –3 500 av. J.-C. — probablement à la même époque que la domestication du cheval, dont elle démultiplie l'utilité." },
+  { id:37, img:"otzi.webp", title:"Ötzi — L'Homme des Glaces", date:"-3 300 av. J.-C.", year:0, era:"Préhistoire", desc:"Dans les Alpes tyroliennes, un chasseur néolithique meurt à 3 210 m d'altitude. Préservé 5 300 ans dans la glace, il est découvert en 1991 et livre un portrait saisissant de l'homme de la fin du Néolithique." },
+  { id:38, img:"La_cité_ancienne_d'Ur_au_crépuscule.webp", title:"Uruk & Ur — Les Premières Villes du Monde", date:"-3 200 av. J.-C.", year:0, era:"Préhistoire", desc:"En Mésopotamie (actuel Irak), entre le Tigre et l'Euphrate, naît quelque chose d'entièrement nouveau dans l'histoire humaine : la ville. Uruk dépasse 50 000 habitants — une densité humaine sans précédent." },
+  { id:39, img:"Lever_de_soleil_sur_les_menhirs_de_Bretagne2.webp", title:"L'Écriture — La Fin de la Préhistoire", date:"-3 200 av. J.-C.", year:0, era:"Préhistoire", desc:"À Uruk (Mésopotamie), des administrateurs gravent des signes cunéiformes sur des tablettes d'argile pour gérer les stocks de grain et de bétail. C'est la fin de la Préhistoire : tout ce qui se passe avant sera désormais racontable." },
+  { id:40, img:"croissant fertile.webp", title:"Les Premières Cités-États — Uruk & Ur", date:"-3 500 av. J.-C.", year:0, era:"Premières Civilisations — −3500 à −2000", desc:"Entre le Tigre et l'Euphrate (actuel Irak), naît quelque chose d'entièrement nouveau : la ville. Uruk dépasse 50 000 habitants — une densité humaine sans précédent." },
+  { id:41, img:"Main_d'un_scribe_sur_tablette_d'argile.webp", title:"L'Invention de l'Écriture — Cunéiforme & Hiéroglyphes", date:"-3 500 av. J.-C.", year:0, era:"Premières Civilisations — −3500 à −2000", desc:"En Mésopotamie, les marchands d'Uruk inventent les premiers signes d'écriture pour comptabiliser les récoltes et les troupeaux. Ce cunéiforme tracé sur argile est la première mémoire de l'humanité." },
+  { id:42, img:"Pharaon Ménès et l'unification de l'Égypte.webp", title:"Unification de l'Égypte — Ménès & la Double Couronne", date:"-3 100 av. J.-C.", year:0, era:"Premières Civilisations — −3500 à −2000", desc:"Avant Ménès, il existait deux Égypte : la Haute (au sud, remontant le Nil) et la Basse (au nord, vers la mer). En les unifiant, Ménès crée l'un des premiers États centralisés de l'histoire. Il porte la double couronne blanche et rouge qui symbolise cette union — symbole encore présent sur les hiéroglyphes." },
+  { id:43, img:"La construction de la pyramide.webp", title:"Les Pyramides de Gizeh — L'Impossible Réalisé", date:"-2 560 av. J.-C.", year:0, era:"Premières Civilisations — −3500 à −2000", desc:"Sous le règne de Khéops, 20 000 ouvriers — pas des esclaves, des artisans organisés en équipes — érigent la Grande Pyramide en 20 ans. 2,3 millions de blocs de calcaire, chacun pesant en moyenne 2,5 tonnes." },
+  { id:44, img:"Levée_du_ciel_à_Stonehenge.webp", title:"Stonehenge — Le Monument le Plus Mystérieux du Monde", date:"-3 100 à -1 500 av. J.-C.", year:0, era:"Premières Civilisations — −3500 à −2000", desc:"Sur la plaine de Salisbury, en Angleterre, des générations de bâtisseurs érigent pendant 1 600 ans un cercle de pierres colossales. La phase principale commence vers –2 500 av. J.-C." },
+  { id:45, img:"Rassemblement de guerriers et marchands du Bronze.webp", title:"L'Âge du Bronze — La Révolution des Métaux", date:"-2 000 av. J.-C.", year:0, era:"Premières Civilisations — −3500 à −2000", desc:"Vers –2000 av. J.-C., l'alliage du cuivre et de l'étain donne naissance au bronze — métal plus dur, plus tranchant, plus durable que tout ce qui existait. Il révolutionne la guerre (épées, boucliers, armures), l'agriculture (faucilles, socs de charrue) et le commerce longue distance, car il faut importer l'étain depuis des centaines de kilomètres. Des civilisations brillantes s'épanouissent partout : Mycènes en Grèce, les Hittites en Anatolie, l'Égypte des pharaons, les Shang en Chine. Puis, vers –1200 av. J.-C., survient l'une des catastrophes les plus mystérieuses de l'histoire : en l'espace de 50 ans, presque toutes ces civilisations s'effondrent simultanément. Villes brûlées, réseaux commerciaux brisés, populations décimées. Les causes — invasions des 'Peuples de la Mer', sécheresses, tremblements de terre, révoltes internes — restent débattues. Certains historiens parlent d'un 'effondrement systémique' : la première grande civilisation mondiale s'éteint de façon encore inexpliquée." },
+  { id:46, img:"babylone vers -1800.webp", title:"Babylone & Hammurabi — Le Premier Code de Lois", date:"-1 800 av. J.-C.", year:0, era:"Égypte, Mésopotamie & Récits Fondateurs — −2000 à −1200", desc:"Babylone devient la plus grande ville du monde connu. Sous Hammurabi, elle unifie toute la Mésopotamie et grave sur une stèle de basalte de 2,25 mètres le premier grand code de lois de l'histoire : 282 articles." },
+  { id:47, img:"Le sacrifice d'Isaac arrêté par l'ange.webp", title:"La Naissance du Judaïsme — Le Premier Monothéisme", date:"-1 800 à -1 200 av. J.-C.", year:0, era:"Égypte, Mésopotamie & Récits Fondateurs — −2000 à −1200", desc:"Selon la tradition biblique, Abraham quitte Ur en Chaldée et conclut une alliance (berith) avec un Dieu unique et universel — idée révolutionnaire dans un monde polythéiste." },
+  { id:48, img:"Moïse_et_le_buisson_ardent.webp", title:"Moïse & l'Exode — La Libération d'Égypte", date:"-1 250 av. J.-C.", year:0, era:"Égypte, Mésopotamie & Récits Fondateurs — −2000 à −1200", desc:"Selon la Bible, le peuple hébreu est réduit en esclavage en Égypte. Moïse, hébreu élevé à la cour du Pharaon, reçoit de Dieu une mission au buisson ardent : libérer son peuple." },
+  { id:49, img:"La destruction des anciens dieux à Amarna.webp", title:"Akhenaton — Le Pharaon Hérétique", date:"-1 372 à -1 336 av. J.-C.", year:0, era:"Égypte, Mésopotamie & Récits Fondateurs — −2000 à −1200", desc:"Amenhotep IV prend le nom d'Akhenaton ('celui qui est utile à Aton') et impose le monothéisme en Égypte : un seul dieu, Aton, le disque solaire." },
+  { id:50, img:"Le jeune pharaon et ses trésors.webp", title:"Toutankhamon — Le Pharaon Enfant", date:"-1 354 à -1 327 av. J.-C.", year:0, era:"Égypte, Mésopotamie & Récits Fondateurs — −2000 à −1200", desc:"Toutankhamon monte sur le trône à 9 ans et meurt à 18 ou 19 ans — probablement de complications liées à une fracture de la jambe, selon les analyses ADN récentes." },
+  { id:51, img:"Ramsès II devant ses temples majestueux.webp", title:"Ramsès II — Le Pharaon Bâtisseur", date:"-1 279 à -1 213 av. J.-C.", year:0, era:"Égypte, Mésopotamie & Récits Fondateurs — −2000 à −1200", desc:"Ramsès II règne 66 ans — le plus long règne de l'histoire égyptienne — et construit à une échelle jamais vue : Abu Simbel, Karnak, le Ramesseum. Grand guerrier, il combat les Hittites à Qadesh et signe le premier traité de paix écrit de l'histoire. Il meurt à plus de 90 ans." },
+  { id:52, img:"Le cheval de Troie dans la cité.webp", title:"La Guerre de Troie", date:"-1 250 av. J.-C.", year:0, era:"Égypte, Mésopotamie & Récits Fondateurs — −2000 à −1200", desc:"Selon la tradition épique grecque, le prince troyen Pâris enlève Hélène, épouse du roi de Sparte Ménélas. Une coalition grecque assiège Troie pendant dix ans." },
+  { id:53, img:"Marché de l'Âge du Fer.webp", title:"L'Âge du Fer & l'Alphabet Phénicien", date:"-1 200 av. J.-C.", year:0, era:"Égypte, Mésopotamie & Récits Fondateurs — −2000 à −1200", desc:"Deux révolutions simultanées transforment le monde méditerranéen : l'Âge du Fer remplace le bronze par un métal plus résistant et abondant, démocratisant l'armement." },
+  { id:54, img:"Scène de commerce phénicien au port.webp", title:"Les Phéniciens — Marchands & Inventeurs de l'Alphabet", date:"-1 200 à -146 av. J.-C.", year:0, era:"Égypte, Mésopotamie & Récits Fondateurs — −2000 à −1200", desc:"Peuple de marins et de commerçants établis sur les côtes de l'actuel Liban (Tyr, Sidon, Byblos), les Phéniciens sont les grands explorateurs de la Méditerranée antique." },
+  { id:55, img:"David_et_Goliath_sur_le_champ_de_bataille.webp", title:"David & Goliath — Le Berger contre le Géant", date:"-1 020 av. J.-C.", year:0, era:"Proche-Orient & Méditerranée — −1200 à −600", desc:"Selon la Bible (1er livre de Samuel), les Israélites affrontent les Philistins dans la vallée d'Éla. Goliath, guerrier philistin de plus de deux mètres, défie en combat singulier le camp adverse." },
+  { id:56, img:"Jérusalem ancienne sous la lumière dorée.webp", title:"Jérusalem — La Ville aux Trois Religions", date:"-1 000 à aujourd'hui", year:0, era:"Proche-Orient & Méditerranée — −1200 à −600", desc:"David conquiert Jérusalem vers –1000 av. J.-C. et en fait la capitale du royaume d'Israël. Son fils Salomon y bâtit le Premier Temple." },
+  { id:57, img:"Temple de Salomon et l'Arche sainte.webp", title:"Le Temple de Salomon — La Maison de Dieu", date:"-970 à -586 av. J.-C.", year:0, era:"Proche-Orient & Méditerranée — −1200 à −600", desc:"Le roi Salomon, fils de David, fait construire à Jérusalem le Premier Temple vers –970 av. J.-C. — demeure de Dieu et écrin de l'Arche d'Alliance selon la Bible. Sa construction aurait duré 7 ans." },
+  { id:58, img:"La fondation de Carthage par Didon.webp", title:"Création de Carthage — La Rivale de Rome", date:"-814 av. J.-C.", year:0, era:"Proche-Orient & Méditerranée — −1200 à −600", desc:"La reine phénicienne Didon fonde Carthage ('Qart Hadasht' — la nouvelle ville) vers –814 av. J.-C. sur les côtes de l'actuelle Tunisie." },
+  { id:59, img:"Cyrus libère les captifs juifs.webp", title:"L'Exil Babylonien & Cyrus le Grand", date:"-586 à -538 av. J.-C.", year:0, era:"Proche-Orient & Méditerranée — −1200 à −600", desc:"En –586, Nabuchodonosor II, roi de Babylone, rase le Temple de Salomon, symbole de l'alliance entre Dieu et Israël, et déporte les élites juives à Babylone. C'est le traumatisme fondateur du peuple juif. Mais en –538, tout bascule : Cyrus le Grand, roi des Perses, conquiert Babylone et prend une décision stupéfiante pour l'époque — il autorise tous les peuples déportés à rentrer chez eux et à pratiquer leur religion librement. La Bible l'appelle 'le Messie' — l'Oint de Dieu — unique non-juif à recevoir ce titre. Les Juifs regagnent Jérusalem et reconstruisent le Temple. Cet édit de Cyrus est considéré comme la première déclaration de tolérance religieuse de l'histoire." },
+  { id:60, img:"Moïse et les prophètes sous l'orage.webp", title:"La Rédaction de la Bible Hébraïque", date:"-600 à -200 av. J.-C.", year:0, era:"Proche-Orient & Méditerranée — −1200 à −600", desc:"Les textes qui formeront la Bible hébraïque (Tanakh) ne sont pas écrits par Moïse mais compilés et mis par écrit principalement lors de l'exil à Babylone (–586) et dans les siècles qui suivent." },
+  { id:61, img:"La_caravane_vers_le_Trésor_de_Petra.webp", title:"Pétra & les Routes Caravanières", date:"-400 à -100 av. J.-C.", year:0, era:"Proche-Orient & Méditerranée — −1200 à −600", desc:"Au cœur du désert jordanien, le peuple nabatéen taille dans la roche rose une ville extraordinaire : Pétra. Capitale d'un empire commercial, elle contrôlait les routes de l'encens entre l'Arabie et la Méditerranée. Ses façades sculptées dans la falaise mesurent jusqu'à 40 mètres de haut." },
+  { id:62, img:"L'odyssée d'Ulysse et les créatures mythologiques.webp", title:"Homère — L'Iliade & l'Odyssée", date:"-800 av. J.-C.", year:0, era:"Grèce Antique & Monde Hellénistique — −800 à −300", desc:"Vers –800 av. J.-C., un poète grec nommé Homère — peut-être aveugle, peut-être plusieurs personnes — compose les deux épopées fondatrices de toute la littérature occidentale." },
+  { id:63, img:"Les jeux olympiques antiques à Olympie.webp", title:"Les Jeux Olympiques — La Trêve Sacrée", date:"-776 av. J.-C.", year:0, era:"Grèce Antique & Monde Hellénistique — −800 à −300", desc:"Les premiers Jeux Olympiques sont célébrés à Olympie en l'honneur de Zeus. Pendant les jeux, toutes les guerres s'arrêtent — la 'trêve olympique' est sacrée." },
+  { id:64, img:"fondation de rome.webp", title:"Fondation de Rome — Romulus & Remus", date:"-753 av. J.-C.", year:0, era:"Grèce Antique & Monde Hellénistique — −800 à −300", desc:"Selon la tradition romaine, Romulus et Remus — jumeaux fils de Mars et de la vestale Rhéa Silvia — sont abandonnés sur le Tibre et allaités par une louve. Romulus fonde Rome sur le Palatin le 21 avril 753 av. J.-C." },
+  { id:65, img:"Masalia vue sur la cité antique au coucher du soleil.webp", title:"Fondation de Massalia — La Plus Vieille Ville de France", date:"-600 av. J.-C.", year:0, era:"Grèce Antique & Monde Hellénistique — −800 à −300", desc:"Vers –600 av. J.-C., des marins grecs venus de Phocée (actuelle Turquie) fondent Massalia sur une calanque naturelle du littoral méditerranéen. C'est la plus ancienne ville de France. Ils apportent avec eux la vigne, l'olivier, et l'alphabet grec — qui influencera l'écriture gauloise." },
+  { id:66, img:"Les savants grecs en pleine étude.webp", title:"Thalès, Pythagore, Ptolémée — Les Savants Grecs", date:"-625 à -100 av. J.-C.", year:0, era:"Grèce Antique & Monde Hellénistique — −800 à −300", desc:"En deux siècles, la Grèce accomplit une révolution intellectuelle sans précédent : elle invente la démonstration mathématique, la philosophie, l'astronomie scientifique et la géographie rationnelle." },
+  { id:67, img:"Rassemblement philosophique à Athènes.webp", title:"La Démocratie Athénienne — Clisthène & Périclès", date:"-508 à -322 av. J.-C.", year:0, era:"Grèce Antique & Monde Hellénistique — −800 à −300", desc:"Clisthène réforme Athènes en 508 av. J.-C. et invente la démocratie directe : chaque citoyen vote en assemblée. Périclès porte ce système à son apogée (461-429 av. J.-C.) et fait construire le Parthénon." },
+  { id:68, img:"Batailles iconiques des guerres gréco-perses.webp", title:"Les Guerres Médiques — Marathon, Thermopyles, Salamine", date:"-490 à -479 av. J.-C.", year:0, era:"Grèce Antique & Monde Hellénistique — −800 à −300", desc:"L'Empire perse de Darios puis de Xerxès, le plus grand empire du monde connu, tente deux fois d'envahir la Grèce. Deux fois, les cités grecques repoussent l'envahisseur — contre toute attente." },
+  { id:69, img:"Socrates face à la fatalité.webp", title:"Socrate, Platon — La Philosophie Occidentale", date:"-470 à -347 av. J.-C.", year:0, era:"Grèce Antique & Monde Hellénistique — −800 à −300", desc:"Socrate n'écrit rien — il questionne. Sa méthode (la maïeutique) consiste à faire accoucher les esprits de leurs propres vérités. En 399 av." },
+  { id:70, img:"Aristote Le philosophe et ses disciples aux étoiles.webp", title:"Aristote — Le Fondateur de la Science", date:"-384 à -322 av. J.-C.", year:0, era:"Grèce Antique & Monde Hellénistique — −800 à −300", desc:"Élève de Platon à 17 ans, précepteur d'Alexandre le Grand à 42 ans, Aristote est le seul penseur de l'Antiquité à avoir fondé simultanément la logique, la biologie, la physique, la politique, la poétique et l'éthique." },
+  { id:71, img:"Alexandre le grand Le général au coucher du soleil.webp", title:"Alexandre le Grand — Le Plus Grand Conquérant", date:"-336 à -323 av. J.-C.", year:0, era:"Grèce Antique & Monde Hellénistique — −800 à −300", desc:"En 13 ans seulement (336–323 av. J.-C.), Alexandre le Grand conquiert un empire gigantesque : de la Grèce jusqu'à l'Inde, en passant par l'Égypte et la Perse. Il ne perd aucune bataille. À sa mort à 32 ans, son empire est si vaste qu'il se fragmente immédiatement entre ses généraux." },
+  { id:72, img:"Diogène et l’agora d’Athènes.webp", title:"Diogène — Le Philosophe dans son Tonneau", date:"-412 à -323 av. J.-C.", year:0, era:"Grèce Antique & Monde Hellénistique — −800 à −300", desc:"Diogène de Sinope est le philosophe le plus provocateur de l'Antiquité. Fondateur du cynisme, il vit dans une jarre en terre cuite sur l'agora d'Athènes, ne possède rien, mendie sa nourriture et insulte les puissants." },
+  { id:73, img:"Les sept merveilles du monde antique.webp", title:"Les 7 Merveilles du Monde Antique", date:"-280 à -140 av. J.-C.", year:0, era:"Rome — République & Conquêtes — −300 à −27", desc:"La liste des 7 Merveilles est établie par des auteurs grecs — notamment Antipater de Sidon (~–140 av. J.-C.) — pour désigner les constructions humaines les plus spectaculaires du monde connu." },
+  { id:74, img:"Transition historique entre Étrusques et Romains.webp", title:"Les Étrusques & la République Romaine", date:"-800 à -509 av. J.-C.", year:0, era:"Rome — République & Conquêtes — −300 à −27", desc:"Avant Rome, les Étrusques dominent l'Italie centrale. Ce peuple mystérieux — dont la langue reste partiellement indéchiffrée — transmet à Rome l'architecture en voûte, les jeux du cirque, la divination et les symboles." },
+  { id:75, img:"Hannibal_traversant_les_Alpes_enneigées.webp", title:"Les Guerres Puniques — Carthage & Hannibal", date:"-264 à -146 av. J.-C.", year:0, era:"Rome — République & Conquêtes — −300 à −27", desc:"Rome et Carthage (actuelle Tunisie) se disputent la Méditerranée en trois grandes guerres (264–146 av. J.-C.). La deuxième est la plus célèbre : le général carthaginois Hannibal traverse les Alpes avec des éléphants et écrase Rome à Cannes (216 av. J.-C.). Rome finit par gagner et raser Carthage." },
+  { id:76, img:"Jules César _ de général à empereur.webp", title:"Jules César — Le Dictateur Éternel", date:"-100 à -44 av. J.-C.", year:0, era:"Rome — République & Conquêtes — −300 à −27", desc:"Général brillant, orateur redoutable, écrivain, César conquiert la Gaule (58-52 av. J.-C.), franchit le Rubicon ('alea jacta est'), devient dictateur perpétuel." },
+  { id:77, img:"La Gaule et ses peuples anciens.webp", title:"La Gaule Conquise — César & Vercingétorix", date:"-58 à -52 av. J.-C.", year:0, era:"Rome — République & Conquêtes — −300 à −27", desc:"En 8 campagnes, Jules César soumet 300 tribus gauloises et tue ou réduit en esclavage un million de personnes. Vercingétorix unifie les tribus gauloises en une dernière coalition." },
+  { id:78, img:"Le siège romain d'Alesia enflammé.webp", title:"Alésia — La Gaule Devient Romaine", date:"-52 av. J.-C.", year:0, era:"Rome — République & Conquêtes — −300 à −27", desc:"Vercingétorix unifie les peuples gaulois dans un dernier sursaut de résistance. Assiégé dans l'oppidum d'Alésia (Bourgogne), il fait face à César qui construit une double enceinte de 40 km — pour assiéger la ville tout." },
+  { id:79, img:"Cléopâtre surplombant Alexandrie au crépuscule.webp", title:"Cléopâtre & la Fin de l'Égypte Pharaonique", date:"-51 à -30 av. J.-C.", year:0, era:"Rome — République & Conquêtes — −300 à −27", desc:"Cléopâtre VII n'est pas égyptienne de sang — elle est grecque, de la dynastie ptolémaïque fondée par un général d'Alexandre. Elle est la première de sa lignée à parler égyptien." },
+  { id:80, img:"Auguste.webp", title:"Auguste — Le Premier Empereur", date:"-27 à 14 ap. J.-C.", year:0, era:"Empire Romain & Naissance du Christianisme — −27 à 200", desc:"Octave a 18 ans quand son grand-oncle Jules César est assassiné. Il venge César, écrase ses rivaux et devient, sous le nom d'Auguste, le premier véritable empereur romain en –27 av. J.-C. Il règne 44 ans, transforme Rome en marbre et inaugure deux siècles de paix : la Pax Romana." },
+  { id:81, img:"Lugdunum à son apogée.webp", title:"Lugdunum (Lyon) — Capitale des Gaules", date:"-15 av. J.-C.", year:0, era:"Empire Romain & Naissance du Christianisme — −27 à 200", desc:"L'empereur Auguste fait de Lugdunum (Lyon) la capitale administrative des Trois Gaules. Deuxième ville de l'Empire après Rome, avec 50 000 à 80 000 habitants. Deux empereurs romains y naîtront : Claude et Caracalla." },
+  { id:82, img:"pont_du_gard.webp", title:"Le Pont du Gard — Le Génie Romain", date:"-19 av. J.-C.", year:0, era:"Empire Romain & Naissance du Christianisme — −27 à 200", desc:"Construit sous Auguste près de Nîmes, le Pont du Gard est l'aqueduc le plus haut du monde romain : 49 mètres, 3 niveaux d'arcades, 50 km de canal pour acheminer 40 000 m³ d'eau par jour vers Nîmes." },
+  { id:83, img:"La Nativité sous l'étoile brillante.webp", title:"Naissance de Jésus — Le Tournant du Calendrier", date:"0 ap. J.-C.", year:0, era:"Empire Romain & Naissance du Christianisme — −27 à 200", desc:"La naissance de Jésus de Nazareth divise l'histoire en deux — avant et après Jésus-Christ. Né en Judée romaine, fils d'un charpentier, il prêche l'amour du prochain et le Royaume de Dieu pendant trois ans." },
+  { id:84, img:"Néron contemple la ville en flammes.webp", title:"Néron — L'Incendie de Rome & les Persécutions", date:"54 à 68 ap. J.-C.", year:0, era:"Empire Romain & Naissance du Christianisme — −27 à 200", desc:"Néron monte sur le trône à 17 ans. Son règne commence bien — il est conseillé par le philosophe Sénèque — puis déraille dans la tyrannie, les meurtres de proches (dont sa propre mère Agrippine) et la mégalomanie." },
+  { id:85, img:"Persécution des chrétiens dans l'arène.webp", title:"Les Persécutions des Chrétiens — Le Sang des Martyrs", date:"64 à 313 ap. J.-C.", year:0, era:"Empire Romain & Naissance du Christianisme — −27 à 200", desc:"Pendant 250 ans, être chrétien dans l'Empire romain était illégal et dangereux. Les empereurs voyaient cette nouvelle religion comme une menace à l'autorité de l'État. Des milliers de chrétiens furent exécutés — jetés aux lions, décapités. Ces martyrs renforceront paradoxalement la foi chrétienne." },
+  { id:86, img:"La chute de Jérusalem sous siège.webp", title:"Titus Détruit le Temple — La Diaspora Juive", date:"70 ap. J.-C.", year:0, era:"Empire Romain & Naissance du Christianisme — −27 à 200", desc:"En l'an 70, le général romain Titus écrase la grande révolte juive et rase Jérusalem. Le Second Temple — reconstruit par Hérode le Grand à partir de –20 av. J.-C. — est incendié et détruit." },
+  { id:87, img:"L'expansion du christianisme au Ier siècle.webp", title:"Le Nouveau Testament — La Naissance du Christianisme", date:"30 à 100 ap. J.-C.", year:0, era:"Empire Romain & Naissance du Christianisme — −27 à 200", desc:"Jésus de Nazareth prêche en Galilée et Judée vers 27-30 ap. J.-C., est crucifié sous Ponce Pilate, et ses disciples annoncent sa résurrection." },
+  { id:88, img:"L'éruption de Pompéi en 79 après J.-C..webp", title:"Pompéi — La Ville Engloutie", date:"79 ap. J.-C.", year:0, era:"Empire Romain & Naissance du Christianisme — −27 à 200", desc:"Le 24 août 79 ap. J.-C., le Vésuve entre en éruption et ensevelit Pompéi sous 6 mètres de cendres en quelques heures. 2 000 personnes périssent. La ville est oubliée pendant 1 700 ans." },
+  { id:89, img:"Construction_du_Colisée_à_Rome.webp", title:"Le Colisée — La Violence comme Spectacle", date:"72 à 80 ap. J.-C.", year:0, era:"Empire Romain & Naissance du Christianisme — −27 à 200", desc:"Inauguré en 80 ap. J.-C., le Colisée pouvait accueillir 50 000 spectateurs pour des combats de gladiateurs, des chasses d'animaux sauvages et parfois des reconstitutions de batailles navales. L'entrée était gratuite pour les citoyens romains — un spectacle offert par l'État pour distraire le peuple." },
+  { id:90, img:"Mur d'hadrien.webp", title:"Le Mur d'Hadrien — La Frontière du Monde Romain", date:"122 à 142 ap. J.-C.", year:0, era:"Empire Romain & Naissance du Christianisme — −27 à 200", desc:"En 122 ap. J.-C., l'empereur Hadrien ordonne la construction d'un mur traversant l'île de Bretagne (actuelle Angleterre) d'est en ouest sur 118 km — pour marquer et défendre la frontière nord de l'Empire contre les." },
+  { id:91, img:"LEmpire Trajan.webp", title:"L'Apogée de l'Empire Romain — Sous Trajan", date:"117 ap. J.-C.", year:0, era:"Empire Romain & Naissance du Christianisme — −27 à 200", desc:"Sous l'empereur Trajan (98–117 ap. J.-C.), l'Empire romain atteint sa plus grande extension : 5 millions de km², 70 millions d'habitants, de l'Écosse à la Mésopotamie, du Sahara au Rhin." },
+  { id:206, img:"Bains_romains__détente_et_interactions_sociales.webp", title:"Les Thermes de Caracalla — Le Palace du Peuple Romain", date:"216 ap. J.-C.", year:0, era:"Empire Romain & Naissance du Christianisme — −27 à 200", desc:"En 216, l'empereur Caracalla inaugure à Rome les plus grands thermes du monde antique : 22 hectares, 1 600 baigneurs simultanés, 80 000 litres d'eau chaude par citerne. Caldarium, tepidarium, frigidarium, natatio, palestres, bibliothèques et jardins — ouverts à tous pour quelques sesterces." },
+  { id:92, img:"Vie_quotidienne_dans_une_villa_romaine.webp", title:"La Vie dans une Villa Romaine — Art de Vivre à la Romaine", date:"Ier-IIe siècle ap. J.-C.", year:0, era:"Gaule Romaine & Déclin de l'Empire — 200 à 476", desc:"La villa romaine est bien plus qu'une maison : c'est une institution. Autour de l'atrium (cour centrale avec bassin), se déploient triclinium (salle à manger), tablinum (bureau du pater familias), jardins à colonnades." },
+  { id:93, img:"Le_semeur_au_lever_du_soleil.webp", title:"L'Agriculture Romaine en Gaule — La Révolution des Techniques", date:"Ier-IIe siècle ap. J.-C.", year:0, era:"Gaule Romaine & Déclin de l'Empire — 200 à 476", desc:"La conquête romaine apporte en Gaule une véritable révolution agricole. Le moulin à eau remplace le broyage à la main. La charrue à roues améliore le labour." },
+  { id:94, img:"moissonneuse gauloise.webp", title:"La Faucille & la Moissonneuse Gauloise", date:"Ier siècle ap. J.-C.", year:0, era:"Gaule Romaine & Déclin de l'Empire — 200 à 476", desc:"Les Gaulois romanisés perfectionnent la vallus — une moissonneuse tirée par un bœuf qui coupe les épis directement dans le champ." },
+  { id:95, img:"Bains romains sous les voûtes majestueuses.webp", title:"La Gaule Romaine — Villes, Routes & Romanisation", date:"Ier-IIe siècle ap. J.-C.", year:0, era:"Gaule Romaine & Déclin de l'Empire — 200 à 476", desc:"Pendant deux siècles, la Gaule est l'une des provinces les plus riches de l'Empire. De Lugdunum à Lutetia, des dizaines de villes romaines naissent avec leurs forums, amphithéâtres, thermes et aqueducs." },
+  { id:96, img:"Lutetia au crépuscule du Ier siècle.webp", title:"Lutèce — La Naissance de Paris", date:"Ier-IIe siècle ap. J.-C.", year:0, era:"Gaule Romaine & Déclin de l'Empire — 200 à 476", desc:"Sur l'île de la Cité et la rive gauche de la Seine, les Romains développent Lutèce, chef-lieu des Parisii. Forum, thermes, amphithéâtre, temple — une ville compacte de 10 000 habitants." },
+  { id:97, img:"premieres invasion barbare sur l empire romain.webp", title:"La Crise du IIIe Siècle — Les Premières Invasions Barbares", date:"235 à 284 ap. J.-C.", year:0, era:"Gaule Romaine & Déclin de l'Empire — 200 à 476", desc:"En 50 ans, Rome connaît 50 empereurs — dont la plupart meurent assassinés. L'Empire s'effondre en trois tronçons. C'est le début des grandes invasions : vers 260 ap." },
+  { id:98, img:"L'édiction de l'Édit de Milan.webp", title:"L'Édit de Milan — La Victoire du Christianisme", date:"313 ap. J.-C.", year:0, era:"Gaule Romaine & Déclin de l'Empire — 200 à 476", desc:"L'empereur Constantin proclame la liberté de culte dans tout l'Empire. Le christianisme, religion des persécutés depuis trois siècles, devient légal — puis bientôt officielle." },
+  { id:99, img:"Les deux souverains face à face.webp", title:"Théodose — La Division de l'Empire Romain", date:"395 ap. J.-C.", year:0, era:"Gaule Romaine & Déclin de l'Empire — 200 à 476", desc:"Le 17 janvier 395, l'empereur Théodose Ier meurt à Milan et divise l'Empire entre ses deux fils : Arcadius reçoit l'Orient (Constantinople), Honorius l'Occident (Rome)." },
+  { id:100, img:"Sainte Geneviève défendant Paris en 451.webp", title:"Sainte Geneviève — La Bergère qui Sauva Paris", date:"451 ap. J.-C.", year:0, era:"Gaule Romaine & Déclin de l'Empire — 200 à 476", desc:"En 451, la nouvelle se répand comme une traînée de poudre : Attila et ses Huns déferlent vers Paris. La population panique et s'apprête à fuir." },
+  { id:101, img:"Atila.webp", title:"Attila & les Huns aux Portes de Paris", date:"451 ap. J.-C.", year:0, era:"Gaule Romaine & Déclin de l'Empire — 200 à 476", desc:"Attila, 'le fléau de Dieu', mène ses cavaliers huns à travers l'Europe. En 451, il menace Paris. Selon la tradition, la prière de la jeune Geneviève — future patronne de Paris — détourne les Huns." },
+  { id:102, img:"La chute de Rome, 476 après J.-C..webp", title:"Chute de l'Empire Romain d'Occident", date:"476 ap. J.-C.", year:0, era:"Gaule Romaine & Déclin de l'Empire — 200 à 476", desc:"Le 4 septembre 476, le chef barbare Odoacre destitue Romulus Augustule, dernier empereur romain d'Occident. Ce n'est pas une chute dramatique — Rome se vide depuis des décennies." },
+  { id:103, img:"invasions_barbares.webp", title:"Invasions Barbares & Chute de Rome", date:"376 - 476", year:0, era:"Haut Moyen Âge", desc:"Entre 376 et 476 ap. J.-C., des peuples entiers — Huns, Wisigoths, Vandales, Ostrogoths — déferlent sur l'Empire romain affaibli. Ces migrations de masse en chaîne aboutissent à la déposition du dernier empereur d'Occident en 476 : fin de l'Antiquité, début du Moyen Âge." },
+  { id:104, img:"attila_huns.webp", title:"Attila & les Huns — Le Fléau de Dieu", date:"434 - 453", year:0, era:"Haut Moyen Âge", desc:"Attila unifie les tribus huns et ravage l'Europe de la Chine aux portes de Rome. En 451, il envahit la Gaule. La coalition romano-wisigothique l'arrête aux Champs Catalauniques (près de Châlons)." },
+  { id:105, img:"Le_baptême_de_Clovis_à_Reims.webp", title:"Clovis Ier — Fondateur du Royaume de France", date:"481 - 511", year:0, era:"Mérovingiens", desc:"Clovis unifie les différentes tribus franques en un seul royaume. En se faisant baptiser à Reims vers 496, il est le premier roi barbare à adopter le christianisme catholique — scellant une alliance durable entre les rois de France et l'Église qui durera plus de 1 300 ans." },
+  { id:106, img:"dagobert.webp", title:"Dagobert Ier — Le Dernier Grand Mérovingien", date:"629 - 639", year:0, era:"Mérovingiens", desc:"Dagobert Ier est le dernier roi mérovingien à exercer un vrai pouvoir. Il unifie le royaume franc de l'Atlantique au Rhin, rend la justice lui-même et fait de l'abbaye de Saint-Denis le lieu de sépulture des rois de France — tradition qui durera jusqu'à la Révolution." },
+  { id:107, img:"rois faineants.webp", title:"Les Rois Fainéants", date:"639 - 751", year:0, era:"Mérovingiens", desc:"Après Dagobert, les rois mérovingiens sont de plus en plus jeunes et faibles. Le vrai pouvoir passe entre les mains des maires du palais — c'est-à-dire les chefs de l'administration royale, les grands fonctionnaires qui gèrent tout à la place du roi. Le roi règne, le maire du palais gouverne. Ces monarques fantômes qu'on promène en chariot lors des fêtes sans aucun pouvoir sont appelés « rois fainéants » (rois qui ne font rien)." },
+  { id:108, img:"charles martel.webp", title:"Charles Martel — Poitiers", date:"732", year:0, era:"Carolingiens", desc:"Charles Martel est maire du palais du roi franc — autrement dit, le vrai chef du gouvernement derrière un roi fantoche. En 732, il arrête à Poitiers l'avancée des armées arabes qui avaient déjà conquis l'Espagne. Cette victoire lui vaut le surnom de Martel (le marteau) et fait de lui le sauveur de l'Europe chrétienne." },
+  { id:109, img:"pepin le bref.webp", title:"Pépin le Bref — 1er Roi Carolingien", date:"751 - 768", year:0, era:"Carolingiens", desc:"Pépin le Bref est maire du palais, comme son père Charles Martel. Las de gouverner dans l'ombre d'un roi inutile, il obtient l'accord du pape pour destituer le dernier roi mérovingien et se faire couronner lui-même roi en 751. C'est le début de la dynastie carolingienne. Son fils s'appellera Charlemagne." },
+  { id:110, img:"sacre_charlemagne.webp", title:"Charlemagne — Empereur d'Occident", date:"768 - 814", year:0, era:"Carolingiens", desc:"Charlemagne unifie presque toute l'Europe occidentale sous sa domination. Couronné Empereur d'Occident par le pape à Rome le 25 décembre 800, il crée les premières écoles dans les monastères pour former des clercs sachant lire et écrire. Son empire sera divisé à sa mort entre ses petits-fils — donnant naissance à la France et à l'Allemagne." },
+  { id:111, img:"serment de strasbourg.webp", title:"Les Serments de Strasbourg — Naissance du Français", date:"842", year:0, era:"Carolingiens", desc:"Après la mort de Charlemagne, ses trois petits-fils se disputent l'empire. Deux d'entre eux, Louis le Germanique et Charles le Chauve, s'allient contre leur frère Lothaire." },
+  { id:112, img:"traite de verdun.webp", title:"Le Traité de Verdun — L'Europe Découpée", date:"843", year:0, era:"Carolingiens", desc:"Un an après les Serments de Strasbourg, les trois petits-fils de Charlemagne signent le traité de Verdun en 843. Ils coupent l'empire en trois morceaux. Charles le Chauve reçoit l'Ouest — ce sera la France." },
+  { id:113, img:"raids_vikings.webp", title:"Les Vikings — Terreur sur la France & Naissance de la Normandie", date:"845 à 911", year:0, era:"Carolingiens", desc:"Depuis les années 820, des guerriers scandinaves (les Vikings) remontent en drakkars la Seine, la Loire et la Gironde, pillant abbayes et villes. Paris est assiégée en 885. Le roi franc finit par céder à leur chef Rollon une région entière — la Normandie (« pays des hommes du Nord ») — en échange de la paix en 911." },
+  { id:114, img:"collier d epaule.webp", title:"L'Étrier & le Collier d'Épaule", date:"Xe - XIIe siècle", year:0, era:"Carolingiens", desc:"L'étrier (venu d'Asie centrale, diffusé en Europe dès le VIIIe siècle) et le collier d'épaule (généralisé en Europe entre le Xe et le XIIe siècle) transforment radicalement la traction animale et le combat." },
+  { id:115, img:"mont_saint_michel.webp", title:"Le Mont Saint-Michel", date:"966", year:0, era:"Capétiens & Moyen Âge", desc:"Une abbaye bénédictine fondée sur un îlot rocheux de 80 m de hauteur en Normandie. Construit sur 10 siècles, le Mont Saint-Michel est le monument le plus visité de France après le Louvre." },
+  { id:116, img:"hugues capet.webp", title:"Hugues Capet — Fondateur de la Lignée", date:"987", year:0, era:"Capétiens & Moyen Âge", desc:"En 987, les grands seigneurs élisent Hugues Capet roi des Francs à la place du dernier Carolingien. Son territoire ne dépasse pas l'Île-de-France — moins grand qu'un département actuel. Mais il a l'habileté de faire couronner son fils de son vivant. Sa lignée régnera sans interruption sur la France pendant 800 ans." },
+  { id:117, img:"guillaume le conquerant.webp", title:"Guillaume le Conquérant — La France Conquiert l'Angleterre", date:"1066", year:0, era:"Capétiens & Moyen Âge", desc:"En 1066, Guillaume, duc de Normandie (donc descendant de Vikings devenus Français !), traverse la Manche avec son armée et bat le roi d'Angleterre Harold à la bataille d'Hastings. Il devient roi d'Angleterre." },
+  { id:118, img:"urbain2_croisades.webp", title:"Les Croisades — Dieu le Veut !", date:"1095 à 1291", year:0, era:"Capétiens & Moyen Âge", desc:"En novembre 1095, le pape Urbain II prêche à Clermont-Ferrand devant une foule immense : il appelle les chrétiens à reprendre Jérusalem aux Turcs seldjoukides. La foule répond en masse : « Dieu le veut !" },
+  { id:119, img:"templiers.webp", title:"Les Templiers — Moines & Guerriers", date:"1119 - 1312", year:0, era:"Capétiens & Moyen Âge", desc:"Fondé en 1119 à Jérusalem pour protéger les pèlerins, l'Ordre du Temple devient la première banque internationale d'Europe. Richissimes et puissants, les Templiers prêtent aux rois." },
+  { id:120, img:"alienor.webp", title:"Aliénor d'Aquitaine — Reine de France, puis d'Angleterre", date:"1122 à 1204", year:0, era:"Capétiens & Moyen Âge", desc:"À 15 ans, Aliénor hérite du duché d'Aquitaine — un territoire plus vaste que le royaume de France. Elle épouse Louis VII et devient reine de France." },
+  { id:121, img:"arc_boutant.webp", title:"L'Arc-Boutant — Architecture Gothique", date:"1140", year:0, era:"Capétiens & Moyen Âge", desc:"L'abbé Suger et les architectes de la cathédrale de Saint-Denis inventent l'arc-boutant. Cette structure reporte le poids des voûtes vers l'extérieur, permettant des murs percés de vitraux et des hauteurs inégalées." },
+  { id:122, img:"basilique saint denis gothique.webp", title:"La Basilique Saint-Denis — L'Invention du Gothique", date:"1144", year:0, era:"Capétiens & Moyen Âge", desc:"Un moine très intelligent nommé Suger a une idée géniale : et si on construisait des églises remplies de lumière ? Jusqu'alors, les églises romanes avaient des murs épais et des petites fenêtres — elles étaient sombres." },
+  { id:123, img:"universités.webp", title:"Naissance des Universités", date:"1150", year:0, era:"Capétiens & Moyen Âge", desc:"Les premières universités européennes naissent à Bologne (1088), Paris (~1150–1170), Oxford (~1167). L'Université de Paris se forme progressivement autour des écoles cathédrales." },
+  { id:124, img:"notre_dame_1200.webp", title:"Notre-Dame de Paris", date:"1163", year:0, era:"Capétiens & Moyen Âge", desc:"Chef-d'œuvre du gothique, Notre-Dame est construite en 182 ans sur l'Île de la Cité. Ses arcs-boutants, rosaces et 69 m de hauteur en font le symbole de Paris. Incendiée en 2019, elle rouvre en décembre 2024." },
+  { id:125, img:"moulins a vent.webp", title:"Le Moulin à Vent en Europe", date:"1180", year:0, era:"Capétiens & Moyen Âge", desc:"Les croisés rapportent le moulin à vent de Perse. En quelques décennies, des milliers de moulins ponctuent le paysage européen, moudant le grain et pompant l'eau des polders hollandais." },
+  { id:126, img:"La_bataille_de_Bouvines_en_1214.webp", title:"Philippe Auguste — Bâtisseur du Royaume", date:"1180 - 1223", year:0, era:"Capétiens & Moyen Âge", desc:"Philippe Auguste est le roi qui fait vraiment de la France un grand royaume. Il récupère la Normandie, l'Anjou et le Poitou sur les rois anglais, quadruplant la taille de son domaine. Sa victoire à Bouvines en 1214 contre une coalition européenne est la première grande victoire nationale française." },
+  { id:127, img:"Schéma et histoire du compas.webp", title:"La Boussole en Europe", date:"1190", year:0, era:"Capétiens & Moyen Âge", desc:"La boussole magnétique, venue de Chine via les Arabes, arrive en Europe. Elle permet la navigation en mer fermée, même par temps couvert. Sans elle, les Grandes Découvertes sont impossibles." },
+  { id:128, img:"Louis IX.webp", title:"Louis IX — Saint Louis", date:"1226 - 1270", year:0, era:"Capétiens & Moyen Âge", desc:"Louis IX (Saint Louis) est le roi idéal du Moyen Âge : juste, pieux, réformateur. Il rend la justice en personne sous un chêne à Vincennes, interdit les guerres entre nobles, réforme la monnaie. Il part en croisade deux fois et meurt de la dysenterie devant Tunis en 1270. Le pape le canonise 27 ans après sa mort." },
+  { id:129, img:"blanche castille.webp", title:"Blanche de Castille — La Reine qui Gouverna la France", date:"1226 - 1252", year:0, era:"Capétiens & Moyen Âge", desc:"Quand le roi Louis VIII meurt en 1226, son fils et héritier Louis IX n'a que 12 ans. C'est sa mère, Blanche de Castille, qui prend les rênes du royaume — et elle le fait avec une poigne de fer." },
+  { id:130, img:"1ers etats generaux.webp", title:"Les États Généraux — Le Roi Demande l'Avis du Peuple", date:"10 avril 1302", year:0, era:"Capétiens & Moyen Âge", desc:"Philippe le Bel convoque en 1302 les premiers États Généraux de l'histoire — une assemblée réunissant le clergé, la noblesse et les bourgeois des villes — pour obtenir leur soutien contre le pape qui prétend avoir plus d'autorité que le roi. C'est la première fois qu'un roi français consulte officiellement ses sujets." },
+  { id:131, img:"philippe le bel.webp", title:"Philippe le Bel & la Chute des Templiers", date:"1307 - 1314", year:0, era:"Capétiens & Moyen Âge", desc:"Endetté jusqu'au cou envers les Templiers, Philippe IV fait arrêter tous leurs membres en France le 13 octobre 1307 — un vendredi. Sous la torture, les aveux s'accumulent. Il obtient du pape la dissolution de l'Ordre." },
+  { id:132, img:"pape avignon.webp", title:"Les Papes à Avignon — Quand Rome s'Installa en France", date:"1309 - 1377", year:0, era:"Capétiens & Moyen Âge", desc:"En 1309, le pape Clément V — français de naissance, élu sous pression du roi Philippe le Bel — quitte Rome et s'installe à Avignon. Six autres papes lui succèdent sur place. Pourquoi ? Rome est une ville dangereuse, ravagée par les luttes entre familles nobles. Avignon, enclave pontificale au cœur du royaume de France, offre la paix et la protection royale. Pendant 68 ans, la papauté construit le Palais des Papes — le plus grand bâtiment gothique du monde — et rayonne sur toute la chrétienté depuis la Provence. En 1377, Grégoire XI ramène la papauté à Rome, mais le retour provoque un 'Grand Schisme' : deux papes rivaux, l'un à Rome, l'autre à Avignon, se disputent la chrétienté pendant 40 ans." },
+  { id:133, img:"Jacques_de_Molay_devant_Notre-Dame.webp", title:"Le Bûcher de Jacques de Molay", date:"18 mars 1314", year:0, era:"Capétiens & Moyen Âge", desc:"Le grand maître des Templiers, Jacques de Molay, est brûlé vif à Paris sur l'île de la Cité. Depuis les flammes, il maudit Philippe le Bel et le pape Clément V — tous deux mourront dans l'année." },
+  { id:134, img:"La_fin_de_la_lignée_capétienne.webp", title:"Les Rois Maudits — La Fin des Capétiens Directs", date:"1314 à 1328", year:0, era:"Capétiens & Moyen Âge", desc:"Du bûcher, Jacques de Molay maudit Philippe le Bel et le pape Clément V : « Avant un an, je vous cite au tribunal de Dieu. » Le pape mourut en avril 1314, Philippe le Bel en novembre." },
+  { id:135, img:"ars nova.webp", title:"Ars Nova — La Polyphonie", date:"1320 - 1370", year:0, era:"Capétiens & Moyen Âge", desc:"Avant l'Ars Nova, la musique religieuse n'était qu'une seule voix chantant la même mélodie (grégorien). À partir du XIVe siècle, plusieurs voix indépendantes chantent ensemble des mélodies différentes mais harmonieuses : c'est la polyphonie, ancêtre direct de toute la musique chorale et orchestrale occidentale." },
+  { id:136, img:"guerre de 100 ans.webp", title:"Guerre de Cent Ans", date:"1337 - 1453", year:0, era:"Capétiens & Moyen Âge", desc:"France contre Angleterre pour la couronne de France. Cent ans de batailles, d'occupations et de misère populaire, du règne de Philippe VI jusqu'à Charles VII. Redressement final grâce à Jeanne d'Arc (1429)." },
+  { id:137, img:"crecy.webp", title:"Crécy — Le Désastre de la Chevalerie Française", date:"26 août 1346", year:0, era:"Capétiens & Moyen Âge", desc:"Première grande défaite de la Guerre de Cent Ans. L'armée française, pourtant trois fois supérieure en nombre, est écrasée par les archers gallois d'Édouard III." },
+  { id:138, img:"peste.webp", title:"La Grande Peste Noire", date:"1347 - 1351", year:0, era:"Capétiens & Moyen Âge", desc:"La peste bubonique (transmise par les puces des rats) arrive d'Asie en 1347 par les navires marchands. En 4 ans, elle tue entre 25 et 50 millions d'Européens — un tiers de la population. Des villages entiers disparaissent. La société médiévale en sort bouleversée : manque de main-d'œuvre, remise en question de l'Église, obsession de la mort." },
+  { id:139, img:"roi prisonnier.webp", title:"Poitiers — Le Roi de France Fait Prisonnier !", date:"19 septembre 1356", year:0, era:"Capétiens & Moyen Âge", desc:"Imaginez qu'on capture le Président de la République à la guerre ! C'est ce qui arrive au roi Jean II de France en 1356 à Poitiers. Les archers anglais écrasent une nouvelle fois la chevalerie française." },
+  { id:140, img:"charles V.webp", title:"Charles V — Le Sage", date:"1364 - 1380", year:0, era:"Capétiens & Moyen Âge", desc:"Après les défaites humiliantes de Crécy (1346) et Poitiers (1356) contre les Anglais, Charles V reconstruit la France méthodiquement : il réorganise l'armée, améliore les finances, développe la marine, fait agrandir Paris et constitue une bibliothèque royale de 1 200 volumes — base de la future Bibliothèque nationale." },
+  { id:141, img:"charles VI.webp", title:"Charles VI — Le Fol", date:"1380 - 1422", year:0, era:"Capétiens & Moyen Âge", desc:"Roi frappé de folie à partir de 1392 : crises de démence, il croit parfois être fait de verre. La France sombre dans la guerre civile entre Armagnacs et Bourguignons, ouvrant la porte aux Anglais." },
+  { id:142, img:"expulsion juifs.webp", title:"L'Expulsion des Juifs de France", date:"1394", year:0, era:"Capétiens & Moyen Âge", desc:"En 1394, le roi Charles VI décide d'expulser tous les Juifs du royaume de France. Ce n'était pas la première fois — ils avaient déjà été chassés plusieurs fois et rappelés." },
+  { id:143, img:"christine de pisan.webp", title:"Christine de Pisan — La Première Grande Écrivaine Française", date:"1405", year:0, era:"Capétiens & Moyen Âge", desc:"Au Moyen Âge, les femmes n'étaient pas censées écrire des livres. Christine de Pisan, venue d'Italie enfant et éduquée à la cour du roi, ne s'en soucia pas." },
+  { id:144, img:"bourguignon armagnac.webp", title:"Bourguignons contre Armagnacs — La France contre elle-même", date:"1407 à 1435", year:0, era:"Capétiens & Moyen Âge", desc:"Pendant la folie de Charles VI, deux factions se disputent le pouvoir : les Bourguignons (menés par Jean sans Peur, duc de Bourgogne) et les Armagnacs (menés par Louis d'Orléans, frère du roi)." },
+  { id:145, img:"Bataille d'Azincourt sous la pluie.webp", title:"Azincourt — La Catastrophe des Fleurs de Lys", date:"25 octobre 1415", year:0, era:"Capétiens & Moyen Âge", desc:"Henri V d'Angleterre écrase une armée française cinq fois plus nombreuse. La noblesse française est décimée — plus de 6 000 morts côté français, une centaine côté anglais." },
+  { id:146, img:"charles VII.webp", title:"Charles VII — Le Victorieux", date:"1422 - 1461", year:0, era:"Capétiens & Moyen Âge", desc:"Surnommé « le petit roi de Bourges » par ses ennemis, il semblait perdu. Jeanne d'Arc le fit sacrer à Reims en 1429. Il chassa les Anglais, mit fin à la Guerre de Cent Ans (1453) et réunifie la France." },
+  { id:147, img:"jeanne-d-arc.webp", title:"Le Bûcher de Jeanne d'Arc", date:"30 mai 1431", year:0, era:"Capétiens & Moyen Âge", desc:"Capturée par les Bourguignons puis vendue aux Anglais, Jeanne d'Arc est jugée pour hérésie à Rouen. Condamnée par un tribunal ecclésiastique, elle est brûlée vive à 19 ans. Réhabilitée en 1456. Canonisée en 1920." },
+  { id:148, img:"Gutenberg.webp", title:"L'Imprimerie de Gutenberg", date:"1450", year:0, era:"Capétiens & Moyen Âge", desc:"Johannes Gutenberg invente les caractères mobiles en plomb à Mayence. La Bible à 42 lignes est imprimée vers 1455. En quelques décennies, l'imprimerie se répand dans toute l'Europe — y compris en France dès 1470." },
+  { id:149, img:"castillon la bataille.webp", title:"Castillon — La Fin de la Guerre de Cent Ans", date:"17 juillet 1453", year:0, era:"Capétiens & Moyen Âge", desc:"Castillon (1453) est la dernière bataille de la Guerre de Cent Ans. L'artillerie française écrase la cavalerie anglaise — nouvelle preuve que les canons ont remplacé les chevaliers. Les Anglais ne conservent plus que Calais en France. Cent seize ans après le début du conflit, la France est enfin réunifiée." },
+  { id:150, img:"louis XI carte.webp", title:"Louis XI — L'Universelle Araignée", date:"1461 - 1483", year:0, era:"Capétiens & Moyen Âge", desc:"Roi diplomate et rusé, il tisse ses intrigues plutôt que de livrer bataille. Il soumet la Bourgogne, annexe la Provence et la Franche-Comté, achève l'unification territoriale de la France." },
+  { id:151, img:"relais de poste.webp", title:"Les Relais de Poste — L'Internet du Moyen Âge", date:"1476", year:0, era:"Capétiens & Moyen Âge", desc:"Sous Louis XI, une idée simple révolutionne les communications : on installe sur les grandes routes des 'relais' où des messagers royaux peuvent changer de cheval." },
+  { id:152, img:"provence rejoint france.webp", title:"La Provence Rejoint la France", date:"1481", year:0, era:"Capétiens & Moyen Âge", desc:"En 1481, le comte de Provence meurt sans héritier direct et lègue sa région au roi de France Louis XI. La Provence — avec ses oliviers, sa mer bleue, son soleil et ses villes comme Marseille et Aix — devient française." },
+  { id:153, img:"picardie.webp", title:"La Bourgogne & la Picardie — La France Complète son Puzzle", date:"1482 - 1493", year:0, era:"Capétiens & Moyen Âge", desc:"Charles le Téméraire, duc de Bourgogne et homme le plus puissant d'Europe après le roi, meurt en 1477 dans une bataille en Lorraine. Son rêve de créer un grand empire entre France et Allemagne s'effondre." },
+  { id:154, img:"francois Ier.webp", title:"François Ier — Roi de la Renaissance", date:"1515 - 1547", year:0, era:"Renaissance & Réforme", desc:"François Ier est le roi de la Renaissance française : il fait venir Léonard de Vinci en France (qui y mourra en 1519), finance les arts et les bâtiments (Chambord, le Louvre), et impose par l'ordonnance de Villers-Cotterêts (1539) que tous les actes officiels soient rédigés en français — et non plus en latin." },
+  { id:155, img:"rabelais.webp", title:"Rabelais — Gargantua & Pantagruel", date:"1532", year:0, era:"Renaissance & Réforme", desc:"François Rabelais publie Pantagruel (1532) puis Gargantua (1534) — mêlant érudition humaniste, satire et humour. Il incarne l'idéal humaniste de la Renaissance française : curiosité universelle et liberté d'esprit." },
+  { id:156, img:"henri II.webp", title:"Henri II — Mort dans un Tournoi", date:"1547 - 1559", year:0, era:"Renaissance & Réforme", desc:"Fils de François Ier, Henri II poursuit la Renaissance mais est tué accidentellement lors d'un tournoi en 1559 : la lance de Gabriel de Montgomery lui transperce la visière et lui crève l'œil. Il agonise dix jours." },
+  { id:157, img:"francois II.webp", title:"François II — Le Roi Enfant", date:"1559 - 1560", year:0, era:"Renaissance & Réforme", desc:"Fils aîné d'Henri II, il monte sur le trône à 15 ans et meurt à 16 ans d'une otite foudroyante. Mari de Marie Stuart, reine d'Écosse. Son règne de 17 mois est dominé par les Guise et préfigure les guerres de Religion." },
+  { id:158, img:"guerres religion.webp", title:"Les Guerres de Religion", date:"1562 - 1598", year:0, era:"Renaissance & Réforme", desc:"Huit guerres civiles déchirent la France entre catholiques et protestants (huguenots). Massacres, sièges, assassinats de rois. Un tiers de siècle de chaos qui ruine le pays jusqu'à l'Édit de Nantes d'Henri IV (1598)." },
+  { id:159, img:"saint barthelemy.webp", title:"La Saint-Barthélemy", date:"24 août 1572", year:0, era:"Renaissance & Réforme", desc:"Sur ordre de Catherine de Médicis, les cloches de Saint-Germain-l'Auxerrois sonnent à Paris dans la nuit du 23 au 24 août. C'est le signal du massacre des chefs protestants réunis pour un mariage royal." },
+  { id:160, img:"henri 4.webp", title:"Henri IV — Le Vert-Galant", date:"1589 - 1610", year:0, era:"Monarchie Absolue", desc:"Henri IV est le premier roi de la dynastie des Bourbons. Protestant converti au catholicisme pour monter sur le trône (« Paris vaut bien une messe »), il met fin à 36 ans de guerres de Religion avec l'Édit de Nantes (1598), qui accorde la liberté de culte aux protestants. Populaire et pragmatique, il est assassiné par un fanatique catholique." },
+  { id:161, img:"marie de medicis.webp", title:"Marie de Médicis — La Régente", date:"1610 - 1617", year:0, era:"Monarchie Absolue", desc:"Épouse d'Henri IV, Marie de Médicis assure la régence à la mort de son mari en 1610, pour le jeune Louis XIII. Sa régence effective court jusqu'en 1614 (majorité du roi), son influence politique jusqu'en 1617." },
+  { id:162, img:"richelieu louis xiii.webp", title:"Louis XIII & le Cardinal de Richelieu", date:"1610 - 1643", year:0, era:"Monarchie Absolue", desc:"Fils d'Henri IV, Louis XIII règne avec l'ombre de Richelieu. Le Cardinal-Ministre centralise le pouvoir royal, écrase les Protestants à La Rochelle (1628) et fonde l'Académie française (1635)." },
+  { id:163, img:"le cid.webp", title:"Corneille — Le Cid", date:"1637", year:0, era:"Monarchie Absolue", desc:"Pierre Corneille révolutionne le théâtre français avec Le Cid (1637). Il invente le héros déchiré entre devoir et passion — le « dilemme cornélien » structurera la littérature pour des siècles." },
+  { id:164, img:"pascal.webp", title:"Pascal — Génie Universel", date:"1640 - 1670", year:0, era:"Monarchie Absolue", desc:"Blaise Pascal est mathématicien (probabilités, triangle de Pascal), physicien (pression atmosphérique, expérience du Puy-de-Dôme) et philosophe. La Pascaline, première calculatrice mécanique, date de 1642." },
+  { id:165, img:"mazarin.webp", title:"Mazarin — La Régence & la Fronde", date:"1643 - 1661", year:0, era:"Monarchie Absolue", desc:"Successeur de Richelieu, Mazarin gouverne en régent pour le jeune Louis XIV. Il surmonte la Fronde (1648-1653), révolte des nobles et du Parlement." },
+  { id:166, img:"louis XIV.webp", title:"Louis XIV — Le Roi-Soleil", date:"1643 - 1715", year:0, era:"Monarchie Absolue", desc:"Louis XIV règne 72 ans — le plus long règne de l'histoire de France. Il concentre tout le pouvoir en sa personne (« L'État, c'est moi »), impose sa cour à Versailles pour contrôler la noblesse, fait la guerre à toute l'Europe et révoque l'Édit de Nantes en 1685 (forçant 200 000 protestants à fuir). La France rayonne culturellement mais s'épuise militairement." },
+  { id:167, img:"versailles.webp", title:"Le Château de Versailles", date:"1661 - 1710", year:0, era:"Monarchie Absolue", desc:"Louis XIV transforme un pavillon de chasse en le plus grand palais du monde sur cinquante ans de travaux (1661–1710) : 700 pièces, 2 000 hectares de jardins, 20 000 personnes à la cour." },
+  { id:168, img:"colbert.webp", title:"Colbert — L'Architecte de la France Moderne", date:"1661 - 1683", year:0, era:"Monarchie Absolue", desc:"Colbert, ministre des finances de Louis XIV, invente une politique économique appelée mercantilisme : l'idée que la richesse d'un État dépend de la quantité d'or qu'il accumule. Pour cela, il développe les manufactures françaises, protège l'industrie nationale par des taxes et crée une marine de guerre puissante." },
+  { id:169, img:"moliere.webp", title:"Molière — Le Théâtre Français", date:"1664 - 1673", year:0, era:"Monarchie Absolue", desc:"Jean-Baptiste Poquelin, dit Molière, révolutionne la comédie française avec Tartuffe, Le Misanthrope, L'Avare. Il dénonce les hypocrisies de son époque avec une liberté audacieuse." },
+  { id:170, img:"racine andromaque.webp", title:"Racine — Andromaque & Phèdre", date:"1667", year:0, era:"Monarchie Absolue", desc:"Jean Racine pousse la tragédie à son sommet avec Andromaque (1667) et Phèdre (1677). Sa langue d'une pureté absolue fait de lui le plus grand tragédien français." },
+  { id:171, img:"la fontaine.webp", title:"La Fontaine — Les Fables", date:"1668", year:0, era:"Monarchie Absolue", desc:"Jean de La Fontaine publie ses Fables en 12 livres (1668-1694). Ces courts poèmes animaliers cachent une critique mordante de la société. Appris par cœur par des générations d'écoliers français depuis 350 ans." },
+  { id:172, img:"mme de cleves.webp", title:"Mme de Lafayette — La Princesse de Clèves", date:"1678", year:0, era:"Monarchie Absolue", desc:"Marie-Madeleine de Lafayette publie anonymement La Princesse de Clèves (1678) — le premier roman psychologique moderne. Une femme mariée résiste à sa passion par devoir. Fondateur du roman d'analyse." },
+  { id:173, img:"corsaires.webp", title:"Les Corsaires — La Guerre de Course", date:"1550 - 1815", year:0, era:"Monarchie Absolue", desc:"Les corsaires sont des marins privés autorisés par le roi (via une « lettre de marque ») à attaquer et piller les navires ennemis. Légalement pirates pour les ennemis, héros nationaux en France. Duguay-Trouin et Jean Bart sont les plus célèbres. Ils affaiblissent le commerce anglais et hollandais sans que le roi ait à payer une flotte." },
+  { id:174, img:"traite negriere.webp", title:"Le Commerce Triangulaire", date:"1640 - 1848", year:0, era:"Monarchie Absolue", desc:"La France participe activement à la traite négrière atlantique. Nantes, Bordeaux et La Rochelle envoient des navires en Afrique, échangent des marchandises contre des esclaves, les déportent aux Antilles." },
+  { id:175, img:"peste marseille.webp", title:"La Grande Peste de Marseille", date:"1720 - 1722", year:0, era:"Monarchie Absolue", desc:"Le navire Grand-Saint-Antoine débarque la peste à Marseille. En deux ans, la ville perd la moitié de sa population — 50 000 morts sur 90 000 habitants. La Provence entière est frappée." },
+  { id:176, img:"louis XV.webp", title:"Louis XV — Le Bien-Aimé", date:"1715 - 1774", year:0, era:"Monarchie Absolue", desc:"Arrière-petit-fils de Louis XIV, il hérite d'un royaume épuisé. D'abord adoré (« le Bien-Aimé »), son long règne voit la montée des philosophes des Lumières, la perte du Canada et des Indes, et la France glisser vers." },
+  { id:177, img:"voltaire.webp", title:"Voltaire — Les Lumières & la Tolérance", date:"1734", year:0, era:"Monarchie Absolue", desc:"François-Marie Arouet, dit Voltaire, symbole des Lumières : défenseur de la tolérance, ennemi du fanatisme. Candide et ses pamphlets incarnèrent la puissance de la plume contre l'arbitraire et l'injustice." },
+  { id:178, img:"diderot dalembert.webp", title:"L'Encyclopédie de Diderot & d'Alembert", date:"1751 - 1772", year:0, era:"Monarchie Absolue", desc:"En 1747, Denis Diderot et Jean le Rond d'Alembert lancent le projet le plus ambitieux du siècle des Lumières : rassembler tout le savoir humain en un seul ouvrage. Pendant 25 ans, 150 auteurs — Voltaire, Rousseau, Montesquieu — rédigent 72 000 articles sur tout : philosophie, sciences, arts, métiers, agriculture. L'Encyclopédie est un acte politique autant qu'intellectuel : en expliquant que la connaissance appartient à tous et non à l'Église ou au roi, elle sape les fondements de l'Ancien Régime. Le pouvoir royal la censure deux fois. Elle n'en continue pas moins de circuler clandestinement et d'inspirer les Révolutionnaires de 1789. Les 28 volumes seront traduits dans toute l'Europe et changeront la façon dont les hommes pensent le monde." },
+  { id:179, img:"guerre de 7 ans.webp", title:"La Guerre de Sept Ans — La Première Guerre Mondiale", date:"1756 - 1763", year:0, era:"Monarchie Absolue", desc:"Souvent appelée la première guerre mondiale, elle oppose la France à l'Angleterre sur 5 continents. La France perd le Canada, la Louisiane et ses comptoirs en Inde. L'Angleterre devient la première puissance mondiale." },
+  { id:180, img:"rousseau.webp", title:"Rousseau — Le Contrat Social", date:"1762", year:0, era:"Monarchie Absolue", desc:"Rousseau affirme dans Le Contrat Social (1762) que le pouvoir ne vient pas de Dieu ni du roi de naissance, mais du peuple lui-même — qui délègue son autorité à un gouvernement. Si le gouvernement trahit le peuple, celui-ci peut le renverser. Ces idées nourriront directement la Révolution française 27 ans plus tard." },
+  { id:181, img:"louis XVI.webp", title:"Louis XVI — La Fin de la Monarchie", date:"1774 - 1792", year:0, era:"Monarchie Absolue", desc:"Louis XVI hérite d'une France au bord de la faillite. Incapable de réformer les finances, il convoque les États Généraux en 1789 — déclenchant la Révolution. La Bastille tombe le 14 juillet, les droits de l'Homme sont proclamés. Louis XVI est guillotiné le 21 janvier 1793 : fin de 800 ans de monarchie capétienne." },
+  { id:182, img:"La_prise_de_la_Bastille_en_feu.webp", title:"Prise de la Bastille", date:"14 juillet 1789", year:0, era:"Révolution, Empires & XIXe siècle", desc:"Le 14 juillet 1789, des milliers de Parisiens prennent d'assaut la Bastille — une forteresse-prison qui symbolisait le pouvoir absolu du roi. À l'intérieur : seulement 7 prisonniers. Mais le symbole est immense : le peuple s'est armé contre son roi. Cette date devient la fête nationale française." },
+  { id:183, img:"Exécution_à_la_guillotine_pendant_la_Révolution.webp", title:"La Terreur — Robespierre", date:"1793 - 1794", year:0, era:"Révolution, Empires & XIXe siècle", desc:"Le Comité de Salut Public envoie des milliers à la guillotine. 17 000 exécutions officielles. La Terreur finira par se dévorer elle-même." },
+  { id:184, img:"Napoléon_se_couronnant_à_Notre-Dame.webp", title:"Napoléon Ier — Empereur des Français", date:"1804 - 1815", year:0, era:"Révolution, Empires & XIXe siècle", desc:"Napoléon Bonaparte, général républicain, s'empare du pouvoir en 1799 et se fait sacrer Empereur en 1804. Il réforme toute la société française : Code civil (lois égales pour tous), lycées, Banque de France, Légion d'honneur. Il conquiert presque toute l'Europe mais est finalement vaincu à Waterloo en 1815." },
+  { id:185, img:"revolution_industrielle.webp", title:"La Révolution Industrielle Française", date:"1815 - 1870", year:0, era:"Révolution, Empires & XIXe siècle", desc:"La France suit l'Angleterre avec une génération de retard. Chemins de fer, machines à vapeur, mines de charbon, sidérurgie. Lille, Saint-Étienne, Le Creusot deviennent des villes ouvrières." },
+  { id:186, img:"victor hugo.webp", title:"Victor Hugo — Les Misérables & Notre-Dame", date:"1830 - 1885", year:0, era:"Révolution, Empires & XIXe siècle", desc:"Victor Hugo est le monument de la littérature française du XIXe siècle : poète, romancier, dramaturge et homme politique. Les Misérables (1862) est l'un des romans les plus lus du monde." },
+  { id:187, img:"epoque coloniale.webp", title:"L'Empire Colonial Français", date:"1830 - 1962", year:0, era:"Révolution, Empires & XIXe siècle", desc:"La France bâtit le deuxième empire colonial du monde : Algérie (1830), Indochine, Afrique de l'Ouest, Madagascar, Polynésie. À son apogée en 1938, l'empire couvre 12 millions de km² et 110 millions d'habitants." },
+  { id:188, img:"Napoléon_III.webp", title:"Napoléon III — Le Second Empire", date:"1852 - 1870", year:0, era:"Révolution, Empires & XIXe siècle", desc:"Louis-Napoléon Bonaparte, neveu de Napoléon Ier, est élu président de la République en 1848 — le premier président élu au suffrage universel masculin. Trois ans après, il organise un coup d'État et se fait couronner Napoléon III par référendum. Son règne voit la modernisation de Paris par Haussmann et l'industrialisation de la France." },
+  { id:189, img:"haussman.webp", title:"Haussmann — La Naissance de Paris Moderne", date:"1853 - 1870", year:0, era:"Révolution, Empires & XIXe siècle", desc:"Mandaté par Napoléon III, le baron Haussmann détruit 20 000 immeubles et trace 137 km de grands boulevards. Il dote Paris d'égouts, de gaz, de parcs et de l'eau courante." },
+  { id:190, img:"3eme republique.webp", title:"3ème République", date:"1870 - 1940", year:0, era:"Révolution, Empires & XIXe siècle", desc:"70 ans de République. Jules Ferry instaure l'école laïque et gratuite (1882). Tour Eiffel (1889). Affaire Dreyfus. Deux guerres mondiales." },
+  { id:191, img:"belle epoque.webp", title:"La Belle Époque", date:"1871 - 1914", year:0, era:"Révolution, Empires & XIXe siècle", desc:"Entre la défaite de 1870 et la Grande Guerre, la France connaît une période de paix, de prospérité et d'innovations folles : électricité, automobile, cinéma, aviation." },
+  { id:192, img:"zola.webp", title:"Zola — Le Naturalisme", date:"1871 - 1902", year:0, era:"Révolution, Empires & XIXe siècle", desc:"Émile Zola crée la série des Rougon-Macquart — 20 romans sur une famille sous le Second Empire. Germinal (1885) sur les mineurs reste l'un des grands romans sociaux de la littérature mondiale. En 1898, « J'accuse !" },
+  { id:193, img:"impressionnisme.webp", title:"Monet & l'Impressionnisme", date:"1874", year:0, era:"Révolution, Empires & XIXe siècle", desc:"Claude Monet expose « Impression, Soleil Levant » — un critique la raille en disant « ce ne sont que des impressions ». Le mot reste et donne son nom au mouvement qui révolutionne la peinture." },
+  { id:194, img:"tour effeil.webp", title:"La Tour Eiffel", date:"1889", year:0, era:"Révolution, Empires & XIXe siècle", desc:"Gustave Eiffel construit cette tour de 330 m pour l'Exposition universelle de 1889. D'abord raillée comme une « vergue de fer », elle devait être démolie après 20 ans." },
+  { id:195, img:"dreyfus.webp", title:"L'Affaire Dreyfus — La France Déchirée", date:"1894 - 1906", year:0, era:"Révolution, Empires & XIXe siècle", desc:"Le capitaine Alfred Dreyfus, officier juif, est accusé à tort de trahison et déporté à l'île du Diable. L'Affaire divise la France en deux : dreyfusards contre antidreyfusards." },
+  { id:196, img:"premiere guerre.webp", title:"Première Guerre Mondiale", date:"1914 - 1918", year:0, era:"Révolution, Empires & XIXe siècle", desc:"La Première Guerre Mondiale (1914-1918) est la guerre la plus meurtrière que la France ait jamais connue : 1,4 million de soldats français tués, des millions de blessés. Pendant 4 ans, des millions d'hommes s'affrontent dans des tranchées creusées sur 700 km. Toute une génération de jeunes Européens est décimée." },
+  { id:197, img:"annees folles.webp", title:"Les Années Folles", date:"1920 - 1929", year:0, era:"Révolution, Empires & XIXe siècle", desc:"Après l'horreur de la Grande Guerre, la France explose de joie. Paris devient la capitale mondiale du jazz, de la mode, de la littérature d'avant-garde." },
+  { id:198, img:"crise 1929.webp", title:"La Crise de 1929 — Le Grand Krach", date:"1929 - 1939", year:0, era:"Révolution, Empires & XIXe siècle", desc:"Le jeudi 24 octobre 1929, la Bourse de New York s'effondre : des millions d'Américains perdent leurs économies en quelques heures. La crise se propage à l'Europe comme une épidémie — banques en faillite, usines fermées, chômage de masse. En France, la crise dure jusqu'à la guerre de 1939, alimentant la montée des extrémismes." },
+  { id:199, img:"occupation.webp", title:"Deuxième Guerre Mondiale", date:"1939 - 1945", year:0, era:"Révolution, Empires & XIXe siècle", desc:"La France est occupée de 1940 à 1944. Résistance, débarquement du 6 juin 1944, Libération. La Shoah fait 6 millions de victimes juives." },
+  { id:200, img:"debarquement.webp", title:"Le Débarquement de Normandie — Jour J", date:"6 juin 1944", year:0, era:"Révolution, Empires & XIXe siècle", desc:"La plus grande opération militaire amphibie de l'histoire. 156 000 soldats alliés débarquent sur 80 km de côtes normandes en une seule journée. Omaha, Utah, Gold, Juno, Sword." },
+  { id:201, img:"guerre d indochine.webp", title:"La Guerre d'Indochine", date:"1946 - 1954", year:0, era:"France Contemporaine", desc:"Après la Seconde Guerre mondiale, le Vietnam (alors colonie française appelée Indochine) réclame son indépendance sous la direction d'Hô Chi Minh. La France refuse et engage une guerre épuisante. La défaite de Diên Biên Phu (1954) force la France à partir — mettant fin à un siècle de présence française en Asie." },
+  { id:202, img:"guerre d algerie.webp", title:"La Guerre d'Algérie", date:"1954 - 1962", year:0, era:"France Contemporaine", desc:"En 1954, le FLN (Front de Libération National) déclenche une insurrection armée pour l'indépendance de l'Algérie, territoire français depuis 1830 et peuplé d'un million de colons européens. Huit ans de guerre terrible (tortures, attentats, massacres) s'ensuivent. L'Algérie devient indépendante en 1962 après les accords d'Évian." },
+  { id:203, img:"de gaulle.webp", title:"5ème République — De Gaulle & Nos Jours", date:"1958 - aujourd'hui", year:0, era:"France Contemporaine", desc:"La Constitution de 1958 instaure un régime semi-présidentiel fort. Mai 1968. Construction européenne. La France reste une grande puissance mondiale." },
+  { id:204, img:"mai 68.webp", title:"Mai 68 — La France Tremble", date:"Mai 1968", year:0, era:"France Contemporaine", desc:"En quelques jours, une révolte étudiante à la Sorbonne devient une crise nationale. 10 millions de grévistes paralysent le pays. De Gaulle disparaît secrètement." },
+  { id:205, img:"mur de berlin.webp", title:"Le Mur de Berlin — La Guerre Froide en Béton", date:"1961 - 1989", year:0, era:"France Contemporaine", desc:"L'URSS fait ériger le mur de Berlin en une nuit, le 13 août 1961. La France, puissance occupante de Berlin-Ouest, est en première ligne de la Guerre Froide." },
+];
+
+/* ── STARS ── */
+(function(){
+  const c=document.getElementById('stars-canvas'),ctx=c.getContext('2d');let stars=[];
+  function resize(){c.width=innerWidth;c.height=innerHeight;}
+  function init(){resize();stars=Array.from({length:220},()=>({x:Math.random(),y:Math.random(),r:Math.random()*1.3+.15,a:Math.random()*.55+.08,speed:Math.random()*.0004+.00015,phase:Math.random()*Math.PI*2}));}
+  let t=0;function draw(){t++;ctx.clearRect(0,0,c.width,c.height);for(const s of stars){const f=s.a*(.65+.35*Math.sin(t*s.speed*80+s.phase));ctx.beginPath();ctx.arc(s.x*c.width,s.y*c.height,s.r,0,Math.PI*2);ctx.fillStyle=`rgba(232,223,196,${f})`;ctx.fill();}requestAnimationFrame(draw);}
+  addEventListener('resize',init);init();draw();
+})();
+
+/* ── STATE ── */
+let deck=[],idx=0,flipped=false,knownSet=new Set(),reviewSet=new Set();
+const fc=()=>document.getElementById('fc');
+const front=()=>document.getElementById('front');
+const overlay=()=>document.getElementById('overlay');
+
+/* ── LOAD CONTENT ── */
+function loadContent(){
+  const card=deck[idx];
+  document.getElementById('fc-img').src='../img/histoire/'+card.img;
+  document.getElementById('fc-era').textContent=card.era;
+  document.getElementById('fc-date').textContent=card.date;
+  document.getElementById('fc-title').textContent=card.title;
+  document.getElementById('fc-desc').textContent=card.desc||'';
+  const pct=(idx/deck.length)*100;
+  document.getElementById('p-text').textContent=`Carte ${idx+1} / ${deck.length}`;
+  document.getElementById('p-fill').style.width=pct+'%';
+  document.querySelectorAll('#strip .thumb').forEach((el,i)=>el.classList.toggle('cur',i===idx));
+}
+
+/* ── ADVANCE: fondu noir → iris ── */
+function advance(){
+  const ov=overlay(), fr=front(), wrap=fc();
+
+  ov.classList.add('dark');
+
+  setTimeout(()=>{
+    wrap.classList.add('no-anim');
+    wrap.classList.remove('flipped');
+    flipped=false;
+    fr.classList.remove('iris');
+    loadContent();
+    requestAnimationFrame(()=>requestAnimationFrame(()=>{
+      wrap.classList.remove('no-anim');
+      ov.classList.remove('dark');
+      fr.classList.add('iris');
+    }));
+  }, 180);
+}
+
+/* ── FLIP ── */
+function flipCard(){
+  if(flipped){
+    idx=(idx+1)%deck.length;
+    advance();
+  } else {
+    flipped=true;
+    fc().classList.add('flipped');
+  }
+}
+
+/* ── NAVIGATION ── */
+function nextCard(){idx=(idx+1)%deck.length;advance();}
+function prevCard(){idx=(idx-1+deck.length)%deck.length;advance();}
+
+function shuffleCards(){
+  const eras = EPOCH_MAP[currentEpoch];
+  const filtered = eras ? CARDS.filter(c => eras.includes(c.era)) : [...CARDS];
+  deck=shuffle(filtered);idx=0;flipped=false;
+  knownSet.clear();reviewSet.clear();
+  updateCounters();buildStrip();advance();
+}
+
+function markKnown(){
+  knownSet.add(deck[idx].id);reviewSet.delete(deck[idx].id);
+  updateCounters();idx=(idx+1)%deck.length;advance();
+}
+
+function markReview(){
+  reviewSet.add(deck[idx].id);knownSet.delete(deck[idx].id);
+  const card=deck.splice(idx,1)[0];
+  deck.splice(Math.min(idx+3,deck.length),0,card);
+  updateCounters();if(idx>=deck.length)idx=0;advance();
+}
+
+/* ── UI ── */
+function updateCounters(){
+  document.getElementById('k-count').textContent=knownSet.size;
+  document.getElementById('r-count').textContent=reviewSet.size;
+  document.getElementById('rem-count').textContent=deck.length-knownSet.size-reviewSet.size;
+}
+
+function buildStrip(){
+  const strip=document.getElementById('strip');strip.innerHTML='';
+  deck.forEach((card,i)=>{
+    const img=document.createElement('img');
+    img.src='../img/histoire/'+card.img;img.alt=card.title;
+    img.className='thumb'+(i===0?' cur':'');
+    img.onclick=()=>{idx=i;advance();};
+    img.title=card.title;
+    strip.appendChild(img);
+  });
+}
+
+/* ── UTILS ── */
+function shuffle(arr){for(let i=arr.length-1;i>0;i--){const j=Math.floor(Math.random()*(i+1));[arr[i],arr[j]]=[arr[j],arr[i]];}return arr;}
+
+/* ── KEYBOARD ── */
+document.addEventListener('keydown',e=>{
+  if(document.getElementById('chd-panel').classList.contains('open'))return;
+  if(e.key==='ArrowRight'||e.key===' '){e.preventDefault();nextCard();}
+  if(e.key==='ArrowLeft'){e.preventDefault();prevCard();}
+  if(e.key==='Enter'){e.preventDefault();flipCard();}
+  if(e.key==='k'||e.key==='K')markKnown();
+  if(e.key==='r'||e.key==='R')markReview();
+});
+
+/* ── EPOCH FILTER ── */
+const EPOCH_MAP = {
+  all:           null, // pas de filtre
+  prehistoire:   ['Ère Cosmique','Ère Biologique','Préhistoire'],
+  antiquite:     ['Premières Civilisations — −3500 à −2000','Égypte, Mésopotamie & Récits Fondateurs — −2000 à −1200',
+                  'Proche-Orient & Méditerranée — −1200 à −600','Grèce Antique & Monde Hellénistique — −800 à −300',
+                  'Rome — République & Conquêtes — −300 à −27','Empire Romain & Naissance du Christianisme — −27 à 200',
+                  'Gaule Romaine & Déclin de l\'Empire — 200 à 476'],
+  moyenage:      ['Mérovingiens','Carolingiens','Haut Moyen Âge','Capétiens & Moyen Âge'],
+  modernes:      ['Renaissance & Réforme','Monarchie Absolue'],
+  contemporaine: ['Révolution, Empires & XIXe siècle','France Contemporaine'],
+};
+
+let currentEpoch = 'all';
+
+function setEpoch(key) {
+  currentEpoch = key;
+  // Mettre à jour les pills
+  document.querySelectorAll('.ep-pill').forEach(p => p.classList.remove('active'));
+  document.getElementById('ep-'+key).classList.add('active');
+  // Filtrer les cartes
+  const eras = EPOCH_MAP[key];
+  const filtered = eras ? CARDS.filter(c => eras.includes(c.era)) : [...CARDS];
+  deck = shuffle(filtered);
+  idx = 0; flipped = false;
+  knownSet.clear(); reviewSet.clear();
+  updateCounters();
+  buildStrip();
+  advance();
+  // Mettre à jour le compteur
+  const names = {
+    all:'toutes les époques', prehistoire:'Préhistoire', antiquite:'Antiquité',
+    moyenage:'Moyen Âge', modernes:'Temps Modernes', contemporaine:'Époque Contemporaine'
+  };
+  document.getElementById('epoch-count').textContent = `${deck.length} carte${deck.length>1?'s':''} — ${names[key]}`;
+}
+
+/* ── CHRONO DRAWER ── */
+let _chronoCache=null;
+async function _loadChronoAll(){
+  if(_chronoCache)return _chronoCache;
+  const branches=['prehistoire','antiquite','moyenage','tempsmodernes','contemporaine','monde'];
+  const events=[];
+  await Promise.all(branches.map(async b=>{
+    try{
+      const res=await fetch('/json/chronologie/'+b+'.json');
+      if(!res.ok)return;
+      const data=await res.json();
+      data.forEach(era=>(era.events||[]).forEach(ev=>events.push(ev)));
+    }catch(e){}
+  }));
+  return(_chronoCache=events);
+}
+async function openDeepDrawer(){
+  const title=deck[idx].title;
+  document.getElementById('chd-backdrop').classList.add('open');
+  document.getElementById('chd-panel').classList.add('open');
+  document.getElementById('chd-inner').scrollTop=0;
+  document.getElementById('chd-loading').style.display='block';
+  document.getElementById('chd-content').style.display='none';
+  document.getElementById('chd-notfound').style.display='none';
+  document.getElementById('chd-img').style.display='none';
+  const events=await _loadChronoAll();
+  const norm=t=>(t||'').trim().toLowerCase().replace(/\s+/g,' ');
+  const ev=events.find(e=>norm(e.title)===norm(title));
+  document.getElementById('chd-loading').style.display='none';
+  if(!ev){
+    document.getElementById('chd-notfound').textContent='Pas de fiche détaillée disponible pour cet événement dans la Chronologie.';
+    document.getElementById('chd-notfound').style.display='block';
+    return;
+  }
+  const img=document.getElementById('chd-img');
+  if(ev.img){img.src='../img/'+ev.img;img.style.display='block';}
+  document.getElementById('chd-era-badge').textContent=deck[idx].era;
+  document.getElementById('chd-title').textContent=ev.title;
+  document.getElementById('chd-desc').textContent=ev.desc;
+  const anecdotes=ev.anecdotes||[];
+  document.getElementById('chd-anec').innerHTML=anecdotes.map(a=>
+    `<div class="chd-anec-item"><span class="chd-anec-emoji">${a.e}</span><div class="chd-anec-text">${a.t}</div></div>`
+  ).join('');
+  document.getElementById('chd-anec-head').style.display=anecdotes.length?'block':'none';
+  document.getElementById('chd-content').style.display='block';
+}
+function _closeDeepDrawer(){
+  document.getElementById('chd-backdrop').classList.remove('open');
+  document.getElementById('chd-panel').classList.remove('open');
+}
+document.getElementById('chd-close').addEventListener('click',_closeDeepDrawer);
+document.getElementById('chd-backdrop').addEventListener('click',_closeDeepDrawer);
+document.addEventListener('keydown',e=>{if(e.key==='Escape')_closeDeepDrawer();});
+
+/* ── BOOT ── */
+deck=shuffle([...CARDS]);
+document.getElementById('epoch-count').textContent = `${deck.length} cartes — toutes les époques`;
+buildStrip();
+loadContent(); // première carte sans animation
+</script>
+</body>
+</html>

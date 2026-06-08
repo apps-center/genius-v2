@@ -1,0 +1,1331 @@
+{
+  "PE": {
+    "name": "Pérou",
+    "flag": "🇵🇪",
+    "capitale": "Lima",
+    "continent": "Amérique",
+    "population": "33,3 millions (2024)",
+    "superficie": "1 285 216 km²",
+    "langues": ["Espagnol (officiel)", "Quechua (officiel)", "Aymara (officiel)", "48 langues amazoniennes"],
+    "monnaie": "Sol (PEN)",
+
+    "histoire": {
+      "independance": "28 juillet 1821 (indépendance de l'Espagne — San Martín proclame l'indépendance à Lima).",
+      "evenements_majeurs": [
+        "Civilisation de Caral (3000 av. J.-C.) : l'une des plus anciennes d'Amérique",
+        "Culture Mochica, Wari, Tiwanaku (Ier-XIIe s.) : grandes civilisations préincaïques",
+        "Empire Inca / Tawantinsuyu (XIIe-XVIe s.) : plus grand empire d'Amérique précolombienne (12 millions d'habitants, 4 000 km du nord au sud)",
+        "Conquête espagnole : Francisco Pizarro capture et exécute l'Inca Atahualpa (1532-1533)",
+        "Potosí et Cajamarca : mines d'argent finançant l'empire espagnol",
+        "Tupac Amaru II : grande rébellion indigène (1780-1781) — 100 000 morts",
+        "Indépendance (1821) proclamée par San Martín, consolidée par Simón Bolívar",
+        "Guerre du Pacifique (1879-1884) : défaite contre le Chili — perte de territoires",
+        "Sentier Lumineux (Shining Path) : guérilla maoïste (1980-2000) — 70 000 morts",
+        "Alberto Fujimori : autogolpe (1992), lutte contre le Sentier Lumineux, corruption, emprisonné",
+        "Découverte de grands gisements de cuivre et de lithium (XXIe s.)",
+        "Instabilité politique extrême : 6 présidents en 5 ans (2016-2021)",
+        "Pedro Castillo élu (2021) — destitu et emprisonné (2022)"
+      ],
+      "role_historique": "Berceau de l'empire Inca et de civilisations millénaires, le Pérou est au cœur de l'identité de l'Amérique du Sud. Machu Picchu est l'un des sites les plus visités du monde. Pays riche en ressources mais rongé par les inégalités et l'instabilité politique."
+    },
+
+    "politique": {
+      "regime": "République présidentielle. Démocratie très instable : 6 présidents entre 2016 et 2022. Congrès et exécutif en conflit permanent.",
+      "chef_etat": "Dina Boluarte (Présidente depuis décembre 2022 — vice-présidente devenue présidente après la destitution de Castillo).",
+      "stabilite": "Extrêmement instable politiquement. Manifestations réprimées (2023 : 60 morts). Corruption systémique. Instabilité institutionnelle chronique.",
+      "alliances": [
+        "Alliance du Pacifique (avec Chili, Colombie, Mexique)",
+        "CELAC, OEA",
+        "Accord de libre-échange avec USA, UE, Chine",
+        "Relations historiques avec la Bolivie (lac Titicaca partagé)"
+      ]
+    },
+
+    "economie": {
+      "pib": "268 milliards $ (2023, 47e mondiale)",
+      "pib_hab": "7 300 $ (2023)",
+      "ressources": [
+        "Cuivre (2e producteur mondial — mines de Las Bambas, Cerro Verde, Antamina)",
+        "Or (6e producteur mondial)",
+        "Argent (2e producteur mondial)",
+        "Zinc, plomb, étain",
+        "Lithium (réserves croissantes — Triangle du lithium)",
+        "Gaz naturel (Camisea — ressource majeure)",
+        "Anchois et farine de poisson (1er exportateur mondial)"
+      ],
+      "secteurs": [
+        "Mines (60% des exports — cuivre, or, zinc)",
+        "Agriculture (asperges, avocat, quinoa, café — exportateur mondial)",
+        "Pêche et farine de poisson (1er exportateur mondial)",
+        "Tourisme (Machu Picchu, Lac Titicaca, Amazonie)",
+        "Textile (alpaga, coton pima)"
+      ],
+      "grandes_villes": [
+        "Lima (11 M hab. — «ville tentaculaire», 33% de la population nationale)",
+        "Arequipa (la «ville blanche», 2e ville)",
+        "Trujillo (3e ville, agriculture côtière)",
+        "Cusco (ancienne capitale Inca, capitale touristique)"
+      ],
+      "places_economiques": [
+        "Bourse de Lima (BVL)",
+        "Lima : hub financier et logistique de la côte Pacifique sud-américaine",
+        "Port du Callao (1er port du Pérou, hub Pacifique)"
+      ],
+      "voies_communication": [
+        "Port du Callao (Lima) : 1er port du Pacifique sud-américain",
+        "Aéroport Jorge Chávez (Lima) — hub régional",
+        "Route transamazonienne (controversée — déforestation)",
+        "Corridor ferroviaire central (Lima-mines andines)"
+      ]
+    },
+
+    "societe": {
+      "demographie": "Population très diverse : Amérindiens (25%), Métis (60%), Européens, Afro-péruviens, Asiatiques. Société profondément inégalitaire entre Lima côtière et provinces andines et amazoniennes.",
+      "idh": "0,762 (rang 84/191 en 2022, catégorie « élevé »)",
+      "education": "Université Nationale de San Marcos (fondée 1551 — la plus ancienne d'Amérique). Alphabétisation 94%. Fracture urbain/rural prononcée.",
+      "sante": "Espérance de vie 74 ans. Médecine traditionnelle andine (curanderismo). Système de santé insuffisant dans les zones rurales.",
+      "inegalites": "Gini ~43 — inégalités fortes. Lima vs provinces andines : fracture économique et culturelle profonde. Peuples amazonienses marginalisés.",
+      "urbanisation": "78 % (2023). Lima hypertrophiée (33% du pays)."
+    },
+
+    "environnement": {
+      "pollution": "Contamination minière des rivières (mercure, arsenic). Déforestation amazonienne accélérée. Lima : l'une des villes les plus polluées d'Amérique du Sud.",
+      "dev_durable": "Amazonie péruvienne : 60% du territoire, poumon planétaire menacé. Potentiel hydroélectrique immense. Glaciers andins en fonte (10% perdus par décennie).",
+      "recherche": "Biodiversité exceptionnelle (2e au monde après le Brésil). Gastronomie péruvienne : Lima reconnue comme capitale mondiale de la gastronomie. Recherche agricole (quinoa, pomme de terre — le Pérou est le berceau de la pomme de terre).",
+      "militaire": "Forces armées de 120 000 actifs. Tensions historiques avec le Chili et l'Équateur. Budget ~1,2% du PIB.",
+      "defis": [
+        "Instabilité politique chronique (6 présidents en 5 ans)",
+        "Conflit entre exploitation minière et droits des communautés indigènes",
+        "Déforestation amazonienne accélérée",
+        "Fonte des glaciers andins (menace hydrique majeure)",
+        "Corruption systémique à tous les niveaux"
+      ]
+    },
+
+    "importance": {
+      "historique": "Berceau de l'empire Inca — la plus grande civilisation précolombienne. Machu Picchu : l'un des sites les plus visités et les plus admirés du monde. Berceau de la pomme de terre et du quinoa (nourrit aujourd'hui la planète).",
+      "economique": "2e producteur mondial de cuivre (métal essentiel à la transition énergétique et à l'électronique). 1er exportateur mondial de farine de poisson. Tourisme de classe mondiale.",
+      "geopolitique": "Puissance régionale andine. Richesses minières convoitées par la Chine et les États-Unis. Membre de l'Alliance du Pacifique (libéralisme économique).",
+      "atouts": [
+        "2e producteur mondial de cuivre (transition énergétique)",
+        "Biodiversité exceptionnelle (Amazonie, Andes, côte Pacifique)",
+        "Machu Picchu et tourisme culturel de classe mondiale",
+        "Berceau de la pomme de terre et du quinoa",
+        "Lima : capitale gastronomique mondiale reconnue"
+      ],
+      "fragilites": [
+        "Instabilité politique extrême (démocratie dysfonctionnelle)",
+        "Inégalités entre Lima côtière et provinces andines/amazoniennes",
+        "Conflit ressources minières vs droits indigènes (conflits sociaux récurrents)",
+        "Corruption systémique",
+        "Vulnérabilité climatique (El Niño, fonte des glaciers)"
+      ]
+    }
+  },
+
+  "BO": {
+    "name": "Bolivie",
+    "flag": "🇧🇴",
+    "capitale": "Sucre (constitutionnelle) — La Paz (siège du gouvernement, plus haute capitale du monde à 3 640 m)",
+    "continent": "Amérique",
+    "population": "12,3 millions (2024)",
+    "superficie": "1 098 581 km² (9e pays du monde)",
+    "langues": ["Espagnol (officiel)", "Quechua (officiel)", "Aymara (officiel)", "34 langues indigènes officielles"],
+    "monnaie": "Boliviano (BOB)",
+
+    "histoire": {
+      "independance": "6 août 1825 (indépendance de l'Espagne — nommée en l'honneur de Simón Bolívar).",
+      "evenements_majeurs": [
+        "Empire Tiwanaku (IVe-Xe s.) — grande civilisation andine autour du lac Titicaca",
+        "Empire Inca (XVe s.) : Bolivie intégrée dans le Tawantinsuyu",
+        "Colonisation espagnole (1532) : Potosí — «Cerro Rico», la montagne d'argent qui finance l'empire espagnol pendant 3 siècles",
+        "Indépendance (1825) par Antonio José de Sucre — libérateur avec Bolívar",
+        "Guerre du Pacifique (1879-1884) : perte de l'accès à la mer face au Chili — trauma national toujours vif",
+        "Guerre du Chaco (1932-1935) contre le Paraguay : 30 000 morts boliviens, perte du Chaco pétrolier",
+        "Révolution nationale (1952) : nationalisation des mines d'étain, réforme agraire, suffrage universel",
+        "Dictatures militaires (1964-1982), dont Hugo Banzer",
+        "Retour à la démocratie (1982)",
+        "Guerre de l'eau de Cochabamba (2000) : privatisation rejetée par soulèvement populaire — modèle mondial",
+        "Evo Morales élu (2006) : premier président indigène (Aymara) — nationalisation du gaz, réduction de la pauvreté",
+        "Coup d'État contre Morales (novembre 2019) — très contesté internationalement",
+        "Retour du MAS : Luis Arce élu (2020)",
+        "Bolivie = 1ères réserves mondiales de lithium (salar d'Uyuni) — «Arabie Saoudite du lithium»"
+      ],
+      "role_historique": "La Bolivie est le pays le plus indigène d'Amérique latine (62% de population autochtone). Potosí a alimenté l'économie mondiale pendant 3 siècles. Evo Morales est le symbole de la lutte indigène pour la dignité. Le lithium bolivien est l'enjeu du siècle pour la transition énergétique."
+    },
+
+    "politique": {
+      "regime": "État plurinational. République présidentielle. Constitution de 2009 (Evo Morales) reconnaissant 36 nations indigènes et la Pachamama (Mère Terre).",
+      "chef_etat": "Luis Arce (Président depuis 2020 — MAS, mouvement indigène-socialiste). Scission avec Evo Morales (rivalité pour 2025).",
+      "stabilite": "Instable. Scission du MAS entre Arce et Morales. Tentative de coup d'État (juin 2024 — chars dans la place du gouvernement — avortée). Crise des réserves de change.",
+      "alliances": [
+        "ALBA (Alliance Bolivarienne — Cuba, Venezuela, Nicaragua)",
+        "CELAC, UNASUR",
+        "Relations avec la Chine et la Russie pour le lithium",
+        "Contentieux avec le Chili (accès à la mer — CIJ jugement 2018 défavorable)"
+      ]
+    },
+
+    "economie": {
+      "pib": "44 milliards $ (2023)",
+      "pib_hab": "3 500 $ (2023)",
+      "ressources": [
+        "Lithium : 1ères réserves mondiales (21 millions de tonnes — salar d'Uyuni, le plus grand désert de sel du monde)",
+        "Gaz naturel (grandes réserves — exporté vers Brésil et Argentine, nationalisé en 2006)",
+        "Étain et argent (Potosí — mines exploitées depuis le XVIe s.)",
+        "Zinc, tungstène, antimoine",
+        "Coca (culture traditionnelle légale — enjeu politique majeur)"
+      ],
+      "secteurs": [
+        "Gaz naturel (1ère source de revenus — mais réserves en déclin)",
+        "Mines (zinc, étain, argent, lithium en développement)",
+        "Agriculture (soja, quinoa, coca)",
+        "Tourisme (salar d'Uyuni, lac Titicaca, Amazonie)"
+      ],
+      "grandes_villes": [
+        "La Paz (2,3 M hab. — plus haute capitale du monde à 3 640 m, siège du gouvernement)",
+        "Santa Cruz (3 M hab. — capitale économique, gaz, agriculture intensive)",
+        "Cochabamba (agro-industrie, coca)",
+        "Potosí (ancienne plus riche ville du monde au XVIIe s. — aujourd'hui très pauvre)"
+      ],
+      "places_economiques": [
+        "Salar d'Uyuni (lithium) : plus grand désert de sel du monde — réserves immenses",
+        "YLB (Yacimientos de Litio Bolivianos) : entreprise d'État du lithium",
+        "Santa Cruz : hub agricole et gazier"
+      ],
+      "voies_communication": [
+        "Pays doublement enclavé (sans accès à la mer depuis la Guerre du Pacifique 1884)",
+        "Aéroport international El Alto (La Paz — à 4 065 m, le plus haut aéroport commercial du monde)",
+        "Routes vers les ports chiliens (Arica, Iquique) et péruviens (Ilo)"
+      ]
+    },
+
+    "societe": {
+      "demographie": "62% de population indigène (Quechua, Aymara, Guaraní) — la proportion la plus élevée d'Amérique latine. Société profondément pluriculturelle et plurilingue.",
+      "idh": "0,692 (rang 118/191 en 2022, catégorie « moyen »)",
+      "education": "Alphabétisation 92,5%. Réduction de l'analphabétisme sous Morales (programme cubain «Yo sí puedo»). Université San Andrés (La Paz).",
+      "sante": "Espérance de vie 72 ans. Mortalité infantile encore élevée dans les zones rurales. Médecine traditionnelle andine (yatiris, kallawaya) ancrée dans la culture.",
+      "inegalites": "Gini ~42 — réduit sous Morales grâce aux revenus du gaz. Fracture profonde entre Santa Cruz (riche, métisse, plaines) et altiplano (pauvre, indigène, Andes).",
+      "urbanisation": "71 % (2023). La Paz et Santa Cruz en forte croissance."
+    },
+
+    "environnement": {
+      "pollution": "Déforestation amazonienne accélérée dans les basses terres (Santa Cruz — soja et élevage). Pollution minière (Potosí, Oruro — rivières contaminées au plomb). Lac Titicaca : pollution plastique et agricole croissante.",
+      "dev_durable": "Lithium : ambition de produire des batteries, pas seulement la matière première brute. Potentiel hydroélectrique immense. Salar d'Uyuni : écosystème fragile à préserver.",
+      "recherche": "Centre de recherche en lithium (CEGBOL). Quinoa : aliment reconnu mondialement. Traditions médicales andines.",
+      "militaire": "Forces armées de 46 000 actifs. Tentative de coup d'État de juin 2024 — avortée. Armée jouant un rôle politique récurrent.",
+      "defis": [
+        "Lithium : comment industrialiser la richesse sans répéter la malédiction des ressources?",
+        "Enclavement total — revendication d'accès à la mer rejetée par la CIJ (2018)",
+        "Réserves de gaz en déclin — revenus en baisse",
+        "Instabilité politique (scission MAS, coups d'État récurrents)",
+        "Déforestation amazonienne dans les basses terres"
+      ]
+    },
+
+    "importance": {
+      "historique": "Potosí et ses mines d'argent ont littéralement financé l'économie mondiale pendant 3 siècles. Evo Morales est le premier président indigène d'Amérique latine — symbole mondial. La Guerre de l'eau de Cochabamba (2000) est un modèle de résistance populaire étudié dans le monde entier.",
+      "economique": "Premières réserves mondiales de lithium — métal de la transition énergétique. Triangle du lithium (Bolivie-Argentine-Chili) : «nouvelle Arabie Saoudite» du XXIe siècle.",
+      "geopolitique": "Compétition intense entre la Chine, les États-Unis et l'UE pour l'accès au lithium bolivien. Enclavement : dépendance aux voisins pour tout export. Modèle du nationalisme des ressources naturelles.",
+      "atouts": [
+        "1ères réserves mondiales de lithium (21 Mt — métal clé de la transition énergétique)",
+        "Gaz naturel (revenus encore significatifs)",
+        "Biodiversité exceptionnelle (Amazonie, Andes, Altiplano)",
+        "Culture indigène riche (quinoa, coca, traditions — patrimoine unique)",
+        "Position centrale en Amérique du Sud"
+      ],
+      "fragilites": [
+        "Enclavement total (sans accès à la mer depuis 140 ans — handicap majeur)",
+        "Instabilité politique chronique (coups d'État, scissions)",
+        "Réserves de gaz en déclin — crise budgétaire",
+        "Difficulté à industrialiser le lithium (capitaux et technologies étrangers nécessaires)",
+        "Fracture ethnique et géographique (Santa Cruz vs Altiplano)"
+      ]
+    }
+  },
+
+  "KH": {
+    "name": "Cambodge",
+    "flag": "🇰🇭",
+    "capitale": "Phnom Penh",
+    "continent": "Asie",
+    "population": "17,4 millions (2024)",
+    "superficie": "181 035 km²",
+    "langues": ["Khmer (officiel)"],
+    "monnaie": "Riel cambodgien (KHR) — le dollar américain est co-utilisé partout",
+
+    "histoire": {
+      "independance": "9 novembre 1953 (indépendance de la France — Norodom Sihanouk).",
+      "evenements_majeurs": [
+        "Empire Khmer (IXe-XVe s.) : l'une des plus grandes civilisations d'Asie du Sud-Est — Angkor Vat",
+        "Angkor : capitale de l'empire à son apogée (XIIe s.) — 1 million d'habitants, la plus grande ville du monde médiéval",
+        "Déclin de l'empire Khmer (XVe-XIXe s.) face aux empires thaïlandais et vietnamiens",
+        "Protectorat français (1863-1953)",
+        "Indépendance (1953) sous le roi Norodom Sihanouk",
+        "Coup d'État de Lon Nol (1970) soutenu par les USA — guerre civile",
+        "Bombardements américains massifs (1969-1973) : 500 000 tonnes de bombes — 150 000+ civils",
+        "Prise de Phnom Penh par les Khmers rouges (17 avril 1975)",
+        "Génocide khmer rouge / Kampuchéa démocratique (1975-1979) : 1,5 à 2 millions de morts (25% de la population)",
+        "Invasion vietnamienne (1979) : chute de Pol Pot",
+        "Guerre civile (1979-1991)",
+        "Accords de paix de Paris (1991) — mission ONU (APRONUC)",
+        "Retour à la monarchie constitutionnelle (1993)",
+        "Hun Sen au pouvoir de facto (1985-2023) — l'un des règnes les plus longs d'Asie",
+        "Hun Manet succède à son père (2023) — dynastisation du pouvoir"
+      ],
+      "role_historique": "Le Cambodge a connu l'une des civilisations les plus brillantes de l'Asie médiévale (Angkor) et l'un des génocides les plus intenses du XXe siècle (Khmers rouges). Sa reconstruction est un exemple de résilience malgré des traumatismes intergénérationnels profonds."
+    },
+
+    "politique": {
+      "regime": "Monarchie constitutionnelle. Démocratie formelle mais Hun Sen a gouverné de façon autoritaire pendant 38 ans. Son fils Hun Manet lui a succédé (2023) — évolution vers une monarchie familiale politique.",
+      "chef_etat": "Roi Norodom Sihamoni (depuis 2004). Hun Manet (Premier ministre depuis 2023 — fils de Hun Sen).",
+      "stabilite": "Stable sous contrôle autoritaire. Opposition dissoute (CNRP interdit en 2017). Liberté de presse quasi-inexistante. Tribunaux aux ordres.",
+      "alliances": [
+        "Chine (partenaire dominant — investissements massifs, base navale de Ream controversée)",
+        "ASEAN (membre fondateur 1967)",
+        "Vietnam (voisin historiquement dominant)",
+        "Relations compliquées avec l'Occident (droits de l'homme)"
+      ]
+    },
+
+    "economie": {
+      "pib": "31 milliards $ (2023)",
+      "pib_hab": "1 800 $ (2023) — croissance de 7%/an avant Covid",
+      "ressources": [
+        "Riz (exportateur régional)",
+        "Poisson (lac Tonlé Sap — plus grand lac d'eau douce d'Asie du Sud-Est)",
+        "Bois (déforestation massive)",
+        "Pétrole offshore (gisements au large mais peu exploités)"
+      ],
+      "secteurs": [
+        "Textile et confection (80% des exports — usines pour H&M, Gap, Nike)",
+        "Tourisme (Angkor Vat — 6 millions de touristes avant Covid)",
+        "Agriculture (riz, manioc, maïs)",
+        "Construction et immobilier (boom chinois à Sihanoukville)"
+      ],
+      "grandes_villes": [
+        "Phnom Penh (2,3 M hab. — capitale, hub économique)",
+        "Siem Reap (tourisme Angkor — vidée par le Covid)",
+        "Sihanoukville (port, casino — colonisation chinoise controversée)"
+      ],
+      "places_economiques": [
+        "Bourse des valeurs mobilières du Cambodge (CSX) — très limitée",
+        "Zones économiques spéciales (SEZ) — textiles pour l'export",
+        "Sihanoukville : hub casino et touristique chinois (controversé)"
+      ],
+      "voies_communication": [
+        "Fleuve Mékong (artère économique centrale)",
+        "Port de Sihanoukville (seul port en eau profonde)",
+        "Aéroport international de Phnom Penh",
+        "Base navale de Ream (accès Chine controversé)"
+      ]
+    },
+
+    "societe": {
+      "demographie": "Population très jeune (âge médian 26 ans) — reconstruite après le génocide. Traumatismes intergénérationnels du génocide. Bouddhisme theravada (95%).",
+      "idh": "0,593 (rang 146/191 en 2022, catégorie « moyen »)",
+      "education": "Alphabétisation 87%. Système éducatif quasiment détruit par les Khmers rouges (extermination des intellectuels). Reconstruction lente. Universités en développement.",
+      "sante": "Espérance de vie 70 ans. Système de santé encore insuffisant. Séquelles du génocide (PTSD transgénérationnel). Mines antipersonnel : 40 000 amputés (déchets de guerre).",
+      "inegalites": "Gini ~38. Corruption massive. Élite liée au CPP (parti de Hun Sen) capturant les ressources.",
+      "urbanisation": "25 % (2023) — très rural."
+    },
+
+    "environnement": {
+      "pollution": "Déforestation parmi les plus rapides du monde (de 70% de couverture forestière en 1970 à 45% en 2023). Pollution du Mékong (barrages chinois en amont). Pêche du Tonlé Sap en déclin.",
+      "dev_durable": "Mines antipersonnel : 4 millions de mines encore dans les sols (Cambodge parmi les pays les plus minés au monde). Mékong : écosystème menacé par les barrages.",
+      "recherche": "Déminage (CMAC — Centre de déminage du Cambodge). Angkor Vat : recherche archéologique internationale.",
+      "militaire": "Forces armées de 124 000 actifs. Base navale de Ream : soupçons de présence militaire chinoise (déni officiel). Équipement fourni par la Chine.",
+      "defis": [
+        "Héritage du génocide : traumatismes, déstructuration sociale",
+        "4 millions de mines antipersonnel dans les sols",
+        "Déforestation massive et irréversible",
+        "Dépendance économique et politique à la Chine",
+        "Transition dynastique Hun Sen → Hun Manet : démocratie en régression"
+      ]
+    },
+
+    "importance": {
+      "historique": "Angkor Vat est le plus grand complexe religieux du monde. Le génocide khmer rouge (1975-1979) est l'un des plus intenses de l'histoire récente (25% de la population en 4 ans). Le Tribunal khmer rouge (ECCC) est un cas de justice transitionnelle étudié mondialement.",
+      "economique": "Hub textile de l'ASEAN. Tourisme d'Angkor — patrimoine mondial irremplaçable. Mékong : ressource partagée avec 6 pays.",
+      "geopolitique": "«Satellite» de la Chine en ASEAN (voix pro-Pékin systématique). Base navale de Ream : surveillance américaine. Mékong : enjeu régional avec les barrages.",
+      "atouts": [
+        "Angkor Vat : patrimoine mondial, destination touristique de classe mondiale",
+        "Main-d'œuvre jeune et bon marché (textile)",
+        "Résilience remarquable après le génocide",
+        "Tonlé Sap : ressource halieutique exceptionnelle",
+        "Position géographique au cœur de l'ASEAN"
+      ],
+      "fragilites": [
+        "Traumatismes du génocide encore présents (génération des survivants vieillissante)",
+        "Dépendance totale à la Chine (économique, militaire, politique)",
+        "Déforestation irréversible à ce rythme",
+        "Autoritarisme empêchant diversification économique",
+        "4 millions de mines : frein au développement agricole"
+      ]
+    }
+  },
+
+  "DZ": {
+    "name": "Algérie",
+    "flag": "🇩🇿",
+    "capitale": "Alger",
+    "continent": "Afrique",
+    "population": "46 millions (2024)",
+    "superficie": "2 381 741 km² (1er pays d'Afrique, 10e mondial)",
+    "langues": ["Arabe (officiel)", "Tamazight / Berbère (officiel depuis 2016)", "Français (langue de culture et d'administration)"],
+    "monnaie": "Dinar algérien (DZD)",
+
+    "histoire": {
+      "independance": "5 juillet 1962 (indépendance de la France — après 132 ans de colonisation et 8 ans de guerre).",
+      "evenements_majeurs": [
+        "Berbères / Amazighs : peuple autochtone de l'Afrique du Nord depuis des millénaires",
+        "Carthage, Rome, Vandales, Byzance — carrefour de civilisations",
+        "Conquête arabe et islamisation (VIIe s.)",
+        "Régence ottomane d'Alger (1516-1830) — pirates barbaresques",
+        "Colonisation française (5 juillet 1830) : 132 ans de colonisation intense",
+        "Émir Abdelkader : résistance militaire et diplomatique à la colonisation (1832-1847)",
+        "Massacres de Sétif, Guelma, Kherrata (8 mai 1945) : 20 000 à 45 000 morts — déclencheur du nationalisme",
+        "Guerre d'Indépendance (1er novembre 1954 - 19 mars 1962) : FLN contre armée française",
+        "Tortures, guerre psychologique, destruction de villages (Harkis)",
+        "Indépendance (1962) : exode de 1 million de pieds-noirs vers la France",
+        "Régime du FLN (1962-1989) : socialisme arabe, nationalisation des hydrocarbures",
+        "Décennie noire (1991-2002) : guerre civile entre armée et islamistes — 100 000-200 000 morts",
+        "Hirak (2019-2021) : mouvement populaire pacifique ayant fait chuter Bouteflika",
+        "Tebboune élu président (2019), réélu (2024)"
+      ],
+      "role_historique": "La guerre d'indépendance algérienne (1954-1962) est l'une des guerres de décolonisation les plus traumatisantes de l'histoire contemporaine — pour la France comme pour l'Algérie. Le FLN reste au pouvoir depuis 62 ans."
+    },
+
+    "politique": {
+      "regime": "République présidentielle. Démocratie de façade — pouvoir réel détenu par l'armée (DRS/DSI) et le «Système». Multipartisme formel sans alternance réelle.",
+      "chef_etat": "Abdelmadjid Tebboune (Président depuis 2019, réélu 2024). Armée : pouvoir réel derrière les institutions.",
+      "stabilite": "Stable par le contrôle des hydrocarbures et la répression. Hirak (2019) montrant une frustration profonde. Régime durable grâce aux rentes pétrolières.",
+      "alliances": [
+        "Ligue arabe et Union africaine",
+        "Non-alignement historique (pilier du mouvement fondé à Bandung 1955)",
+        "Relations avec la Russie (armes) et la Chine (investissements)",
+        "Relations tendues avec la France (mémoire coloniale) et le Maroc (Sahara occidental)",
+        "Membre de l'OPEP"
+      ]
+    },
+
+    "economie": {
+      "pib": "239 milliards $ (2023, 49e mondiale)",
+      "pib_hab": "5 400 $ (2023)",
+      "ressources": [
+        "Pétrole (réserves significatives — 12e mondial)",
+        "Gaz naturel (5e réserves mondiales — Hassi R'Mel, plus grand gisement d'Afrique)",
+        "Fer (Gara Djebilet — parmi les plus grandes réserves mondiales non exploitées)",
+        "Phosphates, zinc, plomb",
+        "Énergie solaire (Sahara — potentiel immense)"
+      ],
+      "secteurs": [
+        "Hydrocarbures (97% des revenus d'exportation — Sonatrach, 1ère entreprise africaine)",
+        "Agriculture (blé, dattes — insuffisante, Algérie importe 60% de son alimentation)",
+        "Industrie publique (acier, automobiles — peu compétitive)",
+        "Transferts de la diaspora (700 000 Algériens en France)"
+      ],
+      "grandes_villes": [
+        "Alger (4 M hab. agglomération — «Alger la Blanche»)",
+        "Oran (2e ville, port, culture raï)",
+        "Constantine (3e ville, pont suspendu spectaculaire)",
+        "Annaba (sidérurgie)"
+      ],
+      "places_economiques": [
+        "Bourse d'Alger (SGBV) — très peu développée",
+        "Sonatrach (Alger) : 1ère entreprise d'Afrique, 12e compagnie pétrolière mondiale",
+        "Hassi R'Mel (gaz) et Hassi Messaoud (pétrole) : pôles énergétiques"
+      ],
+      "voies_communication": [
+        "Port d'Alger et d'Oran (Méditerranée)",
+        "Autoroute Est-Ouest (1 200 km — construite avec aide chinoise)",
+        "Aéroport Houari Boumédiène (Alger) — hub régional",
+        "Gazoduc Medgaz (Algérie-Espagne) et Trans-Med (Algérie-Italie)"
+      ]
+    },
+
+    "societe": {
+      "demographie": "Population très jeune (âge médian 29 ans). Diaspora massive en France (1,5-2 millions d'Algériens de nationalité française). Identité berbère en renaissance.",
+      "idh": "0,745 (rang 91/191 en 2022, catégorie « élevé »)",
+      "education": "Alphabétisation 81%. Université d'Alger — référence du Maghreb. Cerveaux fuyant vers la France («harraga intellectuelle»). Enseignement en arabe — le français reste dominant dans les élites.",
+      "sante": "Espérance de vie 77 ans. Système de santé public gratuit mais de qualité inégale. Tourisme médical vers la France.",
+      "inegalites": "Gini ~27 — inégalités modérées officiellement. Mais fracture entre l'élite du «Système» et la population générale. Chômage des jeunes élevé (~25%).",
+      "urbanisation": "74 % (2023)."
+    },
+
+    "environnement": {
+      "pollution": "Désertification du Nord (avancée du Sahara). Pollution pétrolière (Hassi Messaoud). Gaspillage énergétique massif (subventions).",
+      "dev_durable": "Sahara algérien : meilleur potentiel solaire d'Afrique. Projet Desertec (solaire saharien vers l'Europe) — relancé. Objectif 27% d'électricité renouvelable d'ici 2030.",
+      "recherche": "Centre de recherche nucléaire de Draria (réacteur de recherche). Énergie solaire saharienne. Université des Sciences et de la Technologie d'Oran.",
+      "militaire": "Forces armées de 139 000 actifs. 1er budget militaire d'Afrique (~9 Mds$ en 2023). Armement russe dominant. Tensions avec le Maroc (Sahara occidental).",
+      "defis": [
+        "«Malédiction du pétrole» : économie rentière sans diversification",
+        "Chômage des jeunes (25%) menant à l'émigration clandestine (harraga)",
+        "Tensions avec le Maroc (Sahara occidental, fermeture de la frontière depuis 1994)",
+        "Mémoire coloniale empoisonnant les relations avec la France",
+        "Transition énergétique : quand le pétrole s'épuisera, quoi après?"
+      ]
+    },
+
+    "importance": {
+      "historique": "La guerre d'Algérie (1954-1962) a traumatisé la France et accouché d'une nation. L'Algérie a été un pilier du mouvement des non-alignés et de la solidarité tiers-mondiste. Sa capitale a accueilli les premières négociations mondiales entre Nord et Sud.",
+      "economique": "5e réserves mondiales de gaz (fournisseur crucial de l'Europe, surtout depuis 2022). 1ère entreprise d'Afrique (Sonatrach). Potentiel solaire saharien considérable.",
+      "geopolitique": "Puissance militaire africaine (1er budget). Pivot entre Afrique et Méditerranée. Gaz : levier de négociation avec l'UE. Rival du Maroc pour l'hégémonie maghrébine.",
+      "atouts": [
+        "5e réserves mondiales de gaz (ressource stratégique pour l'Europe)",
+        "1er pays d'Afrique en superficie (Sahara = potentiel solaire énorme)",
+        "Sonatrach : 1ère entreprise africaine",
+        "1er budget militaire d'Afrique (puissance régionale)",
+        "Position méditerranéenne (pont Europe-Afrique)"
+      ],
+      "fragilites": [
+        "Économie rentière (97% des exports = hydrocarbures)",
+        "Régime autoritaire freinant l'innovation et la diversification",
+        "Jeunesse au chômage (25%) cherchant à émigrer",
+        "Relations franco-algériennes toxiques (mémoire coloniale non soldée)",
+        "Tensions avec le Maroc bloquant l'intégration maghrébine"
+      ]
+    }
+  },
+
+  "BE": {
+    "name": "Belgique",
+    "flag": "🇧🇪",
+    "capitale": "Bruxelles",
+    "continent": "Europe",
+    "population": "11,7 millions (2024)",
+    "superficie": "30 528 km²",
+    "langues": ["Néerlandais / Flamand (56%, officiel en Flandre)", "Français (40%, officiel en Wallonie)", "Allemand (1%, officiel dans l'Est)"],
+    "monnaie": "Euro (EUR) — depuis 2002",
+
+    "histoire": {
+      "independance": "4 octobre 1830 (indépendance des Pays-Bas — révolution belge).",
+      "evenements_majeurs": [
+        "Belgique romaine (Gallia Belgica) puis franque — sous influences multiples",
+        "Duché de Brabant, Comté de Flandre (XIe-XVe s.) : grandes villes drapières (Bruges, Gand)",
+        "Sous domination espagnole (XVIe s.) puis autrichienne (XVIIIe s.)",
+        "Révolution française et annexion à la France (1795-1815)",
+        "Royaume des Pays-Bas (1815-1830)",
+        "Révolution belge (1830) : indépendance et neutralité garantie",
+        "État indépendant du Congo (1885-1908) : Léopold II — génocide congolais (10 millions de morts estimés)",
+        "Congo belge (1908-1960) : colonisation brutale",
+        "1ère Guerre Mondiale : invasion allemande, «Le parapluie de l'Europe» (neutralité violée)",
+        "2e Guerre Mondiale : occupation nazie, Résistance, libération par les Alliés",
+        "Décolonisation du Congo (1960) — dans le chaos",
+        "Fondateur des Communautés européennes (CEE, 1957) — Bruxelles devient capitale de l'Europe",
+        "Attentats de Bruxelles (22 mars 2016) : 32 morts — crise du terrorisme islamiste",
+        "Crise politique record : 541 jours sans gouvernement (2010-2011) — record mondial"
+      ],
+      "role_historique": "La Belgique est au cœur de la construction européenne — Bruxelles abrite l'UE et l'OTAN. Sa dualité linguistique (flamands/wallons) en fait un laboratoire des tensions identitaires en Europe."
+    },
+
+    "politique": {
+      "regime": "Monarchie fédérale constitutionnelle. État fédéral complexe : 3 régions (Flandre, Wallonie, Bruxelles) × 3 communautés linguistiques. Formation des gouvernements record de longueur.",
+      "chef_etat": "Roi Philippe (depuis 2013). Alexander De Croo (Premier ministre 2020-2024). Nouveau gouvernement après les élections de juin 2024.",
+      "stabilite": "Stable institutionnellement mais crise politique permanente. Record mondial de jours sans gouvernement. Tensions communautaires flamands/francophones persistantes.",
+      "alliances": [
+        "UE (co-fondateur, 1957) — Bruxelles = capitale de facto de l'UE",
+        "OTAN (co-fondateur, 1949 — siège à Bruxelles)",
+        "Benelux (Belgique, Pays-Bas, Luxembourg)",
+        "Zone euro depuis 2002"
+      ]
+    },
+
+    "economie": {
+      "pib": "624 milliards $ (2023, 24e mondiale — remarquable pour 11,7 millions d'habitants)",
+      "pib_hab": "52 900 $ (2023)",
+      "ressources": [
+        "Position géographique (cœur de l'Europe du Nord-Ouest)",
+        "Main-d'œuvre multilingue et hautement qualifiée",
+        "Agriculture intensive (spécialités : chocolat, bière, endives, pralines)"
+      ],
+      "secteurs": [
+        "Industrie chimique et pharmaceutique (UCB, Solvay, Janssen — Anvers = 2e port chimique mondial)",
+        "Aérospatiale et défense (Airbus, Safran)",
+        "Institutions européennes (25 000 fonctionnaires UE à Bruxelles)",
+        "Diamants (Anvers : 80% du commerce mondial de diamants bruts)",
+        "Agroalimentaire (chocolat belge, bières — Inbev AB : 1er brasseur mondial)"
+      ],
+      "grandes_villes": [
+        "Bruxelles (1,2 M hab., 2 M région — capitale de la Belgique et de l'UE)",
+        "Anvers (600 000 hab. — 2e port d'Europe, diamants, chimie)",
+        "Gand (musées, université, industrie)",
+        "Liège (sidérurgie historique, en reconversion)"
+      ],
+      "places_economiques": [
+        "Euronext Brussels",
+        "Anvers : 2e port européen, 2e place mondiale du diamant",
+        "Bruxelles : siège de l'UE, OTAN, et 1 400 organisations internationales"
+      ],
+      "voies_communication": [
+        "Port d'Anvers (2e port d'Europe, 1er chimique) : hub logistique européen",
+        "Réseau ferroviaire à grande vitesse (Thalys, Eurostar — Bruxelles à 1h20 de Paris, 2h de Londres)",
+        "Aéroport de Bruxelles-Zaventem (hub européen)",
+        "Réseau autoroutier dense (carrefour de l'Europe)"
+      ]
+    },
+
+    "societe": {
+      "demographie": "11,7 millions. Société très multiculturelle : 17% de nationalité étrangère. Bruxelles : 70% de résidents étrangers ou d'origine étrangère. Fracture flamands/wallons/bruxellois.",
+      "idh": "0,942 (rang 13/191 en 2022, catégorie « très élevé »)",
+      "education": "Universités KU Leuven, ULB, UGent (top 100 mondial). Système éducatif parmi les meilleurs. Multilinguisme : atout économique majeur.",
+      "sante": "Espérance de vie 82 ans. Système de santé universel de très haute qualité. Parmi les meilleurs taux de guérison du cancer.",
+      "inegalites": "Gini ~25 — l'une des sociétés les plus égalitaires d'Europe. Mais fracture entre Flandre prospère et Wallonie en reconversion industrielle.",
+      "urbanisation": "98 % (2023) — quasi entièrement urbain."
+    },
+
+    "environnement": {
+      "pollution": "L'une des densités les plus élevées d'Europe : transport, industrie. Anvers : pollution chimique. Agriculture intensive polluant les nappes phréatiques.",
+      "dev_durable": "Énergie nucléaire (50% de l'électricité — débat sur la prolongation des centrales). Éolien offshore en mer du Nord. Objectif neutralité carbone 2050.",
+      "recherche": "CERN (participation). KU Leuven : top 50 mondial. VIB (Institut flamand de biotechnologie). Prix Nobel : 8 Belges lauréats.",
+      "militaire": "Forces armées de 26 000 actifs. Membre OTAN (siège à Bruxelles). F-35 commandés (remplacement des F-16). Budget militaire en hausse.",
+      "defis": [
+        "Crise institutionnelle permanente (réforme de l'État, confédéralisme?)",
+        "Radicalisation islamiste (Molenbeek — «djihad» exporté en Syrie 2013-2016)",
+        "Wallonie en reconversion post-industrielle",
+        "Coût de la vie à Bruxelles — pression sur les fonctionnaires et résidents",
+        "Financement du modèle social face au vieillissement"
+      ]
+    },
+
+    "importance": {
+      "historique": "Bruxelles est la capitale de facto de l'Union européenne et le siège de l'OTAN. La Belgique a été le théâtre de batailles décisives pendant les deux guerres mondiales (Waterloo, Ypres, Bastogne). Son empire colonial au Congo est un cas emblématique des violences coloniales.",
+      "economique": "Port d'Anvers (2e d'Europe) : hub logistique du continent. 80% du commerce mondial de diamants bruts passe par Anvers. AB InBev : 1er brasseur mondial. Pôle pharma-chimique majeur.",
+      "geopolitique": "Bruxelles = capitale politique de l'Europe. Siège de l'UE (Commission, Conseil, Parlement partiel) et de l'OTAN. Carrefour diplomatique mondial.",
+      "atouts": [
+        "Bruxelles : capitale de l'UE et de l'OTAN (concentration de pouvoir unique)",
+        "Anvers : 2e port d'Europe, 1ère place mondiale du diamant",
+        "Multilinguisme exceptionnel (NL/FR/DE/EN — atout diplomatique et économique)",
+        "Pharmaceutique et chimie : pôle mondial (UCB, Solvay, Janssen)",
+        "Position géographique centrale (cœur de l'Europe du Nord-Ouest)"
+      ],
+      "fragilites": [
+        "Crise communautaire permanente (risque de scission Flandre/Wallonie)",
+        "Record mondial de jours sans gouvernement — dysfonctionnement démocratique",
+        "Radicalisation dans certaines communes bruxelloises",
+        "Dette publique élevée (105% du PIB)",
+        "Wallonie : reconversion industrielle difficile"
+      ]
+    }
+  },
+
+  "IE": {
+    "name": "Irlande",
+    "flag": "🇮🇪",
+    "capitale": "Dublin",
+    "continent": "Europe",
+    "population": "5,2 millions (2024)",
+    "superficie": "70 273 km²",
+    "langues": ["Irlandais / Gaélique (1ère langue officielle — peu parlée au quotidien)", "Anglais (2e langue officielle — langue dominante)"],
+    "monnaie": "Euro (EUR) — depuis 2002",
+
+    "histoire": {
+      "independance": "6 décembre 1921 (État libre d'Irlande — traité anglo-irlandais). République d'Irlande proclamée le 18 avril 1949.",
+      "evenements_majeurs": [
+        "Civilisation celtique (IIIe s. av. J.-C.) — Irlande jamais romanisée",
+        "Christianisation par Saint Patrick (Ve s.) — l'Irlande devient «l'île des Saints et des Savants»",
+        "Moines irlandais (VIe-VIIIe s.) : preservation du savoir antique en Europe pendant les invasions barbares",
+        "Invasions vikings (IXe-Xe s.) — fondation de Dublin",
+        "Invasion normande (XIIe s.) — début de la domination anglaise",
+        "Domination britannique (XVIIe-XXe s.) : colonisation protestante, pénal laws",
+        "Grande Famine (1845-1852) : 1 million de morts, 1 million d'émigrés — population divisée par 2",
+        "Montée du nationalisme irlandais (XIXe s.) : Parnell, Sinn Féin",
+        "Soulèvement de Pâques (24 avril 1916) : Dublin — réprimé, mais martyrs",
+        "Guerre d'Indépendance (1919-1921) contre l'armée britannique",
+        "Partition de l'Irlande (1921) : 26 comtés libres / 6 comtés d'Ulster (britanniques)",
+        "Guerre civile irlandaise (1922-1923)",
+        "Neutralité pendant la 2e Guerre Mondiale",
+        "Adhésion à l'UE (1973) — transformation économique",
+        "Accords du Vendredi Saint (1998) : fin des Troubles en Irlande du Nord",
+        "Tigre celtique (1995-2007) : miracle économique puis crise de 2008",
+        "Légalisation du mariage homosexuel (2015) — 1er pays à le faire par référendum"
+      ],
+      "role_historique": "L'Irlande a préservé la culture européenne pendant les «siècles obscurs», a souffert d'une domination coloniale et d'une famine traumatisante, et s'est transformée en 30 ans en l'un des pays les plus prospères du monde grâce à la fiscalité attractive et à la tech."
+    },
+
+    "politique": {
+      "regime": "République parlementaire. Taoiseach (Premier ministre). Système proportionnel, gouvernements de coalition.",
+      "chef_etat": "Micheal Martin (Taoiseach depuis janvier 2025 — Fianna Fáil, après accord de rotation avec Fine Gael).",
+      "stabilite": "Très stable. Démocratie solide. Question irlandaise du Nord (Brexit rouvrant les questions de frontière). Montée du Sinn Féin (ex-aile politique de l'IRA).",
+      "alliances": [
+        "UE (depuis 1973) — zone euro",
+        "Neutralité militaire (hors OTAN — tradition historique)",
+        "Relations spéciales avec le Royaume-Uni et les États-Unis (diaspora irlandaise-américaine)",
+        "Bonne Entente (relation privilégiée avec les 70 millions d'Irlandais de la diaspora mondiale)"
+      ]
+    },
+
+    "economie": {
+      "pib": "545 milliards $ (2023 — mais chiffre gonflé par les multinationales qui comptabilisent leurs profits ici)",
+      "pib_hab": "103 000 $ (2023 — 1er de l'UE, mais trompeur)",
+      "ressources": [
+        "Agriculture (bœuf, produits laitiers — réputation mondiale)",
+        "Pêche (Atlantique Nord)",
+        "Tourisme (paysages, culture celtique, whisky)",
+        "Taux d'imposition des sociétés à 12,5% (le plus bas de l'UE — moteur du «tigre celtique»)"
+      ],
+      "secteurs": [
+        "Technologies (sièges européens de Google, Apple, Meta, Microsoft, Twitter/X — «Silicon Docks» à Dublin)",
+        "Pharmaceutique (Pfizer, Johnson&Johnson, AbbVie — 50% des exports)",
+        "Finance (hub post-Brexit pour les banques quittant Londres)",
+        "Agriculture et agroalimentaire (Kerry Group, Glanbia)",
+        "Tourisme (Cliffs of Moher, Guinness, Ring of Kerry)"
+      ],
+      "grandes_villes": [
+        "Dublin (1,4 M hab., 2 M agglomération — capital tech et financière)",
+        "Cork (2e ville, port, pharma)",
+        "Galway (culture irlandaise, université)",
+        "Limerick (industrie, aéroport Shannon)"
+      ],
+      "places_economiques": [
+        "Euronext Dublin",
+        "IFSC (International Financial Services Centre) : hub financier post-Brexit",
+        "Silicon Docks (Dublin) : siège européen des GAFA"
+      ],
+      "voies_communication": [
+        "Aéroport de Dublin — hub atlantique (lien Europe-USA)",
+        "Aéroport de Shannon (historiquement 1ère escale transatlantique)",
+        "Port de Dublin (1er port irlandais)",
+        "Frontière irlandaise : enjeu majeur du Brexit (protocole irlandais)"
+      ]
+    },
+
+    "societe": {
+      "demographie": "Population passée de 4,5 M à 5,2 M grâce à l'immigration (retournement historique — pays jadis d'émigration). 70 millions d'Irlandais de la diaspora dans le monde (dont 35 millions aux USA).",
+      "idh": "0,945 (rang 8/191 en 2022, catégorie « très élevé »)",
+      "education": "Trinity College Dublin (fondé 1592 — parmi les plus anciens d'Europe). University College Dublin. Anglophonie : atout mondial pour attirer les entreprises.",
+      "sante": "Espérance de vie 82,8 ans. Système de santé mixte (public/privé). Pénurie de médecins (ironiquement exportés vers le monde entier).",
+      "inegalites": "Gini ~33. Crise du logement à Dublin : parmi les plus chères d'Europe (loyers). Inégalités entre Dublin prospère et campagnes.",
+      "urbanisation": "64 % (2023)."
+    },
+
+    "environnement": {
+      "pollution": "Émissions agricoles importantes (méthane du bétail). Tourbières : écosystèmes uniques menacés. Pollution plastique des côtes atlantiques.",
+      "dev_durable": "Potentiel éolien exceptionnel (vent atlantique — l'un des meilleurs d'Europe). Objectif 80% d'électricité renouvelable en 2030. Éolien offshore en développement rapide.",
+      "recherche": "Prix Nobel d'Irlande (Samuel Beckett, Seamus Heaney). Google AI centre à Dublin. Recherche pharmaceutique (Pfizer, AbbVie). Trinity College : excellence en sciences et lettres.",
+      "militaire": "Forces armées de 9 500 actifs (très limitées). Neutralité militaire traditionnelle (hors OTAN). Participation aux missions de paix ONU (FINUL au Liban).",
+      "defis": [
+        "Crise du logement : prix immobiliers parmi les plus élevés d'Europe",
+        "Optimisation fiscale des multinationales : sous pression de l'OCDE et de l'UE",
+        "Brexit : frontière irlandaise et question de la réunification",
+        "Montée du Sinn Féin (ex-IRA) — question de la réunification avec l'Ulster",
+        "Dépendance excessive aux multinationales américaines (fragilité)"
+      ]
+    },
+
+    "importance": {
+      "historique": "Les moines irlandais ont sauvé la culture antique pendant les invasions barbares. La Grande Famine a créé la plus grande diaspora irlandaise du monde (70 millions). L'Irlande est passée de pays le plus pauvre d'Europe occidentale à l'un des plus riches en 30 ans.",
+      "economique": "Hub fiscal de l'Europe : Google, Apple, Meta, Microsoft ont leur siège européen ici (taux IS 12,5%). 1er PIB/habitant de l'UE (même si gonflé). Hub pharma (Pfizer, AbbVie).",
+      "geopolitique": "Lien historique avec les USA (Kennedy, Biden, Reagan — présidents d'origine irlandaise). Brexit : l'Irlande du Nord divise encore. Neutralité respectée (missions ONU).",
+      "atouts": [
+        "Hub fiscal européen (12,5% IS) attirant les GAFA et la pharma",
+        "Anglophonie unique dans la zone euro (atout post-Brexit)",
+        "Diaspora de 70 millions (influence aux USA — «Irish lobby»)",
+        "Potentiel éolien offshore parmi les meilleurs d'Europe",
+        "Qualité de vie et stabilité (classement top 10 mondial)"
+      ],
+      "fragilites": [
+        "Dépendance aux multinationales américaines (80% des exports)",
+        "Pression internationale sur la fiscalité (taux IS relevé à 15% depuis 2024)",
+        "Crise du logement grave à Dublin",
+        "Question du Brexit et de la frontière irlandaise (risque de réouverture)",
+        "Neutralité militaire questionnée face aux nouvelles menaces"
+      ]
+    }
+  },
+
+  "FI": {
+    "name": "Finlande",
+    "flag": "🇫🇮",
+    "capitale": "Helsinki",
+    "continent": "Europe",
+    "population": "5,6 millions (2024)",
+    "superficie": "338 435 km²",
+    "langues": ["Finnois (officiel)", "Suédois (officiel — 5% de la population)"],
+    "monnaie": "Euro (EUR) — depuis 2002",
+
+    "histoire": {
+      "independance": "6 décembre 1917 (indépendance de la Russie — profitant de la Révolution bolchévique).",
+      "evenements_majeurs": [
+        "Peuples finno-ougriens (ancêtres des Finnois) : origine asiatique distincte des Indo-Européens",
+        "Domination suédoise (XIIe-XIXe s.) — la Finlande est un duché suédois pendant 700 ans",
+        "Conquête russe (1809) : Grand-Duché de Finlande autonome sous les tsars",
+        "Réveil national finnois (XIXe s.) : Kalevala (épopée nationale, 1835), langue finnoise valorisée",
+        "Indépendance (6 décembre 1917) — Jean Sibelius, Finlandia",
+        "Guerre civile finlandaise (1918) : rouges vs blancs — 30 000 morts",
+        "Guerre d'Hiver (1939-1940) : résistance héroïque face à l'URSS — «miracle finlandais»",
+        "Guerre de Continuation (1941-1944) : Finlande récupère des territoires perdus aux côtés de l'Allemagne",
+        "Paix difficile (1944-1991) : «finlandisation» — neutralité sous surveillance soviétique",
+        "Adhésion à l'UE (1995)",
+        "Nokia : géant mondial de la téléphonie mobile (années 1990-2000)",
+        "Adhésion à l'OTAN (4 avril 2023) — fin de 75 ans de neutralité militaire, déclenchée par l'invasion de l'Ukraine"
+      ],
+      "role_historique": "La Finlande a résisté à l'URSS pendant la Guerre d'Hiver (1939-40) avec 33 fois moins de soldats — symbole de résistance mondiale. Sa «finlandisation» a défini la politique des petits États voisins des grandes puissances. Son adhésion à l'OTAN en 2023 est un tournant historique."
+    },
+
+    "politique": {
+      "regime": "République parlementaire. Semi-présidentielle formellement. Présidente et Premier ministre se partagent les pouvoirs. Coalition gouvernementale classique.",
+      "chef_etat": "Alexander Stubb (Président depuis mars 2024). Petteri Orpo (Premier ministre depuis juin 2023 — coalition de droite).",
+      "stabilite": "Très stable. Démocratie exemplaire. 1ère au monde pour la liberté de presse (RSF 2023). Corruption quasi-inexistante.",
+      "alliances": [
+        "OTAN depuis le 4 avril 2023 (31e membre — fin de 75 ans de neutralité)",
+        "UE depuis 1995 — zone euro",
+        "Conseil nordique",
+        "Frontière de 1 340 km avec la Russie (la plus longue frontière OTAN-Russie)"
+      ]
+    },
+
+    "economie": {
+      "pib": "301 milliards $ (2023, 45e mondiale)",
+      "pib_hab": "54 000 $ (2023)",
+      "ressources": [
+        "Forêts (75% du territoire — 1ère ressource nationale : bois, papier, cellulose)",
+        "Minerai de fer, cuivre, cobalt, nickel",
+        "Hydroélectricité et énergie nucléaire",
+        "Eau douce (188 000 lacs — 10% du territoire)"
+      ],
+      "secteurs": [
+        "Technologies (Nokia, Linux — Linus Torvalds est finlandais, Rovio/Angry Birds, Supercell/Clash of Clans)",
+        "Industrie forestière et papetière (UPM, Stora Enso, Metsä)",
+        "Ingénierie et construction navale (icebreakers — Wärtsilä)",
+        "Défense (NAMMO, Patria)",
+        "Énergie (Fortum — énergie nucléaire et renouvelable)"
+      ],
+      "grandes_villes": [
+        "Helsinki (660 000 hab., 1,5 M agglomération — «fille de la Baltique»)",
+        "Tampere (2e ville, industrie, tech)",
+        "Turku (ancienne capitale, port, histoire suédoise)",
+        "Oulu (tech, 5G — Nokia Research)"
+      ],
+      "places_economiques": [
+        "Nasdaq Helsinki",
+        "Nokia (Espoo) : ancien 1er téléphoniste mondial, reconversion en équipements réseaux (5G)",
+        "Wärtsilä : leader mondial des moteurs marins"
+      ],
+      "voies_communication": [
+        "Port d'Helsinki (1er port finnois, lien avec Tallinn et Stockholm)",
+        "Aéroport d'Helsinki-Vantaa — hub nordique",
+        "Réseau ferroviaire en développement (LGV Helsinki-Tampere)",
+        "Frontière OTAN-Russie : 1 340 km (la plus longue)"
+      ]
+    },
+
+    "societe": {
+      "demographie": "5,6 millions sur 338 000 km² (très faible densité — 18 hab/km²). Population vieillissante. Natalité très basse. Augmentation récente de l'immigration.",
+      "idh": "0,942 (rang 11/191 en 2022, catégorie « très élevé »)",
+      "education": "Système éducatif classé régulièrement n°1 mondial (PISA). Gratuit de la maternelle à l'université. Professeurs = métier le plus respecté et sélectif. Très peu de devoirs, beaucoup de jeu.",
+      "sante": "Espérance de vie 81,9 ans. Système de santé universel. Taux de suicide historiquement élevé (amélioration). Pays le plus heureux du monde 7 années de suite (World Happiness Report).",
+      "inegalites": "Gini ~27 — l'une des sociétés les plus égalitaires du monde. État providence développé.",
+      "urbanisation": "85 % (2023)."
+    },
+
+    "environnement": {
+      "pollution": "Très faible. 75% du territoire couvert de forêts (puits de carbone). Industrie papetière : en transition vers l'économie verte. Objectif neutralité carbone 2035.",
+      "dev_durable": "Objectif carbone-neutre 2035 (5 ans avant la Suède). Bioéconomie forestière de pointe. Éolien et nucléaire (Hinkley Point). Capital mondial de l'économie circulaire.",
+      "recherche": "Linux (Linus Torvalds). Nokia Bell Labs. VTT (Centre de recherche technique) — batterie état solide, fusion nucléaire. Éducation : modèle mondial exporté partout.",
+      "militaire": "Forces armées de 23 000 actifs + 900 000 réservistes (conscription universelle + femmes volontaires). Adhésion OTAN 2023 : frontière de 1 340 km avec la Russie. Budget militaire en forte hausse (2% PIB).",
+      "defis": [
+        "Frontière OTAN-Russie : 1 340 km (vulnérabilité et responsabilité sécuritaire)",
+        "Vieillissement démographique (moins d'actifs pour financer le modèle social)",
+        "Nokia : chute de l'ancienne gloire (Microsoft) — reconversion du tissu industriel",
+        "Intégration des nouveaux immigrants (tension culturelle)",
+        "Coût du modèle social face au vieillissement"
+      ]
+    },
+
+    "importance": {
+      "historique": "La Guerre d'Hiver (1939-40) : 500 000 soldats soviétiques stoppés par 300 000 Finlandais — un des chocs militaires les plus stupéfiants de l'histoire. Le système éducatif finlandais est le modèle du monde. Son adhésion à l'OTAN marque la fin de l'ère de la «finlandisation».",
+      "economique": "Linux (Linus Torvalds) : système d'exploitation le plus utilisé au monde (Android, serveurs, IoT). Nokia : a révolutionné la téléphonie mobile. Modèle d'économie forestière durable.",
+      "geopolitique": "Nouveau membre OTAN avec la plus longue frontière terrestre avec la Russie. Test de la résistance des démocraties nordiques. Modèle d'éducation exporté dans le monde entier.",
+      "atouts": [
+        "Système éducatif n°1 mondial (PISA) — modèle planétaire",
+        "Pays le plus heureux du monde (7 ans de suite)",
+        "Linux / open source : contribution technologique mondiale",
+        "Forêts (75% du territoire) — ressource renouvelable et puits carbone",
+        "1 340 km de frontière OTAN-Russie : importance stratégique majeure"
+      ],
+      "fragilites": [
+        "Frontière avec la Russie (vulnérabilité sécuritaire post-OTAN)",
+        "Vieillissement démographique rapide",
+        "Post-Nokia : reconversion industrielle en cours",
+        "Dépendance aux marchés nordiques (économie ouverte, petite)",
+        "Coûts élevés du modèle social nordique"
+      ]
+    }
+  },
+
+  "NE": {
+    "name": "Niger",
+    "flag": "🇳🇪",
+    "capitale": "Niamey",
+    "continent": "Afrique",
+    "population": "27 millions (2024)",
+    "superficie": "1 267 000 km² (le plus vaste pays de l'espace CEDEAO)",
+    "langues": ["Français (officiel)", "Haoussa (50%)", "Zarma, Tamasheq, Peul (langues nationales)"],
+    "monnaie": "Franc CFA (XOF)",
+
+    "histoire": {
+      "independance": "3 août 1960 (indépendance de la France).",
+      "evenements_majeurs": [
+        "Empires médiévaux : Ghana, Mali, Songhaï (XVe s.) — Tombouctou proche",
+        "Sultanat de Zinder et sultanat d'Agadez (Touareg) — cités sahariennes florissantes",
+        "Pénétration française (fin XIXe s.) — résistance Touareg",
+        "Colonie française du Niger (1900-1960)",
+        "Indépendance (1960) — Hamani Diori, 1er président",
+        "Grande sécheresse du Sahel (1968-1974) : famine, déstabilisation",
+        "Série de coups d'État (1974, 1996, 1999, 2010)",
+        "Découverte d'uranium à Arlit (années 1970) — exploitation par Areva/Orano",
+        "Rébellion touarègue (1990-1995, 2007-2009)",
+        "Coup d'État du 26 juillet 2023 : renversement du président élu Mohamed Bazoum — junte CNSP au pouvoir",
+        "Expulsion des forces françaises et américaines (2024)",
+        "Rapprochement avec la Russie (Wagner), le Mali et le Burkina Faso (AES)"
+      ],
+      "role_historique": "Le Niger illustre la double tragédie du Sahel : pays parmi les plus riches en ressources naturelles (uranium, pétrole) et pourtant le moins développé du monde. Le coup d'État de 2023 s'inscrit dans la vague de rejets de la présence française en Afrique de l'Ouest."
+    },
+
+    "politique": {
+      "regime": "Junte militaire depuis le coup d'État du 26 juillet 2023. Conseil national pour la sauvegarde de la patrie (CNSP) dirigé par le général Abdourahamane Tiani.",
+      "chef_etat": "Général Abdourahamane Tiani (chef de la junte depuis juillet 2023). Mohamed Bazoum (président élu, emprisonné).",
+      "stabilite": "Instable — coup d'État et transition militaire. Sanctions de la CEDEAO (levées partiel). Triple alliance avec Mali et Burkina Faso (AES) contre la présence occidentale.",
+      "alliances": [
+        "Alliance des États du Sahel (AES) : Niger, Mali, Burkina Faso — rupture avec CEDEAO",
+        "Russie / Wagner (sécurité) — remplace France",
+        "Rupture avec la France (expulsion ambassadeur, bases militaires fermées)",
+        "Relations avec la Chine (uranium, infrastructures)"
+      ]
+    },
+
+    "economie": {
+      "pib": "17 milliards $ (2023 — impacté par les sanctions post-coup d'État)",
+      "pib_hab": "620 $ (2023 — dernier ou avant-dernier mondial)",
+      "ressources": [
+        "Uranium (4e producteur mondial — mines d'Arlit, Akokan — exploitées par Orano/ex-Areva)",
+        "Pétrole (champ de pétrole d'Agadem — exporté via pipeline vers le Bénin depuis 2024)",
+        "Or",
+        "Charbon",
+        "Agriculture (mil, sorgho, niébé — insuffisante)"
+      ],
+      "secteurs": [
+        "Uranium (30% des revenus d'exportation)",
+        "Pétrole (croissant — pipeline vers Cotonou inauguré 2024)",
+        "Agriculture de subsistance (80% de la population)",
+        "Aide internationale (40% du budget de l'État — en cours de réduction post-coup)"
+      ],
+      "grandes_villes": [
+        "Niamey (1,5 M hab. — capitale sur le Niger)",
+        "Zinder (2e ville, historique)",
+        "Maradi (hub commercial avec le Nigeria)",
+        "Agadez (porte du Sahara, Touareg)"
+      ],
+      "places_economiques": [
+        "Mines d'uranium d'Arlit (Orano) — enjeu stratégique pour la France (réacteurs nucléaires)",
+        "Pipeline Niger-Bénin (Agadem-Cotonou) : inauguré 2024, 2 000 km"
+      ],
+      "voies_communication": [
+        "Pays sans accès à la mer — enclavé",
+        "Route nationale 1 (Niamey-Zinder-Diffa)",
+        "Pipeline Agadem-Cotonou (2 000 km — nouvel axe stratégique)"
+      ]
+    },
+
+    "societe": {
+      "demographie": "Taux de fécondité le plus élevé du monde (6,8 enfants par femme en 2023). Doublement de la population toutes les 20 ans. 65% de la population a moins de 25 ans.",
+      "idh": "0,394 (rang 189/191 en 2022 — avant-dernier mondial)",
+      "education": "Taux d'alphabétisation 37% (parmi les plus bas du monde). Taux de scolarisation en hausse mais encore très insuffisant. Mariages précoces fréquents (76% des filles mariées avant 18 ans — 1er taux mondial).",
+      "sante": "Espérance de vie 62 ans. Mortalité maternelle et infantile parmi les plus élevées du monde. Malnutrition chronique (50% des enfants de moins de 5 ans).",
+      "inegalites": "Extrêmes. Uranium et pétrole ne profitent pas à la population. Aide internationale = 40% du budget.",
+      "urbanisation": "17 % (2023) — l'un des pays les moins urbanisés du monde."
+    },
+
+    "environnement": {
+      "pollution": "Avancée du désert du Sahara (80% du pays est désertique ou semi-aride). Pollution des eaux souterraines par l'exploitation uranifère (Arlit). Déforestation du sud.",
+      "dev_durable": "Grande Muraille Verte (projet de reboisement sahélien). Potentiel solaire immense (Sahara). Crise hydrique croissante (fleuve Niger en baisse).",
+      "recherche": "Université Abdou Moumouni de Niamey. Recherche minière et agricole.",
+      "militaire": "Forces armées de 25 000 actifs. Remplacent la France par Wagner. Lutte contre djihadistes (JNIM, ISGS) dans le Sahel.",
+      "defis": [
+        "Démographie explosive : croissance de la population supérieure à la croissance économique",
+        "Insécurité djihadiste (JNIM, ISGS) — déstabilisation croissante",
+        "Après-coup d'État : sanctions, isolement, gestion des ressources",
+        "Désertification et changement climatique",
+        "Dépendance à l'aide internationale (coupée partiellement post-coup)"
+      ]
+    },
+
+    "importance": {
+      "historique": "Le Niger fournit 15-17% de l'uranium nécessaire aux centrales nucléaires françaises — paradoxe d'un pays sans électricité fiable alimentant les lumières françaises. Le coup d'État de 2023 symbolise le rejet de la «Françafrique» dans le Sahel.",
+      "economique": "4e producteur mondial d'uranium (métal crucial pour le nucléaire civil européen). Pipeline pétrolier vers le Bénin : nouvelle source de revenus. Mais IDH 189/191.",
+      "geopolitique": "Épicentre de la vague anti-française en Afrique de l'Ouest. Alliance AES avec Mali et Burkina Faso. Russie (Wagner) remplaçant la France. Menace djihadiste au Sahel.",
+      "atouts": [
+        "4e producteur mondial d'uranium (clé du nucléaire civil européen)",
+        "Pétrole (pipeline vers Cotonou — revenus croissants)",
+        "Potentiel solaire saharien immense",
+        "Grande Muraille Verte : modèle de lutte contre la désertification"
+      ],
+      "fragilites": [
+        "IDH 189/191 — avant-dernier mondial",
+        "Démographie explosive (6,8 enfants/femme) dépassant le développement",
+        "Insécurité djihadiste généralisée",
+        "Enclavement (sans accès à la mer)",
+        "Coup d'État et instabilité institutionnelle"
+      ]
+    }
+  },
+
+  "ML": {
+    "name": "Mali",
+    "flag": "🇲🇱",
+    "capitale": "Bamako",
+    "continent": "Afrique",
+    "population": "23 millions (2024)",
+    "superficie": "1 241 238 km²",
+    "langues": ["Français (officiel)", "Bambara (lingua franca — 80%)", "Fulfulde, Sonrhaï, Tamasheq"],
+    "monnaie": "Franc CFA (XOF)",
+
+    "histoire": {
+      "independance": "22 septembre 1960 (indépendance de la France).",
+      "evenements_majeurs": [
+        "Empire du Ghana (IVe-XIe s.) : 1er grand empire d'Afrique de l'Ouest, or et sel",
+        "Empire du Mali (XIIIe-XVe s.) : Mansa Musa — l'homme le plus riche de l'histoire (or du Sahel). Tombouctou = centre universitaire islamique mondial",
+        "Empire Songhaï (XVe-XVIe s.) : apogée de la civilisation sahélienne",
+        "Invasion marocaine (1591) : destruction de l'empire Songhaï",
+        "Colonisation française (Soudan français, 1880-1960)",
+        "Indépendance (1960) — Modibo Keïta (socialiste)",
+        "Coup d'État de Moussa Traoré (1968-1991)",
+        "Transition démocratique (1991-2012)",
+        "Chute du nord du Mali aux mains des Touareg et islamistes (2012)",
+        "Intervention militaire française (Serval, 2013) : libération du nord",
+        "MINUSMA (mission ONU, 2013-2023) : 60 soldats tués — mission la plus meurtrière de l'ONU",
+        "Coup d'État militaire (2020) puis second coup (2021) — junte CNSP au pouvoir",
+        "Expulsion des forces françaises (2022) et de la MINUSMA (2023)",
+        "Alliance avec la Russie / Wagner — Alliance des États du Sahel (AES)"
+      ],
+      "role_historique": "Tombouctou était la capitale intellectuelle de l'Afrique médiévale. Le Mali est aujourd'hui l'épicentre de la crise sahélienne : djihadisme, coups d'État, rejet de la présence française, ruée vers Wagner."
+    },
+
+    "politique": {
+      "regime": "Junte militaire depuis 2020 (2e coup d'État en 2021). Transition militaire indéfinie. Assimi Goïta, chef de la junte.",
+      "chef_etat": "Colonel Assimi Goïta (Président de la transition depuis 2021). Choguel Maïga (Premier ministre).",
+      "stabilite": "Très instable. Deux tiers du territoire non contrôlé par l'État. Alliance avec Wagner (Russie) pour la sécurité. Rejet des élections promises.",
+      "alliances": [
+        "Alliance des États du Sahel (AES) : Mali, Niger, Burkina Faso — rupture CEDEAO",
+        "Russie / Wagner (mercenaires remplaçant la France)",
+        "Rupture avec la France (Barkhane expulsé)",
+        "Chine (investissements)"
+      ]
+    },
+
+    "economie": {
+      "pib": "22 milliards $ (2023)",
+      "pib_hab": "950 $ (2023)",
+      "ressources": [
+        "Or (3e producteur africain, 1ère ressource d'exportation)",
+        "Coton (2e producteur africain — «or blanc» du Mali)",
+        "Sel (mines de Taoudeni — historiquement vital)",
+        "Phosphates",
+        "Lithium (découverte récente, potentiel)"
+      ],
+      "secteurs": [
+        "Or (70% des exports formels)",
+        "Agriculture (coton, riz, mil, sorgho — 80% de la population)",
+        "Élevage (transhumance Peul)",
+        "Aide internationale (réduite post-coup)"
+      ],
+      "grandes_villes": [
+        "Bamako (3 M hab. — capitale sur le fleuve Niger, la plus peuplée d'Afrique sahélienne)",
+        "Sikasso (2e ville, agriculture)",
+        "Ségou (3e ville, histoire Bambara)",
+        "Tombouctou (légendaire, aujourd'hui accessible précairement)"
+      ],
+      "places_economiques": [
+        "Mines d'or de Syama, Fekola, Morila (groupes Resolute, B2Gold)",
+        "Marché de Bamako (hub commercial sahélien)"
+      ],
+      "voies_communication": [
+        "Fleuve Niger (artère historique du commerce)",
+        "Pays sans accès à la mer — enclavé",
+        "Route Bamako-Dakar (principale liaison maritime)",
+        "Aéroport international Modibo Keïta (Bamako)"
+      ]
+    },
+
+    "societe": {
+      "demographie": "Population très jeune (âge médian 16 ans). Taux de fécondité parmi les plus élevés du monde (5,8 enfants/femme). Nomadisme Touareg et Peul fragilisé par le changement climatique.",
+      "idh": "0,410 (rang 186/191 en 2022)",
+      "education": "Alphabétisation 35%. Université de Bamako. Nombreuses madrasas (écoles coraniques). Taux de scolarisation insuffisant, surtout pour les filles.",
+      "sante": "Espérance de vie 59 ans. Mortalité maternelle et infantile très élevée. Paludisme, choléra endémiques. Médecine traditionnelle encore dominante en zone rurale.",
+      "inegalites": "Extrêmes. Or profitant peu à la population. Fracture nord (Touareg, islamistes) / sud (État, paysans).",
+      "urbanisation": "44 % (2023) — en forte hausse (exode des zones de conflit)."
+    },
+
+    "environnement": {
+      "pollution": "Avancée du Sahara (désertification grave dans le nord et le centre). Pollution des rivières par l'orpaillage artisanal (mercure). Déforestation des zones forestières du sud.",
+      "dev_durable": "Grande Muraille Verte (reboisement sahélien — Mali = pays clé). Fleuve Niger menacé par les barrages et le changement climatique. Potentiel solaire saharien.",
+      "recherche": "Manuscrits de Tombouctou (400 000 manuscrits médiévaux — patrimoine islamique mondial). Institut de recherche en sciences humaines (IHERI) de Bamako.",
+      "militaire": "Forces armées de 20 000 actifs + Wagner (nombre inconnu). Incapables de contrôler le territoire contre JNIM et ISGS. Équipement russe.",
+      "defis": [
+        "Insécurité djihadiste : 2/3 du territoire incontrôlable",
+        "Coup d'État : isolement diplomatique, sanctions économiques",
+        "Wagner / Russie : partenariat controversé (exactions documentées)",
+        "Désertification aggravée — nomades déplacés",
+        "Démographie explosive dépassant le développement"
+      ]
+    },
+
+    "importance": {
+      "historique": "Tombouctou était la plus grande ville intellectuelle d'Afrique médiévale. L'empire du Mali de Mansa Musa (XIVe s.) était la première puissance économique mondiale. Sa déstabilisation illustre l'échec de la communauté internationale au Sahel.",
+      "economique": "3e producteur d'or africain. Coton «or blanc». Potentiel minier sous-exploité (lithium). Mais IDH 186/191.",
+      "geopolitique": "Épicentre de la crise sahélienne. Alliance AES (Mali+Niger+Burkina) : nouvelle géopolitique africaine anti-française et pro-russe. Test de l'influence de Wagner en Afrique.",
+      "atouts": [
+        "Or (3e producteur africain)",
+        "Héritage civilisationnel exceptionnel (Tombouctou, manuscrits, empire du Mali)",
+        "Position géographique au cœur du Sahel",
+        "Potentiel solaire et minier (lithium)"
+      ],
+      "fragilites": [
+        "Perte de contrôle de 2/3 du territoire (djihadistes)",
+        "Junte militaire isolant le pays",
+        "IDH 186/191",
+        "Enclavement total (sans accès à la mer)",
+        "Wagner : partenariat à haut risque (impunité, exactions)"
+      ]
+    }
+  },
+
+  "TN": {
+    "name": "Tunisie",
+    "flag": "🇹🇳",
+    "capitale": "Tunis",
+    "continent": "Afrique",
+    "population": "12,1 millions (2024)",
+    "superficie": "163 610 km²",
+    "langues": ["Arabe (officiel)", "Français (langue de culture et d'administration)", "Tamazight (minorité)"],
+    "monnaie": "Dinar tunisien (TND)",
+
+    "histoire": {
+      "independance": "20 mars 1956 (indépendance de la France — Habib Bourguiba).",
+      "evenements_majeurs": [
+        "Carthage (IXe s. av. J.-C.) : fondée par les Phéniciens — grande rivale de Rome (Hannibal)",
+        "Destruction de Carthage par Rome (146 av. J.-C.) — «Carthago delenda est»",
+        "Province romaine (Africa Proconsularis) — Septième Sévère, 1er emperor africain, est tunisien",
+        "Islamisation (VIIe s.) — Kairouan, 4e ville sainte de l'Islam, fondée en 670",
+        "Dynasties arabes et berbères (IXe-XVIe s.)",
+        "Régence ottomane de Tunis (1574-1881)",
+        "Protectorat français (1881-1956)",
+        "Habib Bourguiba : 1er président (1956-1987) — modernisation, éducation des filles, Code du statut personnel (CSP) révolutionnaire pour le monde arabe",
+        "Zine El Abidine Ben Ali : dictature (1987-2011)",
+        "Révolution du Jasmin (17 décembre 2010 - 14 janvier 2011) : 1ère révolution du Printemps arabe — Mohamed Bouazizi, auto-immolation déclencheur mondial",
+        "Transition démocratique (2011-2019) : seul succès du Printemps arabe (Nobel de la paix 2015)",
+        "Kais Saied : coup d'État constitutionnel (25 juillet 2021) — suspension du Parlement",
+        "Nouvelle constitution (2022) : concentration des pouvoirs entre les mains de Saied",
+        "Crise économique grave et migration clandestine massive vers l'Europe"
+      ],
+      "role_historique": "La Tunisie a déclenché le Printemps arabe et réussi sa transition démocratique (seul pays arabe) — avant de revenir à l'autoritarisme sous Saied. Carthage fut la grande rivale de Rome. Kairouan : berceau de l'Islam maghrébin."
+    },
+
+    "politique": {
+      "regime": "République présidentielle ultra-centralisée depuis le coup d'État constitutionnel de juillet 2021. Kais Saied a dissous le Parlement, réécrit la Constitution et concentré les pouvoirs.",
+      "chef_etat": "Kais Saied (Président depuis 2019, réélu 2024 — pouvoirs quasi-absolus depuis 2021).",
+      "stabilite": "Instable économiquement. Autoritarisme croissant (arrestations d'opposants, journalistes). Crise migratoire (route méditerranéenne centrale). FMI en négociation difficile.",
+      "alliances": [
+        "UE (accord d'association — accord migratoire de 2023)",
+        "Ligue arabe",
+        "Union africaine",
+        "Relations avec l'Italie (partenaire principal pour la migration)",
+        "Relations avec les pays du Golfe (financements)"
+      ]
+    },
+
+    "economie": {
+      "pib": "47 milliards $ (2023 — en crise profonde)",
+      "pib_hab": "3 900 $ (2023)",
+      "ressources": [
+        "Phosphates (4e réserves mondiales, 5e exportateur mondial)",
+        "Pétrole et gaz (modestes mais significatifs)",
+        "Agriculture méditerranéenne (huile d'olive — 2e exportateur mondial, dattes)",
+        "Tourisme (mer Méditerranée, patrimoine antique)"
+      ],
+      "secteurs": [
+        "Tourisme (15% du PIB avant Covid — Djerba, Carthage, Sidi Bou Saïd)",
+        "Textile et habillement (sous-traitance pour marques européennes)",
+        "Phosphates et dérivés (engrais — OCP, GCT)",
+        "Agriculture (huile d'olive, dattes, agrumes)",
+        "Services offshore (centre d'appels francophones)"
+      ],
+      "grandes_villes": [
+        "Tunis (1 M hab., 3 M agglomération — capitale et hub économique)",
+        "Sfax (2e ville, industrie, phosphates)",
+        "Sousse (tourisme, industrie)",
+        "Kairouan (4e ville sainte de l'Islam)"
+      ],
+      "places_economiques": [
+        "Bourse de Tunis (BVMT)",
+        "Zone franche de Bizerte (export industriel)",
+        "Sfax : hub phosphatier et industriel"
+      ],
+      "voies_communication": [
+        "Port de Radès (Tunis) — 1er port commercial",
+        "Aéroport de Tunis-Carthage — hub méditerranéen",
+        "Canal de Sicile (entre Tunisie et Sicile — route migratoire principale)"
+      ]
+    },
+
+    "societe": {
+      "demographie": "12 millions — société urbanisée et instruite. Taux de fécondité bas (2,0) — transition démographique accomplie. Migration massive vers l'Europe et les pays du Golfe.",
+      "idh": "0,732 (rang 101/191 en 2022, catégorie « élevé »)",
+      "education": "Alphabétisation 81%. Enseignement supérieur développé. Cerveaux fuyant (médecins, ingénieurs) vers la France, le Canada, l'Allemagne.",
+      "sante": "Espérance de vie 76,5 ans. Système de santé développé pour la région. Couverture universelle formelle.",
+      "inegalites": "Gini ~33. Fracture entre littoral développé (Tunis, Sousse) et intérieur pauvre (Sidi Bouzid — d'où est parti le Printemps arabe).",
+      "urbanisation": "70 % (2023)."
+    },
+
+    "environnement": {
+      "pollution": "Pollution de la mer Méditerranée (plastiques, tourisme). Pollution industrielle de Sfax (phosphates). Sécheresse aggravée par le changement climatique.",
+      "dev_durable": "Potentiel solaire immense (Sahara). Huile d'olive biologique — secteur en expansion. Vulnérabilité aux sécheresses (stress hydrique).",
+      "recherche": "Université de Tunis — référence du Maghreb. Recherche en agro-alimentaire (olive, datte). Institut Pasteur de Tunis.",
+      "militaire": "Forces armées de 35 700 actifs. Garde nationale (sécurité intérieure). Coopération antiterroriste avec l'UE (frontalière avec la Libye).",
+      "defis": [
+        "Crise économique profonde (dette, chômage des jeunes 40%)",
+        "Dérive autoritaire sous Saied",
+        "Migration : point de départ de la route méditerranéenne centrale vers l'Europe",
+        "Stress hydrique croissant (sécheresses)",
+        "Cerveaux fuyant le pays en masse"
+      ]
+    },
+
+    "importance": {
+      "historique": "Carthage : rivale de Rome et grande puissance méditerranéenne antique. Kairouan : 4e ville sainte de l'Islam. La Révolution du Jasmin (2010-2011) a déclenché le Printemps arabe et changé le Moyen-Orient.",
+      "economique": "4e réserves mondiales de phosphates (intrant essentiel pour les engrais mondiaux). 2e exportateur mondial d'huile d'olive. Hub de sous-traitance pour l'Europe.",
+      "geopolitique": "Frontière avec la Libye (instabilité, passage des migrants et djihadistes). Route migratoire principale vers l'Europe (Italie). Seule réussite démocratique du Printemps arabe — aujourd'hui en recul.",
+      "atouts": [
+        "4e réserves mondiales de phosphates (engrais — sécurité alimentaire mondiale)",
+        "2e exportateur mondial d'huile d'olive",
+        "Position méditerranéenne (pont Europe-Afrique)",
+        "Société la plus avancée du monde arabe (droits des femmes, code du statut personnel)",
+        "Tourisme méditerranéen (Carthage, Djerba, Sidi Bou Saïd)"
+      ],
+      "fragilites": [
+        "Crise économique grave (chômage 40% des jeunes)",
+        "Retour à l'autoritarisme sous Saied",
+        "Fuite des cerveaux irréversible à ce rythme",
+        "Vulnérabilité migratoire (point de départ vers l'Europe)",
+        "Instabilité libyenne à la frontière"
+      ]
+    }
+  },
+
+  "LY": {
+    "name": "Libye",
+    "flag": "🇱🇾",
+    "capitale": "Tripoli",
+    "continent": "Afrique",
+    "population": "7,4 millions (2024)",
+    "superficie": "1 759 540 km² (4e pays d'Afrique)",
+    "langues": ["Arabe (officiel)", "Berbère / Tamazight (minorité)"],
+    "monnaie": "Dinar libyen (LYD)",
+
+    "histoire": {
+      "independance": "24 décembre 1951 (indépendance du Royaume-Uni et de la France — Royaume de Libye).",
+      "evenements_majeurs": [
+        "Grecs, Phéniciens, Romains : Libye = grenier de Rome (Cyrène, Leptis Magna)",
+        "Islamisation (VIIe s.) — berbères convertis",
+        "Empire ottoman (XVIe-XXe s.)",
+        "Colonisation italienne (1911-1943) : guerre coloniale brutale — 50% de la population libyenne exterminée ou exilée dans certaines régions",
+        "Indépendance (1951) — Royaume du roi Idriss",
+        "Coup d'État de Mouammar Kadhafi (1er septembre 1969) — jeune colonel de 27 ans",
+        "Kadhafi et la Jamahiriya (1969-2011) : socialisme arabe, pétrole nationalisé, financement de groupes terroristes, embargo international",
+        "Embargo et sanctions ONU (1992-2003) : Lockerbie",
+        "Réintégration dans la communauté internationale (2003-2010)",
+        "Printemps arabe libyen (2011) : révolution, intervention de l'OTAN, mort de Kadhafi (20 octobre 2011)",
+        "Guerre civile (2011-présent) : deux gouvernements rivaux, milices, intervention turque et émiratie",
+        "Accord de Genève (2020) : cessez-le-feu fragile",
+        "Libye = principale route migratoire vers l'Europe (Méditerranée centrale)"
+      ],
+      "role_historique": "La Libye illustre le chaos post-Kadhafi : une intervention militaire occidentale sans plan de l'après. Pays pétrolier riche, il est devenu un État failli servant de hub migratoire et de terrain d'affrontement pour les puissances régionales."
+    },
+
+    "politique": {
+      "regime": "État failli — deux gouvernements rivaux : GNU (Gouvernement d'Unité Nationale) à Tripoli (ouest) et gouvernement de Benghazi (est, soutenu par le maréchal Haftar). Aucun contrôle de l'ensemble du territoire.",
+      "chef_etat": "Abdul Hamid Dbeibah (Premier ministre du GNU — Tripoli). Osama Hammad (PM concurrent — Benghazi). Khalifa Haftar (homme fort de l'est, maréchal de la LNA).",
+      "stabilite": "Extrêmement instable — guerre civile larvée depuis 2011. Milices armées incontrôlables. Deux Parlements, deux banques centrales, deux compagnies pétrolières.",
+      "alliances": [
+        "Turquie (soutient le GNU à Tripoli)",
+        "Russie et EAU (soutiennent Haftar à l'est)",
+        "Égypte (soutient Haftar — frontière commune)",
+        "ONU (MANUL — mission de médiation)",
+        "Italie et UE (préoccupés par la migration)"
+      ]
+    },
+
+    "economie": {
+      "pib": "50 milliards $ (2023 estimé — très variable selon la production pétrolière)",
+      "pib_hab": "6 800 $ (2023 — riche en ressources mais chaos économique)",
+      "ressources": [
+        "Pétrole (10e réserves mondiales — les plus grandes d'Afrique : 48 milliards de barils)",
+        "Gaz naturel (importantes réserves)",
+        "Eau fossile (aquifère du Système Aquifère Nubien — projet du «Grand Fleuve artificiel» de Kadhafi)"
+      ],
+      "secteurs": [
+        "Pétrole (97% des revenus — NOC contrôlée par différentes factions)",
+        "Aide internationale et trafics (économie de guerre)",
+        "Agriculture limitée (Libye importe 90% de sa nourriture)"
+      ],
+      "grandes_villes": [
+        "Tripoli (1,2 M hab. — capitale, gouvernement GNU)",
+        "Benghazi (700 000 hab. — 2e ville, fief de Haftar)",
+        "Misrata (port, milice puissante)",
+        "Sebha (sud — carrefour des migrations sahariennes)"
+      ],
+      "places_economiques": [
+        "NOC (National Oil Corporation) — deux entités rivales réconciliées en 2020",
+        "Terminal pétrolier d'Es Sider et de Ras Lanouf (principaux)"
+      ],
+      "voies_communication": [
+        "Ports de Tripoli, Misrata, Benghazi",
+        "Aéroport international de Tripoli-Mitiga",
+        "Routes trans-sahariennes (trafic de migrants et d'armes)"
+      ]
+    },
+
+    "societe": {
+      "demographie": "7,4 millions dont 2 millions de migrants étrangers (subsahariens en transit vers l'Europe). Centres de détention de migrants : violations des droits de l'homme documentées.",
+      "idh": "0,718 (rang 111/191 en 2022 — malgré le pétrole)",
+      "education": "Alphabétisation 91%. Universités de Tripoli et Benghazi. Cerveaux fuyant vers la Tunisie et l'Europe.",
+      "sante": "Espérance de vie 73 ans. Système de santé partiellement fonctionnel — médecins étrangers partis depuis 2011.",
+      "inegalites": "Revenus pétroliers captés par les factions. Population largement maintenue par des subventions.",
+      "urbanisation": "81 % (2023)."
+    },
+
+    "environnement": {
+      "pollution": "Désertification (90% du territoire est désertique). Pollution pétrolière des zones d'extraction. Déchets des conflits armés.",
+      "dev_durable": "Grand Fleuve artificiel (projet de Kadhafi : irrigation depuis l'aquifère nubien — partiellement fonctionnel). Énergie solaire : potentiel immense (un des meilleurs ensoleillements du monde).",
+      "recherche": "Néant dans le contexte actuel.",
+      "militaire": "Armée nationale libyenne (LNA) de Haftar (est) vs milices pro-GNU (ouest). Forces Wagner présentes (est). Turquie (drones, soldats syriens, ouest). Chaos militaire total.",
+      "defis": [
+        "État failli : aucun gouvernement ne contrôle l'ensemble du territoire",
+        "Route migratoire : 100 000+ migrants par an tentent la traversée vers l'Europe",
+        "Trafic d'armes alimentant les conflits au Sahel",
+        "Revenus pétroliers captés par les factions rivales",
+        "Réunification politique improbable à court terme"
+      ]
+    },
+
+    "importance": {
+      "historique": "Leptis Magna (Libya) est l'une des plus belles ruines romaines du monde. La chute de Kadhafi (2011) est un cas d'école de l'interventionnisme militaire sans plan de reconstruction. La Libye est devenue la principale source d'armes pour le Sahel.",
+      "economique": "Plus grandes réserves pétrolières d'Afrique (48 milliards de barils). Revenu potentiel immense — pour l'instant capté par des factions rivales.",
+      "geopolitique": "Hub migratoire (route méditerranéenne centrale vers l'Europe). Terrain d'affrontement Turquie/Russie/EAU. Source d'armes pour le Sahel (djihadistes). Enjeu pétrolier pour l'UE (alternative au gaz russe).",
+      "atouts": [
+        "Plus grandes réserves pétrolières d'Afrique",
+        "Leptis Magna : patrimoine romain mondial (si accessible)",
+        "Potentiel solaire exceptionnel",
+        "Grand Fleuve artificiel (ressource en eau fossile)"
+      ],
+      "fragilites": [
+        "État failli depuis 2011 — aucune perspective de réunification claire",
+        "Hub de trafic humain (migrants sub-sahariens, conditions de détention inhumaines)",
+        "Trafic d'armes alimentant l'insécurité au Sahel",
+        "Revenus pétroliers sabotés par les guerres de factions",
+        "Interventions militaires étrangères permanentes (Turquie, Russie, EAU, Égypte)"
+      ]
+    }
+  }
+}

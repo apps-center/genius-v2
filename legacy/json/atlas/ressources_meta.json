@@ -1,0 +1,104 @@
+{
+  "oil": {
+    "icon": "🛢",
+    "color": "#1a1a1a",
+    "label": "Pétrole",
+    "bg": "#2a2a2a"
+  },
+  "gas": {
+    "icon": "🔥",
+    "color": "#ff8c00",
+    "label": "Gaz naturel",
+    "bg": "#3a2800"
+  },
+  "coal": {
+    "icon": "⬛",
+    "color": "#555",
+    "label": "Charbon",
+    "bg": "#1a1a1a"
+  },
+  "iron": {
+    "icon": "⚙️",
+    "color": "#8a6a4a",
+    "label": "Fer",
+    "bg": "#2a1a0a"
+  },
+  "copper": {
+    "icon": "🟤",
+    "color": "#b87333",
+    "label": "Cuivre",
+    "bg": "#3a1800"
+  },
+  "bauxite": {
+    "icon": "🔶",
+    "color": "#e8960a",
+    "label": "Bauxite",
+    "bg": "#3a2800"
+  },
+  "gold": {
+    "icon": "⭐",
+    "color": "#ffd700",
+    "label": "Or",
+    "bg": "#2a2000"
+  },
+  "lithium": {
+    "icon": "⚡",
+    "color": "#00cfff",
+    "label": "Lithium",
+    "bg": "#002a3a"
+  },
+  "cobalt": {
+    "icon": "💙",
+    "color": "#4169e1",
+    "label": "Cobalt",
+    "bg": "#0a1050"
+  },
+  "nickel": {
+    "icon": "🔩",
+    "color": "#a8b8a0",
+    "label": "Nickel",
+    "bg": "#1a2018"
+  },
+  "phosphate": {
+    "icon": "🟢",
+    "color": "#50c050",
+    "label": "Phosphates",
+    "bg": "#082808"
+  },
+  "rare": {
+    "icon": "✨",
+    "color": "#ff70ff",
+    "label": "Terres rares",
+    "bg": "#2a0a2a"
+  },
+  "uranium": {
+    "icon": "☢️",
+    "color": "#7fff00",
+    "label": "Uranium",
+    "bg": "#0a2000"
+  },
+  "wood": {
+    "icon": "🌲",
+    "color": "#228b22",
+    "label": "Bois",
+    "bg": "#081808"
+  },
+  "diamond": {
+    "icon": "💎",
+    "color": "#b0e8ff",
+    "label": "Diamants",
+    "bg": "#0a2030"
+  },
+  "salt": {
+    "icon": "🧂",
+    "color": "#e8e8e8",
+    "label": "Sel & minéraux",
+    "bg": "#1a1a2a"
+  },
+  "solar": {
+    "icon": "☀️",
+    "color": "#ffe040",
+    "label": "Énergie solaire",
+    "bg": "#2a2000"
+  }
+}

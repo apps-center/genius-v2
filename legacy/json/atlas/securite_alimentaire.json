@@ -1,0 +1,100 @@
+{
+  "_meta": {
+    "title": "Sécurité Alimentaire",
+    "emoji": "🍽️",
+    "source": "FAO 2023"
+  },
+  "exportateurs_bles": {
+    "pays": [
+      "RU",
+      "UA",
+      "US",
+      "CA",
+      "AU",
+      "FR",
+      "DE",
+      "AR",
+      "KZ",
+      "IN"
+    ],
+    "couleur": "#40a840",
+    "label": "Grands exportateurs de blé"
+  },
+  "exportateurs_riz": {
+    "pays": [
+      "IN",
+      "TH",
+      "VN",
+      "PK",
+      "CN",
+      "US",
+      "MM",
+      "PG",
+      "BR",
+      "KH"
+    ],
+    "couleur": "#80c840",
+    "label": "Grands exportateurs de riz"
+  },
+  "insecurite_severe": {
+    "pays": [
+      "YE",
+      "SO",
+      "SS",
+      "CF",
+      "SD",
+      "ML",
+      "NE",
+      "NG",
+      "CD",
+      "AF",
+      "HT",
+      "SY",
+      "ET",
+      "ZW"
+    ],
+    "couleur": "#e03030",
+    "label": "Insécurité alimentaire sévère"
+  },
+  "insecurite_moderee": {
+    "pays": [
+      "MZ",
+      "ZM",
+      "MW",
+      "TD",
+      "MR",
+      "GN",
+      "LR",
+      "SL",
+      "GW",
+      "BI",
+      "MG",
+      "LA",
+      "KH",
+      "PY",
+      "BO"
+    ],
+    "couleur": "#e08030",
+    "label": "Insécurité alimentaire modérée"
+  },
+  "dependance_imports": {
+    "pays": [
+      "JP",
+      "KR",
+      "EG",
+      "SA",
+      "AE",
+      "QA",
+      "KW",
+      "BH",
+      "OM",
+      "IL",
+      "LB",
+      "JO",
+      "SG",
+      "NL"
+    ],
+    "couleur": "#6060c0",
+    "label": "Forte dépendance aux importations"
+  }
+}

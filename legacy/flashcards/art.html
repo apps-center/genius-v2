@@ -1,0 +1,255 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Flashcards Arts & Culture — L'Encyclopédie des Explorateurs</title>
+<link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;700;900&family=Crimson+Pro:ital,wght@0,300;0,400;1,300&display=swap" rel="stylesheet">
+<style>
+:root{--bg:#060a14;--gold:#d4a843;--gold-dim:rgba(200,180,120,0.18);--text:#e8dfc4;--text-dim:rgba(232,223,196,0.48);--card-bg:rgba(8,13,26,0.94);--border:rgba(200,180,120,0.18);--rose:#e87ab0;}
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0;}
+body{background:var(--bg);color:var(--text);font-family:'Crimson Pro',Georgia,serif;min-height:100vh;overflow-x:hidden;user-select:none;}
+#stars-canvas{position:fixed;inset:0;z-index:0;pointer-events:none;}
+.content{position:relative;z-index:1;}
+.back{position:fixed;top:22px;left:24px;z-index:100;font-family:'Cinzel',serif;font-size:.6rem;letter-spacing:.25em;text-transform:uppercase;color:rgba(212,168,67,.5);text-decoration:none;display:flex;align-items:center;gap:8px;transition:color .2s;}
+.back:hover{color:#d4a843;}
+header{text-align:center;padding:52px 20px 28px;}
+.enc-label{font-size:.72rem;letter-spacing:.38em;text-transform:uppercase;color:var(--text-dim);margin-bottom:14px;}
+h1{font-family:'Cinzel',serif;font-weight:900;font-size:clamp(1.7rem,4.5vw,3.2rem);background:linear-gradient(135deg,#f5d0e8,#e87ab0 38%,#f0a0c8 68%,#fff0f8);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;line-height:1.1;}
+.tagline{margin-top:10px;font-size:.95rem;color:var(--text-dim);font-style:italic;}
+.divider{height:1px;background:var(--gold-dim);max-width:300px;margin:20px auto;}
+.progress-wrap{max-width:520px;margin:0 auto 28px;text-align:center;padding:0 20px;}
+.progress-text{font-family:'Cinzel',serif;font-size:.72rem;letter-spacing:.2em;text-transform:uppercase;color:var(--text-dim);margin-bottom:10px;}
+.progress-bar{height:2px;background:var(--gold-dim);border-radius:2px;overflow:hidden;}
+.progress-fill{height:100%;background:var(--rose);transition:width .4s ease;border-radius:2px;}
+.stage{display:flex;justify-content:center;align-items:center;perspective:1400px;padding:8px 0 20px;}
+.fc-wrap{width:460px;max-width:90vw;height:500px;position:relative;transform-style:preserve-3d;transition:transform .72s cubic-bezier(.4,0,.2,1);cursor:pointer;}
+.fc-wrap.flipped{transform:rotateY(180deg);}
+.fc-wrap.no-anim{transition:none!important;}
+.face{position:absolute;inset:0;border-radius:14px;backface-visibility:hidden;-webkit-backface-visibility:hidden;border:1px solid var(--border);box-shadow:0 20px 60px rgba(0,0,0,.7),0 0 0 1px rgba(200,180,120,.06);overflow:hidden;}
+/* FRONT */
+.face-front{background:var(--card-bg);display:flex;flex-direction:column;}
+.fc-img-wrap{position:absolute;inset:0;bottom:56px;overflow:hidden;border-radius:14px 14px 0 0;background:var(--card-bg);}
+.fc-img-wrap img{width:100%;height:100%;object-fit:contain;display:block;}
+.front-footer{position:absolute;bottom:0;left:0;right:0;display:flex;align-items:center;justify-content:center;gap:10px;padding:14px 20px;border-top:1px solid var(--border);background:rgba(6,10,20,.7);}
+.flip-hint{font-size:.65rem;letter-spacing:.18em;text-transform:uppercase;color:var(--text-dim);}
+.flip-arrow{color:var(--gold);opacity:.7;font-size:1rem;}
+/* BACK */
+.face-back{transform:rotateY(180deg);background:linear-gradient(145deg,#150a1e 0%,#1e0f2a 50%,#140918 100%);display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;padding:36px 28px 80px;border-color:rgba(232,122,176,.25);}
+.face-back::before{content:'';position:absolute;inset:0;border-radius:14px;background:radial-gradient(ellipse at 50% 20%,rgba(232,122,176,.07) 0%,transparent 65%);pointer-events:none;}
+.b-era{font-family:'Cinzel',serif;font-size:.55rem;letter-spacing:.2em;text-transform:uppercase;color:var(--rose);border:1px solid rgba(232,122,176,.4);padding:4px 16px;border-radius:3px;margin-bottom:16px;}
+.b-date{font-family:'Cinzel',serif;font-size:1.9rem;font-weight:900;background:linear-gradient(135deg,#f5d0e8,#e87ab0);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;margin-bottom:14px;line-height:1.2;}
+.b-title{font-family:'Cinzel',serif;font-size:1.05rem;font-weight:700;color:rgba(232,223,196,.85);margin-bottom:16px;line-height:1.35;}
+.b-desc{font-size:.87rem;line-height:1.7;color:rgba(232,223,196,.62);font-style:italic;max-width:340px;}
+.back-footer{position:absolute;bottom:0;left:0;right:0;display:flex;align-items:center;justify-content:center;gap:12px;padding:14px 20px;border-top:1px solid rgba(232,122,176,.2);background:rgba(6,10,20,.7);}
+/* OVERLAY */
+.overlay{position:absolute;inset:0;border-radius:14px;background:#000;z-index:30;opacity:0;pointer-events:none;transition:opacity 0.28s ease;}
+.overlay.dark{opacity:1;}
+@keyframes fadeIn{from{opacity:0;}to{opacity:1;}}
+.face-front.iris{animation:fadeIn 0.35s ease forwards;}
+/* BOUTONS */
+.btn{font-family:'Cinzel',serif;font-size:.68rem;letter-spacing:.16em;text-transform:uppercase;padding:10px 22px;border-radius:4px;border:1px solid var(--border);background:rgba(6,10,20,.9);color:var(--text-dim);cursor:pointer;transition:all .2s;}
+.btn:hover{border-color:rgba(200,180,120,.5);color:var(--text);background:rgba(200,180,120,.07);}
+.btn-gold{border-color:rgba(212,168,67,.6);color:var(--gold);background:rgba(212,168,67,.07);}
+.btn-gold:hover{background:rgba(212,168,67,.16);box-shadow:0 0 18px rgba(212,168,67,.2);}
+.btn-green{border-color:rgba(94,196,138,.5);color:#5ec48a;}
+.btn-green:hover{background:rgba(94,196,138,.1);}
+.btn-red{border-color:rgba(232,80,80,.5);color:#e84848;}
+.btn-red:hover{background:rgba(232,80,80,.1);}
+.controls{display:flex;justify-content:center;gap:12px;margin-top:20px;flex-wrap:wrap;padding:0 20px;}
+.review-row{display:flex;justify-content:center;gap:12px;margin-top:12px;flex-wrap:wrap;}
+.review-label{text-align:center;margin-top:16px;font-size:.65rem;letter-spacing:.18em;text-transform:uppercase;color:var(--text-dim);}
+.known-bar{max-width:520px;margin:20px auto 0;display:flex;gap:20px;justify-content:center;}
+.known-stat{font-family:'Cinzel',serif;font-size:.68rem;letter-spacing:.14em;text-transform:uppercase;color:var(--text-dim);}
+.known-stat span{color:var(--text);font-weight:700;}
+.strip{display:flex;gap:8px;overflow-x:auto;padding:16px 20px;scrollbar-width:none;}
+.strip::-webkit-scrollbar{display:none;}
+.thumb-art{width:52px;height:38px;border-radius:4px;border:1px solid var(--border);flex-shrink:0;opacity:.45;transition:opacity .2s;cursor:pointer;overflow:hidden;background:rgba(232,122,176,.08);}
+.thumb-art img{width:100%;height:100%;object-fit:cover;display:block;}
+.thumb-art:hover{opacity:.7;}
+.thumb-art.cur{opacity:1;border-color:var(--rose);}
+@media(max-width:600px){.fc-wrap{height:460px;}.b-title{font-size:1rem;}}
+</style>
+</head>
+<body>
+<canvas id="stars-canvas"></canvas>
+<a class="back" href="/flashcards/index.html">← Flashcards</a>
+<div class="content">
+  <header>
+    <div class="enc-label">L'Encyclopédie des Explorateurs</div>
+    <h1>Arts & Culture</h1>
+    <div class="tagline">Peinture · Musique · Littérature · Architecture · Cinéma</div>
+  </header>
+  <div style="padding:0 20px 80px;">
+    <div class="progress-wrap">
+      <div class="progress-text" id="p-text">Carte 1 / 48</div>
+      <div class="progress-bar"><div class="progress-fill" id="p-fill" style="width:0%"></div></div>
+    </div>
+    <div class="stage">
+      <div class="fc-wrap" id="fc" onclick="flipCard()">
+        <div class="overlay" id="overlay"></div>
+        <div class="face face-front" id="front">
+          <div class="fc-img-wrap">
+            <img id="fc-img" src="" alt="">
+
+          </div>
+
+          <div class="front-footer">
+            <span class="flip-hint">Cliquer pour révéler</span>
+            <span class="flip-arrow">↻</span>
+          </div>
+        </div>
+        <div class="face face-back">
+          <div class="b-era"   id="fc-era"></div>
+          <div class="b-date"  id="fc-date"></div>
+          <div class="b-title" id="fc-title"></div>
+          <div class="b-desc"  id="fc-desc"></div>
+          <div class="back-footer">
+            <button class="btn btn-red"   onclick="event.stopPropagation();markReview()">↩ À revoir</button>
+            <button class="btn btn-green" onclick="event.stopPropagation();markKnown()">✓ Je sais</button>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="controls">
+      <button class="btn" onclick="prevCard()">← Précédente</button>
+      <button class="btn btn-gold" onclick="nextCard()">Suivante →</button>
+      <button class="btn" onclick="shuffleCards()">🔀 Mélanger</button>
+    </div>
+    <div class="review-label">Après avoir révélé la carte :</div>
+    <div class="review-row">
+      <button class="btn btn-green" onclick="markKnown()">✓ Je savais</button>
+      <button class="btn btn-red" onclick="markReview()">↩ À revoir</button>
+    </div>
+    <div class="known-bar">
+      <div class="known-stat">Connues : <span id="k-count">0</span></div>
+      <div class="known-stat">À revoir : <span id="r-count">0</span></div>
+      <div class="known-stat">Restantes : <span id="rem-count">48</span></div>
+    </div>
+    <div class="divider"></div>
+    <div class="strip" id="strip"></div>
+  </div>
+</div>
+
+<script>
+const CARDS = [
+  { id:1, img:"joconde.webp", title:"La Joconde — Léonard de Vinci", date:"1503-1519", year:0, era:"Renaissance", desc:"Par Léonard de Vinci. La Joconde est le tableau le plus célèbre et le plus visité du monde. Elle représente probablement Lisa Gherardini, épouse d'un marchand florentin, mais son identité reste débattue. Conservé : Musée du Louvre, Paris." },
+  { id:2, img:"LEcole-dAthenes-de-Raphael.webp", title:"L'École d'Athènes — Raphaël", date:"1509-1510", year:0, era:"Renaissance", desc:"Par Raphaël. Commandée par le pape Jules II pour décorer sa bibliothèque, L'École d'Athènes est le sommet de la peinture de la Haute Renaissance. Elle rassemble les plus grands philosophes de l'Antiquité dans un décor architectural inspiré de Bramante." },
+  { id:3, img:"naissance de venus.webp", title:"La Naissance de Vénus — Botticelli", date:"1484-1486", year:0, era:"Renaissance", desc:"Par Sandro Botticelli. Vénus, née de l'écume de la mer, arrive sur le rivage portée par les vents Zéphyr et Chloris, tandis qu'une Heure lui tend un manteau fleuri. Conservé : Galerie des Offices, Florence." },
+  { id:4, img:"don quichotte.webp", title:"Don Quichotte — Miguel de Cervantès", date:"1605-1615", year:0, era:"Baroque", desc:"Par Miguel de Cervantès. Considéré comme le premier roman moderne de la littérature occidentale, Don Quichotte raconte les aventures d'Alonso Quijano, un gentilhomme espagnol qui, ayant trop lu de romans de chevalerie, perd la raison et part sur les routes." },
+  { id:5, img:"chapelle sixtine.webp", title:"La Chapelle Sixtine — Michel-Ange", date:"1508-1512", year:0, era:"Renaissance", desc:"Par Michel-Ange. Le plafond de la Chapelle Sixtine est l'une des plus grandes réalisations artistiques de l'humanité. Michel-Ange y représente neuf scènes de la Genèse, dont la célèbre Création d'Adam où les doigts de Dieu et de l'homme se frôlent." },
+  { id:6, img:"Johann_Sebastian_Bach.webp", title:"Messe de Notre-Dame — Guillaume de Machaut", date:"vers 1365", year:0, era:"Moyen Âge", desc:"Par Guillaume de Machaut. La Messe de Notre-Dame de Machaut est la première mise en musique complète et unifiée de l'Ordinaire de la messe par un seul compositeur. Conservé : Cathédrale de Reims (probable lieu de création)." },
+  { id:7, img:"parthenon.webp", title:"Le Parthénon — Ictinos & Callicratès", date:"-447 à -432", year:0, era:"Antiquité", desc:"Par Ictinos & Callicratès (architectes), Phidias (décoration). Le Parthénon est le temple dédié à Athéna Parthénos sur l'Acropole d'Athènes, construit sous Périclès. Conservé : Acropole d'Athènes, Grèce." },
+  { id:8, img:"sainte sophie.webp", title:"Sainte-Sophie — Anthémios de Tralles", date:"532-537", year:0, era:"Antiquité tardive & Byzance", desc:"Par Anthémios de Tralles & Isidore de Milet. Sainte-Sophie fut la plus grande cathédrale du monde pendant mille ans." },
+  { id:9, img:"abbaye-cluny-bourgogne.webp", title:"Abbaye de Cluny — Bâtisseurs clunisiens", date:"1088-1130", year:0, era:"Moyen Âge", desc:"Par Bâtisseurs clunisiens (Saint Hugues de Semur). Cluny III était la plus grande église du monde chrétien pendant 500 ans — 187 mètres de long, cinq nefs, deux transepts, cinq clochers. Conservé : Cluny, Bourgogne, France (ruines)." },
+  { id:10, img:"notre dame paris.webp", title:"Cathédrale Notre-Dame de Paris", date:"1163-1345", year:0, era:"Moyen Âge", desc:"Par Maurice de Sully (initiateur), maîtres d'œuvre successifs. Notre-Dame de Paris est le chef-d'œuvre du gothique rayonnant, construite sur deux siècles." },
+  { id:11, img:"l odyssee.webp", title:"L'Odyssée — Homère", date:"vers -800 à -700", year:0, era:"Antiquité", desc:"Par Homère. L'Odyssée raconte le retour d'Ulysse à Ithaque après la guerre de Troie — dix ans d'aventures et d'épreuves face aux dieux, aux monstres et aux hommes. Conservé : Épopée de la Grèce antique." },
+  { id:12, img:"la divine comedie.webp", title:"La Divine Comédie — Dante Alighieri", date:"1308-1321", year:0, era:"Moyen Âge", desc:"Par Dante Alighieri. La Divine Comédie est le voyage de Dante à travers l'Enfer, le Purgatoire et le Paradis, guidé d'abord par Virgile puis par Béatrice. Écrite en toscan — et non en latin — c'est l'œuvre fondatrice de la langue italienne." },
+  { id:13, img:"la fille a la perle.webp", title:"La Fille à la Perle — Vermeer", date:"1665", year:0, era:"Baroque", desc:"Par Johannes Vermeer. Surnommée 'la Joconde du Nord', cette œuvre représente une jeune fille au regard tourné par-dessus l'épaule, portant un turban bleu et une perle pendante. Conservé : Mauritshuis, La Haye." },
+  { id:14, img:"la ronde de nuit.webp", title:"La Ronde de Nuit — Rembrandt", date:"1642", year:0, era:"Baroque", desc:"Par Rembrandt van Rijn. Ce tableau monumental représente la milice bourgeoise du capitaine Frans Banninck Cocq partant en ronde. Conservé : Rijksmuseum, Amsterdam." },
+  { id:15, img:"Vivaldi.webp", title:"Les Quatre Saisons — Antonio Vivaldi", date:"1723", year:0, era:"Baroque", desc:"Par Antonio Vivaldi. Les Quatre Saisons sont quatre concertos pour violon composés par Vivaldi à Venise, chacun accompagné d'un sonnet décrivant la saison correspondante. Conservé : Première publication : Amsterdam, 1725." },
+  { id:16, img:"hamlet.webp", title:"Hamlet — William Shakespeare", date:"vers 1600-1601", year:0, era:"Baroque", desc:"Par William Shakespeare. Hamlet, prince du Danemark, apprend de son père défunt que son oncle Claudius l'a assassiné pour s'emparer du trône et épouser sa mère. Tiraillé entre le devoir de vengeance et le doute philosophique, il feint la folie et hésite." },
+  { id:17, img:"Claudio_Monteverdi.webp", title:"L'Orfeo — Claudio Monteverdi", date:"1607", year:0, era:"Baroque", desc:"Par Claudio Monteverdi. L'Orfeo de Monteverdi est considéré comme le premier grand opéra de l'histoire. Basé sur le mythe d'Orphée descendant aux Enfers pour ramener Eurydice, il fusionne musique, poésie, danse et décors spectaculaires." },
+  { id:18, img:"Le Sacre de Napoléon.webp", title:"Le Sacre de Napoléon — Jacques-Louis David", date:"1805-1807", year:0, era:"Néoclassicisme", desc:"Par Jacques-Louis David. Cette œuvre monumentale immortalise le sacre de Napoléon Ier le 2 décembre 1804 à Notre-Dame de Paris. David, peintre officiel de l'Empire, a représenté le moment où Napoléon couronne Joséphine. Conservé : Musée du Louvre, Paris." },
+  { id:19, img:"napoleon alpes.webp", title:"Napoléon traversant les Alpes — David", date:"1801-1805", year:0, era:"Néoclassicisme", desc:"Par Jacques-Louis David. Napoléon, sur un cheval cabré, montre le chemin à ses troupes dans le col du Grand-Saint-Bernard. Le geste héroïque, le manteau rouge battant dans le vent, le regard déterminé — tout est glorification." },
+  { id:20, img:"mozart.webp", title:"Symphonie n°40 — Wolfgang Amadeus Mozart", date:"1788", year:0, era:"Néoclassicisme", desc:"Par Wolfgang Amadeus Mozart. La Symphonie n°40 en sol mineur est l'une des deux seules symphonies de Mozart en mineur, et la plus connue. Conservé : Manuscrit : Bibliothèque nationale d'Autriche." },
+  { id:21, img:"la liberte guidant le peuple.webp", title:"La Liberté Guidant le Peuple — Delacroix", date:"1830", year:0, era:"Romantisme", desc:"Par Eugène Delacroix. Peint dans la foulée des Trois Glorieuses de juillet 1830, ce tableau représente Marianne — figure allégorique de la France — brandissant le drapeau tricolore par-dessus des barricades et des cadavres. Conservé : Musée du Louvre, Paris." },
+  { id:22, img:"radeau de la meduse.webp", title:"Le Radeau de la Méduse — Géricault", date:"1818-1819", year:0, era:"Romantisme", desc:"Par Théodore Géricault. Ce tableau colossal représente le naufrage de la frégate Méduse en 1816 — scandale d'État car le capitaine incompétent avait été nommé par favoritisme royaliste. Conservé : Musée du Louvre, Paris." },
+  { id:23, img:"les miserables.webp", title:"Les Misérables — Victor Hugo", date:"1862", year:0, era:"Romantisme", desc:"Par Victor Hugo. Chef-d'œuvre du romantisme social, Les Misérables suit Jean Valjean, ancien forçat condamné pour avoir volé un pain, qui tente de se racheter dans une France du XIXe siècle marquée par la misère et l'injustice." },
+  { id:24, img:"Beethoven.webp", title:"La Symphonie n°9 — Ludwig van Beethoven", date:"1824", year:0, era:"Romantisme", desc:"Par Ludwig van Beethoven. La Neuvième Symphonie est considérée comme l'une des plus grandes œuvres musicales jamais composées." },
+  { id:25, img:"moulin de la galette.webp", title:"Bal du Moulin de la Galette — Renoir", date:"1876", year:0, era:"Impressionnisme", desc:"Par Pierre-Auguste Renoir. Cette grande toile festive représente une guinguette de Montmartre où se retrouvait la classe ouvrière parisienne les dimanches. Conservé : Musée d'Orsay, Paris." },
+  { id:26, img:"dejeuner des canotiers.webp", title:"Le Déjeuner des Canotiers — Renoir", date:"1880-1881", year:0, era:"Impressionnisme", desc:"Par Pierre-Auguste Renoir. Cette scène de déjeuner sur la terrasse du Restaurant Fournaise à Chatou montre des amis de Renoir — peintres, acteurs, canotiers — réunis dans la joie d'un repas d'été au bord de la Seine." },
+  { id:27, img:"les nympheas.webp", title:"Les Nymphéas — Claude Monet", date:"1896-1926", year:0, era:"Impressionnisme", desc:"Par Claude Monet. Les Nymphéas constituent la grande œuvre tardive de Monet — près de 250 peintures du bassin de son jardin à Giverny, réalisées sur trente ans. Conservé : Musée de l'Orangerie, Paris." },
+  { id:28, img:"madame bovary.webp", title:"Madame Bovary — Gustave Flaubert", date:"1857", year:0, era:"Impressionnisme", desc:"Par Gustave Flaubert. Emma Bovary, fille de fermier devenue femme de médecin de province, s'ennuie dans sa vie ordinaire. Nourrie de romans romantiques, elle rêve de passion et d'élégance, prend des amants et accumule des dettes pour fuir la médiocrité." },
+  { id:29, img:"les tournesols.webp", title:"Les Tournesols — Vincent van Gogh", date:"1888", year:0, era:"Post-Impressionnisme", desc:"Par Vincent van Gogh. Van Gogh peint plusieurs versions des Tournesols à Arles pour décorer la chambre de son ami Gauguin, attendu en visite. Conservé : National Gallery, Londres (version principale)." },
+  { id:30, img:"nuit etoilee 1.webp", title:"La Nuit Étoilée — Vincent van Gogh", date:"1889", year:0, era:"Post-Impressionnisme", desc:"Par Vincent van Gogh. Peinte depuis la fenêtre de sa chambre à l'asile Saint-Paul-de-Mausole à Saint-Rémy-de-Provence, La Nuit Étoilée est le tableau le plus célèbre de Van Gogh. Conservé : Museum of Modern Art (MoMA), New York." },
+  { id:31, img:"nuit etoilee 2.webp", title:"Nuit Étoilée sur le Rhône — Vincent van Gogh", date:"1888", year:0, era:"Post-Impressionnisme", desc:"Par Vincent van Gogh. Peinte à Arles quelques mois avant La Nuit Étoilée de Saint-Rémy, cette œuvre montre la Grande Ourse reflétée dans le Rhône, avec les lumières jaunes de la ville sur l'eau. Conservé : Musée d'Orsay, Paris." },
+  { id:32, img:"la terrasse du cafe.webp", title:"La Terrasse du Café le Soir — Van Gogh", date:"1888", year:0, era:"Post-Impressionnisme", desc:"Par Vincent van Gogh. Ce café de la Place du Forum à Arles brille de jaune dans la nuit bleue — c'est l'une des premières peintures de nuit sans lumière noire. Conservé : Kröller-Müller Museum, Otterlo." },
+  { id:33, img:"dorian grey.webp", title:"Le Portrait de Dorian Gray — Oscar Wilde", date:"1890", year:0, era:"Post-Impressionnisme", desc:"Par Oscar Wilde. Dorian Gray, jeune homme d'une beauté exceptionnelle à Londres victorienne, formule le vœu que son portrait vieillisse à sa place. Le vœu s'exauce. Conservé : Lippincott's Monthly Magazine, puis Éditions Ward Lock." },
+  { id:34, img:"le baiser.webp", title:"Le Baiser — Gustav Klimt", date:"1907-1908", year:0, era:"Art Nouveau / Symbolisme", desc:"Par Gustav Klimt. Deux amants enlacés, drapés d'un manteau orné de motifs géométriques et floraux en feuilles d'or et d'argent, s'embrassent au bord d'un précipice fleuri. Conservé : Österreichische Galerie Belvedere, Vienne." },
+  { id:35, img:"le cri 2.webp", title:"Le Cri — Edvard Munch", date:"1893", year:0, era:"Art Nouveau / Symbolisme", desc:"Par Edvard Munch. Une figure androgyine à la tête de crâne se tord les mains sur un pont tandis que le ciel tourbillonne en rouge et orange. Ce n'est pas le cri d'une personne — c'est le cri de la nature tout entière qui envahit la tête du personnage." },
+  { id:36, img:"le voyage de chihiro.webp", title:"Le Voyage de Chihiro — Hayao Miyazaki", date:"2001", year:0, era:"Contemporain", desc:"Par Hayao Miyazaki / Studio Ghibli. Chihiro, une fillette de 10 ans, pénètre par accident dans le monde des esprits japonais. Ses parents transformés en cochons, elle doit travailler dans les thermes d'une sorcière pour les sauver." },
+  { id:37, img:"debussy.webp", title:"Pelléas et Mélisande — Claude Debussy", date:"1902", year:0, era:"Art Nouveau / Symbolisme", desc:"Par Claude Debussy. Unique opéra de Debussy, Pelléas et Mélisande est considéré comme le chef-d'œuvre de l'impressionnisme musical. Basé sur la pièce symboliste de Maeterlinck, il raconte l'amour interdit de deux âmes dans un château médiéval brumeux." },
+  { id:38, img:"persistance de la memoire.webp", title:"La Persistance de la Mémoire — Salvador Dalí", date:"1931", year:0, era:"Modernisme", desc:"Par Salvador Dalí. Les montres molles qui fondent sur un paysage de Cap Creus en Catalogne sont l'image surréaliste la plus connue au monde. Dalí dit avoir eu l'idée en regardant fondre un camembert. Conservé : Museum of Modern Art (MoMA), New York." },
+  { id:39, img:"guernica.webp", title:"Guernica — Pablo Picasso", date:"1937", year:0, era:"Modernisme", desc:"Par Pablo Picasso. Guernica est la réponse de Picasso au bombardement de la ville basque de Guernica par l'aviation nazie et franquiste le 26 avril 1937. Conservé : Museo Reina Sofía, Madrid." },
+  { id:40, img:"demoiselles d'avignon.webp", title:"Les Demoiselles d'Avignon — Pablo Picasso", date:"1907", year:0, era:"Modernisme", desc:"Par Pablo Picasso. Ce tableau choc marque la naissance du Cubisme et révolutionne toute l'histoire de l'art. Picasso représente cinq femmes nues en fragmentant leurs corps en facettes géométriques, montrant plusieurs angles simultanément." },
+  { id:41, img:"la danse.webp", title:"La Danse — Henri Matisse", date:"1910", year:0, era:"Modernisme", desc:"Par Henri Matisse. Cinq figures nues forment une ronde dans un espace réduit à trois aplats de couleurs : le bleu du ciel, le vert de la colline, le rouge-brique des corps. Conservé : Musée de l'Ermitage, Saint-Pétersbourg." },
+  { id:42, img:"kandinsky.webp", title:"Composition VIII — Wassily Kandinsky", date:"1923", year:0, era:"Modernisme", desc:"Par Wassily Kandinsky. Kandinsky est considéré comme le père de la peinture abstraite. Dans Composition VIII, formes géométriques — cercles, triangles, lignes — s'organisent dans un espace sans référence au monde visible. Conservé : Solomon R." },
+  { id:43, img:"Metropolis.webp", title:"Metropolis — Fritz Lang", date:"1927", year:0, era:"Modernisme", desc:"Par Fritz Lang. Dans une mégapole futuriste du XXIIe siècle, les élites vivent dans des tours lumineuses pendant que les ouvriers s'épuisent dans des souterrains. Conservé : Universum Film AG (UFA), Berlin." },
+  { id:44, img:"a la recherche du temps perdu.webp", title:"À la Recherche du Temps Perdu — Marcel Proust", date:"1913-1927", year:0, era:"Modernisme", desc:"Par Marcel Proust. Le narrateur, Marcel, trempe une madeleine dans du thé et est soudain submergé par le souvenir de son enfance à Combray. Cette involuntary memory déclenche le roman le plus long et le plus ambitieux de la littérature française." },
+  { id:45, img:"Le_Voyage_dans_la_lune.webp", title:"Le Voyage dans la Lune — Georges Méliès", date:"1902", year:0, era:"Modernisme", desc:"Par Georges Méliès. Premier film de science-fiction de l'histoire du cinéma, Le Voyage dans la Lune adapte Jules Verne et H.G. Wells. Des savants sont propulsés sur la Lune dans un obus, rencontrent des Sélénites et reviennent sur Terre." },
+  { id:46, img:"Citizen_Kane.webp", title:"Citizen Kane — Orson Welles", date:"1941", year:0, era:"Modernisme", desc:"Par Orson Welles. Citizen Kane retrace la vie de Charles Foster Kane, magnat de la presse, à travers les témoignages de ceux qui l'ont connu. Conservé : RKO Radio Pictures, Hollywood." },
+  { id:47, img:"a bout de soufle_.webp", title:"À bout de souffle — Jean-Luc Godard", date:"1960", year:0, era:"Modernisme", desc:"Par Jean-Luc Godard. Michel Poiccard, petit criminel qui se prend pour Humphrey Bogart, tue un policier et fuit à Paris avec une Américaine. Conservé : Les Films Georges de Beauregard, Paris." },
+  { id:48, img:"centre pompidou.webp", title:"Centre Pompidou — Piano & Rogers", date:"1971-1977", year:0, era:"Modernisme", desc:"Par Renzo Piano & Richard Rogers. Le Centre Pompidou renversa toutes les conventions architecturales : la structure porteuse, les conduits techniques, les escalators sont à l'extérieur du bâtiment, exposés et colorés selon leur fonction ." }
+];
+
+const IMG_BASE = '../img/arts/';
+let deck=[], idx=0, flipped=false, knownSet=new Set(), reviewSet=new Set();
+
+function loadContent(){
+  const card = deck[idx];
+  document.getElementById('fc-img').src = IMG_BASE + card.img;
+  document.getElementById('fc-img').alt = card.title;
+
+  document.getElementById('fc-era').textContent   = card.era;
+  document.getElementById('fc-date').textContent  = card.date;
+  document.getElementById('fc-title').textContent = card.title;
+  document.getElementById('fc-desc').textContent  = card.desc;
+  const pct = (idx / deck.length) * 100;
+  document.getElementById('p-text').textContent = `Carte ${idx+1} / ${deck.length}`;
+  document.getElementById('p-fill').style.width = pct + '%';
+  document.querySelectorAll('#strip .thumb-art').forEach((el,i) => el.classList.toggle('cur', i===idx));
+}
+
+function advance(){
+  const ov=document.getElementById('overlay'), fr=document.getElementById('front'), wrap=document.getElementById('fc');
+  ov.classList.add('dark');
+  setTimeout(()=>{
+    wrap.classList.add('no-anim'); wrap.classList.remove('flipped'); flipped=false; fr.classList.remove('iris');
+    loadContent();
+    requestAnimationFrame(()=>requestAnimationFrame(()=>{wrap.classList.remove('no-anim');ov.classList.remove('dark');fr.classList.add('iris');}));
+  },280);
+}
+
+function flipCard(){ if(flipped){idx=(idx+1)%deck.length;advance();}else{flipped=true;document.getElementById('fc').classList.add('flipped');} }
+function nextCard(){idx=(idx+1)%deck.length;advance();}
+function prevCard(){idx=(idx-1+deck.length)%deck.length;advance();}
+function shuffleCards(){deck=shuffle([...deck]);idx=0;flipped=false;knownSet.clear();reviewSet.clear();updateCounters();buildStrip();advance();}
+function markKnown(){knownSet.add(deck[idx].id);reviewSet.delete(deck[idx].id);updateCounters();idx=(idx+1)%deck.length;advance();}
+function markReview(){reviewSet.add(deck[idx].id);knownSet.delete(deck[idx].id);const c=deck.splice(idx,1)[0];deck.splice(Math.min(idx+3,deck.length),0,c);updateCounters();if(idx>=deck.length)idx=0;advance();}
+function updateCounters(){document.getElementById('k-count').textContent=knownSet.size;document.getElementById('r-count').textContent=reviewSet.size;document.getElementById('rem-count').textContent=deck.length-knownSet.size-reviewSet.size;}
+
+function buildStrip(){
+  const strip=document.getElementById('strip'); strip.innerHTML='';
+  deck.forEach((card,i)=>{
+    const d=document.createElement('div'); d.className='thumb-art'+(i===0?' cur':'');
+    const img=document.createElement('img'); img.src=IMG_BASE+card.img; img.alt=card.title;
+    d.appendChild(img); d.onclick=()=>{idx=i;advance();}; d.title=card.title;
+    strip.appendChild(d);
+  });
+}
+
+function shuffle(arr){for(let i=arr.length-1;i>0;i--){const j=Math.floor(Math.random()*(i+1));[arr[i],arr[j]]=[arr[j],arr[i]];}return arr;}
+
+document.addEventListener('keydown',e=>{
+  if(e.key==='ArrowRight'||e.key===' '){e.preventDefault();nextCard();}
+  if(e.key==='ArrowLeft'){e.preventDefault();prevCard();}
+  if(e.key==='Enter'){e.preventDefault();flipCard();}
+  if(e.key==='k'||e.key==='K')markKnown();
+  if(e.key==='r'||e.key==='R')markReview();
+});
+
+(function(){
+  const c=document.getElementById('stars-canvas'),ctx=c.getContext('2d');let stars=[];
+  function resize(){c.width=innerWidth;c.height=innerHeight;}
+  function init(){resize();stars=Array.from({length:200},()=>({x:Math.random(),y:Math.random(),r:Math.random()*1.2+.15,a:Math.random()*.5+.08,speed:Math.random()*.0004+.00015,phase:Math.random()*Math.PI*2}));}
+  let t=0;function draw(){t++;ctx.clearRect(0,0,c.width,c.height);for(const s of stars){const f=s.a*(.65+.35*Math.sin(t*s.speed*80+s.phase));ctx.beginPath();ctx.arc(s.x*c.width,s.y*c.height,s.r,0,Math.PI*2);ctx.fillStyle=`rgba(255,210,230,${f})`;ctx.fill();}requestAnimationFrame(draw);}
+  addEventListener('resize',init);init();draw();
+})();
+
+deck = shuffle([...CARDS]);
+buildStrip();
+loadContent();
+</script>
+</body>
+</html>

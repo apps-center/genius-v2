@@ -1,0 +1,836 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Chronologie de l'Univers & de la France</title>
+<link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;700;900&family=Crimson+Pro:ital,wght@0,300;0,400;1,300&display=swap" rel="stylesheet">
+<style>
+  :root { --star:#e8dfc4; --bg:#060a14; --line:rgba(200,180,120,0.22); }
+  *{box-sizing:border-box;margin:0;padding:0;}
+  body{background:var(--bg);color:var(--star);font-family:'Crimson Pro',Georgia,serif;overflow-x:hidden;transition:background 1.2s ease;}
+  #stars-canvas{position:fixed;inset:0;z-index:0;pointer-events:none;}
+
+  header{position:relative;z-index:10;text-align:center;padding:70px 20px 50px;}
+  header .subtitle{font-size:1rem;letter-spacing:.35em;text-transform:uppercase;color:rgba(232,223,196,.5);margin-bottom:18px;}
+  header h1{font-family:'Cinzel',serif;font-size:clamp(1.8rem,6vw,4rem);font-weight:900;letter-spacing:.05em;
+    background:linear-gradient(135deg,#f5e6a3 0%,#d4a843 40%,#f0c060 70%,#fff8e0 100%);
+    -webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;line-height:1.1;}
+  header p.desc{margin-top:18px;font-size:1.05rem;color:rgba(232,223,196,.6);font-style:italic;letter-spacing:.05em;}
+
+  .hint{position:relative;z-index:10;text-align:center;margin-bottom:32px;}
+  .hint span{font-size:.78rem;letter-spacing:.18em;text-transform:uppercase;color:rgba(232,223,196,.35);
+    border:1px solid rgba(232,223,196,.12);padding:5px 18px;border-radius:20px;}
+
+  .legend{position:relative;z-index:10;display:flex;flex-wrap:wrap;justify-content:center;gap:8px 18px;padding:0 20px 44px;}
+  .legend-item{display:flex;align-items:center;gap:7px;font-size:.73rem;letter-spacing:.1em;text-transform:uppercase;color:rgba(232,223,196,.6);}
+  .legend-dot{width:9px;height:9px;border-radius:50%;flex-shrink:0;}
+
+  .timeline{position:relative;z-index:10;max-width:960px;margin:0 auto;padding:0 24px 120px;}
+  .timeline::before{content:'';position:absolute;left:50%;top:0;bottom:0;width:1px;
+    background:linear-gradient(to bottom,transparent,var(--line) 5%,var(--line) 95%,transparent);
+    transform:translateX(-50%);}
+
+  .era-label{position:relative;display:flex;align-items:center;justify-content:center;margin:54px 0 24px;gap:14px;}
+  .era-label::before,.era-label::after{content:'';flex:1;height:1px;background:var(--line);}
+  .era-label span{font-family:'Cinzel',serif;font-size:.68rem;letter-spacing:.28em;text-transform:uppercase;
+    padding:5px 14px;border:1px solid;border-radius:2px;white-space:nowrap;}
+
+  .event{display:flex;align-items:flex-start;margin:24px 0;position:relative;
+    opacity:0;transform:translateY(22px);transition:opacity .6s ease,transform .6s ease;}
+  .event.visible{opacity:1;transform:none;}
+  .event.left{flex-direction:row;}
+  .event.right{flex-direction:row-reverse;}
+
+  .card{width:calc(50% - 44px);padding:15px 18px 13px;border-radius:4px;
+    border:1px solid rgba(200,180,120,.14);background:rgba(6,10,20,.82);
+    backdrop-filter:blur(8px);position:relative;cursor:pointer;
+    transition:border-color .25s,box-shadow .25s,transform .25s;}
+  .card:hover{transform:scale(1.028);border-color:rgba(200,180,120,.42);box-shadow:0 0 28px rgba(200,160,60,.14);}
+
+  .card-hint{font-size:.64rem;letter-spacing:.14em;text-transform:uppercase;opacity:0;
+    transition:opacity .25s;margin-top:8px;display:flex;align-items:center;gap:4px;}
+  .card:hover .card-hint{opacity:.5;}
+
+  .event.left .card::after{content:'';position:absolute;right:-8px;top:18px;width:0;height:0;
+    border-top:7px solid transparent;border-bottom:7px solid transparent;border-left:8px solid rgba(200,180,120,.14);}
+  .event.right .card::after{content:'';position:absolute;left:-8px;top:18px;width:0;height:0;
+    border-top:7px solid transparent;border-bottom:7px solid transparent;border-right:8px solid rgba(200,180,120,.14);}
+
+  .dot{position:absolute;left:50%;top:18px;width:14px;height:14px;border-radius:50%;
+    transform:translate(-50%,0);border:2px solid var(--bg);z-index:2;transition:box-shadow .3s;}
+  .event:hover .dot{box-shadow:0 0 14px 4px currentColor;}
+  .connector{width:44px;height:2px;background:var(--line);align-self:flex-start;margin-top:25px;flex-shrink:0;}
+
+  .card-tag{display:inline-block;font-size:.59rem;letter-spacing:.18em;text-transform:uppercase;
+    padding:2px 8px;border-radius:2px;margin-bottom:7px;border:1px solid;opacity:.72;}
+  .card-icon{font-size:1.45rem;margin-bottom:5px;display:block;}
+  .card-date{font-family:'Cinzel',serif;font-size:.67rem;letter-spacing:.2em;text-transform:uppercase;margin-bottom:4px;opacity:.58;}
+  .card-title{font-family:'Cinzel',serif;font-size:.9rem;font-weight:700;line-height:1.3;margin-bottom:5px;}
+  .card-desc{font-size:.84rem;line-height:1.55;color:rgba(232,223,196,.63);font-style:italic;}
+
+  /* MODAL */
+  .modal-overlay{position:fixed;inset:0;z-index:1000;background:rgba(4,8,18,.9);
+    backdrop-filter:blur(10px);display:flex;align-items:center;justify-content:center;
+    padding:20px;opacity:0;pointer-events:none;transition:opacity .3s;}
+  .modal-overlay.open{opacity:1;pointer-events:all;}
+  .modal{background:linear-gradient(148deg,#0c1628,#080e1c);
+    border:1px solid rgba(200,180,120,.28);border-radius:6px;
+    max-width:560px;width:100%;max-height:88vh;overflow-y:auto;
+    padding:34px 30px 30px;position:relative;
+    transform:translateY(18px) scale(.97);transition:transform .3s;}
+  .modal-overlay.open .modal{transform:none;}
+  .modal-close{position:absolute;top:12px;right:16px;background:none;border:none;
+    color:rgba(232,223,196,.4);font-size:1.25rem;cursor:pointer;padding:4px 8px;
+    border-radius:3px;transition:color .2s,background .2s;}
+  .modal-close:hover{color:var(--star);background:rgba(255,255,255,.06);}
+  .modal-icon{font-size:2.3rem;margin-bottom:9px;display:block;}
+  .modal-tag{display:inline-block;font-size:.6rem;letter-spacing:.2em;text-transform:uppercase;
+    padding:2px 10px;border-radius:2px;margin-bottom:11px;border:1px solid;opacity:.72;}
+  .modal-date{font-family:'Cinzel',serif;font-size:.68rem;letter-spacing:.22em;text-transform:uppercase;opacity:.52;margin-bottom:5px;}
+  .modal-title{font-family:'Cinzel',serif;font-size:1.2rem;font-weight:900;line-height:1.25;margin-bottom:13px;}
+  .modal-intro{font-size:.93rem;line-height:1.62;color:rgba(232,223,196,.72);font-style:italic;
+    margin-bottom:20px;padding-bottom:16px;border-bottom:1px solid rgba(200,180,120,.15);}
+  .modal-anecdotes-title{font-family:'Cinzel',serif;font-size:.66rem;letter-spacing:.28em;
+    text-transform:uppercase;opacity:.42;margin-bottom:13px;}
+  .anecdote{display:flex;gap:13px;margin-bottom:15px;align-items:flex-start;}
+  .anecdote-bullet{font-size:1.05rem;flex-shrink:0;margin-top:2px;}
+  .anecdote-text{font-size:.88rem;line-height:1.62;color:rgba(232,223,196,.8);}
+  .anecdote-text strong{color:var(--star);font-style:normal;}
+
+  /* COLORS */
+  .c-cosmic{color:#a084d8}.dot.cosmic{background:#a084d8}.card.cosmic{border-left:3px solid #a084d8}
+  .era-label.cosmic span{color:#a084d8;border-color:rgba(160,132,216,.35)}
+  .c-geo{color:#4ec99a}.dot.geo{background:#4ec99a}.card.geo{border-left:3px solid #4ec99a}
+  .era-label.geo span{color:#4ec99a;border-color:rgba(78,201,154,.35)}
+  .c-paleo{color:#e8a850}.dot.paleo{background:#e8a850}.card.paleo{border-left:3px solid #e8a850}
+  .era-label.paleo span{color:#e8a850;border-color:rgba(232,168,80,.35)}
+  .c-antique{color:#d4a843}.dot.antique{background:#d4a843}.card.antique{border-left:3px solid #d4a843}
+  .era-label.antique span{color:#d4a843;border-color:rgba(212,168,67,.35)}
+  .c-medieval{color:#d46060}.dot.medieval{background:#d46060}.card.medieval{border-left:3px solid #d46060}
+  .era-label.medieval span{color:#d46060;border-color:rgba(212,96,96,.35)}
+  .c-merov{color:#e0884a}.dot.merov{background:#e0884a}.card.merov{border-left:3px solid #e0884a}
+  .era-label.merov span{color:#e0884a;border-color:rgba(224,136,74,.38)}
+  .c-caro{color:#6ea8e8}.dot.caro{background:#6ea8e8}.card.caro{border-left:3px solid #6ea8e8}
+  .era-label.caro span{color:#6ea8e8;border-color:rgba(110,168,232,.38)}
+  .c-capet{color:#c8b840}.dot.capet{background:#c8b840}.card.capet{border-left:3px solid #c8b840}
+  .era-label.capet span{color:#c8b840;border-color:rgba(200,184,64,.38)}
+  .c-renaiss{color:#5ec48a}.dot.renaiss{background:#5ec48a}.card.renaiss{border-left:3px solid #5ec48a}
+  .era-label.renaiss span{color:#5ec48a;border-color:rgba(94,196,138,.38)}
+  .c-moderne{color:#c084d8}.dot.moderne{background:#c084d8}.card.moderne{border-left:3px solid #c084d8}
+  .era-label.moderne span{color:#c084d8;border-color:rgba(192,132,216,.38)}
+  .c-revolution{color:#e84040}.dot.revolution{background:#e84040}.card.revolution{border-left:3px solid #e84040}
+  .era-label.revolution span{color:#e84040;border-color:rgba(232,64,64,.38)}
+  .c-empire{color:#d4a020}.dot.empire{background:#d4a020}.card.empire{border-left:3px solid #d4a020}
+  .era-label.empire span{color:#d4a020;border-color:rgba(212,160,32,.38)}
+  .c-republiques{color:#60a0d8}.dot.republiques{background:#60a0d8}.card.republiques{border-left:3px solid #60a0d8}
+  .era-label.republiques span{color:#60a0d8;border-color:rgba(96,160,216,.38)}
+  .c-guerres{color:#b89060}.dot.guerres{background:#b89060}.card.guerres{border-left:3px solid #b89060}
+  .era-label.guerres span{color:#b89060;border-color:rgba(184,144,96,.38)}
+  .c-contemp{color:#40c8b0}.dot.contemp{background:#40c8b0}.card.contemp{border-left:3px solid #40c8b0}
+  .era-label.contemp span{color:#40c8b0;border-color:rgba(64,200,176,.38)}
+
+  footer{position:relative;z-index:10;text-align:center;padding:0 20px 60px;
+    color:rgba(232,223,196,.28);font-size:.78rem;letter-spacing:.1em;}
+
+  @media(max-width:620px){
+    .timeline::before{left:24px}
+    .event{flex-direction:column;padding-left:54px}
+    .event.right{flex-direction:column}
+    .dot{left:24px;top:8px}
+    .card{width:100%}
+    .card::after,.event.right .card::after{display:none}
+    .connector{display:none}
+  }
+</style>
+</head>
+<body>
+
+<canvas id="stars-canvas"></canvas>
+
+<header>
+  <p class="subtitle">Du Big Bang à la Ve République</p>
+  <h1>Chronologie de l'Univers<br>&amp; de la France</h1>
+  <p class="desc">13,8 milliards d'années en un seul regard</p>
+</header>
+
+<div class="hint"><span>✦ Cliquez sur une carte pour découvrir anecdotes &amp; curiosités ✦</span></div>
+
+<div class="legend">
+  <div class="legend-item"><div class="legend-dot" style="background:#a084d8"></div>Ère cosmique</div>
+  <div class="legend-item"><div class="legend-dot" style="background:#4ec99a"></div>Géologique &amp; bio</div>
+  <div class="legend-item"><div class="legend-dot" style="background:#e8a850"></div>Préhistoire</div>
+  <div class="legend-item"><div class="legend-dot" style="background:#d4a843"></div>Antiquité</div>
+  <div class="legend-item"><div class="legend-dot" style="background:#d46060"></div>Haut Moyen Âge</div>
+  <div class="legend-item"><div class="legend-dot" style="background:#e0884a"></div>Mérovingiens</div>
+  <div class="legend-item"><div class="legend-dot" style="background:#6ea8e8"></div>Carolingiens</div>
+  <div class="legend-item"><div class="legend-dot" style="background:#c8b840"></div>Capétiens</div>
+  <div class="legend-item"><div class="legend-dot" style="background:#5ec48a"></div>Renaissance</div>
+  <div class="legend-item"><div class="legend-dot" style="background:#c084d8"></div>Monarchie absolue</div>
+  <div class="legend-item"><div class="legend-dot" style="background:#e84040"></div>Révolution</div>
+  <div class="legend-item"><div class="legend-dot" style="background:#d4a020"></div>Empire</div>
+  <div class="legend-item"><div class="legend-dot" style="background:#60a0d8"></div>Républiques</div>
+  <div class="legend-item"><div class="legend-dot" style="background:#b89060"></div>Guerres Mondiales</div>
+  <div class="legend-item"><div class="legend-dot" style="background:#40c8b0"></div>Époque contemporaine</div>
+</div>
+
+<div class="timeline" id="timeline"></div>
+
+<div class="modal-overlay" id="modal-overlay">
+  <div class="modal" id="modal-box">
+    <button class="modal-close" id="modal-close">✕</button>
+    <span class="modal-icon" id="m-icon"></span>
+    <div class="modal-tag" id="m-tag"></div>
+    <div class="modal-date" id="m-date"></div>
+    <div class="modal-title" id="m-title"></div>
+    <div class="modal-intro" id="m-intro"></div>
+    <div class="modal-anecdotes-title">✦ Anecdotes &amp; curiosités</div>
+    <div id="m-anecdotes"></div>
+  </div>
+</div>
+
+<footer>Sources : CNRS · NASA · Académie française · BnF · Larousse · Histoire de France (Lavisse) · Encyclopædia Universalis</footer>
+
+<script>
+// ── Stars ──
+const canvas = document.getElementById('stars-canvas');
+const ctx = canvas.getContext('2d');
+let stars = [];
+function resize(){
+  canvas.width = window.innerWidth;
+  canvas.height = Math.max(document.body.scrollHeight, window.innerHeight);
+  initStars(); drawStars();
+}
+function initStars(){
+  stars=[];
+  const n=Math.floor(canvas.width*canvas.height/3500);
+  for(let i=0;i<n;i++) stars.push({x:Math.random()*canvas.width,y:Math.random()*canvas.height,r:Math.random()*1.2+0.2,a:Math.random()*0.65+0.15});
+}
+function drawStars(){
+  ctx.clearRect(0,0,canvas.width,canvas.height);
+  stars.forEach(s=>{ctx.beginPath();ctx.arc(s.x,s.y,s.r,0,Math.PI*2);ctx.fillStyle=`rgba(232,223,196,${s.a})`;ctx.fill();});
+}
+window.addEventListener('resize',()=>setTimeout(resize,100));
+setTimeout(resize,200);
+
+// ── Era background colors [r,g,b] ──
+const eraBg = {
+  cosmic:[80,40,160], geo:[20,100,70], paleo:[140,80,20], antique:[155,115,10],
+  medieval:[120,25,25], merov:[165,70,15], caro:[30,70,155],
+  capet:[145,125,10], renaiss:[15,110,55], moderne:[85,15,85],
+  revolution:[165,15,15], empire:[145,105,0], republiques:[40,75,145],
+  guerres:[75,55,30], contemp:[15,105,115]
+};
+let currentBg = [6,10,20];
+let targetBg  = [6,10,20];
+let animFrame = null;
+
+function lerpColor(a,b,t){return a.map((v,i)=>Math.round(v+(b[i]-v)*t));}
+
+function animateBg(){
+  currentBg = lerpColor(currentBg, targetBg, 0.04);
+  const [r,g,b] = currentBg;
+  document.body.style.background =
+    `radial-gradient(ellipse at 8% 25%, rgba(${r},${g},${b},0.22) 0%, transparent 55%),
+     radial-gradient(ellipse at 92% 65%, rgba(${r},${g},${b},0.14) 0%, transparent 50%),
+     radial-gradient(ellipse at 50% 50%, rgba(${r},${g},${b},0.06) 0%, transparent 70%),
+     #060a14`;
+  if(Math.abs(currentBg[0]-targetBg[0])>0.5||Math.abs(currentBg[1]-targetBg[1])>0.5||Math.abs(currentBg[2]-targetBg[2])>0.5)
+    animFrame = requestAnimationFrame(animateBg);
+  else animFrame = null;
+}
+
+function setEraBg(cls){
+  const col = eraBg[cls];
+  if(!col) return;
+  targetBg = [...col];
+  if(!animFrame) animFrame = requestAnimationFrame(animateBg);
+}
+
+// Detect current era on scroll
+let eraMarkers = [];
+function buildMarkers(){
+  eraMarkers = Array.from(document.querySelectorAll('.era-label')).map(el=>({top:el.offsetTop, cls:el.dataset.cls}));
+}
+window.addEventListener('scroll',()=>{
+  const sy = window.scrollY + window.innerHeight*0.35;
+  let cur = eraMarkers[0];
+  for(const m of eraMarkers){ if(m.top<=sy) cur=m; else break; }
+  if(cur) setEraBg(cur.cls);
+});
+
+// ── Data ──
+const eras = [
+  { label:'✦ Ère Cosmique', cls:'cosmic', events:[
+    { icon:'💥', tag:'Événement', date:'– 13,8 milliards d\'années', title:'Naissance de l\'Univers — Le Big Bang',
+      desc:'L\'espace, le temps et la matière apparaissent en une fraction de seconde. Toute l\'énergie de l\'univers concentrée en un seul point.',
+      anecdotes:[
+        {e:'🌡️', t:'<strong>La température initiale dépassait 10 milliards de degrés.</strong> Le cœur du Soleil n\'est "que" 15 millions de degrés. L\'univers entier était plus chaud que le centre d\'une étoile.'},
+        {e:'🕰️', t:'<strong>Le temps lui-même est né avec le Big Bang.</strong> Demander "qu\'y avait-il avant ?" n\'a pas de sens : il n\'y avait pas de "avant". Le temps n\'existait pas encore.'},
+        {e:'🌌', t:'<strong>L\'univers observable fait 93 milliards d\'années-lumière de diamètre</strong> — mais l\'univers total pourrait être infiniment plus grand. Ce que nous voyons n\'est qu\'une toute petite bulle.'},
+        {e:'🔇', t:'<strong>Le Big Bang ne fait pas "bang" !</strong> L\'espace n\'existait pas encore pour transmettre un son. L\'explosion s\'est produite partout à la fois, pas en un point précis dans l\'espace.'}
+      ]},
+    { icon:'☀️', tag:'Événement', date:'– 4,6 milliards d\'années', title:'Naissance du Système Solaire',
+      desc:'Un nuage de gaz et de poussière stellaire s\'effondre sous sa propre gravité. Le Soleil s\'allume au centre.',
+      anecdotes:[
+        {e:'⚖️', t:'<strong>Le Soleil représente 99,86 % de toute la masse du système solaire.</strong> Toutes les planètes réunies ne font qu\'une toute petite fraction. Jupiter est la deuxième "masse" du système, à peine 0,1 %.'},
+        {e:'⭐', t:'<strong>Le Soleil est une étoile de deuxième génération.</strong> Il contient des éléments lourds (fer, or, uranium) forgés dans des étoiles mortes avant lui. Nous sommes faits de poussière d\'étoiles.'},
+        {e:'🪐', t:'<strong>Jupiter a probablement "protégé" la Terre</strong> en captant avec sa gravité d\'énormes astéroïdes qui auraient pu nous frapper. Sans Jupiter, la vie sur Terre aurait été bien plus souvent perturbée.'}
+      ]},
+    { icon:'🌍', tag:'Événement', date:'– 4,5 milliards d\'années', title:'Naissance de la Terre',
+      desc:'Accrétion de roches spatiales. La Lune se forme peu après lors d\'un impact géant avec la proto-planète Théia.',
+      anecdotes:[
+        {e:'🌕', t:'<strong>La Lune s\'éloigne de 3,8 cm par an.</strong> À sa formation, elle était 15 fois plus proche et paraissait immense dans le ciel. Elle était si proche qu\'elle provoquait des marées géantes sur les continents.'},
+        {e:'🧲', t:'<strong>Sans la Lune, la Terre vacillerait.</strong> La Lune stabilise l\'axe de notre planète. Sans elle, l\'inclinaison oscillerait entre 0° et 85°, rendant tout climat stable impossible — et la vie complexe très difficile.'},
+        {e:'🌊', t:'<strong>L\'eau terrestre vient de l\'espace.</strong> Elle proviendrait en grande partie de comètes et d\'astéroïdes riches en glace qui ont bombardé la Terre dans ses premiers millions d\'années.'}
+      ]},
+  ]},
+  { label:'✦ Ère Géologique & Biologique', cls:'geo', events:[
+    { icon:'🧫', tag:'Événement', date:'– 3,8 milliards d\'années', title:'Naissance de la Vie',
+      desc:'Apparition des premières cellules procaryotes dans les océans primitifs, probablement autour de sources hydrothermales sous-marines.',
+      anecdotes:[
+        {e:'🔬', t:'<strong>Toute vie sur Terre partage le même code ADN.</strong> Une bactérie et un être humain utilisent exactement les mêmes 4 "lettres" chimiques. Nous sommes tous cousins, même avec les champignons et les arbres.'},
+        {e:'💨', t:'<strong>L\'oxygène était un poison</strong> pour les premières bactéries ! Ce sont les cyanobactéries qui l\'ont injecté dans l\'atmosphère il y a 2,4 milliards d\'années, provoquant la plus grande extinction de l\'histoire.'},
+        {e:'🧬', t:'<strong>Nos mitochondries sont des bactéries apprivoisées.</strong> Il y a 2 milliards d\'années, une cellule en a avalé une autre sans la digérer. Cette bactérie est devenue la centrale énergétique de toutes nos cellules.'}
+      ]},
+    { icon:'🟢', tag:'Événement', date:'– 1 200 millions d\'années', title:'Premières Algues Pluricellulaires',
+      desc:'Les algues chlorophytes apparaissent dans les océans. Via endosymbiose, elles sont à l\'origine des chloroplastes, qui permettront la photosynthèse chez tous les végétaux futurs.',
+      anecdotes:[
+        {e:'🌞', t:'<strong>Les algues ont fabriqué l\'oxygène que tu respires.</strong> Elles en produisent encore aujourd\'hui la moitié mondiale, avec les forêts. Sans algues, pas d\'oxygène, pas d\'animaux, pas d\'humains.'},
+        {e:'🦠', t:'<strong>Une algue "avalée" sans être digérée</strong> est devenue le chloroplaste de toutes les plantes. C\'est la même histoire que pour les mitochondries — la vie a une habitude de récupérer ses voisines plutôt que de les manger.'},
+        {e:'🌊', t:'<strong>Les algues géantes (kelps)</strong> peuvent mesurer jusqu\'à 60 mètres et pousser de 60 cm par jour. C\'est la croissance la plus rapide du règne végétal — comme une forêt en accéléré sous l\'eau.'}
+      ]},
+    { icon:'🐚', tag:'Événement', date:'– 600 millions d\'années', title:'Premiers Animaux',
+      desc:'Explosion cambrienne : apparition soudaine de tous les grands groupes animaux — mollusques, arthropodes, ancêtres des vertébrés.',
+      anecdotes:[
+        {e:'👁️', t:'<strong>Les yeux sont apparus très vite au Cambrien.</strong> Cette invention a déclenché une "course aux armements" entre prédateurs et proies. Voir ou être vu — tout a changé en quelques millions d\'années.'},
+        {e:'🦑', t:'<strong>L\'Anomalocaris</strong>, prédateur cambrien de 60 cm, avait des yeux à 30 000 facettes. Plus perfectionné que n\'importe quel insecte actuel. Le plus grand prédateur de son époque ressemblait à une crevette géante.'},
+        {e:'🧮', t:'<strong>Les invertébrés représentent 97 % de toutes les espèces animales.</strong> Les vertébrés (dont nous faisons partie) sont une minuscule minorité. La Terre appartient vraiment aux insectes, vers et mollusques.'}
+      ]},
+    { icon:'🌿', tag:'Événement', date:'– 470 millions d\'années', title:'Premiers Végétaux Terrestres',
+      desc:'Premières spores terrestres (cryptospores) à l\'Ordovicien. Les plantes évoluent à partir d\'algues chlorophytes vertes et colonisent les terres.',
+      anecdotes:[
+        {e:'🍄', t:'<strong>Les champignons ont devancé les plantes sur les continents.</strong> Ils ont probablement aidé les premières plantes terrestres en formant des associations symbiotiques (mycorhizes) — les plantes leur offraient du sucre, les champignons de l\'eau et des minéraux.'},
+        {e:'🌳', t:'<strong>Les premières grandes forêts</strong> du Dévonien (-380 Ma) absorbèrent tant de CO₂ qu\'elles provoquèrent une glaciation mondiale qui faillit tuer toute vie complexe. Les arbres ont failli détruire ce qu\'ils avaient créé.'},
+        {e:'🪨', t:'<strong>Les plantes ont créé les sols.</strong> Avant elles, les continents n\'étaient que roche nue et désert de pierre. Leurs racines ont fracturé les roches, leurs feuilles mortes ont créé les premiers humus — la terre arable que nous cultivons aujourd\'hui.'}
+      ]},
+    { icon:'🦕', tag:'Événement', date:'– 230 millions d\'années', title:'Premiers Dinosaures',
+      desc:'Eoraptor et Herrerasaurus apparaissent au Trias. Les dinosaures domineront la Terre pendant 165 millions d\'années.',
+      anecdotes:[
+        {e:'🐦', t:'<strong>Les oiseaux sont des dinosaures.</strong> Ce n\'est pas une métaphore : scientifiquement, un moineau est un dinosaure à plumes. Les dinosaures n\'ont donc pas totalement disparu — certains gazouillent dans ton jardin.'},
+        {e:'🦴', t:'<strong>Le T-Rex avait des bras très courts</strong> mais extraordinairement puissants, capables de soulever 200 kg. Leur utilité exacte reste un mystère : manger ? Se relever ? Se battre ? Les scientifiques débattent encore.'},
+        {e:'🌡️', t:'<strong>Les dinosaures n\'étaient probablement pas à sang froid.</strong> Les recherches récentes montrent qu\'ils avaient un métabolisme actif, probablement proche des oiseaux modernes. Ils n\'étaient pas des lézards géants lents.'}
+      ]},
+    { icon:'☄️', tag:'Événement', date:'– 66 millions d\'années', title:'Extinction des Dinosaures',
+      desc:'Impact de l\'astéroïde Chicxulub (Mexique). 75 % des espèces disparaissent. Les mammifères prennent leur essor.',
+      anecdotes:[
+        {e:'💥', t:'<strong>L\'impact a libéré</strong> une énergie équivalente à un milliard de bombes atomiques. Un tsunami de plusieurs centaines de mètres de haut a balayé les côtes en quelques heures. La roche en fusion a mis le feu aux forêts du monde entier.'},
+        {e:'🌑', t:'<strong>Ce n\'est pas l\'impact qui a tout tué directement</strong>, mais les poussières projetées dans l\'atmosphère qui ont bloqué le Soleil pendant des années. Sans lumière, les plantes mouraient, puis les herbivores, puis les carnivores.'},
+        {e:'🐀', t:'<strong>Nos ancêtres étaient comme des petits rats.</strong> Ils survivaient sous terre, la nuit, en mangeant des insectes. Sans cet astéroïde, les mammifères seraient restés de toutes petites bêtes et tu n\'existerais pas.'}
+      ]},
+  ]},
+  { label:'✦ Préhistoire', cls:'paleo', events:[
+    { icon:'🦴', tag:'Événement', date:'– 7 millions d\'années', title:'Premiers Hominidés',
+      desc:'Sahelanthropus tchadensis au Tchad : le plus ancien fossile connu de la lignée humaine, à la séparation avec les grands singes.',
+      anecdotes:[
+        {e:'🧬', t:'<strong>Nous partageons 98,7 % de notre ADN avec les chimpanzés.</strong> La différence génétique est à peine plus grande que celle entre deux espèces de souris. Ce petit écart suffit pourtant à tout changer.'},
+        {e:'🚶', t:'<strong>La marche debout est venue bien avant le gros cerveau.</strong> Nos ancêtres marchaient sur deux pattes depuis 2 millions d\'années avant que leur cerveau ne commence à grossir vraiment. La bipédie a libéré les mains.'},
+        {e:'🌍', t:'<strong>Tous les humains viennent d\'Afrique.</strong> Les analyses génétiques le confirment : toute l\'humanité descend d\'une même population africaine. Nous sommes tous, à un degré ou un autre, des cousins africains.'}
+      ]},
+    { icon:'🪨', tag:'Événement', date:'– 3,3 millions d\'années', title:'Premières Pierres Taillées',
+      desc:'Outils de Lomekwi (Kenya). L\'Homo habilis généralise la taille du silex (bifaces acheuléens) vers –1,7 Ma.',
+      anecdotes:[
+        {e:'🔪', t:'<strong>Un silex bien taillé est plus tranchant qu\'un scalpel chirurgical.</strong> Les artisans préhistoriques maîtrisaient une technique très difficile que peu de personnes peuvent reproduire aujourd\'hui même en essayant.'},
+        {e:'📍', t:'<strong>La même technique de taille a été utilisée pendant 1,5 million d\'années</strong> sans changement notable — la plus longue "tradition" technologique de toute l\'histoire humaine. Nous innovons plus en un an que nos ancêtres en 100 000 ans.'},
+        {e:'🐦', t:'<strong>Les corvidés et certains primates</strong> utilisent aussi des outils. Mais seul l\'être humain en fabrique systématiquement avec un plan préconçu. C\'est l\'une des frontières qui définissent notre humanité.'}
+      ]},
+    { icon:'🔥', tag:'Événement', date:'– 1 million d\'années', title:'Maîtrise du Feu',
+      desc:'Homo erectus contrôle et entretient le feu. Révolution alimentaire, protection contre les prédateurs, lien social renforcé.',
+      anecdotes:[
+        {e:'🍖', t:'<strong>La cuisson a transformé notre évolution.</strong> En ramollissant la viande et les féculents, elle libère bien plus de calories. Ces calories ont nourri le développement d\'un cerveau plus grand. Sans le feu, nos cerânes seraient peut-être restés plus petits.'},
+        {e:'🌙', t:'<strong>Le feu a inventé la soirée.</strong> En repoussant la nuit et les prédateurs, il a créé un temps social inédit — la veillée — propice aux récits, à la musique, aux mythes et au développement du langage.'},
+        {e:'😴', t:'<strong>Nous dormons moins que les autres primates</strong> grâce au feu, qui protège des dangers nocturnes. Ce sommeil plus court mais plus profond a développé le sommeil paradoxal — le siège des rêves et de la créativité.'}
+      ]},
+    { icon:'🧠', tag:'Événement', date:'– 300 000 ans', title:'Homo Sapiens',
+      desc:'Notre espèce apparaît en Afrique (Jebel Irhoud, Maroc). Elle se dispersera sur toute la planète au fil des millénaires.',
+      anecdotes:[
+        {e:'🎨', t:'<strong>L\'art le plus ancien connu</strong> (gravures en Afrique du Sud) date de –73 000 ans. Des ornements en coquillages percés datent de –130 000 ans. La créativité artistique est très ancienne dans notre espèce.'},
+        {e:'🧡', t:'<strong>Nous avons des gènes néandertaliens.</strong> Les Européens et Asiatiques portent 1 à 4 % d\'ADN néandertalien. Nos deux espèces ont cohabité et eu des enfants ensemble pendant des dizaines de milliers d\'années.'},
+        {e:'🌏', t:'<strong>Toute l\'humanité descend d\'un petit groupe</strong> d\'environ 1 000 à 10 000 individus qui ont quitté l\'Afrique il y a ~70 000 ans. En termes de génétique, les humains sont l\'une des espèces les moins diversifiées de la planète.'}
+      ]},
+    { icon:'🏘️', tag:'Événement', date:'– 12 000 ans', title:'Premiers Villages',
+      desc:'Göbekli Tepe (Turquie), Jéricho (Palestine) : premières constructions en pierre et vie communautaire organisée.',
+      anecdotes:[
+        {e:'🏛️', t:'<strong>Göbekli Tepe bouleverse tout ce qu\'on croyait savoir.</strong> Ce temple monumental de –12 000 ans a été construit par des chasseurs-cueilleurs AVANT l\'agriculture. On pensait que la religion venait après la civilisation — c\'est peut-être l\'inverse.'},
+        {e:'💪', t:'<strong>Les premiers agriculteurs étaient moins bien nourris</strong> que les chasseurs-cueilleurs : squelettes plus petits, dents plus abîmées, espérance de vie plus courte. La sédentarisation fut d\'abord une régression physique.'},
+        {e:'🦠', t:'<strong>Les premiers villages ont inventé les épidémies.</strong> Vivre entassés avec des animaux domestiques a créé les conditions parfaites pour que les virus franchissent la barrière des espèces. La variole, la grippe, la rougeole viennent de nos élevages.'}
+      ]},
+    { icon:'🌾', tag:'Événement', date:'– 10 000 ans', title:'Agriculture & Élevage',
+      desc:'Révolution néolithique au Croissant Fertile : blé, orge, moutons, chèvres. Fin du nomadisme chasseur-cueilleur.',
+      anecdotes:[
+        {e:'🌽', t:'<strong>Le maïs n\'existe pas dans la nature.</strong> Il a été entièrement créé par sélection humaine à partir d\'une herbe sauvage (le téosinte) sur 10 000 ans. Sans l\'agriculture, pas de maïs, pas de blé moderne, pas de pomme de terre.'},
+        {e:'🐄', t:'<strong>Toutes les vaches du monde descendent</strong> d\'un seul troupeau d\'environ 80 aurochs domestiqués au Moyen-Orient il y a 10 500 ans. C\'est ce que nous disent les analyses génétiques.'},
+        {e:'⏰', t:'<strong>L\'agriculture a inventé la notion de futur.</strong> Semer en automne pour récolter en été oblige à planifier à long terme. C\'est l\'origine des calendriers, des contrats, de l\'écriture — et finalement de toute la civilisation.'}
+      ]},
+    { icon:'☸️', tag:'Événement', date:'– 3 500 av. J.-C.', title:'Invention de la Roue',
+      desc:'Mésopotamie. Utilisée d\'abord comme tour de potier, puis adaptée au transport.',
+      anecdotes:[
+        {e:'🏺', t:'<strong>La roue a d\'abord servi à faire des pots.</strong> Le tour de potier a précédé la roue de transport d\'environ 300 ans. L\'invention la plus emblématique de l\'humanité a d\'abord servi à faire de la vaisselle.'},
+        {e:'🌍', t:'<strong>Les Aztèques et les Incas connaissaient la roue</strong> mais ne l\'utilisaient pas pour le transport — ils n\'avaient pas d\'animaux de trait assez puissants. Ils s\'en servaient uniquement pour les jouets d\'enfants.'},
+        {e:'⚙️', t:'<strong>La vraie révolution, c\'est l\'axe.</strong> Maintenir un cylindre tournant dans un moyeu sans trop de frottement était un défi d\'ingénierie considérable. Les premières roues sans axes efficaces ne servaient à rien.'}
+      ]},
+  ]},
+  { label:'✦ Antiquité', cls:'antique', events:[
+    { icon:'⚗️', tag:'Événement', date:'– 3 300 av. J.-C.', title:'Âge de Bronze',
+      desc:'L\'alliage cuivre-étain produit des outils et armes plus résistants. Les premières civilisations urbaines et l\'écriture apparaissent.',
+      anecdotes:[
+        {e:'🗺️', t:'<strong>L\'étain pour fabriquer le bronze ne se trouve pas partout.</strong> Le commerce de l\'étain a créé les premières routes commerciales transrégionales — l\'ancêtre de la mondialisation, avec des caravanes reliant l\'Europe à l\'Asie.'},
+        {e:'📜', t:'<strong>L\'écriture cunéiforme n\'a pas été inventée pour la littérature.</strong> Les premières tablettes sont des reçus de livraison d\'orge et des contrats commerciaux. L\'écriture est née de la comptabilité, pas de la poésie.'},
+        {e:'🏙️', t:'<strong>Ur en Mésopotamie comptait déjà 65 000 habitants</strong> vers –2 000 av. J.-C. — l\'une des premières grandes villes de l\'histoire, avec des égouts, une administration et des temples gigantesques.'}
+      ]},
+    { icon:'🏛️', tag:'Événement', date:'– 3 100 av. J.-C.', title:'Civilisation Égyptienne',
+      desc:'Unification sous le roi Narmer. Pyramides, hiéroglyphes, pharaons — 3 000 ans de civilisation ininterrompue.',
+      anecdotes:[
+        {e:'⏳', t:'<strong>Cléopâtre est plus proche de nous que des pyramides.</strong> Elle est morte en –30 av. J.-C. Les pyramides de Gizeh ont été construites vers –2 500 av. J.-C. Il y a plus de temps entre Cléopâtre et les pyramides qu\'entre Cléopâtre et nous.'},
+        {e:'🐱', t:'<strong>L\'Égypte et le chat domestique.</strong> Les chats se sont eux-mêmes domestiqués en suivant les greniers à céréales qui attiraient les souris. Les Égyptiens les ont ensuite déifiés. Le chat a choisi l\'Homme, pas l\'inverse.'},
+        {e:'🧱', t:'<strong>Les ouvriers qui bâtirent la Grande Pyramide</strong> étaient des artisans payés, pas des esclaves. Les fouilles montrent qu\'ils étaient bien nourris, soignés, et enterrés avec honneur. Une idée reçue démentie par l\'archéologie.'}
+      ]},
+    { icon:'⚔️', tag:'Événement', date:'– 1 200 av. J.-C.', title:'Âge de Fer',
+      desc:'Le fer, plus dur et plus abondant que le bronze, bouleverse l\'agriculture, la guerre et les équilibres de pouvoir.',
+      anecdotes:[
+        {e:'🔒', t:'<strong>Les Hittites ont gardé le secret du travail du fer</strong> pendant plusieurs siècles. Quand leur empire s\'effondra, le savoir se répandit partout, démocratisant l\'accès aux armes. Le monopole technologique est aussi vieux que l\'humanité.'},
+        {e:'🌾', t:'<strong>La charrue en fer</strong> a permis de labourer des terres argileuses lourdes impossibles à travailler avec des outils en bois ou en bronze, ouvrant de nouveaux territoires agricoles et permettant de nourrir plus de monde.'},
+        {e:'🏰', t:'<strong>L\'âge du fer est aussi l\'âge des grandes forteresses.</strong> Le fer démocratisait la guerre (chacun pouvait s\'équiper), forçant les peuples à se protéger derrière des remparts massifs — les oppidums gaulois, les hillforts celtiques.'}
+      ]},
+    { icon:'🏺', tag:'Événement', date:'– 800 av. J.-C.', title:'Civilisation Grecque',
+      desc:'Cités-États, démocratie athénienne, philosophie, théâtre, Jeux Olympiques. Socle intellectuel de l\'Occident.',
+      anecdotes:[
+        {e:'🗳️', t:'<strong>La démocratie athénienne excluait la majorité.</strong> Femmes, esclaves (35 % de la population) et étrangers n\'avaient pas le droit de vote. Seuls 10 à 20 % des habitants pouvaient participer. C\'était révolutionnaire pour l\'époque, mais très imparfait.'},
+        {e:'🏋️', t:'<strong>Les athlètes olympiques concouraient entièrement nus.</strong> "Gymnase" vient du grec "gymnos" (nu). Les femmes n\'avaient pas le droit d\'assister aux Jeux Olympiques sous peine de mort.'},
+        {e:'💊', t:'<strong>Hippocrate a prouvé que les maladies ont des causes naturelles.</strong> Avant lui, une épilepsie était une "possession divine". Déclarer qu\'une maladie n\'est pas envoyée par les dieux était une idée révolutionnaire et dangereuse.'}
+      ]},
+    { icon:'🐺', tag:'Événement', date:'– 753 av. J.-C.', title:'Civilisation Romaine',
+      desc:'Fondation légendaire de Rome par Romulus. De la République à l\'Empire, Rome dominera la Méditerranée pendant 12 siècles.',
+      anecdotes:[
+        {e:'🐦', t:'<strong>Rome a failli être détruite par des oies.</strong> En –390, les Gaulois attaquaient de nuit le Capitole. Les oies sacrées de Junon cacardèrent et réveillèrent les gardes à temps. Les oies ont sauvé Rome.'},
+        {e:'🛁', t:'<strong>Les Romains se brossaient les dents avec de l\'urine fermentée</strong> (riche en ammoniaque). Cette pratique était si courante que l\'urine des tanneries était collectée dans des jarres dans les rues.'},
+        {e:'🌡️', t:'<strong>L\'empoisonnement était si courant à Rome</strong> que le roi Mithridate s\'entraîna à ingérer des doses croissantes de poison pour s\'immuniser. Il fut si bien immunisé qu\'il ne put même pas se suicider au poison — il dut se faire poignarder.'}
+      ]},
+    { icon:'🛡️', tag:'Événement', date:'– 52 av. J.-C.', title:'Défaite Gauloise — Alésia',
+      desc:'Vercingétorix capitule devant César. La Gaule devient province romaine. Début de la romanisation et du latin.',
+      anecdotes:[
+        {e:'📖', t:'<strong>On ne connaît Vercingétorix qu\'à travers les écrits de César, son ennemi.</strong> La Gaule n\'avait pas d\'écriture historique propre. Dans l\'Antiquité, c\'est toujours le vainqueur qui écrit l\'histoire.'},
+        {e:'🎪', t:'<strong>Vercingétorix fut gardé en prison à Rome pendant 6 ans</strong>, puis exécuté lors du triomphe de César en –46. Un traitement humiliant, très codifié, pour montrer au peuple romain la victoire de César.'},
+        {e:'🍷', t:'<strong>La romanisation fut rapide et profonde.</strong> En moins d\'un siècle, les Gaulois parlaient latin, construisaient des aqueducs et buvaient du vin. Le gaulois disparut presque entièrement. La France parle encore ce latin transformé.'}
+      ]},
+    { icon:'✝️', tag:'Événement', date:'~ –4 av. J.-C. — 33 ap. J.-C.', title:'Émergence du Christianisme',
+      desc:'Vie et enseignement de Jésus de Nazareth en Judée. En quelques siècles, le christianisme devient religion officielle de l\'Empire.',
+      anecdotes:[
+        {e:'📅', t:'<strong>Jésus n\'est probablement pas né l\'an 0.</strong> Le moine Denys le Petit, qui calcula notre calendrier au VIe siècle, fit une erreur de calcul. La plupart des historiens situent la naissance de Jésus entre –6 et –4 avant notre ère.'},
+        {e:'🐟', t:'<strong>Le poisson (ΙΧΘΥΣ en grec)</strong> était le signe de reconnaissance secret des chrétiens persécutés — les lettres forment un acronyme signifiant "Jésus Christ, Fils de Dieu, Sauveur". Un signe discret tracé dans la poussière pour se reconnaître.'},
+        {e:'🏛️', t:'<strong>L\'Édit de Milan (313)</strong> de l\'empereur Constantin légalisa le christianisme dans tout l\'Empire. En 380, Théodose en fit la religion officielle. En moins de 4 siècles, une religion persécutée devint la religion d\'État de l\'empire le plus puissant du monde.'}
+      ]},
+  ]},
+  { label:'✦ Haut Moyen Âge', cls:'medieval', events:[
+    { icon:'⚡', tag:'Événement', date:'376 – 476', title:'Invasions Barbares',
+      desc:'Huns, Wisigoths, Vandales, Francs déferlent sur l\'Empire romain. Rome est saccagée en 410 et 455.',
+      anecdotes:[
+        {e:'🏇', t:'<strong>Les Huns venaient probablement d\'Asie centrale.</strong> Leur arrivée en Europe provoqua un effet domino : ils chassèrent les Wisigoths, qui poussèrent les Vandales, qui envahirent l\'Afrique... Tout l\'Empire en fut déstabilisé.'},
+        {e:'📚', t:'<strong>"Barbare" vient du grec "barbaros"</strong> qui imitait le son des langues étrangères incompréhensibles : "bar-bar-bar". Ce n\'était pas une insulte au départ, juste une façon de désigner ceux qui ne parlaient pas grec.'},
+        {e:'😤', t:'<strong>Attila, le "fléau de Dieu", mourut</strong> non pas au combat mais dans son lit la nuit de ses noces, probablement d\'une hémorragie interne. Le plus grand conquérant de son époque fut tué par une hémorragie, pas par un ennemi.'}
+      ]},
+    { icon:'🏚️', tag:'Événement', date:'476', title:'Chute de l\'Empire Romain d\'Occident',
+      desc:'Le jeune Romulus Augustule est déposé par le chef germain Odoacre. Fin de l\'Antiquité, début du Moyen Âge.',
+      anecdotes:[
+        {e:'😏', t:'<strong>Romulus Augustule n\'avait que 14 ans.</strong> Odoacre ne le tua pas — il lui accorda une pension et l\'envoya en retraite dans un château. La grande "chute de Rome" fut finalement assez peu dramatique.'},
+        {e:'🌅', t:'<strong>Les contemporains n\'ont pas réalisé</strong> vivre une rupture historique majeure. La notion de "chute de Rome" a été inventée par des historiens bien plus tard. Pour les gens de 476, c\'était juste un coup d\'état de plus.'},
+        {e:'🧱', t:'<strong>L\'Empire d\'Orient (Byzance) survécut encore 977 ans</strong> après 476, jusqu\'en 1453. Il y a autant de temps entre la chute de Rome et la chute de Byzance qu\'entre Charlemagne et aujourd\'hui. Rome ne mourut pas vraiment en 476.'}
+      ]},
+    { icon:'⚜️', tag:'Roi mérovingien', date:'481 – 511', title:'Clovis Ier — Fondateur du Royaume de France',
+      desc:'Premier roi à unifier les Francs. Baptisé à Reims vers 496, il fonde l\'alliance durable entre la royauté et l\'Église.',
+      anecdotes:[
+        {e:'🏺', t:'<strong>L\'histoire du Vase de Soissons.</strong> Un soldat refusa de rendre à l\'évêque un vase précieux pris au combat. Clovis attendit un an, puis fracassa le crâne du soldat avec sa hache en disant : "Souviens-toi du vase de Soissons !" La patience royale se fait attendre.'},
+        {e:'🕊️', t:'<strong>La conversion de Clovis</strong> fut autant politique que religieuse. En se baptisant catholique (et non arien comme les autres rois barbares), il s\'allia toute l\'Église et les populations gallo-romaines. Un coup politique brillant.'},
+        {e:'⚔️', t:'<strong>Clovis élimina méthodiquement tous ses rivaux,</strong> y compris ses propres cousins et oncles. À sa mort, il était le seul roi franc encore en vie. Il sécurisa sa lignée par tous les moyens, y compris les plus violents.'},
+        {e:'👑', t:'<strong>L\'Empereur de Byzance lui envoya</strong> les insignes de consul romain, lui donnant une légitimité sur les populations romaines. Clovis était à la fois roi barbare et héritier de Rome — une alliance de deux mondes.'}
+      ]},
+  ]},
+  { label:'✦ Mérovingiens', cls:'merov', events:[
+    { icon:'👑', tag:'Roi mérovingien', date:'629 – 639', title:'Dagobert Ier — Le Dernier Grand Mérovingien',
+      desc:'Dernier roi mérovingien puissant. Il unifie le royaume franc, réforme l\'administration et protège les arts.',
+      anecdotes:[
+        {e:'👖', t:'<strong>"Le bon roi Dagobert avait sa culotte à l\'envers"</strong> — cette chanson satirique fut composée bien plus tard, sous la Révolution française, pour se moquer de la royauté. Dagobert n\'a rien à voir avec cette chanson — il a été victime d\'une farce qui n\'est pas de son époque.'},
+        {e:'⛪', t:'<strong>Dagobert fit de Saint-Denis la nécropole royale de France.</strong> Tous les rois de France y furent enterrés après lui, jusqu\'à Louis XVIII en 1824 — soit 12 siècles de tradition. Sa tombe y est encore visible aujourd\'hui.'},
+        {e:'🗡️', t:'<strong>Son épée, conservée au Cabinet des Médailles à Paris</strong>, est l\'une des plus anciennes épées royales françaises encore existantes. C\'est l\'un des objets les plus vieux de l\'histoire royale française.'},
+        {e:'📍', t:'<strong>Il fit de Paris son centre de pouvoir,</strong> confirmant la ville comme capitale du royaume franc. Avant lui, les rois mérovingiens voyageaient sans résidence fixe, gouvernant depuis des "palais" itinérants.'}
+      ]},
+    { icon:'😴', tag:'Événement', date:'639 – 751', title:'Les Rois Fainéants',
+      desc:'Après Dagobert, les rois mérovingiens perdent tout pouvoir réel. Les maires du palais gouvernent à leur place.',
+      anecdotes:[
+        {e:'🐂', t:'<strong>Les "rois fainéants" étaient promenés lors des fêtes</strong> dans une charrette tirée par des bœufs, trop faibles ou trop malades pour monter à cheval. Ce spectacle symbolisait parfaitement leur impuissance totale.'},
+        {e:'💈', t:'<strong>La longue chevelure était le signe du pouvoir mérovingien.</strong> Couper les cheveux d\'un roi mérovingien équivalait à l\'abdiquer. Plusieurs rois "fainéants" furent tonsurés de force et envoyés au monastère pour les écarter du pouvoir.'},
+        {e:'🏠', t:'<strong>Le "maire du palais"</strong> signifiait à l\'origine le gestionnaire de la maison royale — un intendant. En quelques générations, ce simple chef de maison devint le vrai maître du royaume. Les rois étaient des marionnettes.'},
+        {e:'🧬', t:'<strong>Les Mérovingiens s\'entre-tuaient avec régularité.</strong> La coutume de partager le royaume entre tous les fils à la mort du roi créait des guerres fratricides à chaque succession. La famille royale était son propre ennemi le plus dangereux.'}
+      ]},
+  ]},
+  { label:'✦ Carolingiens', cls:'caro', events:[
+    { icon:'⚔️', tag:'Événement', date:'732', title:'Charles Martel — Bataille de Poitiers',
+      desc:'Maire du palais, Charles Martel arrête l\'avancée arabe en Europe à Poitiers (ou Moussais). La victoire lui vaut le surnom de "Martel" (le marteau).',
+      anecdotes:[
+        {e:'👶', t:'<strong>Charles Martel était né illégitime</strong> — fils d\'une concubine. À la mort de son père, sa belle-mère le fit emprisonner. Il s\'évada et prit le pouvoir par la force. Le futur sauveur de l\'Europe chrétienne était un bâtard en fuite.'},
+        {e:'🕌', t:'<strong>L\'armée arabe venait de Narbonne</strong>, après avoir traversé toute l\'Espagne en une décennie. La bataille est souvent présentée comme le tournant qui empêcha l\'islamisation de l\'Europe occidentale.'},
+        {e:'⛪', t:'<strong>Pour financer son armée, Charles Martel confisqua</strong> massivement des terres d\'Église. L\'Église le maudit de son vivant. Mais après sa mort, elle reconnut qu\'il avait sauvé la chrétienté — et lui pardonna.'},
+        {e:'🦴', t:'<strong>Une rumeur circula à sa mort :</strong> son tombeau à Saint-Denis serait vide — des démons l\'auraient emporté en enfer pour avoir volé les terres de l\'Église. La légende noire d\'un homme pourtant salué comme héros.'}
+      ]},
+    { icon:'⚜️', tag:'Roi carolingien', date:'751 – 768', title:'Pépin le Bref — 1er Roi Carolingien',
+      desc:'Il dépose le dernier roi mérovingien avec l\'accord du pape et fonde la dynastie carolingienne. Père de Charlemagne.',
+      anecdotes:[
+        {e:'📏', t:'<strong>Le surnom "le Bref"</strong> (court en vieux français) fait référence à sa petite taille. Les chroniqueurs de l\'époque soulignent cependant sa force physique et son courage remarquables en combat. Petit mais redoutable.'},
+        {e:'🦁', t:'<strong>La légende du lion :</strong> lors d\'un tournoi, Pépin aurait seul combattu et tué un lion pour prouver sa valeur à ses seigneurs sceptiques. Vraie ou non, cette histoire illustre parfaitement comment un petit roi devait prouver son autorité.'},
+        {e:'🤝', t:'<strong>La "donation de Pépin" (754-756) :</strong> en échange de sa légitimation par le pape, Pépin offrit à l\'Église les territoires qu\'il venait de prendre aux Lombards en Italie. Naissance des États pontificaux — qui existèrent jusqu\'en 1870.'},
+        {e:'👑', t:'<strong>Pépin inventa le sacre des rois à Reims.</strong> Cette onction à l\'huile sainte conférait au roi un caractère semi-divin. La tradition dura jusqu\'à Charles X en 1825 — soit 1 074 ans de continuité rituelle.'}
+      ]},
+    { icon:'👑', tag:'Roi carolingien', date:'768 – 814', title:'Charlemagne — Empereur d\'Occident',
+      desc:'Couronné Empereur d\'Occident par le pape Léon III à Rome le 25 décembre 800. Il unifie l\'Europe occidentale et crée les premières écoles.',
+      anecdotes:[
+        {e:'✍️', t:'<strong>Charlemagne apprit à lire mais eut toujours du mal à écrire,</strong> selon son biographe Éginhard. Il gardait une ardoise sous son oreiller pour s\'exercer la nuit. L\'homme qui ordonna la création des écoles luttait lui-même contre l\'écriture.'},
+        {e:'📏', t:'<strong>Il mesurait environ 1,92 m,</strong> confirmé par ses ossements conservés à Aix-la-Chapelle. Pour une époque où la taille moyenne était de 1,68 m, il dominait physiquement toute son assemblée — une présence imposante.'},
+        {e:'💒', t:'<strong>Charlemagne eut 4 épouses légitimes</strong> et plusieurs concubines, pour un total d\'environ 18 enfants reconnus. Il adorait ses filles mais refusa qu\'elles se marient — personne ne sut jamais vraiment pourquoi. Elles restèrent à la cour toute leur vie.'},
+        {e:'😤', t:'<strong>Il fut couronné "par surprise" à Rome.</strong> Selon Éginhard, Charlemagne aurait dit qu\'il ne serait jamais entré dans l\'église ce jour-là s\'il avait connu l\'intention du pape. Le plus grand roi d\'Europe couronné sans l\'avoir voulu — ou du moins, c\'est ce qu\'il prétendit.'}
+      ]},
+  ]},
+  { label:'✦ Capétiens — Moyen Âge Central', cls:'capet', events:[
+    { icon:'🏰', tag:'Roi capétien', date:'987 – 996', title:'Hugues Capet — Fondateur de la Lignée',
+      desc:'Élu roi par les grands seigneurs. Sa descendance directe ou par les branches collatérales régnera jusqu\'en 1848.',
+      anecdotes:[
+        {e:'🎩', t:'<strong>"Capet" vient du latin "capa" (la cape).</strong> Ce surnom lui viendrait d\'une cape d\'abbé laïc qu\'il portait souvent. Ni lui ni ses descendants ne se nommèrent "Capétiens" — c\'est un surnom inventé par les historiens bien plus tard.'},
+        {e:'🗳️', t:'<strong>Son élection fut contestée.</strong> Un autre candidat, Charles de Lorraine, avait de meilleurs droits dynastiques. Hugues fut choisi parce que les grands seigneurs le jugeaient... moins dangereux et plus facile à contrôler. Ils se trompèrent.'},
+        {e:'🙏', t:'<strong>Pour assurer sa succession,</strong> Hugues fit couronner son fils Robert de son vivant, dès 987. Cette pratique du "roi associé" assura la transmission sans crise pendant des générations — une astuce politique géniale.'}
+      ]},
+    { icon:'🗺️', tag:'Roi capétien', date:'1180 – 1223', title:'Philippe Auguste — Bâtisseur du Royaume',
+      desc:'Il quadruple le domaine royal en reprenant la Normandie et l\'Anjou aux Anglais. Victoire décisive de Bouvines (1214).',
+      anecdotes:[
+        {e:'🏆', t:'<strong>La bataille de Bouvines (1214)</strong> est souvent appelée la "première victoire nationale" française. Philippe battit seul une coalition de l\'Angleterre, de l\'Empire et des Flandres. Le peuple fêta pendant une semaine.'},
+        {e:'🚿', t:'<strong>Philippe Auguste ordonna le pavage de Paris</strong> parce qu\'il était incommodé par l\'odeur de la boue des rues depuis son palais. C\'est grâce à sa sensibilité olfactive que Paris reçut ses premières rues pavées.'},
+        {e:'🧳', t:'<strong>Il créa les premières structures administratives permanentes de France,</strong> notamment les "baillis" et les "sénéchaux" — des fonctionnaires royaux envoyés dans tout le royaume. L\'embryon de l\'État centralisé moderne.'}
+      ]},
+    { icon:'🌳', tag:'Roi capétien', date:'1226 – 1270', title:'Louis IX — Saint Louis',
+      desc:'Roi pieux et réformateur. Il rend la justice directement à ses sujets, part deux fois en croisade et meurt à Tunis. Canonisé en 1297.',
+      anecdotes:[
+        {e:'⚖️', t:'<strong>Louis IX rendait la justice sous un chêne à Vincennes,</strong> accessible à tous ses sujets sans intermédiaire. Cette image du roi juge direct fonda l\'idéal de la justice royale française pendant des siècles.'},
+        {e:'💀', t:'<strong>Il mourut de dysenterie à Tunis</strong> en 1270, lors de sa 2ème croisade. Ses derniers mots auraient été "Jérusalem, Jérusalem." Il n\'approcha jamais la Terre Sainte — les deux croisades furent des échecs militaires.'},
+        {e:'💸', t:'<strong>Louis IX racheta la "couronne d\'épines"</strong> du Christ pour une somme colossale (plus de 3 fois le revenu annuel du royaume). Pour l\'abriter dignement, il fit construire la Sainte-Chapelle à Paris. On peut encore la visiter aujourd\'hui.'}
+      ]},
+    { icon:'📜', tag:'Roi capétien', date:'1285 – 1314', title:'Philippe IV le Bel',
+      desc:'Roi beau et autoritaire. Il supprime l\'ordre des Templiers en 1307 et contraint la papauté. Ses trois fils mouront sans héritier mâle.',
+      anecdotes:[
+        {e:'🤐', t:'<strong>Philippe était réputé si beau et si froid</strong> que les contemporains disaient qu\'il "ressemblait à un ange et ne faisait rien comme un homme." Il ne souriait jamais, parlait peu. Son calme impressionnant cachait une volonté de fer.'},
+        {e:'⛪', t:'<strong>Il fit arrêter le pape Boniface VIII</strong> à Anagni en 1303. Le pape, humilié, mourut un mois plus tard. Un roi de France avait osé attaquer physiquement le chef de l\'Église catholique — scandale absolu pour l\'époque.'},
+        {e:'💰', t:'<strong>Il supprima les Templiers en partie pour effacer ses dettes.</strong> La richesse de l\'ordre lui permettrait de rembourser ce qu\'il leur devait... en les condamnant. Un roi qui liquidait son créancier le plus puissant.'}
+      ]},
+    { icon:'🎰', tag:'Événement', date:'1314', title:'La Malédiction des Rois Maudits',
+      desc:'Depuis son bûcher, Jacques de Molay, grand maître des Templiers, maudit Philippe le Bel. Ses trois fils mourront en 14 ans.',
+      anecdotes:[
+        {e:'🔥', t:'<strong>Jacques de Molay fut brûlé vif sur l\'île de la Cité à Paris.</strong> Depuis les flammes, il aurait cité le roi et le pape à comparaître devant Dieu avant un an. Le pape Clément V mourut en avril 1314, le roi en novembre 1314. La malédiction semblait se réaliser.'},
+        {e:'📚', t:'<strong>"Les Rois Maudits" de Maurice Druon (1955)</strong> rendit cette histoire célèbre. George R.R. Martin a avoué s\'en être inspiré pour "Game of Thrones". La réalité historique peut dépasser les fictions les plus sombres.'},
+        {e:'👑', t:'<strong>Les trois fils de Philippe</strong> (Louis X, Philippe V, Charles IV) régnèrent successivement mais aucun n\'eut de fils survivant. La lignée capétienne directe s\'éteignit en 1328, ouvrant une crise de succession qui alluma la Guerre de Cent Ans.'}
+      ]},
+    { icon:'⚔️', tag:'Événement', date:'1337 – 1453', title:'Guerre de Cent Ans',
+      desc:'Conflit entre la France et l\'Angleterre pour la couronne de France. Azincourt (1415), puis redressement avec Jeanne d\'Arc (1429). Victoire finale française.',
+      anecdotes:[
+        {e:'⚡', t:'<strong>À Azincourt (1415), 6 000 Anglais écrasèrent une armée française de 12 000 à 36 000 hommes.</strong> Les archers gallois avec leurs arcs longs fauchèrent la chevalerie française enfoncée dans la boue. Une défaite humiliante et catastrophique.'},
+        {e:'🔥', t:'<strong>Jeanne d\'Arc avait 17 ans quand elle convainquit le roi de France</strong> de la laisser mener son armée. Brûlée à 19 ans en 1431. Réhabilitée en 1456. Canonisée seulement en 1920 — 489 ans après son exécution. L\'Église mit du temps à reconnaître son erreur.'},
+        {e:'🏹', t:'<strong>La guerre dura en réalité 116 ans</strong>, avec de longues trêves entre les batailles. Les contemporains n\'avaient aucune idée de vivre "la Guerre de Cent Ans" — ce nom fut inventé par des historiens du XIXe siècle.'}
+      ]},
+    { icon:'💀', tag:'Événement', date:'1347 – 1351', title:'La Grande Peste Noire',
+      desc:'La peste bubonique tue environ un tiers de la population européenne — entre 25 et 50 millions de morts en 4 ans.',
+      anecdotes:[
+        {e:'🐀', t:'<strong>La puce du rat transmettait la bactérie Yersinia pestis.</strong> La chasse aux chats (associés aux sorcières) avait fait proliférer les rats en Europe, aggravant indirectement l\'épidémie. Un préjugé religieux contre les chats a peut-être tué des millions de personnes.'},
+        {e:'😷', t:'<strong>Les médecins de la peste portaient des costumes effrayants :</strong> masque en forme de bec de corbeau rempli d\'herbes odorantes (pour filtrer les "mauvais airs"), longue robe et chapeau. Ce costume est devenu une icône du Carnaval de Venise.'},
+        {e:'💸', t:'<strong>Les survivants héritèrent des terres des morts.</strong> Les salaires des artisans et paysans explosèrent : ils étaient devenus rares et pouvaient exiger plus. La Peste Noire a paradoxalement accéléré la fin du servage en Europe.'}
+      ]},
+  ]},
+  { label:'✦ Renaissance', cls:'renaiss', events:[
+    { icon:'🖨️', tag:'Événement', date:'vers 1450', title:'Invention de l\'Imprimerie — Gutenberg',
+      desc:'Johannes Gutenberg invente les caractères mobiles en métal à Mayence. La Bible de Gutenberg est imprimée vers 1455.',
+      anecdotes:[
+        {e:'📖', t:'<strong>Avant Gutenberg, un moine copiste mettait 5 mois</strong> pour copier une Bible à la main. Une presse de Gutenberg en produisait 180 en une semaine. En 50 ans après l\'invention, 15 millions de livres furent imprimés en Europe.'},
+        {e:'💡', t:'<strong>L\'imprimerie a rendu possible la Réforme protestante.</strong> Les 95 thèses de Luther furent imprimées et répandues dans toute l\'Allemagne en quelques semaines. Sans l\'imprimerie, Luther serait resté un moine inconnu.'},
+        {e:'😅', t:'<strong>Gutenberg mourut très pauvrement.</strong> Son associé Fust lui intenta un procès pour rembourser ses prêts et lui prit ses presses. L\'inventeur de l\'imprimerie ne put pas profiter de son invention — la plus grande injustice de l\'histoire des inventeurs.'}
+      ]},
+    { icon:'💣', tag:'Événement', date:'XIVe – XVe siècle', title:'Invention des Canons à Poudre',
+      desc:'La poudre à canon venue de Chine révolutionne la guerre en Europe. Les châteaux forts deviennent obsolètes en quelques décennies.',
+      anecdotes:[
+        {e:'💥', t:'<strong>Les premiers canons explosaient souvent dans les mains de leurs utilisateurs.</strong> Henri II d\'Écosse mourut en 1460 à côté d\'un canon qui explosa lors d\'un siège. La technologie était aussi dangereuse pour ses utilisateurs que pour ses cibles.'},
+        {e:'🏰', t:'<strong>Constantinople, imprenable depuis 1 000 ans, tomba en 53 jours en 1453</strong> grâce aux mégacannons du sultan Mehmed II. Des murs qui avaient résisté aux croisades et aux Huns capitulèrent devant la poudre à canon.'},
+        {e:'🧨', t:'<strong>Les Chinois avaient inventé la poudre au IXe siècle</strong> pour les feux d\'artifice et les pétards rituels. Ce sont les peuples d\'Asie centrale, puis les Arabes et les Européens qui l\'ont transformée en arme de guerre dévastatrice.'}
+      ]},
+    { icon:'⛪', tag:'Événement', date:'1517', title:'Naissance du Protestantisme — Martin Luther',
+      desc:'Luther affiche ses 95 thèses à Wittenberg contre les indulgences. L\'Europe chrétienne se fracture profondément.',
+      anecdotes:[
+        {e:'📌', t:'<strong>Luther n\'a peut-être jamais affiché ses thèses sur une porte.</strong> Il les envoya certainement par courrier à ses supérieurs ecclésiastiques. La scène de l\'affichage dramatique est probablement une légende construite après coup.'},
+        {e:'🍺', t:'<strong>Luther était moine, professeur et brasseur de bière.</strong> Sa femme Katharina von Bora brassait à la maison. Luther aimait tellement la bière qu\'il en parla dans ses écrits théologiques. La Réforme et la bière — deux spécialités allemandes.'},
+        {e:'🩸', t:'<strong>Les guerres de Religion déclenchées en partie par la Réforme</strong> tuèrent entre 3 et 4 millions de personnes en Europe au XVIe et XVIIe siècle, dont environ 3 millions en France (guerres de Huguenots).'}
+      ]},
+    { icon:'🎨', tag:'Événement', date:'1494 – 1559', title:'La Renaissance en France',
+      desc:'Les guerres d\'Italie font découvrir la Renaissance italienne aux Français. Arts, architecture, littérature et sciences connaissent un essor remarquable.',
+      anecdotes:[
+        {e:'🏛️', t:'<strong>Charles VIII entra à Florence en 1494</strong> et fut stupéfait par les palais et les œuvres d\'art. En rentrant, il ramena des artisans et artistes italiens. La Renaissance arriva en France dans les bagages d\'une armée en guerre.'},
+        {e:'🌍', t:'<strong>La Renaissance et les Grandes Découvertes sont simultanées :</strong> Colomb en 1492, Vasco de Gama en 1498, Magellan en 1519. Le monde intellectuel et géographique s\'ouvrit au même moment. Une époque de bouleversements sans précédent.'},
+        {e:'📐', t:'<strong>Léonard de Vinci mourut en France</strong> au château du Clos Lucé (Amboise) en 1519. La Joconde, qu\'il avait emportée avec lui, devint propriété de François Ier et finit au Louvre. La France possède ce chef-d\'œuvre par accident d\'histoire.'}
+      ]},
+    { icon:'👑', tag:'Roi', date:'1515 – 1547', title:'François Ier — Roi de la Renaissance',
+      desc:'Grand mécène, il attire Léonard de Vinci en France. Fonde le Collège de France et impose le français dans les actes officiels (Villers-Cotterêts, 1539).',
+      anecdotes:[
+        {e:'🎨', t:'<strong>Léonard de Vinci avait 64 ans</strong> quand François Ier, 23 ans, l\'invita en France avec une généreuse pension royale. Léonard mourut 3 ans plus tard à Amboise. Le plus grand génie de la Renaissance finit ses jours en France.'},
+        {e:'⚔️', t:'<strong>François Ier fut capturé à la bataille de Pavie (1525)</strong> par Charles Quint. Prisonnier à Madrid, il signa un traité humiliant, puis le renia sitôt rentré en France : les promesses faites sous contrainte ne l\'engageaient pas, disait-il.'},
+        {e:'📜', t:'<strong>L\'ordonnance de Villers-Cotterêts (1539)</strong> imposa le français (et non le latin) dans tous les actes officiels. C\'est l\'acte de naissance du français comme langue d\'État, toujours en vigueur 485 ans plus tard.'},
+        {e:'🏰', t:'<strong>François Ier fit construire ou rénover</strong> Chambord, Fontainebleau et le Louvre. Pour Chambord seul : 1 800 ouvriers pendant 15 ans. Il transforma la France en grand chantier architectural permanent.'}
+      ]},
+  ]},
+  { label:'✦ Monarchie Absolue', cls:'moderne', events:[
+    { icon:'🕊️', tag:'Roi', date:'1589 – 1610', title:'Henri IV — Le Vert-Galant',
+      desc:'Premier roi Bourbon. L\'Édit de Nantes (1598) accorde la liberté de culte aux protestants et met fin aux guerres de Religion. Assassiné en 1610.',
+      anecdotes:[
+        {e:'🛐', t:'<strong>"Paris vaut bien une messe."</strong> Henri IV, protestant, se convertit au catholicisme pour être accepté comme roi de France. Cette phrase célèbre fut peut-être inventée par ses ennemis pour le moquer, mais elle résume parfaitement son pragmatisme politique.'},
+        {e:'🗡️', t:'<strong>Ravaillac était un fanatique catholique</strong> convaincu qu\'Henri IV allait attaquer le pape. Il poignarda le roi dans son carrosse bloqué dans la rue de la Ferronnerie à Paris, le 14 mai 1610. Ravaillac fut écartelé vif place de Grève.'},
+        {e:'🐔', t:'<strong>"Je veux qu\'il n\'y ait si pauvre paysan en mon royaume qu\'il n\'ait tous les dimanches sa poule au pot."</strong> Cette promesse populaire fit d\'Henri IV un roi adoré. Ses contemporains et la postérité lui pardonnèrent tout le reste.'},
+        {e:'❤️', t:'<strong>Henri IV eut de très nombreuses maîtresses,</strong> dont Gabrielle d\'Estrées qu\'il aimait profondément et voulut faire reine. Elle mourut en couches en 1599. Le roi en fut sincèrement dévasté, ce qui était rare à une époque où l\'amour royal était surtout diplomatique.'}
+      ]},
+    { icon:'☀️', tag:'Roi', date:'1643 – 1715', title:'Louis XIV — Le Roi-Soleil',
+      desc:'72 ans de règne, le plus long de l\'histoire de France. Versailles, absolutisme royal, révocation de l\'Édit de Nantes (1685).',
+      anecdotes:[
+        {e:'🌅', t:'<strong>Louis XIV choisit le Soleil comme emblème à l\'âge de 14 ans</strong> lors d\'un ballet de cour où il jouait Apollon. Ce symbole — le roi comme astre autour duquel tout tourne — structura symboliquement tout son règne de 72 ans.'},
+        {e:'🚽', t:'<strong>Versailles manquait cruellement de sanitaires.</strong> Des milliers de courtisans utilisaient les coins du château ou des chaises percées portatives. Le château le plus luxueux d\'Europe était aussi l\'un des plus malodorants.'},
+        {e:'💃', t:'<strong>Louis XIV était un danseur exceptionnel</strong> — il participa à au moins 40 ballets de cour. Il fonda l\'Académie Royale de Danse, ancêtre de l\'Opéra de Paris. Le ballet classique tel qu\'on le connaît est une invention royale française.'},
+        {e:'📿', t:'<strong>La révocation de l\'Édit de Nantes (1685)</strong> força environ 200 000 protestants qualifiés à fuir vers la Prusse, l\'Angleterre et les Pays-Bas. Ces exilés enrichirent les économies concurrentes de la France. Une décision religieuse aux conséquences économiques désastreuses.'}
+      ]},
+    { icon:'🗡️', tag:'Roi', date:'1774 – 1792', title:'Louis XVI — La Fin de la Monarchie',
+      desc:'Guillotiné le 21 janvier 1793. La Révolution éclate en 1789 : prise de la Bastille, Déclaration des droits de l\'Homme.',
+      anecdotes:[
+        {e:'🔧', t:'<strong>Louis XVI était passionné de serrurerie.</strong> Il fabriquait des serrures dans un atelier au Louvre. Cette passion lui fut fatale : on y découvrit son "armoire de fer" secrète contenant ses correspondances compromettantes.'},
+        {e:'😴', t:'<strong>Dans son journal intime, le 14 juillet 1789, Louis XVI écrit un seul mot : "Rien".</strong> Il chassait ce jour-là et n\'avait rien tué. Il ne savait pas encore que la Bastille venait de tomber. Ce "Rien" est devenu l\'un des mots les plus célèbres de l\'histoire.'},
+        {e:'🏃', t:'<strong>La fuite à Varennes (juin 1791) fut le tournant fatal.</strong> La famille royale fut reconnue à Sainte-Menehould par Jean-Baptiste Drouet, le maître de poste local, qui avait comparé le visage du roi à son portrait sur les billets de banque. Arrêtée à Varennes, à seulement 50 km de la frontière.'},
+        {e:'🗣️', t:'<strong>Sur l\'échafaud, Louis XVI cria :</strong> "Je meurs innocent de tous les crimes qu\'on m\'impute. Je pardonne aux auteurs de ma mort." Le tambour fut battu pour couvrir sa voix. Il mourut dignement, ce que personne ne lui contesta.'}
+      ]},
+  ]},
+  { label:'✦ Révolution Française', cls:'revolution', events:[
+    { icon:'🎾', tag:'Événement', date:'20 juin 1789', title:'Serment du Jeu de Paume',
+      desc:'Les députés du Tiers-État, exclus de leur salle de réunion par ordre du roi, se réunissent dans la salle du jeu de paume de Versailles et jurent de ne pas se séparer avant d\'avoir donné une constitution à la France.',
+      anecdotes:[
+        {e:'🚪', t:'<strong>Les députés trouvèrent leur salle fermée à clé</strong> sans explication. Ils pensèrent d\'abord à une dissolution. C\'est Jean-Sylvain Bailly qui proposa de se réunir dans la salle du jeu de paume voisine — une décision improvisée devenue historique.'},
+        {e:'✍️', t:'<strong>577 députés sur 578 signèrent le serment.</strong> Le seul qui refusa se nommait Martin d\'Auch. Il signa finalement plus tard, après avoir essuyé la colère de ses collègues. L\'unanimité fut presque totale.'},
+        {e:'🎨', t:'<strong>Le peintre David immortalisa la scène</strong> dans une immense toile (aujourd\'hui au musée du Jeu de Paume). Cette image du serment collectif est l\'une des représentations les plus célèbres de la Révolution française.'}
+      ]},
+    { icon:'🏰', tag:'Événement', date:'14 juillet 1789', title:'Prise de la Bastille',
+      desc:'Le peuple de Paris prend d\'assaut la forteresse-prison de la Bastille, symbole de l\'absolutisme royal. Date fondatrice de la République française.',
+      anecdotes:[
+        {e:'🔓', t:'<strong>La Bastille ne contenait que 7 prisonniers</strong> ce jour-là : 4 faussaires, 2 fous et 1 noble emprisonné à la demande de sa famille. La forteresse symbolique de la tyrannie était presque vide au moment de sa prise.'},
+        {e:'🧱', t:'<strong>La Bastille fut rasée en quelques mois.</strong> Des pierres furent vendues en souvenirs aux touristes dès 1789 — peut-être les premiers "souvenirs révolutionnaires" de l\'histoire. Il n\'en reste aujourd\'hui qu\'un périmètre tracé sur le sol de la place.'},
+        {e:'🎉', t:'<strong>Dès le lendemain, Louis XVI écrit dans son journal :</strong> "Le 15 juillet, rien." Puis, apprenant la nouvelle, il demanda à un courtisan : "C\'est une révolte ?" "Non Sire, répondit le duc de La Rochefoucauld-Liancourt — c\'est une révolution."'}
+      ]},
+    { icon:'👩', tag:'Événement', date:'5 – 6 octobre 1789', title:'Marche sur Versailles — Le Roi Ramené à Paris',
+      desc:'Des milliers de femmes de Paris marchent jusqu\'à Versailles, exigeant du pain. Elles ramènent de force la famille royale aux Tuileries à Paris.',
+      anecdotes:[
+        {e:'🍞', t:'<strong>La marche fut déclenchée par la famine.</strong> Le prix du pain avait atteint des sommets insupportables à Paris. Ce sont d\'abord des femmes des marchés qui prirent les armes et partirent à pied jusqu\'à Versailles — 20 kilomètres.'},
+        {e:'👑', t:'<strong>Le cortège de retour fut triomphal et sinistre.</strong> La foule portait des têtes de gardes décapités au bout de piques, devant le carrosse royal. Louis XVI rentra à Paris sous les cris de "Le boulanger, la boulangère et le petit mitron !" — lui, sa femme et son fils.'},
+        {e:'🏰', t:'<strong>Louis XVI ne retourna jamais à Versailles.</strong> Il vécut désormais au palais des Tuileries à Paris, sous la surveillance permanente du peuple parisien. Le roi était devenu prisonnier de sa propre capitale.'}
+      ]},
+    { icon:'🚗', tag:'Événement', date:'20 – 21 juin 1791', title:'La Fuite à Varennes',
+      desc:'La famille royale tente secrètement de fuir en Belgique pour rejoindre des armées étrangères. Elle est arrêtée à Varennes-en-Argonne.',
+      anecdotes:[
+        {e:'🎭', t:'<strong>Ils se déguisèrent pour fuir.</strong> Louis XVI se fit passer pour un valet, Marie-Antoinette pour une gouvernante. Mais le roi était reconnaissable par son embonpoint et sa démarche lente. Le déguisement n\'était pas très convaincant.'},
+        {e:'🏇', t:'<strong>C\'est Jean-Baptiste Drouet</strong>, maître de poste de Sainte-Menehould, qui reconnut le roi en comparant son visage à son portrait sur les assignats (billets de banque). Il chevaucha toute la nuit pour prévenir Varennes avant que le carrosse n\'arrive.'},
+        {e:'💔', t:'<strong>Cette fuite fut le vrai tournant fatal pour Louis XVI.</strong> Avant Varennes, beaucoup de Français lui restaient fidèles. Après Varennes, il était clairement un traître qui fuyait rejoindre des armées étrangères pour envahir la France. Il ne fut plus jamais vraiment pardonné.'}
+      ]},
+    { icon:'🩸', tag:'Événement', date:'juillet 1793', title:'Assassinat de Marat — Charlotte Corday',
+      desc:'Jean-Paul Marat, journaliste révolutionnaire radical, est poignardé dans sa baignoire médicale par Charlotte Corday, militante girondine.',
+      anecdotes:[
+        {e:'🛁', t:'<strong>Marat souffrait d\'une grave maladie de peau</strong> (probablement un eczéma infecté) qui ne lui permettait de travailler que dans un bain médicamenteux. C\'est pour cela qu\'il reçut Charlotte Corday dans sa baignoire.'},
+        {e:'🗡️', t:'<strong>Charlotte Corday acheta un couteau de cuisine</strong> le matin même de l\'assassinat. Elle pensait que tuer Marat "qui envoyait des milliers à la mort" sauverait des milliers d\'autres vies. Elle fut guillotinée 4 jours plus tard, à 24 ans.'},
+        {e:'🎨', t:'<strong>Le peintre David représenta Marat mort dans sa baignoire</strong> comme un martyr révolutionnaire. Ce tableau (conservé à Bruxelles) est l\'une des œuvres les plus célèbres de la peinture française — la "Pietà" de la Révolution.'}
+      ]},
+    { icon:'⚖️', tag:'Événement', date:'1793 – 1794', title:'La Terreur — Robespierre',
+      desc:'Le Comité de Salut Public, dirigé par Robespierre, envoie des milliers de personnes à la guillotine. 17 000 exécutions officielles, 40 000 morts en prison.',
+      anecdotes:[
+        {e:'🪒', t:'<strong>Robespierre était surnommé "l\'Incorruptible"</strong> car il refusait les pots-de-vin et vivait sobrement. Homme de principes absolus, il était convaincu que la Terreur était nécessaire pour sauver la Révolution. Ce fut finalement la Terreur qui le tua.'},
+        {e:'😱', t:'<strong>La guillotine décapita aussi ses propres créateurs.</strong> Danton, l\'ami de Robespierre qui avait voté la Terreur, fut guillotiné sur ordre de Robespierre en avril 1794. Sur l\'échafaud, il cria : "Tu me suivras, Robespierre !" Il avait raison : Robespierre fut guillotiné 3 mois plus tard.'},
+        {e:'🌡️', t:'<strong>La chute de Robespierre eut lieu le 9 Thermidor An II</strong> (27 juillet 1794). Le jour même de son arrestation, il fut blessé à la mâchoire — certains disent qu\'il tenta de se suicider, d\'autres qu\'il fut blessé lors de son arrestation. Il fut guillotiné le lendemain.'}
+      ]},
+    { icon:'🏛️', tag:'Événement', date:'1795 – 1799', title:'Le Directoire — Fin de la Révolution',
+      desc:'Un gouvernement de 5 "Directeurs" tente de stabiliser la France après la Terreur. Période marquée par la corruption et l\'instabilité.',
+      anecdotes:[
+        {e:'💰', t:'<strong>Le Directoire fut l\'un des régimes les plus corrompus de l\'histoire française.</strong> Les 5 Directeurs s\'enrichissaient ouvertement. Le peuple les surnommait "les rois de la République" — une insulte dans la bouche des révolutionnaires.'},
+        {e:'⚔️', t:'<strong>C\'est pendant le Directoire qu\'un jeune général corse fit ses preuves :</strong> Napoléon Bonaparte gagna la campagne d\'Italie (1796-1797), puis l\'expédition d\'Égypte (1798). Il revenait en héros d\'une France en faillite.'},
+        {e:'📅', t:'<strong>La Révolution avait inventé un nouveau calendrier.</strong> Vendémiaire, Brumaire, Frimaire... Les mois avaient des noms liés aux saisons et à la nature. Ce calendrier républicain fut abandonné par Napoléon en 1806. Il avait duré 13 ans.'}
+      ]},
+  ]},
+  { label:'✦ Ère Napoléonienne', cls:'empire', events:[
+    { icon:'⚡', tag:'Événement', date:'9 novembre 1799', title:'Le 18 Brumaire — Coup d\'État de Napoléon',
+      desc:'Napoléon Bonaparte renverse le Directoire et prend le pouvoir. Il devient Premier Consul, puis Consul à vie, puis Empereur.',
+      anecdotes:[
+        {e:'😅', t:'<strong>Le coup d\'état faillit échouer.</strong> Napoléon, stressé, bégaya et s\'embrouilla devant le Conseil des Cinq-Cents. Les députés l\'attaquèrent physiquement et durent être évacués par la garde. Ce fut son frère Lucien qui sauva la situation.'},
+        {e:'🎭', t:'<strong>Napoléon prétendit avoir été "invité" au pouvoir</strong> pour sauver la République. En réalité, c\'était un coup d\'état militaire classique. Il usa toujours d\'une rhétorique républicaine pour justifier un pouvoir personnel absolu.'},
+        {e:'🗓️', t:'<strong>"Brumaire" signifiait "mois des brumes"</strong> dans le calendrier révolutionnaire. Le 18 Brumaire An VIII correspond au 9 novembre 1799 dans notre calendrier. L\'expression "coup de Brumaire" est restée dans la langue française pour désigner un renversement de pouvoir.'}
+      ]},
+    { icon:'👑', tag:'Empereur', date:'1804 – 1815', title:'Napoléon Ier — Empereur des Français',
+      desc:'Sacré Empereur en 1804 à Notre-Dame. Il réorganise la France (Code civil, lycées, Légion d\'honneur) et domine l\'Europe.',
+      anecdotes:[
+        {e:'📏', t:'<strong>Napoléon n\'était pas si petit !</strong> Il mesurait environ 1,68 à 1,70 m — la taille moyenne française de l\'époque. La confusion vient d\'une erreur de conversion entre les pouces français et anglais. La "petite taille" de Napoléon est l\'une des plus grandes légendes de l\'histoire.'},
+        {e:'👑', t:'<strong>Lors de son sacre, Napoléon prit la couronne des mains du pape</strong> et se couronna lui-même, puis couronna Joséphine. Il ne voulait pas devoir sa couronne à l\'Église mais à lui-même. Un geste symbolique énorme, soigneusement calculé.'},
+        {e:'📚', t:'<strong>Le Code civil de 1804</strong> (dit "Code Napoléon") est toujours la base du droit civil français, belge, québécois et de dizaines d\'autres pays. Napoléon disait : "Ma vraie gloire n\'est pas d\'avoir gagné quarante batailles... Waterloo effacera le souvenir de tant de victoires. Mais le Code civil, rien ne l\'effacera."'},
+        {e:'❄️', t:'<strong>La retraite de Russie (1812) fut la catastrophe.</strong> Napoléon entra en Russie avec 680 000 hommes. Il en sortit avec environ 100 000, décimés par les combats, le froid et la faim. Ce fut le début irréversible de sa chute.'}
+      ]},
+    { icon:'🏳️', tag:'Événement', date:'18 juin 1815', title:'Waterloo — La Chute de Napoléon',
+      desc:'Défaite décisive face aux armées anglaise et prussienne en Belgique. Napoléon abdique et est exilé à Sainte-Hélène où il mourra en 1821.',
+      anecdotes:[
+        {e:'🌧️', t:'<strong>Napoléon attendit jusqu\'à 11h du matin pour lancer l\'attaque</strong> à Waterloo, espérant que le sol détrempé par la pluie de la veille sèche. Ce retard permit aux Prussiens d\'arriver à temps pour renforcer Wellington. La météo a peut-être changé l\'histoire.'},
+        {e:'🏝️', t:'<strong>Napoléon fut exilé sur Sainte-Hélène</strong>, île volcanique perdue dans l\'Atlantique Sud à 2 000 km de tout continent. Les Anglais voulaient s\'assurer qu\'il ne pourrait plus jamais en partir. Il y mourut en 1821 à 51 ans.'},
+        {e:'📝', t:'<strong>À Sainte-Hélène, Napoléon dicta ses Mémoires</strong> et construisit soigneusement sa légende. Il se représenta en défenseur des idéaux révolutionnaires, victime de l\'Europe monarchique. Ce "testament de Sainte-Hélène" influença des générations de Français.'}
+      ]},
+  ]},
+  { label:'✦ Restauration, Monarchie & Républiques', cls:'republiques', events:[
+    { icon:'⚜️', tag:'Événement', date:'1815 – 1848', title:'Restauration Monarchique & Monarchie de Juillet',
+      desc:'Louis XVIII puis Charles X (Bourbons) tentent de restaurer l\'Ancien Régime. Révolutions de 1830 et 1848 balaient ces tentatives.',
+      anecdotes:[
+        {e:'💬', t:'<strong>Louis XVIII était pragmatique :</strong> "Il n\'y a qu\'une chose qu\'on ne peut pas faire avec des baïonnettes, c\'est s\'asseoir dessus." Il accepta une Charte constitutionnelle et gouverna avec prudence — à l\'inverse de son frère Charles X.'},
+        {e:'🗣️', t:'<strong>Charles X fut renversé en 3 jours.</strong> Ses ordonnances restreignant la presse et le droit de vote déclenchèrent les "Trois Glorieuses" (27-29 juillet 1830). Il abdiqua et s\'exila en Angleterre. La rue parisienne avait parlé.'},
+        {e:'🎩', t:'<strong>Louis-Philippe, "le roi des Français",</strong> se promenait dans Paris avec son parapluie et serrait la main de ses sujets. Mais sa monarchie "bourgeoise" finit aussi par être renversée lors de la révolution de février 1848.'}
+      ]},
+    { icon:'🗳️', tag:'Événement', date:'1848 – 1852', title:'2ème République & Napoléon III',
+      desc:'La 2ème République proclame le suffrage universel masculin. Louis-Napoléon Bonaparte est élu président puis fait un coup d\'État pour devenir Napoléon III.',
+      anecdotes:[
+        {e:'🗳️', t:'<strong>Le suffrage universel masculin fut proclamé en mars 1848</strong> — tous les Français adultes de sexe masculin pouvaient voter pour la première fois. En mai 1848, la France élit 900 députés au suffrage universel. Une révolution démocratique majeure.'},
+        {e:'🎩', t:'<strong>Victor Hugo, qui avait soutenu Louis-Napoléon,</strong> fut atterré par le coup d\'État de décembre 1851. Il s\'exila à Guernesey pendant 19 ans et appela Napoléon III "Napoléon le Petit". Les deux hommes ne se réconcilièrent jamais.'},
+        {e:'🏗️', t:'<strong>Napoléon III confia au baron Haussmann</strong> la transformation complète de Paris. Entre 1853 et 1870, les grands boulevards, les parcs (Boulogne, Vincennes), les gares et les égouts modernes furent construits. Paris devint la "Ville Lumière".'}
+      ]},
+    { icon:'🏛️', tag:'Événement', date:'1870 – 1940', title:'3ème République',
+      desc:'La plus longue République française : 70 ans. Elle instaure l\'école laïque et gratuite, la liberté de la presse, et affronte deux guerres mondiales.',
+      anecdotes:[
+        {e:'📚', t:'<strong>Jules Ferry instaura l\'école gratuite (1881) et laïque (1882).</strong> Pour la première fois, tous les enfants de France — riches ou pauvres, filles ou garçons — avaient droit à une éducation publique gratuite. Une révolution sociale silencieuse.'},
+        {e:'🗼', t:'<strong>La Tour Eiffel fut construite</strong> pour l\'Exposition universelle de 1889. Elle devait être démolie après 20 ans. Elle ne fut sauvée que parce qu\'elle servait d\'antenne de radio. Le monument le plus visité du monde a failli être détruit.'},
+        {e:'⚖️', t:'<strong>L\'Affaire Dreyfus (1894-1906)</strong> déchira la France en deux. Un officier juif innocemment condamné pour espionnage fut défendu par Zola ("J\'accuse !"). L\'affaire révéla l\'antisémitisme profond dans l\'armée et la société françaises.'}
+      ]},
+  ]},
+  { label:'✦ Guerres Mondiales', cls:'guerres', events:[
+    { icon:'🪖', tag:'Événement', date:'1914 – 1918', title:'Première Guerre Mondiale',
+      desc:'La "Grande Guerre" fait 18 millions de morts dont 1,4 million de soldats français. La guerre des tranchées traumatise toute une génération.',
+      anecdotes:[
+        {e:'🕊️', t:'<strong>La guerre fut déclenchée par l\'assassinat</strong> de l\'archiduc François-Ferdinand d\'Autriche à Sarajevo le 28 juin 1914. Un seul attentat déclencha une série d\'alliances qui entraîna toute l\'Europe dans la guerre en moins de 6 semaines.'},
+        {e:'🪖', t:'<strong>Les soldats français portaient des pantalons rouge garance</strong> (rouge vif) en 1914 — un vestige de la tradition napoléonienne. Cette couleur les rendait parfaitement visibles pour l\'ennemi. Il fallut attendre les premières batailles meurtrières pour adopter le bleu horizon.'},
+        {e:'🌹', t:'<strong>La bataille de Verdun (1916)</strong> dura 10 mois et fit environ 700 000 morts et blessés pour les deux camps, pour un terrain de quelques kilomètres carrés. Elle reste l\'un des symboles absolus de l\'absurdité de la guerre industrielle.'},
+        {e:'✋', t:'<strong>Le 11 novembre 1918 à 11h du matin,</strong> les canons se turent sur tout le front. Des soldats qui s\'étaient entre-tués pendant 4 ans se levèrent de leurs tranchées et se regardèrent. Le silence après 4 ans de bruit était, dit-on, insupportable.'}
+      ]},
+    { icon:'🔥', tag:'Événement', date:'1939 – 1945', title:'Deuxième Guerre Mondiale — Occupation & Libération',
+      desc:'La France est occupée par l\'Allemagne nazie de 1940 à 1944. La Résistance et la Libération permettent à la France de retrouver sa liberté.',
+      anecdotes:[
+        {e:'📻', t:'<strong>Le 18 juin 1940, le général de Gaulle lança son appel depuis Londres :</strong> "La France a perdu une bataille, mais la France n\'a pas perdu la guerre !" Peu de Français l\'entendirent en direct — mais ce discours devint le symbole de la Résistance.'},
+        {e:'⭐', t:'<strong>Les Juifs de France furent contraints de porter l\'étoile jaune</strong> à partir de juin 1942 en zone occupée. 75 000 Juifs de France furent déportés vers les camps d\'extermination nazis. Seulement 2 500 en revinrent.'},
+        {e:'🪖', t:'<strong>Le 6 juin 1944 (D-Day),</strong> 156 000 soldats alliés débarquèrent en Normandie. C\'est le plus grand débarquement amphibie de l\'histoire. Paris fut libéré le 25 août 1944. De Gaulle descendit les Champs-Élysées sous les acclamations.'},
+        {e:'🕊️', t:'<strong>La Seconde Guerre Mondiale fit environ 75 millions de morts</strong> dans le monde, dont 6 millions de Juifs dans les camps d\'extermination nazis (la Shoah). C\'est le conflit le plus meurtrier de toute l\'histoire humaine.'}
+      ]},
+  ]},
+  { label:'✦ Époque Contemporaine', cls:'contemp', events:[
+    { icon:'🕊️', tag:'Événement', date:'1946 – 1958', title:'4ème République',
+      desc:'Après la Libération, la France se reconstruit. La 4ème République, souvent instable (25 gouvernements en 12 ans), affronte les guerres coloniales.',
+      anecdotes:[
+        {e:'👩', t:'<strong>Les femmes votèrent pour la première fois en France en 1944,</strong> puis participèrent aux premières élections de la 4ème République en 1945. La France fut l\'un des derniers grands pays d\'Europe à accorder le droit de vote aux femmes.'},
+        {e:'🌍', t:'<strong>La guerre d\'Indochine (1946-1954)</strong> puis la guerre d\'Algérie (1954-1962) épuisèrent la France. La défaite de Diên Biên Phu (1954) face au Viêt-Minh fut un choc national qui accéléra la décolonisation.'},
+        {e:'🏗️', t:'<strong>Les "Trente Glorieuses" (1945-1975)</strong> furent une période de croissance économique extraordinaire. La France se modernisa à toute vitesse : électroménager, automobile, télévision, construction de logements. Le niveau de vie doubla en une génération.'}
+      ]},
+    { icon:'🗳️', tag:'Événement', date:'1958 – aujourd\'hui', title:'5ème République — De Gaulle & Nos Jours',
+      desc:'De Gaulle fonde la 5ème République avec une nouvelle Constitution. Elle donne au président des pouvoirs étendus et est toujours en vigueur aujourd\'hui.',
+      anecdotes:[
+        {e:'📜', t:'<strong>La Constitution de 1958</strong> fut rédigée en quelques semaines par une équipe dirigée par Michel Debré. Elle institua le régime semi-présidentiel français : un président fort et un Premier ministre. Cette Constitution est toujours en vigueur 65 ans plus tard.'},
+        {e:'🌸', t:'<strong>Mai 1968 : des millions de Français</strong> — étudiants et ouvriers — se mirent en grève. Paris fut paralysée. De Gaulle, dépassé, quitta secrètement l\'Élysée pour consulter ses généraux en Allemagne. La France fut à deux doigts de la révolution.'},
+        {e:'🇪🇺', t:'<strong>La France fut l\'un des 6 pays fondateurs</strong> de la Communauté Économique Européenne en 1957 (ancêtre de l\'Union Européenne). De Gaulle et Adenauer (Allemagne) forgèrent la réconciliation franco-allemande, fondement de l\'Europe moderne.'},
+        {e:'🗼', t:'<strong>La France aujourd\'hui :</strong> 67 millions d\'habitants, 5ème économie mondiale, membre permanent du Conseil de Sécurité de l\'ONU, puissance nucléaire. Et le pays le plus visité du monde, avec plus de 100 millions de touristes par an — dont beaucoup pour la Tour Eiffel.'}
+      ]},
+  ]},
+];
+
+// ── Modal ──
+const overlay  = document.getElementById('modal-overlay');
+const mIcon    = document.getElementById('m-icon');
+const mTag     = document.getElementById('m-tag');
+const mDate    = document.getElementById('m-date');
+const mTitle   = document.getElementById('m-title');
+const mIntro   = document.getElementById('m-intro');
+const mAne     = document.getElementById('m-anecdotes');
+const mClose   = document.getElementById('modal-close');
+
+const colorMap = {
+  cosmic:'#a084d8',geo:'#4ec99a',paleo:'#e8a850',antique:'#d4a843',
+  medieval:'#d46060',merov:'#e0884a',caro:'#6ea8e8',
+  capet:'#c8b840',renaiss:'#5ec48a',moderne:'#c084d8',
+  revolution:'#e84040',empire:'#d4a020',republiques:'#60a0d8',
+  guerres:'#b89060',contemp:'#40c8b0'
+};
+
+function openModal(ev, cls){
+  const c = colorMap[cls]||'#e8dfc4';
+  mIcon.textContent = ev.icon;
+  mTag.textContent  = ev.tag;
+  mTag.style.cssText = `color:${c};border-color:${c};background:${c}18`;
+  mDate.textContent  = ev.date;
+  mTitle.textContent = ev.title;
+  mTitle.style.color = c;
+  mIntro.textContent = ev.desc;
+  mAne.innerHTML = ev.anecdotes.map(a=>`
+    <div class="anecdote">
+      <span class="anecdote-bullet">${a.e}</span>
+      <div class="anecdote-text">${a.t}</div>
+    </div>`).join('');
+  overlay.classList.add('open');
+  document.body.style.overflow = 'hidden';
+}
+function closeModal(){overlay.classList.remove('open');document.body.style.overflow='';}
+mClose.addEventListener('click', closeModal);
+overlay.addEventListener('click', e=>{if(e.target===overlay)closeModal();});
+document.addEventListener('keydown', e=>{if(e.key==='Escape')closeModal();});
+
+// ── Render ──
+const container = document.getElementById('timeline');
+let side = 0;
+
+eras.forEach(era=>{
+  const sep = document.createElement('div');
+  sep.className = `era-label ${era.cls}`;
+  sep.dataset.cls = era.cls;
+  sep.innerHTML = `<span>${era.label}</span>`;
+  container.appendChild(sep);
+
+  era.events.forEach(ev=>{
+    const dir = side%2===0 ? 'left':'right'; side++;
+    const div = document.createElement('div');
+    div.className = `event ${dir}`;
+    const c = colorMap[era.cls]||'#e8dfc4';
+    div.innerHTML=`
+      <div class="card ${era.cls}" role="button" tabindex="0" aria-label="En savoir plus : ${ev.title}">
+        <span class="card-tag c-${era.cls}" style="border-color:${c}33">${ev.tag}</span>
+        <span class="card-icon">${ev.icon}</span>
+        <div class="card-date c-${era.cls}">${ev.date}</div>
+        <div class="card-title">${ev.title}</div>
+        <div class="card-desc">${ev.desc}</div>
+        <div class="card-hint" style="color:${c}"><span>✦</span><span>Cliquer pour les anecdotes</span></div>
+      </div>
+      <div class="connector"></div>
+      <div class="dot ${era.cls}"></div>`;
+    const card = div.querySelector('.card');
+    card.addEventListener('click', ()=>openModal(ev,era.cls));
+    card.addEventListener('keydown', e=>{if(e.key==='Enter'||e.key===' ')openModal(ev,era.cls);});
+    container.appendChild(div);
+  });
+});
+
+// ── Intersection Observer ──
+const obs = new IntersectionObserver(entries=>{
+  entries.forEach(e=>{if(e.isIntersecting){e.target.classList.add('visible');obs.unobserve(e.target);}});
+},{threshold:0.08,rootMargin:'0px 0px -30px 0px'});
+document.querySelectorAll('.event').forEach(el=>obs.observe(el));
+
+// Build era markers after render
+setTimeout(()=>{buildMarkers();resize();},300);
+</script>
+</body>
+</html>

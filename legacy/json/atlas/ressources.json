@@ -1,0 +1,276 @@
+{
+  "SA": [
+    "phosphate",
+    "oil",
+    "solar"
+  ],
+  "RU": [
+    "diamond",
+    "oil",
+    "gas",
+    "nickel",
+    "gold"
+  ],
+  "US": [
+    "oil",
+    "gas",
+    "coal",
+    "uranium",
+    "rare"
+  ],
+  "IR": [
+    "oil",
+    "gas",
+    "solar"
+  ],
+  "IQ": [
+    "oil"
+  ],
+  "AE": [
+    "oil",
+    "gas",
+    "solar"
+  ],
+  "KW": [
+    "oil"
+  ],
+  "VE": [
+    "oil"
+  ],
+  "NG": [
+    "oil",
+    "solar"
+  ],
+  "LY": [
+    "oil"
+  ],
+  "KZ": [
+    "uranium",
+    "coal"
+  ],
+  "NO": [
+    "oil",
+    "gas"
+  ],
+  "MX": [
+    "gold",
+    "silver",
+    "solar"
+  ],
+  "BR": [
+    "diamond",
+    "iron"
+  ],
+  "DZ": [
+    "oil",
+    "gas",
+    "solar"
+  ],
+  "AO": [
+    "diamond"
+  ],
+  "EC": [
+    "oil"
+  ],
+  "QA": [
+    "gas"
+  ],
+  "TM": [
+    "gas"
+  ],
+  "AZ": [
+    "oil",
+    "gas"
+  ],
+  "ID": [
+    "wood",
+    "coal"
+  ],
+  "MY": [
+    "wood"
+  ],
+  "CO": [
+    "wood"
+  ],
+  "CN": [
+    "salt",
+    "solar"
+  ],
+  "CA": [
+    "oil",
+    "gas",
+    "coal",
+    "uranium",
+    "diamond",
+    "nickel",
+    "gold",
+    "wood"
+  ],
+  "GB": [
+    "oil",
+    "gas"
+  ],
+  "AU": [
+    "diamond",
+    "solar"
+  ],
+  "UZ": [
+    "uranium"
+  ],
+  "UA": [
+    "iron",
+    "coal"
+  ],
+  "IN": [
+    "salt",
+    "solar"
+  ],
+  "ZA": [
+    "diamond",
+    "gold",
+    "coal",
+    "solar"
+  ],
+  "PL": [
+    "coal"
+  ],
+  "DE": [
+    "salt"
+  ],
+  "MN": [
+    "gold",
+    "copper",
+    "coal"
+  ],
+  "SE": [
+    "wood",
+    "iron"
+  ],
+  "MR": [
+    "phosphate"
+  ],
+  "LR": [
+    "iron"
+  ],
+  "CL": [
+    "lithium",
+    "copper",
+    "solar"
+  ],
+  "PE": [
+    "wood"
+  ],
+  "DRC": [
+    "copper",
+    "cobalt"
+  ],
+  "CD": [
+    "diamond",
+    "cobalt",
+    "copper"
+  ],
+  "ZM": [
+    "uranium"
+  ],
+  "PH": [
+    "nickel",
+    "copper"
+  ],
+  "GN": [
+    "diamond",
+    "bauxite"
+  ],
+  "JM": [
+    "bauxite"
+  ],
+  "GH": [
+    "diamond"
+  ],
+  "GY": [
+    "bauxite",
+    "gold"
+  ],
+  "ML": [
+    "gold"
+  ],
+  "BF": [
+    "phosphate"
+  ],
+  "TZ": [
+    "diamond"
+  ],
+  "PG": [
+    "wood"
+  ],
+  "AR": [
+    "lithium"
+  ],
+  "BO": [
+    "wood"
+  ],
+  "ZW": [
+    "lithium"
+  ],
+  "PT": [
+    "lithium"
+  ],
+  "NC": [
+    "nickel"
+  ],
+  "MA": [
+    "phosphate",
+    "solar"
+  ],
+  "JO": [
+    "phosphate"
+  ],
+  "EG": [
+    "phosphate",
+    "solar"
+  ],
+  "TN": [
+    "phosphate"
+  ],
+  "SN": [
+    "phosphate"
+  ],
+  "BRA": [
+    "rare"
+  ],
+  "VN": [
+    "rare"
+  ],
+  "TH": [
+    "rare"
+  ],
+  "GR": [
+    "rare"
+  ],
+  "NA": [
+    "uranium"
+  ],
+  "NE": [
+    "uranium"
+  ],
+  "FI": [
+    "wood"
+  ],
+  "GA": [
+    "wood"
+  ],
+  "CM": [
+    "wood"
+  ],
+  "BW": [
+    "diamond"
+  ],
+  "SL": [
+    "diamond"
+  ],
+  "ES": [
+    "solar"
+  ],
+  "ET": [
+    "solar"
+  ]
+}

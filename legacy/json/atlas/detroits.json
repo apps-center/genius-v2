@@ -1,0 +1,123 @@
+[
+  {
+    "id": "ormuz",
+    "name": "Détroit d'Ormuz",
+    "level": "critical",
+    "pct": "20 % du pétrole mondial",
+    "vol": "17 M barils/jour",
+    "desc": "Seul accès maritime au Golfe Persique. Une fermeture par l'Iran provoquerait une crise pétrolière mondiale immédiate.",
+    "risk": "Tensions Iran–USA permanentes. Attaques de tankers (2019). Scénario de crise majeur si conflit.",
+    "lon": 56.5,
+    "lat": 26.5
+  },
+  {
+    "id": "malacca",
+    "name": "Détroit de Malacca",
+    "level": "critical",
+    "pct": "30 % du commerce mondial",
+    "vol": "94 000 navires/an",
+    "desc": "Passage entre Océan Indien et Mer de Chine méridionale, entre Malaisie et Indonésie. Le plus fréquenté au monde.",
+    "risk": "Piraterie historique. Disputé entre Chine, USA, Inde. Alternative : détroit de Lombok (800 km de plus).",
+    "lon": 103.5,
+    "lat": 1.5
+  },
+  {
+    "id": "suez",
+    "name": "Canal de Suez",
+    "level": "critical",
+    "pct": "12 % du commerce mondial",
+    "vol": "19 000 navires/an",
+    "desc": "Raccourci entre Europe et Asie creusé en 1869. Évite 7 000 km autour de l'Afrique. Géré par l'Égypte.",
+    "risk": "Ever Given (2021) : 6 jours bloqué = 9 Mds $/jour perdus. Attaques houthies (2024) ont dérouté 50% du trafic.",
+    "lon": 32.5,
+    "lat": 30.5
+  },
+  {
+    "id": "babelm",
+    "name": "Bab-el-Mandeb",
+    "level": "high",
+    "pct": "10 % du commerce mondial",
+    "vol": "21 000 navires/an",
+    "desc": "Porte d'entrée de la mer Rouge. Entre Djibouti/Érythrée et Yémen. Passage obligé vers Suez.",
+    "risk": "Attaques de missiles houthis (2023-2024) ont forcé les plus grands armateurs à contourner l'Afrique.",
+    "lon": 43.5,
+    "lat": 12.5
+  },
+  {
+    "id": "bosphore",
+    "name": "Bosphore / Détroit des Dardanelles",
+    "level": "high",
+    "pct": "3 % du pétrole mondial",
+    "vol": "48 000 navires/an",
+    "desc": "Seul accès de la Mer Noire à la Méditerranée. Géré par la Turquie (Convention de Montreux 1936).",
+    "risk": "La Turquie peut bloquer les navires de guerre. A fermé aux navires russes après l'Ukraine (2022).",
+    "lon": 29.0,
+    "lat": 41.0
+  },
+  {
+    "id": "gibraltar",
+    "name": "Détroit de Gibraltar",
+    "level": "medium",
+    "pct": "15 % du trafic Atlantique-Méditerranée",
+    "vol": "~116 000 navires/an",
+    "desc": "21 km entre Espagne et Maroc. Porte d'entrée de la Méditerranée depuis l'Atlantique.",
+    "risk": "Souveraineté de Gibraltar (UK vs Espagne). Point de passage migratoire majeur.",
+    "lat": 36.0,
+    "lon": -5.5
+  },
+  {
+    "id": "panama",
+    "name": "Canal de Panama",
+    "level": "medium",
+    "pct": "5 % du commerce mondial",
+    "vol": "14 000 navires/an",
+    "desc": "Raccourci entre Atlantique et Pacifique creusé en 1914. Évite 15 000 km autour du Cap Horn.",
+    "risk": "Sécheresse 2023-2024 : niveau du lac Gatun trop bas, trafic réduit de 36%. Vulnérabilité climatique.",
+    "lat": 9.0,
+    "lon": -79.5
+  },
+  {
+    "id": "taiwan",
+    "name": "Détroit de Taïwan",
+    "level": "high",
+    "pct": "50 % du trafic Asie-Pacifique",
+    "vol": "~180 navires/jour",
+    "desc": "185 km entre la Chine continentale et Taïwan. Passage vital pour les exportations japonaises, coréennes et taïwanaises.",
+    "risk": "Tension militaire Chine-Taiwan permanente. Exercices militaires chinois réguliers. Casus belli potentiel.",
+    "lon": 120.5,
+    "lat": 24.0
+  },
+  {
+    "id": "capbonne",
+    "name": "Cap de Bonne Espérance",
+    "level": "medium",
+    "pct": "Alternative à Suez",
+    "vol": "~20 000 navires/an (déviation)",
+    "desc": "Extrémité sud de l'Afrique. Route alternative quand Suez est bloqué ou trop risqué.",
+    "risk": "7 000 km de plus que Suez. Coût supplémentaire : ~1 M$ par voyage. Utilisé massivement en 2024 (crise houthie).",
+    "lon": 18.5,
+    "lat": -34.5
+  },
+  {
+    "id": "lombe",
+    "name": "Détroit de Lombok",
+    "level": "medium",
+    "pct": "Alternative à Malacca",
+    "vol": "Secondaire",
+    "desc": "Entre Bali et Lombok (Indonésie). Alternative à Malacca pour les grands navires et sous-marins.",
+    "risk": "Utilisé par les porte-avions US pour éviter le passage trop étroit de Malacca.",
+    "lon": 115.5,
+    "lat": -8.5
+  },
+  {
+    "id": "merschine",
+    "name": "Mer de Chine méridionale",
+    "level": "high",
+    "pct": "5 000 Mds $ de commerce/an",
+    "vol": "~80 000 navires/an",
+    "desc": "Revendiquée à 90% par la Chine (ligne des 9 traits). Vietnam, Philippines, Malaisie, Brunei et Taiwan contestent.",
+    "risk": "Militarisation des îles artificielles. Patrouilles US (liberté de navigation). Principal point de friction USA-Chine.",
+    "lon": 114.0,
+    "lat": 15.0
+  }
+]

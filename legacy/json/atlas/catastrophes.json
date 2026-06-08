@@ -1,0 +1,197 @@
+{
+  "_meta": {
+    "title": "Zones à Risques Naturels",
+    "emoji": "🌊"
+  },
+  "seismes": {
+    "label": "Ceinture de feu & zones sismiques",
+    "couleur": "#e04020",
+    "zones_pays": [
+      "JP",
+      "PH",
+      "ID",
+      "PG",
+      "NZ",
+      "CL",
+      "PE",
+      "EC",
+      "CO",
+      "MX",
+      "US",
+      "TR",
+      "IR",
+      "AF",
+      "PK",
+      "IN",
+      "IT",
+      "GR",
+      "RO",
+      "TW",
+      "VU",
+      "FJ",
+      "TT",
+      "HT"
+    ],
+    "points": [
+      {
+        "nom": "Tohoku 2011",
+        "lon": 142.4,
+        "lat": 38.3,
+        "desc": "Japon — magnitude 9.1, tsunami, Fukushima — 20 000 morts"
+      },
+      {
+        "nom": "Haïti 2010",
+        "lon": -72.3,
+        "lat": 18.5,
+        "desc": "Magnitude 7.0 — 300 000 morts, pays dévasté"
+      },
+      {
+        "nom": "Sumatra 2004",
+        "lon": 95.9,
+        "lat": 3.3,
+        "desc": "Magnitude 9.1 — tsunami Océan Indien, 230 000 morts"
+      },
+      {
+        "nom": "Sichuan 2008",
+        "lon": 103.4,
+        "lat": 31.0,
+        "desc": "Chine — magnitude 7.9, 87 000 morts"
+      },
+      {
+        "nom": "San Andreas",
+        "lon": -122.4,
+        "lat": 37.8,
+        "desc": "Faille de San Francisco — 'Big One' attendu"
+      }
+    ]
+  },
+  "volcans": {
+    "label": "Volcans actifs majeurs",
+    "couleur": "#c03020",
+    "points": [
+      {
+        "nom": "Vésuve (Italie)",
+        "lon": 14.4,
+        "lat": 40.8,
+        "desc": "3 millions d'habitants dans la zone d'exclusion"
+      },
+      {
+        "nom": "Merapi (Indonésie)",
+        "lon": 110.4,
+        "lat": -7.5,
+        "desc": "Le volcan le plus actif d'Indonésie"
+      },
+      {
+        "nom": "Popocatépetl (Mexique)",
+        "lon": -98.6,
+        "lat": 19.0,
+        "desc": "25 millions de personnes dans la zone à risque"
+      },
+      {
+        "nom": "Yellowstone (USA)",
+        "lon": -110.7,
+        "lat": 44.4,
+        "desc": "Supervolcan — éruption catastrophique potentielle"
+      },
+      {
+        "nom": "Stromboli (Italie)",
+        "lon": 15.2,
+        "lat": 38.8,
+        "desc": "'Phare de la Méditerranée' — en éruption quasi-permanente"
+      }
+    ]
+  },
+  "cyclones": {
+    "label": "Zones cycloniques",
+    "couleur": "#4080e0",
+    "bassins": [
+      {
+        "nom": "Caraïbes / Atlantique",
+        "lon": -70.0,
+        "lat": 20.0,
+        "desc": "Saison: juin-novembre"
+      },
+      {
+        "nom": "Golfe du Bengale",
+        "lon": 88.0,
+        "lat": 15.0,
+        "desc": "Typhons et cyclones — Bangladesh très vulnérable"
+      },
+      {
+        "nom": "Mer de Chine / Philippines",
+        "lon": 130.0,
+        "lat": 18.0,
+        "desc": "Zone la plus active mondialement"
+      },
+      {
+        "nom": "Océan Indien Sud-Ouest",
+        "lon": 60.0,
+        "lat": -18.0,
+        "desc": "Cyclones tropicaux — Madagascar, Mozambique"
+      }
+    ]
+  },
+  "montee_eaux": {
+    "label": "Pays menacés par la montée des eaux",
+    "couleur": "#2080c0",
+    "critique": [
+      "MV",
+      "TV",
+      "KI",
+      "MH",
+      "NR",
+      "PW",
+      "CK",
+      "WS",
+      "TO",
+      "VU"
+    ],
+    "vulnerable": [
+      "BD",
+      "VN",
+      "ID",
+      "PH",
+      "NL",
+      "EG",
+      "MZ",
+      "TZ",
+      "MM",
+      "TH",
+      "IN",
+      "CN",
+      "US"
+    ],
+    "points": [
+      {
+        "nom": "Maldives",
+        "lon": 73.5,
+        "lat": 3.2,
+        "desc": "Altitude moyenne: 1.5m — disparition probable d'ici 2100"
+      },
+      {
+        "nom": "Bangladesh",
+        "lon": 90.4,
+        "lat": 23.7,
+        "desc": "30M de personnes dans des zones inondables"
+      },
+      {
+        "nom": "Tuvalu",
+        "lon": 179.2,
+        "lat": -8.5,
+        "desc": "9 îles à 2m d'altitude max — déjà évacuées en partie"
+      },
+      {
+        "nom": "Venise",
+        "lon": 12.3,
+        "lat": 45.4,
+        "desc": "60 cm de plus prévu d'ici 2100"
+      },
+      {
+        "nom": "Dacca",
+        "lon": 90.4,
+        "lat": 23.7,
+        "desc": "20M d'habitants menacés"
+      }
+    ]
+  }
+}

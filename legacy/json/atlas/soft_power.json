@@ -1,0 +1,124 @@
+{
+  "_meta": {
+    "title": "Soft Power & Influence Culturelle",
+    "emoji": "🏆",
+    "source": "Brand Finance 2024"
+  },
+  "clusters": [
+    {
+      "id": "hollywood",
+      "label": "Hollywood / Culture américaine",
+      "emoji": "🎬",
+      "couleur": "#e03060",
+      "influence_forte": [
+        "CA",
+        "GB",
+        "AU",
+        "NZ",
+        "IE",
+        "ZA",
+        "PH",
+        "LR"
+      ],
+      "influence_moderee": [
+        "MX",
+        "BR",
+        "AR",
+        "CO",
+        "IN",
+        "NG",
+        "KE",
+        "FR",
+        "DE"
+      ],
+      "centre": {
+        "lon": -118.2,
+        "lat": 34.0,
+        "nom": "Hollywood",
+        "desc": "1er exportateur culturel mondial — 40% des films vus dans le monde"
+      }
+    },
+    {
+      "id": "kpop",
+      "label": "K-Pop / Hallyu coréen",
+      "emoji": "🎵",
+      "couleur": "#c020a0",
+      "influence_forte": [
+        "JP",
+        "TH",
+        "VN",
+        "ID",
+        "PH",
+        "MY",
+        "SG"
+      ],
+      "influence_moderee": [
+        "CN",
+        "US",
+        "FR",
+        "BR",
+        "MX",
+        "MA",
+        "EG"
+      ],
+      "centre": {
+        "lon": 126.9,
+        "lat": 37.5,
+        "nom": "Séoul",
+        "desc": "Soft power coréen — BTS, Netflix, Samsung"
+      }
+    },
+    {
+      "id": "bollywood",
+      "label": "Bollywood",
+      "emoji": "🎭",
+      "couleur": "#e06020",
+      "influence_forte": [
+        "PK",
+        "BD",
+        "LK",
+        "NP",
+        "AF",
+        "MU",
+        "FJ",
+        "TR",
+        "EG",
+        "NG"
+      ],
+      "centre": {
+        "lon": 72.9,
+        "lat": 19.1,
+        "nom": "Mumbai",
+        "desc": "Bollywood produit plus de films qu'Hollywood"
+      }
+    },
+    {
+      "id": "francophonie",
+      "label": "Francophonie",
+      "emoji": "🥖",
+      "couleur": "#2060c0",
+      "influence_forte": [
+        "BE",
+        "CH",
+        "LU",
+        "MC",
+        "SN",
+        "CI",
+        "CM",
+        "CD",
+        "MA",
+        "TN",
+        "DZ",
+        "HT",
+        "LB",
+        "MG"
+      ],
+      "centre": {
+        "lon": 2.3,
+        "lat": 48.9,
+        "nom": "Paris",
+        "desc": "5e langue mondiale, 1ère langue d'Afrique en expansion"
+      }
+    }
+  ]
+}

@@ -1,0 +1,1194 @@
+{
+  "VE": {
+    "name": "Venezuela",
+    "flag": "🇻🇪",
+    "capitale": "Caracas",
+    "continent": "Amérique",
+    "population": "28 millions (2024 — 8 millions ont émigré depuis 2015)",
+    "superficie": "916 445 km²",
+    "langues": ["Espagnol (officiel)", "30 langues indigènes"],
+    "monnaie": "Bolívar (VES) — hyperinflation chronique",
+
+    "histoire": {
+      "independance": "5 juillet 1811 (indépendance de l'Espagne — Simón Bolívar, Libérateur de l'Amérique du Sud).",
+      "evenements_majeurs": [
+        "Simón Bolívar (1783-1830) : né à Caracas, libérateur du Venezuela, Colombie, Équateur, Pérou et Bolivie",
+        "Dictatures militaires successives (XIXe-XXe s.)",
+        "Découverte du pétrole (lac de Maracaibo, 1914) : transformation du pays",
+        "Venezuela devient 1er exportateur mondial de pétrole (années 1950-1970)",
+        "Nationalisation de l'industrie pétrolière et création de PDVSA (1976)",
+        "Crise économique et émeutes du Caracazo (1989) : 300 à 3 000 morts",
+        "Tentative de coup d'État de Hugo Chávez (4 février 1992) — emprisonné puis gracié",
+        "Élection de Hugo Chávez (1998) : révolution bolivarienne, socialisme du XXIe siècle",
+        "Chávez utilise le pétrole pour financer des programmes sociaux massifs (Misiones)",
+        "Mort de Chávez (2013) — Nicolás Maduro lui succède",
+        "Effondrement économique sous Maduro (2014-présent) : hyperinflation, pénuries, répression",
+        "Exode massif : 8 millions de Vénézuéliens ont fui — plus grande crise migratoire des Amériques"
+      ],
+      "role_historique": "Le Venezuela illustre la «malédiction du pétrole» : pays parmi les plus riches du monde en ressources, il est devenu l'un des plus effondrés. L'expérience chaviste est le laboratoire mondial du populisme pétrolier."
+    },
+
+    "politique": {
+      "regime": "République bolivarienne. Régime autoritaire hybride (façade électorale, répression systématique de l'opposition). Maduro maintenu par l'armée et Cuba.",
+      "chef_etat": "Nicolás Maduro (président depuis 2013 — élections de 2024 très contestées, opposition revendique la victoire d'Edmundo González).",
+      "stabilite": "Extrêmement instable. Économie effondrée. Opposition divisée. Soutenu par Cuba, Russie, Chine et Iran. Sanctions américaines et européennes.",
+      "alliances": [
+        "Cuba (soutien politique et sécuritaire — conseillers cubains dans l'armée)",
+        "Russie (dette, pétrole, soutien diplomatique)",
+        "Chine (prêts contre pétrole)",
+        "Iran (coopération contre les sanctions)",
+        "ALBA (Alliance Bolivarienne)",
+        "Isolement occidental (sanctions USA, UE, Canada)"
+      ]
+    },
+
+    "economie": {
+      "pib": "95 milliards $ (2023 estimé — était 482 Mds$ en 2012)",
+      "pib_hab": "3 400 $ (2023) — effondrement de 80% du niveau de vie en 10 ans",
+      "ressources": [
+        "Pétrole : 1ères réserves prouvées mondiales (303 milliards de barils — plus que l'Arabie Saoudite)",
+        "Gaz naturel (8e réserves mondiales)",
+        "Or (mines de l'Arco Minero del Orinoco)",
+        "Bauxite, fer, diamants",
+        "Biodiversité exceptionnelle (Amazonie, Andes, Caraïbes)"
+      ],
+      "secteurs": [
+        "Pétrole (90% des revenus d'export — PDVSA en ruine, production effondrée)",
+        "Or (exploitation illégale massive dans l'Arco Minero)",
+        "Narco-économie (cartels liés au régime — «Cartel de los Soles»)",
+        "Agriculture (quasi-disparue, importations massives)",
+        "Dollar informel (économie dollarisée de facto depuis 2019)"
+      ],
+      "grandes_villes": [
+        "Caracas (3 M hab. — l'une des villes les plus dangereuses du monde)",
+        "Maracaibo (pétrole, 2e ville)",
+        "Valencia, Barquisimeto (industrie, agriculture)"
+      ],
+      "places_economiques": [
+        "PDVSA (Petroleos de Venezuela) — entreprise pétrolière d'État en effondrement",
+        "Arco Minero del Orinoco (or et minerais — exploitation chaotique)"
+      ],
+      "voies_communication": [
+        "Aéroport Simon Bolívar (Caracas) — liaisons très réduites",
+        "Infrastructures en délabrement total (routes, électricité, eau)"
+      ]
+    },
+
+    "societe": {
+      "demographie": "Exode massif : 8 millions de Vénézuéliens à l'étranger (Colombie, Pérou, Équateur, États-Unis, Brésil) — 2e plus grande crise de réfugiés du monde après la Syrie.",
+      "idh": "0,699 (rang 120/191 en 2022 — était 0,762 en 2015)",
+      "education": "Universités vénézuéliennes autrefois excellentes, aujourd'hui vidées de leurs professeurs (émigrés). Alphabétisation 97%.",
+      "sante": "Espérance de vie 72 ans. Système de santé effondré — médicaments de base introuvables. Retour de maladies éradiquées (rougeole, malaria, diphtérie).",
+      "inegalites": "Paradoxe : régime «socialiste» avec inégalités extrêmes. Classe dirigeante (Bolibourgeoisie) ultra-riche. Population en situation de malnutrition.",
+      "urbanisation": "88 % (2023)."
+    },
+
+    "environnement": {
+      "pollution": "Déversements pétroliers chroniques (lac de Maracaibo). Déforestation de l'Arco Minero (exploitation aurifère anarchique). Mercure dans les rivières amazoniennes.",
+      "dev_durable": "Aucune politique environnementale. Pillage des ressources naturelles. Biodiversité exceptionnelle détruite (Amazonie, tepuis).",
+      "recherche": "Cerveaux fuis à l'étranger. Universités vides.",
+      "militaire": "Forces armées de 130 000 actifs — pilier du régime Maduro. Implication dans le narcotrafic (Cartel de los Soles).",
+      "defis": [
+        "Effondrement économique total (GDP divisé par 5 en 10 ans)",
+        "Crise humanitaire : malnutrition, pénuries de médicaments",
+        "8 millions de réfugiés déstabilisant l'Amérique latine",
+        "Narco-État en développement",
+        "Transition politique : quand et comment après Maduro?"
+      ]
+    },
+
+    "importance": {
+      "historique": "Patrie de Bolívar — libérateur de l'Amérique du Sud. Laboratoire mondial du populisme pétrolier : la «malédiction du pétrole» à son paroxysme.",
+      "economique": "1ères réserves pétrolières mondiales (plus que l'Arabie Saoudite) — mais incapables d'être exploitées efficacement. Ressources potentiellement transformatrices pour l'après-Maduro.",
+      "geopolitique": "Test de la résistance des démocraties latino-américaines. Crise migratoire déstabilisant toute la région. Soutien de la Russie, Chine, Cuba : front anti-américain symbolique.",
+      "atouts": [
+        "1ères réserves pétrolières mondiales (potentiel immense post-crise)",
+        "Biodiversité exceptionnelle (Amazonie, tepuis, Caraïbes)",
+        "8e réserves mondiales de gaz",
+        "Réserves d'or parmi les plus grandes d'Amérique latine",
+        "Diaspora qualifiée et éduquée (potentiel de reconstruction)"
+      ],
+      "fragilites": [
+        "Régime autoritaire bloquant tout développement",
+        "PDVSA en ruine (production pétrolière à 700 000 b/j vs 3,5 millions en 1998)",
+        "8 millions de réfugiés — perte de capital humain irremplaçable",
+        "Narco-État menaçant la sécurité régionale",
+        "Infrastructures totalement délabrées (électricité, eau, routes)"
+      ]
+    }
+  },
+
+  "SY": {
+    "name": "Syrie",
+    "flag": "🇸🇾",
+    "capitale": "Damas",
+    "continent": "Asie",
+    "population": "21 millions (2024 — dont 6,5 millions de réfugiés à l'étranger)",
+    "superficie": "185 180 km²",
+    "langues": ["Arabe (officiel)", "Kurde (minorité nord)", "Arménien, syriaque"],
+    "monnaie": "Livre syrienne (SYP) — très dévaluée",
+
+    "histoire": {
+      "independance": "17 avril 1946 (indépendance de la France — mandat français depuis 1920).",
+      "evenements_majeurs": [
+        "Damas : l'une des plus anciennes villes continuellement habitées du monde (8 000 ans)",
+        "Empire omeyyade (661-750) : Damas capitale du 1er grand empire islamique",
+        "Croisades (XIe-XIIIe s.) : Saladin reconquiert Jérusalem depuis la Syrie (1187)",
+        "Empire ottoman (1516-1918)",
+        "Mandat français (1920-1946) : révoltes arabes",
+        "Indépendance (1946) — instabilité chronique, coups d'État",
+        "Coup d'État du Parti Baas (1963)",
+        "Hafez al-Assad au pouvoir (1970-2000) : dictature consolidée, massacre de Hama (1982 : 10 000-40 000 morts)",
+        "Bachar al-Assad succède à son père (2000)",
+        "Printemps syrien / Révolution (2011) : manifestations pacifiques réprimées",
+        "Guerre civile (2011-2024) : 500 000 morts, 13 millions de déplacés",
+        "Intervention russe (2015) : sauve Assad",
+        "Chute d'Assad (décembre 2024) : les rebelles (HTS) prennent Damas en 11 jours — fin de 54 ans de dictature des Assad"
+      ],
+      "role_historique": "La Syrie est l'un des berceaux de la civilisation humaine et du monde arabe. Sa guerre civile (2011-2024) a provoqué la pire crise humanitaire du XXIe siècle et redéfini l'équilibre du Moyen-Orient."
+    },
+
+    "politique": {
+      "regime": "En transition : après la chute d'Assad (décembre 2024), gouvernement transitoire dominé par HTS (Hayat Tahrir al-Sham — ex-branche d'Al-Qaïda, désormais présentée comme plus modérée). Avenir institutionnel incertain.",
+      "chef_etat": "Ahmad al-Sharaa (Abu Mohammad al-Jolani) — chef de HTS, figure centrale du gouvernement post-Assad depuis janvier 2025.",
+      "stabilite": "Extrêmement fragile. Pays fragmenté entre plusieurs zones d'influence (Kurdes au nord-est, factions rebelles diverses). Reconstruction à zéro.",
+      "alliances": [
+        "Rupture avec l'Iran et le Hezbollah (soutiens d'Assad renversés)",
+        "Russie (bases militaires en cours de renégociation)",
+        "Turquie (soutien aux groupes rebelles sunnites)",
+        "Occident (levée prudente des sanctions, attentisme)",
+        "Pays arabes (réintégration progressive — réouverture des ambassades)"
+      ]
+    },
+
+    "economie": {
+      "pib": "~11 milliards $ (2023 — était 60 Mds$ avant la guerre en 2010)",
+      "pib_hab": "~550 $ (2023 — effondrement total)",
+      "ressources": [
+        "Pétrole (réserves modestes mais importantes pour l'économie)",
+        "Gaz naturel",
+        "Phosphates",
+        "Agriculture (blé, coton, olives — dévastée par la guerre)",
+        "Patrimoine historique (Palmyre, Alep, Damas — partiellement détruits)"
+      ],
+      "secteurs": [
+        "Aide humanitaire internationale (principale source de ressources)",
+        "Agriculture de subsistance",
+        "Pétrole (champs du nord-est contrôlés par les Kurdes/FDS)",
+        "Commerce informel et reconstruction naissante"
+      ],
+      "grandes_villes": [
+        "Damas (2,5 M hab. — capitale, relativement préservée)",
+        "Alep (2e ville — dévastée, en reconstruction lente)",
+        "Homs, Hama (zones de combats intenses)",
+        "Raqqa (ex-capitale de l'État islamique — libérée 2017)"
+      ],
+      "places_economiques": [
+        "Économie en ruine — aucune institution financière fonctionnelle",
+        "Port de Lattaquié (Méditerranée)"
+      ],
+      "voies_communication": [
+        "Infrastructures massivement détruites par 13 ans de guerre",
+        "Aéroport de Damas (rouvrant progressivement en 2025)",
+        "Routes partiellement rouvertes"
+      ]
+    },
+
+    "societe": {
+      "demographie": "13 millions de déplacés — dont 6,5 millions de réfugiés en Turquie (3,6 M), Liban, Jordanie, Allemagne, Suède. Société fracturée selon lignes ethniques et religieuses (Arabes sunnites, Alaouites, Kurdes, Chrétiens, Druzes).",
+      "idh": "0,557 (rang 161/191 en 2022 — était 0,648 en 2010)",
+      "education": "Universités d'Alep et Damas historiquement réputées. Génération entière sans scolarisation régulière (13 ans de guerre). 2,4 millions d'enfants hors école.",
+      "sante": "Système de santé anéanti. Espérance de vie 73 ans (était 76 en 2010). Choléra, typhus revenus. 70% des hôpitaux détruits ou non fonctionnels.",
+      "inegalites": "Économie de guerre extrêmement inégalitaire. Corruption généralisée sous Assad.",
+      "urbanisation": "57 % (2023)."
+    },
+
+    "environnement": {
+      "pollution": "Destructions massives : sites archéologiques (Palmyre, Alep), raffineries bombardées, sols contaminés par munitions. Désertification aggravée par le changement climatique (sécheresse 2006-2010 ayant contribué aux migrations pré-révolution).",
+      "dev_durable": "Reconstruction = priorité absolue. Palmyre (patrimoine UNESCO) : partiellement détruite par l'État islamique.",
+      "recherche": "Fuite des cerveaux totale. Reconstruction académique à reconstruire de zéro.",
+      "militaire": "Armée d'Assad dissoute. Forces de HTS + FDS kurdes + milices diverses. Présence militaire russe (bases de Hmeimim et Tartous en renégociation) et iranienne (retrait post-Assad).",
+      "defis": [
+        "Reconstruction estimée à 400 milliards $ sur 10 ans",
+        "Retour des 6,5 millions de réfugiés (volontaires ?)",
+        "Réconciliation entre communautés après 13 ans de guerre",
+        "Gouvernance post-Assad : HTS peut-il gouverner démocratiquement?",
+        "Déminage de territoires massivement contaminés"
+      ]
+    },
+
+    "importance": {
+      "historique": "Damas est l'une des plus vieilles villes du monde. La guerre civile syrienne est la pire catastrophe humanitaire du XXIe siècle. La chute d'Assad en décembre 2024 est l'un des événements géopolitiques les plus importants de la décennie.",
+      "economique": "Économie effondrée mais reconstruction = opportunité colossale. Pétrole kurde, phosphates, agriculture fertile (croissant fertile).",
+      "geopolitique": "Carrefour des intérêts de la Russie, Iran, Turquie, USA, Israël. Chute d'Assad = recul de l'axe Moscou-Téhéran au Moyen-Orient. Test de la capacité internationale à reconstruire un État.",
+      "atouts": [
+        "Position géographique centrale (Moyen-Orient, Méditerranée, Mésopotamie)",
+        "Patrimoine civilisationnel parmi les plus riches du monde",
+        "Société éduquée et diaspora qualifiée (potentiel de reconstruction)",
+        "Ressources agricoles (croissant fertile historique)",
+        "Potentiel touristique exceptionnel (post-reconstruction)"
+      ],
+      "fragilites": [
+        "Destruction quasi-totale des infrastructures (400 Mds$ de reconstruction)",
+        "Fragmentation communautaire et ethnique profonde",
+        "HTS : légitimité internationale incertaine (ex-jihadiste)",
+        "6,5 millions de réfugiés dont le retour est incertain",
+        "Intérêts contradictoires des puissances régionales (Turquie, Israël, Iran)"
+      ]
+    }
+  },
+
+  "YE": {
+    "name": "Yémen",
+    "flag": "🇾🇪",
+    "capitale": "Sanaa (contrôlée par les Houthis) / Aden (gouvernement reconnu)",
+    "continent": "Asie",
+    "population": "33 millions (2024)",
+    "superficie": "527 968 km²",
+    "langues": ["Arabe (officiel)"],
+    "monnaie": "Rial yéménite (YER) — deux monnaies de facto (nord Houthi / sud gouvernemental)",
+
+    "histoire": {
+      "independance": "22 mai 1990 (unification du Yémen du Nord et du Yémen du Sud — les deux États issus de la colonisation).",
+      "evenements_majeurs": [
+        "Royaume de Saba (Xe s. av. J.-C.) : reine de Saba — civilisation de l'encens et de la myrrhe",
+        "Port d'Aden : l'un des plus fréquentés du monde antique (route des épices)",
+        "Occupation ottomane (nord) et britannique (Aden, sud) jusqu'au XXe s.",
+        "République arabe du Yémen (nord, 1962) et République populaire du Yémen du Sud (1967)",
+        "Unification (1990) sous Ali Abdallah Saleh",
+        "Attentats contre l'USS Cole dans le port d'Aden (2000 — Al-Qaïda)",
+        "Rébellion Houthie dans le nord (depuis 2004)",
+        "Printemps arabe yéménite (2011) : Saleh renversé",
+        "Prise de Sanaa par les Houthis (2014)",
+        "Intervention militaire de la coalition menée par l'Arabie Saoudite (mars 2015)",
+        "Guerre civile (2015-présent) : pire crise humanitaire du monde selon l'ONU",
+        "Attaques Houthies sur navires en mer Rouge (2023-2024) — paralysie du trafic mondial"
+      ],
+      "role_historique": "Le Yémen est la pire crise humanitaire de la planète depuis une décennie. Les Houthis (soutenus par l'Iran) ont rendu la mer Rouge dangereuse pour le commerce mondial, forçant des détours coûteux. Vitrine des guerres par procuration du XXIe siècle."
+    },
+
+    "politique": {
+      "regime": "État effondré — deux gouvernements de facto : Houthis (Ansar Allah) au nord et gouvernement reconnu internationalement au sud. Cessez-le-feu fragile depuis 2022.",
+      "chef_etat": "Rashad al-Alimi (Président du Conseil présidentiel — gouvernement reconnu). Abdul-Malik al-Houthi (chef du mouvement Houthi — contrôle Sanaa et ~70% de la population).",
+      "stabilite": "Effondrement total de l'État. Guerre civile + intervention saoudienne + proxy iranien. Attaques Houthies sur navires en mer Rouge depuis octobre 2023.",
+      "alliances": [
+        "Houthis : soutenus par l'Iran (missiles, drones)",
+        "Gouvernement : coalition menée par l'Arabie Saoudite (avec EAU, Egypt, Sudan)",
+        "Al-Qaïda dans la péninsule Arabique (AQPA) : présence dans le sud",
+        "États-Unis et Royaume-Uni : frappes contre les Houthis (depuis janvier 2024)"
+      ]
+    },
+
+    "economie": {
+      "pib": "~19 milliards $ (2023 — effondrement total)",
+      "pib_hab": "~580 $ (2023)",
+      "ressources": [
+        "Pétrole (réserves modestes mais vitales — infrastructures détruites)",
+        "Gaz naturel",
+        "Port d'Aden (position stratégique sur la route Suez-Inde)",
+        "Pêche",
+        "Qat (plante stimulante — 40% des terres agricoles, 30% de l'économie)"
+      ],
+      "secteurs": [
+        "Aide humanitaire internationale (principale «économie»)",
+        "Transferts de migrants yéménites à l'étranger",
+        "Commerce informel",
+        "Pétrole (très perturbé par la guerre)"
+      ],
+      "grandes_villes": [
+        "Sanaa (4 M hab. — capitale sous contrôle Houthi)",
+        "Aden (siège du gouvernement reconnu, port stratégique)",
+        "Taiz (3e ville — assiégée pendant des années)",
+        "Hodeidah (port — batailles les plus intenses)"
+      ],
+      "places_economiques": [
+        "Port d'Aden : potentiel stratégique énorme (route Suez-Asie) — à l'arrêt",
+        "Port de Hodeidah : 70% des importations passaient ici avant les combats"
+      ],
+      "voies_communication": [
+        "Détroit de Bab-el-Mandeb : passage entre mer Rouge et océan Indien (10% du commerce mondial)",
+        "Infrastructures quasi-inexistantes après 10 ans de guerre"
+      ]
+    },
+
+    "societe": {
+      "demographie": "4,5 millions de déplacés internes. Société tribale extrêmement fragmentée. 80% de la population dépend de l'aide humanitaire.",
+      "idh": "0,455 (rang 183/191 en 2022 — avant-dernier)",
+      "education": "Système éducatif effondré. 2 millions d'enfants hors école. Universités non fonctionnelles.",
+      "sante": "Espérance de vie 66 ans. Choléra (pire épidémie de l'histoire moderne : 2,5 M de cas). Famine : 21 millions de personnes en insécurité alimentaire.",
+      "inegalites": "Extrêmes et aggravées par la guerre. Pas d'économie fonctionnelle.",
+      "urbanisation": "38 % (2023)."
+    },
+
+    "environnement": {
+      "pollution": "Infrastructures d'eau et d'assainissement détruites = épidémies. Risque environnemental majeur : pétrolier FSO Safer — 1,1 million de barils de pétrole vétuste en mer Rouge (déchargé en 2023 après alerte internationale).",
+      "dev_durable": "Impossible dans le contexte actuel. Potentiel solaire et éolien immense (non exploité).",
+      "recherche": "Néant.",
+      "militaire": "Houthis : 100 000-200 000 combattants équipés de missiles et drones iraniens. Coalition saoudienne : aviation et marines modernes. Résultat : guerre d'attrition sans victoire.",
+      "defis": [
+        "Pire crise humanitaire du monde (ONU) : 150 000 morts de combat + 227 000 morts indirects",
+        "Famine : 21 millions en insécurité alimentaire",
+        "Blocage du commerce mondial en mer Rouge (détroits sous menace Houthi)",
+        "Reconstruction d'un État pratiquement inexistant",
+        "Proxy war Iran/Arabie Saoudite bloquant toute solution"
+      ]
+    },
+
+    "importance": {
+      "historique": "Berceau du royaume de Saba. Port d'Aden : carrefour historique de l'océan Indien. Aujourd'hui, symbole de la pire crise humanitaire du monde et des guerres par procuration.",
+      "economique": "Le détroit de Bab-el-Mandeb contrôlé par les Houthis force 15% du commerce mondial à contourner l'Afrique (+10-14 jours, +1 000 $ par conteneur). Impact économique mondial direct.",
+      "geopolitique": "Proxy war Iran vs Arabie Saoudite. Menace des Houthis sur le commerce mondial en mer Rouge. Test de la capacité de la communauté internationale à résoudre des crises humanitaires.",
+      "atouts": [
+        "Détroit de Bab-el-Mandeb : position stratégique sur 10% du commerce mondial",
+        "Port d'Aden : potentiel immense post-guerre",
+        "Ressources pétrolières et gazières (non exploitées sous la guerre)",
+        "Potentiel agricole et pêche (mer d'Arabie)"
+      ],
+      "fragilites": [
+        "État totalement effondré depuis 10 ans",
+        "Pire crise humanitaire mondiale (famine, choléra)",
+        "Proxy war bloquant toute solution politique",
+        "Fragmentation tribale extrême",
+        "Aucune institution fonctionnelle, aucune économie réelle"
+      ]
+    }
+  },
+
+  "IQ": {
+    "name": "Irak",
+    "flag": "🇮🇶",
+    "capitale": "Bagdad",
+    "continent": "Asie",
+    "population": "42 millions (2024)",
+    "superficie": "438 317 km²",
+    "langues": ["Arabe (officiel)", "Kurde (officiel dans la Région du Kurdistan)"],
+    "monnaie": "Dinar irakien (IQD)",
+
+    "histoire": {
+      "independance": "3 octobre 1932 (indépendance du mandat britannique). Mais la Mésopotamie est le berceau de la civilisation humaine.",
+      "evenements_majeurs": [
+        "Mésopotamie : berceau de la civilisation (écriture cunéiforme, code Hammurabi, jardins de Babylone)",
+        "Empire abbasside (750-1258) : Bagdad capitale du monde islamique, «Maison de la Sagesse»",
+        "Invasion mongole (1258) : destruction de Bagdad par Hülegü Khan",
+        "Empire ottoman (XVIe-XXe s.)",
+        "Mandat britannique (1920-1932) — création de l'Irak moderne (frontières artificielles)",
+        "Coup d'État Baas (1968) — Saddam Hussein au pouvoir (1979-2003)",
+        "Guerre Iran-Irak (1980-1988) : 1 million de morts",
+        "Invasion du Koweït (1990) — Guerre du Golfe (1991) : coalition internationale",
+        "Embargo international (1991-2003) : appauvrissement massif",
+        "Invasion américaine (20 mars 2003) — chute de Saddam Hussein",
+        "Insurrection, guerre civile, terrorisme (2003-2011) : 200 000+ civils tués",
+        "Émergence de l'État islamique / Daech (2013-2017) : prise de Mossoul",
+        "Défaite de Daech à Mossoul (2017) — coalition internationale"
+      ],
+      "role_historique": "L'Irak est le berceau de la civilisation humaine (écriture, lois, villes). Sa destruction par les guerres du XXe-XXIe siècle est une des tragédies les plus profondes de l'histoire moderne. Son pétrole est au cœur de toutes les convoitises géopolitiques."
+    },
+
+    "politique": {
+      "regime": "République parlementaire fédérale. Démocratie formelle depuis 2005, mais système confessionnel (muhasasa) : les postes sont répartis entre chiites, sunnites et Kurdes. Corruption extrême.",
+      "chef_etat": "Abdul Latif Rashid (Président de la République). Mohammed Shia' Al-Sudani (Premier ministre depuis 2022).",
+      "stabilite": "Fragile. État faible face aux milices pro-iraniennes (Hachd al-Chaabi). Kurdistan irakien semi-autonome. Influence iranienne dominante. Réconciliation avec l'Arabie Saoudite.",
+      "alliances": [
+        "Iran (influence dominante sur le gouvernement chiite)",
+        "États-Unis (troupes encore présentes — base aérienne d'Aïn al-Assad)",
+        "Kurdistan irakien (allié des USA et d'Israël de facto)",
+        "Ligue arabe",
+        "OCI"
+      ]
+    },
+
+    "economie": {
+      "pib": "268 milliards $ (2023)",
+      "pib_hab": "6 540 $ (2023)",
+      "ressources": [
+        "Pétrole (2e réserves arabes, 5e mondiales — 145 milliards de barils)",
+        "Gaz naturel (brûlé à la torche faute d'infrastructure — gaspillage colossal)",
+        "Agriculture (Tigre et Euphrate — berceau de l'agriculture mondiale)",
+        "Eau (partage des eaux avec Turquie et Syrie — enjeu de plus en plus critique)"
+      ],
+      "secteurs": [
+        "Pétrole (99% des revenus de l'État)",
+        "Agriculture (historiquement, aujourd'hui en déclin — blé, orge, dattes)",
+        "Construction et reconstruction (perpétuelle)",
+        "Commerce (rôle d'importateur régional)"
+      ],
+      "grandes_villes": [
+        "Bagdad (8 M hab. — capitale, la plus grande ville arabe après Le Caire)",
+        "Bassora (pétrole, 2e ville, port vers le Golfe)",
+        "Mossoul (3e ville — dévastée par Daech, en reconstruction)",
+        "Erbil (capitale du Kurdistan irakien — la plus dynamique économiquement)"
+      ],
+      "places_economiques": [
+        "Bassora : 90% du pétrole irakien exporté depuis le port",
+        "Kurdistan irakien (Erbil) : zone relativement stable, investissements étrangers"
+      ],
+      "voies_communication": [
+        "Port d'Oum Qasr (seul port maritime de l'Irak — accès au Golfe)",
+        "Aéroports de Bagdad et Erbil",
+        "Infrastructure routière endommagée par les guerres"
+      ]
+    },
+
+    "societe": {
+      "demographie": "Population jeune (âge médian 20 ans). 3 grands groupes : chiites arabes (~60%), sunnites arabes (~20%), Kurdes (~17%). Minorités chrétiennes, yézidies (génocide par Daech en 2014).",
+      "idh": "0,686 (rang 123/191 en 2022)",
+      "education": "Universités de Bagdad autrefois parmi les meilleures du monde arabe — dévastées. Alphabétisation 86%. Fuite des cerveaux massive.",
+      "sante": "Espérance de vie 71 ans. Système de santé en reconstruction permanente. Maladies liées aux armes à l'uranium appauvri (cancers à Falloujah).",
+      "inegalites": "Corruption colossale : Irak parmi les pays les plus corrompus du monde. Pétrole profitant aux élites politiques.",
+      "urbanisation": "72 % (2023)."
+    },
+
+    "environnement": {
+      "pollution": "Torchage massif du gaz (2e au monde) : pollution atmosphérique et gaspillage. Dessèchement des marais de Mésopotamie (Saddam) — partiellement rétablis. Manque d'eau (Tigre et Euphrate taris par les barrages turcs).",
+      "dev_durable": "Aucune politique environnementale sérieuse. Tempêtes de sable de plus en plus fréquentes (désertification). Stress hydrique critique.",
+      "recherche": "Héritage de la «Maison de la Sagesse» abbasside. Aujourd'hui : recherche quasi-inexistante.",
+      "militaire": "Forces armées officielles de 193 000 actifs + Hachd al-Chaabi (milices pro-iraniennes, 150 000 hommes intégrés à l'État). Forces peshmergas kurdes (80 000).",
+      "defis": [
+        "Corruption systémique : 3e pays le plus corrompu du Moyen-Orient",
+        "Influence iranienne excessive sur l'État",
+        "Stress hydrique critique (Tigre et Euphrate à sec)",
+        "Daech toujours actif dans les zones désertiques",
+        "Reconstruction de Mossoul et autres villes détruites"
+      ]
+    },
+
+    "importance": {
+      "historique": "Mésopotamie = berceau de l'écriture, des lois, des premières villes. La guerre de 2003 est l'une des décisions géopolitiques les plus lourdes de conséquences du XXIe siècle : elle a déstabilisé tout le Moyen-Orient et favorisé l'émergence de Daech.",
+      "economique": "5e réserves pétrolières mondiales. Pétrole du Golfe qui alimente l'économie mondiale. Reconstruction permanente = marché colossal.",
+      "geopolitique": "Terrain de confrontation entre les États-Unis et l'Iran. Kurdistan irakien : zone de stabilité et d'influence américaine. Carrefour des tensions sunnites/chiites.",
+      "atouts": [
+        "5e réserves pétrolières mondiales (145 milliards de barils)",
+        "Position géographique centrale (Moyen-Orient, entre Iran et pays arabes)",
+        "Kurdistan irakien : pôle de stabilité et d'investissement",
+        "Héritage civilisationnel incomparable (Babylone, Ur, Ninive)",
+        "Population jeune (dividende démographique potentiel)"
+      ],
+      "fragilites": [
+        "Corruption parmi les pires du monde (malgré les revenus pétroliers)",
+        "État faible capturé par des milices",
+        "Dépendance totale au pétrole (99% des revenus d'État)",
+        "Stress hydrique existentiel",
+        "Fragmentation confessionnelle et ethnique structurelle"
+      ]
+    }
+  },
+
+  "MN": {
+    "name": "Mongolie",
+    "flag": "🇲🇳",
+    "capitale": "Oulan-Bator (Ulaanbaatar)",
+    "continent": "Asie",
+    "population": "3,4 millions (2024) — sur 1,5 million de km²",
+    "superficie": "1 564 116 km² (18e pays du monde — pour moins de 4 millions d'habitants)",
+    "langues": ["Mongol (officiel)"],
+    "monnaie": "Tögrög (MNT)",
+
+    "histoire": {
+      "independance": "11 juillet 1921 (avec l'aide soviétique). Mais l'empire mongol fut la plus grande puissance terrestre de l'histoire.",
+      "evenements_majeurs": [
+        "Empire mongol de Gengis Khan (1206-1368) : le plus grand empire contigu de l'histoire (24 millions de km²)",
+        "Conquête de la Chine, de la Perse, de la Russie, poussée jusqu'en Europe centrale",
+        "Pax Mongolica : sécurisation de la Route de la Soie, échanges culturels Asie-Europe",
+        "Déclin de l'empire (XIVe s.) : fragmentation en Khanats",
+        "Domination de la dynastie Qing chinoise (1691-1911)",
+        "République populaire de Mongolie (1924-1992) : satellite de l'URSS, «17e république soviétique»",
+        "Transition démocratique pacifique (1990) — l'une des plus réussies d'Asie",
+        "Découvertes minières massives (années 2000) : Oyu Tolgoi (cuivre et or), Tavan Tolgoi (charbon)",
+        "«Boom mongol» (2011-2013) : croissance de 17% — puis effondrement",
+        "Dépendance croissante à la Chine et à la Russie (landlocked — doublement enclavé)"
+      ],
+      "role_historique": "L'empire mongol est le plus grand empire terrestre de l'histoire humaine. Gengis Khan a changé la démographie, la politique et les échanges de tout le continent eurasiatique. Aujourd'hui, la Mongolie est un micro-État démocratique pris entre deux géants (Chine et Russie)."
+    },
+
+    "politique": {
+      "regime": "République parlementaire. Démocratie consolidée depuis 1990 — l'une des rares réussites de l'Asie centrale. Alternances politiques régulières entre MPP et PN.",
+      "chef_etat": "Ukhnaagiin Khürelsükh (Président depuis 2021). Oyun-Erdene Luvsannamsrai (Premier ministre depuis 2021 — MPP).",
+      "stabilite": "Stable démocratiquement. Mais économique très vulnérable (dépendance aux ressources minières et à la Chine pour les exportations).",
+      "alliances": [
+        "Politique du «3e voisin» : relations avec USA, UE, Japon, Corée pour contrebalancer Russie et Chine",
+        "OCS (observateur)",
+        "«Pays sans armes nucléaires» déclaré (1992 — tampon entre puissances nucléaires)"
+      ]
+    },
+
+    "economie": {
+      "pib": "19 milliards $ (2023)",
+      "pib_hab": "5 400 $ (2023)",
+      "ressources": [
+        "Charbon (14e réserves mondiales — Tavan Tolgoi)",
+        "Cuivre et or (Oyu Tolgoi — l'un des plus grands gisements du monde, partenariat avec Rio Tinto)",
+        "Fer, tungstène, fluorite, uranium",
+        "Bétail (13 millions de têtes — nomadisme : mode de vie traditionnel encore actif)",
+        "Cashmere (Mongolie = 1er producteur mondial de cashmere de chèvre)"
+      ],
+      "secteurs": [
+        "Mines (charbon, cuivre, or — 90% des exports)",
+        "Élevage nomade (cashmere, viande, lait)",
+        "Tourisme (désert de Gobi, steppes, nomadisme — en développement)",
+        "Services (Oulan-Bator concentre 50% du PIB)"
+      ],
+      "grandes_villes": [
+        "Oulan-Bator (1,6 M hab. — 45% de la population du pays dans une seule ville)",
+        "Erdenet (2e ville, cuivre)",
+        "Darkhan (3e ville, industrie)"
+      ],
+      "places_economiques": [
+        "Bourse de Mongolie (MSE)",
+        "Mine d'Oyu Tolgoi (Rio Tinto/gouvernement) : l'un des plus grands gisements de cuivre du monde"
+      ],
+      "voies_communication": [
+        "Doublement enclavé (Russie + Chine — aucun accès à la mer)",
+        "Transmongolien : chemin de fer Beijing-Moscou traversant la Mongolie",
+        "Aéroport international de Chinggis Khaan (Oulan-Bator)",
+        "99% des exportations passent par la Chine"
+      ]
+    },
+
+    "societe": {
+      "demographie": "Moins de 2 hab./km² (l'un des moins denses du monde). Exode rural massif vers Oulan-Bator : les «ger districts» (yourtes) ceinturent la capitale (pollution extrême en hiver).",
+      "idh": "0,737 (rang 100/191 en 2022, catégorie « élevé »)",
+      "education": "Taux d'alphabétisation 99% (héritage soviétique). Université nationale de Mongolie. Cerveaux partant à l'étranger.",
+      "sante": "Espérance de vie 70 ans. Pollution atmosphérique d'Oulan-Bator (chauffage au charbon des yourtes) : l'une des pires au monde en hiver.",
+      "inegalites": "Gini ~32. Inégalités entre nomades ruraux et classes urbaines. Corruption croissante.",
+      "urbanisation": "69 % (2023) — concentration massive à Oulan-Bator."
+    },
+
+    "environnement": {
+      "pollution": "Oulan-Bator : pollution atmosphérique parmi les pires du monde en hiver (chauffage au charbon). Désertification du Gobi s'étendant (25% du territoire en désertification). Surpâturage.",
+      "dev_durable": "Initiatives de reforestation (Muraille verte). Potentiel solaire et éolien immense (steppe = vent constant). Transition depuis le charbon très lente.",
+      "recherche": "Dinosaures (Mongolie = l'un des gisements fossiles les plus riches du monde). Astronomie (ciel dégagé). Académie des sciences héritée de l'URSS.",
+      "militaire": "Forces armées de 9 000 actifs. Budget minimal. Envoi de troupes aux missions ONU. «Pays sans armes nucléaires» — tampon entre deux puissances nucléaires.",
+      "defis": [
+        "Doublement enclavé : 100% dépendant de la Chine (80%) et Russie (20%) pour le transit",
+        "«Malédiction des ressources» : pic de croissance suivi d'effondrement",
+        "Désertification et changement climatique (Dzud — hivers catastrophiques tuant le bétail)",
+        "Pollution extrême d'Oulan-Bator (yourtes au charbon)",
+        "Dépeuplement des zones rurales — fin du nomadisme traditionnel"
+      ]
+    },
+
+    "importance": {
+      "historique": "L'empire de Gengis Khan est le plus grand empire terrestre de l'histoire. Il a connecté l'Asie et l'Europe, propagé la Pax Mongolica et la Route de la Soie. Sa démographie génocidaire a réduit la population mondiale de 10%.",
+      "economique": "Oyu Tolgoi : l'un des plus grands gisements de cuivre du monde (métal clé de la transition énergétique). Charbon exporté massivement vers la Chine. Cashmere : monopole mondial.",
+      "geopolitique": "Tampon démocratique entre la Chine autoritaire et la Russie autoritaire. Politique du «3e voisin» : modèle de survie diplomatique pour un petit État pris entre deux géants.",
+      "atouts": [
+        "Ressources minières colossales (cuivre, charbon, or, uranium)",
+        "1er producteur mondial de cashmere",
+        "Démocratie consolidée (rare en Asie centrale)",
+        "Héritage historique unique (empire de Gengis Khan — tourisme)",
+        "Politique du 3e voisin : autonomie diplomatique préservée"
+      ],
+      "fragilites": [
+        "Doublement enclavé (dépendance totale à la Chine pour les exports)",
+        "Économie mono-ressource (vulnérabilité aux cours mondiaux des matières premières)",
+        "Population infime (3,4 millions) pour un territoire immense",
+        "Changement climatique : dzuds et désertification menaçant le nomadisme",
+        "Pollution catastrophique d'Oulan-Bator (problème de santé publique)"
+      ]
+    }
+  },
+
+  "HU": {
+    "name": "Hongrie",
+    "flag": "🇭🇺",
+    "capitale": "Budapest",
+    "continent": "Europe",
+    "population": "9,7 millions (2024)",
+    "superficie": "93 028 km²",
+    "langues": ["Hongrois / Magyar (officiel) — langue non indo-européenne unique en Europe centrale"],
+    "monnaie": "Forint (HUF) — hors zone euro",
+
+    "histoire": {
+      "independance": "Royaume de Hongrie fondé en l'an 1000 (Saint Étienne, premier roi chrétien). État millénaire.",
+      "evenements_majeurs": [
+        "Conquête magyare des plaines pannoniennes (896) — peuple venu des steppes",
+        "Royaume de Hongrie (1000-1918) : puissance d'Europe centrale pendant 9 siècles",
+        "Bataille de Mohács (1526) : défaite contre les Ottomans, partition du pays",
+        "Empire austro-hongrois (1867-1918) : compromis austro-hongrois — grande puissance européenne",
+        "Traité de Trianon (1920) : Hongrie perd 2/3 de son territoire et 1/3 de sa population hongroise",
+        "Régime de Horthy (1920-1944) : autoritarisme nationaliste, alliance avec Hitler",
+        "Shoah en Hongrie (1944) : 500 000 Juifs hongrois déportés en 2 mois",
+        "République populaire hongroise (1949-1989) : satellite soviétique",
+        "Révolution hongroise (1956) : soulèvement écrasé par les chars soviétiques (2 500 morts, 200 000 exilés)",
+        "Transition démocratique (1989) : la Hongrie ouvre ses frontières — début de la chute du Mur",
+        "Adhésion à l'UE et OTAN (2004)",
+        "Viktor Orbán revient au pouvoir (2010) — construction de la «démocratie illibérale»"
+      ],
+      "role_historique": "La Hongrie a un héritage millénaire de grande puissance européenne, réduite par Trianon. La Révolution de 1956 est le symbole de la résistance au totalitarisme soviétique. Aujourd'hui, Orbán est la figure mondiale du populisme nationaliste au sein même de l'UE."
+    },
+
+    "politique": {
+      "regime": "République parlementaire. Démocratie formelle, mais Viktor Orbán a remodelé les institutions pour assurer son pouvoir (Fidesz — super-majorité permettant de modifier la Constitution). Concept de «démocratie illibérale».",
+      "chef_etat": "Tamás Sulyok (Président depuis 2024 — figurant). Viktor Orbán (Premier ministre depuis 2010 — homme fort du régime).",
+      "stabilite": "Stable politiquement sous Fidesz (hégémonie depuis 2010). Mais tensions croissantes avec l'UE (État de droit, fonds gelés). Péter Magyar : opposition montante (2024).",
+      "alliances": [
+        "UE (depuis 2004 — mais en conflit constant avec Bruxelles)",
+        "OTAN (depuis 2004 — mais bloque l'adhésion de la Suède pendant 2 ans)",
+        "V4 / Groupe de Visegrád (Hongrie, Pologne, Tchéquie, Slovaquie)",
+        "Relations avec la Russie (Orbán maintient des liens malgré la guerre en Ukraine)",
+        "Relations avec la Chine (usine de batteries CATL, Université Fudan controversée)"
+      ]
+    },
+
+    "economie": {
+      "pib": "212 milliards $ (2023, 55e mondiale)",
+      "pib_hab": "22 600 $ (2023)",
+      "ressources": [
+        "Bauxite",
+        "Terres agricoles fertiles (Grande Plaine hongroise — plaine pannonnienne)",
+        "Eaux thermales (Budapest : 1ère capitale mondiale des bains thermaux)",
+        "Main-d'œuvre qualifiée et bon marché (atout pour les multinationales)"
+      ],
+      "secteurs": [
+        "Automobile (usines Mercedes, Audi, BMW, Suzuki — «pays des voitures»)",
+        "Électronique (Samsung, Bosch)",
+        "Batteries pour VE (Samsung SDI, SK Innovation, CATL — hub européen en développement)",
+        "Agriculture (blé, maïs — exportateur net)",
+        "Tourisme (Budapest — 5e destination européenne)"
+      ],
+      "grandes_villes": [
+        "Budapest (1,8 M hab. — l'une des plus belles capitales d'Europe, UNESCO)",
+        "Debrecen (2e ville, industrie automobile)",
+        "Győr (automobiles Audi)",
+        "Miskolc, Pécs (centres régionaux)"
+      ],
+      "places_economiques": [
+        "Bourse de Budapest (BSE)",
+        "Budapest : hub régional des affaires en Europe centrale",
+        "Zone de Debrecen (gigafactory de batteries BMW et CATL)"
+      ],
+      "voies_communication": [
+        "Carrefour ferroviaire d'Europe centrale (Budapest = nœud Orient-Express historique)",
+        "Aéroport Ferenc Liszt (Budapest) — hub régional",
+        "Danube (voie fluviale internationale)",
+        "Autoroutes M1-M7 (hub logistique central)"
+      ]
+    },
+
+    "societe": {
+      "demographie": "Population en déclin (-0,3%/an). Refus de l'immigration (politique officielle d'Orbán). Exode des jeunes qualifiés vers l'Europe occidentale. Natalité très basse malgré des politiques familiales généreuses.",
+      "idh": "0,851 (rang 47/191 en 2022, catégorie « très élevé »)",
+      "education": "Tradition académique (Université de Budapest fondée 1635). Exode massif des chercheurs et enseignants vers l'Occident. CEU (Université d'Europe Centrale de Soros) expulsée à Vienne.",
+      "sante": "Espérance de vie 76,7 ans — l'une des plus basses d'Europe occidentale. Tabagisme, alcoolisme, obésité.",
+      "inegalites": "Gini ~30. Mais inégalités perçues comme fortes (Orbán et ses proches s'enrichissent — «Orbanomics»).",
+      "urbanisation": "72 % (2023). Budapest hypertrophiée."
+    },
+
+    "environnement": {
+      "pollution": "Pollution atmosphérique à Budapest. Danube : enjeu transfrontalier. Centrale nucléaire de Paks (étendue avec aide russe — Rosatom).",
+      "dev_durable": "Hub européen des batteries pour VE (paradoxe avec les positions d'Orbán). Centrale nucléaire de Paks : expansion controversée.",
+      "recherche": "Prix Nobel : 13 Hongrois lauréats (record per capita). Académie des sciences (MTA) attaquée par Orbán. Mathématiques de renommée mondiale (école de Budapest).",
+      "militaire": "Forces armées de 30 000 actifs. Membre OTAN mais refus d'envoyer des armes à l'Ukraine.",
+      "defis": [
+        "Dérive autoritaire et état de droit menacé (7 Mds€ de fonds UE gelés)",
+        "Déclin démographique et exode des cerveaux",
+        "Dépendance au gaz russe (Orbán maintient les liens avec Moscou)",
+        "Corruption systémique (oligarques proches de Fidesz)",
+        "Tensions avec l'UE menaçant les financements (27 Mds€ gelés)"
+      ]
+    },
+
+    "importance": {
+      "historique": "La Révolution de 1956 est le symbole mondial de la résistance au totalitarisme. En 1989, la Hongrie ouvre sa frontière (Autriche) : premier trou dans le Rideau de Fer, déclenchant la chute du Mur de Berlin.",
+      "economique": "Hub automobile européen (4 constructeurs majeurs). Futur hub des batteries pour VE en Europe. Main-d'œuvre qualifiée dans le cœur de l'UE.",
+      "geopolitique": "Orbán = figure mondiale du populisme nationaliste illibéral, modèle pour Trump, Bolsonaro, Meloni. Cheval de Troie de la Russie dans l'UE et l'OTAN. Test de la résistance des institutions européennes.",
+      "atouts": [
+        "Hub automobile et industriel européen (Mercedes, Audi, BMW, Samsung)",
+        "Futur hub européen de batteries pour véhicules électriques",
+        "Budapest : joyau architectural et touristique",
+        "Tradition académique exceptionnelle (13 Nobel)",
+        "Position centrale en Europe (carrefour logistique)"
+      ],
+      "fragilites": [
+        "Dérive autoritaire fragilisant les institutions démocratiques",
+        "7 Mds€ de fonds UE gelés pour non-respect de l'État de droit",
+        "Déclin démographique et exode des talents",
+        "Dépendance au gaz russe",
+        "Isolation diplomatique croissante dans l'UE"
+      ]
+    }
+  },
+
+  "BO": {
+    "name": "Bolivie",
+    "flag": "🇧🇴",
+    "capitale": "Sucre (constitutionnelle) — La Paz (siège du gouvernement, plus haute capitale du monde à 3 640 m)",
+    "continent": "Amérique",
+    "population": "12,3 millions (2024)",
+    "superficie": "1 098 581 km² (9e pays du monde)",
+    "langues": ["Espagnol (officiel)", "Quechua (officiel)", "Aymara (officiel)", "34 langues indigènes officielles"],
+    "monnaie": "Boliviano (BOB)",
+
+    "histoire": {
+      "independance": "6 août 1825 (indépendance de l'Espagne — nommée en l'honneur de Simón Bolívar).",
+      "evenements_majeurs": [
+        "Empire Tiwanaku (IVe-Xe s.) — civilisation andine autour du lac Titicaca",
+        "Empire Inca (XVe s.) : Bolivie intégrée dans le Tawantinsuyu",
+        "Colonisation espagnole (1532) : Potosí — mine d'argent qui finance l'empire espagnol (16 000 tonnes d'argent extraites)",
+        "Indépendance (1825) par Antonio José de Sucre",
+        "Guerre du Pacifique (1879-1884) : perte de l'accès à la mer (Atacama cédé au Chili) — trauma national",
+        "Guerre du Chaco (1932-1935) contre le Paraguay : 30 000 morts, perte du Chaco",
+        "Révolution nationale (1952) : nationalisation des mines d'étain, réforme agraire, vote indigène",
+        "Dictatures militaires (1964-1982)",
+        "Retour à la démocratie (1982)",
+        "Evo Morales élu (2006) : premier président indigène (Aymara) de Bolivie — nationalisation du gaz",
+        "Coup d'État contre Morales (2019) — très contesté",
+        "Luis Arce au pouvoir (2020) — MAS revient au pouvoir",
+        "Bolivie = 1ères réserves mondiales de lithium (salar d'Uyuni)"
+      ],
+      "role_historique": "La Bolivie est le pays le plus indigène d'Amérique latine (62% de population autochtone). Son histoire illustre les injustices coloniales, les ressources naturelles pillées et la lutte des peuples indigènes pour leur dignité."
+    },
+
+    "politique": {
+      "regime": "État plurinational. République présidentielle. Constitution de 2009 (Evo Morales) reconnaissant 36 nations indigènes et leurs droits.",
+      "chef_etat": "Luis Arce (Président depuis 2020 — MAS, mouvement indigène-socialiste).",
+      "stabilite": "Instable. Tension entre Arce et Morales (scission du MAS). Tentative de coup d'État (juin 2024 — chars dans la place du gouvernement). Crise économique (réserves de change épuisées).",
+      "alliances": [
+        "ALBA (Alliance Bolivarienne — axe Cuba, Venezuela, Nicaragua)",
+        "CELAC, UNASUR",
+        "Relations complexes avec le Chili (revendication d'un accès à la mer)",
+        "Partenariats avec la Chine et la Russie (lithium)"
+      ]
+    },
+
+    "economie": {
+      "pib": "44 milliards $ (2023)",
+      "pib_hab": "3 500 $ (2023)",
+      "ressources": [
+        "Lithium : 1ères réserves mondiales (21 millions de tonnes — salar d'Uyuni)",
+        "Gaz naturel (1ères réserves d'Amérique du Sud — nationalisé par Morales en 2006)",
+        "Étain (historiquement — mines de Cerro Rico, Potosí)",
+        "Argent, zinc, tungstène",
+        "Coca (traditionnelle et légale en Bolivie — enjeu politique)"
+      ],
+      "secteurs": [
+        "Gaz naturel (principale source de revenus — exporté vers Brésil et Argentine)",
+        "Mines (zinc, étain, argent, lithium)",
+        "Agriculture (soja, quinoa, coca)",
+        "Lithium (industrie en développement — enjeu du siècle)"
+      ],
+      "grandes_villes": [
+        "La Paz (2,3 M hab. — siège du gouvernement, la plus haute capitale du monde à 3 640 m)",
+        "Santa Cruz (3 M hab. — capitale économique, agriculture intensive, gaz)",
+        "Cochabamba (agro-industrie)",
+        "Potosí (ancienne plus riche ville du monde — aujourd'hui très pauvre)"
+      ],
+      "places_economiques": [
+        "Salar d'Uyuni (lithium — plus grand désert de sel du monde)",
+        "Santa Cruz : hub agricole et gazier",
+        "YLB (Yacimientos de Litio Bolivianos) : entreprise d'État du lithium"
+      ],
+      "voies_communication": [
+        "Pays doublement enclavé (sans accès à la mer depuis 1884)",
+        "Aéroport international El Alto (La Paz — à 4 065 m, le plus haut aéroport commercial du monde)",
+        "Réseau ferroviaire défaillant",
+        "Route vers les ports chiliens et péruviens"
+      ]
+    },
+
+    "societe": {
+      "demographie": "62% de population indigène (Quechua, Aymara, Guaraní) — la proportion la plus élevée d'Amérique latine. Société profondément pluriculturelle.",
+      "idh": "0,692 (rang 118/191 en 2022, catégorie « moyen »)",
+      "education": "Alphabétisation 92.5%. Université publique de San Andrés (La Paz). Réduction de l'analphabétisme sous Morales (programme cubain).",
+      "sante": "Espérance de vie 72 ans. Mortalité infantile encore élevée dans les zones rurales. Médecine traditionnelle andine ancrée.",
+      "inegalites": "Gini ~42 — en réduction sous Morales (réductions sociales grâce au gaz). Fracture entre Santa Cruz (riche, métisse) et altiplano (pauvre, indigène).",
+      "urbanisation": "71 % (2023). La Paz et Santa Cruz en forte croissance."
+    },
+
+    "environnement": {
+      "pollution": "Déforestation amazonienne (Santa Cruz — agriculture intensive de soja). Pollution minière (Potosí, Oruro). Lac Titicaca : pollution croissante.",
+      "dev_durable": "Réserves de lithium : enjeu mondial. Ambition de produire des batteries, pas seulement du lithium brut. Potentiel hydro-électrique immense (Amazonie). Lac Titicaca en danger.",
+      "recherche": "Centre de recherche en lithium (CEGBOL). Traditions médicales andines. Quinoa : aliment du futur.",
+      "militaire": "Forces armées de 46 000 actifs. Tentative de coup d'État de juin 2024 (chars place du gouvernement) — avortée.",
+      "defis": [
+        "Lithium : comment transformer la richesse en développement sans répéter la malédiction du pétrole?",
+        "Enclavement total (accès à la mer réclamé au Chili depuis 144 ans)",
+        "Épuisement des réserves de gaz (revenus en baisse)",
+        "Instabilité politique chronique (scission MAS, coups d'État récurrents)",
+        "Déforestation amazonienne accélérée dans les basses terres"
+      ]
+    },
+
+    "importance": {
+      "historique": "Potosí : la mine d'argent qui a financé l'empire espagnol pendant 3 siècles et provoqué l'inflation dans toute l'Europe. Evo Morales : premier président indigène d'Amérique latine — symbole mondial.",
+      "economique": "Premières réserves mondiales de lithium — métal clé pour les batteries de VE et la transition énergétique. Qui contrôle le lithium bolivien contrôle une partie de l'avenir énergétique mondial.",
+      "geopolitique": "Triangle du lithium (Bolivie, Argentine, Chili) = Arabie Saoudite du XXIe siècle. Enjeu de la compétition USA-Chine-Europe pour les ressources.",
+      "atouts": [
+        "1ères réserves mondiales de lithium (21 millions de tonnes)",
+        "Gaz naturel (revenus significatifs)",
+        "Biodiversité exceptionnelle (Amazonie, Andes, Altiplano)",
+        "Culture indigène riche et préservée (quinoa, coca, traditions)",
+        "Position centrale en Amérique du Sud"
+      ],
+      "fragilites": [
+        "Enclavement total (sans accès à la mer depuis 1884 — handicap majeur)",
+        "Instabilité politique chronique",
+        "Réserves de gaz en déclin (revenus en baisse)",
+        "Difficulté à industrialiser le lithium (nécessite des capitaux et technologies étrangers)",
+        "Fracture régionale et ethnique (Santa Cruz vs Altiplano)"
+      ]
+    }
+  },
+
+  "SN": {
+    "name": "Sénégal",
+    "flag": "🇸🇳",
+    "capitale": "Dakar",
+    "continent": "Afrique",
+    "population": "18 millions (2024)",
+    "superficie": "196 722 km²",
+    "langues": ["Français (officiel)", "Wolof (lingua franca nationale, 80% de locuteurs)", "Pulaar, Serer, Diola"],
+    "monnaie": "Franc CFA (XOF) — partagé avec 7 pays d'Afrique de l'Ouest",
+
+    "histoire": {
+      "independance": "4 avril 1960 (indépendance de la France).",
+      "evenements_majeurs": [
+        "Empires du Ghana, du Mali (XIIIe s.) et du Jolof (XIVe-XVIe s.) : grandes civilisations pré-coloniales",
+        "Commerce transatlantique d'esclaves : Gorée — île des esclaves (XVe-XIXe s.)",
+        "Résistance d'El Hadj Omar Tall et Lat Dior contre la colonisation française",
+        "Colonisation française (Saint-Louis — 1ère capitale de l'AOF)",
+        "Léopold Sédar Senghor : 1er président (1960-1980) — philosophe, poète, co-inventeur de la Négritude",
+        "Alternance pacifique (2000) : Senghor puis Diouf puis Wade — modèle africain de démocratie",
+        "3e alternance (2012) : Macky Sall élu",
+        "Découverte de pétrole et de gaz offshore (2014-2016)",
+        "Crise politique (2023-2024) : Sonko emprisonné, manifestations, report des élections",
+        "4e alternance (mars 2024) : Bassirou Diomaye Faye élu à 44 ans — plus jeune président de l'histoire sénégalaise"
+      ],
+      "role_historique": "Le Sénégal est le modèle démocratique de l'Afrique de l'Ouest — 4 alternances pacifiques en 64 ans d'indépendance. Dakar est la capitale culturelle et intellectuelle de l'Afrique francophone."
+    },
+
+    "politique": {
+      "regime": "République présidentielle. Démocratie parmi les plus solides d'Afrique subsaharienne. 4 alternances au pouvoir depuis l'indépendance (modèle continental).",
+      "chef_etat": "Bassirou Diomaye Faye (Président depuis avril 2024 — élu à 44 ans, sorti de prison 10 jours avant l'élection). Ousmane Sonko (Premier ministre).",
+      "stabilite": "Relativement stable malgré les crises politiques de 2023-2024. Institutions solides. Société civile active. Presse relativement libre.",
+      "alliances": [
+        "CEDEAO (communauté régionale — Sénégal = pilier)",
+        "Union africaine",
+        "Francophonie (pilier culturel)",
+        "France (relations historiques — base militaire française à Dakar jusqu'en 2024)",
+        "Relations avec la Chine, les USA, la Turquie (diversification)"
+      ]
+    },
+
+    "economie": {
+      "pib": "31 milliards $ (2023) — croissance attendue à 8-10% après démarrage du pétrole et gaz (2024-2025)",
+      "pib_hab": "1 700 $ (2023) — va augmenter fortement avec les hydrocarbures",
+      "ressources": [
+        "Pétrole offshore (champ Sangomar — production démarrée 2024)",
+        "Gaz naturel (Grand Tortue Ahmeyim — offshore, frontière avec la Mauritanie)",
+        "Phosphates (4e producteur mondial)",
+        "Pêche (côtes de l'Atlantique — secteur vital mais surexploité)",
+        "Arachides (historiquement — culture de rente coloniale)"
+      ],
+      "secteurs": [
+        "Services (banques, télécoms, commerce — moteur principal)",
+        "Tourisme (côtes, réserves naturelles, culture — 1,5 M de touristes)",
+        "Agriculture (arachides, mil, maïs)",
+        "Pêche (export de poissons — secteur social majeur)",
+        "Téléservices et numérique (hub régional croissant)"
+      ],
+      "grandes_villes": [
+        "Dakar (3,5 M hab. — péninsule stratégique, la ville la plus à l'ouest de l'Afrique continentale)",
+        "Touba (ville sainte mouride — 1 M d'hab., 2e ville)",
+        "Thiès, Saint-Louis (2e ville historique, inscription UNESCO)"
+      ],
+      "places_economiques": [
+        "Bourse Régionale des Valeurs Mobilières (BRVM) — siège à Abidjan mais Sénégal acteur majeur",
+        "Port de Dakar : 1er port d'Afrique de l'Ouest (hub régional)",
+        "Aéroport International Blaise Diagne (AIBD) — hub régional"
+      ],
+      "voies_communication": [
+        "Port de Dakar : hub régional pour le Mali, Guinée, Mauritanie (landlockés)",
+        "Aéroport Blaise Diagne (nouveau, 2017) — hub régional",
+        "TER (Train Express Régional Dakar-AIBD) : premier train rapide d'Afrique de l'Ouest (2021)",
+        "Position atlantique : porte de l'Afrique de l'Ouest"
+      ]
+    },
+
+    "societe": {
+      "demographie": "Population très jeune (âge médian 18 ans). Croissance démographique rapide (~2,7%/an). Diaspora importante (2 millions de Sénégalais à l'étranger — France, Italie, USA). Islam soufi dominant (confréries Mouride et Tidiane).",
+      "idh": "0,512 (rang 170/191 en 2022, catégorie « faible »)",
+      "education": "Université Cheikh Anta Diop de Dakar : référence d'Afrique de l'Ouest. Taux de scolarisation en hausse. Alphabétisation 51% (faiblesse due aux langues locales non enseignées).",
+      "sante": "Espérance de vie 68 ans. Système de santé insuffisant mais en amélioration. Lutte contre le paludisme avancée.",
+      "inegalites": "Gini ~38. Pauvreté rurale persistante. Diaspora = levier de développement (3 Mds$/an de transferts).",
+      "urbanisation": "49 % (2023). Dakar : hypertrophie urbaine (20% de la population sur 0,3% du territoire)."
+    },
+
+    "environnement": {
+      "pollution": "Surpêche par les chalutiers étrangers (Europe, Chine) appauvrissant les pêcheurs sénégalais. Érosion côtière (Saint-Louis — la ville la plus menacée d'Afrique par la montée des eaux). Déforestation.",
+      "dev_durable": "Érosion côtière critique (Saint-Louis perd 25 m de côte par an). Initiative Grande Muraille Verte (reboisement du Sahel). Pétrole : enjeu de gouvernance (éviter la malédiction des ressources).",
+      "recherche": "Institut Pasteur de Dakar (référence mondiale en Afrique — vaccins, maladies tropicales). UCAD : recherche en sciences humaines et sociales.",
+      "militaire": "Forces armées de 20 000 actifs. Participation aux missions de paix (MINUSMA Mali, UNAMID Darfour). Stabilité régionale.",
+      "defis": [
+        "Transition pétrolière : gouverner les nouveaux revenus sans corruption ni Dutch Disease",
+        "Démographie : doublement de la population d'ici 2050",
+        "Migration vers l'Europe (pirogues de Dakar — drame humanitaire)",
+        "Érosion côtière et montée des eaux (Saint-Louis)",
+        "Surpêche par les flottilles étrangères"
+      ]
+    },
+
+    "importance": {
+      "historique": "Dakar était la capitale de l'AOF (Afrique Occidentale Française) — cœur de l'Afrique francophone. Senghor = philosophe majeur de la Négritude. Le Sénégal est le modèle de démocratie le plus cité en Afrique.",
+      "economique": "Hub régional de l'Afrique de l'Ouest (port, aéroport, services). Pétrole et gaz démarrant en 2024-2025 : potentiel de transformation majeure.",
+      "geopolitique": "Pilier de la stabilité en Afrique de l'Ouest (CEDEAO). Modèle démocratique à l'heure où le Sahel est secoué par des coups d'État (Mali, Burkina Faso, Niger). Hub francophone.",
+      "atouts": [
+        "Démocratie modèle (4 alternances pacifiques en 64 ans)",
+        "Hub régional de l'Afrique de l'Ouest (port, aéroport, services)",
+        "Pétrole et gaz offshore (recettes en forte hausse dès 2025)",
+        "Dakar : capitale intellectuelle et culturelle de l'Afrique francophone",
+        "Stabilité et image internationale positive"
+      ],
+      "fragilites": [
+        "IDH très bas (170/191) malgré la relative richesse régionale",
+        "Démographie galopante (défi de l'emploi des jeunes)",
+        "Dépendance au CFA (monnaie liée à l'euro — débat sur la souveraineté monétaire)",
+        "Pétrole : risque de malédiction des ressources",
+        "Pression migratoire (jeunes prenant la mer vers l'Europe)"
+      ]
+    }
+  },
+
+  "KZ": {
+    "name": "Kazakhstan",
+    "flag": "🇰🇿",
+    "capitale": "Astana (anciennement Nur-Sultan 2019-2022, anciennement Akmola)",
+    "continent": "Asie",
+    "population": "19,3 millions (2024)",
+    "superficie": "2 724 900 km² (9e plus grand pays du monde — plus grand État enclavé du monde)",
+    "langues": ["Kazakh (officiel)", "Russe (co-officiel, langue des affaires)"],
+    "monnaie": "Tenge (KZT)",
+
+    "histoire": {
+      "independance": "16 décembre 1991 (dissolution de l'URSS).",
+      "evenements_majeurs": [
+        "Steppe kazakhe : berceau des peuples cavaliers (Scythes, Huns, Turcs)",
+        "Khanat kazakh (XVe-XVIIIe s.) — peuple nomade pasteur des steppes",
+        "Conquête russe (XVIIIe-XIXe s.) — résistance des khans kazakhs",
+        "RSS du Kazakhstan (1936-1991) : soviétisation, sédentarisation forcée des nomades",
+        "Holodomor kazakh (1931-1933) : famine soviétique — 1,5 million de morts kazakhs (38% de la population)",
+        "Site de Baïkonour : base de lancement spatiale soviétique (Spoutnik, Gagarine)",
+        "Essais nucléaires soviétiques sur le Polygon de Semipalatinsk (1949-1989) : 456 bombes — 1 million de victimes de radiations",
+        "Indépendance (1991) — Noursoultan Nazarbaïev (1991-2019) : président-fondateur autoritaire mais modernisateur",
+        "Kazakhstan renonce à l'arsenal nucléaire soviétique (1994) — en échange de garanties non respectées",
+        "Boom pétrolier (2000-2014) : Kazakhstan parmi les croissances les plus rapides du monde",
+        "Tokayev succède à Nazarbaïev (2019)",
+        "Révoltes du Janaozen (janvier 2022) : soulèvement populaire violent, réprimé avec l'aide russe (OTSC)",
+        "Position d'équilibre face à la guerre en Ukraine (ni soutien à la Russie ni aux sanctions)"
+      ],
+      "role_historique": "Le Kazakhstan est le plus grand État enclavé du monde, héritier des steppes nomades eurasiatiques. Il gère une position d'équilibre délicat entre la Russie, la Chine, et l'Occident convoitant ses immenses ressources."
+    },
+
+    "politique": {
+      "regime": "République présidentielle autoritaire. Kassym-Jomart Tokayev réforme prudemment après les révoltes de 2022 (promesse de «Kazakhstan juste»). Nazarbaïev : influence réduite mais toujours présente.",
+      "chef_etat": "Kassym-Jomart Tokayev (Président depuis 2019 — réélu 2022).",
+      "stabilite": "Stable par le contrôle autoritaire. Révoltes de janvier 2022 : signal d'instabilité potentielle. Équilibre délicat entre Russie et Occident.",
+      "alliances": [
+        "OTSC (Organisation du Traité de Sécurité Collective — alliance russe, a envoyé des troupes en janvier 2022)",
+        "OCS (Organisation de Coopération de Shanghai)",
+        "CEI",
+        "Relations économiques avec la Chine (BRI — pipeline vers la Chine)",
+        "Politique multi-vecteurs : USA, UE, Turquie en parallèle de Russie et Chine"
+      ]
+    },
+
+    "economie": {
+      "pib": "260 milliards $ (2023, 48e mondiale)",
+      "pib_hab": "13 200 $ (2023) — le plus élevé d'Asie centrale",
+      "ressources": [
+        "Pétrole (12e réserves mondiales — champs de Tengiz, Kashagan, Karachaganak)",
+        "Uranium (1er producteur mondial — 43% de la production mondiale)",
+        "Chrome, fer, manganèse, cuivre, plomb, zinc",
+        "Blé (grenier de l'Asie centrale)"
+      ],
+      "secteurs": [
+        "Pétrole et gaz (60% des exports, 40% du PIB)",
+        "Mines (uranium, chrome, cuivre)",
+        "Agriculture (blé — le Kazakhstan est un des plus grands producteurs mondiaux)",
+        "Finance (Astana International Financial Centre)",
+        "Technologies (hub régional en développement)"
+      ],
+      "grandes_villes": [
+        "Almaty (2 M hab. — ancienne capitale, hub économique et culturel)",
+        "Astana (1,2 M hab. — capitale futuriste construite de zéro depuis 1997)",
+        "Chiymkent (1 M hab. — sud industriel)"
+      ],
+      "places_economiques": [
+        "AIFC (Astana International Financial Centre) : hub financier régional, droit anglais",
+        "Bourse de Kazakh (KASE)",
+        "Champ pétrolier de Tengiz (partenariat avec Chevron)"
+      ],
+      "voies_communication": [
+        "Plus grand État enclavé du monde — tout le commerce passe par la Russie, la Chine, ou la Caspienne",
+        "Trans-Caspian International Transport Route (TITR) : corridor alternatif à la Russie via la Caspienne",
+        "Aéroport international Nursultan Nazarbaïev (Astana)",
+        "Chemin de fer vers la Chine (Dostyk — connexion au réseau chinois)"
+      ]
+    },
+
+    "societe": {
+      "demographie": "Population multietnique : Kazakhs (70%), Russes (19%), Ouzbeks, Ukrainiens. Russes : minorité inquiète depuis 2022. Kazakhstan : pays le plus russophone d'Asie centrale.",
+      "idh": "0,802 (rang 67/191 en 2022, catégorie « élevé »)",
+      "education": "Nazarbaïev University (Astana) : fondée sur le modèle occidental, partenariats avec Cambridge, Wisconsin. Programme Bolashak : 15 000 étudiants kazakhs financés à l'étranger.",
+      "sante": "Espérance de vie 72 ans. Maladies liées aux essais nucléaires soviétiques (cancers autour de Semipalatinsk). Système de santé en amélioration.",
+      "inegalites": "Gini ~28. Revenus pétroliers relativement bien distribués (comparé à ses voisins). Fonds national : épargne pétrolière pour les générations futures.",
+      "urbanisation": "58 % (2023). Astana : capitale champignon construite de zéro."
+    },
+
+    "environnement": {
+      "pollution": "Mer d'Aral : désastre écologique partagé (Kazakhstan, Ouzbékistan). Héritage des 456 essais nucléaires soviétiques (Polygon). Pollution pétrolière de la Caspienne.",
+      "dev_durable": "Énergie renouvelable en développement (steppe = vent immense). Objectif de carbone-neutralité 2060. Réhabilitation partielle de la partie kazakhe de la mer d'Aral.",
+      "recherche": "Baïkonour : héritage spatial soviétique (loué à la Russie jusqu'en 2050). Nazarbaïev University : recherche en sciences et ingénierie.",
+      "militaire": "Forces armées de 74 000 actifs. OTSC (appel aux troupes russes en janvier 2022). Politique d'équilibre stratégique.",
+      "defis": [
+        "Dépendance au pétrole (vulnérabilité aux fluctuations des cours)",
+        "Enclavement : tout le transit passe par la Russie ou la Chine",
+        "Héritage nucléaire soviétique (cancers, terres contaminées)",
+        "Réduire la dépendance à la Russie sans la provoquer",
+        "Transition post-pétrole à préparer"
+      ]
+    },
+
+    "importance": {
+      "historique": "Baïkonour : d'où Gagarine est parti dans l'espace (1961). Premier pays à renoncer volontairement à l'arme nucléaire (1994). Héritier des steppes nomades qui ont façonné l'Eurasie.",
+      "economique": "1er producteur mondial d'uranium (43% du marché — métal clé du nucléaire civil). 12e réserves pétrolières mondiales. Grenier à blé régional.",
+      "geopolitique": "Géant territorial enclavé entre Russie et Chine. Test de la politique multi-vecteurs : peut-on rester souverain entre deux puissances? Pivot central de la «steppe géopolitique» eurasiatique.",
+      "atouts": [
+        "1er producteur mondial d'uranium (43% — ressource stratégique pour le nucléaire civil)",
+        "12e réserves pétrolières mondiales (revenus stables)",
+        "Fonds national d'épargne : 65 Mds$ pour les générations futures",
+        "Politique multi-vecteurs réussie (équilibre Russie/Chine/Occident)",
+        "Astana : vitrine de modernité et ambition régionale"
+      ],
+      "fragilites": [
+        "Enclavement total (dépendance aux routes de transit via Russie ou Chine)",
+        "Dépendance au pétrole (60% des exports)",
+        "Héritage nucléaire soviétique (contamination, cancers)",
+        "Pression russe (minorité russe, OTSC)",
+        "Autoritarisme limitant diversification économique et innovation"
+      ]
+    }
+  },
+
+  "LK": {
+    "name": "Sri Lanka",
+    "flag": "🇱🇰",
+    "capitale": "Sri Jayawardenepura Kotte (officielle) — Colombo (économique et principale)",
+    "continent": "Asie",
+    "population": "22 millions (2024)",
+    "superficie": "65 610 km²",
+    "langues": ["Cingalais (officiel)", "Tamoul (officiel)", "Anglais (langue de liaison)"],
+    "monnaie": "Roupie srilankaise (LKR)",
+
+    "histoire": {
+      "independance": "4 février 1948 (indépendance du Royaume-Uni — Ceylan, puis Sri Lanka depuis 1972).",
+      "evenements_majeurs": [
+        "Civilisation de l'Anuradhapura (IIIe s. av. J.-C.) : grande civilisation bouddhiste",
+        "Ceylan : île stratégique sur la Route des épices — convoitée par Portugais, Hollandais, Britanniques",
+        "Colonisation britannique (1815-1948) : développement du thé, café, caoutchouc",
+        "Indépendance (1948)",
+        "Nationalisme cingalais (1956) : cingalais langue officielle unique — marginalisation des Tamouls",
+        "Début des tensions ethniques (1958)",
+        "Création des Tigres Tamouls (LTTE, 1976) : mouvement séparatiste tamil",
+        "Guerre civile (1983-2009) : 26 ans de conflit, 100 000 morts",
+        "Tsunami de l'océan Indien (26 décembre 2004) : 35 000 morts au Sri Lanka",
+        "Victoire militaire contre les LTTE (mai 2009) — massacres documentés des derniers mois",
+        "Rajapaksa au pouvoir (2005-2015, 2019-2022) : corruption et nepotisme",
+        "Faillite économique totale (2022) : pire crise depuis l'indépendance",
+        "Révolution populaire (juillet 2022) : envahissement du palais présidentiel — Rajapaksa fuit aux Maldives",
+        "Réformes FMI et lente reconstruction (2023-2024)"
+      ],
+      "role_historique": "Le Sri Lanka illustre deux phénomènes majeurs : comment un conflit ethnique peut détruire un pays sur 26 ans, et comment une mauvaise gouvernance économique peut mener une nation entière à la faillite totale en quelques années."
+    },
+
+    "politique": {
+      "regime": "République présidentielle. Démocratie relative. Élections régulières mais dynasties politiques dominantes.",
+      "chef_etat": "Anura Kumara Dissanayake (Président depuis septembre 2024 — première fois qu'un parti de gauche radicale remporte la présidence).",
+      "stabilite": "En reconstruction post-crise. Société polarisée entre Cingalais bouddhistes et Tamouls hindous. Réconciliation post-guerre civile incomplète.",
+      "alliances": [
+        "Inde (voisin et partenaire dominant — détroit de Palk)",
+        "Chine (investissements massifs — port de Hambantota concédé à la Chine 99 ans)",
+        "FMI (programme de renflouement 2,9 Mds$ depuis 2023)",
+        "Commonwealth",
+        "Mouvement des non-alignés (tradition historique)"
+      ]
+    },
+
+    "economie": {
+      "pib": "84 milliards $ (2023 — était 88 Mds$ en 2021 avant l'effondrement)",
+      "pib_hab": "3 800 $ (2023 — était 4 000 $ avant la crise)",
+      "ressources": [
+        "Thé (Ceylon tea : 3e exportateur mondial, image mondiale)",
+        "Caoutchouc naturel",
+        "Pierres précieuses (saphirs, rubis — 8e producteur mondial)",
+        "Noix de coco (4e producteur mondial)",
+        "Pêche (océan Indien)"
+      ],
+      "secteurs": [
+        "Tourisme (2e source de devises avant la crise — 2 M de touristes/an)",
+        "Textile et confection (1ère source d'export — 40%)",
+        "Thé (symbole national, 10% des exports)",
+        "Transferts de migrants (travailleurs au Moyen-Orient — 10% du PIB)",
+        "Technologies de l'information (hub régional en développement)"
+      ],
+      "grandes_villes": [
+        "Colombo (750 000 hab., 2,3 M agglomération — capitale économique et port)",
+        "Kandy (2e ville, capitale culturelle bouddhiste)",
+        "Galle (port historique hollandais, patrimoine UNESCO)"
+      ],
+      "places_economiques": [
+        "Bourse de Colombo (CSE)",
+        "Port de Colombo : hub régional de l'océan Indien (entre l'Inde et l'Asie du Sud-Est)",
+        "Port de Hambantota : controversé — concédé à la Chine pour 99 ans après les dettes non remboursées"
+      ],
+      "voies_communication": [
+        "Port de Colombo : 1er hub de transbordement de l'Asie du Sud (25% du trafic indien)",
+        "Aéroport international Bandaranaike (Colombo)",
+        "Détroit de Palk (entre Sri Lanka et Inde — 50 km)"
+      ]
+    },
+
+    "societe": {
+      "demographie": "74% de Cingalais bouddhistes, 11% de Tamouls hindous, 9% de Maures musulmans. Tensions ethniques persistantes depuis la guerre civile. 1,5 million de Tamouls de plantation (descendants des ouvriers amenés par les Britanniques).",
+      "idh": "0,780 (rang 78/191 en 2022, catégorie « élevé » — paradoxalement élevé pour un pays en faillite)",
+      "education": "Alphabétisation 92%. Universités de Colombo, Peradeniya réputées. Forte tradition d'éducation publique gratuite.",
+      "sante": "Espérance de vie 77 ans (l'une des meilleures d'Asie du Sud). Médecine publique gratuite — mais système sous pression extrême pendant la crise 2022.",
+      "inegalites": "Gini ~33. Mais crise 2022 a dramatiquement appauvri les classes moyennes.",
+      "urbanisation": "19 % (2023) — très rural."
+    },
+
+    "environnement": {
+      "pollution": "Déforestation (plantations de thé). Pollution plastique côtière. Pression touristique.",
+      "dev_durable": "Énergie renouvelable en développement (hydroélectricité 30%). Port de Hambantota : enjeu de la dette chinoise et de la souveraineté.",
+      "recherche": "Tradition médicale ayurvédique. Biotechnologie et agriculture (thé, caoutchouc). Centre de recherche à Colombo.",
+      "militaire": "Forces armées de 255 000 actifs. Puissante armée post-guerre civile (2009). Reconversion difficile en temps de paix.",
+      "defis": [
+        "Crise économique : dette publique à 130% du PIB, restructuration en cours",
+        "Réconciliation post-guerre civile (justice transitionnelle non faite)",
+        "Piège de la dette chinoise (Hambantota — symbole mondial de la «diplomatie du piège de la dette»)",
+        "Gouvernance : éviter le retour du clan Rajapaksa",
+        "Changement climatique : montée des eaux (côtes basses), sécheresses"
+      ]
+    },
+
+    "importance": {
+      "historique": "Le Sri Lanka est un cas d'étude mondial sur deux phénomènes : la guerre civile ethnique (26 ans de LTTE) et la faillite économique par mauvaise gouvernance (2022). La révolution populaire de 2022 est un modèle rare de renversement pacifique par la foule.",
+      "economique": "Hub maritime crucial (Port de Colombo : 25% du trafic indien transborde ici). Thé de Ceylan : marque mondiale. Cas d'école de la reconstruction post-faillite (FMI).",
+      "geopolitique": "Pris entre l'Inde (puissance régionale) et la Chine (investissements massifs). Port de Hambantota : symbole mondial du «piège de la dette» chinois. Test de la compétition Inde-Chine dans l'océan Indien.",
+      "atouts": [
+        "Position stratégique (routes maritimes Suez-Asie du Sud-Est — océan Indien)",
+        "Port de Colombo : hub de transbordement régional",
+        "IDH élevé malgré revenus bas (santé et éducation publiques performantes)",
+        "Thé de Ceylan : marque mondiale reconnue",
+        "Richesse en biodiversité (endémisme exceptionnel sur cette île)"
+      ],
+      "fragilites": [
+        "Dette insurmontable (130% du PIB) — restructuration sous FMI",
+        "Port de Hambantota concédé à la Chine 99 ans (perte de souveraineté)",
+        "Réconciliation ethnique non accomplie (Tamouls toujours marginalisés)",
+        "Économie très vulnérable aux chocs externes (tourisme, remittances)",
+        "Instabilité politique chronique (dynasties corrompues)"
+      ]
+    }
+  }
+}

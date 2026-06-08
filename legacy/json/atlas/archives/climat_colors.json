@@ -1,0 +1,52 @@
+{
+  "desert": {
+    "color": "#e8c44a",
+    "label": "Désert aride",
+    "icon": "🏜"
+  },
+  "steppe": {
+    "color": "#d4963a",
+    "label": "Semi-aride / Steppe",
+    "icon": "🌾"
+  },
+  "tropical": {
+    "color": "#2eb84a",
+    "label": "Forêt équatoriale",
+    "icon": "🌴"
+  },
+  "monsoon": {
+    "color": "#48d870",
+    "label": "Mousson tropicale",
+    "icon": "🌧"
+  },
+  "mediterranean": {
+    "color": "#e8a840",
+    "label": "Méditerranéen",
+    "icon": "☀️"
+  },
+  "oceanic": {
+    "color": "#6ab8d4",
+    "label": "Tempéré océanique",
+    "icon": "🌦"
+  },
+  "temperate": {
+    "color": "#5888c8",
+    "label": "Tempéré humide",
+    "icon": "🍃"
+  },
+  "continental": {
+    "color": "#7890b0",
+    "label": "Continental",
+    "icon": "❄️"
+  },
+  "subarctic": {
+    "color": "#98b8d8",
+    "label": "Subarctique / Boréal",
+    "icon": "🌲"
+  },
+  "polar": {
+    "color": "#c8dcea",
+    "label": "Polaire / Toundra",
+    "icon": "🧊"
+  }
+}

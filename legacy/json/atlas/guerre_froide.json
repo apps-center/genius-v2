@@ -1,0 +1,148 @@
+{
+  "_meta": {
+    "title": "Guerre Froide (1947-1991)",
+    "emoji": "🔴"
+  },
+  "blocs": {
+    "otan": {
+      "label": "Bloc Occidental (OTAN)",
+      "couleur": "#2060c0",
+      "pays": [
+        "US",
+        "CA",
+        "GB",
+        "FR",
+        "DE",
+        "IT",
+        "ES",
+        "PT",
+        "NL",
+        "BE",
+        "LU",
+        "DK",
+        "NO",
+        "IS",
+        "GR",
+        "TR",
+        "AU",
+        "NZ",
+        "JP",
+        "KR"
+      ]
+    },
+    "varsovie": {
+      "label": "Bloc Soviétique (Pacte de Varsovie)",
+      "couleur": "#c02020",
+      "pays": [
+        "RU",
+        "PL",
+        "CZ",
+        "SK",
+        "HU",
+        "RO",
+        "BG",
+        "DE",
+        "AL",
+        "YU",
+        "MN",
+        "CN",
+        "KP",
+        "VN",
+        "CU",
+        "AO",
+        "MZ",
+        "ET",
+        "AF",
+        "KH"
+      ]
+    },
+    "non_alignes": {
+      "label": "Pays Non-Alignés",
+      "couleur": "#808020",
+      "pays": [
+        "IN",
+        "ID",
+        "EG",
+        "YU",
+        "GH",
+        "NG",
+        "TZ",
+        "ZM",
+        "ZW",
+        "DZ",
+        "MA",
+        "TN",
+        "LY",
+        "SN",
+        "CI",
+        "CM",
+        "GA",
+        "IR",
+        "IQ",
+        "SY",
+        "LB",
+        "JO",
+        "SA",
+        "YE",
+        "BR",
+        "AR",
+        "MX",
+        "CO",
+        "PE",
+        "CL",
+        "VE"
+      ]
+    }
+  },
+  "crises": [
+    {
+      "nom": "Blocus de Berlin",
+      "lon": 13.4,
+      "lat": 52.5,
+      "annee": "1948-49",
+      "desc": "URSS bloque Berlin-Ouest — pont aérien américain"
+    },
+    {
+      "nom": "Guerre de Corée",
+      "lon": 127.0,
+      "lat": 37.5,
+      "annee": "1950-53",
+      "desc": "Premier conflit armé de la Guerre Froide"
+    },
+    {
+      "nom": "Crise de Cuba",
+      "lon": -82.4,
+      "lat": 23.1,
+      "annee": "1962",
+      "desc": "13 jours au bord de la guerre nucléaire"
+    },
+    {
+      "nom": "Mur de Berlin",
+      "lon": 13.4,
+      "lat": 52.5,
+      "annee": "1961-1989",
+      "desc": "Symbole de la division du monde"
+    },
+    {
+      "nom": "Guerre du Vietnam",
+      "lon": 105.8,
+      "lat": 16.0,
+      "annee": "1955-75",
+      "desc": "Proxy war — 3 millions de morts"
+    },
+    {
+      "nom": "Afghanistan soviétique",
+      "lon": 69.2,
+      "lat": 34.5,
+      "annee": "1979-89",
+      "desc": "Le 'Vietnam soviétique' — 1M de morts afghans"
+    },
+    {
+      "nom": "Chute du mur",
+      "lon": 13.4,
+      "lat": 52.5,
+      "annee": "1989",
+      "desc": "9 novembre 1989 — fin symbolique de la Guerre Froide"
+    }
+  ]
+}

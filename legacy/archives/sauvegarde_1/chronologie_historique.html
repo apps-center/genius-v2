@@ -1,0 +1,712 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Chronologie Historique</title>
+<link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;700;900&family=Crimson+Pro:ital,wght@0,300;0,400;1,300&display=swap" rel="stylesheet">
+<style>
+:root{--bg:#060a14;--star:#e8dfc4;--line:rgba(200,180,120,.2);}
+*{box-sizing:border-box;margin:0;padding:0;}
+html{scroll-behavior:smooth;}
+body{background:var(--bg);color:var(--star);font-family:'Crimson Pro',Georgia,serif;overflow-x:hidden;transition:background 1.4s ease;}
+#stars{position:fixed;inset:0;z-index:0;pointer-events:none;}
+
+/* HEADER */
+header{position:relative;z-index:10;text-align:center;padding:56px 20px 36px;}
+.subtitle{font-size:.85rem;letter-spacing:.35em;text-transform:uppercase;color:rgba(232,223,196,.42);margin-bottom:14px;}
+h1{font-family:'Cinzel',serif;font-size:clamp(1.8rem,5vw,3.6rem);font-weight:900;
+  background:linear-gradient(135deg,#f5e6a3,#d4a843 40%,#f0c060 70%,#fff8e0);
+  -webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;line-height:1.1;}
+.tagline{margin-top:12px;font-size:.95rem;color:rgba(232,223,196,.5);font-style:italic;}
+
+/* TABS */
+.tabs{position:sticky;top:0;z-index:50;display:flex;justify-content:center;gap:0;
+  padding:16px 20px;background:rgba(6,10,20,.92);backdrop-filter:blur(16px);
+  border-bottom:1px solid rgba(200,180,120,.12);}
+.tab{font-family:'Cinzel',serif;font-size:.8rem;letter-spacing:.2em;text-transform:uppercase;
+  padding:10px 32px;border:1px solid rgba(200,180,120,.2);background:none;
+  color:rgba(232,223,196,.45);cursor:pointer;transition:all .25s;}
+.tab:first-child{border-radius:3px 0 0 3px;}
+.tab:not(:first-child){border-left:none;}
+.tab:last-child{border-radius:0 3px 3px 0;}
+.tab.active{background:rgba(200,180,120,.12);color:var(--star);border-color:rgba(200,180,120,.5);}
+.tab:hover:not(.active){color:rgba(232,223,196,.75);background:rgba(200,180,120,.06);}
+
+.hint{position:relative;z-index:10;text-align:center;padding:24px 20px 8px;}
+.hint span{font-size:.7rem;letter-spacing:.16em;text-transform:uppercase;
+  color:rgba(232,223,196,.28);border:1px solid rgba(232,223,196,.1);padding:4px 16px;border-radius:20px;}
+
+/* BRANCH */
+.branch{display:none;}
+.branch.active{display:block;}
+
+/* TIMELINE */
+.timeline{position:relative;z-index:10;max-width:920px;margin:0 auto;padding:0 24px 100px;}
+.timeline::before{content:'';position:absolute;left:50%;top:0;bottom:0;width:1px;
+  background:linear-gradient(to bottom,transparent,var(--line) 4%,var(--line) 96%,transparent);
+  transform:translateX(-50%);}
+
+.era-sep{display:flex;align-items:center;justify-content:center;margin:72px 0 32px;gap:20px;position:relative;z-index:1;}
+.era-sep::before,.era-sep::after{content:'';flex:1;height:1px;background:var(--line);}
+.era-sep span{font-family:'Cinzel',serif;font-size:1.05rem;letter-spacing:.22em;text-transform:uppercase;
+  padding:10px 28px;border:1px solid;border-radius:4px;white-space:nowrap;
+  font-weight:700;text-shadow:0 0 30px currentColor;
+  box-shadow:0 0 18px rgba(0,0,0,.4), inset 0 0 20px rgba(0,0,0,.2);}
+
+.ev{display:flex;align-items:flex-start;margin:20px 0;position:relative;
+  opacity:0;transform:translateY(18px);transition:opacity .5s,transform .5s;}
+.ev.vis{opacity:1;transform:none;}
+.ev.L{flex-direction:row;}
+.ev.R{flex-direction:row-reverse;}
+
+.card{width:calc(50% - 42px);padding:14px 16px 12px;border-radius:4px;
+  border:1px solid rgba(200,180,120,.12);background:rgba(6,10,20,.88);
+  backdrop-filter:blur(8px);position:relative;cursor:pointer;
+  transition:transform .2s,border-color .2s,box-shadow .2s;}
+.card:hover{transform:scale(1.022);border-color:rgba(200,180,120,.38);box-shadow:0 0 22px rgba(200,160,60,.12);}
+
+.ev.L .card::after{content:'';position:absolute;right:-8px;top:14px;width:0;height:0;
+  border-top:6px solid transparent;border-bottom:6px solid transparent;border-left:8px solid rgba(200,180,120,.12);}
+.ev.R .card::after{content:'';position:absolute;left:-8px;top:14px;width:0;height:0;
+  border-top:6px solid transparent;border-bottom:6px solid transparent;border-right:8px solid rgba(200,180,120,.12);}
+
+.dot{position:absolute;left:50%;top:14px;width:12px;height:12px;border-radius:50%;
+  transform:translateX(-50%);border:2px solid var(--bg);z-index:2;transition:box-shadow .25s;}
+.ev:hover .dot{box-shadow:0 0 12px 4px currentColor;}
+.conn{width:42px;height:2px;background:var(--line);align-self:flex-start;margin-top:22px;flex-shrink:0;}
+
+.ctag{display:inline-block;font-size:.57rem;letter-spacing:.16em;text-transform:uppercase;
+  padding:2px 7px;border-radius:2px;margin-bottom:5px;border:1px solid;opacity:.65;}
+.cicon{font-size:1.35rem;margin-bottom:4px;display:block;}
+.cdate{font-family:'Cinzel',serif;font-size:.78rem;letter-spacing:.14em;text-transform:uppercase;margin-bottom:6px;opacity:1;font-weight:700;}
+.ctitle{font-family:'Cinzel',serif;font-size:.86rem;font-weight:700;line-height:1.26;margin-bottom:4px;}
+.cdesc{font-size:.81rem;line-height:1.5;color:rgba(232,223,196,.6);font-style:italic;}
+.chint{font-size:.6rem;letter-spacing:.13em;text-transform:uppercase;opacity:0;transition:opacity .2s;margin-top:6px;}
+.card:hover .chint{opacity:.4;}
+
+/* ERA COLORS */
+.cosmic{--c:#a084d8}.geo{--c:#4ec99a}.paleo{--c:#e8a850}.antique{--c:#d4a843}
+.medieval{--c:#d46060}.merov{--c:#e0884a}.caro{--c:#6ea8e8}.capet{--c:#c8b840}
+.renaiss{--c:#5ec48a}.moderne{--c:#c084d8}.revolution{--c:#e84040}.empire{--c:#d4a020}
+.republiques{--c:#60a0d8}.guerres{--c:#b89060}.contemp{--c:#40c8b0}
+.meso{--c:#e8c060}.religio{--c:#b090e8}.chine{--c:#e84848}.japon{--c:#e870a0}
+
+.era-col .era-sep span,.era-col .ctag,.era-col .cdate,.era-col .chint,.era-col .dot{color:var(--c);border-color:var(--c);}
+.era-col .card{border-left:3px solid var(--c);}
+.era-col .dot{background:var(--c);}
+.era-col .ctitle{color:var(--c);}
+
+/* MODAL */
+.moverlay{position:fixed;inset:0;z-index:1000;background:rgba(2,4,10,.82);
+  display:flex;align-items:center;justify-content:center;
+  padding:20px;opacity:0;pointer-events:none;transition:opacity .25s;}
+.moverlay.open{opacity:1;pointer-events:all;}
+.mbox{background:#111c30;
+  border:1px solid rgba(200,180,120,.45);border-radius:8px;
+  box-shadow:0 8px 60px rgba(0,0,0,.9), 0 0 0 1px rgba(200,180,120,.1);
+  max-width:520px;width:100%;max-height:87vh;overflow-y:auto;
+  padding:32px 28px 28px;position:relative;
+  transform:translateY(14px) scale(.97);transition:transform .25s;}
+.moverlay.open .mbox{transform:none;}
+.mclose{position:absolute;top:11px;right:13px;background:none;border:none;
+  color:rgba(232,223,196,.35);font-size:1.2rem;cursor:pointer;padding:4px 8px;border-radius:3px;transition:color .18s,background .18s;}
+.mclose:hover{color:var(--star);background:rgba(255,255,255,.06);}
+.micon{font-size:2.1rem;margin-bottom:7px;display:block;}
+.mtag{display:inline-block;font-size:.57rem;letter-spacing:.17em;text-transform:uppercase;
+  padding:2px 9px;border-radius:2px;margin-bottom:9px;border:1px solid;opacity:.68;}
+.mdate{font-family:'Cinzel',serif;font-size:.82rem;letter-spacing:.14em;text-transform:uppercase;opacity:1;font-weight:700;margin-bottom:6px;}
+.mtitle{font-family:'Cinzel',serif;font-size:1.1rem;font-weight:900;line-height:1.2;margin-bottom:11px;}
+.mintro{font-size:.88rem;line-height:1.58;color:rgba(232,223,196,.85);font-style:italic;
+  margin-bottom:16px;padding-bottom:14px;border-bottom:1px solid rgba(200,180,120,.28);}
+.mahead{font-family:'Cinzel',serif;font-size:.6rem;letter-spacing:.26em;text-transform:uppercase;opacity:.38;margin-bottom:11px;}
+.anec{display:flex;gap:11px;margin-bottom:13px;align-items:flex-start;}
+.abullet{font-size:.95rem;flex-shrink:0;margin-top:1px;}
+.atext{font-size:.84rem;line-height:1.58;color:rgba(232,223,196,.88);}
+.atext b{color:var(--star);font-style:normal;}
+
+footer{position:relative;z-index:10;text-align:center;padding:0 20px 50px;
+  color:rgba(232,223,196,.22);font-size:.74rem;letter-spacing:.1em;}
+
+@media(max-width:700px){
+  /* Timeline: single column, line on left */
+  .timeline::before{left:16px;transform:none;}
+
+  .ev, .ev.L, .ev.R{
+    flex-direction:row !important;
+    align-items:flex-start;
+    padding-left:0;
+    margin:14px 0;
+  }
+  .conn{display:none;}
+  .dot, .disc-dot-s{
+    position:relative;
+    left:auto;top:auto;
+    transform:none;
+    flex-shrink:0;
+    margin-top:18px;
+    margin-right:0;
+  }
+  /* Stack: dot | card */
+  .ev{display:grid;grid-template-columns:28px 1fr;gap:0;padding-left:4px;}
+  .ev .dot{grid-column:1;grid-row:1;margin-top:14px;margin-left:2px;}
+  .ev .conn{display:none;}
+  .ev .card{grid-column:2;grid-row:1;width:100%;}
+  .ev .card::after,.ev.R .card::after{display:none;}
+
+  /* Disc pills on mobile */
+  .disc{display:grid;grid-template-columns:28px 1fr;gap:0;padding-left:4px;margin:8px 0;}
+  .disc .disc-dot-s{grid-column:1;grid-row:1;margin-top:14px;margin-left:2px;
+    position:relative;left:auto;top:auto;transform:none;}
+  .disc .disc-conn{display:none;}
+  .disc .disc-card{grid-column:2;grid-row:1;width:100%;}
+
+  /* Cards full width */
+  .card{width:100%;border-left-width:3px !important;}
+
+  /* Tabs: scrollable row */
+  .tabs{gap:0;padding:10px 8px;overflow-x:auto;justify-content:flex-start;flex-wrap:nowrap;}
+  .tab{padding:8px 14px;font-size:.68rem;letter-spacing:.1em;white-space:nowrap;flex-shrink:0;}
+  .tab:first-child{border-radius:3px 0 0 3px;}
+  .tab:last-child{border-radius:0 3px 3px 0;}
+
+  /* Header */
+  header{padding:36px 16px 24px;}
+  h1{font-size:clamp(1.6rem,8vw,2.4rem);}
+  .cta-row{flex-direction:column;align-items:center;gap:10px;}
+  .cta-btn{width:min(280px,90vw);text-align:center;}
+
+  /* Timeline container padding */
+  .timeline{padding:0 12px 80px;}
+
+  /* Era separator */
+  .era-sep{margin:32px 0 14px;}
+
+  /* Legend */
+  .disc-legend{gap:6px 14px;padding:10px 12px 0;}
+  .dl-item{font-size:.62rem;}
+
+  /* Flashcard quiz */
+  .flashcard{padding:24px 18px;}
+  .fc-period{font-size:1.6rem;}
+  .quiz-filter{gap:6px;}
+  .qf-btn{padding:4px 10px;font-size:.6rem;}
+}
+
+@media(max-width:380px){
+  h1{font-size:1.5rem;}
+  .tab{padding:7px 10px;font-size:.62rem;}
+  .fc-period{font-size:1.3rem;}
+}
+
+/* DISCOVERY NODES */
+.disc{display:flex;align-items:flex-start;margin:10px 0;position:relative;
+  opacity:0;transform:translateY(12px);transition:opacity .45s,transform .45s;}
+.disc.vis{opacity:1;transform:none;}
+.disc.L{flex-direction:row;}
+.disc.R{flex-direction:row-reverse;}
+.disc-card{width:calc(50% - 38px);display:flex;align-items:center;gap:9px;
+  padding:7px 12px;border-radius:20px;cursor:pointer;
+  border:1px solid rgba(200,180,120,.15);background:rgba(6,10,20,.7);
+  transition:border-color .2s,background .2s,transform .2s;}
+.disc-card:hover{transform:scale(1.03);background:rgba(10,18,35,.95);}
+.disc-kind{font-size:1rem;flex-shrink:0;}
+.disc-body{flex:1;min-width:0;}
+.disc-dlabel{font-size:.63rem;letter-spacing:.1em;text-transform:uppercase;opacity:.4;margin-bottom:1px;}
+.disc-title{font-family:'Cinzel',serif;font-size:.72rem;font-weight:700;
+  white-space:nowrap;overflow:hidden;text-overflow:ellipsis;line-height:1.2;}
+.disc-conn{width:38px;height:1px;background:rgba(200,180,120,.15);
+  align-self:center;flex-shrink:0;}
+.disc-dot-s{position:absolute;left:50%;top:50%;width:7px;height:7px;border-radius:50%;
+  transform:translate(-50%,-50%);border:1px solid var(--bg);z-index:2;}
+
+/* kind colors */
+.disc-science .disc-card{border-color:rgba(64,200,224,.25);}
+.disc-science .disc-card:hover{border-color:rgba(64,200,224,.55);background:rgba(4,28,40,.95);}
+.disc-science .disc-title{color:#40c8e0;}
+.disc-science .disc-dot-s{background:#40c8e0;}
+.disc-science .disc-conn{background:rgba(64,200,224,.2);}
+
+.disc-litterature .disc-card{border-color:rgba(224,184,64,.25);}
+.disc-litterature .disc-card:hover{border-color:rgba(224,184,64,.55);background:rgba(35,28,4,.95);}
+.disc-litterature .disc-title{color:#e0b840;}
+.disc-litterature .disc-dot-s{background:#e0b840;}
+.disc-litterature .disc-conn{background:rgba(224,184,64,.2);}
+
+.disc-art .disc-card{border-color:rgba(224,96,176,.25);}
+.disc-art .disc-card:hover{border-color:rgba(224,96,176,.55);background:rgba(35,4,28,.95);}
+.disc-art .disc-title{color:#e060b0;}
+.disc-art .disc-dot-s{background:#e060b0;}
+.disc-art .disc-conn{background:rgba(224,96,176,.2);}
+
+.disc-musique .disc-card{border-color:rgba(96,208,128,.25);}
+.disc-musique .disc-card:hover{border-color:rgba(96,208,128,.55);background:rgba(4,35,12,.95);}
+.disc-musique .disc-title{color:#60d080;}
+.disc-musique .disc-dot-s{background:#60d080;}
+.disc-musique .disc-conn{background:rgba(96,208,128,.2);}
+
+/* LEGEND */
+.disc-legend{position:relative;z-index:10;display:flex;flex-wrap:wrap;
+  justify-content:center;gap:8px 20px;padding:12px 20px 0;margin-bottom:-4px;}
+.dl-item{display:flex;align-items:center;gap:6px;font-size:.7rem;
+  letter-spacing:.1em;text-transform:uppercase;color:rgba(232,223,196,.5);}
+.dl-dot{width:8px;height:8px;border-radius:50%;flex-shrink:0;}
+
+/* HEADER ENHANCEMENTS */
+header{padding:48px 20px 28px;}
+.positioning{font-size:.82rem;color:rgba(232,223,196,.4);letter-spacing:.04em;
+  margin-top:6px;max-width:460px;margin-left:auto;margin-right:auto;line-height:1.5;}
+.cta-row{display:flex;gap:12px;justify-content:center;margin-top:20px;flex-wrap:wrap;}
+.cta-btn{font-family:'Cinzel',serif;font-size:.75rem;letter-spacing:.18em;text-transform:uppercase;
+  padding:11px 28px;border-radius:3px;cursor:pointer;transition:all .22s;
+  background:rgba(200,180,120,.1);border:1px solid rgba(200,180,120,.45);color:var(--star);}
+.cta-btn:hover{background:rgba(200,180,120,.22);border-color:rgba(200,180,120,.8);
+  box-shadow:0 0 18px rgba(200,160,60,.2);}
+.cta-quiz{background:rgba(96,200,160,.08);border-color:rgba(96,200,160,.4);color:#60c8a0;}
+.cta-quiz:hover{background:rgba(96,200,160,.18);border-color:rgba(96,200,160,.8);
+  box-shadow:0 0 18px rgba(96,200,160,.2);}
+.tab-quiz{color:#60c8a0 !important;border-color:rgba(96,200,160,.35) !important;}
+.tab-quiz.active{background:rgba(96,200,160,.12) !important;border-color:rgba(96,200,160,.6) !important;}
+
+/* QUIZ MODE */
+#quiz-overlay{position:fixed;inset:0;z-index:200;background:rgba(4,8,18,.96);
+  backdrop-filter:blur(12px);display:none;flex-direction:column;
+  align-items:center;justify-content:center;padding:20px;}
+#quiz-overlay.open{display:flex;}
+
+.quiz-header{text-align:center;margin-bottom:36px;}
+.quiz-header h2{font-family:'Cinzel',serif;font-size:1.4rem;font-weight:900;
+  background:linear-gradient(135deg,#f5e6a3,#d4a843 50%,#f0c060);
+  -webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;}
+.quiz-header p{font-size:.82rem;color:rgba(232,223,196,.45);margin-top:8px;letter-spacing:.08em;}
+
+.quiz-score{font-family:'Cinzel',serif;font-size:.72rem;letter-spacing:.18em;text-transform:uppercase;
+  color:rgba(232,223,196,.4);margin-bottom:28px;}
+.quiz-score span{color:#60c8a0;font-weight:700;}
+
+.flashcard{width:min(520px,90vw);background:#0e1a2e;border:1px solid rgba(200,180,120,.3);
+  border-radius:8px;padding:36px 32px;text-align:center;
+  box-shadow:0 8px 50px rgba(0,0,0,.7);position:relative;
+  transform-style:preserve-3d;transition:transform .5s ease;}
+.flashcard.flipped{transform:rotateY(180deg);}
+
+.fc-front, .fc-back{backface-visibility:hidden;}
+.fc-back{position:absolute;inset:0;padding:36px 32px;display:flex;flex-direction:column;
+  align-items:center;justify-content:center;
+  background:#0e1a2e;border-radius:8px;
+  transform:rotateY(180deg);}
+
+.fc-kind{font-size:.62rem;letter-spacing:.2em;text-transform:uppercase;
+  color:rgba(232,223,196,.35);margin-bottom:20px;}
+.fc-period{font-family:'Cinzel',serif;font-size:2.2rem;font-weight:900;
+  color:var(--star);margin-bottom:10px;line-height:1.1;}
+.fc-teaser{font-size:.88rem;color:rgba(232,223,196,.5);font-style:italic;
+  margin-bottom:28px;line-height:1.5;min-height:40px;}
+.fc-reveal-btn{font-family:'Cinzel',serif;font-size:.72rem;letter-spacing:.18em;
+  text-transform:uppercase;padding:10px 26px;border-radius:3px;cursor:pointer;
+  background:rgba(200,180,120,.1);border:1px solid rgba(200,180,120,.45);
+  color:var(--star);transition:all .2s;}
+.fc-reveal-btn:hover{background:rgba(200,180,120,.22);}
+
+.fc-icon{font-size:2.4rem;margin-bottom:12px;}
+.fc-title{font-family:'Cinzel',serif;font-size:1.1rem;font-weight:900;
+  color:var(--star);margin-bottom:10px;line-height:1.25;}
+.fc-desc{font-size:.84rem;color:rgba(232,223,196,.72);font-style:italic;
+  line-height:1.55;margin-bottom:18px;}
+.fc-anec{font-size:.78rem;color:rgba(232,223,196,.55);line-height:1.5;
+  border-top:1px solid rgba(200,180,120,.15);padding-top:14px;margin-top:4px;text-align:left;}
+
+.quiz-nav{display:flex;gap:14px;margin-top:28px;flex-wrap:wrap;justify-content:center;}
+.qnav-btn{font-family:'Cinzel',serif;font-size:.7rem;letter-spacing:.16em;text-transform:uppercase;
+  padding:9px 22px;border-radius:3px;cursor:pointer;transition:all .2s;
+  background:rgba(200,180,120,.08);border:1px solid rgba(200,180,120,.3);color:rgba(232,223,196,.7);}
+.qnav-btn:hover{background:rgba(200,180,120,.18);color:var(--star);}
+.qnav-btn.primary{background:rgba(96,200,160,.1);border-color:rgba(96,200,160,.45);color:#60c8a0;}
+.qnav-btn.primary:hover{background:rgba(96,200,160,.22);}
+
+.quiz-progress{display:flex;gap:4px;margin-bottom:20px;flex-wrap:wrap;justify-content:center;max-width:400px;}
+.qp-dot{width:8px;height:8px;border-radius:50%;background:rgba(200,180,120,.2);transition:background .3s;}
+.qp-dot.done{background:#60c8a0;}
+.qp-dot.current{background:rgba(200,180,120,.7);}
+
+.quiz-filter{display:flex;gap:8px;margin-bottom:20px;flex-wrap:wrap;justify-content:center;}
+.qf-btn{font-size:.65rem;letter-spacing:.12em;text-transform:uppercase;padding:5px 14px;
+  border-radius:20px;cursor:pointer;border:1px solid;transition:all .2s;background:none;}
+.qf-btn.active{opacity:1;}
+.qf-btn:not(.active){opacity:.35;}
+
+footer{position:relative;z-index:10;text-align:center;padding:40px 20px 50px;
+  border-top:1px solid rgba(200,180,120,.08);margin-top:20px;}
+.footer-sources{color:rgba(232,223,196,.22);font-size:.75rem;letter-spacing:.12em;}
+.footer-label{font-family:'Cinzel',serif;font-size:.65rem;letter-spacing:.22em;
+  text-transform:uppercase;color:rgba(232,223,196,.3);margin-right:10px;}
+</style>
+</head>
+<body>
+<canvas id="stars"></canvas>
+
+<header>
+  <p class="subtitle">De la naissance de l'univers à nos jours</p>
+  <h1>Chronologie Historique</h1>
+  <p class="tagline">Explore 13,8 milliards d'années d'histoire en cartes interactives</p>
+  <p class="positioning">Apprends l'histoire par thèmes, anecdotes et repères visuels.</p>
+  <div class="cta-row">
+    <button class="cta-btn" id="cta-explore" onclick="document.querySelector('.tabs').scrollIntoView({behavior:'smooth'})">
+      ✦ Commencer l'exploration
+    </button>
+    <button class="cta-btn cta-quiz" id="cta-quiz-header" onclick="startQuiz()">
+      🎯 Mode Quiz
+    </button>
+  </div>
+</header>
+
+<div class="tabs">
+  <button class="tab active" data-tab="cosmo">🌌 Ère Cosmique &amp; Préhistoire</button>
+  <button class="tab" data-tab="france">🏰 France</button>
+  <button class="tab" data-tab="monde">🌍 Civilisations du Monde</button>
+  <button class="tab tab-quiz" id="tab-quiz" onclick="startQuiz()">🎯 Quiz</button>
+</div>
+
+<div class="disc-legend">
+  <div class="dl-item"><div class="dl-dot" style="background:#e8dfc4"></div>Événement historique</div>
+  <div class="dl-item"><div class="dl-dot" style="background:#40c8e0"></div>Science &amp; Invention</div>
+  <div class="dl-item"><div class="dl-dot" style="background:#e0b840"></div>Littérature</div>
+  <div class="dl-item"><div class="dl-dot" style="background:#e060b0"></div>Art</div>
+  <div class="dl-item"><div class="dl-dot" style="background:#60d080"></div>Musique</div>
+</div>
+
+<div id="cosmo" class="branch active"></div>
+
+<!-- QUIZ OVERLAY -->
+<div id="quiz-overlay">
+  <div class="quiz-header">
+    <h2>🎯 Mode Quiz</h2>
+    <p>Une période s'affiche — sauras-tu deviner l'événement ?</p>
+  </div>
+  <div class="quiz-filter" id="quiz-filter">
+    <button class="qf-btn active" style="color:#e8dfc4;border-color:rgba(232,223,196,.4)" data-filter="all">Tout</button>
+    <button class="qf-btn active" style="color:#40c8e0;border-color:#40c8e0" data-filter="science">🔬 Science</button>
+    <button class="qf-btn active" style="color:#e0b840;border-color:#e0b840" data-filter="litterature">📖 Litté</button>
+    <button class="qf-btn active" style="color:#e060b0;border-color:#e060b0" data-filter="art">🎨 Art</button>
+    <button class="qf-btn active" style="color:#60d080;border-color:#60d080" data-filter="musique">🎵 Musique</button>
+    <button class="qf-btn active" style="color:#d4a843;border-color:#d4a843" data-filter="histoire">📜 Histoire</button>
+  </div>
+  <div class="quiz-score">Question <span id="q-num">1</span> / <span id="q-total">20</span> &nbsp;·&nbsp; Score : <span id="q-score">0</span></div>
+  <div class="quiz-progress" id="quiz-progress"></div>
+  <div class="flashcard" id="flashcard">
+    <div class="fc-front" id="fc-front">
+      <div class="fc-kind" id="fc-kind"></div>
+      <div class="fc-period" id="fc-period"></div>
+      <div class="fc-teaser" id="fc-teaser"></div>
+      <button class="fc-reveal-btn" onclick="revealCard()">Révéler l'événement →</button>
+    </div>
+    <div class="fc-back" id="fc-back">
+      <span class="fc-icon" id="fc-icon"></span>
+      <div class="fc-title" id="fc-title"></div>
+      <div class="fc-desc" id="fc-desc"></div>
+      <div class="fc-anec" id="fc-anec"></div>
+    </div>
+  </div>
+  <div class="quiz-nav">
+    <button class="qnav-btn" onclick="closeQuiz()">✕ Quitter</button>
+    <button class="qnav-btn" onclick="prevCard()">← Précédent</button>
+    <button class="qnav-btn primary" onclick="nextCard()">Suivant →</button>
+  </div>
+</div>
+
+<div id="france" class="branch"></div>
+<div id="monde" class="branch"></div>
+
+<div class="moverlay" id="moverlay">
+  <div class="mbox">
+    <button class="mclose" id="mclose">✕</button>
+    <span class="micon" id="micon"></span>
+    <div class="mtag" id="mtag"></div>
+    <div class="mdate" id="mdate"></div>
+    <div class="mtitle" id="mtitle"></div>
+    <div class="mintro" id="mintro"></div>
+    <div class="mahead">✦ Anecdotes &amp; curiosités</div>
+    <div id="manec"></div>
+  </div>
+</div>
+
+<footer>
+  <div class="footer-sources">
+    <span class="footer-label">Sources</span>
+    CNRS &nbsp;·&nbsp; NASA &nbsp;·&nbsp; BnF &nbsp;·&nbsp; Encyclopædia Universalis &nbsp;·&nbsp; Académie française &nbsp;·&nbsp; Larousse &nbsp;·&nbsp; Encyclopedia Britannica
+  </div>
+</footer>
+
+<script>
+const DATA = {"france":[{"era":"✦ Antiquité Gauloise & Romaine","cls":"antique","events":[{"icon":"🌿","tag":"Peuple","date":"–800 av. J.-C.","title":"Les Gaulois & Celtes","desc":"Les Celtes s'étendent sur toute l'Europe. En Gaule, les druides transmettent le savoir oralement, les oppidums sont de véritables villes.","anecdotes":[{"e":"🎃","t":"<b>Samhain (1er novembre)</b> est la fête celtique du Nouvel An, ancêtre direct d'Halloween. Le voile entre monde des vivants et des morts s'amincissait."},{"e":"💪","t":"<b>En 390 av. J.-C., les Gaulois saccagèrent Rome.</b> Brennus jeta son épée sur la balance : « Vae victis ! » (Malheur aux vaincus !)"}],"kind":"histoire"},{"icon":"🛡️","tag":"Événement","date":"–52 av. J.-C.","title":"Alésia — La Gaule Devient Romaine","desc":"Vercingétorix capitule devant César. La Gaule devient province romaine. En moins d'un siècle, les Gaulois parlent latin — base du français d'aujourd'hui.","anecdotes":[{"e":"📖","t":"<b>On ne connaît Vercingétorix qu'à travers César, son ennemi.</b> C'est toujours le vainqueur qui écrit l'histoire."},{"e":"🍷","t":"<b>La romanisation fut rapide et profonde.</b> La France parle encore ce latin transformé — 2 000 ans plus tard."}],"kind":"histoire"},{"kind":"histoire","icon":"⚙️","date":"~–52 av. J.-C.","title":"La Faucille & la Moissonneuse Gauloise","desc":"Les Gaulois inventent la vallus — une moissonneuse tirée par un bœuf qui coupe les épis. 1 900 ans avant la moissonneuse industrielle, les Gaulois mécanisaient déjà leur agriculture.","anecdotes":[{"e":"🌾","t":"<b>La vallus gauloise</b> fut décrite par Pline l'Ancien. Elle fut oubliée après la conquête romaine et ne fut « réinventée » qu'au XIXe siècle lors de la Révolution industrielle."},{"e":"⚙️","t":"<b>Les Gaulois étaient d'excellents ingénieurs :</b> ils inventèrent aussi le tonneau en bois (remplaçant les amphores), le savon, la chaîne de transmission et le recuit de l'acier."}]}]},{"era":"✦ Haut Moyen Âge","cls":"medieval","events":[{"icon":"⚡","tag":"Événement","date":"376 – 476","title":"Invasions Barbares & Chute de Rome","desc":"Huns, Wisigoths, Vandales déferlent sur l'Empire. En 476, Romulus Augustule est déposé. Fin de l'Antiquité, début du Moyen Âge.","anecdotes":[{"e":"😏","t":"<b>Romulus Augustule n'avait que 14 ans.</b> Odoacre lui accorda une pension confortable. La grande « chute de Rome » fut finalement peu dramatique."},{"e":"🧱","t":"<b>L'Empire d'Orient (Byzance) survécut encore 977 ans</b> après 476 — jusqu'en 1453. Rome ne mourut pas vraiment ce jour-là."}],"kind":"histoire"}]},{"era":"✦ Mérovingiens","cls":"merov","events":[{"icon":"⚜️","tag":"Roi","date":"481 – 511","title":"Clovis Ier — Fondateur du Royaume de France","desc":"Il unifie les Francs et se fait baptiser à Reims vers 496. Naissance de l'alliance entre la royauté et l'Église catholique.","anecdotes":[{"e":"🏺","t":"<b>Le Vase de Soissons :</b> Clovis attendit un an avant de fracasser le crâne du soldat qui avait refusé de rendre un vase à l'évêque. La vengeance royale se fait attendre."},{"e":"⚔️","t":"<b>Clovis élimina méthodiquement tous ses rivaux francs,</b> y compris ses cousins. À sa mort, il était le seul roi franc vivant."}],"kind":"histoire"},{"icon":"👑","tag":"Roi","date":"629 – 639","title":"Dagobert Ier — Le Dernier Grand Mérovingien","desc":"Dernier roi mérovingien puissant. Il unifie le royaume franc et fait de Saint-Denis la nécropole royale de France.","anecdotes":[{"e":"👖","t":"<b>« Le bon roi Dagobert avait sa culotte à l'envers »</b> — cette chanson fut inventée sous la Révolution, pas du tout à l'époque de Dagobert !"},{"e":"⛪","t":"<b>La tradition d'enterrer les rois à Saint-Denis</b> qu'il instaura dura jusqu'à Louis XVIII en 1824 — soit 1 185 ans de continuité."}],"kind":"histoire"},{"icon":"😴","tag":"Événement","date":"639 – 751","title":"Les Rois Fainéants","desc":"Les maires du palais prennent le vrai pouvoir. Les rois mérovingiens ne sont plus que des figurants promenés en charrette lors des fêtes.","anecdotes":[{"e":"💈","t":"<b>Couper les cheveux d'un roi mérovingien équivalait à l'abdiquer.</b> Plusieurs furent tonsurés de force et envoyés au monastère."}],"kind":"histoire"}]},{"era":"✦ Carolingiens","cls":"caro","events":[{"icon":"⚔️","tag":"Événement","date":"732","title":"Charles Martel — Poitiers","desc":"Maire du palais, Charles Martel arrête l'avancée arabe en Europe à la bataille de Poitiers. Le surnom « Martel » (le marteau) lui est donné.","anecdotes":[{"e":"👶","t":"<b>Charles Martel était né illégitime.</b> Emprisonné par sa belle-mère, il s'évada et prit le pouvoir. Le sauveur de l'Europe chrétienne était un bâtard en fuite."}],"kind":"histoire"},{"icon":"⚜️","tag":"Roi","date":"751 – 768","title":"Pépin le Bref — 1er Roi Carolingien","desc":"Il dépose le dernier mérovingien avec l'accord du pape. Son fils sera Charlemagne.","anecdotes":[{"e":"🤝","t":"<b>La « donation de Pépin » (754) :</b> il offrit au pape des terres en Italie en échange de sa légitimation. Naissance des États pontificaux, qui dureront jusqu'en 1870."}],"kind":"histoire"},{"icon":"👑","tag":"Roi","date":"768 – 814","title":"Charlemagne — Empereur d'Occident","desc":"Couronné Empereur à Rome le 25 décembre 800 par le pape Léon III. Il unifie l'Europe occidentale et crée les premières écoles.","anecdotes":[{"e":"✍️","t":"<b>Charlemagne avait du mal à écrire,</b> selon son biographe Éginhard. Il gardait une ardoise sous son oreiller pour s'exercer la nuit. L'homme qui créa les écoles luttait lui-même contre l'écriture."},{"e":"📏","t":"<b>Il mesurait environ 1,92 m</b> — confirmé par ses ossements à Aix-la-Chapelle. Il dominait physiquement toute son assemblée."}],"kind":"histoire"},{"kind":"histoire","icon":"🐴","date":"~800","title":"L'Étrier & le Collier d'Épaule","desc":"L'étrier (venu d'Asie) et le collier d'épaule permettent au cheval de tirer des charges sans s'étrangler. La productivité agricole double. La chevalerie médiévale devient possible.","anecdotes":[{"e":"🐴","t":"<b>Avant le collier d'épaule,</b> les chevaux portaient un joug sur la gorge qui les étranglait à l'effort. Ils ne pouvaient tirer que 500 kg. Avec le collier d'épaule, ils en tirent 1 500 kg."},{"e":"⚔️","t":"<b>L'étrier changea la guerre.</b> Le cavalier stabilisé peut frapper avec toute la force de son cheval. C'est ce qui rendit la chevalerie lourde possible — et domina les champs de bataille pendant 700 ans."}]}]},{"era":"✦ Capétiens & Moyen Âge","cls":"capet","events":[{"icon":"🏰","tag":"Roi","date":"987","title":"Hugues Capet — Fondateur de la Lignée","desc":"Élu roi, sa descendance régnera 800 ans. Petit royaume autour de Paris, mais lignée ininterrompue jusqu'en 1848.","anecdotes":[{"e":"🗳️","t":"<b>Hugues fut choisi parce que les grands seigneurs le jugeaient moins dangereux.</b> Ils pensaient pouvoir le contrôler. Ils se trompèrent."}],"kind":"histoire"},{"icon": "🏝️", "tag": "Monument", "date": "966", "title": "Le Mont Saint-Michel", "desc": "Une abbaye bénédictine fondée sur un îlot rocheux de 80 m de hauteur en Normandie. Construit sur 10 siècles, le Mont Saint-Michel est le monument le plus visité de France après le Louvre.", "anecdotes": [{"e": "🌊", "t": "<b>Les marées du Mont Saint-Michel</b> sont les plus grandes d'Europe : la mer revient à la vitesse d'un cheval au galop. Des pèlerins se noyaient régulièrement en traversant la baie."}, {"e": "⚔️", "t": "<b>Le Mont Saint-Michel résista aux Anglais pendant 116 ans</b>, tout au long de la Guerre de Cent Ans. Il devint le symbole de la résistance française."}], "kind": "histoire"},{"kind":"histoire","icon":"🏛️","date":"~1140","title":"L'Arc-Boutant — Architecture Gothique","desc":"L'abbé Suger et les architectes de la cathédrale de Saint-Denis inventent l'arc-boutant. Cette structure reporte le poids des voûtes vers l'extérieur, permettant des murs percés de vitraux et des hauteurs inégalées.","anecdotes":[{"e":"✨","t":"<b>Sans l'arc-boutant,</b> les cathédrales gothiques seraient impossibles. Les murs épais des cathédrales romanes devaient tout porter — les murs gothiques sont presque transparents, remplis de vitraux colorés."},{"e":"🏰","t":"<b>Notre-Dame de Paris (1163-1345)</b> est l'exemple parfait : ses arcs-boutants permettent des murs de verre et une hauteur de 35 mètres sous voûte. Une prouesse d'ingénierie médiévale."}]},{"icon": "⛪", "tag": "Monument", "date": "1163", "title": "Notre-Dame de Paris", "desc": "Chef-d'œuvre du gothique, Notre-Dame est construite en 182 ans sur l'Île de la Cité. Ses arcs-boutants, rosaces et 69 m de hauteur en font le symbole de Paris. Incendiée en 2019, elle rouvre en décembre 2024.", "anecdotes": [{"e": "🔥", "t": "<b>L'incendie du 15 avril 2019</b> ravagea la flèche et la toiture. La charpente en chêne de 800 ans, la « forêt », disparut. Mais les tours et le trésor — dont la couronne d'épines — furent sauvés."}, {"e": "📚", "t": "<b>Victor Hugo écrivit Notre-Dame de Paris (1831)</b> pour sauver la cathédrale de la démolition. Le roman créa un tel engouement que le gouvernement finança sa restauration."}], "kind": "histoire"},{"kind":"histoire","icon":"🎓","date":"~1150","title":"Naissance des Universités","desc":"Les premières universités européennes naissent à Bologne (1088), Paris (~1150), Oxford (~1167). Pour la première fois, le savoir est organisé, enseigné et transmis de façon institutionnelle.","anecdotes":[{"e":"📚","t":"<b>L'Université de Paris (la Sorbonne)</b> fut la première université française. Elle attirait des étudiants de toute l'Europe — le latin était la langue commune qui permettait à des Allemands, Anglais et Espagnols de suivre les mêmes cours."},{"e":"🎓","t":"<b>Le système « licence-maîtrise-doctorat »</b> inventé par les universités médiévales est encore celui que nous utilisons aujourd'hui, 850 ans plus tard."}]},{"icon":"🗺️","tag":"Roi","date":"1180 – 1223","title":"Philippe Auguste — Bâtisseur du Royaume","desc":"Il quadruple le domaine royal (Bouvines, 1214) et fait construire le Louvre et les remparts de Paris.","anecdotes":[{"e":"🚿","t":"<b>Il ordonna le pavage de Paris</b> parce qu'il était incommodé par les odeurs depuis son palais. Paris reçut ses premières rues pavées grâce à sa sensibilité olfactive."}],"kind":"histoire"},{"kind":"histoire","icon":"💨","date":"~1180","title":"Le Moulin à Vent en Europe","desc":"Les croisés rapportent le moulin à vent de Perse. En quelques décennies, des milliers de moulins ponctuent le paysage européen, moudant le grain et pompant l'eau des polders hollandais.","anecdotes":[{"e":"💨","t":"<b>Les Pays-Bas utilisèrent les moulins à vent</b> pour pomper l'eau et assécher des terres gagnées sur la mer. Sans moulin à vent, les Pays-Bas tels qu'on les connaît n'existeraient pas."},{"e":"⚙️","t":"<b>Don Quichotte attaque des moulins à vent</b> (Cervantes, 1605) en les prenant pour des géants. À cette époque, les moulins étaient si omniprésents dans le paysage qu'ils étaient devenus le symbole même du progrès technique."}]},{"kind":"histoire","icon":"🧭","date":"~1190","title":"La Boussole en Europe","desc":"La boussole magnétique, venue de Chine via les Arabes, arrive en Europe. Elle permet la navigation en mer fermée, même par temps couvert. Sans elle, les Grandes Découvertes sont impossibles.","anecdotes":[{"e":"🌍","t":"<b>Avant la boussole,</b> les navigateurs européens longeaient les côtes. Ils ne pouvaient traverser l'Atlantique ou le Pacifique sans repères côtiers. La boussole leur donna enfin le courage de s'éloigner des terres."},{"e":"🧲","t":"<b>La boussole pointe vers le nord magnétique,</b> pas le nord géographique. Cette déclinaison magnétique, découverte au XVe siècle, dut être compensée dans tous les calculs de navigation — une subtilité qui causa bien des naufrages."}]},{"icon":"🌳","tag":"Roi","date":"1226 – 1270","title":"Louis IX — Saint Louis","desc":"Roi pieux, il rend la justice sous un chêne à Vincennes. Part deux fois en croisade, meurt à Tunis. Canonisé en 1297.","anecdotes":[{"e":"💸","t":"<b>Louis IX racheta la « couronne d'épines »</b> pour une fortune colossale. Pour l'abriter, il fit construire la Sainte-Chapelle — encore visible aujourd'hui."}],"kind":"histoire"},{"kind":"histoire","icon":"🎵","date":"~1250 – 1400","title":"Ars Nova — La Polyphonie","desc":"Philippe de Vitry théorise l'Ars Nova : plusieurs voix indépendantes chantent simultanément des mélodies différentes. La polyphonie révolutionne la musique occidentale et ouvre la voie à toute l'harmonie moderne.","anecdotes":[{"e":"🎶","t":"<b>La polyphonie semble évidente aujourd'hui,</b> mais c'était révolutionnaire au XIIIe siècle : faire chanter 4 voix indépendantes en harmonie requiert une théorie musicale complexe que personne n'avait formulée avant."},{"e":"🏛️","t":"<b>L'École de Notre-Dame de Paris</b> (Léonin, Pérotin, XIIe s.) est le premier grand centre de composition polyphonique de l'histoire. Les musiciens venaient du monde entier étudier à Paris — la musique classique occidentale est née à Notre-Dame."}]},{"icon":"🎰","tag":"Événement","date":"1307 – 1314","title":"Philippe le Bel & les Rois Maudits","desc":"Philippe IV supprime les Templiers. Le grand maître Jacques de Molay le maudit depuis son bûcher. Ses trois fils mourront en 14 ans sans héritier mâle.","anecdotes":[{"e":"📚","t":"<b>« Les Rois Maudits » de Maurice Druon</b> inspira directement George R.R. Martin pour Game of Thrones."}],"kind":"histoire"},{"icon":"⚔️","tag":"Événement","date":"1337 – 1453","title":"Guerre de Cent Ans","desc":"France contre Angleterre pour la couronne. Défaite d'Azincourt (1415), redressement avec Jeanne d'Arc (1429), victoire finale française.","anecdotes":[{"e":"🔥","t":"<b>Jeanne d'Arc avait 17 ans</b> quand elle convainquit le roi de la laisser mener son armée. Brûlée à 19 ans. Canonisée en 1920 — 489 ans après son exécution."}],"kind":"histoire"},{"icon":"💀","tag":"Événement","date":"1347 – 1351","title":"La Grande Peste Noire","desc":"La peste bubonique tue un tiers de la population européenne — 25 à 50 millions de morts en 4 ans.","anecdotes":[{"e":"🐀","t":"<b>La chasse aux chats (associés aux sorcières) avait multiplié les rats.</b> Un préjugé religieux a peut-être tué des millions de personnes."},{"e":"💸","t":"<b>Les survivants héritèrent des terres des morts.</b> Les salaires explosèrent. La Peste accéléra la fin du servage en Europe."}],"kind":"histoire"}]},{"era":"✦ Renaissance & Réforme","cls":"renaiss","events":[{"icon":"👑","tag":"Roi","date":"1515 – 1547","title":"François Ier — Roi de la Renaissance","desc":"Grand mécène, il attire Léonard de Vinci. Impose le français comme langue officielle (Villers-Cotterêts, 1539).","anecdotes":[{"e":"🎨","t":"<b>Léonard de Vinci mourut en France à 67 ans.</b> La Joconde, qu'il avait emportée, devint propriété de François Ier et finit au Louvre."}],"kind":"histoire"},{"icon": "📖", "tag": "Littérature", "date": "~1532", "title": "Rabelais — Gargantua & Pantagruel", "desc": "François Rabelais publie Pantagruel (1532) puis Gargantua (1534) — mêlant érudition humaniste, satire et humour. Il incarne l'idéal humaniste de la Renaissance française.", "anecdotes": [{"e": "🍷", "t": "<b>Rabelais était à la fois médecin, moine et romancier.</b> Son œuvre inventa le mot « pantagruélique » et enrichit la langue française de centaines de néologismes encore en usage."}, {"e": "😄", "t": "<b>« Fais ce que voudras »</b> — la devise de l'abbaye de Thélème résume l'idéal humaniste : liberté naturelle de l'être instruit. Une provocation dans la France du XVIe siècle."}], "kind": "histoire"},{"icon": "📖", "tag": "Littérature", "date": "~1532", "title": "Rabelais — Gargantua & Pantagruel", "desc": "François Rabelais publie Pantagruel (1532) puis Gargantua (1534) — mêlant érudition humaniste, satire et humour. Il incarne l'idéal humaniste de la Renaissance française : curiosité universelle et liberté d'esprit.", "anecdotes": [{"e": "🍷", "t": "<b>Rabelais était à la fois médecin, moine et romancier.</b> Son œuvre inventa le mot « pantagruélique » et enrichit la langue française de centaines de néologismes encore en usage."}, {"e": "😄", "t": "<b>« Fais ce que voudras »</b> — la devise de l'abbaye de Thélème résume l'idéal humaniste : liberté naturelle de l'être instruit. Une provocation dans la France du XVIe siècle."}], "kind": "histoire"}]},{"era":"✦ Monarchie Absolue","cls":"moderne","events":[{"icon":"🕊️","tag":"Roi","date":"1589 – 1610","title":"Henri IV — Le Vert-Galant","desc":"Premier Bourbon. L'Édit de Nantes (1598) met fin aux guerres de Religion. Assassiné par Ravaillac en 1610.","anecdotes":[{"e":"🛐","t":"<b>« Paris vaut bien une messe. »</b> Henri IV, protestant, se convertit au catholicisme pour être accepté comme roi. Un acte de pragmatisme politique resté célèbre."},{"e":"🗡️","t":"<b>Ravaillac était un fanatique catholique</b> convaincu qu'Henri IV allait attaquer le pape. Il le poignarda dans son carrosse bloqué dans la rue de la Ferronnerie, le 14 mai 1610."}],"kind":"histoire"},{"icon": "🔬", "tag": "Sciences & Pensée", "date": "1654", "title": "Pascal — Pensées & Physique", "desc": "Blaise Pascal est mathématicien (probabilités), physicien (pression atmosphérique) et philosophe (Pensées). Génie universel emporté à 39 ans.", "anecdotes": [{"e": "💻", "t": "<b>La Pascaline</b> — première calculatrice mécanique, construite par Pascal à 19 ans. Le langage informatique Pascal lui rend hommage."}, {"e": "🙏", "t": "<b>Le pari de Pascal :</b> si Dieu existe, croire rapporte tout et ne coûte rien. Premier raisonnement probabiliste appliqué à la théologie."}], "kind": "histoire"},{"icon": "🎭", "tag": "Littérature", "date": "1637", "title": "Corneille — Le Cid", "desc": "Pierre Corneille révolutionne le théâtre français avec Le Cid (1637). Il invente le héros déchiré entre devoir et passion — le « dilemme cornélien ».", "anecdotes": [{"e": "⚔️", "t": "<b>Le Cid fut un triomphe populaire immédiat</b> mais l'Académie française, fondée par Richelieu, le critiqua vertement. L'expression « beau comme Le Cid » entra dans la langue."}, {"e": "🏆", "t": "<b>Corneille inventa le dilemme cornélien :</b> choisir entre deux valeurs également impérieuses — honneur vs amour. Ce conflit structure encore le cinéma et la littérature."}], "kind": "histoire"},{"icon": "🔬", "tag": "Sciences & Pensée", "date": "1654", "title": "Pascal — Pensées & Physique", "desc": "Blaise Pascal est mathématicien (probabilités), physicien (pression atmosphérique) et philosophe (Pensées). Génie universel emporté à 39 ans, il construisit à 19 ans la première calculatrice mécanique.", "anecdotes": [{"e": "💻", "t": "<b>La Pascaline</b> — première calculatrice mécanique — fut construite par Pascal à 19 ans. Le langage informatique Pascal lui rend hommage."}, {"e": "🙏", "t": "<b>Le pari de Pascal :</b> si Dieu existe, croire rapporte tout et ne coûte rien. Premier raisonnement probabiliste appliqué à la théologie."}], "kind": "histoire"},{"icon": "🎭", "tag": "Littérature", "date": "1637", "title": "Corneille — Le Cid", "desc": "Pierre Corneille révolutionne le théâtre français avec Le Cid (1637). Il invente le héros déchiré entre devoir et passion — le « dilemme cornélien » structurera la littérature pour des siècles.", "anecdotes": [{"e": "⚔️", "t": "<b>Le Cid fut un triomphe populaire immédiat</b> mais l'Académie française, fondée par Richelieu, le critiqua vertement. L'expression « beau comme Le Cid » entra dans la langue."}, {"e": "🏆", "t": "<b>Corneille inventa le dilemme cornélien :</b> choisir entre deux valeurs également impérieuses — honneur vs amour. Ce conflit psychologique structure encore le cinéma et la littérature."}], "kind": "histoire"},{"icon": "🔬", "tag": "Sciences & Pensée", "date": "1654", "title": "Pascal — Pensées & Physique", "desc": "Blaise Pascal est mathématicien (probabilités), physicien (pression atmosphérique) et philosophe (Pensées). Génie universel emporté à 39 ans, il construisit à 19 ans la première calculatrice mécanique.", "anecdotes": [{"e": "💻", "t": "<b>La Pascaline</b> — première calculatrice mécanique — fut construite par Pascal à 19 ans pour aider son père percepteur. Le langage informatique Pascal lui rend hommage."}, {"e": "🙏", "t": "<b>Le pari de Pascal :</b> si Dieu existe, croire rapporte tout et ne coûte rien. Premier raisonnement probabiliste appliqué à la théologie."}], "kind": "histoire"},{"icon":"☀️","tag":"Roi","date":"1643 – 1715","title":"Louis XIV — Le Roi-Soleil","desc":"72 ans de règne. Versailles, absolutisme royal, révocation de l'Édit de Nantes (1685). Apogée et épuisement de la France.","anecdotes":[{"e":"🚽","t":"<b>Versailles manquait cruellement de sanitaires.</b> Le château le plus luxueux d'Europe était aussi l'un des plus malodorants."},{"e":"💃","t":"<b>Louis XIV était un danseur exceptionnel,</b> participant à au moins 40 ballets de cour. Le ballet classique est une invention royale française."}],"kind":"histoire"},{"icon": "👑", "tag": "Monument", "date": "1661", "title": "Le Château de Versailles", "desc": "Louis XIV transforme un pavillon de chasse en le plus grand palais du monde : 700 pièces, 2 000 hectares de jardins, 20 000 personnes vivant sur place.", "anecdotes": [{"e": "🚽", "t": "<b>Le château le plus luxueux d'Europe manquait cruellement de sanitaires.</b> L'odeur était légendaire — ironie suprême de la magnificence absolue."}, {"e": "🌍", "t": "<b>Le Traité de Versailles (1919)</b> fut signé dans la Galerie des Glaces — dans la même salle où l'Empire allemand avait été proclamé en 1871."}], "kind": "histoire"},{"icon": "⚡", "tag": "Philosophie", "date": "1734", "title": "Voltaire — Les Lumières", "desc": "Voltaire, symbole des Lumières : défenseur de la tolérance, ennemi du fanatisme. Candide et ses pamphlets incarnèrent la puissance de la plume contre l'arbitraire.", "anecdotes": [{"e": "✍️", "t": "<b>« Écrasez l'infâme ! »</b> — cri de guerre de Voltaire contre le fanatisme. À 83 ans, à son retour triomphal à Paris, il mourut d'une apothéose : trop d'honneurs en une nuit."}, {"e": "😄", "t": "<b>Candide (1759)</b> : le héros traverse toutes les catastrophes en répétant que « tout va pour le mieux dans le meilleur des mondes ». Ironie dévastratrice inégalée."}], "kind": "histoire"},{"icon": "🌿", "tag": "Philosophie", "date": "1762", "title": "Rousseau — Le Contrat Social", "desc": "Rousseau révolutionne la pensée avec Le Contrat Social (1762) : « la souveraineté appartient au peuple ». Ses idées nourriront directement la Révolution française.", "anecdotes": [{"e": "🗳️", "t": "<b>« L'homme est né libre, et partout il est dans les fers. »</b> Les révolutionnaires liront Rousseau comme un programme — et placeront ses cendres au Panthéon."}, {"e": "🌱", "t": "<b>Rousseau fut le premier écologiste :</b> il défendait la nature contre la civilisation corromprice. Thoreau, Tolstoï et tous les critiques de la modernité lui doivent tout."}], "kind": "histoire"},{"icon": "👑", "tag": "Monument", "date": "1661", "title": "Le Château de Versailles", "desc": "Louis XIV transforme un pavillon de chasse en le plus grand palais du monde : 700 pièces, 2 000 hectares de jardins, 20 000 personnes. Versailles devient le modèle de toutes les cours royales européennes.", "anecdotes": [{"e": "🚽", "t": "<b>Le château le plus luxueux d'Europe manquait cruellement de sanitaires.</b> L'odeur était légendaire — ironie suprême de la magnificence absolue."}, {"e": "🌍", "t": "<b>Le Traité de Versailles (1919)</b> fut signé dans la Galerie des Glaces — dans la même salle où l'Empire allemand avait été proclamé en 1871."}], "kind": "histoire"},{"icon": "⚡", "tag": "Philosophie", "date": "1734", "title": "Voltaire — Les Lumières & la Tolérance", "desc": "Voltaire, symbole des Lumières : défenseur de la tolérance, ennemi du fanatisme. Candide et ses pamphlets incarnèrent la puissance de la plume contre l'arbitraire.", "anecdotes": [{"e": "✍️", "t": "<b>« Écrasez l'infâme ! »</b> — cri de guerre de Voltaire contre le fanatisme. À 83 ans, à son retour triomphal à Paris, il mourut d'une apothéose : trop d'honneurs en une nuit."}, {"e": "😄", "t": "<b>Candide (1759)</b> : le héros traverse toutes les catastrophes en répétant que « tout va pour le mieux dans le meilleur des mondes ». Ironie dévastratrice en 30 pages."}], "kind": "histoire"},{"icon": "🌿", "tag": "Philosophie", "date": "1762", "title": "Rousseau — Le Contrat Social", "desc": "Rousseau révolutionne la pensée avec Le Contrat Social (1762) : « la souveraineté appartient au peuple ». Ses idées nourriront directement la Révolution française.", "anecdotes": [{"e": "🗳️", "t": "<b>« L'homme est né libre, et partout il est dans les fers. »</b> Les révolutionnaires liront Rousseau comme un programme — et placeront ses cendres au Panthéon."}, {"e": "🌱", "t": "<b>Rousseau fut le premier écologiste :</b> il défendait la nature contre la civilisation corromprice. Thoreau, Tolstoï et tous les critiques de la modernité lui doivent tout."}], "kind": "histoire"},{"icon": "👑", "tag": "Monument", "date": "1661", "title": "Le Château de Versailles", "desc": "Louis XIV transforme un pavillon de chasse en le plus grand palais du monde : 700 pièces, 2 000 hectares de jardins, 20 000 personnes vivant sur place. Versailles devient le modèle de toutes les cours royales européennes.", "anecdotes": [{"e": "🚽", "t": "<b>Le château le plus luxueux d'Europe manquait cruellement de sanitaires.</b> Les courtisans utilisaient les couloirs et les jardins. L'odeur était légendaire — ironie suprême de la magnificence absolue."}, {"e": "🌍", "t": "<b>Le 28 juin 1919, le Traité de Versailles</b> fut signé dans la Galerie des Glaces — dans la même salle où l'Empire allemand avait été proclamé en 1871. L'histoire a un sens du symbole."}], "kind": "histoire"},{"icon": "⚡", "tag": "Philosophie", "date": "1734", "title": "Voltaire — Les Lumières & la Tolérance", "desc": "François-Marie Arouet, dit Voltaire, symbole des Lumières : défenseur de la tolérance, ennemi du fanatisme. Candide et ses pamphlets incarnèrent la puissance de la plume contre l'arbitraire et l'injustice.", "anecdotes": [{"e": "✍️", "t": "<b>« Écrasez l'infâme ! »</b> — le cri de guerre de Voltaire contre le fanatisme religieux. À 83 ans, à son retour triomphal à Paris, il mourut d'une apothéose : trop d'émotion et d'honneurs en une nuit."}, {"e": "😄", "t": "<b>Candide (1759)</b> : le héros traverse toutes les catastrophes en répétant que « tout va pour le mieux dans le meilleur des mondes ». Cette ironie dévastratrice en 30 pages reste inégalée."}], "kind": "histoire"},{"icon": "🌿", "tag": "Philosophie", "date": "1762", "title": "Rousseau — Le Contrat Social", "desc": "Jean-Jacques Rousseau révolutionne la pensée politique avec Le Contrat Social (1762) : « la souveraineté appartient au peuple ». Ses idées nourriront directement la Révolution française et l'Émile révolutionne la pédagogie.", "anecdotes": [{"e": "🗳️", "t": "<b>« L'homme est né libre, et partout il est dans les fers. »</b> Les révolutionnaires liront Rousseau comme un programme — et placeront ses cendres au Panthéon aux côtés de Voltaire."}, {"e": "🌱", "t": "<b>Rousseau fut le premier écologiste :</b> il défendait la nature contre la civilisation corromprice et rêvait du « bon sauvage ». Thoreau, Tolstoï et tous les critiques de la modernité lui doivent tout."}], "kind": "histoire"},{"kind":"histoire","icon":"📖","date":"1664 – 1673","title":"Molière — Le Théâtre Français","desc":"Jean-Baptiste Poquelin, dit Molière, révolutionne la comédie française avec Tartuffe, Le Misanthrope, L'Avare. Il dénonce les hypocrisies de son époque avec une liberté audacieuse.","anecdotes":[{"e":"😂","t":"<b>Molière mourut sur scène</b> le 17 février 1673 lors de la 4ème représentation du Malade Imaginaire — pièce sur un hypocondriaque. Il fit une hémorragie pendant le spectacle et mourut quelques heures plus tard. L'ironie suprême."},{"e":"😤","t":"<b>Tartuffe fut interdite dès sa première représentation</b> en 1664, jugée scandaleuse par l'Église. Louis XIV la défendit. La bataille entre Molière et les dévots dura 5 ans avant que la pièce puisse être jouée librement."}]},{"icon": "🎭", "tag": "Littérature", "date": "1667", "title": "Racine — Andromaque & Phèdre", "desc": "Jean Racine pousse la tragédie à son sommet avec Andromaque (1667) et Phèdre (1677). Sa langue d'une pureté absolue fait de lui le plus grand tragédien français.", "anecdotes": [{"e": "💔", "t": "<b>Phèdre amoureuse de son beau-fils</b> est l'un des portraits psychologiques les plus fouillés de la littérature mondiale."}, {"e": "😤", "t": "<b>La rivalité Corneille-Racine</b> déchira le Paris littéraire du XVIIe siècle. À la première de Phèdre, Racine sabota une pièce rivale pour éliminer son concurrent."}], "kind": "histoire"},{"icon": "🦊", "tag": "Littérature", "date": "1668", "title": "La Fontaine — Les Fables", "desc": "Jean de La Fontaine publie ses Fables en 12 livres (1668-1694). Appris par cœur par des générations d'écoliers depuis 350 ans.", "anecdotes": [{"e": "🐺", "t": "<b>« La raison du plus fort est toujours la meilleure »</b> — La Fontaine critique le pouvoir derrière des histoires d'animaux que la censure royale ne pouvait atteindre."}, {"e": "📚", "t": "<b>Les Fables sont le texte le plus imprimé de France</b> après la Bible. La Fontaine transforme la morale ésopique en poésie musicale aux vers impossibles à améliorer."}], "kind": "histoire"},{"icon": "✍️", "tag": "Littérature", "date": "1678", "title": "Mme de Lafayette — La Princesse de Clèves", "desc": "Marie-Madeleine de Lafayette publie anonymement La Princesse de Clèves (1678) — le premier roman psychologique moderne.", "anecdotes": [{"e": "💭", "t": "<b>La Princesse de Clèves invente l'introspection romanesque :</b> pour la première fois, le roman s'intéresse aux pensées intimes du personnage. Stendhal et Proust en descendent."}, {"e": "🏛️", "t": "<b>En 2009, Sarkozy railla ce roman.</b> La polémique déclencha des lectures publiques de masse — la Princesse de Clèves fut en rupture de stock dans toutes les librairies de France."}], "kind": "histoire"},{"icon": "🎭", "tag": "Littérature", "date": "1667", "title": "Racine — Andromaque & Phèdre", "desc": "Jean Racine pousse la tragédie à son sommet avec Andromaque (1667) et Phèdre (1677). Sa langue d'une pureté absolue fait de lui le plus grand tragédien français.", "anecdotes": [{"e": "💔", "t": "<b>Phèdre amoureuse de son beau-fils Hippolyte</b> est l'un des portraits psychologiques les plus fouillés de la littérature mondiale — culpabilité, désir et mort avec une modernité saisissante."}, {"e": "😤", "t": "<b>La rivalité Corneille-Racine</b> déchira le Paris littéraire. À la première de Phèdre, Racine sabota une pièce rivale pour éliminer son concurrent."}], "kind": "histoire"},{"icon": "🦊", "tag": "Littérature", "date": "1668", "title": "La Fontaine — Les Fables", "desc": "Jean de La Fontaine publie ses Fables en 12 livres (1668-1694). Ces courts poèmes animaliers cachent une critique mordante de la société. Appris par cœur par des générations d'écoliers depuis 350 ans.", "anecdotes": [{"e": "🐺", "t": "<b>« La raison du plus fort est toujours la meilleure »</b> — La Fontaine critique le pouvoir derrière des histoires d'animaux que la censure royale ne pouvait atteindre."}, {"e": "📚", "t": "<b>Les Fables sont le texte le plus imprimé de France</b> après la Bible. La Fontaine transforme la morale ésopique en poésie musicale aux vers impossibles à améliorer."}], "kind": "histoire"},{"icon": "✍️", "tag": "Littérature", "date": "1678", "title": "Mme de Lafayette — La Princesse de Clèves", "desc": "Marie-Madeleine de Lafayette publie anonymement La Princesse de Clèves (1678) — le premier roman psychologique moderne. Fondateur du roman d'analyse intérieure.", "anecdotes": [{"e": "💭", "t": "<b>La Princesse de Clèves invente l'introspection romanesque.</b> Stendhal et Proust en descendent directement."}, {"e": "🏛️", "t": "<b>En 2009, Sarkozy railla ce roman.</b> La polémique déclencha des lectures publiques de masse — la Princesse de Clèves fut en rupture de stock dans toutes les librairies de France."}], "kind": "histoire"},{"icon": "🎭", "tag": "Littérature", "date": "1667", "title": "Racine — Andromaque & Phèdre", "desc": "Jean Racine pousse la tragédie à son sommet avec Andromaque (1667) et Phèdre (1677). Sa langue d'une pureté absolue et sa psychologie des passions font de lui le plus grand tragédien français.", "anecdotes": [{"e": "💔", "t": "<b>Phèdre amoureuse de son beau-fils Hippolyte</b> est l'un des portraits psychologiques les plus fouillés de la littérature mondiale — culpabilité, désir et mort avec une modernité saisissante."}, {"e": "😤", "t": "<b>La rivalité Corneille-Racine</b> déchira le Paris littéraire. Mme de Sévigné était pour Corneille, la Cour pour Racine. À la première de Phèdre, Racine sabota une pièce rivale pour éliminer son concurrent."}], "kind": "histoire"},{"icon": "🦊", "tag": "Littérature", "date": "1668", "title": "La Fontaine — Les Fables", "desc": "Jean de La Fontaine publie ses Fables en 12 livres (1668-1694). Ces courts poèmes animaliers cachent une critique mordante de la société. Appris par cœur par des générations d'écoliers français depuis 350 ans.", "anecdotes": [{"e": "🐺", "t": "<b>« La raison du plus fort est toujours la meilleure »</b> — La Fontaine critique le pouvoir et la vanité derrière des histoires d'animaux que la censure royale ne pouvait atteindre."}, {"e": "📚", "t": "<b>Les Fables sont le texte le plus imprimé de France</b> après la Bible. La Fontaine transforme la morale ésopique en poésie musicale aux vers impossibles à améliorer."}], "kind": "histoire"},{"icon": "✍️", "tag": "Littérature", "date": "1678", "title": "Mme de Lafayette — La Princesse de Clèves", "desc": "Marie-Madeleine de Lafayette publie anonymement La Princesse de Clèves (1678) — le premier roman psychologique moderne. Une femme mariée résiste à sa passion par devoir. Fondateur du roman d'analyse.", "anecdotes": [{"e": "💭", "t": "<b>La Princesse de Clèves invente l'introspection romanesque :</b> pour la première fois, le roman s'intéresse aux pensées intimes du personnage. Stendhal et Proust en descendent directement."}, {"e": "🏛️", "t": "<b>En 2009, Sarkozy railla ce roman.</b> La polémique déclencha des lectures publiques de masse — la Princesse de Clèves fut en rupture de stock dans toutes les librairies de France."}], "kind": "histoire"},{"icon":"🗡️","tag":"Roi","date":"1774 – 1792","title":"Louis XVI — La Fin de la Monarchie","desc":"Guillotiné le 21 janvier 1793. La Révolution éclate en 1789 : Bastille, Déclaration des droits de l'Homme.","anecdotes":[{"e":"😴","t":"<b>Le 14 juillet 1789, Louis XVI écrit dans son journal : « Rien ».</b> Il chassait ce jour-là. Il ne savait pas que la Bastille venait de tomber."},{"e":"🔧","t":"<b>Louis XVI était passionné de serrurerie.</b> On découvrit dans son atelier son « armoire de fer » contenant ses correspondances compromettantes."}],"kind":"histoire"}]},{"era":"✦ Révolution & Empire","cls":"revolution","events":[{"icon":"🏰","tag":"Événement","date":"14 juillet 1789","title":"Prise de la Bastille","desc":"Le peuple de Paris prend d'assaut la forteresse-prison symbole de l'absolutisme. Date fondatrice de la République.","anecdotes":[{"e":"🔓","t":"<b>La Bastille ne contenait que 7 prisonniers</b> ce jour-là : 4 faussaires, 2 fous et 1 noble. La grande forteresse symbole de la tyrannie était presque vide."}],"kind":"histoire"},{"icon":"⚖️","tag":"Événement","date":"1793 – 1794","title":"La Terreur — Robespierre","desc":"Le Comité de Salut Public envoie des milliers à la guillotine. 17 000 exécutions officielles. La Terreur finira par se dévorer elle-même.","anecdotes":[{"e":"😱","t":"<b>Danton, qui avait voté la Terreur, fut guillotiné sur ordre de Robespierre.</b> Sur l'échafaud : « Tu me suivras, Robespierre ! » Il avait raison — 3 mois plus tard."}],"kind":"histoire"},{"icon":"👑","tag":"Empereur","date":"1804 – 1815","title":"Napoléon Ier — Empereur des Français","desc":"Sacré en 1804 à Notre-Dame. Code civil, lycées, Légion d'honneur. Il domine l'Europe avant Waterloo (1815).","anecdotes":[{"e":"📏","t":"<b>Napoléon n'était pas si petit !</b> Il mesurait ~1,68 m — la taille française moyenne. La confusion vient d'une erreur de conversion entre pouces français et anglais."},{"e":"👑","t":"<b>Lors de son sacre, il prit la couronne des mains du pape et se couronna lui-même</b> — il ne voulait pas devoir sa couronne à l'Église."}],"kind":"histoire"},{"kind":"histoire","icon":"📖","date":"1830 – 1885","title":"Victor Hugo — Les Misérables & Notre-Dame","desc":"Victor Hugo est le monument de la littérature française du XIXe siècle : poète, romancier, dramaturge et homme politique. Les Misérables (1862) est l'un des romans les plus lus du monde.","anecdotes":[{"e":"📬","t":"<b>Victor Hugo envoya un télégramme à son éditeur</b> pour savoir comment se vendaient Les Misérables. Il écrivit simplement : « ? ». L'éditeur répondit : « ! ». La plus courte correspondance commerciale de l'histoire."},{"e":"🏰","t":"<b>Notre-Dame de Paris (1831)</b> fut écrit exprès pour sauver la cathédrale de la démolition. Le roman créa un tel engouement populaire que Victor Hugo força le gouvernement à restaurer l'édifice. Un roman qui sauva un monument."}]}]},{"era":"✦ Républiques & Guerres Mondiales","cls":"republiques","events":[{"icon":"🏛️","tag":"Événement","date":"1870 – 1940","title":"3ème République","desc":"70 ans de République. Jules Ferry instaure l'école laïque et gratuite (1882). Tour Eiffel (1889). Affaire Dreyfus. Deux guerres mondiales.","anecdotes":[{"e":"📚","t":"<b>Jules Ferry :</b> pour la première fois, tous les enfants de France — riches ou pauvres, filles ou garçons — avaient droit à l'éducation publique gratuite."},{"e":"🗼","t":"<b>La Tour Eiffel devait être démolie après 20 ans.</b> Elle fut sauvée uniquement parce qu'elle servait d'antenne radio."}],"kind":"histoire"},{"icon": "🗼", "tag": "Monument", "date": "1889", "title": "La Tour Eiffel", "desc": "Gustave Eiffel construit cette tour de 330 m pour l'Exposition universelle de 1889. Sauvée par sa radio-antenne, elle reçoit 7 millions de visiteurs par an.", "anecdotes": [{"e": "😤", "t": "<b>300 artistes signèrent une pétition contre la Tour Eiffel.</b> Maupassant déjeunait dans son restaurant — le seul endroit de Paris d'où on ne la voyait pas."}, {"e": "📡", "t": "<b>La Tour Eiffel fut sauvée par la radio :</b> son antenne émit les premiers signaux TSF en 1903, et intercepta des communications ennemies qui permirent d'arrêter Mata Hari."}], "kind": "histoire"},{"icon": "🗼", "tag": "Monument", "date": "1889", "title": "La Tour Eiffel", "desc": "Gustave Eiffel construit cette tour de 330 m pour l'Exposition universelle de 1889. Raillée comme une « vergue de fer », elle devait être démolie après 20 ans. Sauvée par sa radio-antenne, elle reçoit 7 millions de visiteurs par an.", "anecdotes": [{"e": "😤", "t": "<b>300 artistes signèrent une pétition contre la Tour Eiffel.</b> Maupassant déjeunait dans son restaurant — le seul endroit de Paris d'où on ne la voyait pas."}, {"e": "📡", "t": "<b>La Tour Eiffel fut sauvée par la radio :</b> son antenne émit les premiers signaux TSF en 1903. Elle intercepta aussi des communications ennemies qui permirent d'arrêter Mata Hari."}], "kind": "histoire"},{"icon": "🗼", "tag": "Monument", "date": "1889", "title": "La Tour Eiffel", "desc": "Gustave Eiffel construit cette tour de 330 m pour l'Exposition universelle de 1889. D'abord raillée comme une « vergue de fer », elle devait être démolie après 20 ans. Sauvée par sa radio-antenne, elle reçoit 7 millions de visiteurs par an.", "anecdotes": [{"e": "😤", "t": "<b>300 artistes signèrent une pétition contre la Tour Eiffel.</b> Maupassant déjeunait dans son restaurant — le seul endroit de Paris d'où on ne la voyait pas."}, {"e": "📡", "t": "<b>La Tour Eiffel fut sauvée par la radio :</b> son antenne émit les premiers signaux TSF en 1903. Pendant la Guerre, elle intercepta des communications ennemies — dont celles qui permirent d'arrêter Mata Hari."}], "kind": "histoire"},{"kind":"histoire","icon":"📖","date":"1871 – 1893","title":"Zola — Le Naturalisme","desc":"Émile Zola crée la série des Rougon-Macquart — 20 romans sur une famille sous le Second Empire. Germinal (1885) sur les mineurs reste l'un des grands romans sociaux de la littérature mondiale.","anecdotes":[{"e":"✊","t":"<b>« J'accuse ! »</b> — le 13 janvier 1898, Zola publie cette lettre ouverte dans L'Aurore pour défendre Dreyfus, officier juif injustement condamné. Cet acte politique courageux lui valut un procès et l'exil en Angleterre."},{"e":"🔬","t":"<b>Zola préparait ses romans comme un journaliste-scientifique :</b> il passa des mois dans les mines du Nord pour écrire Germinal, remplissant des carnets de notes sur les conditions de travail réelles."}]},{"kind":"histoire","icon":"🎨","date":"1874","title":"Monet & l'Impressionnisme","desc":"Claude Monet expose « Impression, Soleil Levant » — un critique la raille en disant « ce ne sont que des impressions ». Le mot reste et donne son nom au mouvement qui révolutionne la peinture.","anecdotes":[{"e":"👁️","t":"<b>Monet souffrait d'une cataracte grave</b> à la fin de sa vie. Ses tableaux des Nymphéas, aux couleurs brouillées et aux contours flous, reflètent sa vision dégradée. Opéré en 1923, il dit que les couleurs étaient différentes de ce qu'il avait peint."},{"e":"🌸","t":"<b>Le jardin de Giverny</b> que Monet fit construire avec son bassin et ses nymphéas fut son chef-d'œuvre architectural — il le peignit plus de 250 fois sous différentes lumières et saisons."}]},{"icon":"🪖","tag":"Événement","date":"1914 – 1918","title":"Première Guerre Mondiale","desc":"18 millions de morts dont 1,4 million de soldats français. La guerre des tranchées traumatise toute une génération.","anecdotes":[{"e":"✋","t":"<b>Le 11 novembre 1918 à 11h,</b> les canons se turent sur tout le front. Des soldats qui s'étaient entre-tués pendant 4 ans se levèrent et se regardèrent en silence."}],"kind":"histoire"},{"icon":"🔥","tag":"Événement","date":"1939 – 1945","title":"Deuxième Guerre Mondiale","desc":"La France est occupée de 1940 à 1944. Résistance, débarquement du 6 juin 1944, Libération. La Shoah fait 6 millions de victimes juives.","anecdotes":[{"e":"📻","t":"<b>Le 18 juin 1940, de Gaulle lança son appel depuis Londres :</b> « La France a perdu une bataille, mais la France n'a pas perdu la guerre ! »"}],"kind":"histoire"}]},{"era":"✦ France Contemporaine","cls":"contemp","events":[{"icon":"🗳️","tag":"Événement","date":"1958 – aujourd'hui","title":"5ème République — De Gaulle & Nos Jours","desc":"La Constitution de 1958 instaure un régime semi-présidentiel fort. Mai 1968. Construction européenne. La France reste une grande puissance mondiale.","anecdotes":[{"e":"🌸","t":"<b>Mai 1968 :</b> des millions de Français en grève. De Gaulle quitta secrètement l'Élysée pour consulter ses généraux. La France fut à deux doigts de la révolution."},{"e":"🌍","t":"<b>La France fut l'un des 6 pays fondateurs de l'Europe</b> avec l'Allemagne. La réconciliation franco-allemande est le fondement de l'Union Européenne."}],"kind":"histoire"}]}],"monde":[{"era":"✦ Origines de l'Humanité","cls":"paleo","events":[{"icon":"🌍","tag":"Événement","date":"–65 000 ans","title":"Les Aborigènes d'Australie — La Plus Ancienne Culture","desc":"Des groupes humains traversent la mer depuis l'Asie du Sud-Est et peuplent l'Australie. C'est la première navigation maritime connue et la culture humaine continue la plus ancienne au monde.","anecdotes":[{"e":"🎵","t":"<b>Les « songlines »</b> sont des chemins invisibles qui traversent toute l'Australie. En chantant les chansons correspondantes, un Aborigène peut naviguer sur des milliers de km à travers le désert sans carte."},{"e":"🎨","t":"<b>L'art rupestre australien est le plus vieux du monde</b> — plus de 40 000 ans. Les grottes de Chauvet en France (36 000 ans) sont plus récentes."},{"e":"👧","t":"<b>Les « Générations Volées » (1910-1970) :</b> le gouvernement australien enleva systématiquement les enfants aborigènes de leurs familles pour les « assimiler ». Des milliers perdirent leur langue, leur culture et leur famille."}],"kind":"histoire"},{"icon":"🧠","tag":"Événement","date":"–40 000 ans","title":"Homo Sapiens Colonise le Monde","desc":"Notre espèce, venue d'Afrique il y a ~70 000 ans, peuple l'Eurasie, l'Australie, puis les Amériques (~15 000 ans). Partout elle développe art, rites et langages.","anecdotes":[{"e":"🎨","t":"<b>Les peintures de la grotte Chauvet</b> (France, –36 000 ans) et de Lascaux (–17 000 ans) montrent une maîtrise artistique stupéfiante. L'art rupestre est universel — il apparaît sur tous les continents."},{"e":"🧊","t":"<b>Les ancêtres des Amérindiens</b> traversèrent le détroit de Béring (alors à sec) il y a ~15 000 à 20 000 ans et peuplèrent l'Amérique de la Sibérie jusqu'à la Patagonie en quelques millénaires."}],"kind":"histoire"},{"icon":"🧊","tag":"Peuple","date":"~2 500 av. J.-C. – 1 100 ap. J.-C.","title":"Les Inuits — Maîtres de l'Arctique","desc":"Les peuples paléo-inuits (culture de Dorset) colonisent l'Arctique dès ~2 500 av. J.-C. La culture thuléenne — ancêtre direct des Inuit actuels — émerge vers 1 100 ap. J.-C. en Alaska et atteint le Groenland vers 1 200.","anecdotes":[{"e":"🏠","t":"<b>L'igloo est un chef-d'œuvre thermique :</b> à –50°C dehors, il fait 16°C à l'intérieur grâce à la seule chaleur des corps et d'une lampe à graisse."},{"e":"🌬️","t":"<b>Les Inuits ont des dizaines de mots pour la neige,</b> chacun décrivant un type précis : neige bonne pour l'igloo, neige qui fait trébucher, neige glacée... Une précision linguistique vitale pour la survie."},{"e":"🌡️","t":"<b>Le réchauffement climatique menace directement</b> la culture inuite. La banquise qui fond change les routes de chasse et rend les igloos impossibles à construire."}],"kind":"histoire"}]},{"era":"✦ Premières Civilisations (–3500 à –500 av. J.-C.)","cls":"meso","events":[{"icon":"🏺","tag":"Civilisation","date":"–3 500 av. J.-C.","title":"Sumer — Les Premières Villes","desc":"En Mésopotamie (Irak actuel), entre le Tigre et l'Euphrate, naissent les premières grandes villes : Uruk, Ur, Lagash. La civilisation commence ici.","anecdotes":[{"e":"📝","t":"<b>L'écriture cunéiforme</b> fut inventée pour la comptabilité, pas la littérature. Les premières tablettes sont des reçus de livraison d'orge et de bière."},{"e":"📜","t":"<b>L'Épopée de Gilgamesh (~2100 av. J.-C.)</b> est le premier texte littéraire connu. Il raconte un déluge et un héros qui cherche l'immortalité — 1 500 ans avant la Bible."},{"e":"⚖️","t":"<b>Le Code d'Hammurabi (~1792 av. J.-C.)</b> est le premier grand code de lois. « Œil pour œil » était un progrès : la vengeance illimitée était remplacée par une peine proportionnelle au crime."}],"kind":"histoire"},{"kind":"histoire","icon":"⚙️","date":"–3 500 av. J.-C.","title":"Invention de la Roue (Mésopotamie)","desc":"En Mésopotamie, la roue apparaît d'abord comme tour de potier, puis comme roue de transport. Elle révolutionne le commerce et l'agriculture sur tous les continents.","anecdotes":[{"e":"🏺","t":"<b>La roue a d'abord servi à faire des pots</b>, pas à transporter. Le tour de potier précède la roue de transport d'environ 300 ans."},{"e":"🌍","t":"<b>Les Aztèques connaissaient la roue</b> mais ne l'utilisaient pas pour le transport — ils n'avaient pas d'animaux de trait. Ils s'en servaient uniquement dans des jouets d'enfants."}]},{"kind":"histoire","icon":"📝","date":"–3 200 av. J.-C.","title":"Invention de l'Écriture Cunéiforme","desc":"Les Sumériens inventent l'écriture pour gérer leurs échanges commerciaux. C'est la première écriture connue de l'humanité.","anecdotes":[{"e":"📋","t":"<b>Les premières tablettes sont des reçus</b> de livraison d'orge et de bière. L'écriture est née de la comptabilité, pas de la poésie."},{"e":"🔍","t":"<b>Le cunéiforme fut déchiffré en 1857</b> grâce à l'inscription trilingue de Behistun — le « Rosette de la Mésopotamie »."}]},{"icon":"🔺","tag":"Civilisation","date":"–3 100 av. J.-C.","title":"Égypte Ancienne — Naissance","desc":"Le roi Narmer unifie la Haute et la Basse Égypte. Commence alors une civilisation de 3 000 ans ininterrompus — la plus durable de l'histoire.","anecdotes":[{"e":"⏳","t":"<b>Cléopâtre est plus proche de nous que des pyramides :</b> il y a plus de temps entre Cléopâtre (–30 av. J.-C.) et la Grande Pyramide (–2560 av. J.-C.) qu'entre Cléopâtre et nous."},{"e":"🐱","t":"<b>Le chat s'est lui-même domestiqué en Égypte</b> en suivant les greniers à céréales. Les Égyptiens l'ont ensuite déifié."},{"e":"👷","t":"<b>Les bâtisseurs des pyramides étaient des artisans payés</b> en pain, bière et viande — pas des esclaves. Bâtir la pyramide était un honneur religieux."}],"kind":"histoire"},{"icon":"🏙️","tag":"Civilisation","date":"–3 000 av. J.-C.","title":"Civilisation de l'Indus — Mohenjo-Daro","desc":"Dans la vallée de l'Indus (Pakistan actuel), une civilisation sophistiquée développe des villes planifiées avec égouts et bains publics — 4 000 ans avant Paris.","anecdotes":[{"e":"🚿","t":"<b>Mohenjo-Daro avait des sanitaires dans chaque maison</b> et un système d'égouts public — l'un des premiers au monde."},{"e":"🔍","t":"<b>L'écriture de l'Indus reste indéchiffrée.</b> Des centaines de tablettes couvertes de signes attendent encore leur Champollion."}],"kind":"histoire"},{"kind":"histoire","icon":"🎵","date":"~–3 000 av. J.-C.","title":"Premières Musiques — Flûtes & Harpes","desc":"Les plus anciennes flûtes connues datent de –40 000 ans (Allemagne). Les premières partitions écrites viennent de Mésopotamie vers –2 000 av. J.-C. La musique est aussi ancienne que l'humanité.","anecdotes":[{"e":"🪈","t":"<b>La plus ancienne flûte connue</b> (–40 000 ans, Allemagne) est taillée dans un os de vautour. La musique est l'un des comportements les plus anciens de notre espèce — bien avant l'agriculture."}]},{"kind":"histoire","icon":"🎨","date":"~–2 500 av. J.-C.","title":"Art Égyptien — Les Pyramides comme Œuvres","desc":"L'art égyptien développe un style reconnaissable immédiatement : hiérarchie des tailles, vue de profil, couleurs symboliques. Il restera stable pendant 3 000 ans — la plus longue tradition artistique de l'histoire.","anecdotes":[{"e":"🖼️","t":"<b>La perspective frontale égyptienne</b> — où chaque partie du corps est montrée sous son angle le plus caractéristique (tête de profil, épaules de face, jambes de profil) — n'est pas un manque de talent mais un choix délibéré pour la clarté."}]},{"kind":"histoire","icon":"📖","date":"~–2 100 av. J.-C.","title":"Épopée de Gilgamesh","desc":"Premier texte littéraire connu de l'humanité — un roi sumérien cherche l'immortalité et traverse un déluge. Écrit sur des tablettes d'argile 1 500 ans avant la Bible.","anecdotes":[{"e":"🌊","t":"<b>Le déluge de Gilgamesh</b> précède le déluge biblique de Noé de plus de 1 000 ans et lui ressemble étrangement : un homme prévenu par un dieu, un bateau, des animaux sauvés, une colombe envoyée."},{"e":"💀","t":"<b>Gilgamesh perd son ami Enkidu</b> et part chercher l'immortalité pour ne plus jamais perdre un être aimé. C'est la première exploration littéraire du deuil et de la mort — toujours aussi universelle 4 000 ans plus tard."}]},{"icon":"📿","tag":"Religion","date":"–1 500 av. J.-C.","title":"Hindouisme — Les Védas","desc":"Les textes védiques fondent l'hindouisme, la plus ancienne religion encore pratiquée. Naissance du concept de karma, de dharma et du cycle des réincarnations.","anecdotes":[{"e":"🔢","t":"<b>L'Inde a inventé le zéro et les chiffres que le monde entier utilise.</b> Les « chiffres arabes » sont en réalité des chiffres indiens transmis par les mathématiciens arabes."},{"e":"🧘","t":"<b>Le yoga existe depuis plus de 5 000 ans.</b> Les premières postures sont représentées sur des sceaux de la civilisation de l'Indus."}],"kind":"histoire"},{"icon":"🗿","tag":"Civilisation","date":"–1 200 av. J.-C.","title":"Phéniciens — Inventeurs de l'Alphabet","desc":"Les Phéniciens du Liban actuel développent le premier alphabet de 22 lettres — ancêtre direct des alphabets grec, latin, arabe, hébreu et de presque tous les alphabets modernes.","anecdotes":[{"e":"🔤","t":"<b>Les lettres que tu utilises viennent des Phéniciens.</b> Notre A est un « aleph » phénicien (tête de bœuf retournée). Notre B vient de « beth » (maison)."},{"e":"🎨","t":"<b>« Phénicien » vient du grec « phoinix » (pourpre).</b> Leur colorant pourpre extrait de murex était si rare qu'il fallait 12 000 escargots pour teindre un seul vêtement — réservé aux rois."}],"kind":"histoire"},{"icon":"🏛️","tag":"Civilisation","date":"–800 av. J.-C.","title":"Grèce archaïque & classique — Philosophie, Olympiques, Démocratie","desc":"Les cités-États grecques inventent la philosophie, le théâtre et les Jeux Olympiques. La démocratie athénienne naît des réformes de Clisthène en 508/507 av. J.-C. Socle intellectuel de toute la civilisation occidentale.","anecdotes":[{"e":"🗳️","t":"<b>La démocratie athénienne excluait les femmes, les esclaves et les étrangers</b> — soit 80-90 % de la population. Révolutionnaire pour l'époque, mais très imparfait."},{"e":"🏃","t":"<b>Le « Marathon » commémore la course du soldat Phidippidès</b> — 42 km pour annoncer la victoire sur les Perses (490 av. J.-C.). Il cria « Victoire ! » et mourut."}],"kind":"histoire"},{"kind":"histoire","icon":"📖","date":"~–800 av. J.-C.","title":"Homère — Iliade & Odyssée","desc":"Ces deux épopées fondatrices de la littérature occidentale racontent la guerre de Troie et le voyage d'Ulysse. Elles ont influencé 2 800 ans de culture.","anecdotes":[{"e":"🎭","t":"<b>L'Iliade et l'Odyssée étaient récitées oralement</b> lors de festivals, des heures durant. Les aèdes mémorisaient les 15 000 et 12 000 vers respectivement."}]},{"icon":"🌟","tag":"Civilisation","date":"–550 av. J.-C.","title":"Perse — Cyrus le Grand","desc":"Cyrus le Grand conquiert la Médie, la Lydie et Babylone. Il crée le premier grand empire tolérant : liberté de culte, retour des peuples déportés (dont les Juifs).","anecdotes":[{"e":"📜","t":"<b>Le « Cylindre de Cyrus »</b> est souvent appelé la première déclaration des droits de l'homme. Il proclame la liberté de culte — 2 500 ans avant la Déclaration universelle de l'ONU."},{"e":"🛤️","t":"<b>La « Route Royale » de Darius</b> : 2 700 km avec des relais de poste. Un message royal la parcourait en 7 jours — 3 mois pour un voyageur ordinaire."}],"kind":"histoire"}]},{"era":"✦ Naissance des Grandes Religions (–600 à –400 av. J.-C.)","cls":"religio","events":[{"icon":"☯️","tag":"Religion","date":"~–600 av. J.-C.","title":"Taoïsme — Lao-Tseu","desc":"Lao-Tseu rédige le Tao Te Ching : 81 courts chapitres sur la Voie, l'harmonie avec la nature et le « non-agir ». Philosophie qui influencera toute l'Asie.","anecdotes":[{"e":"💧","t":"<b>« L'eau est la chose la plus douce du monde, et pourtant elle creuse la pierre. »</b> Cette image résume le taoïsme : la douceur persistante vaut mieux que la force brutale."},{"e":"🦋","t":"<b>Zhuangzi rêva qu'il était un papillon.</b> À son réveil : était-il un homme qui avait rêvé être papillon, ou un papillon qui rêvait être homme ? La plus belle question sur l'identité."}],"kind":"histoire"},{"icon":"🪷","tag":"Religion","date":"~–563 av. J.-C.","title":"Siddhartha Gautama — Le Bouddha","desc":"Prince indien qui quitte son palais à 29 ans, choqué par la souffrance. Après 6 ans de méditation, il atteint l'Éveil sous l'arbre Bodhi. Le bouddhisme naît.","anecdotes":[{"e":"🏰","t":"<b>Siddhartha fut élevé dans un luxe absolu.</b> Son père fit entourer le palais de jardins pour lui cacher toute souffrance. Quand il découvrit la maladie et la mort à 29 ans, ce fut un choc fondateur."},{"e":"☯️","t":"<b>Le Bouddha ne se déclarait pas dieu</b> et demandait à chacun de vérifier ses enseignements par l'expérience. C'est une philosophie de l'éveil personnel, pas un acte de foi aveugle."}],"kind":"histoire"},{"icon":"📜","tag":"Religion","date":"~–551 av. J.-C.","title":"Confucius — La Philosophie Chinoise","desc":"Confucius enseigne le respect, la famille, l'harmonie et le gouvernement juste. Sa philosophie influencera la Chine pendant 2 500 ans.","anecdotes":[{"e":"🎓","t":"<b>Confucius fut d'abord un fonctionnaire raté.</b> Incapable de convaincre les princes d'appliquer ses idées, il parcourut la Chine pendant 13 ans avec ses disciples avant de rentrer déçu."},{"e":"🌏","t":"<b>Le confucianisme ne porte pas sur les dieux</b> mais sur les relations humaines : entre enfants et parents, élèves et maîtres, sujets et souverains."}],"kind":"histoire"}]},{"era":"✦ Antiquité Classique (–500 à 500 ap. J.-C.)","cls":"antique","events":[{"icon":"⚓","tag":"Civilisation","date":"~814 av. J.-C.","title":"Carthage — La Rivale de Rome","desc":"Fondée par les Phéniciens, Carthage domine la Méditerranée occidentale. Hannibal traverse les Alpes avec 37 éléphants. Rome finira par la raser en 146 av. J.-C.","anecdotes":[{"e":"🐘","t":"<b>Traverser les Alpes en novembre avec des éléphants</b> est l'une des prouesses militaires les plus extraordinaires de l'Antiquité. La moitié de l'armée mourut de froid."},{"e":"⚔️","t":"<b>À Cannes (–216 av. J.-C.),</b> Hannibal encercla et détruisit 85 000 Romains avec 40 000 hommes. La manœuvre d'encerclement parfaite, encore étudiée dans les académies militaires."}],"kind":"histoire"},{"icon":"⚡","tag":"Roi","date":"–356 – –323 av. J.-C.","title":"Alexandre le Grand","desc":"En 13 ans, il conquiert la Perse, l'Égypte, l'Afghanistan et l'Inde. Il meurt à 32 ans après avoir créé le plus grand empire qu'un seul homme ait jamais dirigé.","anecdotes":[{"e":"🐴","t":"<b>Son cheval Bucéphale</b> ne pouvait être monté par personne d'autre. Alexandre, 13 ans, remarqua qu'il avait peur de son ombre et le fit tourner vers le soleil. Son père dit : « Mon fils, cherche un royaume digne de toi. »"},{"e":"🔪","t":"<b>Le « nœud gordien » :</b> une prophétie disait que celui qui le dénouerait régnerait sur l'Asie. Alexandre trancha simplement le nœud avec son épée. Expression restée dans la langue."}],"kind":"histoire"},{"kind":"histoire","icon":"📐","date":"–240 av. J.-C.","title":"Ératosthène — Circumférence de la Terre","desc":"Depuis Alexandrie, Ératosthène calcule la circonférence de la Terre avec deux bâtons et des ombres. Son résultat est à 1,7 % de la valeur exacte.","anecdotes":[{"e":"🌍","t":"<b>Son résultat : ~39 375 km. La vraie valeur : 40 075 km.</b> Une erreur de 1,7 % — sans satellite ni GPS, juste deux bâtons et de la trigonométrie."}]},{"kind":"histoire","icon":"📐","date":"~–570 av. J.-C.","title":"Thalès — Géométrie & Astronomie","desc":"Thalès de Milet est le premier philosophe grec connu à chercher des explications naturelles (et non divines) aux phénomènes. Il mesure la hauteur des pyramides grâce aux ombres.","anecdotes":[{"e":"🌑","t":"<b>Thalès prédit la première éclipse solaire connue</b> de l'histoire en –585 av. J.-C. Elle eut lieu pendant une bataille entre Mèdes et Lydiens qui, effrayés, arrêtèrent le combat. Sa prédiction stoppa une guerre."},{"e":"📐","t":"<b>Le « théorème de Thalès »</b> sur les triangles semblables lui permit de mesurer la hauteur de la Grande Pyramide en comparant son ombre à celle d'un bâton. Simple, élégant, révolutionnaire."}]},{"kind":"histoire","icon":"📐","date":"~–530 av. J.-C.","title":"Pythagore — Le Théorème","desc":"Dans un triangle rectangle, le carré de l'hypoténuse est égal à la somme des carrés des deux autres côtés. Démontré il y a 2 500 ans, ce théorème est encore enseigné dans toutes les écoles du monde.","anecdotes":[{"e":"🔢","t":"<b>Les Babyloniens et Égyptiens connaissaient cette relation</b> 1 000 ans avant Pythagore — mais lui en fit la première démonstration rigoureuse. Il ne l'a pas découverte, il l'a prouvée."},{"e":"🎵","t":"<b>Pythagore découvrit aussi les harmonies musicales.</b> En jouant sur des cordes de longueurs différentes, il remarqua que des rapports simples (1/2, 2/3) produisaient des sons harmonieux. Il inventait ainsi l'acoustique mathématique."}]},{"kind":"histoire","icon":"🏛️","date":"~–447 av. J.-C.","title":"Le Parthénon & Phidias","desc":"Phidias supervise la construction du Parthénon à Athènes et sculpte la statue d'Athéna Parthénos en or et ivoire. C'est l'apogée de la sculpture et de l'architecture grecques classiques.","anecdotes":[{"e":"📐","t":"<b>Le Parthénon ne contient pas une seule ligne droite.</b> Toutes ses colonnes sont légèrement incurvées et penchées vers l'intérieur pour corriger les illusions d'optique. Le résultat paraît parfaitement droit à l'œil."},{"e":"💣","t":"<b>Le Parthénon fut partiellement détruit en 1687</b> quand les Vénitiens bombardèrent les Ottomans qui y stockaient de la poudre à canon. 2 000 ans de conservation détruits en une explosion."}]},{"kind":"histoire","icon":"⚙️","date":"~–260 av. J.-C.","title":"Archimède — La Poulie & le Levier","desc":"Archimède formule le principe du levier et invente la vis sans fin, la poulie composée et le principe de la poussée hydrostatique. « Donnez-moi un point d'appui et je soulèverai le monde. »","anecdotes":[{"e":"🛁","t":"<b>« Eurêka ! »</b> En entrant dans son bain et voyant l'eau déborder, Archimède comprit comment mesurer le volume d'un objet irrégulier — et donc si la couronne du roi était en or pur. Il courut nu dans la rue de joie."},{"e":"⚙️","t":"<b>Ses machines de guerre</b> défendirent Syracuse contre les Romains pendant 3 ans. Des grues géantes soulevaient les navires romains hors de l'eau et les retournaient."}]},{"kind":"histoire","icon":"💨","date":"~–200 av. J.-C.","title":"Invention du Moulin à Eau","desc":"Le moulin à eau est l'une des premières machines à exploiter une source d'énergie autre que la force humaine ou animale. Il révolutionne la mouture des céréales en Europe et en Asie.","anecdotes":[{"e":"💨","t":"<b>Un moulin à eau peut moudre autant en une heure</b> que 40 esclaves en une journée. Son adoption progressive contribua à réduire le recours à la main-d'œuvre servile."},{"e":"⚙️","t":"<b>Le moulin à vent</b> apparaît en Perse vers 500-600 ap. J.-C., puis en Europe au XIIe siècle. Les moulins domineront la production d'énergie mécanique pendant 1 500 ans — jusqu'à la vapeur."}]},{"icon":"🐉","tag":"Civilisation","date":"–221 av. J.-C.","title":"Chine — Qin Shi Huang & la Grande Muraille","desc":"Le roi Ying Zheng unifie 7 royaumes en guerre et devient le premier Empereur de Chine. Il lance la construction de la Grande Muraille et standardise l'écriture, les poids et les mesures.","anecdotes":[{"e":"😤","t":"<b>Qin Shi Huang standardisa même la largeur des essieux des chariots</b> pour que les routes (faites de sillons) fonctionnent partout dans l'empire."},{"e":"⚔️","t":"<b>Son armée de 8 000 soldats en terre cuite</b> fut découverte en 1974 par des paysans creusant un puits. Chaque visage est unique. L'une des plus grandes découvertes archéologiques du XXe siècle."},{"e":"🧱","t":"<b>La Grande Muraille n'est pas visible de la Lune :</b> c'est un mythe. Sa largeur (~5 m) est trop petite pour être vue à l'œil nu depuis l'espace."}],"kind":"histoire"},{"icon":"🐺","tag":"Civilisation","date":"–27 av. J.-C.","title":"Empire Romain — Auguste à la Chute","desc":"Auguste devient le premier Empereur. La Pax Romana offre 2 siècles de paix. Rome atteint 1 million d'habitants, 80 000 km de routes, des aqueducs et le droit romain.","anecdotes":[{"e":"🌊","t":"<b>Les aqueducs romains</b> apportaient de l'eau fraîche sur 100 km. Rome distribuait 1 million de m³ d'eau par jour — davantage qu'une ville moderne de même taille."},{"e":"🍝","t":"<b>Le « garum »</b> — sauce de poisson fermenté — était le ketchup romain. Ils le mettaient sur tout. Des amphores de garum ont été trouvées jusqu'en Bretagne."}],"kind":"histoire"},{"icon":"✝️","tag":"Religion","date":"~33 ap. J.-C.","title":"Naissance du Christianisme","desc":"L'enseignement de Jésus de Nazareth se répand dans tout l'Empire romain. En 380, Théodose en fait la religion officielle de l'Empire.","anecdotes":[{"e":"📅","t":"<b>Jésus n'est probablement pas né l'an 0.</b> Une erreur de calcul du moine Denys le Petit au VIe siècle. Jésus serait né entre –6 et –4 av. J.-C."},{"e":"🏛️","t":"<b>En moins de 4 siècles,</b> une religion persécutée devint la religion d'État de l'empire le plus puissant du monde. Une révolution historique sans précédent."}],"kind":"histoire"},{"kind":"histoire","icon":"🧭","date":"~XIe siècle","title":"La Boussole (Chine → Monde)","desc":"Inventée en Chine pour la géomancie (feng shui), la boussole est adaptée à la navigation maritime au XIe siècle. Elle permettra les Grandes Découvertes européennes.","anecdotes":[{"e":"🧭","t":"<b>La boussole fut d'abord utilisée pour orienter les maisons</b> selon les principes du feng shui — pas pour la navigation. C'est son usage maritime qui changea le monde."}]},{"kind":"histoire","icon":"📖","date":"~1 010","title":"Le Dit du Genji — Premier Roman du Monde","desc":"Murasaki Shikibu, dame de cour japonaise, écrit Le Dit du Genji — le premier roman de l'histoire humaine. Un récit de 54 chapitres sur les amours de la cour impériale.","anecdotes":[{"e":"✍️","t":"<b>Le premier roman de l'histoire est écrit par une femme,</b> au Japon, il y a 1 000 ans. C'est aussi l'un des plus longs et des plus complexes — psychologiquement, il n'a rien à envier aux romans modernes."}]},{"kind":"histoire","icon":"🧪","date":"105 ap. J.-C.","title":"Invention du Papier (Chine)","desc":"Cai Lun améliore le procédé de fabrication du papier en Chine. Cette invention mettra 1 000 ans à atteindre l'Europe, révolutionnant la transmission du savoir.","anecdotes":[{"e":"📄","t":"<b>Avant le papier, on écrivait sur des soies ou des bambous</b> — beaucoup plus lourds et coûteux. Un seul livre nécessitait des dizaines de bambous."},{"e":"⏰","t":"<b>Le papier mit 1 000 ans à atteindre l'Europe</b> (XIe-XIIe siècle, via les Arabes). Sans papier, pas d'imprimerie possible."}]},{"icon":"🌸","tag":"Civilisation","date":"~300 ap. J.-C.","title":"Japon Ancien — Shintô & Premiers Clans","desc":"Les premiers clans japonais se fédèrent. Le shintô, religion indigène, vénère les kami — les esprits qui habitent la nature. L'Empereur descend de la déesse du Soleil Amaterasu.","anecdotes":[{"e":"⛩️","t":"<b>Le « torii » rouge</b> marque l'entrée dans un espace sacré shintô. Le Japon compte plus de 80 000 sanctuaires shintô."},{"e":"🌸","t":"<b>Le « hanami »</b> (contemplation des cerisiers en fleurs) est une tradition née à la période Heian (~800 ap.). 1 200 ans plus tard, tout le Japon le pratique encore."}],"kind":"histoire"},{"icon":"⚜️","tag":"Civilisation","date":"330 ap. J.-C.","title":"Byzance — La Rome Orientale","desc":"Constantin fonde Constantinople sur le Bosphore. L'Empire romain d'Orient survivra 1 123 ans de plus que celui d'Occident, gardant vivant l'héritage grec et romain.","anecdotes":[{"e":"🧱","t":"<b>Les murailles de Théodose</b> résistèrent à 23 sièges en 1 000 ans. Elles ne tombèrent qu'avec la poudre à canon en 1453. Ces murs sauvèrent l'Europe chrétienne à plusieurs reprises."},{"e":"🔥","t":"<b>Le « Feu Grégeois »</b> brûlait sur l'eau et ne pouvait être éteint. Il détruisit plusieurs flottes arabes. Sa formule reste inconnue à ce jour."}],"kind":"histoire"}]},{"era":"✦ Moyen Âge Mondial (500 – 1300)","cls":"medieval","events":[{"icon":"🌍","tag":"Civilisation","date":"1 235 – 1 600","title":"Empire du Mali — Mansa Musa, l'Homme le Plus Riche","desc":"L'empire du Mali contrôle les routes de l'or. Mansa Musa est probablement l'homme le plus riche de toute l'histoire humaine. Tombouctou est l'une des grandes capitales intellectuelles du monde.","anecdotes":[{"e":"💰","t":"<b>Le pèlerinage de Mansa Musa à La Mecque (1324)</b> avec 60 000 personnes et des tonnes d'or distribua tant de richesses que le cours de l'or s'effondra pendant 12 ans dans toute la Méditerranée."},{"e":"📚","t":"<b>Tombouctou possédait 180 écoles coraniques</b> et une université (Sankore) attirant des érudits de toute l'Afrique. Elle avait plus de livres que n'importe quelle ville européenne de l'époque."}],"kind":"histoire"},{"icon":"🌍","tag":"Événement","date":"1 464 – 1 591","title":"Empire Songhaï — Le Plus Grand d'Afrique","desc":"L'un des plus vastes empires d'Afrique précoloniale couvre une superficie comparable à l'Europe occidentale. Tombouctou est l'un des grands centres intellectuels mondiaux avec ses 700 000 manuscrits.","anecdotes":[{"e":"📜","t":"<b>Des familles de Tombouctou conservent encore aujourd'hui</b> des milliers de manuscrits anciens sur les mathématiques, l'astronomie et la philosophie."},{"e":"⚔️","t":"<b>L'empire fut détruit en 1591 par une armée marocaine armée de mousquets</b> — les premières armes à feu en Afrique subsaharienne. La technologie changea l'équilibre des puissances."}],"kind":"histoire"},{"icon":"⡐","tag":"Civilisation","date":"~500 – 900","title":"Mayas Classiques — Astronomie & Écriture","desc":"Les Mayas construisent des cités-pyramides, développent l'écriture, calculent un calendrier d'une précision extraordinaire et inventent le zéro indépendamment de l'Inde.","anecdotes":[{"e":"⭐","t":"<b>Les Mayas calculèrent l'année solaire à 365,2420 jours</b> — la valeur exacte est 365,2422. Plus précis que le calendrier julien romain."},{"e":"📚","t":"<b>Les Espagnols brûlèrent presque tous les livres mayas.</b> Il n'en reste que 4. Une destruction culturelle irréparable — l'équivalent de brûler toutes les bibliothèques d'Europe."}],"kind":"histoire"},{"kind":"histoire","icon":"🎨","date":"~1 500","title":"Léonard & Michel-Ange — Renaissance Italienne","desc":"La Renaissance italienne produit en 50 ans plus de chefs-d'œuvre que n'importe quelle autre période. Léonard, Michel-Ange, Raphaël, Botticelli redéfinissent l'art occidental.","anecdotes":[{"e":"💰","t":"<b>Les Médicis financèrent la Renaissance</b> — banquiers florentins devenus mécènes par passion et par prestige. Sans leur argent, Léonard, Michel-Ange et Botticelli n'auraient peut-être jamais pu créer librement."}]},{"icon":"🌙","tag":"Religion","date":"622","title":"Naissance de l'Islam — L'Hégire","desc":"Mahomet fuit La Mecque pour Médine. Cette date marque le début du calendrier musulman. En 10 ans, ses successeurs conquièrent la Perse, l'Égypte et la Syrie.","anecdotes":[{"e":"📅","t":"<b>Le calendrier musulman commence en 622.</b> Nous sommes actuellement en l'an 1446 de l'Hégire. L'année lunaire (354 jours) fait que le Ramadan tourne sur toute l'année solaire."},{"e":"🌍","t":"<b>En 80 ans, l'islam s'étendit de l'Espagne à l'Inde.</b> Une vitesse d'expansion sans précédent — Rome avait mis 5 siècles pour bâtir son empire."}],"kind":"histoire"},{"icon":"📚","tag":"Civilisation","date":"750 – 1 258","title":"Âge d'Or de l'Islam — Bagdad","desc":"Bagdad devient la capitale intellectuelle du monde. La Maison de la Sagesse traduit tout le savoir grec, perse et indien. Mathématiques, médecine, astronomie atteignent leur apogée.","anecdotes":[{"e":"🔢","t":"<b>L'algèbre, les chiffres 0-9, la trigonométrie :</b> inventés ou transmis par les mathématiciens arabes. Sans eux, les mathématiques européennes auraient des siècles de retard."},{"e":"🌟","t":"<b>La moitié des étoiles ont des noms arabes :</b> Algol, Aldébaran, Rigel, Véga, Bételgeuse... Les astronomes arabes médiévaux avaient cartographié le ciel quand l'Europe traversait le haut Moyen Âge."}],"kind":"histoire"},{"icon":"⚡","tag":"Peuple","date":"793 – 1 066","title":"Les Vikings — Explorateurs du Monde","desc":"Les Vikings partis de Scandinavie attaquent les côtes européennes, remontent les fleuves jusqu'à Bagdad, colonisent l'Islande et le Groenland, et atteignent l'Amérique 500 ans avant Colomb.","anecdotes":[{"e":"🪓","t":"<b>Les Vikings ne portaient pas de casques à cornes !</b> Cette image est un mythe du XIXe siècle. Les vrais casques étaient en métal simple, parfois avec un protège-nez."},{"e":"🌲","t":"<b>Leif Eriksson atteignit l'Amérique vers l'an 1000.</b> L'établissement viking de L'Anse aux Meadows (Canada) a été prouvé par l'archéologie. Les Vikings abandonnèrent face aux indigènes — contrairement aux Espagnols 500 ans plus tard."},{"e":"🔱","t":"<b>La Garde Varègue</b> était une unité d'élite de l'armée byzantine composée exclusivement de Vikings nordiques. Les empereurs byzantins leur faisaient plus confiance qu'à leurs propres soldats."}],"kind":"histoire"},{"icon":"🏯","tag":"Civilisation","date":"1185","title":"Japon Féodal — Les Samouraïs","desc":"Le premier shogunat de Kamakura est créé. Les samouraïs deviennent la classe dirigeante. Le Bushidô (voie du guerrier) codifie l'honneur, la loyauté et le sacrifice.","anecdotes":[{"e":"🗡️","t":"<b>Le katana</b> était considéré comme l'âme du guerrier, fabriqué sur des semaines avec un acier plié des centaines de fois. Il avait un nom propre."},{"e":"🌊","t":"<b>En 1274 et 1281, deux typhons</b> (les « kamikaze » — vent divin) détruisirent la flotte mongole qui tentait d'envahir le Japon. Les Japonais en conclurent que les dieux les protégeaient."}],"kind":"histoire"},{"icon":"🏹","tag":"Civilisation","date":"1206","title":"Gengis Khan — L'Empire Mongol","desc":"Temüjin unifie les tribus mongoles et devient Gengis Khan. En 20 ans, il conquiert la Chine du Nord, l'Asie centrale et la Perse. Son empire sera le plus grand jamais créé.","anecdotes":[{"e":"⚡","t":"<b>La cavalerie mongole pouvait parcourir 100 km par jour</b> — 4 fois plus vite que les armées européennes. Chaque cavalier avait 3 à 5 chevaux."},{"e":"🧬","t":"<b>~0,5 % de la population mondiale</b> (16 millions de personnes) descendrait directement de Gengis Khan selon les analyses génétiques."},{"e":"📚","t":"<b>La destruction de Bagdad (1258) par les Mongols</b> fut une catastrophe culturelle : la Grande Bibliothèque fut détruite. On dit que le Tigre coula noir d'encre."}],"kind":"histoire"},{"kind":"histoire","icon":"🔢","date":"1202","title":"Fibonacci — Les Chiffres Arabes en Europe","desc":"Leonardo Fibonacci publie le Liber Abaci et introduit les chiffres arabes (0-9) en Europe. Ils remplacent progressivement les chiffres romains et rendent le calcul infiniment plus simple.","anecdotes":[{"e":"🔢","t":"<b>Essayez de faire une multiplication en chiffres romains :</b> XIV × XXIII = ? Avec les chiffres arabes : 14 × 23 = 322. La différence explique pourquoi les chiffres arabes s'imposèrent en moins d'un siècle."},{"e":"🐰","t":"<b>La suite de Fibonacci</b> (1, 1, 2, 3, 5, 8, 13...) apparaît partout dans la nature : pétales de fleurs, spirales de coquillages, disposition des graines de tournesol. Une des formules les plus magiques des mathématiques."}]},{"kind":"histoire","icon":"💣","date":"~1267","title":"Roger Bacon — La Poudre à Canon en Europe","desc":"Le moine franciscain Roger Bacon décrit pour la première fois la poudre à canon en Europe dans ses écrits. Il prédit aussi le télescope, les lunettes et les avions — 600 ans avant leur invention.","anecdotes":[{"e":"🔮","t":"<b>Roger Bacon écrivit en 1267 :</b> « Un char peut être construit qui se meut avec une vitesse incroyable sans animaux pour le tirer. » Il décrivit aussi des machines volantes et des navires sans rameurs. Il fut emprisonné pour ces idées jugées diaboliques."},{"e":"💣","t":"<b>Bacon chiffra sa recette de poudre à canon</b> en anagramme pour éviter d'être condamné. Son code ne fut déchiffré qu'en 1904 — 637 ans après avoir été écrit."}]},{"kind":"histoire","icon":"👓","date":"~1286","title":"Invention des Lunettes","desc":"Les premières lunettes correctrices sont fabriquées en Italie vers 1286. Elles permettent aux clercs et artisans âgés de continuer à travailler. La productivité intellectuelle de l'Europe fait un bond.","anecdotes":[{"e":"👓","t":"<b>Sans lunettes, un moine copiste ou un artisan</b> devenait inutile après 40-45 ans quand sa vue baissait. Les lunettes allongèrent la vie productive des lettrés de 20 ans — un impact considérable sur la transmission du savoir."},{"e":"🔭","t":"<b>Les lunettes sont à l'origine du télescope et du microscope.</b> Galilée améliora simplement une lunette de spectacle pour regarder le ciel en 1609. Toute la révolution astronomique commence avec un correcteur de presbytie."}]},{"kind":"histoire","icon":"⏰","date":"~1300","title":"L'Horloge Mécanique","desc":"Les premières horloges mécaniques à échappement apparaissent dans les cathédrales européennes. Pour la première fois, le temps est mesuré, divisé, et partagé publiquement — naissance de la ponctualité.","anecdotes":[{"e":"⏰","t":"<b>Avant l'horloge mécanique,</b> le temps était flou : les cloches sonnaient approximativement les heures canoniques. L'horloge mécanique inventa la notion de « rendez-vous précis » et transforma l'organisation du travail."},{"e":"⚙️","t":"<b>Le mécanisme d'échappement</b> — l'engrenage qui transforme un mouvement continu en battements réguliers — est l'une des inventions les plus ingénieuses de l'histoire. Il est encore au cœur de toutes les montres mécaniques modernes."}]},{"kind":"histoire","icon":"📖","date":"1305","title":"Dante — La Divine Comédie","desc":"Dante Alighieri écrit en italien (et non en latin) un voyage poétique à travers l'Enfer, le Purgatoire et le Paradis. C'est le fondement de la langue italienne et l'un des plus grands textes de la littérature mondiale.","anecdotes":[{"e":"💔","t":"<b>Toute la Divine Comédie est dédiée à Béatrice</b> — une femme que Dante vit une seule fois à 9 ans, puis une autre fois à 18 ans. Il en tomba éperdument amoureux. Elle mourut à 24 ans sans qu'il lui parle vraiment."},{"e":"😤","t":"<b>Dante place ses ennemis politiques en Enfer</b> par leur nom, dans des supplices précis et inventifs. La Divine Comédie est aussi un règlement de comptes littéraire d'une rare vengeance."}]},{"kind":"histoire","icon":"🎨","date":"~1305","title":"Giotto — La Révolution du Réalisme","desc":"Giotto di Bondone peint les fresques de la chapelle des Scrovegni à Padoue. Pour la première fois depuis l'Antiquité, les personnages ont un volume, des émotions, une profondeur. Il invente la peinture moderne.","anecdotes":[{"e":"🎨","t":"<b>Avant Giotto, les personnages peints étaient plats,</b> hiératiques, sur fond or. Giotto leur donna des corps solides, des visages expressifs, des gestes naturels. Dante le cite dans la Divine Comédie — preuve de sa célébrité immédiate."},{"e":"🥚","t":"<b>La technique de la fresque</b> (peinture sur plâtre frais) ne permet pas les repentirs — impossible d'effacer. Giotto peignait directement, sans esquisse, sur des surfaces de plusieurs mètres carrés. Un exploit de précision et de rapidité."}]},{"kind":"histoire","icon":"🌍","date":"1543","title":"Copernic — Révolution Héliocentrique","desc":"La Terre tourne autour du Soleil. Cette idée, publiée en 1543, déclenche la révolution scientifique et brise 1 400 ans de cosmologie ptolémaïque.","anecdotes":[{"e":"🔭","t":"<b>Galilée confirma Copernic par l'observation</b> en 1609-1610 et fut condamné par l'Inquisition en 1633. L'Église réhabilita officiellement Galilée en... 1992."}]}]},{"era":"✦ Temps Modernes (1300 – 1600)","cls":"empire","events":[{"icon":"🌞","tag":"Civilisation","date":"1 325 – 1 521","title":"Les Aztèques — Tenochtitlan","desc":"Les Aztèques fondent Tenochtitlan (Mexico actuelle) sur un lac. En 200 ans, ils bâtissent l'empire le plus puissant de Mésoamérique avec 200 000 habitants — plus que Madrid ou Paris.","anecdotes":[{"e":"🍫","t":"<b>Le chocolat vient des Aztèques.</b> Ils buvaient le cacao comme une boisson amère et sacrée, réservée aux élites. Ils l'utilisaient aussi comme monnaie."},{"e":"🦠","t":"<b>La variole fut l'arme principale de Cortés</b> (1519-1521) sans qu'il le sache. 50 à 90 % de la population indigène mourut de maladies européennes en moins d'un siècle."}],"kind":"histoire"},{"icon":"🧱","tag":"Civilisation","date":"1 368 – 1 644","title":"Chine Ming — Zheng He & la Muraille Reconstruite","desc":"Les Ming reconstruisent la Grande Muraille en briques. L'amiral Zheng He explore l'Afrique avec une flotte gigantesque — 87 ans avant Vasco de Gama. Puis la Chine choisit l'isolement.","anecdotes":[{"e":"⛵","t":"<b>Zheng He commandait des navires de 130 mètres de long</b> — les plus grands bateaux en bois jamais construits. Sa flotte de 317 navires fit 7 grandes expéditions en Asie du Sud-Est, en Inde et en Afrique."},{"e":"🚫","t":"<b>La Chine abandonna ensuite l'exploration</b> par décision politique. Si elle avait continué, l'histoire du monde aurait été radicalement différente."}],"kind":"histoire"},{"icon":"🏔️","tag":"Civilisation","date":"1 438 – 1 533","title":"Les Incas — L'Empire des Andes","desc":"En moins d'un siècle, les Incas bâtissent un empire de 5 000 km de long dans les Andes, relié par 40 000 km de routes pavées, sans roue ni écriture.","anecdotes":[{"e":"🏗️","t":"<b>Le Machu Picchu (1450)</b> fut construit sans roue, sans fer et sans ciment. Les pierres s'emboîtent si parfaitement qu'une feuille de papier ne passe pas entre elles."},{"e":"📨","t":"<b>Les Incas n'avaient pas d'écriture</b> mais utilisaient les « quipus » — systèmes de nœuds colorés — pour enregistrer des données. On commence seulement à les déchiffrer."}],"kind":"histoire"},{"icon":"💀","tag":"Événement","date":"1347 – 1351","title":"La Peste Noire — Une Catastrophe Mondiale","desc":"La peste bubonique, venue d'Asie centrale via les routes mongoles, tue 25 à 50 millions de personnes en Europe — un tiers de la population. Elle dévaste aussi l'Asie et le Moyen-Orient.","anecdotes":[{"e":"🐀","t":"<b>La Peste voyagea le long des routes mongoles.</b> C'est la Pax Mongolica — qui facilitait les échanges — qui transporta également la mort."},{"e":"💸","t":"<b>Les survivants héritèrent des terres des morts.</b> La Peste accéléra paradoxalement la fin du servage en Europe et modifia les rapports de force sociaux."}],"kind":"histoire"},{"icon":"💀","tag":"Événement","date":"1453","title":"Chute de Constantinople — Fin du Moyen Âge","desc":"Le sultan Mehmed II (21 ans) prend Constantinople avec des canons géants. Fin de l'Empire byzantin. Des milliers de savants fuient en Italie avec leurs manuscrits grecs et nourrissent la Renaissance.","anecdotes":[{"e":"💣","t":"<b>Le canon de Mehmed mesurait 8 mètres</b> et tirait des boulets de 600 kg. Il ouvrit des brèches dans des murs qui avaient résisté 1 000 ans."},{"e":"📚","t":"<b>La chute de Byzance accéléra la Renaissance italienne :</b> les savants grecs qui fuyaient apportèrent en Italie des manuscrits anciens que l'Europe croyait perdus."}],"kind":"histoire"},{"icon":"🖨️","tag":"Invention","date":"~1450","title":"Gutenberg — L'Imprimerie","desc":"Caractères mobiles en métal à Mayence. En 50 ans, 15 millions de livres imprimés en Europe. Le savoir devient accessible à tous.","anecdotes":[{"e":"📖","t":"<b>Un moine copiste mettait 5 mois pour copier une Bible.</b> Une presse Gutenberg en produisait 180 en une semaine."},{"e":"😅","t":"<b>Gutenberg mourut ruiné :</b> son associé Fust lui prit ses presses par un procès. L'inventeur de l'imprimerie ne profita pas de son invention."}],"kind":"histoire"},{"kind":"histoire","icon":"⚙️","date":"~1450","title":"Le Haut-Fourneau — Révolution de l'Acier","desc":"Le haut-fourneau européen permet de produire de la fonte liquide en grande quantité. Pour la première fois, on peut couler le métal en formes complexes. L'industrialisation devient possible.","anecdotes":[{"e":"🔥","t":"<b>Le haut-fourneau médiéval atteignait 1 500°C,</b> contre 1 100°C pour les forges traditionnelles. Cette différence de température transforme le fer en fonte liquide, qu'on peut couler dans des moules — révolution technique."},{"e":"⚙️","t":"<b>La production d'acier en Europe</b> multiplia par 10 en moins d'un siècle après le haut-fourneau. Sans lui, pas de Révolution industrielle — les machines à vapeur nécessitaient des pièces en fonte usinées."}]},{"icon":"🌏","tag":"Événement","date":"1492 – 1522","title":"Les Grandes Découvertes","desc":"Colomb atteint l'Amérique (1492), Vasco de Gama l'Inde (1498), Magellan fait le tour du monde (1519-1522). La planète se connecte pour la première fois. Début de la mondialisation.","anecdotes":[{"e":"🌎","t":"<b>Colomb mourut convaincu d'avoir atteint l'Asie.</b> C'est Amerigo Vespucci qui comprit le premier qu'il s'agissait d'un « Nouveau Monde » — d'où le nom « Amérique »."},{"e":"🦠","t":"<b>Le contact entre Ancien et Nouveau Monde</b> tua 90 % des populations amérindiennes par les maladies européennes. La plus grande catastrophe démographique de l'histoire."}],"kind":"histoire"},{"icon":"⛪","tag":"Religion","date":"1517","title":"Luther — Naissance du Protestantisme","desc":"Luther diffuse ses 95 thèses contre les indulgences. L'Europe chrétienne se fracture durablement entre catholiques et protestants.","anecdotes":[{"e":"🍺","t":"<b>Luther brassait de la bière avec sa femme Katharina.</b> La Réforme et la bière : deux spécialités allemandes."}],"kind":"histoire"}]},{"era":"✦ Époque Contemporaine (1600 – aujourd'hui)","cls":"contemp","events":[{"icon":"⛩️","tag":"Civilisation","date":"1 603 – 1 868","title":"Japon Tokugawa — 250 Ans de Paix","desc":"Le shogunat Tokugawa unifie le Japon et impose 250 ans de paix. Le pays se ferme volontairement au monde extérieur. La culture samouraï atteint son apogée. L'art ukiyo-e, le haïku et le kabuki fleurissent.","anecdotes":[{"e":"🚪","t":"<b>Le Japon s'isola volontairement en 1639.</b> Seuls les Hollandais pouvaient commercer, depuis une minuscule île artificielle à Nagasaki. 200 ans d'isolement choisi."},{"e":"🗡️","t":"<b>Le « seppuku »</b> (suicide rituel) permettait à un samouraï déshonoré de mourir avec dignité. Un ami se tenait prêt à décapiter le mourant pour abréger sa souffrance."}],"kind":"histoire"},{"kind":"histoire","icon":"📖","date":"1595 – 1616","title":"Shakespeare — Hamlet, Roméo & Juliette","desc":"Shakespeare écrit 37 pièces et invente ou popularise 1 700 mots anglais. Il explore l'âme humaine avec une profondeur qui n'a jamais été égalée.","anecdotes":[{"e":"🌍","t":"<b>Shakespeare est l'auteur le plus joué au monde,</b> dans toutes les langues. Ses pièces sont jouées quelque part dans le monde chaque jour depuis 400 ans."}]},{"icon":"☀️","tag":"Événement","date":"1600 – 1900","title":"Colonisation Européenne & Traite Négrière","desc":"L'Europe colonise progressivement l'Afrique, l'Asie et les Amériques. La traite négrière déporte 12 millions d'Africains vers les Amériques. Des civilisations millénnaires sont détruites ou soumises.","anecdotes":[{"e":"😢","t":"<b>La traite négrière fut la plus grande déportation forcée de l'histoire.</b> 12 millions d'Africains déportés entre 1500 et 1900, dont 2 millions moururent pendant la traversée."},{"e":"🌍","t":"<b>L'Afrique en 1900 :</b> 90 % du continent était sous domination européenne. Les frontières tracées sans égard aux peuples créent encore aujourd'hui des conflits."}],"kind":"histoire"},{"kind":"histoire","icon":"🎨","date":"1642","title":"Rembrandt — La Ronde de Nuit","desc":"Rembrandt van Rijn peint La Ronde de Nuit — une scène de milice hollandaise d'une vie et d'un mouvement jamais vus. Chef-d'œuvre de l'âge d'or hollandais.","anecdotes":[{"e":"✂️","t":"<b>La Ronde de Nuit fut recoupée</b> pour tenir dans une nouvelle salle au XVIIIe siècle. Les bords furent coupés, perdant 3 personnages et rompant la composition originale. On vient seulement de reconstituer numériquement la version intégrale."},{"e":"💸","t":"<b>Rembrandt mourut ruiné</b> malgré son immense talent. Il dépensait sans compter en objets d'art et faisait faillite. Comme Gutenberg, comme Mozart — les génies créateurs ne sont pas toujours de bons gestionnaires."}]},{"kind":"histoire","icon":"🔭","date":"1687","title":"Newton — La Gravitation Universelle","desc":"Isaac Newton publie les « Principia Mathematica » : la même force qui fait tomber une pomme maintient la Lune en orbite. La gravitation universelle unifie la physique terrestre et céleste.","anecdotes":[{"e":"🍎","t":"<b>La pomme de Newton est peut-être vraie !</b> Newton lui-même raconta l'histoire à la fin de sa vie. Mais elle lui inspira la question — pas la réponse. Il mit 20 ans de calculs pour démontrer sa théorie."},{"e":"🌊","t":"<b>Newton inventa aussi le calcul infinitésimal</b> (simultanément avec Leibniz). Ces deux inventions — gravitation et calcul — sont les fondements de toute la physique et ingénierie modernes."}]},{"kind":"histoire","icon":"🎵","date":"1685 – 1750","title":"Jean-Sébastien Bach — Le Baroque","desc":"Bach compose plus de 1 000 œuvres en 65 ans : fugues, cantates, passions, concertos. Il représente l'apogée de la musique baroque et est considéré comme l'un des plus grands compositeurs de l'histoire.","anecdotes":[{"e":"👶","t":"<b>Bach eut 20 enfants</b> de deux mariages. 10 survécurent, dont 4 devinrent eux-mêmes compositeurs célèbres."},{"e":"🎹","t":"<b>Bach fut presque oublié après sa mort.</b> C'est Mendelssohn qui redécouvrit la Passion selon Saint Matthieu en 1829 — 79 ans après sa composition — et la fit rejouer."}]},{"kind":"histoire","icon":"🎵","date":"1750 – 1820","title":"Haydn, Mozart & Beethoven — Le Classicisme","desc":"Le classicisme musical réunit Haydn, Mozart et le premier Beethoven. Symphonies, concertos et opéras atteignent une perfection formelle. Mozart compose plus de 600 œuvres en 35 ans de vie.","anecdotes":[{"e":"👶","t":"<b>Mozart composait dans sa tête des œuvres complètes</b> avant de les écrire. Les partitions n'avaient presque pas de ratures — il les « copiait » depuis sa mémoire sonore."},{"e":"💀","t":"<b>Mozart mourut à 35 ans dans la misère</b> et fut enterré dans une fosse commune à Vienne. Le génie le plus admiré d'Europe mourut sans sou et sans sépulture connue."}]},{"kind":"histoire","icon":"⚙️","date":"1769","title":"Machine à Vapeur — Révolution Industrielle","desc":"James Watt améliore la machine à vapeur et déclenche la Révolution Industrielle. La production d'énergie mécanique à grande échelle transforme le monde en quelques décennies.","anecdotes":[{"e":"🚂","t":"<b>En 1800, 80 % des humains travaillaient la terre.</b> En 1900, l'Angleterre était urbanisée à 80 %. La machine à vapeur fit cette transformation en 100 ans — contre 10 000 ans pour la révolution agricole."}]},{"kind":"histoire","icon":"🎨","date":"1874","title":"Impressionnisme — Monet, Renoir, Degas","desc":"Le mouvement impressionniste brise les règles académiques : peindre la lumière changeante, les impressions du moment, en plein air. Il ouvre la porte à tout l'art moderne.","anecdotes":[{"e":"😂","t":"<b>Le mot « impressionnisme » est une insulte recyclée.</b> Le critique Louis Leroy raillait Monet en disant que ses toiles n'étaient que des « impressions ». Les artistes adoptèrent le terme avec fierté."}]},{"kind":"histoire","icon":"🎵","date":"1920s","title":"Jazz & Blues — Révolution Musicale","desc":"Nés des communautés afro-américaines, le blues et le jazz révolutionnent la musique mondiale. Ce sont les ancêtres du rock, de la soul, du R&B et de toute la musique populaire contemporaine.","anecdotes":[{"e":"🎸","t":"<b>Le blues est né de la fusion</b> des chants de travail africains, des spirituals et des harmonies européennes. C'est la musique de la souffrance transformée en art — et l'ancêtre de toute la musique populaire moderne."}]},{"icon":"🌐","tag":"Événement","date":"1945 – aujourd'hui","title":"Décolonisation & Monde Contemporain","desc":"Après la 2ème Guerre Mondiale, les peuples colonisés obtiennent leur indépendance. L'ONU est fondée. La mondialisation connecte toutes les cultures. Un nouveau chapitre de l'histoire humaine s'écrit.","anecdotes":[{"e":"🌍","t":"<b>Entre 1945 et 1975, plus de 70 pays</b> accèdent à l'indépendance. La carte du monde est redessinée plus vite qu'elle ne l'avait jamais été."},{"e":"🌐","t":"<b>Aujourd'hui, 8 milliards d'humains</b> parlent ~7 000 langues, pratiquent des milliers de religions et cultures différentes — héritage vivant de toutes les civilisations que cette chronologie retrace."}],"kind":"histoire"}]}],"cosmo":[{"era":"✦ Ère Cosmique","cls":"cosmic","events":[{"icon":"💥","tag":"Événement","date":"–13,8 milliards d'années","title":"Naissance de l'Univers","desc":"Le Big Bang : espace, temps et matière apparaissent en une fraction de seconde. Toute l'énergie de l'univers concentrée en un point.","anecdotes":[{"e":"🌡️","t":"<b>10 milliards de degrés</b> à la naissance — le cœur du Soleil n'est « que » 15 millions de degrés."},{"e":"🕰️","t":"<b>Le temps lui-même est né avec le Big Bang.</b> Demander « qu'y avait-il avant ? » n'a pas de sens : il n'y avait pas de « avant »."},{"e":"🔇","t":"<b>Le Big Bang ne fait pas « bang » !</b> Pas d'espace pour transmettre un son. L'explosion s'est produite partout à la fois."}],"kind":"histoire"},{"icon":"☀️","tag":"Événement","date":"–4,6 milliards d'années","title":"Naissance du Système Solaire","desc":"Un nuage de gaz s'effondre sur lui-même. Le Soleil s'allume. Les planètes se forment par accrétion de roches.","anecdotes":[{"e":"⚖️","t":"<b>Le Soleil représente 99,86 % de la masse du système solaire.</b> Toutes les planètes réunies font à peine 0,14 %."},{"e":"🪐","t":"<b>Jupiter protège probablement la Terre</b> en capturant avec sa gravité les gros astéroïdes qui nous menaceraient."}],"kind":"histoire"},{"icon":"🌍","tag":"Événement","date":"–4,5 milliards d'années","title":"Naissance de la Terre","desc":"La Terre se forme. La Lune naît d'un impact géant avec la proto-planète Théia. Les océans apparaissent.","anecdotes":[{"e":"🌕","t":"<b>La Lune s'éloigne de 3,8 cm par an.</b> À sa formation, elle était 15 fois plus proche — un disque immense dans le ciel."},{"e":"🌊","t":"<b>L'eau terrestre vient de l'espace :</b> comètes et astéroïdes riches en glace ont bombardé la Terre dans ses premiers millions d'années."}],"kind":"histoire"}]},{"era":"✦ Ère Biologique","cls":"geo","events":[{"icon":"🧫","tag":"Événement","date":"–3,8 milliards d'années","title":"Naissance de la Vie","desc":"Premières cellules procaryotes dans les océans primitifs, probablement autour de sources hydrothermales sous-marines.","anecdotes":[{"e":"🔬","t":"<b>Toute vie sur Terre partage le même code ADN</b> — bactérie ou être humain, mêmes 4 lettres chimiques. Nous sommes tous cousins."},{"e":"🧬","t":"<b>Nos mitochondries sont des bactéries apprivoisées.</b> Une cellule en avala une autre sans la digérer il y a 2 milliards d'années — elle est devenue notre centrale énergétique."}],"kind":"histoire"},{"icon":"🟢","tag":"Événement","date":"–1 200 millions d'années","title":"Premières Algues","desc":"Les algues pluricellulaires apparaissent. Via endosymbiose, elles sont à l'origine des chloroplastes — base de la photosynthèse chez tous les végétaux futurs.","anecdotes":[{"e":"🌞","t":"<b>Les algues produisent encore aujourd'hui la moitié de l'oxygène mondial.</b> Sans elles, l'atmosphère serait irrespirable."}],"kind":"histoire"},{"icon":"🐚","tag":"Événement","date":"~538,8 millions d'années","title":"Explosion Cambrienne — Premiers Animaux","desc":"Début du Cambrien : diversification majeure des animaux marins en quelques millions d'années. La plupart des grands embranchements animaux modernes apparaissent dans les archives fossiles.","anecdotes":[{"e":"👁️","t":"<b>Les yeux sont apparus au Cambrien</b> et ont déclenché une « course aux armements » entre prédateurs et proies."},{"e":"🧮","t":"<b>97 % des espèces animales sont des invertébrés.</b> Les vertébrés (dont nous) sont une infime minorité."}],"kind":"histoire"},{"icon":"🌿","tag":"Événement","date":"–470 millions d'années","title":"Plantes Terrestres","desc":"Les plantes colonisent les continents depuis les océans. Elles créeront les premiers sols et transformeront l'atmosphère.","anecdotes":[{"e":"🪨","t":"<b>Les plantes ont créé les sols.</b> Avant elles, les continents n'étaient que roche nue et désert de pierre."}],"kind":"histoire"},{"icon":"🦕","tag":"Événement","date":"–230 millions d'années","title":"Premiers Dinosaures","desc":"Les dinosaures domineront la Terre pendant 165 millions d'années avant d'être balayés par un astéroïde.","anecdotes":[{"e":"🐦","t":"<b>Les oiseaux sont des dinosaures.</b> Scientifiquement, un moineau est un dinosaure à plumes. Ils n'ont pas totalement disparu."},{"e":"☄️","t":"<b>L'astéroïde Chicxulub (–66 Ma)</b> libéra l'énergie d'un milliard de bombes atomiques. Les poussières bloquèrent le Soleil pendant des années."}],"kind":"histoire"}]},{"era":"✦ Préhistoire","cls":"paleo","events":[{"icon":"🦴","tag":"Événement","date":"–7 millions d'années","title":"Premiers Hominidés","desc":"Sahelanthropus tchadensis au Tchad — le plus ancien fossile de notre lignée, à la séparation avec les grands singes.","anecdotes":[{"e":"🧬","t":"<b>98,7 % d'ADN commun avec les chimpanzés.</b> Cet infime écart suffit pourtant à tout changer."},{"e":"🚶","t":"<b>La bipédie est venue avant le gros cerveau</b> — nos ancêtres marchaient debout 2 millions d'années avant que leur cerveau grossisse."}],"kind":"histoire"},{"kind":"histoire","icon":"🪨","date":"–1 760 000 av. J.-C.","title":"Le Biface","desc":"Le biface acheuléen est le premier outil façonné des deux côtés. Taillé dans le silex ou le quartzite, il est couteau, hache et grattoir à la fois. Il sera utilisé sans changement pendant 1,5 million d'années.","anecdotes":[{"e":"🔪","t":"<b>Un biface bien taillé est plus tranchant qu'un scalpel chirurgical.</b> La technique de taille par percussion contrôlée est si difficile que peu de gens peuvent la reproduire aujourd'hui."},{"e":"⏰","t":"<b>1,5 million d'années sans innovation</b> — c'est la plus longue tradition technologique de l'histoire humaine. Nous innovons plus en un an que nos ancêtres en 100 000 ans."}]},{"icon":"🔥","tag":"Événement","date":"–1 million d'années","title":"Maîtrise du Feu","desc":"Homo erectus contrôle le feu. Révolution alimentaire : la cuisson libère plus de calories, permettant le développement d'un cerveau plus grand.","anecdotes":[{"e":"🌙","t":"<b>Le feu a inventé la soirée.</b> La veillée est probablement à l'origine du langage, des récits et des mythes."}],"kind":"histoire"},{"icon":"🧠","tag":"Événement","date":"–300 000 ans","title":"Homo Sapiens","desc":"Notre espèce apparaît en Afrique (Jebel Irhoud, Maroc) et se dispersera sur toute la planète.","anecdotes":[{"e":"🧡","t":"<b>Nous avons des gènes néandertaliens.</b> Les Européens et Asiatiques portent 1 à 4 % d'ADN néandertalien — héritage de croisements anciens."},{"e":"🌏","t":"<b>Toute l'humanité descend d'un petit groupe africain</b> de ~1 000 à 10 000 individus ayant quitté l'Afrique il y a ~70 000 ans."}],"kind":"histoire"},{"kind":"histoire","icon":"🏹","date":"–35 000 av. J.-C.","title":"La Lance & le Propulseur","desc":"Le propulseur (atlatl) est un bras de levier qui multiplie par 3 la portée et la puissance d'une lance. Il permet de chasser à distance et transforme les rapports de force avec la faune.","anecdotes":[{"e":"🎯","t":"<b>Le propulseur peut lancer une lance à 100 mètres</b> avec une force suffisante pour transpercer un mammouth. Une innovation qui permit aux Homo Sapiens de dominer tous les grands prédateurs."},{"e":"🏹","t":"<b>L'arc et la flèche</b> ne sont inventés que vers –20 000 ans en Afrique du Sud. Le propulseur est donc bien antérieur — et restera l'arme de chasse principale pendant des dizaines de millénaires."}]},{"kind":"histoire","icon":"🏺","date":"–17 500 av. J.-C.","title":"La Poterie","desc":"Les premières poteries connues (Chine, Japon) permettent de cuire, stocker et transporter les aliments. Une révolution silencieuse qui précède l'agriculture de plusieurs millénaires.","anecdotes":[{"e":"🍲","t":"<b>La poterie précède l'agriculture de 5 000 ans.</b> Les chasseurs-cueilleurs utilisaient des pots pour cuire et conserver les aliments bien avant de cultiver."},{"e":"🔥","t":"<b>La cuisson des aliments dans l'eau</b> rendue possible par la poterie libère des nutriments inaccessibles autrement. Elle a probablement autant contribué à la santé humaine que la médecine."}]},{"kind":"histoire","icon":"🐕","date":"–15 000 av. J.-C.","title":"Domestication du Chien","desc":"Le chien est le premier animal domestiqué par l'homme — bien avant les vaches, moutons ou chevaux. Issu du loup gris, il devient aide à la chasse, gardien et compagnon.","anecdotes":[{"e":"🐺","t":"<b>Le chien s'est peut-être domestiqué lui-même :</b> des loups moins craintifs auraient appris à suivre les camps humains pour se nourrir des restes, développant progressivement une relation symbiotique."},{"e":"🧬","t":"<b>Toutes les races de chiens</b> — du chihuahua au saint-bernard — descendent d'une même population de loups domestiqués. La sélection humaine en 15 000 ans a créé une diversité morphologique sans équivalent dans la nature."}]},{"icon":"🌾","tag":"Événement","date":"–10 000 ans","title":"Révolution Néolithique","desc":"Agriculture et élevage au Croissant Fertile. Fin du nomadisme. Les premiers villages apparaissent — naissance de la civilisation.","anecdotes":[{"e":"⏰","t":"<b>L'agriculture a inventé la notion de futur :</b> semer pour récolter plus tard. C'est l'origine des calendriers, de l'écriture et des contrats."},{"e":"🦠","t":"<b>Les premiers villages ont inventé les épidémies.</b> Vivre entassés avec des animaux a permis aux virus de franchir la barrière des espèces."}],"kind":"histoire"},{"icon": "🧊", "tag": "Événement", "date": "~–3 300 av. J.-C.", "title": "Ötzi — L'Homme des Glaces", "desc": "Dans les Alpes tyroliennes, un chasseur néolithique meurt à 3 210 m d'altitude. Préservé 5 300 ans dans la glace, il est découvert en 1991 et livre un portrait saisissant de l'homme de la fin du Néolithique.", "anecdotes": [{"e": "🏹", "t": "<b>Ötzi a été assassiné :</b> une pointe de flèche est logée dans son épaule, sectionnant une artère. Premier « cold case » de l'histoire, vieux de 5 300 ans."}, {"e": "🧬", "t": "<b>Son ADN révèle qu'Ötzi est le cousin génétique</b> de nombreux Sardes et Corses actuels. Il était intolérant au lactose, avait les yeux marron et souffrait de maladie de Lyme."}], "kind": "histoire"}]}]};
+const DISC = {"france":[],"monde":[],"cosmo":[]};
+
+// Stars
+const cv=document.getElementById('stars'),cx=cv.getContext('2d');let st=[];
+function rs(){cv.width=window.innerWidth;cv.height=Math.max(document.body.scrollHeight,window.innerHeight);st=[];const n=Math.floor(cv.width*cv.height/4000);for(let i=0;i<n;i++)st.push({x:Math.random()*cv.width,y:Math.random()*cv.height,r:Math.random()*1.1+0.2,a:Math.random()*.6+.15});cx.clearRect(0,0,cv.width,cv.height);st.forEach(s=>{cx.beginPath();cx.arc(s.x,s.y,s.r,0,Math.PI*2);cx.fillStyle=`rgba(232,223,196,${s.a})`;cx.fill();});}
+window.addEventListener('resize',()=>setTimeout(rs,100));setTimeout(rs,200);
+
+// BG per era
+const BGMAP={cosmic:[80,40,160],geo:[20,100,70],paleo:[140,80,20],antique:[155,115,10],
+  medieval:[120,25,25],merov:[165,70,15],caro:[30,70,155],capet:[145,125,10],
+  renaiss:[15,110,55],moderne:[85,15,85],revolution:[165,15,15],empire:[145,105,0],
+  republiques:[40,75,145],guerres:[75,55,30],contemp:[15,105,115],
+  meso:[155,130,20],religio:[90,60,180],chine:[155,20,20],japon:[155,30,80]};
+let curBg=[6,10,20],tgtBg=[6,10,20],af=null;
+function lerp(a,b,t){return a.map((v,i)=>Math.round(v+(b[i]-v)*t));}
+function animBg(){curBg=lerp(curBg,tgtBg,.04);const[r,g,b]=curBg;
+  document.body.style.background=`radial-gradient(ellipse at 8% 25%,rgba(${r},${g},${b},.22) 0%,transparent 55%),radial-gradient(ellipse at 92% 65%,rgba(${r},${g},${b},.14) 0%,transparent 50%),#060a14`;
+  if(curBg.some((v,i)=>Math.abs(v-tgtBg[i])>.5))af=requestAnimationFrame(animBg);else af=null;}
+function setBg(cls){const c=BGMAP[cls];if(!c)return;tgtBg=[...c];if(!af)af=requestAnimationFrame(animBg);}
+let markers=[];
+function buildMarkers(){markers=Array.from(document.querySelectorAll('.branch.active .era-sep')).map(el=>({top:el.getBoundingClientRect().top+window.scrollY,cls:el.dataset.cls}));}
+window.addEventListener('scroll',()=>{const sy=window.scrollY+window.innerHeight*.35;let cur=markers[0];for(const m of markers){if(m.top<=sy)cur=m;else break;}if(cur)setBg(cur.cls);});
+
+// Modal
+const ov=document.getElementById('moverlay');
+document.getElementById('mclose').addEventListener('click',()=>{ov.classList.remove('open');document.body.style.overflow='';});
+ov.addEventListener('click',e=>{if(e.target===ov){ov.classList.remove('open');document.body.style.overflow='';}});
+document.addEventListener('keydown',e=>{if(e.key==='Escape'){ov.classList.remove('open');document.body.style.overflow='';}});
+
+function openModal(ev,cls){
+  const clsEl=document.querySelector('.'+cls+'>.era-sep')||document.createElement('div');
+  const style=getComputedStyle(document.querySelector('.'+cls)||document.body);
+  // get color from CSS var
+  const tmp=document.createElement('div');tmp.className=cls+' era-col';tmp.style.display='none';document.body.appendChild(tmp);
+  const c=getComputedStyle(tmp).getPropertyValue('--c').trim()||'#e8dfc4';tmp.remove();
+  document.getElementById('micon').textContent=ev.icon;
+  const tag=document.getElementById('mtag');tag.textContent=ev.tag;tag.style.cssText=`color:${c};border-color:${c};background:${c}18`;
+  document.getElementById('mdate').textContent=ev.date;
+  const tit=document.getElementById('mtitle');tit.textContent=ev.title;tit.style.color=c;
+  document.getElementById('mintro').textContent=ev.desc;
+  document.getElementById('manec').innerHTML=ev.anecdotes.map(a=>`<div class="anec"><span class="abullet">${a.e}</span><div class="atext">${a.t}</div></div>`).join('');
+  ov.classList.add('open');document.body.style.overflow='hidden';
+}
+
+// Render
+const KIND_ICONS={'science':'🔬','litterature':'📖','art':'🎨','musique':'🎵'};
+const KIND_LABELS={'science':'Science & Invention','litterature':'Littérature','art':'Art','musique':'Musique'};
+const KIND_COLORS={'science':'#40c8e0','litterature':'#e0b840','art':'#e060b0','musique':'#60d080'};
+
+function renderBranch(branchId){
+  const cont=document.getElementById(branchId);
+  const eras=DATA[branchId];
+  const tl=document.createElement('div');tl.className='timeline';
+  let side=0;
+  eras.forEach(era=>{
+    const sep=document.createElement('div');
+    sep.className=`era-sep era-col ${era.cls}`;sep.dataset.cls=era.cls;
+    sep.innerHTML=`<span>${era.era}</span>`;tl.appendChild(sep);
+    era.events.forEach(ev=>{
+      const kind=ev.kind||'histoire';
+      if(kind==='histoire'){
+        // Full card
+        const dir=side%2===0?'L':'R';side++;
+        const d=document.createElement('div');d.className=`ev ${dir}`;
+        d.innerHTML=`<div class="card era-col ${era.cls}" tabindex="0" role="button" aria-label="${ev.title}">
+          <span class="ctag">${ev.tag||''}</span>
+          <span class="cicon">${ev.icon||''}</span>
+          <div class="cdate">${ev.date}</div>
+          <div class="ctitle">${ev.title}</div>
+          <div class="cdesc">${ev.desc}</div>
+          <div class="chint">✦ Cliquer pour les anecdotes</div>
+        </div><div class="conn"></div><div class="dot era-col ${era.cls}"></div>`;
+        d.querySelector('.card').addEventListener('click',()=>openModal(ev,era.cls));
+        d.querySelector('.card').addEventListener('keydown',e=>{if(e.key==='Enter'||e.key===' ')openModal(ev,era.cls);});
+        tl.appendChild(d);
+      } else {
+        // Compact pill — alternates side based on same counter
+        const dir=side%2===0?'L':'R';side++;
+        const c=KIND_COLORS[kind]||'#e8dfc4';
+        const ki=KIND_ICONS[kind]||'✦';
+        const kl=KIND_LABELS[kind]||kind;
+        const d=document.createElement('div');d.className=`disc ${dir} disc-${kind}`;
+        d.innerHTML=`<div class="disc-card" tabindex="0" role="button" aria-label="${ev.title}">
+          <span class="disc-kind">${ki}</span>
+          <div class="disc-body">
+            <div class="disc-dlabel">${kl} · ${ev.date}</div>
+            <div class="disc-title">${ev.title}</div>
+          </div>
+        </div><div class="disc-conn"></div><div class="disc-dot-s"></div>`;
+        d.querySelector('.disc-card').addEventListener('click',()=>openDiscModal(ev));
+        d.querySelector('.disc-card').addEventListener('keydown',e=>{if(e.key==='Enter'||e.key===' ')openDiscModal(ev);});
+        tl.appendChild(d);
+      }
+    });
+  });
+  cont.appendChild(tl);
+}
+
+function openDiscModal(dv){
+  const cmap={'science':'#40c8e0','litterature':'#e0b840','art':'#e060b0','musique':'#60d080'};
+  const c=cmap[dv.kind]||'#e8dfc4';
+  const ki=KIND_ICONS[dv.kind]||'✦';
+  const kl=KIND_LABELS[dv.kind]||dv.kind;
+  document.getElementById('micon').textContent=ki;
+  const tag=document.getElementById('mtag');tag.textContent=kl;tag.style.cssText=`color:${c};border-color:${c};background:${c}18`;
+  document.getElementById('mdate').textContent=dv.date;
+  const tit=document.getElementById('mtitle');tit.textContent=dv.title;tit.style.color=c;
+  document.getElementById('mintro').textContent=dv.desc;
+  document.getElementById('manec').innerHTML=(dv.anecdotes||[]).map(a=>`<div class="anec"><span class="abullet">${a.e}</span><div class="atext">${a.t}</div></div>`).join('');
+  ov.classList.add('open');document.body.style.overflow='hidden';
+}
+
+renderBranch('cosmo');
+renderBranch('france');
+renderBranch('monde');
+
+// Tabs
+document.querySelectorAll('.tab').forEach(btn=>{
+  btn.addEventListener('click',()=>{
+    document.querySelectorAll('.tab').forEach(b=>b.classList.remove('active'));
+    document.querySelectorAll('.branch').forEach(b=>b.classList.remove('active'));
+    btn.classList.add('active');
+    document.getElementById(btn.dataset.tab).classList.add('active');
+    window.scrollTo({top:0,behavior:'smooth'});
+    tgtBg=[6,10,20];if(!af)af=requestAnimationFrame(animBg);
+    setTimeout(()=>{buildMarkers();rs();setupObs();},150);
+  });
+});
+
+// IntersectionObserver
+let obs=null;
+function setupObs(){
+  if(obs)obs.disconnect();
+  obs=new IntersectionObserver(entries=>{entries.forEach(e=>{if(e.isIntersecting){e.target.classList.add('vis');obs.unobserve(e.target);}});},{threshold:.06,rootMargin:'0px 0px -20px 0px'});
+  document.querySelectorAll('.branch.active .ev, .branch.active .disc').forEach(el=>obs.observe(el));
+}
+setTimeout(()=>{buildMarkers();rs();setupObs();},300);
+
+// ── QUIZ MODE ──
+let quizCards=[], quizIdx=0, quizScore=0, quizRevealed=false;
+let activeFilters=new Set(['all','science','litterature','art','musique','histoire']);
+
+function buildQuizDeck(){
+  const all=[];
+  for(const branch of ['cosmo','france','monde']){
+    for(const era of (DATA[branch]||[])){
+      for(const ev of era.events){
+        all.push({...ev, _era:era.era, _branch:branch});
+      }
+    }
+  }
+  // Filter
+  const filtered = activeFilters.has('all') ? all : all.filter(ev=>{
+    const k=ev.kind||'histoire';
+    return activeFilters.has(k);
+  });
+  // Shuffle
+  return filtered.sort(()=>Math.random()-.5).slice(0,Math.min(20,filtered.length));
+}
+
+function startQuiz(){
+  quizCards=buildQuizDeck();
+  quizIdx=0; quizScore=0; quizRevealed=false;
+  document.getElementById('q-total').textContent=quizCards.length;
+  renderQuizCard();
+  document.getElementById('quiz-overlay').classList.add('open');
+  document.body.style.overflow='hidden';
+  // deactivate other tabs
+  document.querySelectorAll('.tab').forEach(b=>b.classList.remove('active'));
+  document.getElementById('tab-quiz').classList.add('active');
+}
+
+function closeQuiz(){
+  document.getElementById('quiz-overlay').classList.remove('open');
+  document.body.style.overflow='';
+  document.querySelectorAll('.tab').forEach(b=>b.classList.remove('active'));
+  document.querySelector('[data-tab="cosmo"]').classList.add('active');
+}
+
+function renderQuizCard(){
+  if(!quizCards.length) return;
+  const card=quizCards[quizIdx];
+  const kind=card.kind||'histoire';
+  const kindColors={'science':'#40c8e0','litterature':'#e0b840','art':'#e060b0','musique':'#60d080','histoire':'#d4a843'};
+  const kindLabels={'science':'Science & Invention','litterature':'Littérature','art':'Art','musique':'Musique','histoire':'Événement historique'};
+  const c=kindColors[kind]||'#d4a843';
+  
+  // Front
+  document.getElementById('fc-kind').textContent=kindLabels[kind]||kind;
+  document.getElementById('fc-kind').style.color=c;
+  document.getElementById('fc-period').textContent=card.date;
+  document.getElementById('fc-period').style.color=c;
+  
+  // Teaser: first 6 words of desc with "..." 
+  const words=(card.desc||'').split(' ');
+  const teaser=words.slice(0,8).join(' ')+(words.length>8?' …':'');
+  document.getElementById('fc-teaser').textContent=teaser;
+  
+  // Back
+  document.getElementById('fc-icon').textContent=card.icon||'✦';
+  document.getElementById('fc-title').textContent=card.title;
+  document.getElementById('fc-title').style.color=c;
+  document.getElementById('fc-desc').textContent=card.desc;
+  const firstAnec=(card.anecdotes||[])[0];
+  if(firstAnec){
+    document.getElementById('fc-anec').innerHTML=`${firstAnec.e} ${firstAnec.t}`;
+  } else {
+    document.getElementById('fc-anec').textContent='';
+  }
+  
+  // Reset flip
+  document.getElementById('flashcard').classList.remove('flipped');
+  quizRevealed=false;
+  
+  // Progress dots
+  document.getElementById('q-num').textContent=quizIdx+1;
+  document.getElementById('q-score').textContent=quizScore;
+  const prog=document.getElementById('quiz-progress');
+  prog.innerHTML='';
+  quizCards.forEach((_,i)=>{
+    const d=document.createElement('div');
+    d.className='qp-dot'+(i<quizIdx?' done':i===quizIdx?' current':'');
+    prog.appendChild(d);
+  });
+}
+
+function revealCard(){
+  document.getElementById('flashcard').classList.add('flipped');
+  quizRevealed=true;
+  quizScore++;
+  document.getElementById('q-score').textContent=quizScore;
+}
+
+function nextCard(){
+  if(quizIdx<quizCards.length-1){
+    quizIdx++;
+    renderQuizCard();
+  } else {
+    // End screen
+    document.getElementById('fc-front').innerHTML=
+      `<div class="fc-kind" style="color:#60c8a0;font-size:.9rem;margin-bottom:16px">🎉 Quiz terminé !</div>
+       <div class="fc-period" style="font-size:1.6rem;color:#60c8a0">${quizScore} / ${quizCards.length}</div>
+       <div class="fc-teaser" style="margin-top:12px">${quizScore===quizCards.length?'Parfait ! Tu es un expert de l\'histoire !':quizScore>quizCards.length*.7?'Très bien ! Encore un peu d\'entraînement…':'Continue à explorer la chronologie !'}</div>
+       <button class="fc-reveal-btn" onclick="startQuiz()" style="margin-top:8px">🔄 Rejouer</button>`;
+    document.getElementById('flashcard').classList.remove('flipped');
+  }
+}
+
+function prevCard(){
+  if(quizIdx>0){ quizIdx--; renderQuizCard(); }
+}
+
+// Filter buttons
+document.querySelectorAll('.qf-btn').forEach(btn=>{
+  btn.addEventListener('click',()=>{
+    const f=btn.dataset.filter;
+    if(f==='all'){
+      activeFilters=new Set(['all','science','litterature','art','musique','histoire']);
+      document.querySelectorAll('.qf-btn').forEach(b=>b.classList.add('active'));
+    } else {
+      activeFilters.delete('all');
+      btn.classList.toggle('active');
+      if(btn.classList.contains('active')) activeFilters.add(f);
+      else activeFilters.delete(f);
+    }
+  });
+});
+
+</script>
+</body>
+</html>

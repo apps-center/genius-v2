@@ -1,0 +1,533 @@
+[
+  {
+    "era": "✦ Renaissance & Réforme",
+    "cls": "renaiss",
+    "events": [
+      {
+        "icon": "👑",
+        "tag": "Roi",
+        "date": "1515 – 1547",
+        "title": "François Ier — Roi de la Renaissance",
+        "desc": "Grand mécène, il attire Léonard de Vinci. Impose le français comme langue officielle (Villers-Cotterêts, 1539).",
+        "anecdotes": [
+          {
+            "e": "🎨",
+            "t": "<b>Léonard de Vinci mourut en France à 67 ans.</b> La Joconde, qu'il avait emportée, devint propriété de François Ier et finit au Louvre."
+          }
+        ],
+        "kind": "histoire",
+        "img": "histoire/francois Ier.webp"
+      },
+      {
+        "icon": "📖",
+        "tag": "Littérature",
+        "date": "~1532",
+        "title": "Rabelais — Gargantua & Pantagruel",
+        "desc": "François Rabelais publie Pantagruel (1532) puis Gargantua (1534) — mêlant érudition humaniste, satire et humour. Il incarne l'idéal humaniste de la Renaissance française : curiosité universelle et liberté d'esprit.",
+        "anecdotes": [
+          {
+            "e": "🍷",
+            "t": "<b>Rabelais était à la fois médecin, moine et romancier.</b> Son œuvre inventa le mot « pantagruélique » et enrichit la langue française de centaines de néologismes encore en usage."
+          },
+          {
+            "e": "😄",
+            "t": "<b>« Fais ce que voudras »</b> — la devise de l'abbaye de Thélème résume l'idéal humaniste : liberté naturelle de l'être instruit. Une provocation dans la France du XVIe siècle."
+          }
+        ],
+        "kind": "histoire",
+        "img": "histoire/rabelais.webp"
+      },
+      {
+        "icon": "🏇",
+        "tag": "Roi",
+        "date": "1547 – 1559",
+        "title": "Henri II — Mort dans un Tournoi",
+        "desc": "Fils de François Ier, Henri II poursuit la Renaissance mais est tué accidentellement lors d'un tournoi en 1559 : la lance de Gabriel de Montgomery lui transperce la visière et lui crève l'œil. Il agonise dix jours. Sa mort plonge la France dans la crise.",
+        "anecdotes": [
+          {
+            "e": "🔮",
+            "t": "<b>Nostradamus avait prédit la mort d'un « roi lion » au tournoi.</b> Catherine de Médicis, la reine, avait supplié Henri II de ne pas jouter ce jour-là. Il refusa — et la prophétie devint la preuve la plus célèbre de Nostradamus."
+          },
+          {
+            "e": "⚕️",
+            "t": "<b>Vésale, le plus grand anatomiste de l'époque, fut appelé à son chevet.</b> Pour comprendre la blessure, on fit décapiter quatre prisonniers condamnés à mort pour tester des lances sur leurs têtes. Henri II mourut quand même."
+          }
+        ],
+        "kind": "histoire",
+        "img": "histoire/henri II.webp"
+      },
+      {
+        "icon": "👑",
+        "tag": "Roi",
+        "date": "1559 – 1560",
+        "title": "François II — Le Roi Enfant",
+        "desc": "Fils aîné d'Henri II, il monte sur le trône à 15 ans et meurt à 16 ans d'une otite foudroyante. Mari de Marie Stuart, reine d'Écosse. Son règne de 17 mois est dominé par les Guise et préfigure les guerres de Religion.",
+        "anecdotes": [
+          {
+            "e": "💍",
+            "t": "<b>François II épousa Marie Stuart à 14 ans.</b> Veuve à 17 ans, la reine d'Écosse rentra dans son pays — et finit décapitée par Élisabeth Ire d'Angleterre en 1587. Son bref passage en France reste l'une des romances tragiques de la royauté."
+          },
+          {
+            "e": "👂",
+            "t": "<b>Il mourut d'une mastoïdite —</b> une infection de l'oreille qui gagna le cerveau. Une balade antibiotique aurait suffi à changer le cours de l'histoire de France. Sa mort ouvrit la voie aux guerres de Religion qui ensanglanteraient la France pendant 40 ans."
+          }
+        ],
+        "kind": "histoire",
+        "img": "histoire/francois II.webp"
+      },
+      {
+        "icon": "⚔️",
+        "tag": "Événement",
+        "date": "1562 – 1598",
+        "title": "Les Guerres de Religion",
+        "desc": "Huit guerres civiles déchirent la France entre catholiques et protestants (huguenots). Massacres, sièges, assassinats de rois. Un tiers de siècle de chaos qui ruine le pays jusqu'à l'Édit de Nantes d'Henri IV (1598).",
+        "anecdotes": [
+          {
+            "e": "✝️",
+            "t": "<b>La France comptait 2 millions de protestants en 1560</b> — environ 10 % de la population. Toute une partie de la noblesse et de la bourgeoisie avait rejoint la Réforme. L'État était profondément fissuré."
+          },
+          {
+            "e": "🗡️",
+            "t": "<b>Henri III et Henri IV furent tous deux assassinés par des fanatiques catholiques.</b> La France tua deux de ses rois de suite au nom de la religion — un record dans l'histoire monarchique."
+          }
+        ],
+        "kind": "histoire",
+        "img": "histoire/guerres religion.webp"
+      },
+      {
+        "icon": "🔔",
+        "tag": "Événement",
+        "date": "24 août 1572",
+        "title": "La Saint-Barthélemy",
+        "desc": "Sur ordre de Catherine de Médicis, les cloches de Saint-Germain-l'Auxerrois sonnent à Paris dans la nuit du 23 au 24 août. C'est le signal du massacre des chefs protestants réunis pour un mariage royal. En trois jours, entre 3 000 et 10 000 protestants sont tués dans toute la France.",
+        "anecdotes": [
+          {
+            "e": "💍",
+            "t": "<b>Le massacre commença lors du mariage d'Henri de Navarre (futur Henri IV) avec Marguerite de Valois.</b> Les protestants du royaume étaient réunis à Paris pour fêter ce mariage censé réconcilier les deux camps — ils tombèrent dans un piège."
+          },
+          {
+            "e": "😱",
+            "t": "<b>Le pape Grégoire XIII fit sonner les cloches de Rome et frapper une médaille commémorative.</b> Le roi d'Espagne rit pour la première fois de sa vie, dit-on. En Angleterre et dans les pays protestants, l'horreur fut totale — et durable."
+          }
+        ],
+        "kind": "histoire",
+        "img": "histoire/saint barthelemy.webp"
+      }
+    ]
+  },
+  {
+    "era": "✦ Monarchie Absolue",
+    "cls": "moderne",
+    "events": [
+      {
+        "icon": "🕊️",
+        "tag": "Roi",
+        "date": "1589 – 1610",
+        "title": "Henri IV — Le Vert-Galant",
+        "desc": "Premier Bourbon. L'Édit de Nantes (1598) met fin aux guerres de Religion. Assassiné par Ravaillac en 1610.",
+        "anecdotes": [
+          {
+            "e": "🛐",
+            "t": "<b>« Paris vaut bien une messe. »</b> Henri IV, protestant, se convertit au catholicisme pour être accepté comme roi. Un acte de pragmatisme politique resté célèbre."
+          },
+          {
+            "e": "🗡️",
+            "t": "<b>Ravaillac était un fanatique catholique</b> convaincu qu'Henri IV allait attaquer le pape. Il le poignarda dans son carrosse bloqué dans la rue de la Ferronnerie, le 14 mai 1610."
+          }
+        ],
+        "kind": "histoire",
+        "img": "histoire/henri 4.webp"
+      },
+      {
+        "icon": "👑",
+        "tag": "Reine",
+        "date": "1610 – 1617",
+        "title": "Marie de Médicis — La Régente",
+        "desc": "Épouse d'Henri IV, Marie de Médicis assure la régence à la mort de son mari en 1610, pour le jeune Louis XIII. Sa régence effective court jusqu'en 1614 (majorité du roi), son influence politique jusqu'en 1617. Florentine ambitieuse, elle commande à Rubens le cycle monumental du Luxembourg et s'appuie sur Concini — jusqu'à sa rupture définitive avec son fils.",
+        "anecdotes": [
+          {
+            "e": "🎨",
+            "t": "<b>Elle commanda à Rubens 24 tableaux monumentaux</b> pour raconter sa propre vie au palais du Luxembourg. Ce cycle, aujourd'hui au Louvre, est l'une des plus grandes commandes artistiques de l'histoire — une autobiographie en peinture."
+          },
+          {
+            "e": "⚔️",
+            "t": "<b>Louis XIII finit par exiler sa propre mère deux fois.</b> Poussée par Richelieu, la rupture entre la reine mère et son fils fut définitive en 1631. Elle mourut seule à Cologne en 1642, ruinée et oubliée."
+          }
+        ],
+        "kind": "histoire",
+        "img": "histoire/marie de medicis.webp"
+      },
+      {
+        "icon": "⚜️",
+        "tag": "Roi",
+        "date": "1610 – 1643",
+        "title": "Louis XIII & le Cardinal de Richelieu",
+        "desc": "Fils d'Henri IV, Louis XIII règne avec l'ombre de Richelieu. Le Cardinal-Ministre centralise le pouvoir royal, écrase les Protestants à La Rochelle (1628) et fonde l'Académie française (1635). Le vrai maître de la France.",
+        "anecdotes": [
+          {
+            "e": "🎭",
+            "t": "<b>Richelieu fonda l'Académie française en 1635</b> pour normer la langue — et surveiller les intellectuels. Ses 40 membres « immortels » veillent encore sur le dictionnaire français près de 400 ans plus tard."
+          },
+          {
+            "e": "🗡️",
+            "t": "<b>Les Trois Mousquetaires d'Alexandre Dumas</b> se déroulent sous Louis XIII. Athos, Porthos, Aramis et d'Artagnan sont inspirés de personnages réels — et Richelieu y joue l'antagoniste."
+          }
+        ],
+        "kind": "histoire",
+        "img": "histoire/richelieu louis xiii.webp"
+      },
+      {
+        "icon": "🎭",
+        "tag": "Littérature",
+        "date": "1637",
+        "title": "Corneille — Le Cid",
+        "desc": "Pierre Corneille révolutionne le théâtre français avec Le Cid (1637). Il invente le héros déchiré entre devoir et passion — le « dilemme cornélien » structurera la littérature pour des siècles.",
+        "anecdotes": [
+          {
+            "e": "⚔️",
+            "t": "<b>Le Cid fut un triomphe populaire immédiat</b> mais l'Académie française, fondée par Richelieu, le critiqua vertement. L'expression « beau comme Le Cid » entra dans la langue."
+          },
+          {
+            "e": "🏆",
+            "t": "<b>Corneille inventa le dilemme cornélien :</b> choisir entre deux valeurs également impérieuses — honneur vs amour. Ce conflit psychologique structure encore le cinéma et la littérature."
+          }
+        ],
+        "kind": "histoire",
+        "img": "histoire/le cid.webp"
+      },
+      {
+        "icon": "🔬",
+        "tag": "Sciences & Pensée",
+        "date": "~1640 – 1670",
+        "title": "Pascal — Génie Universel",
+        "desc": "Blaise Pascal est mathématicien (probabilités, triangle de Pascal), physicien (pression atmosphérique, expérience du Puy-de-Dôme) et philosophe. La Pascaline, première calculatrice mécanique, date de 1642. Ses Pensées, inachevées, paraissent à titre posthume en 1670. Emporté à 39 ans, il reste l'un des plus grands esprits de l'histoire française.",
+        "anecdotes": [
+          {
+            "e": "💻",
+            "t": "<b>La Pascaline</b> — première calculatrice mécanique — fut construite par Pascal à 19 ans pour aider son père percepteur. Le langage informatique Pascal lui rend hommage."
+          },
+          {
+            "e": "🙏",
+            "t": "<b>Le pari de Pascal :</b> si Dieu existe, croire rapporte tout et ne coûte rien. Premier raisonnement probabiliste appliqué à la théologie."
+          }
+        ],
+        "kind": "histoire",
+        "img": "histoire/pascal.webp"
+      },
+      {
+        "icon": "🃏",
+        "tag": "Ministre",
+        "date": "1643 – 1661",
+        "title": "Mazarin — La Régence & la Fronde",
+        "desc": "Successeur de Richelieu, Mazarin gouverne en régent pour le jeune Louis XIV. Il surmonte la Fronde (1648-1653), révolte des nobles et du Parlement. Il façonne le futur Roi-Soleil et signe la Paix des Pyrénées (1659) qui fait de la France la première puissance européenne.",
+        "anecdotes": [
+          {
+            "e": "📚",
+            "t": "<b>Mazarin légua sa bibliothèque à Paris à sa mort.</b> Elle est devenue la Bibliothèque Mazarine — la plus ancienne bibliothèque publique de France, toujours ouverte au public aujourd'hui."
+          },
+          {
+            "e": "👑",
+            "t": "<b>Louis XIV dut fuir Paris en pleine nuit à 10 ans, pendant la Fronde.</b> Ce traumatisme explique sa méfiance des grands seigneurs — et son choix de les enfermer dorés à Versailles, loin de tout pouvoir réel."
+          }
+        ],
+        "kind": "histoire",
+        "img": "histoire/mazarin.webp"
+      },
+      {
+        "icon": "☀️",
+        "tag": "Roi",
+        "date": "1643 – 1715",
+        "title": "Louis XIV — Le Roi-Soleil",
+        "desc": "72 ans de règne. Versailles, absolutisme royal, révocation de l'Édit de Nantes (1685). Apogée et épuisement de la France.",
+        "anecdotes": [
+          {
+            "e": "🚽",
+            "t": "<b>Versailles manquait cruellement de sanitaires.</b> Le château le plus luxueux d'Europe était aussi l'un des plus malodorants."
+          },
+          {
+            "e": "💃",
+            "t": "<b>Louis XIV était un danseur exceptionnel,</b> participant à au moins 40 ballets de cour. Le ballet classique est une invention royale française."
+          }
+        ],
+        "kind": "histoire",
+        "img": "histoire/louis XIV.webp"
+      },
+      {
+        "icon": "👑",
+        "tag": "Monument",
+        "date": "1661 – 1710",
+        "title": "Le Château de Versailles",
+        "desc": "Louis XIV transforme un pavillon de chasse en le plus grand palais du monde sur cinquante ans de travaux (1661–1710) : 700 pièces, 2 000 hectares de jardins, 20 000 personnes à la cour. Versailles devient le modèle de toutes les cours royales européennes — et la prison dorée où Louis XIV enferme sa noblesse.",
+        "anecdotes": [
+          {
+            "e": "🚽",
+            "t": "<b>Le château le plus luxueux d'Europe manquait cruellement de sanitaires.</b> L'odeur était légendaire — ironie suprême de la magnificence absolue."
+          }
+        ],
+        "kind": "histoire",
+        "img": "histoire/versailles.webp"
+      },
+      {
+        "icon": "💰",
+        "tag": "Ministre",
+        "date": "1661 – 1683",
+        "title": "Colbert — L'Architecte de la France Moderne",
+        "desc": "Jean-Baptiste Colbert, contrôleur général des finances de Louis XIV, invente le mercantilisme d'État. Il crée la marine royale, les manufactures royales (tapisseries de Gobelins, cristal de Saint-Gobain), les grandes routes et le Code de commerce. La France industrielle naît avec lui.",
+        "anecdotes": [
+          {
+            "e": "🌊",
+            "t": "<b>Colbert construisit la marine française de zéro.</b> En vingt ans, il porta la flotte de 20 à 270 navires de guerre — faisant de la France la première puissance navale du monde. Sans lui, pas de Versailles, pas d'empire colonial."
+          },
+          {
+            "e": "🧵",
+            "t": "<b>Il faisait espionner les manufactures étrangères</b> pour voler leurs techniques. Des agents payés par lui dérobèrent les secrets de la dentelle de Venise et de la verrerie de Murano — au risque de leur vie. L'espionnage industriel est aussi vieux que l'industrie."
+          }
+        ],
+        "kind": "histoire",
+        "img": "histoire/colbert.webp"
+      },
+      {
+        "kind": "histoire",
+        "icon": "📖",
+        "date": "1664 – 1673",
+        "title": "Molière — Le Théâtre Français",
+        "desc": "Jean-Baptiste Poquelin, dit Molière, révolutionne la comédie française avec Tartuffe, Le Misanthrope, L'Avare. Il dénonce les hypocrisies de son époque avec une liberté audacieuse.",
+        "anecdotes": [
+          {
+            "e": "😂",
+            "t": "<b>Molière mourut sur scène</b> le 17 février 1673 lors de la 4ème représentation du Malade Imaginaire — pièce sur un hypocondriaque. Il fit une hémorragie pendant le spectacle et mourut quelques heures plus tard. L'ironie suprême."
+          },
+          {
+            "e": "😤",
+            "t": "<b>Tartuffe fut interdite dès sa première représentation</b> en 1664, jugée scandaleuse par l'Église. Louis XIV la défendit. La bataille entre Molière et les dévots dura 5 ans avant que la pièce puisse être jouée librement."
+          }
+        ],
+        "img": "histoire/moliere.webp"
+      },
+      {
+        "icon": "🎭",
+        "tag": "Littérature",
+        "date": "1667",
+        "title": "Racine — Andromaque & Phèdre",
+        "desc": "Jean Racine pousse la tragédie à son sommet avec Andromaque (1667) et Phèdre (1677). Sa langue d'une pureté absolue fait de lui le plus grand tragédien français.",
+        "anecdotes": [
+          {
+            "e": "💔",
+            "t": "<b>Phèdre amoureuse de son beau-fils Hippolyte</b> est l'un des portraits psychologiques les plus fouillés de la littérature mondiale — culpabilité, désir et mort avec une modernité saisissante."
+          }
+        ],
+        "kind": "histoire",
+        "img": "histoire/racine andromaque.webp"
+      },
+      {
+        "icon": "🦊",
+        "tag": "Littérature",
+        "date": "1668",
+        "title": "La Fontaine — Les Fables",
+        "desc": "Jean de La Fontaine publie ses Fables en 12 livres (1668-1694). Ces courts poèmes animaliers cachent une critique mordante de la société. Appris par cœur par des générations d'écoliers français depuis 350 ans.",
+        "anecdotes": [
+          {
+            "e": "🐺",
+            "t": "<b>« La raison du plus fort est toujours la meilleure »</b> — La Fontaine critique le pouvoir et la vanité derrière des histoires d'animaux que la censure royale ne pouvait atteindre."
+          },
+          {
+            "e": "📚",
+            "t": "<b>Les Fables sont le texte le plus imprimé de France</b> après la Bible. La Fontaine transforme la morale ésopique en poésie musicale aux vers impossibles à améliorer."
+          }
+        ],
+        "kind": "histoire",
+        "img": "histoire/la fontaine.webp"
+      },
+      {
+        "icon": "✍️",
+        "tag": "Littérature",
+        "date": "1678",
+        "title": "Mme de Lafayette — La Princesse de Clèves",
+        "desc": "Marie-Madeleine de Lafayette publie anonymement La Princesse de Clèves (1678) — le premier roman psychologique moderne. Une femme mariée résiste à sa passion par devoir. Fondateur du roman d'analyse.",
+        "anecdotes": [
+          {
+            "e": "💭",
+            "t": "<b>La Princesse de Clèves invente l'introspection romanesque :</b> pour la première fois, le roman s'intéresse aux pensées intimes du personnage. Stendhal et Proust en descendent directement."
+          },
+          {
+            "e": "🏛️",
+            "t": "<b>En 2009, Sarkozy railla ce roman.</b> La polémique déclencha des lectures publiques de masse — la Princesse de Clèves fut en rupture de stock dans toutes les librairies de France."
+          }
+        ],
+        "kind": "histoire",
+        "img": "histoire/mme de cleves.webp"
+      },
+      {
+        "icon": "⚓",
+        "tag": "Événement",
+        "date": "~1550 – 1815",
+        "title": "Les Corsaires — La Guerre de Course",
+        "desc": "Armés par le roi, les corsaires français pillent les navires ennemis en toute légalité. Jean Bart, Duguay-Trouin, Robert Surcouf — ces héros de Dunkerque et Saint-Malo terrorisent les marines anglaise et hollandaise sous Louis XIV et Napoléon.",
+        "anecdotes": [
+          {
+            "e": "⚓",
+            "t": "<b>Jean Bart, fils de pêcheur de Dunkerque,</b> captura plus de 80 navires ennemis. Louis XIV le convoqua à Versailles pour lui annoncer sa promotion. Impressionné, Jean Bart dit simplement : « Sire, vous avez bien fait. » La cour fut scandalisée — le roi éclata de rire."
+          },
+          {
+            "e": "🏴‍☠️",
+            "t": "<b>La différence entre corsaire et pirate :</b> le corsaire a une lettre de marque du roi — il opère légalement pour son pays. Le pirate vole pour lui seul. Surcouf, capturant un navire anglais, répondit à un officier : « Vous vous battez pour l'argent, nous nous battons pour l'honneur. »"
+          }
+        ],
+        "kind": "histoire",
+        "img": "histoire/corsaires.webp"
+      },
+      {
+        "icon": "⛓️",
+        "tag": "Événement",
+        "date": "1640 – 1848",
+        "title": "Le Commerce Triangulaire",
+        "desc": "La France participe activement à la traite négrière atlantique. Nantes, Bordeaux et La Rochelle envoient des navires en Afrique, échangent des marchandises contre des esclaves, les déportent aux Antilles. Plus d'un million d'Africains sont ainsi déportés sous pavillon français.",
+        "anecdotes": [
+          {
+            "e": "🌊",
+            "t": "<b>Nantes fut le premier port négrier de France,</b> responsable de 43 % de la traite française — soit plus de 450 000 déportés. La fortune monumentale de la ville au XVIIIe siècle repose directement sur ce commerce."
+          },
+          {
+            "e": "✊",
+            "t": "<b>Haïti (Saint-Domingue) fut la colonie la plus riche du monde</b> grâce au travail forcé. En 1791, Toussaint Louverture mena la seule révolte d'esclaves victorieuse de l'Histoire. Napoléon envoya une armée — elle fut vaincue par la fièvre jaune et les insurgés."
+          }
+        ],
+        "kind": "histoire",
+        "img": "histoire/traite negriere.webp"
+      },
+      {
+        "icon": "☠️",
+        "tag": "Événement",
+        "date": "1720 – 1722",
+        "title": "La Grande Peste de Marseille",
+        "desc": "Le navire Grand-Saint-Antoine débarque la peste à Marseille. En deux ans, la ville perd la moitié de sa population — 50 000 morts sur 90 000 habitants. La Provence entière est frappée. C'est la dernière grande épidémie de peste en France.",
+        "anecdotes": [
+          {
+            "e": "🧱",
+            "t": "<b>On construisit un mur de la peste</b> de 27 km en Provence pour stopper la contagion. Quiconque le franchissait était passible de mort. Ce mur de pierre existe encore partiellement dans le Luberon."
+          },
+          {
+            "e": "🚢",
+            "t": "<b>Le capitaine du Grand-Saint-Antoine avait dissimulé des cas à bord</b> pour ne pas perdre sa cargaison de soieries du Levant. Sa cupidité tua 100 000 personnes. Il fut condamné — mais les marchands de Marseille avaient fait pression pour qu'on décharge le navire coûte que coûte."
+          }
+        ],
+        "kind": "histoire",
+        "img": "histoire/peste marseille.webp"
+      },
+      {
+        "icon": "💎",
+        "tag": "Roi",
+        "date": "1715 – 1774",
+        "title": "Louis XV — Le Bien-Aimé",
+        "desc": "Arrière-petit-fils de Louis XIV, il hérite d'un royaume épuisé. D'abord adoré (« le Bien-Aimé »), son long règne voit la montée des philosophes des Lumières, la perte du Canada et des Indes, et la France glisser vers l'abîme financier.",
+        "anecdotes": [
+          {
+            "e": "💅",
+            "t": "<b>Madame de Pompadour,</b> favorite de Louis XV pendant 20 ans, fut l'une des femmes les plus influentes d'Europe. Elle protégea l'Encyclopédie, soutint Voltaire et orienta la politique étrangère sans jamais tenir de titre officiel."
+          },
+          {
+            "e": "😔",
+            "t": "<b>« Après moi, le déluge »</b> — phrase attribuée à Louis XV (ou à Mme de Pompadour). En mourant de la variole en 1774, il laissait la France au bord de la faillite et de la révolution."
+          }
+        ],
+        "kind": "histoire",
+        "img": "histoire/louis XV.webp"
+      },
+      {
+        "icon": "⚡",
+        "tag": "Philosophie",
+        "date": "1734",
+        "title": "Voltaire — Les Lumières & la Tolérance",
+        "desc": "François-Marie Arouet, dit Voltaire, symbole des Lumières : défenseur de la tolérance, ennemi du fanatisme. Candide et ses pamphlets incarnèrent la puissance de la plume contre l'arbitraire et l'injustice.",
+        "anecdotes": [
+          {
+            "e": "✍️",
+            "t": "<b>« Écrasez l'infâme ! »</b> — le cri de guerre de Voltaire contre le fanatisme religieux. À 83 ans, à son retour triomphal à Paris, il mourut d'une apothéose : trop d'émotion et d'honneurs en une nuit."
+          },
+          {
+            "e": "😄",
+            "t": "<b>Candide (1759)</b> : le héros traverse toutes les catastrophes en répétant que « tout va pour le mieux dans le meilleur des mondes ». Cette ironie dévastratrice en 30 pages reste inégalée."
+          }
+        ],
+        "kind": "histoire",
+        "img": "histoire/voltaire.webp"
+      },
+      {
+        "icon": "📚",
+        "tag": "Philosophie",
+        "date": "1751 – 1772",
+        "title": "L'Encyclopédie de Diderot & d'Alembert",
+        "desc": "Diderot et d'Alembert coordonnent 150 auteurs — Voltaire, Rousseau, Montesquieu — pour produire 28 volumes recensant tout le savoir humain. L'Encyclopédie est la bombe intellectuelle des Lumières : elle conteste l'Église, glorifie la raison et prépare les esprits à la Révolution.",
+        "anecdotes": [
+          {
+            "e": "🚫",
+            "t": "<b>L'Encyclopédie fut interdite deux fois par le roi et condamnée par le pape.</b> Elle continua à paraître clandestinement. Le libraire complice cacha les planches imprimées dans ses entrepôts — et risquait la Bastille à chaque livraison."
+          },
+          {
+            "e": "🔪",
+            "t": "<b>Le propre éditeur de Diderot sabota secrètement l'Encyclopédie</b> en supprimant des passages trop dangereux pour éviter la censure — sans en informer Diderot. Ce dernier l'apprit à la fin du projet et fut anéanti. Il ne publia plus rien de son vivant."
+          }
+        ],
+        "kind": "histoire",
+        "img": "histoire/diderot dalembert.webp"
+      },
+      {
+        "icon": "🌍",
+        "tag": "Événement",
+        "date": "1756 – 1763",
+        "title": "La Guerre de Sept Ans — La Première Guerre Mondiale",
+        "desc": "Souvent appelée la première guerre mondiale, elle oppose la France à l'Angleterre sur 5 continents. La France perd le Canada, la Louisiane et ses comptoirs en Inde. L'Angleterre devient la première puissance mondiale.",
+        "anecdotes": [
+          {
+            "e": "🍁",
+            "t": "<b>La France perdit le Canada (Nouvelle-France) en 1763.</b> Le traité de Paris força Louis XV à céder aussi la Louisiane à l'Espagne et ses comptoirs en Inde — un désastre colonial aux conséquences durables."
+          },
+          {
+            "e": "🎯",
+            "t": "<b>Voltaire se moqua du Canada :</b> « quelques arpents de neige » ne valaient pas la peine d'y envoyer des troupes. L'histoire lui donna largement tort — et les Québécois ne l'ont pas oublié."
+          }
+        ],
+        "kind": "histoire",
+        "img": "histoire/guerre de 7 ans.webp"
+      },
+      {
+        "icon": "🌿",
+        "tag": "Philosophie",
+        "date": "1762",
+        "title": "Rousseau — Le Contrat Social",
+        "desc": "Jean-Jacques Rousseau révolutionne la pensée politique avec Le Contrat Social (1762) : « la souveraineté appartient au peuple ». Ses idées nourriront directement la Révolution française et l'Émile révolutionne la pédagogie.",
+        "anecdotes": [
+          {
+            "e": "🗳️",
+            "t": "<b>« L'homme est né libre, et partout il est dans les fers. »</b> Les révolutionnaires liront Rousseau comme un programme — et placeront ses cendres au Panthéon aux côtés de Voltaire."
+          },
+          {
+            "e": "🌱",
+            "t": "<b>Rousseau fut le premier écologiste :</b> il défendait la nature contre la civilisation corromprice et rêvait du « bon sauvage ». Thoreau, Tolstoï et tous les critiques de la modernité lui doivent tout."
+          }
+        ],
+        "kind": "histoire",
+        "img": "histoire/rousseau.webp"
+      },
+      {
+        "icon": "🗡️",
+        "tag": "Roi",
+        "date": "1774 – 1792",
+        "title": "Louis XVI — La Fin de la Monarchie",
+        "desc": "Guillotiné le 21 janvier 1793. La Révolution éclate en 1789 : Bastille, Déclaration des droits de l'Homme.",
+        "anecdotes": [
+          {
+            "e": "😴",
+            "t": "<b>Le 14 juillet 1789, Louis XVI écrit dans son journal : « Rien ».</b> Il chassait ce jour-là. Il ne savait pas que la Bastille venait de tomber."
+          },
+          {
+            "e": "🔧",
+            "t": "<b>Louis XVI était passionné de serrurerie.</b> On découvrit dans son atelier son « armoire de fer » contenant ses correspondances compromettantes."
+          }
+        ],
+        "kind": "histoire",
+        "img": "histoire/louis XVI.webp"
+      }
+    ]
+  }
+]

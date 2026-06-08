@@ -1,0 +1,199 @@
+{
+  "_meta": {
+    "title": "Familles Linguistiques",
+    "emoji": "📖",
+    "source": "Ethnologue 2024"
+  },
+  "familles": [
+    {
+      "id": "indo_europeen",
+      "label": "Indo-Européen",
+      "couleur": "#4080c0",
+      "emoji": "🔵",
+      "sous_familles": [
+        "Roman (FR,ES,PT,IT,RO)",
+        "Germanique (DE,NL,EN)",
+        "Slave (RU,PL,UA)",
+        "Indo-Iranien (IR,IN,PK,AF)"
+      ],
+      "pays": [
+        "FR",
+        "ES",
+        "PT",
+        "IT",
+        "RO",
+        "DE",
+        "AT",
+        "NL",
+        "BE",
+        "GB",
+        "IE",
+        "SE",
+        "NO",
+        "DK",
+        "FI",
+        "IS",
+        "PL",
+        "CZ",
+        "SK",
+        "HU",
+        "RU",
+        "UA",
+        "BY",
+        "BG",
+        "RS",
+        "HR",
+        "SI",
+        "BA",
+        "MK",
+        "AL",
+        "GR",
+        "IR",
+        "IN",
+        "PK",
+        "AF",
+        "BD",
+        "NP",
+        "LK",
+        "MV",
+        "TJ",
+        "KG",
+        "AM",
+        "GE"
+      ]
+    },
+    {
+      "id": "sino_tibetain",
+      "label": "Sino-Tibétain",
+      "couleur": "#e03030",
+      "emoji": "🔴",
+      "sous_familles": [
+        "Chinois mandarin",
+        "Cantonais",
+        "Tibétain",
+        "Birman"
+      ],
+      "pays": [
+        "CN",
+        "TW",
+        "SG",
+        "MM",
+        "BT"
+      ]
+    },
+    {
+      "id": "afro_asiatique",
+      "label": "Afro-Asiatique",
+      "couleur": "#e0a030",
+      "emoji": "🟡",
+      "sous_familles": [
+        "Arabe",
+        "Hébreu",
+        "Berbère",
+        "Amharique",
+        "Somali"
+      ],
+      "pays": [
+        "SA",
+        "AE",
+        "QA",
+        "KW",
+        "BH",
+        "OM",
+        "YE",
+        "IQ",
+        "SY",
+        "LB",
+        "JO",
+        "EG",
+        "LY",
+        "TN",
+        "DZ",
+        "MA",
+        "SD",
+        "ER",
+        "ET",
+        "SO",
+        "IL",
+        "MT"
+      ]
+    },
+    {
+      "id": "austronesien",
+      "label": "Austronésien",
+      "couleur": "#20a860",
+      "emoji": "🟢",
+      "sous_familles": [
+        "Malais-Indonésien",
+        "Tagalog",
+        "Malgache",
+        "Polynésien"
+      ],
+      "pays": [
+        "ID",
+        "MY",
+        "PH",
+        "MG",
+        "PG",
+        "FJ",
+        "TO",
+        "WS",
+        "NZ",
+        "TL"
+      ]
+    },
+    {
+      "id": "niger_congo",
+      "label": "Niger-Congo",
+      "couleur": "#a04020",
+      "emoji": "🟤",
+      "sous_familles": [
+        "Bantou (Swahili, Zulu)",
+        "Yoruba",
+        "Igbo",
+        "Wolof"
+      ],
+      "pays": [
+        "NG",
+        "GH",
+        "SN",
+        "CI",
+        "CM",
+        "CD",
+        "AO",
+        "MZ",
+        "TZ",
+        "KE",
+        "UG",
+        "ZA",
+        "ZW",
+        "ZM",
+        "MW",
+        "RW",
+        "BI",
+        "ET"
+      ]
+    },
+    {
+      "id": "turcique",
+      "label": "Turcique",
+      "couleur": "#80a020",
+      "emoji": "🟩",
+      "sous_familles": [
+        "Turc",
+        "Ouzbek",
+        "Kazakh",
+        "Azerbaïdjanais"
+      ],
+      "pays": [
+        "TR",
+        "UZ",
+        "KZ",
+        "AZ",
+        "TM",
+        "KG",
+        "MN"
+      ]
+    }
+  ]
+}

@@ -1,0 +1,476 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Flashcards Sciences — L'Encyclopédie des Explorateurs</title>
+<link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;700;900&family=Crimson+Pro:ital,wght@0,300;0,400;1,300&display=swap" rel="stylesheet">
+<style>
+:root {
+  --bg:#060a14; --gold:#d4a843; --gold-dim:rgba(200,180,120,0.18);
+  --text:#e8dfc4; --text-dim:rgba(232,223,196,0.48);
+  --card-bg:rgba(8,13,26,0.94); --border:rgba(200,180,120,0.18);
+  --green:#4edd8a; --green-dim:rgba(78,221,138,0.15);
+}
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0;}
+body{background:var(--bg);color:var(--text);font-family:'Crimson Pro',Georgia,serif;min-height:100vh;overflow-x:hidden;user-select:none;}
+#stars-canvas{position:fixed;inset:0;z-index:0;pointer-events:none;}
+.content{position:relative;z-index:1;}
+.back{position:fixed;top:22px;left:24px;z-index:100;font-family:'Cinzel',serif;font-size:.6rem;letter-spacing:.25em;text-transform:uppercase;color:rgba(212,168,67,.5);text-decoration:none;display:flex;align-items:center;gap:8px;transition:color .2s;}
+.back:hover{color:#d4a843;}
+header{text-align:center;padding:52px 20px 28px;}
+.enc-label{font-size:.72rem;letter-spacing:.38em;text-transform:uppercase;color:var(--text-dim);margin-bottom:14px;}
+h1{font-family:'Cinzel',serif;font-weight:900;font-size:clamp(1.7rem,4.5vw,3.2rem);background:linear-gradient(135deg,#a0f0c0,#4edd8a 38%,#80f0a0 68%,#e0fff0);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;line-height:1.1;}
+.tagline{margin-top:10px;font-size:.95rem;color:var(--text-dim);font-style:italic;}
+.divider{height:1px;background:var(--gold-dim);max-width:300px;margin:20px auto;}
+.filter-bar{display:flex;gap:8px;justify-content:center;flex-wrap:wrap;padding:0 20px 20px;max-width:800px;margin:0 auto;}
+.filter-btn{font-family:'Cinzel',serif;font-size:.52rem;letter-spacing:.14em;text-transform:uppercase;padding:6px 12px;border-radius:3px;border:1px solid var(--border);background:rgba(6,10,20,.9);color:var(--text-dim);cursor:pointer;transition:all .2s;}
+.filter-btn:hover,.filter-btn.active{border-color:rgba(78,221,138,.5);color:var(--green);background:rgba(78,221,138,.07);}
+.filter-btn.active{box-shadow:0 0 12px rgba(78,221,138,.12);}
+.progress-wrap{max-width:520px;margin:0 auto 28px;text-align:center;}
+.progress-text{font-family:'Cinzel',serif;font-size:.72rem;letter-spacing:.2em;text-transform:uppercase;color:var(--text-dim);margin-bottom:10px;}
+.progress-bar{height:2px;background:var(--gold-dim);border-radius:2px;overflow:hidden;}
+.progress-fill{height:100%;background:var(--green);transition:width .4s ease;border-radius:2px;}
+.stage{display:flex;justify-content:center;align-items:center;perspective:1200px;padding:8px 0 20px;}
+.fc-wrap{width:420px;max-width:88vw;height:500px;position:relative;transform-style:preserve-3d;transition:transform .6s cubic-bezier(0.34,1.4,0.64,1);will-change:transform;cursor:pointer;}
+.fc-wrap.flipped{transform:rotateY(180deg);}
+.fc-wrap.no-anim{transition:none!important;}
+.face{position:absolute;inset:0;border-radius:14px;backface-visibility:hidden;-webkit-backface-visibility:hidden;transform:translateZ(0);border:1px solid var(--border);box-shadow:0 20px 60px rgba(0,0,0,.7),0 0 0 1px rgba(200,180,120,.06);overflow:hidden;}
+/* RECTO */
+.face-front{background:var(--card-bg);display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;padding:36px 32px 24px;}
+.face-front::before{content:'';position:absolute;inset:0;border-radius:14px;background:radial-gradient(ellipse at 50% 0%,rgba(78,221,138,.05) 0%,transparent 65%);pointer-events:none;}
+.face-front.has-svg{padding:0;justify-content:flex-start;}
+.svg-zone{width:100%;height:210px;display:flex;align-items:center;justify-content:center;background:rgba(4,10,24,.7);border-bottom:1px solid var(--border);flex-shrink:0;}
+.svg-zone svg{max-height:195px;max-width:92%;}
+.q-inner{display:flex;flex-direction:column;align-items:center;gap:12px;padding:16px 28px 60px;}
+.face-front:not(.has-svg) .q-inner{padding-bottom:60px;}
+.q-category{font-size:.58rem;letter-spacing:.22em;text-transform:uppercase;color:var(--green);border:1px solid rgba(78,221,138,.3);padding:4px 14px;border-radius:3px;opacity:.9;}
+.q-text{font-family:'Cinzel',serif;font-size:1rem;font-weight:700;color:var(--text);line-height:1.55;}
+.front-footer{position:absolute;bottom:0;left:0;right:0;display:flex;align-items:center;justify-content:center;gap:10px;padding:12px 20px;border-top:1px solid var(--border);background:rgba(6,10,20,.6);}
+.flip-hint{font-size:.7rem;letter-spacing:.2em;text-transform:uppercase;color:var(--text-dim);}
+.flip-arrow{color:var(--gold);opacity:.7;font-size:1rem;}
+/* VERSO */
+.face-back{transform:rotateY(180deg);background:linear-gradient(145deg,#081a10 0%,#0d2b18 50%,#081a12 100%);display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;padding:40px 32px;border-color:rgba(78,221,138,.25);}
+.face-back::before{content:'';position:absolute;inset:0;border-radius:14px;background:radial-gradient(ellipse at 50% 20%,rgba(78,221,138,.06) 0%,transparent 65%);pointer-events:none;}
+.b-category{font-size:.58rem;letter-spacing:.22em;text-transform:uppercase;color:var(--green);border:1px solid rgba(78,221,138,.35);padding:4px 16px;border-radius:3px;margin-bottom:20px;opacity:.9;}
+.b-question{font-family:'Cinzel',serif;font-size:.85rem;font-weight:700;color:rgba(232,223,196,.5);line-height:1.4;margin-bottom:16px;}
+.b-answer{font-family:'Cinzel',serif;font-size:1.35rem;font-weight:900;background:linear-gradient(135deg,#a0f0c0,#4edd8a);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;margin-bottom:16px;line-height:1.35;}
+.b-explain{font-size:.9rem;line-height:1.75;color:rgba(232,223,196,.55);font-style:italic;max-width:300px;}
+.overlay{position:absolute;inset:0;border-radius:14px;background:rgba(6,10,20,.95);z-index:30;opacity:0;pointer-events:none;transition:opacity 0.18s ease;}
+.overlay.dark{opacity:1;}
+@keyframes iris{from{clip-path:inset(50% 50% 50% 50% round 8px);opacity:0;}to{clip-path:inset(0% 0% 0% 0% round 14px);}}
+.face-front.iris{animation:iris 0.4s cubic-bezier(0.34,1.2,0.64,1) forwards;}
+.controls{display:flex;justify-content:center;gap:12px;margin-top:20px;flex-wrap:wrap;}
+.btn{font-family:'Cinzel',serif;font-size:.72rem;letter-spacing:.18em;text-transform:uppercase;padding:11px 26px;border-radius:4px;border:1px solid var(--border);background:rgba(6,10,20,.9);color:var(--text-dim);cursor:pointer;transition:all .2s;}
+.btn:hover{border-color:rgba(200,180,120,.5);color:var(--text);background:rgba(200,180,120,.07);}
+.btn-gold{border-color:rgba(212,168,67,.6);color:var(--gold);background:rgba(212,168,67,.07);}
+.btn-gold:hover{background:rgba(212,168,67,.16);box-shadow:0 0 18px rgba(212,168,67,.2);}
+.btn-green{border-color:rgba(94,196,138,.5);color:#5ec48a;}
+.btn-green:hover{background:rgba(94,196,138,.1);}
+.btn-red{border-color:rgba(232,80,80,.5);color:#e84848;}
+.btn-red:hover{background:rgba(232,80,80,.1);}
+.review-row{display:flex;justify-content:center;gap:12px;margin-top:12px;flex-wrap:wrap;}
+.review-label{text-align:center;margin-top:16px;font-size:.65rem;letter-spacing:.18em;text-transform:uppercase;color:var(--text-dim);}
+.known-bar{max-width:520px;margin:20px auto 0;display:flex;gap:20px;justify-content:center;}
+.known-stat{font-family:'Cinzel',serif;font-size:.68rem;letter-spacing:.14em;text-transform:uppercase;color:var(--text-dim);}
+.known-stat span{color:var(--text);font-weight:700;}
+.strip{display:flex;gap:8px;overflow-x:auto;padding:12px 20px;scrollbar-width:none;}
+.strip::-webkit-scrollbar{display:none;}
+.thumb-sci{width:52px;height:38px;border-radius:4px;border:1px solid var(--border);flex-shrink:0;opacity:.45;transition:opacity .2s;cursor:pointer;background:rgba(78,221,138,.08);display:flex;align-items:center;justify-content:center;font-size:.5rem;font-family:'Cinzel',serif;color:rgba(78,221,138,.65);text-align:center;padding:2px;}
+.thumb-sci:hover{opacity:.7;}
+.thumb-sci.cur{opacity:1;border-color:var(--green);}
+@media(max-width:600px){.fc-wrap{height:460px;}.b-answer{font-size:1.1rem;}}
+</style>
+</head>
+<body>
+<canvas id="stars-canvas"></canvas>
+<a class="back" href="/flashcards/index.html">← Flashcards</a>
+<div class="content">
+  <header>
+    <div class="enc-label">L'Encyclopédie des Explorateurs</div>
+    <h1>Flashcards Sciences</h1>
+    <div class="tagline">SVT · Physique · Chimie · Astronomie — programme collège</div>
+  </header>
+
+  <div class="filter-bar" id="filter-bar">
+    <button class="filter-btn active" onclick="filterBy('all',this)">Tout</button>
+    <button class="filter-btn" onclick="filterBy('SVT',this)">🌿 SVT</button>
+    <button class="filter-btn" onclick="filterBy('Digestion',this)">🫁 Digestion</button>
+    <button class="filter-btn" onclick="filterBy('Physique',this)">⚡ Physique</button>
+    <button class="filter-btn" onclick="filterBy('Chimie',this)">🧪 Chimie</button>
+    <button class="filter-btn" onclick="filterBy('Astronomie',this)">🌌 Astronomie</button>
+    <button class="filter-btn" onclick="filterBy('Énergie',this)">🔋 Énergie</button>
+    <button class="filter-btn" onclick="filterBy('Mouvements',this)">🚀 Mouvements</button>
+  </div>
+
+  <div style="padding:0 20px 80px;">
+    <div class="progress-wrap">
+      <div class="progress-text" id="p-text">Carte 1 / 175</div>
+      <div class="progress-bar"><div class="progress-fill" id="p-fill" style="width:0%"></div></div>
+    </div>
+    <div class="stage">
+      <div class="fc-wrap" id="fc" onclick="flipCard()">
+        <div class="overlay" id="overlay"></div>
+        <div class="face face-front" id="front">
+          <div class="svg-zone" id="fc-svg" style="display:none"></div>
+          <div class="q-inner">
+            <div class="q-category" id="fc-cat"></div>
+            <div class="q-text" id="fc-q"></div>
+          </div>
+          <div class="front-footer">
+            <span class="flip-arrow">↩</span>
+            <span class="flip-hint">Cliquez pour révéler</span>
+          </div>
+        </div>
+        <div class="face face-back">
+          <div class="b-category" id="fc-cat2"></div>
+          <div class="b-question" id="fc-q2"></div>
+          <div class="b-answer" id="fc-ans"></div>
+          <div class="b-explain" id="fc-exp"></div>
+        </div>
+      </div>
+    </div>
+    <div class="controls">
+      <button class="btn" onclick="prevCard()">← Précédente</button>
+      <button class="btn btn-gold" onclick="nextCard()">Suivante →</button>
+      <button class="btn" onclick="shuffleCards()">🔀 Mélanger</button>
+    </div>
+    <div class="review-label">Après avoir révélé la carte :</div>
+    <div class="review-row">
+      <button class="btn btn-green" onclick="markKnown()">✓ Je savais</button>
+      <button class="btn btn-red" onclick="markReview()">↩ À revoir</button>
+    </div>
+    <div class="known-bar">
+      <div class="known-stat">Connues : <span id="k-count">0</span></div>
+      <div class="known-stat">À revoir : <span id="r-count">0</span></div>
+      <div class="known-stat">Restantes : <span id="rem-count">175</span></div>
+    </div>
+    <div class="divider"></div>
+    <div class="strip" id="strip"></div>
+  </div>
+</div>
+
+<script>
+const SVG = {
+  cellule: '<svg viewBox="0 0 220 180" xmlns="http://www.w3.org/2000/svg"><ellipse cx="110" cy="90" rx="100" ry="78" fill="rgba(78,221,138,.1)" stroke="#4edd8a" stroke-width="2"/><ellipse cx="110" cy="90" rx="32" ry="28" fill="rgba(78,221,138,.2)" stroke="#4edd8a" stroke-width="1.5"/><circle cx="110" cy="90" r="8" fill="#4edd8a" opacity=".6"/><text x="110" y="56" text-anchor="middle" fill="rgba(78,221,138,.7)" font-size="9" font-family="serif">Membrane</text><text x="110" y="93" text-anchor="middle" fill="#e8dfc4" font-size="8" font-family="serif">Noyau</text><text x="155" y="80" fill="rgba(232,223,196,.5)" font-size="8" font-family="serif">Cytoplasme</text></svg>',
+
+  cellule_vegetale: '<svg viewBox="0 0 220 180" xmlns="http://www.w3.org/2000/svg"><rect x="15" y="20" width="190" height="140" rx="4" fill="rgba(78,221,138,.08)" stroke="#4edd8a" stroke-width="2.5"/><rect x="20" y="25" width="180" height="130" rx="2" fill="rgba(78,221,138,.06)" stroke="rgba(78,221,138,.4)" stroke-width="1"/><ellipse cx="110" cy="90" rx="28" ry="24" fill="rgba(78,221,138,.22)" stroke="#4edd8a" stroke-width="1.5"/><ellipse cx="60" cy="60" rx="12" ry="10" fill="rgba(50,180,80,.4)" stroke="#2eb85c" stroke-width="1"/><ellipse cx="160" cy="120" rx="12" ry="10" fill="rgba(50,180,80,.4)" stroke="#2eb85c" stroke-width="1"/><ellipse cx="155" cy="60" rx="12" ry="10" fill="rgba(50,180,80,.4)" stroke="#2eb85c" stroke-width="1"/><text x="110" y="94" text-anchor="middle" fill="#e8dfc4" font-size="8" font-family="serif">Noyau</text><text x="60" y="63" text-anchor="middle" fill="#e8dfc4" font-size="7" font-family="serif">Chloro.</text><text x="110" y="170" text-anchor="middle" fill="rgba(78,221,138,.6)" font-size="9" font-family="serif">Paroi cellulosique</text></svg>',
+
+  systeme_solaire: '<svg viewBox="0 0 240 160" xmlns="http://www.w3.org/2000/svg"><circle cx="20" cy="80" r="16" fill="#f5a623" opacity=".9"/><text x="20" y="105" text-anchor="middle" fill="#f5a623" font-size="7" font-family="serif">Soleil</text><circle cx="52" cy="80" r="3" fill="#aaa"/><text x="52" y="96" text-anchor="middle" fill="#aaa" font-size="6">Mercure</text><circle cx="75" cy="80" r="5" fill="#e8c060" opacity=".8"/><text x="75" y="96" text-anchor="middle" fill="#e8c060" font-size="6">Vénus</text><circle cx="102" cy="80" r="5.5" fill="#4a9edd" opacity=".9"/><text x="102" y="96" text-anchor="middle" fill="#4a9edd" font-size="6">Terre</text><circle cx="130" cy="80" r="4" fill="#e84848" opacity=".8"/><text x="130" y="96" text-anchor="middle" fill="#e84848" font-size="6">Mars</text><circle cx="165" cy="80" r="10" fill="#d4a843" opacity=".7"/><text x="165" y="100" text-anchor="middle" fill="#d4a843" font-size="6">Jupiter</text><circle cx="198" cy="80" r="8" fill="#c8a060" opacity=".7"/><ellipse cx="198" cy="80" rx="13" ry="4" fill="none" stroke="#c8a060" stroke-width="1" opacity=".5"/><text x="198" y="100" text-anchor="middle" fill="#c8a060" font-size="6">Saturne</text><circle cx="222" cy="80" r="5" fill="#80c0dd" opacity=".7"/><text x="222" y="96" text-anchor="middle" fill="#80c0dd" font-size="6">Uranus</text></svg>',
+
+  circuit_serie: '<svg viewBox="0 0 220 160" xmlns="http://www.w3.org/2000/svg"><rect x="10" y="70" width="30" height="20" rx="3" fill="rgba(212,168,67,.15)" stroke="#d4a843" stroke-width="1.5"/><text x="25" y="83" text-anchor="middle" fill="#d4a843" font-size="8" font-family="serif">Pile</text><line x1="40" y1="80" x2="70" y2="80" stroke="#4edd8a" stroke-width="2"/><rect x="70" y="70" width="30" height="20" rx="3" fill="rgba(78,221,138,.15)" stroke="#4edd8a" stroke-width="1.5"/><text x="85" y="83" text-anchor="middle" fill="#4edd8a" font-size="8">L1</text><line x1="100" y1="80" x2="130" y2="80" stroke="#4edd8a" stroke-width="2"/><rect x="130" y="70" width="30" height="20" rx="3" fill="rgba(78,221,138,.15)" stroke="#4edd8a" stroke-width="1.5"/><text x="145" y="83" text-anchor="middle" fill="#4edd8a" font-size="8">L2</text><line x1="160" y1="80" x2="200" y2="80" stroke="#4edd8a" stroke-width="2"/><line x1="200" y1="80" x2="200" y2="40" stroke="#4edd8a" stroke-width="2"/><line x1="200" y1="40" x2="10" y2="40" stroke="#4edd8a" stroke-width="2"/><line x1="10" y1="40" x2="10" y2="70" stroke="#4edd8a" stroke-width="2"/><text x="110" y="130" text-anchor="middle" fill="rgba(232,223,196,.5)" font-size="9" font-family="serif">Circuit en série</text></svg>',
+
+  circuit_derive: '<svg viewBox="0 0 220 170" xmlns="http://www.w3.org/2000/svg"><rect x="10" y="75" width="28" height="18" rx="2" fill="rgba(212,168,67,.15)" stroke="#d4a843" stroke-width="1.5"/><text x="24" y="87" text-anchor="middle" fill="#d4a843" font-size="8">Pile</text><line x1="38" y1="84" x2="70" y2="84" stroke="#4edd8a" stroke-width="2"/><line x1="70" y1="84" x2="70" y2="50" stroke="#4edd8a" stroke-width="2"/><line x1="70" y1="84" x2="70" y2="118" stroke="#4edd8a" stroke-width="2"/><rect x="85" y="42" width="30" height="16" rx="2" fill="rgba(78,221,138,.15)" stroke="#4edd8a" stroke-width="1.5"/><text x="100" y="53" text-anchor="middle" fill="#4edd8a" font-size="8">L1</text><rect x="85" y="110" width="30" height="16" rx="2" fill="rgba(78,221,138,.15)" stroke="#4edd8a" stroke-width="1.5"/><text x="100" y="121" text-anchor="middle" fill="#4edd8a" font-size="8">L2</text><line x1="70" y1="50" x2="85" y2="50" stroke="#4edd8a" stroke-width="2"/><line x1="70" y1="118" x2="85" y2="118" stroke="#4edd8a" stroke-width="2"/><line x1="115" y1="50" x2="150" y2="50" stroke="#4edd8a" stroke-width="2"/><line x1="115" y1="118" x2="150" y2="118" stroke="#4edd8a" stroke-width="2"/><line x1="150" y1="50" x2="150" y2="84" stroke="#4edd8a" stroke-width="2"/><line x1="150" y1="118" x2="150" y2="84" stroke="#4edd8a" stroke-width="2"/><line x1="150" y1="84" x2="185" y2="84" stroke="#4edd8a" stroke-width="2"/><line x1="185" y1="84" x2="185" y2="30" stroke="#4edd8a" stroke-width="2"/><line x1="185" y1="30" x2="10" y2="30" stroke="#4edd8a" stroke-width="2"/><line x1="10" y1="30" x2="10" y2="75" stroke="#4edd8a" stroke-width="2"/><text x="110" y="155" text-anchor="middle" fill="rgba(232,223,196,.5)" font-size="9" font-family="serif">Circuit en dérivation</text></svg>',
+
+  atome: '<svg viewBox="0 0 220 180" xmlns="http://www.w3.org/2000/svg"><circle cx="110" cy="90" r="16" fill="rgba(232,80,80,.3)" stroke="#e84848" stroke-width="2"/><text x="110" y="94" text-anchor="middle" fill="#e8dfc4" font-size="9" font-family="serif">Noyau</text><ellipse cx="110" cy="90" rx="70" ry="30" fill="none" stroke="rgba(78,221,138,.5)" stroke-width="1.5" stroke-dasharray="4,3"/><ellipse cx="110" cy="90" rx="40" ry="70" fill="none" stroke="rgba(78,221,138,.5)" stroke-width="1.5" stroke-dasharray="4,3"/><circle cx="180" cy="90" r="5" fill="#4edd8a"/><circle cx="110" cy="20" r="5" fill="#4edd8a"/><circle cx="110" cy="160" r="5" fill="#4edd8a"/><circle cx="40" cy="90" r="5" fill="#4edd8a"/><text x="188" y="93" fill="rgba(78,221,138,.8)" font-size="8" font-family="serif">e⁻</text><text x="115" y="18" fill="rgba(78,221,138,.8)" font-size="8" font-family="serif">e⁻</text></svg>',
+
+  digestion: '<svg viewBox="0 0 160 220" xmlns="http://www.w3.org/2000/svg"><ellipse cx="80" cy="22" rx="18" ry="12" fill="rgba(78,221,138,.15)" stroke="#4edd8a" stroke-width="1.5"/><text x="80" y="26" text-anchor="middle" fill="#e8dfc4" font-size="7">Bouche</text><path d="M 72,34 Q 60,50 65,70" fill="none" stroke="#4edd8a" stroke-width="2"/><ellipse cx="66" cy="80" rx="10" ry="14" fill="rgba(78,221,138,.15)" stroke="#4edd8a" stroke-width="1.5"/><text x="82" y="82" fill="#e8dfc4" font-size="7">Estomac</text><path d="M 66,94 Q 60,105 55,115 Q 80,115 100,115 Q 90,105 80,95" fill="none" stroke="#4edd8a" stroke-width="2"/><rect x="45" y="115" width="70" height="40" rx="5" fill="rgba(78,221,138,.12)" stroke="#4edd8a" stroke-width="1.5"/><text x="80" y="138" text-anchor="middle" fill="#e8dfc4" font-size="7">Intestin grêle</text><rect x="50" y="160" width="60" height="25" rx="4" fill="rgba(78,221,138,.1)" stroke="#4edd8a" stroke-width="1.5"/><text x="80" y="175" text-anchor="middle" fill="#e8dfc4" font-size="7">Gros intestin</text><path d="M 80,185 L 80,205" stroke="#4edd8a" stroke-width="2"/><text x="80" y="215" text-anchor="middle" fill="rgba(78,221,138,.6)" font-size="7">Anus</text></svg>',
+
+  photosynthese: '<svg viewBox="0 0 220 160" xmlns="http://www.w3.org/2000/svg"><ellipse cx="110" cy="80" rx="80" ry="55" fill="rgba(50,180,80,.15)" stroke="#2eb85c" stroke-width="2"/><text x="30" y="55" fill="#f5a623" font-size="10" font-family="serif">☀ Lumière</text><text x="15" y="90" fill="#4a9edd" font-size="9" font-family="serif">CO₂ + H₂O</text><text x="155" y="90" fill="#4edd8a" font-size="9" font-family="serif">O₂ +</text><text x="155" y="104" fill="#4edd8a" font-size="9" font-family="serif">Glucose</text><line x1="65" y1="80" x2="95" y2="80" stroke="#f5a623" stroke-width="1.5" marker-end="url(#arr)"/><line x1="125" y1="80" x2="155" y2="80" stroke="#4edd8a" stroke-width="1.5"/><text x="110" y="84" text-anchor="middle" fill="#e8dfc4" font-size="8">Chloroplaste</text></svg>',
+
+  lune_phases: '<svg viewBox="0 0 220 120" xmlns="http://www.w3.org/2000/svg"><circle cx="20" cy="60" r="14" fill="#e8dfc4"/><text x="20" y="84" text-anchor="middle" fill="rgba(232,223,196,.6)" font-size="7">Pleine</text><circle cx="58" cy="60" r="14" fill="rgba(232,223,196,.1)" stroke="#e8dfc4" stroke-width="1"/><path d="M 58,46 Q 68,60 58,74" fill="#e8dfc4"/><text x="58" y="84" text-anchor="middle" fill="rgba(232,223,196,.6)" font-size="7">Quartier</text><circle cx="96" cy="60" r="14" fill="rgba(232,223,196,.05)" stroke="#e8dfc4" stroke-width="1"/><text x="96" y="84" text-anchor="middle" fill="rgba(232,223,196,.6)" font-size="7">Nouvelle</text><circle cx="134" cy="60" r="14" fill="rgba(232,223,196,.1)" stroke="#e8dfc4" stroke-width="1"/><path d="M 134,46 Q 124,60 134,74" fill="#e8dfc4"/><text x="134" y="84" text-anchor="middle" fill="rgba(232,223,196,.6)" font-size="7">Quartier</text><text x="110" y="112" text-anchor="middle" fill="rgba(232,223,196,.4)" font-size="8" font-family="serif">Cycle lunaire ≈ 29,5 jours</text></svg>',
+
+  energie_chaine: '<svg viewBox="0 0 220 120" xmlns="http://www.w3.org/2000/svg"><rect x="10" y="45" width="45" height="30" rx="4" fill="rgba(212,168,67,.15)" stroke="#d4a843" stroke-width="1.5"/><text x="32" y="63" text-anchor="middle" fill="#d4a843" font-size="8">Source</text><line x1="55" y1="60" x2="80" y2="60" stroke="#4edd8a" stroke-width="2" marker-end="url(#a)"/><rect x="80" y="45" width="60" height="30" rx="4" fill="rgba(78,221,138,.12)" stroke="#4edd8a" stroke-width="1.5"/><text x="110" y="63" text-anchor="middle" fill="#4edd8a" font-size="8">Convertisseur</text><line x1="140" y1="60" x2="165" y2="60" stroke="#4edd8a" stroke-width="2"/><rect x="165" y="45" width="45" height="30" rx="4" fill="rgba(74,158,221,.15)" stroke="#4a9edd" stroke-width="1.5"/><text x="187" y="63" text-anchor="middle" fill="#4a9edd" font-size="8">Récepteur</text><text x="110" y="105" text-anchor="middle" fill="rgba(232,223,196,.4)" font-size="8" font-family="serif">Chaîne énergétique</text></svg>',
+
+  spectre_lumiere: '<svg viewBox="0 0 220 100" xmlns="http://www.w3.org/2000/svg"><defs><linearGradient id="sp" x1="0" x2="1" y1="0" y2="0"><stop offset="0%" stop-color="#6600ff"/><stop offset="17%" stop-color="#0000ff"/><stop offset="33%" stop-color="#00cc00"/><stop offset="50%" stop-color="#ffff00"/><stop offset="67%" stop-color="#ff8800"/><stop offset="100%" stop-color="#ff0000"/></linearGradient></defs><rect x="15" y="30" width="190" height="35" fill="url(#sp)" rx="4"/><text x="15" y="22" fill="#6600ff" font-size="8">Violet</text><text x="185" y="22" fill="#ff4444" font-size="8">Rouge</text><text x="110" y="85" text-anchor="middle" fill="rgba(232,223,196,.5)" font-size="8" font-family="serif">Spectre visible de la lumière</text></svg>',
+
+  mouvement: '<svg viewBox="0 0 220 120" xmlns="http://www.w3.org/2000/svg"><line x1="20" y1="80" x2="200" y2="80" stroke="rgba(232,223,196,.3)" stroke-width="1"/><circle cx="40" cy="80" r="6" fill="#4edd8a"/><circle cx="80" cy="80" r="6" fill="#4edd8a"/><circle cx="120" cy="80" r="6" fill="#4edd8a"/><circle cx="160" cy="80" r="6" fill="#4edd8a"/><circle cx="200" cy="80" r="6" fill="#4edd8a"/><text x="40" y="100" text-anchor="middle" fill="rgba(232,223,196,.4)" font-size="8">t₀</text><text x="80" y="100" text-anchor="middle" fill="rgba(232,223,196,.4)" font-size="8">t₁</text><text x="120" y="100" text-anchor="middle" fill="rgba(232,223,196,.4)" font-size="8">t₂</text><text x="110" y="40" text-anchor="middle" fill="#4edd8a" font-size="9" font-family="serif">← intervalles égaux →</text><text x="110" y="25" text-anchor="middle" fill="rgba(232,223,196,.5)" font-size="8" font-family="serif">Mouvement uniforme</text></svg>',
+};
+
+const ALL_CARDS = [
+// ══════════════════════════════════════════════════════════════════
+// SVT — LA CELLULE ET LE VIVANT (25 cartes)
+// ══════════════════════════════════════════════════════════════════
+{id:1, cat:"SVT", q:"Quelle est l'unité de base du vivant ?", ans:"La cellule.", exp:"Tout être vivant est constitué d'une ou plusieurs cellules. C'est la plus petite unité capable de vie autonome."},
+{id:2, cat:"SVT", q:"Cite 3 éléments communs à toutes les cellules.", ans:"Membrane, cytoplasme, noyau.", exp:"La membrane délimite la cellule, le cytoplasme est le milieu intérieur, le noyau contient l'ADN.", svg:SVG.cellule},
+{id:3, cat:"SVT", q:"Quelle est la différence principale entre cellule animale et cellule végétale ?", ans:"La cellule végétale a une paroi, des chloroplastes et une grande vacuole.", exp:"Ces structures sont absentes des cellules animales.", svg:SVG.cellule_vegetale},
+{id:4, cat:"SVT", q:"Quel organite réalise la photosynthèse ?", ans:"Le chloroplaste.", exp:"Les chloroplastes contiennent la chlorophylle, le pigment vert qui capte la lumière."},
+{id:5, cat:"SVT", q:"Qu'est-ce que la mitose ?", ans:"La division d'une cellule en deux cellules filles identiques.", exp:"La mitose permet la croissance et le renouvellement des tissus."},
+{id:6, cat:"SVT", q:"Qu'est-ce que l'ADN ?", ans:"La molécule qui porte l'information génétique.", exp:"L'ADN (acide désoxyribonucléique) est présent dans le noyau et contient les gènes."},
+{id:7, cat:"SVT", q:"Qu'est-ce qu'un gène ?", ans:"Un segment d'ADN qui code une caractéristique héréditaire.", exp:"Les gènes déterminent les caractères biologiques (couleur des yeux, groupe sanguin...)."},
+{id:8, cat:"SVT", q:"Définition d'un être unicellulaire ?", ans:"Un être vivant constitué d'une seule cellule.", exp:"Exemples : bactérie, paramécie, levure, amibes."},
+{id:9, cat:"SVT", q:"Qu'est-ce qu'un tissu en biologie ?", ans:"Un ensemble de cellules de même type assurant une même fonction.", exp:"Exemples : tissu musculaire, tissu nerveux, tissu épithélial."},
+{id:10, cat:"SVT", q:"Qu'est-ce qu'un organe ?", ans:"Un ensemble de tissus assurant une fonction précise.", exp:"Exemples : cœur, foie, poumon, rein."},
+{id:11, cat:"SVT", q:"Quelle est la formule de la photosynthèse ?", ans:"CO₂ + H₂O + lumière → glucose + O₂", exp:"Les plantes fabriquent leur propre matière organique grâce à la lumière solaire.", svg:SVG.photosynthese},
+{id:12, cat:"SVT", q:"Qu'est-ce que la respiration cellulaire ?", ans:"La dégradation du glucose avec l'O₂ pour produire de l'énergie.", exp:"C₆H₁₂O₆ + O₂ → CO₂ + H₂O + énergie. Toutes les cellules respirent."},
+{id:13, cat:"SVT", q:"Quel est le rôle du noyau ?", ans:"Contenir et protéger l'ADN, coordonner les activités de la cellule.", exp:"Le noyau est le centre de contrôle de la cellule."},
+{id:14, cat:"SVT", q:"Qu'est-ce que la biodiversité ?", ans:"La diversité des espèces vivantes sur Terre.", exp:"Il existe environ 8,7 millions d'espèces estimées, dont seulement ~2 millions décrites."},
+{id:15, cat:"SVT", q:"Quelle est la différence entre reproduction sexuée et asexuée ?", ans:"Sexuée = 2 parents, variation génétique. Asexuée = 1 parent, clones.", exp:"La reproduction sexuée crée de la diversité génétique grâce à la fécondation."},
+{id:16, cat:"SVT", q:"Qu'est-ce qu'un écosystème ?", ans:"L'ensemble des êtres vivants d'un milieu et leurs interactions.", exp:"Un écosystème comprend la biocénose (vivant) et le biotope (milieu physique)."},
+{id:17, cat:"SVT", q:"Qu'est-ce qu'une chaîne alimentaire ?", ans:"Une suite d'êtres vivants où chacun mange le précédent.", exp:"Ex : herbe → lapin → renard → décomposeurs."},
+{id:18, cat:"SVT", q:"Qu'est-ce qu'un producteur dans une chaîne alimentaire ?", ans:"Un être vivant qui fabrique sa propre matière organique (plante verte).", exp:"Les producteurs réalisent la photosynthèse. Ils sont à la base de toutes les chaînes alimentaires."},
+{id:19, cat:"SVT", q:"Qu'est-ce qu'un décomposeur ?", ans:"Un organisme qui dégrade la matière organique morte.", exp:"Champignons, bactéries. Ils recyclent la matière et la rendent disponible pour les plantes."},
+{id:20, cat:"SVT", q:"Comment s'appelle le squelette des arthropodes ?", ans:"L'exosquelette (squelette externe).", exp:"Insectes, crustacés, araignées ont un exosquelette en chitine. Ils muent pour grandir."},
+{id:21, cat:"SVT", q:"Qu'est-ce que la classification du vivant ?", ans:"Regrouper les êtres vivants selon leurs caractères communs.", exp:"Les grands groupes : bactéries, protistes, champignons, plantes, animaux."},
+{id:22, cat:"SVT", q:"Qu'est-ce qu'un vertébré ?", ans:"Un animal possédant une colonne vertébrale.", exp:"Poissons, amphibiens, reptiles, oiseaux, mammifères sont des vertébrés."},
+{id:23, cat:"SVT", q:"Qu'est-ce que l'évolution des espèces ?", ans:"La modification progressive des espèces au fil des générations.", exp:"Darwin a proposé la sélection naturelle : les individus les mieux adaptés survivent et se reproduisent."},
+{id:24, cat:"SVT", q:"Qu'est-ce qu'un micro-organisme ?", ans:"Un être vivant invisible à l'œil nu.", exp:"Bactéries, virus, champignons microscopiques, protistes. Certains sont pathogènes (maladies)."},
+{id:25, cat:"SVT", q:"Quelle est la différence entre bactérie et virus ?", ans:"La bactérie est une cellule vivante, le virus est une particule non vivante.", exp:"Les bactéries peuvent se reproduire seules, les virus ont besoin d'une cellule hôte."},
+
+// ══════════════════════════════════════════════════════════════════
+// DIGESTION (20 cartes)
+// ══════════════════════════════════════════════════════════════════
+{id:26, cat:"Digestion", q:"Quel est l'ordre des organes du tube digestif ?", ans:"Bouche → œsophage → estomac → intestin grêle → gros intestin → anus.", exp:"Le tube digestif mesure environ 9 mètres au total.", svg:SVG.digestion},
+{id:27, cat:"Digestion", q:"Qu'est-ce que la digestion ?", ans:"La transformation des aliments en nutriments absorbables par l'organisme.", exp:"La digestion est à la fois mécanique (mastication) et chimique (enzymes)."},
+{id:28, cat:"Digestion", q:"Quel est le rôle de l'estomac ?", ans:"Broyer les aliments et les mélanger avec le suc gastrique.", exp:"Le suc gastrique contient de l'acide chlorhydrique et des enzymes qui décomposent les protéines."},
+{id:29, cat:"Digestion", q:"Où se fait principalement l'absorption des nutriments ?", ans:"Dans l'intestin grêle.", exp:"La paroi de l'intestin grêle possède des villosités qui augmentent la surface d'absorption."},
+{id:30, cat:"Digestion", q:"Quel est le rôle du foie dans la digestion ?", ans:"Produire la bile qui émulsionne les graisses.", exp:"La bile est stockée dans la vésicule biliaire et déversée dans l'intestin grêle lors des repas."},
+{id:31, cat:"Digestion", q:"Qu'est-ce qu'une enzyme digestive ?", ans:"Une molécule qui accélère la dégradation des aliments.", exp:"Amylase (amidon), protéase (protéines), lipase (graisses). Sans elles, la digestion serait trop lente."},
+{id:32, cat:"Digestion", q:"Quelle enzyme de la salive commence la digestion de l'amidon ?", ans:"L'amylase salivaire (ptyaline).", exp:"Elle transforme l'amidon en sucres simples dès la bouche."},
+{id:33, cat:"Digestion", q:"Qu'est-ce qu'un nutriment ?", ans:"Une petite molécule issue de la digestion, directement utilisable par les cellules.", exp:"Glucose, acides aminés, acides gras, vitamines, minéraux sont des nutriments."},
+{id:34, cat:"Digestion", q:"Quel est le rôle du gros intestin ?", ans:"Absorber l'eau et former les excréments.", exp:"Le gros intestin abrite des milliards de bactéries (microbiote) qui aident à la fermentation."},
+{id:35, cat:"Digestion", q:"Qu'est-ce que le péristaltisme ?", ans:"Les contractions musculaires qui font avancer les aliments dans le tube digestif.", exp:"Ce mouvement ondulatoire propulse le bol alimentaire de l'œsophage jusqu'à l'anus."},
+{id:36, cat:"Digestion", q:"Qu'est-ce que le bol alimentaire ?", ans:"La masse d'aliments mâchés et mélangés à la salive.", exp:"Il passe de la bouche à l'estomac via l'œsophage grâce à la déglutition."},
+{id:37, cat:"Digestion", q:"Quel nutriment est la principale source d'énergie des cellules ?", ans:"Le glucose.", exp:"Le glucose est issu de la digestion des glucides (pain, pâtes, sucre...)."},
+{id:38, cat:"Digestion", q:"Qu'est-ce qu'une villosité intestinale ?", ans:"Un repli de la paroi de l'intestin grêle qui augmente la surface d'absorption.", exp:"Sans les villosités, la surface d'absorption ne serait que de 0,3 m². Avec elles, elle atteint 200 m²."},
+{id:39, cat:"Digestion", q:"Par où passent les nutriments après absorption intestinale ?", ans:"Dans le sang (et la lymphe pour les graisses).", exp:"Le sang transporte les nutriments vers le foie en premier, puis vers toutes les cellules."},
+{id:40, cat:"Digestion", q:"Qu'est-ce que le microbiote intestinal ?", ans:"L'ensemble des micro-organismes (bactéries) vivant dans l'intestin.", exp:"Le microbiote aide à la digestion, la synthèse de vitamines et la protection contre les pathogènes."},
+{id:41, cat:"Digestion", q:"Qu'appelle-t-on les sucs digestifs ?", ans:"Les liquides produits par les glandes pour digérer les aliments.", exp:"Salive, suc gastrique, suc pancréatique, bile. Chacun contient des enzymes spécifiques."},
+{id:42, cat:"Digestion", q:"Combien de temps dure environ la digestion complète ?", ans:"Entre 24 et 72 heures.", exp:"L'estomac vide en 2-4 h, l'intestin grêle en 3-5 h, le gros intestin en 10-59 h."},
+{id:43, cat:"Digestion", q:"Qu'est-ce que le pancréas ?", ans:"Une glande qui produit des enzymes digestives et l'insuline.", exp:"Le suc pancréatique digère glucides, protéines et lipides. L'insuline régule la glycémie."},
+{id:44, cat:"Digestion", q:"Pourquoi les graisses ont-elles besoin d'être émulsionnées ?", ans:"Pour être découpées en petites gouttelettes accessibles aux lipases.", exp:"L'émulsification par la bile augmente la surface de contact entre les graisses et les enzymes."},
+{id:45, cat:"Digestion", q:"Quelle est la différence entre digestion et absorption ?", ans:"Digestion = transformer les aliments. Absorption = faire passer les nutriments dans le sang.", exp:"Les deux étapes sont nécessaires pour nourrir les cellules."},
+
+// ══════════════════════════════════════════════════════════════════
+// PHYSIQUE — ÉLECTRICITÉ (20 cartes)
+// ══════════════════════════════════════════════════════════════════
+{id:46, cat:"Physique", q:"Qu'est-ce que la tension électrique ?", ans:"La différence de potentiel entre deux points d'un circuit.", exp:"Elle se mesure en Volts (V) avec un voltmètre branché en dérivation."},
+{id:47, cat:"Physique", q:"Qu'est-ce que l'intensité du courant ?", ans:"La quantité de charges électriques qui passe par seconde.", exp:"Elle se mesure en Ampères (A) avec un ampèremètre branché en série."},
+{id:48, cat:"Physique", q:"Quelle est la loi d'Ohm ?", ans:"U = R × I (tension = résistance × intensité).", exp:"U en Volts, R en Ohms (Ω), I en Ampères. La résistance s'oppose au passage du courant."},
+{id:49, cat:"Physique", q:"Dans un circuit en série, que se passe-t-il si une lampe grille ?", ans:"Tout le circuit s'éteint.", exp:"En série, il n'y a qu'un seul chemin pour le courant. Si coupé, tout s'arrête.", svg:SVG.circuit_serie},
+{id:50, cat:"Physique", q:"Dans un circuit en dérivation, que se passe-t-il si une lampe grille ?", ans:"Les autres lampes restent allumées.", exp:"En dérivation, chaque branche a son propre chemin. Les autres fonctionnent indépendamment.", svg:SVG.circuit_derive},
+{id:51, cat:"Physique", q:"Comment la tension se comporte-t-elle en série ?", ans:"Elle se partage entre les dipôles.", exp:"U_total = U1 + U2 + U3. La somme des tensions = tension de la pile."},
+{id:52, cat:"Physique", q:"Comment l'intensité se comporte-t-elle en série ?", ans:"Elle est identique partout dans le circuit.", exp:"I = même valeur en tout point d'un circuit série."},
+{id:53, cat:"Physique", q:"Comment la tension se comporte-t-elle en dérivation ?", ans:"Elle est identique aux bornes de chaque branche.", exp:"U_branche1 = U_branche2 = U_total (pile)."},
+{id:54, cat:"Physique", q:"Qu'est-ce qu'un conducteur électrique ?", ans:"Un matériau qui laisse passer le courant électrique.", exp:"Métaux (cuivre, aluminium, or), eau salée, graphite. Le cuivre est le plus utilisé."},
+{id:55, cat:"Physique", q:"Qu'est-ce qu'un isolant électrique ?", ans:"Un matériau qui ne laisse pas passer le courant.", exp:"Plastique, caoutchouc, verre, bois sec, air. Ils protègent des électrocutions."},
+{id:56, cat:"Physique", q:"Qu'est-ce qu'un interrupteur dans un circuit ?", ans:"Un dipôle qui ouvre ou ferme le circuit.", exp:"Ouvert → circuit coupé → rien ne fonctionne. Fermé → circuit parcouru par le courant."},
+{id:57, cat:"Physique", q:"Quelle est l'unité de la résistance électrique ?", ans:"L'Ohm (Ω).", exp:"La résistance s'oppose au passage du courant. Plus R est grande, moins I est importante."},
+{id:58, cat:"Physique", q:"Qu'est-ce que la puissance électrique ?", ans:"P = U × I (en Watts).", exp:"P en Watts (W), U en Volts, I en Ampères. Ex : ampoule 60 W sous 230 V."},
+{id:59, cat:"Physique", q:"Qu'est-ce qu'un court-circuit ?", ans:"Une connexion directe entre les bornes de la pile sans résistance.", exp:"Le courant très intense peut provoquer un incendie ou détruire la pile."},
+{id:60, cat:"Physique", q:"Comment mesure-t-on la tension ?", ans:"Avec un voltmètre branché en dérivation (en parallèle).", exp:"Le voltmètre a une très grande résistance pour ne pas modifier le circuit."},
+{id:61, cat:"Physique", q:"Comment mesure-t-on l'intensité ?", ans:"Avec un ampèremètre branché en série.", exp:"L'ampèremètre a une résistance quasi nulle pour ne pas gêner le courant."},
+{id:62, cat:"Physique", q:"Qu'est-ce que l'énergie électrique ?", ans:"E = P × t (puissance × durée, en Joules ou kWh).", exp:"1 kWh = énergie consommée par un appareil de 1000 W pendant 1 heure."},
+{id:63, cat:"Physique", q:"Qu'est-ce que la lumière blanche selon la physique ?", ans:"Un mélange de toutes les couleurs du spectre visible.", exp:"Un prisme décompose la lumière blanche en arc-en-ciel (violet → rouge).", svg:SVG.spectre_lumiere},
+{id:64, cat:"Physique", q:"Quelle est la vitesse de la lumière dans le vide ?", ans:"300 000 km/s (≈ 3×10⁸ m/s).", exp:"C'est la vitesse limite dans l'univers. La lumière met 8 min pour aller du Soleil à la Terre."},
+{id:65, cat:"Physique", q:"Qu'est-ce que l'ombre d'un objet ?", ans:"La zone où la lumière est bloquée par un objet opaque.", exp:"La lumière se propage en ligne droite. Un objet opaque crée une ombre portée."},
+
+// ══════════════════════════════════════════════════════════════════
+// CHIMIE (25 cartes)
+// ══════════════════════════════════════════════════════════════════
+{id:66, cat:"Chimie", q:"De quoi est composé un atome ?", ans:"D'un noyau (protons + neutrons) et d'électrons.", exp:"Le noyau est positif, les électrons sont négatifs. L'atome est globalement neutre.", svg:SVG.atome},
+{id:67, cat:"Chimie", q:"Qu'est-ce qu'un élément chimique ?", ans:"Un type d'atome défini par son nombre de protons.", exp:"Ex : Hydrogène (1 proton), Carbone (6 protons), Oxygène (8 protons)."},
+{id:68, cat:"Chimie", q:"Qu'est-ce qu'une molécule ?", ans:"Un assemblage d'atomes liés chimiquement.", exp:"H₂O = 2 hydrogènes + 1 oxygène. CO₂ = 1 carbone + 2 oxygènes."},
+{id:69, cat:"Chimie", q:"Qu'est-ce qu'un mélange ?", ans:"Une association de plusieurs substances sans réaction chimique.", exp:"Ex : eau + sel, air (N₂ + O₂), vinaigrette. Les composants peuvent être séparés."},
+{id:70, cat:"Chimie", q:"Qu'est-ce qu'une solution ?", ans:"Un mélange homogène d'un soluté dissous dans un solvant.", exp:"Eau sucrée = sucre (soluté) dans eau (solvant). L'eau est le solvant universel."},
+{id:71, cat:"Chimie", q:"Qu'est-ce que la solubilité ?", ans:"La quantité maximale d'un soluté pouvant se dissoudre dans un solvant.", exp:"La solubilité augmente généralement avec la température. Au-delà : solution saturée."},
+{id:72, cat:"Chimie", q:"Quelles sont les 3 états de la matière ?", ans:"Solide, liquide, gazeux.", exp:"Solide : forme et volume fixes. Liquide : volume fixe, forme variable. Gaz : volume et forme variables."},
+{id:73, cat:"Chimie", q:"Comment s'appelle le passage solide → liquide ?", ans:"La fusion.", exp:"Température de fusion de l'eau = 0°C. On parle de solidification pour le passage inverse."},
+{id:74, cat:"Chimie", q:"Comment s'appelle le passage liquide → gazeux ?", ans:"La vaporisation (ébullition ou évaporation).", exp:"Ébullition à 100°C pour l'eau à pression normale. La condensation est le passage inverse."},
+{id:75, cat:"Chimie", q:"Comment s'appelle le passage solide → gazeux directement ?", ans:"La sublimation.", exp:"Ex : glace carbonique (CO₂ solide) → gaz. La sublimation inverse s'appelle la condensation solide."},
+{id:76, cat:"Chimie", q:"Qu'est-ce qu'une réaction chimique ?", ans:"Une transformation qui produit de nouvelles substances avec de nouvelles propriétés.", exp:"Les liaisons entre atomes se brisent et se reforment. La masse totale est conservée."},
+{id:77, cat:"Chimie", q:"Qu'est-ce que la loi de conservation de la masse ?", ans:"La masse des réactifs = masse des produits.", exp:"Lavoisier (1789) : « Rien ne se perd, rien ne se crée, tout se transforme. »"},
+{id:78, cat:"Chimie", q:"Qu'est-ce qu'un réactif ?", ans:"Une substance qui intervient au début d'une réaction chimique.", exp:"Les réactifs sont transformés en produits lors de la réaction."},
+{id:79, cat:"Chimie", q:"Qu'est-ce qu'un acide ?", ans:"Une substance qui libère des ions H⁺ en solution aqueuse.", exp:"pH < 7. Exemples : jus de citron (pH 2), vinaigre (pH 3), eau gazeuse (pH 6)."},
+{id:80, cat:"Chimie", q:"Qu'est-ce qu'une base ?", ans:"Une substance qui libère des ions OH⁻ en solution aqueuse.", exp:"pH > 7. Exemples : soude (pH 14), eau de Javel (pH 12), savon (pH 9)."},
+{id:81, cat:"Chimie", q:"Qu'est-ce que le pH ?", ans:"Une mesure de l'acidité ou basicité d'une solution.", exp:"pH 7 = neutre. 0-6 = acide. 8-14 = basique. On mesure avec du papier pH ou un pH-mètre."},
+{id:82, cat:"Chimie", q:"Qu'est-ce que la combustion ?", ans:"Une réaction entre un combustible et l'oxygène produisant chaleur et lumière.", exp:"Combustion du méthane : CH₄ + 2O₂ → CO₂ + 2H₂O. Elle libère de l'énergie."},
+{id:83, cat:"Chimie", q:"Quelle est la formule chimique de l'eau ?", ans:"H₂O", exp:"2 atomes d'hydrogène + 1 atome d'oxygène. L'eau est neutre (pH 7)."},
+{id:84, cat:"Chimie", q:"Quelle est la formule du dioxyde de carbone ?", ans:"CO₂", exp:"1 carbone + 2 oxygènes. Produit par la respiration cellulaire et la combustion."},
+{id:85, cat:"Chimie", q:"Qu'est-ce que l'électrolyse de l'eau ?", ans:"La décomposition de l'eau en hydrogène et oxygène par un courant électrique.", exp:"2H₂O → 2H₂ + O₂. H₂ se forme à la cathode (−), O₂ à l'anode (+)."},
+{id:86, cat:"Chimie", q:"Qu'est-ce qu'un indicateur coloré ?", ans:"Une substance qui change de couleur selon le pH.", exp:"BBT : jaune en milieu acide, vert en neutre, bleu en milieu basique."},
+{id:87, cat:"Chimie", q:"Quelle est la composition de l'air ?", ans:"78% azote (N₂), 21% oxygène (O₂), 1% autres gaz.", exp:"Les autres gaz comprennent argon, CO₂, vapeur d'eau. L'air est un mélange."},
+{id:88, cat:"Chimie", q:"Qu'est-ce qu'une dissolution ?", ans:"L'action de dissoudre un soluté dans un solvant.", exp:"Le sel (NaCl) se dissocie en ions Na⁺ et Cl⁻ dans l'eau."},
+{id:89, cat:"Chimie", q:"Qu'est-ce que la distillation ?", ans:"Une technique de séparation basée sur les différences de températures d'ébullition.", exp:"Permet d'obtenir de l'eau pure, de séparer l'alcool du vin, de raffiner le pétrole."},
+{id:90, cat:"Chimie", q:"Qu'est-ce qu'un oxyde ?", ans:"Un composé d'un élément avec l'oxygène.", exp:"Rouille = oxyde de fer (Fe₂O₃). La rouille est une réaction lente d'oxydation."},
+
+// ══════════════════════════════════════════════════════════════════
+// ASTRONOMIE (20 cartes)
+// ══════════════════════════════════════════════════════════════════
+{id:91, cat:"Astronomie", q:"Donne l'ordre des planètes du système solaire.", ans:"Mercure, Vénus, Terre, Mars, Jupiter, Saturne, Uranus, Neptune.", exp:"Mnémotechnique : Mon Vieux Tu M'as Jeté Sur Une Navette.", svg:SVG.systeme_solaire},
+{id:92, cat:"Astronomie", q:"Qu'est-ce qu'une étoile ?", ans:"Une sphère de gaz très chaud qui produit sa propre lumière par fusion nucléaire.", exp:"Le Soleil est une étoile de taille moyenne. Il fusionne l'hydrogène en hélium."},
+{id:93, cat:"Astronomie", q:"Qu'est-ce qu'une planète ?", ans:"Un corps céleste qui orbite autour d'une étoile, a nettoyé son orbite.", exp:"Notre système solaire compte 8 planètes. Pluton est une planète naine."},
+{id:94, cat:"Astronomie", q:"Qu'est-ce qu'une année-lumière ?", ans:"La distance parcourue par la lumière en 1 an ≈ 9 460 milliards de km.", exp:"L'étoile la plus proche (Proxima Centauri) est à 4,2 années-lumière."},
+{id:95, cat:"Astronomie", q:"Pourquoi y a-t-il des saisons sur Terre ?", ans:"À cause de l'inclinaison de l'axe terrestre par rapport au plan orbital.", exp:"L'inclinaison de 23,5° fait varier l'angle d'incidence des rayons solaires selon la saison."},
+{id:96, cat:"Astronomie", q:"Quelle est la durée de révolution de la Terre autour du Soleil ?", ans:"365 jours et 6 heures (environ 1 an).", exp:"Les 6h s'accumulent et donnent une année bissextile de 366 jours tous les 4 ans."},
+{id:97, cat:"Astronomie", q:"Quelle est la durée de rotation de la Terre sur elle-même ?", ans:"24 heures (1 jour).", exp:"Cette rotation est responsable de l'alternance jour/nuit."},
+{id:98, cat:"Astronomie", q:"Qu'est-ce qu'une éclipse solaire ?", ans:"La Lune passe devant le Soleil et masque sa lumière.", exp:"L'éclipse est totale quand la Lune cache entièrement le Soleil. Elle dure quelques minutes."},
+{id:99, cat:"Astronomie", q:"Qu'est-ce qu'une éclipse lunaire ?", ans:"La Terre passe entre le Soleil et la Lune, projetant son ombre sur la Lune.", exp:"La Lune prend une teinte rouge-orangée (Lune de sang) car la lumière est déviée par l'atmosphère."},
+{id:100, cat:"Astronomie", q:"Qu'est-ce qui cause les marées ?", ans:"L'attraction gravitationnelle de la Lune (et du Soleil) sur les océans.", exp:"Il y a 2 marées hautes et 2 marées basses par jour. Les grandes marées ont lieu lors des pleine/nouvelle lune."},
+{id:101, cat:"Astronomie", q:"Qu'est-ce que la Voie lactée ?", ans:"La galaxie spirale dans laquelle se trouve notre système solaire.", exp:"Elle contient environ 200 milliards d'étoiles. Notre Soleil est à 26 000 années-lumière de son centre."},
+{id:102, cat:"Astronomie", q:"Qu'est-ce qu'un satellite naturel ?", ans:"Un corps céleste qui orbite autour d'une planète.", exp:"La Lune est le seul satellite naturel de la Terre. Jupiter en possède 95 !"},
+{id:103, cat:"Astronomie", q:"Quelle planète est la plus grande du système solaire ?", ans:"Jupiter.", exp:"Jupiter est 11 fois plus grande que la Terre et 318 fois plus massive. Sa Grande Tache Rouge est une tempête."},
+{id:104, cat:"Astronomie", q:"Quelle planète possède les anneaux les plus visibles ?", ans:"Saturne.", exp:"Les anneaux de Saturne sont composés de glace et de roche. Ils s'étendent sur 280 000 km."},
+{id:105, cat:"Astronomie", q:"Qu'est-ce que le Big Bang ?", ans:"L'événement originel il y a ~13,8 milliards d'années qui a donné naissance à l'univers.", exp:"L'univers a commencé par un état extrêmement dense et chaud, puis s'est étendu."},
+{id:106, cat:"Astronomie", q:"Pourquoi le ciel est-il bleu ?", ans:"La diffusion de Rayleigh : l'atmosphère diffuse plus la lumière bleue.", exp:"Les molécules d'air dévient préférentiellement les courtes longueurs d'onde (bleu/violet)."},
+{id:107, cat:"Astronomie", q:"Pourquoi le Soleil semble-t-il rouge au coucher ?", ans:"La lumière traverse plus d'atmosphère, filtrant les bleues et laissant les rouges.", exp:"Au coucher, les rayons solaires traversent davantage d'atmosphère, diffusant les couleurs bleues."},
+{id:108, cat:"Astronomie", q:"Qu'est-ce qu'une comète ?", ans:"Un petit corps glacé qui développe une traînée lumineuse en approchant du Soleil.", exp:"La chaleur solaire vaporise la glace et crée la chevelure et la queue de la comète."},
+{id:109, cat:"Astronomie", q:"Qu'est-ce qu'un astéroïde ?", ans:"Un petit corps rocheux orbitant principalement entre Mars et Jupiter.", exp:"La ceinture d'astéroïdes contient des millions de ces rochers. Certains croisent l'orbite terrestre."},
+{id:110, cat:"Astronomie", q:"Quelles phases de la Lune peut-on observer ?", ans:"Nouvelle lune, premier quartier, pleine lune, dernier quartier.", exp:"Le cycle lunaire dure environ 29,5 jours. La Lune montre toujours la même face à la Terre.", svg:SVG.lune_phases},
+
+// ══════════════════════════════════════════════════════════════════
+// ÉNERGIE (25 cartes)
+// ══════════════════════════════════════════════════════════════════
+{id:111, cat:"Énergie", q:"Quelles sont les principales formes d'énergie ?", ans:"Cinétique, potentielle, thermique, chimique, électrique, lumineuse, nucléaire.", exp:"L'énergie se transforme d'une forme à l'autre mais ne se crée pas et ne se détruit pas."},
+{id:112, cat:"Énergie", q:"Qu'est-ce que l'énergie cinétique ?", ans:"L'énergie d'un objet en mouvement.", exp:"Ec = ½mv². Plus un objet est rapide et lourd, plus son énergie cinétique est grande."},
+{id:113, cat:"Énergie", q:"Qu'est-ce que l'énergie potentielle de pesanteur ?", ans:"L'énergie liée à la hauteur d'un objet.", exp:"Ep = m × g × h. Plus un objet est haut, plus il peut fournir d'énergie en tombant."},
+{id:114, cat:"Énergie", q:"Qu'est-ce que la loi de conservation de l'énergie ?", ans:"L'énergie totale d'un système isolé reste constante.", exp:"L'énergie se transforme mais ne disparaît pas. Ex : énergie chimique → électrique → lumineuse.", svg:SVG.energie_chaine},
+{id:115, cat:"Énergie", q:"Qu'est-ce qu'une énergie fossile ?", ans:"Une énergie issue de la décomposition d'organismes anciens.", exp:"Pétrole, gaz naturel, charbon. Formés sur des millions d'années, non renouvelables en temps humain."},
+{id:116, cat:"Énergie", q:"Qu'est-ce qu'une énergie renouvelable ?", ans:"Une énergie issue de sources naturelles qui se renouvellent rapidement.", exp:"Solaire, éolien, hydraulique, biomasse, géothermie. Inépuisables à l'échelle humaine."},
+{id:117, cat:"Énergie", q:"Comment fonctionne un panneau solaire photovoltaïque ?", ans:"Il convertit la lumière solaire en électricité grâce à l'effet photovoltaïque.", exp:"Les cellules en silicium absorbent les photons et libèrent des électrons → courant électrique."},
+{id:118, cat:"Énergie", q:"Comment fonctionne une éolienne ?", ans:"Le vent fait tourner les pales qui entraînent un générateur produisant de l'électricité.", exp:"L'énergie cinétique du vent est convertie en énergie mécanique puis électrique."},
+{id:119, cat:"Énergie", q:"Comment fonctionne une centrale hydraulique ?", ans:"L'eau en chute entraîne des turbines qui produisent de l'électricité.", exp:"L'énergie potentielle de l'eau (barrage) → cinétique (chute) → électrique (alternateur)."},
+{id:120, cat:"Énergie", q:"Qu'est-ce que l'effet de serre ?", ans:"Le piégeage de la chaleur solaire par certains gaz atmosphériques.", exp:"CO₂, méthane, vapeur d'eau absorbent le rayonnement infrarouge. Sans effet de serre : −18°C en moyenne."},
+{id:121, cat:"Énergie", q:"Quels sont les principaux gaz à effet de serre ?", ans:"CO₂, méthane (CH₄), vapeur d'eau (H₂O), protoxyde d'azote (N₂O).", exp:"Le CO₂ est le plus surveillé car sa concentration augmente avec les combustibles fossiles."},
+{id:122, cat:"Énergie", q:"Qu'est-ce que l'énergie nucléaire ?", ans:"L'énergie libérée lors de la fission ou fusion du noyau atomique.", exp:"Fission : division d'un noyau lourd (uranium). La France produit ~70% de son électricité ainsi."},
+{id:123, cat:"Énergie", q:"Qu'est-ce que la biomasse comme source d'énergie ?", ans:"L'énergie produite par la combustion ou fermentation de matière organique.", exp:"Bois, biocarburants, biogaz. Renouvelable si les plantations sont gérées durablement."},
+{id:124, cat:"Énergie", q:"Qu'est-ce que la géothermie ?", ans:"L'utilisation de la chaleur interne de la Terre pour produire de l'énergie.", exp:"On peut chauffer des habitations (géothermie basse énergie) ou produire de l'électricité (haute énergie)."},
+{id:125, cat:"Énergie", q:"Qu'est-ce que le rendement énergétique ?", ans:"Le rapport entre l'énergie utile produite et l'énergie totale consommée.", exp:"Rendement = énergie utile / énergie totale × 100%. Une ampoule LED a un rendement de ~80%."},
+{id:126, cat:"Énergie", q:"Quelle est l'unité d'énergie dans le Système international ?", ans:"Le Joule (J).", exp:"1 kWh = 3 600 000 J. Les factures d'électricité utilisent le kWh (kilowattheure)."},
+{id:127, cat:"Énergie", q:"Qu'est-ce que la chaleur (thermique) ?", ans:"L'énergie transférée entre deux corps à des températures différentes.", exp:"La chaleur va toujours du corps chaud vers le corps froid. Elle se mesure en Joules."},
+{id:128, cat:"Énergie", q:"Pourquoi les énergies fossiles posent-elles problème ?", ans:"Elles sont non renouvelables et émettent du CO₂ (réchauffement climatique).", exp:"À ce rythme, pétrole et gaz pourraient s'épuiser en quelques décennies."},
+{id:129, cat:"Énergie", q:"Qu'est-ce qu'un générateur ?", ans:"Un appareil qui convertit une autre forme d'énergie en énergie électrique.", exp:"Pile (chimique → électrique), dynamo (mécanique → électrique), panneau solaire (lumière → électrique)."},
+{id:130, cat:"Énergie", q:"Qu'est-ce qu'un récepteur énergétique ?", ans:"Un appareil qui convertit l'énergie électrique en une autre forme.", exp:"Moteur (électrique → mécanique), lampe (électrique → lumineuse), radiateur (électrique → thermique)."},
+{id:131, cat:"Énergie", q:"Qu'est-ce que la transition énergétique ?", ans:"Le passage des énergies fossiles vers les énergies renouvelables.", exp:"Objectif de limiter le réchauffement à +1,5°C (Accord de Paris, 2015)."},
+{id:132, cat:"Énergie", q:"Qu'est-ce qu'une pile à combustible ?", ans:"Un dispositif qui produit de l'électricité par réaction entre H₂ et O₂.", exp:"H₂ + O₂ → H₂O + électricité. L'hydrogène est un vecteur d'énergie propre si produit par électrolyse."},
+{id:133, cat:"Énergie", q:"Pourquoi dit-on que l'énergie se dégrade ?", ans:"Elle se transforme partiellement en chaleur inutilisable (énergie perdue).", exp:"On ne peut pas utiliser 100% de l'énergie. Il y a toujours des pertes (frottements, résistances...)."},
+{id:134, cat:"Énergie", q:"Qu'est-ce que la puissance ?", ans:"La quantité d'énergie transférée ou transformée par unité de temps.", exp:"P = E/t. Unité : le Watt (W). 1W = 1 J/s."},
+{id:135, cat:"Énergie", q:"Qu'est-ce que le développement durable ?", ans:"Un développement qui répond aux besoins actuels sans compromettre ceux des générations futures.", exp:"3 piliers : économique, social, environnemental. Défini par le rapport Brundtland (1987)."},
+
+// ══════════════════════════════════════════════════════════════════
+// MOUVEMENTS (20 cartes)
+// ══════════════════════════════════════════════════════════════════
+{id:136, cat:"Mouvements", q:"Comment caractérise-t-on le mouvement d'un objet ?", ans:"Par sa trajectoire et sa vitesse.", exp:"La trajectoire est le chemin suivi. La vitesse mesure la rapidité du déplacement."},
+{id:137, cat:"Mouvements", q:"Qu'est-ce qu'un mouvement uniforme ?", ans:"Un mouvement à vitesse constante (ni accélération, ni décélération).", exp:"La trajectoire peut être rectiligne (voiture sur autoroute) ou courbe (satellite).", svg:SVG.mouvement},
+{id:138, cat:"Mouvements", q:"Quelle est la formule de la vitesse ?", ans:"v = d/t (vitesse = distance / temps).", exp:"Ex : 100 km en 2h → v = 50 km/h. On peut aussi l'écrire d = v × t."},
+{id:139, cat:"Mouvements", q:"Qu'est-ce qu'un mouvement accéléré ?", ans:"Un mouvement dont la vitesse augmente au cours du temps.", exp:"Une voiture qui démarre, un objet en chute libre (accélération = g = 9,8 m/s²)."},
+{id:140, cat:"Mouvements", q:"Qu'est-ce qu'un mouvement décéléré (freiné) ?", ans:"Un mouvement dont la vitesse diminue au cours du temps.", exp:"Une voiture qui freine, une balle qui monte dans les airs (freinée par la pesanteur)."},
+{id:141, cat:"Mouvements", q:"Qu'est-ce qu'une trajectoire rectiligne ?", ans:"Une trajectoire en ligne droite.", exp:"Ex : voiture sur autoroute, balle lancée horizontalement (approximation sans air)."},
+{id:142, cat:"Mouvements", q:"Qu'est-ce qu'une trajectoire circulaire ?", ans:"Une trajectoire en forme de cercle.", exp:"Ex : manège, satellite, aiguille d'horloge, Terre autour du Soleil (approximation)."},
+{id:143, cat:"Mouvements", q:"Qu'est-ce que la force de gravité (poids) ?", ans:"La force d'attraction exercée par la Terre sur les objets.", exp:"P = m × g. Sur Terre g ≈ 9,8 N/kg. Sur la Lune g ≈ 1,6 N/kg."},
+{id:144, cat:"Mouvements", q:"Quelle est la différence entre masse et poids ?", ans:"La masse est une quantité de matière (kg), le poids est une force (N).", exp:"La masse est invariable. Le poids change selon la gravité (Lune : poids 6× plus faible)."},
+{id:145, cat:"Mouvements", q:"Qu'est-ce que la loi d'inertie (1ère loi de Newton) ?", ans:"Un objet sans force reste en repos ou en mouvement rectiligne uniforme.", exp:"En l'absence de force nette, la vitesse ne change pas. Un objet dans l'espace continue indéfiniment."},
+{id:146, cat:"Mouvements", q:"Qu'est-ce que la friction ?", ans:"Une force qui s'oppose au mouvement entre deux surfaces en contact.", exp:"La friction convertit l'énergie cinétique en chaleur. Elle permet de freiner, marcher, écrire."},
+{id:147, cat:"Mouvements", q:"Qu'est-ce que la chute libre ?", ans:"La chute d'un objet soumis uniquement à la pesanteur (sans frottement de l'air).", exp:"Tous les objets tombent à la même vitesse en chute libre, quelle que soit leur masse."},
+{id:148, cat:"Mouvements", q:"Comment convertir km/h en m/s ?", ans:"Diviser par 3,6. Ex : 90 km/h ÷ 3,6 = 25 m/s.", exp:"Pour convertir m/s en km/h, on multiplie par 3,6."},
+{id:149, cat:"Mouvements", q:"Qu'est-ce que la distance de freinage ?", ans:"La distance parcourue entre le début du freinage et l'arrêt complet.", exp:"Elle dépend de la vitesse (v²), de la masse, de l'état des pneus et de la route."},
+{id:150, cat:"Mouvements", q:"Qu'est-ce que la distance de réaction ?", ans:"La distance parcourue entre la perception du danger et le début du freinage.", exp:"À 90 km/h avec 1s de réaction : 90 km/h × 1s = 25 m parcourus avant de freiner !"},
+{id:151, cat:"Mouvements", q:"Qu'est-ce qu'une force en physique ?", ans:"Une action mécanique capable de modifier le mouvement ou la forme d'un objet.", exp:"Une force a une direction, un sens et une intensité. Elle se mesure en Newtons (N)."},
+{id:152, cat:"Mouvements", q:"Comment représente-t-on une force ?", ans:"Par une flèche (vecteur) dont la longueur représente l'intensité.", exp:"La flèche indique le point d'application, la direction, le sens et l'intensité."},
+{id:153, cat:"Mouvements", q:"Qu'est-ce que l'équilibre d'un objet ?", ans:"Quand la somme de toutes les forces exercées sur lui est nulle.", exp:"Un livre posé sur une table : poids (bas) + réaction de la table (haut) = 0."},
+{id:154, cat:"Mouvements", q:"Qu'est-ce que la pression ?", ans:"La force exercée par unité de surface : P = F/S (en Pascals).", exp:"1 Pa = 1 N/m². La pression atmosphérique au sol ≈ 101 325 Pa (1 atm)."},
+{id:155, cat:"Mouvements", q:"Pourquoi flotte-t-on dans l'eau ?", ans:"La poussée d'Archimède (égale au poids du liquide déplacé) compense le poids.", exp:"Si la poussée > poids → flotte. Si poussée < poids → coule. Si égaux → densité = 1."},
+];
+
+/* ══ STATE ══ */
+let deck=[], idx=0, flipped=false, knownSet=new Set(), reviewSet=new Set();
+
+/* ══ FILTER ══ */
+function filterBy(cat, btn){
+  document.querySelectorAll('.filter-btn').forEach(b=>b.classList.remove('active'));
+  btn.classList.add('active');
+  deck = cat==='all' ? shuffle([...ALL_CARDS]) : shuffle(ALL_CARDS.filter(c=>c.cat===cat));
+  idx=0; flipped=false; knownSet.clear(); reviewSet.clear();
+  updateCounters(); buildStrip(); advance();
+}
+
+/* ══ LOAD ══ */
+function loadContent(){
+  const card=deck[idx];
+  const front=document.getElementById('front');
+  const svgZone=document.getElementById('fc-svg');
+  if(card.svg){
+    svgZone.style.display='flex';
+    svgZone.innerHTML=card.svg;
+    front.classList.add('has-svg');
+  } else {
+    svgZone.style.display='none';
+    svgZone.innerHTML='';
+    front.classList.remove('has-svg');
+  }
+  document.getElementById('fc-cat').textContent  = card.cat;
+  document.getElementById('fc-cat2').textContent = card.cat;
+  document.getElementById('fc-q').textContent    = card.q;
+  document.getElementById('fc-q2').textContent   = card.q;
+  document.getElementById('fc-ans').textContent  = card.ans;
+  document.getElementById('fc-exp').textContent  = card.exp||'';
+  const pct=(idx/deck.length)*100;
+  document.getElementById('p-text').textContent=`Carte ${idx+1} / ${deck.length}`;
+  document.getElementById('p-fill').style.width=pct+'%';
+  document.querySelectorAll('#strip .thumb-sci').forEach((el,i)=>el.classList.toggle('cur',i===idx));
+}
+
+/* ══ ADVANCE ══ */
+function advance(){
+  const ov=document.getElementById('overlay'), fr=document.getElementById('front'), wrap=document.getElementById('fc');
+  ov.classList.add('dark');
+  setTimeout(()=>{
+    wrap.classList.add('no-anim');
+    wrap.classList.remove('flipped');
+    flipped=false; fr.classList.remove('iris');
+    loadContent();
+    requestAnimationFrame(()=>requestAnimationFrame(()=>{
+      wrap.classList.remove('no-anim');
+      ov.classList.remove('dark');
+      fr.classList.add('iris');
+    }));
+  }, 180);
+}
+
+/* ══ FLIP ══ */
+function flipCard(){
+  if(flipped){ idx=(idx+1)%deck.length; advance(); }
+  else { flipped=true; document.getElementById('fc').classList.add('flipped'); }
+}
+
+/* ══ NAV ══ */
+function nextCard(){ idx=(idx+1)%deck.length; advance(); }
+function prevCard(){ idx=(idx-1+deck.length)%deck.length; advance(); }
+function shuffleCards(){ deck=shuffle([...deck]); idx=0; flipped=false; knownSet.clear(); reviewSet.clear(); updateCounters(); buildStrip(); advance(); }
+function markKnown(){ knownSet.add(deck[idx].id); reviewSet.delete(deck[idx].id); updateCounters(); idx=(idx+1)%deck.length; advance(); }
+function markReview(){ reviewSet.add(deck[idx].id); knownSet.delete(deck[idx].id); const c=deck.splice(idx,1)[0]; deck.splice(Math.min(idx+3,deck.length),0,c); updateCounters(); if(idx>=deck.length)idx=0; advance(); }
+
+/* ══ UI ══ */
+function updateCounters(){
+  document.getElementById('k-count').textContent=knownSet.size;
+  document.getElementById('r-count').textContent=reviewSet.size;
+  document.getElementById('rem-count').textContent=deck.length-knownSet.size-reviewSet.size;
+}
+function buildStrip(){
+  const strip=document.getElementById('strip'); strip.innerHTML='';
+  deck.forEach((card,i)=>{
+    const d=document.createElement('div');
+    d.className='thumb-sci'+(i===0?' cur':'');
+    d.textContent=card.cat.slice(0,4);
+    d.onclick=()=>{idx=i;advance();};
+    d.title=card.q;
+    strip.appendChild(d);
+  });
+}
+function shuffle(arr){for(let i=arr.length-1;i>0;i--){const j=Math.floor(Math.random()*(i+1));[arr[i],arr[j]]=[arr[j],arr[i]];}return arr;}
+
+/* ══ KEYBOARD ══ */
+document.addEventListener('keydown',e=>{
+  if(e.key==='ArrowRight'||e.key===' '){e.preventDefault();nextCard();}
+  if(e.key==='ArrowLeft'){e.preventDefault();prevCard();}
+  if(e.key==='Enter'){e.preventDefault();flipCard();}
+  if(e.key==='k'||e.key==='K')markKnown();
+  if(e.key==='r'||e.key==='R')markReview();
+});
+
+/* ══ STARS ══ */
+(function(){
+  const c=document.getElementById('stars-canvas'),ctx=c.getContext('2d');let stars=[];
+  function resize(){c.width=innerWidth;c.height=innerHeight;}
+  function init(){resize();stars=Array.from({length:200},()=>({x:Math.random(),y:Math.random(),r:Math.random()*1.2+.15,a:Math.random()*.5+.08,speed:Math.random()*.0004+.00015,phase:Math.random()*Math.PI*2}));}
+  let t=0;function draw(){t++;ctx.clearRect(0,0,c.width,c.height);for(const s of stars){const f=s.a*(.65+.35*Math.sin(t*s.speed*80+s.phase));ctx.beginPath();ctx.arc(s.x*c.width,s.y*c.height,s.r,0,Math.PI*2);ctx.fillStyle=`rgba(200,255,220,${f})`;ctx.fill();}requestAnimationFrame(draw);}
+  addEventListener('resize',init);init();draw();
+})();
+
+/* ══ BOOT ══ */
+deck=shuffle([...ALL_CARDS]);
+buildStrip();
+loadContent();
+</script>
+</body>
+</html>

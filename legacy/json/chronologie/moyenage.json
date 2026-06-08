@@ -1,0 +1,981 @@
+[
+  {
+    "era": "✦ Haut Moyen Âge",
+    "cls": "medieval",
+    "events": [
+      {
+        "icon": "⚡",
+        "tag": "Événement",
+        "date": "376 – 476",
+        "title": "Invasions Barbares & Chute de Rome",
+        "desc": "Huns, Wisigoths, Vandales déferlent sur l'Empire. En 476, Romulus Augustule est déposé. Fin de l'Antiquité, début du Moyen Âge.",
+        "anecdotes": [
+          {
+            "e": "😏",
+            "t": "<b>Romulus Augustule n'avait que 14 ans.</b> Odoacre lui accorda une pension confortable. La grande « chute de Rome » fut finalement peu dramatique."
+          },
+          {
+            "e": "🧱",
+            "t": "<b>L'Empire d'Orient (Byzance) survécut encore 977 ans</b> après 476 — jusqu'en 1453. Rome ne mourut pas vraiment ce jour-là."
+          }
+        ],
+        "kind": "histoire",
+        "img": "histoire/La chute de Rome, 476 après J.-C..webp"
+      },
+      {
+        "icon": "🔱",
+        "tag": "Conquérant",
+        "date": "434 – 453",
+        "title": "Attila & les Huns — Le Fléau de Dieu",
+        "desc": "Attila unifie les tribus huns et ravage l'Europe de la Chine aux portes de Rome. En 451, il envahit la Gaule. La coalition romano-wisigothique l'arrête aux Champs Catalauniques (près de Châlons). C'est l'une des batailles les plus décisives de l'histoire de France.",
+        "anecdotes": [
+          {
+            "e": "🛡️",
+            "t": "<b>La bataille des Champs Catalauniques (451)</b> est l'une des plus grandes batailles de l'Antiquité tardive — peut-être 200 000 morts. Elle sauva la Gaule et peut-être la civilisation romano-chrétienne de l'effacement."
+          },
+          {
+            "e": "😱",
+            "t": "<b>Attila avait surnommé lui-même « le Fléau de Dieu ».</b> L'herbe ne repoussait pas là où son cheval avait marché, disait-on. Il mourut en 453 d'une simple hémorragie nasale lors de sa nuit de noces."
+          }
+        ],
+        "kind": "histoire",
+        "img": "histoire/Atila.webp"
+      }
+    ]
+  },
+  {
+    "era": "✦ Mérovingiens",
+    "cls": "merov",
+    "events": [
+      {
+        "icon": "⚜️",
+        "tag": "Roi",
+        "date": "481 – 511",
+        "title": "Clovis Ier — Fondateur du Royaume de France",
+        "desc": "Il unifie les Francs et se fait baptiser à Reims vers 496. Naissance de l'alliance entre la royauté et l'Église catholique.",
+        "anecdotes": [
+          {
+            "e": "🏺",
+            "t": "<b>Le Vase de Soissons :</b> Clovis attendit un an avant de fracasser le crâne du soldat qui avait refusé de rendre un vase à l'évêque. La vengeance royale se fait attendre."
+          },
+          {
+            "e": "⚔️",
+            "t": "<b>Clovis élimina méthodiquement tous ses rivaux francs,</b> y compris ses cousins. À sa mort, il était le seul roi franc vivant."
+          }
+        ],
+        "kind": "histoire",
+        "img": "histoire/Le_baptême_de_Clovis_à_Reims.webp"
+      },
+      {
+        "icon": "👑",
+        "tag": "Roi",
+        "date": "629 – 639",
+        "title": "Dagobert Ier — Le Dernier Grand Mérovingien",
+        "desc": "Dernier roi mérovingien puissant. Il unifie le royaume franc et fait de Saint-Denis la nécropole royale de France.",
+        "anecdotes": [
+          {
+            "e": "👖",
+            "t": "<b>« Le bon roi Dagobert avait sa culotte à l'envers »</b> — cette chanson fut inventée sous la Révolution, pas du tout à l'époque de Dagobert !"
+          },
+          {
+            "e": "⛪",
+            "t": "<b>La tradition d'enterrer les rois à Saint-Denis</b> qu'il instaura dura jusqu'à Louis XVIII en 1824 — soit 1 185 ans de continuité."
+          }
+        ],
+        "kind": "histoire",
+        "img": "histoire/dagobert.webp"
+      },
+      {
+        "icon": "😴",
+        "tag": "Événement",
+        "date": "639 – 751",
+        "title": "Les Rois Fainéants",
+        "desc": "Les maires du palais prennent le vrai pouvoir. Les rois mérovingiens ne sont plus que des figurants promenés en charrette lors des fêtes.",
+        "anecdotes": [
+          {
+            "e": "💈",
+            "t": "<b>Couper les cheveux d'un roi mérovingien équivalait à l'abdiquer.</b> Plusieurs furent tonsurés de force et envoyés au monastère."
+          }
+        ],
+        "kind": "histoire",
+        "img": "histoire/rois faineants.webp"
+      }
+    ]
+  },
+  {
+    "era": "✦ Carolingiens",
+    "cls": "caro",
+    "events": [
+      {
+        "icon": "⚔️",
+        "tag": "Événement",
+        "date": "732",
+        "title": "Charles Martel — Poitiers",
+        "desc": "Maire du palais, Charles Martel arrête l'avancée arabe en Europe à la bataille de Poitiers. Le surnom « Martel » (le marteau) lui est donné.",
+        "anecdotes": [
+          {
+            "e": "👶",
+            "t": "<b>Charles Martel était né illégitime.</b> Emprisonné par sa belle-mère, il s'évada et prit le pouvoir. Le sauveur de l'Europe chrétienne était un bâtard en fuite."
+          }
+        ],
+        "kind": "histoire",
+        "img": "histoire/charles martel.webp"
+      },
+      {
+        "icon": "⚜️",
+        "tag": "Roi",
+        "date": "751 – 768",
+        "title": "Pépin le Bref — 1er Roi Carolingien",
+        "desc": "Il dépose le dernier mérovingien avec l'accord du pape. Son fils sera Charlemagne.",
+        "anecdotes": [
+          {
+            "e": "🤝",
+            "t": "<b>La « donation de Pépin » (754) :</b> il offrit au pape des terres en Italie en échange de sa légitimation. Naissance des États pontificaux, qui dureront jusqu'en 1870."
+          }
+        ],
+        "kind": "histoire",
+        "img": "histoire/pepin le bref.webp"
+      },
+      {
+        "icon": "👑",
+        "tag": "Roi",
+        "date": "768 – 814",
+        "title": "Charlemagne — Empereur d'Occident",
+        "desc": "Couronné Empereur à Rome le 25 décembre 800 par le pape Léon III. Il unifie l'Europe occidentale et crée les premières écoles.",
+        "anecdotes": [
+          {
+            "e": "✍️",
+            "t": "<b>Charlemagne avait du mal à écrire,</b> selon son biographe Éginhard. Il gardait une ardoise sous son oreiller pour s'exercer la nuit. L'homme qui créa les écoles luttait lui-même contre l'écriture."
+          },
+          {
+            "e": "📏",
+            "t": "<b>Il mesurait environ 1,92 m</b> — confirmé par ses ossements à Aix-la-Chapelle. Il dominait physiquement toute son assemblée."
+          }
+        ],
+        "kind": "histoire",
+        "img": "histoire/sacre_charlemagne.webp"
+      },
+      {
+        "kind": "histoire",
+        "icon": "🗣️",
+        "tag": "Langue",
+        "date": "842",
+        "title": "Les Serments de Strasbourg — Naissance du Français",
+        "desc": "Après la mort de Charlemagne, ses trois petits-fils se disputent l'empire. Deux d'entre eux, Louis le Germanique et Charles le Chauve, s'allient contre leur frère Lothaire. En 842, à Strasbourg, ils se font une promesse solennelle d'entraide. Mais voilà quelque chose d'extraordinaire : pour que les soldats de chacun comprennent le serment, chaque prince le prononce dans la langue de l'autre. Charles parle en vieux-allemand, Louis en vieux-français. Ce vieux-français est le plus ancien texte écrit dans la langue qui deviendra le français. Le latin de Jules César vient de se transformer en quelque chose de nouveau !",
+        "anecdotes": [
+          {
+            "t": "<b>La naissance officielle du français.</b> Les historiens considèrent les Serments de Strasbourg comme la date de naissance de la langue française. C'est la première fois qu'on écrit ce qui n'est plus du latin mais pas encore tout à fait du français — une langue intermédiaire qu'on appelle le roman. Tu parles donc une langue née en 842 !",
+            "e": "🗣️"
+          },
+          {
+            "t": "<b>Pourquoi l'empire s'est-il divisé ?</b> Les Francs avaient l'habitude de partager les terres entre les fils à la mort du père — comme on coupe un gâteau. Cette tradition pratique pour les familles était catastrophique pour les empires. L'Europe aurait peut-être une histoire très différente si Charlemagne n'avait eu qu'un seul héritier.",
+            "e": "✂️"
+          }
+        ],
+        "img": "histoire/serment de strasbourg.webp"
+      },
+      {
+        "kind": "histoire",
+        "icon": "✂️",
+        "tag": "Politique",
+        "date": "843",
+        "title": "Le Traité de Verdun — L'Europe Découpée",
+        "desc": "Un an après les Serments de Strasbourg, les trois petits-fils de Charlemagne signent le traité de Verdun en 843. Ils coupent l'empire en trois morceaux. Charles le Chauve reçoit l'Ouest — ce sera la France. Louis le Germanique reçoit l'Est — ce sera l'Allemagne. Lothaire garde le milieu et le titre d'empereur. Ce découpage, fait il y a 1 200 ans, dessine en gros les frontières de l'Europe d'aujourd'hui. La France que tu connais est née d'un coup de crayon sur une carte en 843 !",
+        "anecdotes": [
+          {
+            "t": "<b>Le traité de Verdun a créé l'Europe.</b> La France, l'Allemagne, l'Italie du Nord : ces trois grands pays ont pour ancêtre commun ce découpage de 843. Quand la France et l'Allemagne se font la guerre mille ans plus tard, elles se disputent encore les terres du milieu que Lothaire avait reçues — la Lorraine, l'Alsace, la Belgique.",
+            "e": "🗺️"
+          },
+          {
+            "t": "<b>Lothaire était le 'grand frère' qui voulait tout garder.</b> Il gardait le titre d'empereur et les terres du milieu, mais ses frères refusaient de lui obéir. Son empire du milieu — la Lotharingie — disparaîtra après sa mort, partagé à nouveau entre ses fils. Le titre d'empereur, lui, passera plus tard aux rois d'Allemagne.",
+            "e": "👑"
+          }
+        ],
+        "img": "histoire/traite de verdun.webp"
+      },
+      {
+        "icon": "🛶",
+        "tag": "Invasions",
+        "date": "845 à 911",
+        "title": "Les Vikings — Terreur sur la France & Naissance de la Normandie",
+        "desc": "Depuis les années 820, des drakkars normands remontent la Seine, la Loire et la Gironde. En 845, Ragnar assiège Paris : Charles le Chauve paie 7 000 livres d'argent pour les faire partir — la première rançon de l'histoire de France. En 885, ils reviennent avec 700 navires. Le comte Eudes défend Paris héroïquement pendant un an. En 911, le roi Charles le Simple prend une décision radicale : il cède la Normandie au chef viking Rollon, qui jure fidélité et se fait baptiser.",
+        "anecdotes": [
+          {
+            "e": "🛶",
+            "t": "<b>Les drakkars pouvaient remonter les fleuves jusqu'à Paris en quelques jours.</b> Leur tirant d'eau était si faible qu'ils naviguaient sur les rivières peu profondes. Les monastères, construits sur des îles pour la tranquillité spirituelle, se retrouvaient ainsi en première ligne des raids. Saint-Denis, Noirmoutier, Jumièges furent dévastés à répétition."
+          },
+          {
+            "e": "🤝",
+            "t": "<b>Rollon, baptisé Robert, fonda la lignée des ducs de Normandie.</b> Son arrière-arrière-arrière-petit-fils Guillaume le Conquérant traversa la Manche en 1066 et devint roi d'Angleterre. Les Vikings qui terrorisèrent la France devinrent les Normands — et l'un d'eux prit la couronne d'Angleterre. La France avait domestiqué ses envahisseurs en leur donnant une province."
+          },
+          {
+            "e": "😤",
+            "t": "<b>Rollon refusa de s'agenouiller devant le roi pour l'hommage féodal.</b> Un de ses hommes souleva le pied du roi pour l'embrasser — et le bascula à la renverse sous les éclats de rire des Vikings. Ce moment humiliant pour la royauté capétienne est rapporté par plusieurs chroniqueurs. Rollon avait clairement compris qu'il négociait en position de force."
+          }
+        ],
+        "kind": "histoire",
+        "img": "histoire/raids_vikings.webp"
+      },
+      {
+        "kind": "histoire",
+        "icon": "🐴",
+        "date": "Xe – XIIe siècle",
+        "title": "L'Étrier & le Collier d'Épaule",
+        "desc": "L'étrier (venu d'Asie centrale, diffusé en Europe dès le VIIIe siècle) et le collier d'épaule (généralisé en Europe entre le Xe et le XIIe siècle) transforment radicalement la traction animale et le combat. La productivité agricole bondit ; la chevalerie lourde devient possible.",
+        "anecdotes": [
+          {
+            "e": "🐴",
+            "t": "<b>Avant le collier d'épaule,</b> les chevaux portaient un joug sur la gorge qui les étranglait à l'effort. Ils ne pouvaient tirer que 500 kg. Avec le collier d'épaule, ils en tirent 1 500 kg."
+          },
+          {
+            "e": "⚔️",
+            "t": "<b>L'étrier changea la guerre.</b> Le cavalier stabilisé peut frapper avec toute la force de son cheval. C'est ce qui rendit la chevalerie lourde possible — et domina les champs de bataille pendant 700 ans."
+          }
+        ],
+        "img": "histoire/collier d epaule.webp"
+      }
+    ]
+  },
+  {
+    "era": "✦ Capétiens & Moyen Âge",
+    "cls": "capet",
+    "events": [
+      {
+        "icon": "🏝️",
+        "tag": "Monument",
+        "date": "966",
+        "title": "Le Mont Saint-Michel",
+        "desc": "Une abbaye bénédictine fondée sur un îlot rocheux de 80 m de hauteur en Normandie. Construit sur 10 siècles, le Mont Saint-Michel est le monument le plus visité de France après le Louvre.",
+        "anecdotes": [
+          {
+            "e": "🌊",
+            "t": "<b>Les marées du Mont Saint-Michel</b> sont les plus grandes d'Europe : la mer revient à la vitesse d'un cheval au galop. Des pèlerins se noyaient régulièrement en traversant la baie."
+          },
+          {
+            "e": "⚔️",
+            "t": "<b>Le Mont Saint-Michel résista aux Anglais pendant 116 ans</b>, tout au long de la Guerre de Cent Ans. Il devint le symbole de la résistance française."
+          }
+        ],
+        "kind": "histoire",
+        "img": "histoire/mont_saint_michel.webp"
+      },
+      {
+        "icon": "🏰",
+        "tag": "Roi",
+        "date": "987",
+        "title": "Hugues Capet — Fondateur de la Lignée",
+        "desc": "Élu roi, sa descendance régnera 800 ans. Petit royaume autour de Paris, mais lignée ininterrompue jusqu'en 1848.",
+        "anecdotes": [
+          {
+            "e": "🗳️",
+            "t": "<b>Hugues fut choisi parce que les grands seigneurs le jugeaient moins dangereux.</b> Ils pensaient pouvoir le contrôler. Ils se trompèrent."
+          }
+        ],
+        "kind": "histoire",
+        "img": "histoire/hugues capet.webp"
+      },
+      {
+        "kind": "histoire",
+        "icon": "⚔️",
+        "tag": "Conquête",
+        "date": "1066",
+        "title": "Guillaume le Conquérant — La France Conquiert l'Angleterre",
+        "desc": "En 1066, Guillaume, duc de Normandie (donc descendant de Vikings devenus Français !), traverse la Manche avec son armée et bat le roi d'Angleterre Harold à la bataille d'Hastings. Il devient roi d'Angleterre. Résultat inattendu : pendant des siècles, les rois d'Angleterre parlent français, la noblesse anglaise parle français, et des milliers de mots français entrent dans la langue anglaise. Aujourd'hui encore, la moitié des mots anglais viennent du français apporté par Guillaume !",
+        "anecdotes": [
+          {
+            "t": "<b>La bataille d'Hastings a duré toute une journée.</b> Harold semblait bien parti — son armée était bien positionnée sur une colline. Guillaume eut l'idée de faire semblant de fuir pour attirer les Anglais hors de leur position. Quand ils dévalèrent la pente en désordre, les Normands firent demi-tour et les massacrèrent. Harold fut tué, dit la légende, d'une flèche dans l'œil.",
+            "e": "🏹"
+          },
+          {
+            "t": "<b>La tapisserie de Bayeux raconte toute l'histoire en images.</b> Longue de 70 mètres, cette broderie géante réalisée peu après la bataille montre en bande dessinée — la plus ancienne du monde — toute l'histoire de la conquête. Elle est encore visible aujourd'hui au musée de Bayeux, en Normandie, et en parfait état après 950 ans !",
+            "e": "🗺️"
+          }
+        ],
+        "img": "histoire/guillaume le conquerant.webp"
+      },
+      {
+        "icon": "✝️",
+        "tag": "Événement",
+        "date": "1095 à 1291",
+        "title": "Les Croisades — Dieu le Veut !",
+        "desc": "En novembre 1095, le pape Urbain II prêche à Clermont-Ferrand devant une foule immense : il appelle les chrétiens à reprendre Jérusalem aux Turcs seldjoukides. La foule répond en masse : « Dieu le veut ! » C'est le signal de la première des huit croisades. En 1099, les croisés prennent Jérusalem et massacrent sa population. En 1291, Saint-Jean-d'Acre, dernier bastion chrétien, tombe. En 200 ans, les croisades ont transformé l'Europe, le Proche-Orient — et les relations entre chrétiens et musulmans pour des siècles.",
+        "anecdotes": [
+          {
+            "e": "⚔️",
+            "t": "<b>La Croisade des Pauvres précéda la vraie croisade — et fut un désastre.</b> Pierre l'Ermite, prédicateur charismatique, entraîna 40 000 miséreux en 1096 sans armée ni organisation. Ils pillèrent les juifs d'Europe en chemin, puis furent massacrés par les Turcs en Anatolie avant même d'atteindre Jérusalem. La vraie Première Croisade, militaire et organisée, repartit quelques mois plus tard."
+          },
+          {
+            "e": "🩸",
+            "t": "<b>La prise de Jérusalem en 1099 fut un bain de sang.</b> Les chroniqueurs croisés eux-mêmes décrivent « des ruisseaux de sang jusqu'aux chevilles ». Juifs et musulmans furent massacrés indistinctement. Cette violence fondatrice marqua durablement la mémoire du monde arabo-musulman — les croisades sont encore perçues comme un traumatisme dans tout le Proche-Orient."
+          },
+          {
+            "e": "🌍",
+            "t": "<b>Les croisés importèrent en Europe tout ce qu'ils découvrirent en Orient.</b> Les épices, le sucre, les agrumes, le coton, les moulins à vent, les chiffres arabes (et donc zéro), la transmission d'Aristote via les savants arabes — sans les croisades, la Renaissance européenne aurait été retardée de siècles. La rencontre violente avec l'Orient fut aussi une révolution culturelle."
+          }
+        ],
+        "kind": "histoire",
+        "img": "histoire/urbain2_croisades.webp"
+      },
+      {
+        "icon": "✝️",
+        "tag": "Ordre",
+        "date": "1119 – 1312",
+        "title": "Les Templiers — Moines & Guerriers",
+        "desc": "Fondé en 1119 à Jérusalem pour protéger les pèlerins, l'Ordre du Temple devient la première banque internationale d'Europe. Richissimes et puissants, les Templiers prêtent aux rois. Leur fortune attise la convoitise de Philippe le Bel.",
+        "anecdotes": [
+          {
+            "e": "🏦",
+            "t": "<b>Les Templiers inventèrent la lettre de crédit :</b> un pèlerin déposait de l'or en France et recevait un document qu'il échangeait à Jérusalem. Le principe de la banque moderne est né dans un ordre monastique médiéval."
+          },
+          {
+            "e": "🤫",
+            "t": "<b>Les « secrets » des Templiers alimentèrent des siècles de légendes :</b> Saint-Graal, Arche d'Alliance, trésors cachés. Leur richesse mystérieuse et leurs rites confidentiels nourrirent toutes les théories du complot de l'Occident."
+          }
+        ],
+        "kind": "histoire",
+        "img": "histoire/templiers.webp"
+      },
+      {
+        "icon": "👑",
+        "tag": "Reine",
+        "date": "1122 à 1204",
+        "title": "Aliénor d'Aquitaine — Reine de France, puis d'Angleterre",
+        "desc": "À 15 ans, Aliénor hérite du duché d'Aquitaine — un territoire plus vaste que le royaume de France. Elle épouse Louis VII et devient reine de France. Après 15 ans de mariage sans héritier mâle et une 2e croisade catastrophique, leur union est annulée en 1152. Huit semaines plus tard, Aliénor épouse Henri Plantagenêt, futur roi d'Angleterre. En une saison, la plus riche province de France passe à l'ennemi. Cette décision hantera la France pendant 300 ans — jusqu'à la fin de la Guerre de Cent Ans.",
+        "anecdotes": [
+          {
+            "e": "💔",
+            "t": "<b>L'Aquitaine fut le vrai moteur de la Guerre de Cent Ans.</b> En épousant Henri II, Aliénor apporta l'Aquitaine à la couronne anglaise. Les rois d'Angleterre la revendiquèrent pendant des siècles, refusant de la rendre. C'est cette dispute territoriale — née du remariage d'une femme en 1152 — qui déclencha finalement la Guerre de Cent Ans en 1337, 185 ans plus tard."
+          },
+          {
+            "e": "⚔️",
+            "t": "<b>Aliénor finança la révolte de ses propres fils contre Henri II.</b> En 1173, elle poussa Richard et Jean à se rebeller contre leur père. Henri II la fit emprisonner 16 ans dans ses châteaux anglais. À sa mort en 1189, son fils Richard Cœur de Lion la libéra aussitôt — elle avait 67 ans et gouverna l'Angleterre comme régente pendant ses absences en croisade."
+          },
+          {
+            "e": "🎵",
+            "t": "<b>La cour d'Aliénor inventa la poésie courtoise et l'amour romantique.</b> Elle protégea les troubadours, imposa les codes de la chevalerie et de l'amour courtois — l'idée qu'on pouvait aimer sans posséder, servir une dame sans espoir de récompense. Ces codes littéraires, nés à Poitiers dans les années 1170, sont l'ancêtre direct de toute la littérature romantique occidentale."
+          }
+        ],
+        "kind": "histoire",
+        "img": "histoire/alienor.webp"
+      },
+      {
+        "kind": "histoire",
+        "icon": "🏛️",
+        "date": "1140",
+        "title": "L'Arc-Boutant — Architecture Gothique",
+        "desc": "L'abbé Suger et les architectes de la cathédrale de Saint-Denis inventent l'arc-boutant. Cette structure reporte le poids des voûtes vers l'extérieur, permettant des murs percés de vitraux et des hauteurs inégalées.",
+        "anecdotes": [
+          {
+            "e": "✨",
+            "t": "<b>Sans l'arc-boutant,</b> les cathédrales gothiques seraient impossibles. Les murs épais des cathédrales romanes devaient tout porter — les murs gothiques sont presque transparents, remplis de vitraux colorés."
+          },
+          {
+            "e": "🏰",
+            "t": "<b>Notre-Dame de Paris (1163-1345)</b> est l'exemple parfait : ses arcs-boutants permettent des murs de verre et une hauteur de 35 mètres sous voûte. Une prouesse d'ingénierie médiévale."
+          }
+        ],
+        "img": "histoire/arc_boutant.webp"
+      },
+      {
+        "kind": "histoire",
+        "icon": "💡",
+        "tag": "Architecture",
+        "date": "1144",
+        "title": "La Basilique Saint-Denis — L'Invention du Gothique",
+        "desc": "Un moine très intelligent nommé Suger a une idée géniale : et si on construisait des églises remplies de lumière ? Jusqu'alors, les églises romanes avaient des murs épais et des petites fenêtres — elles étaient sombres. Suger invente une nouvelle façon de construire, le gothique, avec des arcs en ogive et des arcs-boutants qui soutiennent les murs de l'extérieur. Résultat : on peut ouvrir les murs en immenses vitraux colorés. La lumière entre à flots. Suger dit que 'Dieu est lumière'. Ce style gothique va transformer toutes les cathédrales de France pendant 300 ans.",
+        "anecdotes": [
+          {
+            "t": "<b>La lumière avait un sens religieux profond.</b> Pour les chrétiens du Moyen Âge, la lumière qui traverse le vitrail et se colore était une image de Dieu entrant dans le monde. Les vitraux de Chartres, du Sainte-Chapelle ou de Notre-Dame de Paris sont des descendants directs de cette idée de Suger. Tu n'entres pas dans une cathédrale gothique, tu entres dans la lumière de Dieu.",
+            "e": "🔆"
+          },
+          {
+            "t": "<b>L'arc-boutant est une invention révolutionnaire.</b> Comment construire des murs très hauts sans qu'ils s'écroulent sous le poids du toit ? En les soutenant de l'extérieur avec des bras de pierre inclinés — les arcs-boutants. Cette technique d'ingénierie médiévale a permis de construire des cathédrales de 40 ou 50 mètres de haut, qui tiennent toujours 800 ans plus tard sans béton armé.",
+            "e": "🏗️"
+          }
+        ],
+        "img": "histoire/basilique saint denis gothique.webp"
+      },
+      {
+        "kind": "histoire",
+        "icon": "🎓",
+        "date": "1150",
+        "title": "Naissance des Universités",
+        "desc": "Les premières universités européennes naissent à Bologne (1088), Paris (~1150–1170), Oxford (~1167). L'Université de Paris se forme progressivement autour des écoles cathédrales. Attention : la Sorbonne est un collège fondé vers 1257 par Robert de Sorbon — elle n'est pas l'université elle-même, mais en est devenue le symbole.",
+        "anecdotes": [
+          {
+            "e": "📚",
+            "t": "<b>L'Université de Paris (la Sorbonne)</b> fut la première université française. Elle attirait des étudiants de toute l'Europe — le latin était la langue commune qui permettait à des Allemands, Anglais et Espagnols de suivre les mêmes cours."
+          },
+          {
+            "e": "🎓",
+            "t": "<b>Le système « licence-maîtrise-doctorat »</b> inventé par les universités médiévales est encore celui que nous utilisons aujourd'hui, 850 ans plus tard."
+          }
+        ],
+        "img": "histoire/universités.webp"
+      },
+      {
+        "icon": "⛪",
+        "tag": "Monument",
+        "date": "1163",
+        "title": "Notre-Dame de Paris",
+        "desc": "Chef-d'œuvre du gothique, Notre-Dame est construite en 182 ans sur l'Île de la Cité. Ses arcs-boutants, rosaces et 69 m de hauteur en font le symbole de Paris. Incendiée en 2019, elle rouvre en décembre 2024.",
+        "anecdotes": [
+          {
+            "e": "🔥",
+            "t": "<b>L'incendie du 15 avril 2019</b> ravagea la flèche et la toiture. La charpente en chêne de 800 ans, la « forêt », disparut. Mais les tours et le trésor — dont la couronne d'épines — furent sauvés."
+          },
+          {
+            "e": "📚",
+            "t": "<b>Victor Hugo écrivit Notre-Dame de Paris (1831)</b> pour sauver la cathédrale de la démolition. Le roman créa un tel engouement que le gouvernement finança sa restauration."
+          }
+        ],
+        "kind": "histoire",
+        "img": "histoire/notre_dame_1200.webp"
+      },
+      {
+        "kind": "histoire",
+        "icon": "💨",
+        "date": "1180",
+        "title": "Le Moulin à Vent en Europe",
+        "desc": "Les croisés rapportent le moulin à vent de Perse. En quelques décennies, des milliers de moulins ponctuent le paysage européen, moudant le grain et pompant l'eau des polders hollandais.",
+        "anecdotes": [
+          {
+            "e": "💨",
+            "t": "<b>Les Pays-Bas utilisèrent les moulins à vent</b> pour pomper l'eau et assécher des terres gagnées sur la mer. Sans moulin à vent, les Pays-Bas tels qu'on les connaît n'existeraient pas."
+          },
+          {
+            "e": "⚙️",
+            "t": "<b>Don Quichotte attaque des moulins à vent</b> (Cervantes, 1605) en les prenant pour des géants. À cette époque, les moulins étaient si omniprésents dans le paysage qu'ils étaient devenus le symbole même du progrès technique."
+          }
+        ],
+        "img": "histoire/moulins a vent.webp"
+      },
+      {
+        "icon": "🗺️",
+        "tag": "Roi",
+        "date": "1180 – 1223",
+        "title": "Philippe Auguste — Bâtisseur du Royaume",
+        "desc": "Il quadruple le domaine royal (Bouvines, 1214) et fait construire le Louvre et les remparts de Paris.",
+        "anecdotes": [
+          {
+            "e": "🚿",
+            "t": "<b>Il ordonna le pavage de Paris</b> parce qu'il était incommodé par les odeurs depuis son palais. Paris reçut ses premières rues pavées grâce à sa sensibilité olfactive."
+          }
+        ],
+        "kind": "histoire",
+        "img": "histoire/La_bataille_de_Bouvines_en_1214.webp"
+      },
+      {
+        "kind": "histoire",
+        "icon": "🧭",
+        "date": "1190",
+        "title": "La Boussole en Europe",
+        "desc": "La boussole magnétique, venue de Chine via les Arabes, arrive en Europe. Elle permet la navigation en mer fermée, même par temps couvert. Sans elle, les Grandes Découvertes sont impossibles.",
+        "anecdotes": [
+          {
+            "e": "🌍",
+            "t": "<b>Avant la boussole,</b> les navigateurs européens longeaient les côtes. Ils ne pouvaient traverser l'Atlantique ou le Pacifique sans repères côtiers. La boussole leur donna enfin le courage de s'éloigner des terres."
+          },
+          {
+            "e": "🧲",
+            "t": "<b>La boussole pointe vers le nord magnétique,</b> pas le nord géographique. Cette déclinaison magnétique, découverte au XVe siècle, dut être compensée dans tous les calculs de navigation — une subtilité qui causa bien des naufrages."
+          }
+        ],
+        "img": "histoire/Schéma et histoire du compas.webp"
+      },
+      {
+        "kind": "histoire",
+        "icon": "👑",
+        "tag": "Régence",
+        "date": "1226 – 1252",
+        "title": "Blanche de Castille — La Reine qui Gouverna la France",
+        "desc": "Quand le roi Louis VIII meurt en 1226, son fils et héritier Louis IX n'a que 12 ans. C'est sa mère, Blanche de Castille, qui prend les rênes du royaume — et elle le fait avec une poigne de fer. Pendant des années, elle repousse les nobles qui veulent profiter de la jeunesse du roi pour reprendre du pouvoir, signe des traités, et élève son fils pour en faire un grand roi. Louis IX deviendra Saint Louis, l'un des rois les plus admirés de l'histoire de France. Grande première : pour la première fois, une femme gouverne la France, et elle est étrangère — elle vient d'Espagne !",
+        "anecdotes": [
+          {
+            "t": "<b>Blanche de Castille était la petite-fille d'Aliénor d'Aquitaine.</b> Ce qui fait d'elle l'héritière d'une longue lignée de femmes remarquables. Elle était réputée pour son intelligence politique, sa piété et sa poigne — les nobles rebelles la craignaient. Elle gouvernera la France non seulement pendant la minorité de Louis IX, mais aussi quand il partira en croisade !",
+            "e": "👑"
+          },
+          {
+            "t": "<b>Les barons essayèrent de l'intimider — et échouèrent.</b> Plusieurs grands seigneurs se coalisèrent pour profiter de la faiblesse d'un roi enfant. Blanche les affronta un par un, signa des alliances habiles et tint bon. Le jeune Louis IX put grandir et régner en paix grâce à la résistance de sa mère.",
+            "e": "💪"
+          }
+        ],
+        "img": "histoire/blanche castille.webp"
+      },
+      {
+        "icon": "🌳",
+        "tag": "Roi",
+        "date": "1226 – 1270",
+        "title": "Louis IX — Saint Louis",
+        "desc": "Roi pieux, il rend la justice sous un chêne à Vincennes. Part deux fois en croisade, meurt à Tunis. Canonisé en 1297.",
+        "anecdotes": [
+          {
+            "e": "💸",
+            "t": "<b>Louis IX racheta la « couronne d'épines »</b> pour une fortune colossale. Pour l'abriter, il fit construire la Sainte-Chapelle — encore visible aujourd'hui."
+          }
+        ],
+        "kind": "histoire",
+        "img": "histoire/Louis IX.webp"
+      },
+      {
+        "kind": "histoire",
+        "icon": "📜",
+        "tag": "Politique",
+        "date": "10 avril 1302",
+        "title": "Les États Généraux — Le Roi Demande l'Avis du Peuple",
+        "desc": "Le roi Philippe le Bel est en dispute avec le pape, qui prétend avoir plus d'autorité que lui. Pour montrer que tout le royaume est derrière lui, Philippe invente quelque chose de nouveau : il convoque à Notre-Dame de Paris des représentants de toute la France — les nobles, les prêtres, et pour la première fois, des représentants des villes (les bourgeois). C'est la naissance des États Généraux. Cette réunion de 1302 est le lointain ancêtre de notre Assemblée Nationale — et 487 ans plus tard, ce sont les États Généraux que Louis XVI convoquera en 1789, déclenchant la Révolution !",
+        "anecdotes": [
+          {
+            "t": "<b>Les États Généraux ont dormi pendant des siècles.</b> Après 1614, ils ne furent plus convoqués pendant 175 ans — jusqu'à la crise financière de 1789. Quand Louis XVI les réunit à Versailles, les représentants du Tiers État (le peuple) décidèrent de changer les règles du jeu. Cette assemblée convoquée par un roi finit par décapiter la monarchie. Histoire ironique.",
+            "e": "🏛️"
+          },
+          {
+            "t": "<b>L'idée que le roi doit consulter ses sujets est très ancienne.</b> Même les rois les plus puissants du Moyen Âge ne décidaient pas seuls. Ils devaient tenir compte des nobles, des évêques et des grandes villes. La démocratie moderne n'a pas inventé la représentation — elle l'a seulement élargie à tout le monde.",
+            "e": "📋"
+          }
+        ],
+        "img": "histoire/1ers etats generaux.webp"
+      },
+      {
+        "icon": "🎰",
+        "tag": "Événement",
+        "date": "1307 – 1314",
+        "title": "Philippe le Bel & la Chute des Templiers",
+        "desc": "Endetté jusqu'au cou envers les Templiers, Philippe IV fait arrêter tous leurs membres en France le 13 octobre 1307 — un vendredi. Sous la torture, les aveux s'accumulent. Il obtient du pape la dissolution de l'Ordre.",
+        "anecdotes": [
+          {
+            "e": "📅",
+            "t": "<b>Le vendredi 13 octobre 1307,</b> des milliers de Templiers furent arrêtés simultanément dans toute la France. Certains historiens voient dans cet événement l'origine de la superstition du « vendredi 13 »."
+          },
+          {
+            "e": "📚",
+            "t": "<b>« Les Rois Maudits » de Maurice Druon</b> s'inspirent directement de cette période. George R.R. Martin l'a lu avant d'écrire Game of Thrones — la Garde de Nuit ressemble étrangement aux Templiers."
+          }
+        ],
+        "kind": "histoire",
+        "img": "histoire/philippe le bel.webp"
+      },
+      {
+        "kind": "histoire",
+        "icon": "⛪",
+        "tag": "Religion",
+        "date": "1309 – 1377",
+        "title": "Les Papes à Avignon — Quand Rome s'Installa en France",
+        "desc": "Tu sais que le pape habite à Rome — mais pendant 68 ans au XIVe siècle, il habitait en France, à Avignon ! Comment ? Le roi Philippe le Bel était très influent, et le nouveau pape Clément V, qui était français, préféra rester près de chez lui. Il s'installa à Avignon en 1309. Les six papes suivants, tous français, firent pareil. C'était bizarre : le chef de toute la chrétienté vivait dans une ville française ! À Avignon, ils firent construire un immense palais, le Palais des Papes, qu'on peut encore visiter aujourd'hui.",
+        "anecdotes": [
+          {
+            "t": "<b>Le Palais des Papes d'Avignon est le plus grand bâtiment gothique du monde.</b> Construit en seulement 20 ans, il est immense — deux fois le château de Versailles ! Aujourd'hui encore, avec ses tours de 50 mètres, il domine la ville. Chaque été, son immense cour accueille le Festival d'Avignon, le plus grand festival de théâtre du monde.",
+            "e": "🏰"
+          },
+          {
+            "t": "<b>Beaucoup de chrétiens trouvaient ça scandaleux.</b> Le pape était censé être le successeur de saint Pierre, martyrisé à Rome. Le voir installer sa cour en France, sous l'influence du roi de France, choquait. Le grand poète italien Pétrarque appelait Avignon 'l'enfer des vivants'. En 1377, le pape Grégoire XI finit par rentrer à Rome — non sans mal.",
+            "e": "😤"
+          }
+        ],
+        "img": "histoire/pape avignon.webp"
+      },
+      {
+        "icon": "🔥",
+        "tag": "Événement",
+        "date": "18 mars 1314",
+        "title": "Le Bûcher de Jacques de Molay",
+        "desc": "Le grand maître des Templiers, Jacques de Molay, est brûlé vif à Paris sur l'île de la Cité. Depuis les flammes, il maudit Philippe le Bel et le pape Clément V — tous deux mourront dans l'année. La malédiction des Templiers entre dans la légende.",
+        "anecdotes": [
+          {
+            "e": "💀",
+            "t": "<b>Philippe le Bel mourut 8 mois après de Molay</b>, à 46 ans, d'une cause inconnue. Le pape Clément V avait précédé sa mort d'un mois. Coïncidence ou malédiction — les chroniqueurs de l'époque n'en doutèrent pas."
+          },
+          {
+            "e": "🏰",
+            "t": "<b>Le trésor des Templiers ne fut jamais retrouvé.</b> Il aurait été évacué avant les arrestations. Sa localisation est l'une des plus grandes chasses au trésor de l'histoire — et alimente des recherches encore aujourd'hui."
+          }
+        ],
+        "kind": "histoire",
+        "img": "histoire/Jacques_de_Molay_devant_Notre-Dame.webp"
+      },
+      {
+        "icon": "💀",
+        "tag": "Malédiction",
+        "date": "1314 à 1328",
+        "title": "Les Rois Maudits — La Fin des Capétiens Directs",
+        "desc": "Du bûcher, Jacques de Molay maudit Philippe le Bel et le pape Clément V : « Avant un an, je vous cite au tribunal de Dieu. » Le pape mourut en avril 1314, Philippe le Bel en novembre. Puis ses trois fils régnèrent et moururent sans héritier mâle en 14 ans : Louis X (1316), Philippe V (1322), Charles IV (1328). La lignée capétienne directe s'éteignit. La couronne passa à un cousin Valois — et l'Angleterre, qui la revendiquait aussi, déclencha la Guerre de Cent Ans.",
+        "anecdotes": [
+          {
+            "e": "📚",
+            "t": "<b>Maurice Druon en fit une saga de 7 romans — et inspira Game of Thrones.</b> « Les Rois Maudits » (1955–1977), que George R.R. Martin appela son « mentor », raconte cette décennie de scandales, meurtres et complots avec une précision historique remarquable. La Garde de Nuit de Martin ressemble étrangement aux Templiers. Le trône de fer, à ces intrigues dynastiques."
+          },
+          {
+            "e": "👸",
+            "t": "<b>L'affaire de la Tour de Nesle déclencha la fin des Capétiens.</b> En 1314, les belles-filles de Philippe le Bel furent accusées d'adultère — certaines condamnées à la prison à vie. Louis X, veuf, se remaria pour avoir un héritier : l'enfant mourut à 5 jours. Philippe V et Charles IV aussi remarièrent — et n'eurent que des filles. Trois mariages royaux, trois échecs dynastiques."
+          },
+          {
+            "e": "⚖️",
+            "t": "<b>La règle excluant les femmes du trône fut inventée à la hâte en 1316.</b> Quand Louis X mourut, sa fille Jeanne était l'héritière logique — mais les barons refusèrent une reine. On exhuma la loi salique franque pour justifier l'exclusion des femmes. Cette règle, improvisée pour régler une succession difficile, régit la monarchie française jusqu'en 1792 — et causa directement la Guerre de Cent Ans."
+          }
+        ],
+        "kind": "histoire",
+        "img": "histoire/La_fin_de_la_lignée_capétienne.webp"
+      },
+      {
+        "kind": "histoire",
+        "icon": "🎵",
+        "date": "1320 – 1370",
+        "title": "Ars Nova — La Polyphonie",
+        "desc": "Philippe de Vitry théorise l'Ars Nova (vers 1320) : plusieurs voix indépendantes chantent simultanément des mélodies différentes. Cette révolution rythmique et harmonique du XIVe siècle ouvre la voie à toute la musique polyphonique occidentale. À distinguer de l'École de Notre-Dame (XIIe–XIIIe s.) qui en fut le terreau.",
+        "anecdotes": [
+          {
+            "e": "🎶",
+            "t": "<b>La polyphonie semble évidente aujourd'hui,</b> mais c'était révolutionnaire au XIIIe siècle : faire chanter 4 voix indépendantes en harmonie requiert une théorie musicale complexe que personne n'avait formulée avant."
+          },
+          {
+            "e": "🏛️",
+            "t": "<b>L'École de Notre-Dame de Paris</b> (Léonin, Pérotin, XIIe s.) est le premier grand centre de composition polyphonique de l'histoire. Les musiciens venaient du monde entier étudier à Paris — la musique classique occidentale est née à Notre-Dame."
+          }
+        ],
+        "img": "histoire/ars nova.webp"
+      },
+      {
+        "icon": "⚔️",
+        "tag": "Événement",
+        "date": "1337 – 1453",
+        "title": "Guerre de Cent Ans",
+        "desc": "France contre Angleterre pour la couronne de France. Cent ans de batailles, d'occupations et de misère populaire, du règne de Philippe VI jusqu'à Charles VII. Redressement final grâce à Jeanne d'Arc (1429).",
+        "anecdotes": [
+          {
+            "e": "🔥",
+            "t": "<b>Jeanne d'Arc avait 17 ans</b> quand elle convainquit le roi de la laisser mener son armée. Brûlée à 19 ans. Canonisée en 1920 — 489 ans après son exécution."
+          }
+        ],
+        "kind": "histoire",
+        "img": "histoire/guerre de 100 ans.webp"
+      },
+      {
+        "icon": "🏹",
+        "tag": "Bataille",
+        "date": "26 août 1346",
+        "title": "Crécy — Le Désastre de la Chevalerie Française",
+        "desc": "Première grande défaite de la Guerre de Cent Ans. L'armée française, pourtant trois fois supérieure en nombre, est écrasée par les archers gallois d'Édouard III. La chevalerie en armure charge sans ordre et s'effondre sous les flèches.",
+        "anecdotes": [
+          {
+            "e": "🏹",
+            "t": "<b>Les archers gallois tiraient 10 à 12 flèches par minute.</b> Les arbalétriers génois engagés par la France ne pouvaient en tirer que 2. La supériorité technologique des Anglais fut décisive — et humiliante."
+          },
+          {
+            "e": "👑",
+            "t": "<b>Le roi de Bohême, aveugle, voulut quand même charger.</b> Il fit attacher ses cavaliers à lui pour le guider au combat. On les retrouva tous morts, chevaux liés ensemble. Son emblème — trois plumes — fut adopté par le Prince de Galles anglais et l'est encore aujourd'hui."
+          }
+        ],
+        "kind": "histoire",
+        "img": "histoire/crecy.webp"
+      },
+      {
+        "icon": "💀",
+        "tag": "Événement",
+        "date": "1347 – 1351",
+        "title": "La Grande Peste Noire",
+        "desc": "La peste bubonique tue un tiers de la population européenne — 25 à 50 millions de morts en 4 ans.",
+        "anecdotes": [
+          {
+            "e": "🐀",
+            "t": "<b>La chasse aux chats (associés aux sorcières) avait multiplié les rats.</b> Un préjugé religieux a peut-être tué des millions de personnes."
+          },
+          {
+            "e": "💸",
+            "t": "<b>Les survivants héritèrent des terres des morts.</b> Les salaires explosèrent. La Peste accéléra la fin du servage en Europe."
+          }
+        ],
+        "kind": "histoire",
+        "img": "histoire/peste.webp"
+      },
+      {
+        "kind": "histoire",
+        "icon": "⚔️",
+        "tag": "Défaite",
+        "date": "19 septembre 1356",
+        "title": "Poitiers — Le Roi de France Fait Prisonnier !",
+        "desc": "Imaginez qu'on capture le Président de la République à la guerre ! C'est ce qui arrive au roi Jean II de France en 1356 à Poitiers. Les archers anglais écrasent une nouvelle fois la chevalerie française. Pire : le roi lui-même est fait prisonnier et emmené en Angleterre. Pour le récupérer, la France devra payer une rançon astronomique — 3 millions d'écus d'or — et céder un tiers du territoire. C'est l'une des pires humiliations de l'histoire de France. C'est le fils du roi, Charles, 18 ans, qui doit gérer ce chaos.",
+        "anecdotes": [
+          {
+            "t": "<b>Jean II se battit jusqu'au bout.</b> Entouré d'ennemis, refusant de fuir, il continua à se battre avec son fils Philippe de 14 ans à ses côtés. Quand il se rendit enfin, plusieurs chevaliers anglais se disputèrent l'honneur de l'avoir capturé. Il fut traité avec tous les égards dus à un roi et put mener une vie confortable à Londres — en prison dorée.",
+            "e": "🤺"
+          },
+          {
+            "t": "<b>La rançon du roi ruina la France.</b> 3 millions d'écus, c'était plusieurs années de revenus du royaume entier. Pour payer, il fallut lever des impôts massifs, vendre des bijoux de la couronne, emprunter partout. Jean II, libéré, renvoya en otage son fils Louis — qui s'échappa. Jean II, homme d'honneur, retourna alors volontairement en captivité à Londres, où il mourut en 1364.",
+            "e": "💰"
+          }
+        ],
+        "img": "histoire/roi prisonnier.webp"
+      },
+      {
+        "icon": "📚",
+        "tag": "Roi",
+        "date": "1364 – 1380",
+        "title": "Charles V — Le Sage",
+        "desc": "Après les désastres de Crécy et Poitiers, Charles V reconstruit la France avec méthode. Il réforme l'armée, réorganise les finances et reprend presque tout le territoire perdu aux Anglais, sans livrer une seule grande bataille.",
+        "anecdotes": [
+          {
+            "e": "📚",
+            "t": "<b>Charles V créa la première grande bibliothèque royale de France</b> — ancêtre de la Bibliothèque nationale. Il y rassembla plus de 900 manuscrits au Louvre, fortune intellectuelle immense pour l'époque."
+          },
+          {
+            "e": "🪙",
+            "t": "<b>Il fut le premier roi à instaurer une fiscalité permanente.</b> L'impôt sur le sel (gabelle) et sur les transactions lui permit de financer son armée professionnelle — une révolution administrative."
+          }
+        ],
+        "kind": "histoire",
+        "img": "histoire/charles V.webp"
+      },
+      {
+        "icon": "🌀",
+        "tag": "Roi",
+        "date": "1380 – 1422",
+        "title": "Charles VI — Le Fol",
+        "desc": "Roi frappé de folie à partir de 1392 : crises de démence, il croit parfois être fait de verre. La France sombre dans la guerre civile entre Armagnacs et Bourguignons, ouvrant la porte aux Anglais.",
+        "anecdotes": [
+          {
+            "e": "🪟",
+            "t": "<b>Lors d'une crise, Charles VI croyait être fait de verre</b> et refusait qu'on le touche de peur de se briser. Il fallut coudre des barres de fer dans ses vêtements pour le rassurer. Un des cas psychiatriques les plus documentés du Moyen Âge."
+          },
+          {
+            "e": "🔥",
+            "t": "<b>Le Bal des Ardents (1393) :</b> lors d'une fête, des courtisans déguisés en sauvages prennent feu à cause des torches. Quatre morts. Charles VI n'échappe que par miracle — la duchesse de Berry le protège sous sa robe."
+          }
+        ],
+        "kind": "histoire",
+        "img": "histoire/charles VI.webp"
+      },
+      {
+        "kind": "histoire",
+        "icon": "✡️",
+        "tag": "Société",
+        "date": "1394",
+        "title": "L'Expulsion des Juifs de France",
+        "desc": "En 1394, le roi Charles VI décide d'expulser tous les Juifs du royaume de France. Ce n'était pas la première fois — ils avaient déjà été chassés plusieurs fois et rappelés. Mais cette fois, c'est présenté comme définitif. Des milliers de familles durent tout quitter — leurs maisons, leurs boutiques, leurs synagogues — et partir vers l'Allemagne, l'Italie ou l'Orient. Cette décision injuste faisait des Juifs les boucs émissaires des malheurs du temps (la guerre, la peste). Ce n'est qu'en 1791, après la Révolution française, que les Juifs de France obtiendraient enfin les mêmes droits que tous les autres citoyens.",
+        "anecdotes": [
+          {
+            "t": "<b>Rachi, le plus grand commentateur de la Bible du Moyen Âge, était de Troyes.</b> Ce savant extraordinaire, né vers 1040 à Troyes en Champagne, a écrit des commentaires sur la Bible et le Talmud encore étudiés aujourd'hui dans le monde entier. Il montre que les Juifs de France avaient une culture et un savoir remarquables — que l'expulsion de 1394 priva le royaume.",
+            "e": "📚"
+          },
+          {
+            "t": "<b>La France n'était pas la seule à expulser ses Juifs.</b> L'Angleterre l'avait fait en 1290. L'Espagne et le Portugal en 1492. Ces expulsions poussèrent les communautés juives vers l'Est de l'Europe — Pologne, Russie — où elles fondèrent des centres culturels et religieux florissants qui durèrent jusqu'à la Shoah au XXe siècle.",
+            "e": "🌍"
+          }
+        ],
+        "img": "histoire/expulsion juifs.webp"
+      },
+      {
+        "kind": "histoire",
+        "icon": "✍️",
+        "tag": "Littérature",
+        "date": "1405",
+        "title": "Christine de Pisan — La Première Grande Écrivaine Française",
+        "desc": "Au Moyen Âge, les femmes n'étaient pas censées écrire des livres. Christine de Pisan, venue d'Italie enfant et éduquée à la cour du roi, ne s'en soucia pas. Quand son mari mourut et la laissa seule avec ses enfants, elle se mit à écrire pour gagner sa vie. Poèmes, histoires, traités de politique et même un manuel militaire ! En 1405, elle écrit 'La Cité des Dames' — un livre où elle imagine une ville peuplée des plus grandes femmes de l'histoire pour montrer que les femmes sont aussi capables et courageuses que les hommes. 600 ans avant le féminisme, Christine défendait les mêmes idées !",
+        "anecdotes": [
+          {
+            "t": "<b>Christine de Pisan écrivit l'un des premiers poèmes sur Jeanne d'Arc.</b> En 1429, vieille et retirée dans un couvent, elle apprit la victoire de Jeanne à Orléans et écrivit un poème d'émerveillement. Deux femmes extraordinaires, l'une qui écrit, l'autre qui se bat — au même moment, dans la même France déchirée par la guerre.",
+            "e": "✍️"
+          },
+          {
+            "t": "<b>Elle dirigeait un atelier de copistes.</b> Avant l'imprimerie, les livres étaient recopiés à la main. Christine dirigeait une équipe qui copiait et enluminait les livres pour des princes et des nobles. C'était une vraie cheffe d'entreprise — et l'une des rares femmes du Moyen Âge à vivre de sa plume.",
+            "e": "💪"
+          }
+        ],
+        "img": "histoire/christine de pisan.webp"
+      },
+      {
+        "icon": "⚔️",
+        "tag": "Guerre civile",
+        "date": "1407 à 1435",
+        "title": "Bourguignons contre Armagnacs — La France contre elle-même",
+        "desc": "Pendant la folie de Charles VI, deux factions se disputent le pouvoir : les Bourguignons (menés par Jean sans Peur, duc de Bourgogne) et les Armagnacs (menés par Louis d'Orléans, frère du roi). En 1407, Jean sans Peur fait assassiner Louis d'Orléans dans une rue de Paris. La France bascule dans la guerre civile — pendant qu'Henri V d'Angleterre envahit et remporte Azincourt. Les Bourguignons, alliés aux Anglais, font signer au roi fou le traité de Troyes (1420) : l'héritier de France sera... le roi d'Angleterre.",
+        "anecdotes": [
+          {
+            "e": "🗡️",
+            "t": "<b>Jean sans Peur fit assassiner son cousin Louis d'Orléans en pleine rue de Paris.</b> Quand on lui demanda s'il avait ordonné le meurtre, il avoua — et ses conseillers théologiens argumentèrent que tuer un tyran était un acte vertueux. Ce cynisme absolu scandalisa l'Europe. 12 ans plus tard, Jean sans Peur fut assassiné à son tour sur le pont de Montereau par les hommes du Dauphin."
+          },
+          {
+            "e": "🤝",
+            "t": "<b>Les Bourguignons trahirent la France pour venger leur duc.</b> Après l'assassinat de Jean sans Peur (1419), son fils Philippe le Bon s'allia formellement avec l'Angleterre. Sans cet accord, Henri V n'aurait jamais pu imposer le traité de Troyes ni contrôler Paris. La guerre civile franco-française livra la France aux Anglais plus sûrement que n'importe quelle défaite militaire."
+          },
+          {
+            "e": "🕊️",
+            "t": "<b>La réconciliation de 1435 sauva la France.</b> Au traité d'Arras, Philippe le Bon abandonna l'alliance anglaise en échange de compensations territoriales et d'excuses solennelles pour le meurtre de son père. Ce retournement diplomatique — 16 ans après Azincourt — permit à Charles VII et Jeanne d'Arc de reconquérir la France. Sans Arras, la France serait peut-être restée anglaise."
+          }
+        ],
+        "kind": "histoire",
+        "img": "histoire/bourguignon armagnac.webp"
+      },
+      {
+        "icon": "🏹",
+        "tag": "Bataille",
+        "date": "25 octobre 1415",
+        "title": "Azincourt — La Catastrophe des Fleurs de Lys",
+        "desc": "Henri V d'Angleterre écrase une armée française cinq fois plus nombreuse. La noblesse française est décimée — plus de 6 000 morts côté français, une centaine côté anglais. La France, déjà ravagée par la folie de Charles VI, plie le genou.",
+        "anecdotes": [
+          {
+            "e": "🌧️",
+            "t": "<b>La pluie de la veille fut décisive.</b> Les chevaliers français en armure lourde s'enlisèrent dans la boue. Les archers anglais, plus légers, les abattirent avant même qu'ils puissent frapper. La météo changea l'histoire de France."
+          },
+          {
+            "e": "🎭",
+            "t": "<b>Shakespeare en fit une pièce immortelle</b> avec Henry V et son discours de la Saint-Crispin. « We few, we happy few, we band of brothers. » La défaite française est devenue un mythe anglais."
+          }
+        ],
+        "kind": "histoire",
+        "img": "histoire/Bataille d'Azincourt sous la pluie.webp"
+      },
+      {
+        "icon": "⚜️",
+        "tag": "Roi",
+        "date": "1422 – 1461",
+        "title": "Charles VII — Le Victorieux",
+        "desc": "Surnommé « le petit roi de Bourges » par ses ennemis, il semblait perdu. Jeanne d'Arc le fit sacrer à Reims en 1429. Il chassa les Anglais, mit fin à la Guerre de Cent Ans (1453) et réunifie la France.",
+        "anecdotes": [
+          {
+            "e": "🗡️",
+            "t": "<b>Charles VII abandonna Jeanne d'Arc</b> quand les Bourguignons la capturèrent en 1430. Il ne fit rien pour la sauver. Vingt ans plus tard, il organisa son procès en réhabilitation — trop tard, mais politiquement utile."
+          },
+          {
+            "e": "🏹",
+            "t": "<b>Il créa la première armée permanente de France</b> en 1445 — les Compagnies d'Ordonnance. Pour la première fois, les soldats étaient payés régulièrement, disciplinés et entraînés. La chevalerie féodale improvisée disparaissait."
+          }
+        ],
+        "kind": "histoire",
+        "img": "histoire/charles VII.webp"
+      },
+      {
+        "icon": "🔥",
+        "tag": "Événement",
+        "date": "30 mai 1431",
+        "title": "Le Bûcher de Jeanne d'Arc",
+        "desc": "Capturée par les Bourguignons puis vendue aux Anglais, Jeanne d'Arc est jugée pour hérésie à Rouen. Condamnée par un tribunal ecclésiastique, elle est brûlée vive à 19 ans. Réhabilitée en 1456. Canonisée en 1920.",
+        "anecdotes": [
+          {
+            "e": "💔",
+            "t": "<b>Le bourreau Geoffroy Therage dit qu'il « craignait d'être damné »</b> après l'exécution. Le cœur de Jeanne refusait de brûler. Sur ordre des Anglais, ses cendres furent jetées dans la Seine pour qu'aucune relique ne puisse être vénérée."
+          },
+          {
+            "e": "⚜️",
+            "t": "<b>Charles VII, qu'elle avait sauvé, ne fit rien pour la libérer.</b> Il fallut attendre 25 ans et la reconquête de Rouen pour qu'il lance le procès en réhabilitation — une nécessité politique autant que morale."
+          }
+        ],
+        "kind": "histoire",
+        "img": "histoire/jeanne-d-arc.webp"
+      },
+      {
+        "icon": "📰",
+        "tag": "Invention",
+        "date": "1450",
+        "title": "L'Imprimerie de Gutenberg",
+        "desc": "Johannes Gutenberg invente les caractères mobiles en plomb à Mayence. La Bible à 42 lignes est imprimée vers 1455. En quelques décennies, l'imprimerie se répand dans toute l'Europe — y compris en France dès 1470. La diffusion du savoir bascule pour toujours.",
+        "anecdotes": [
+          {
+            "e": "📖",
+            "t": "<b>Avant l'imprimerie, un moine copiait un livre en un an.</b> Gutenberg pouvait en produire 180 en quelques semaines. Le prix des livres s'effondra, l'alphabétisation explosa. La Réforme protestante, l'humanisme et la Renaissance en furent directement rendus possibles."
+          },
+          {
+            "e": "💸",
+            "t": "<b>Gutenberg mourut presque ruiné.</b> Son associé Fust lui réclama ses dettes en justice, saisit ses presses et récupéra l'essentiel des bénéfices. L'inventeur de l'imprimerie ne profita guère de sa révolution."
+          }
+        ],
+        "kind": "histoire",
+        "img": "histoire/Gutenberg.webp"
+      },
+      {
+        "kind": "histoire",
+        "icon": "🏹",
+        "tag": "Victoire",
+        "date": "17 juillet 1453",
+        "title": "Castillon — La Fin de la Guerre de Cent Ans",
+        "desc": "Après 116 ans de guerre, la France remporte enfin une victoire décisive à Castillon, près de Bordeaux, en 1453. Cette fois, les Anglais ont face à eux une arme terrifiante qu'ils ne connaissaient pas encore bien : les canons. L'artillerie française pulvérise leur armée. Le général anglais John Talbot, vieux guerrier de 70 ans, est tué. La Guyenne — le Sud-Ouest de la France — redevient française. L'Angleterre ne garde plus en France que Calais. Après plus d'un siècle de guerre, d'épidémies et de famine, la France peut enfin souffler.",
+        "anecdotes": [
+          {
+            "t": "<b>Les canons changèrent tout.</b> Castillon est l'une des premières batailles où l'artillerie décide de l'issue. Les Anglais, habitués à leurs archers aux longbows qui avaient écrasé la chevalerie française à Crécy et Azincourt, n'avaient pas de réponse face aux boulets de canon. La guerre médiévale touchait à sa fin — une nouvelle époque militaire commençait.",
+            "e": "💥"
+          },
+          {
+            "t": "<b>Bordeaux était anglaise depuis 300 ans.</b> La Guyenne appartenait aux rois d'Angleterre depuis le mariage d'Aliénor d'Aquitaine avec Henri II en 1152. Les Bordelais, qui exportaient leur vin vers l'Angleterre depuis des siècles, regrettèrent longtemps ce changement de maître. Aujourd'hui encore, le vin de Bordeaux est le plus bu en Angleterre — un lien qui dure depuis 900 ans.",
+            "e": "🍷"
+          }
+        ],
+        "img": "histoire/castillon la bataille.webp"
+      },
+      {
+        "icon": "🕸️",
+        "tag": "Roi",
+        "date": "1461 – 1483",
+        "title": "Louis XI — L'Universelle Araignée",
+        "desc": "Roi diplomate et rusé, il tisse ses intrigues plutôt que de livrer bataille. Il soumet la Bourgogne, annexe la Provence et la Franche-Comté, achève l'unification territoriale de la France. Ses ennemis l'appellent « l'Araignée ».",
+        "anecdotes": [
+          {
+            "e": "🕸️",
+            "t": "<b>Louis XI préférait payer ses ennemis plutôt que les combattre.</b> La diplomatie et l'or lui coûtaient moins cher que les guerres. Machiavel s'en inspirera directement pour écrire Le Prince."
+          },
+          {
+            "e": "🐊",
+            "t": "<b>Il inventait des cages en fer trop petites pour se tenir debout,</b> surnommées ses « fillettes ». Son conseiller Balue y passa 11 ans. Cet homme qui haïssait la noblesse fut pourtant le bâtisseur décisif du royaume de France."
+          }
+        ],
+        "kind": "histoire",
+        "img": "histoire/louis XI carte.webp"
+      },
+      {
+        "kind": "histoire",
+        "icon": "📬",
+        "tag": "Invention",
+        "date": "1476",
+        "title": "Les Relais de Poste — L'Internet du Moyen Âge",
+        "desc": "Sous Louis XI, une idée simple révolutionne les communications : on installe sur les grandes routes des 'relais' où des messagers royaux peuvent changer de cheval. Au lieu d'épuiser un seul cheval pour un long voyage, le message est transmis de relais en relais, comme un bâton de course. Une lettre peut traverser la France en quelques jours au lieu de plusieurs semaines. C'est le premier réseau de communication rapide de l'histoire — l'ancêtre de nos emails ! Et Louis XI, ce roi rusé qu'on surnomme 'l'Universelle Araignée', voulait surtout pouvoir envoyer ses espions et ses ordres plus vite que ses ennemis.",
+        "anecdotes": [
+          {
+            "t": "<b>Le mot 'poste' vient de là.</b> Les 'postes' étaient les points (du latin 'positum' — endroit fixé) où l'on changeait de cheval. De là vient la Poste française, les boîtes aux lettres, les facteurs, et même le mot 'poster' une lettre en anglais. Un système inventé sous Louis XI est encore dans nos mots quotidiens.",
+            "e": "📮"
+          },
+          {
+            "t": "<b>Louis XI était obsédé par le contrôle de l'information.</b> Ce roi méfiant avait des espions partout. Les relais de poste lui permettaient de recevoir des nouvelles de tout le royaume en quelques jours et d'envoyer ses ordres très vite. La rapidité de communication était au Moyen Âge une arme politique aussi puissante que les épées.",
+            "e": "🕵️"
+          }
+        ],
+        "img": "histoire/relais de poste.webp"
+      },
+      {
+        "kind": "histoire",
+        "icon": "🌿",
+        "tag": "Unification",
+        "date": "1481",
+        "title": "La Provence Rejoint la France",
+        "desc": "En 1481, le comte de Provence meurt sans héritier direct et lègue sa région au roi de France Louis XI. La Provence — avec ses oliviers, sa mer bleue, son soleil et ses villes comme Marseille et Aix — devient française. C'est une grande acquisition : la Provence est riche, cultivée, et ses ports ouvrent la France sur la Méditerranée. La France grandit à nouveau. Peu à peu, comme des pièces de puzzle, les grandes régions s'assemblent pour former le pays que nous connaissons.",
+        "anecdotes": [
+          {
+            "t": "<b>Le provençal était une grande langue littéraire.</b> Au Moyen Âge, les troubadours — poètes et musiciens — chantaient en occitan (langue d'oc) à travers toute l'Europe du Sud. L'amour courtois, cette façon romantique de parler de l'amour que tous les poètes ont imitée, est née en Provence. Quand la Provence rejoint la France, toute cette culture vient avec.",
+            "e": "🎵"
+          },
+          {
+            "t": "<b>La France se construisait comme un puzzle.</b> Au temps d'Hugues Capet (987), le roi ne contrôlait qu'un petit territoire autour de Paris. Peu à peu, par mariages, guerres, héritages et achats : la Normandie, la Bourgogne, la Provence, la Bretagne... Chaque pièce s'ajoutait. La France d'aujourd'hui est le résultat de 500 ans d'assemblage patient.",
+            "e": "🗺️"
+          }
+        ],
+        "img": "histoire/provence rejoint france.webp"
+      },
+      {
+        "kind": "histoire",
+        "icon": "🗺️",
+        "tag": "Unification",
+        "date": "1482 – 1493",
+        "title": "La Bourgogne & la Picardie — La France Complète son Puzzle",
+        "desc": "Charles le Téméraire, duc de Bourgogne et homme le plus puissant d'Europe après le roi, meurt en 1477 dans une bataille en Lorraine. Son rêve de créer un grand empire entre France et Allemagne s'effondre. Louis XI récupère rapidement la Bourgogne et la Picardie — deux régions immenses et riches. C'est un coup de maître : le rival le plus dangereux de la France a disparu, et ses terres tombent dans l'escarcelle du royaume. La France ressemble désormais beaucoup à ce qu'elle sera pendant des siècles.",
+        "anecdotes": [
+          {
+            "t": "<b>La Bourgogne était un état presque aussi puissant que la France.</b> Les ducs de Bourgogne contrôlaient non seulement la Bourgogne, mais aussi la Flandre — la région la plus riche d'Europe avec ses draperies, ses banquiers et ses villes comme Bruges et Gand. Charles le Téméraire avait une cour plus brillante et plus riche que celle du roi de France. Sa mort en bataille fut une chance extraordinaire pour Louis XI.",
+            "e": "💎"
+          },
+          {
+            "t": "<b>La fille de Charles, Marie de Bourgogne, épousa un Habsbourg.</b> Maximilien d'Autriche récupéra une partie des terres de son beau-père. Ce mariage créa la puissance des Habsbourg qui domineront l'Europe pendant 200 ans — et donneront à la France son grand rival : l'Empire. La mort de Charles le Téméraire enclencha une chaîne d'événements qui façonna l'histoire de l'Europe entière.",
+            "e": "🤝"
+          }
+        ],
+        "img": "histoire/picardie.webp"
+      }
+    ]
+  }
+]

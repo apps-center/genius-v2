@@ -1,0 +1,1269 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Chronologie Historique</title>
+<link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;700;900&family=Crimson+Pro:ital,wght@0,300;0,400;1,300&display=swap" rel="stylesheet">
+<style>
+:root{--star:#e8dfc4;--bg:#060a14;--line:rgba(200,180,120,0.2);--nav-w:260px;}
+*{box-sizing:border-box;margin:0;padding:0;}
+body{background:var(--bg);color:var(--star);font-family:'Crimson Pro',Georgia,serif;overflow-x:hidden;}
+#stars-canvas{position:fixed;inset:0;z-index:0;pointer-events:none;}
+
+/* ── NAV SIDEBAR ── */
+#sidebar{
+  position:fixed;left:0;top:0;bottom:0;width:var(--nav-w);
+  background:rgba(4,8,18,0.96);border-right:1px solid rgba(200,180,120,0.12);
+  z-index:100;display:flex;flex-direction:column;
+  overflow-y:auto;padding:24px 0 40px;
+  backdrop-filter:blur(12px);
+}
+#sidebar-title{
+  font-family:'Cinzel',serif;font-size:.62rem;letter-spacing:.32em;
+  text-transform:uppercase;color:rgba(232,223,196,0.35);
+  padding:0 22px 20px;border-bottom:1px solid rgba(200,180,120,0.1);
+  margin-bottom:14px;
+}
+.nav-section{font-family:'Cinzel',serif;font-size:.58rem;letter-spacing:.28em;
+  text-transform:uppercase;color:rgba(232,223,196,0.25);
+  padding:14px 22px 6px;margin-top:6px;}
+.nav-btn{
+  display:flex;align-items:center;gap:12px;
+  padding:11px 22px;cursor:pointer;border:none;background:none;
+  color:rgba(232,223,196,0.6);font-family:'Crimson Pro',serif;
+  font-size:.9rem;letter-spacing:.04em;text-align:left;width:100%;
+  transition:background .2s,color .2s;position:relative;
+  border-left:3px solid transparent;
+}
+.nav-btn:hover{background:rgba(255,255,255,0.04);color:var(--star);}
+.nav-btn.active{color:var(--star);background:rgba(255,255,255,0.06);}
+.nav-btn .nav-dot{width:8px;height:8px;border-radius:50%;flex-shrink:0;}
+.nav-btn .nav-icon{font-size:1.1rem;flex-shrink:0;width:22px;text-align:center;}
+.nav-btn .nav-label{flex:1;line-height:1.3;}
+.nav-btn .nav-count{font-size:.65rem;opacity:.4;margin-left:auto;}
+
+/* ── MAIN CONTENT ── */
+#main{margin-left:var(--nav-w);min-height:100vh;}
+
+header{
+  position:relative;z-index:10;text-align:center;
+  padding:60px 40px 40px;
+}
+header .subtitle{font-size:.9rem;letter-spacing:.35em;text-transform:uppercase;
+  color:rgba(232,223,196,.45);margin-bottom:14px;}
+header h1{font-family:'Cinzel',serif;font-size:clamp(1.6rem,4vw,3.4rem);font-weight:900;
+  letter-spacing:.05em;
+  background:linear-gradient(135deg,#f5e6a3 0%,#d4a843 40%,#f0c060 70%,#fff8e0 100%);
+  -webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;
+  line-height:1.1;}
+header p.desc{margin-top:14px;font-size:.95rem;color:rgba(232,223,196,.55);
+  font-style:italic;letter-spacing:.04em;}
+
+.branch-header{
+  position:relative;z-index:10;
+  display:flex;align-items:center;gap:16px;
+  max-width:900px;margin:0 auto;padding:0 24px 36px;
+}
+.branch-icon-big{font-size:2.4rem;}
+.branch-title{font-family:'Cinzel',serif;font-size:1.5rem;font-weight:900;}
+.branch-subtitle{font-size:.9rem;color:rgba(232,223,196,.55);font-style:italic;margin-top:4px;}
+.branch-period{display:inline-block;font-size:.65rem;letter-spacing:.2em;text-transform:uppercase;
+  padding:3px 12px;border-radius:2px;border:1px solid;opacity:.6;margin-top:8px;}
+
+.hint{position:relative;z-index:10;text-align:center;margin-bottom:28px;}
+.hint span{font-size:.72rem;letter-spacing:.16em;text-transform:uppercase;
+  color:rgba(232,223,196,.3);border:1px solid rgba(232,223,196,.1);
+  padding:4px 16px;border-radius:20px;}
+
+/* ── TIMELINE ── */
+.timeline{position:relative;z-index:10;max-width:900px;margin:0 auto;padding:0 24px 100px;}
+.timeline::before{content:'';position:absolute;left:50%;top:0;bottom:0;width:1px;
+  background:linear-gradient(to bottom,transparent,var(--line) 5%,var(--line) 95%,transparent);
+  transform:translateX(-50%);}
+
+.era-label{position:relative;display:flex;align-items:center;justify-content:center;
+  margin:48px 0 20px;gap:14px;}
+.era-label::before,.era-label::after{content:'';flex:1;height:1px;background:var(--line);}
+.era-label span{font-family:'Cinzel',serif;font-size:.66rem;letter-spacing:.26em;
+  text-transform:uppercase;padding:4px 14px;border:1px solid;border-radius:2px;white-space:nowrap;}
+
+.event{display:flex;align-items:flex-start;margin:22px 0;position:relative;
+  opacity:0;transform:translateY(20px);transition:opacity .55s,transform .55s;}
+.event.visible{opacity:1;transform:none;}
+.event.left{flex-direction:row;}
+.event.right{flex-direction:row-reverse;}
+
+.card{width:calc(50% - 44px);padding:14px 17px 12px;border-radius:4px;
+  border:1px solid rgba(200,180,120,.13);background:rgba(6,10,20,.85);
+  backdrop-filter:blur(8px);position:relative;cursor:pointer;
+  transition:border-color .22s,box-shadow .22s,transform .22s;}
+.card:hover{transform:scale(1.025);border-color:rgba(200,180,120,.4);
+  box-shadow:0 0 24px rgba(200,160,60,.13);}
+.card-hint{font-size:.62rem;letter-spacing:.13em;text-transform:uppercase;
+  opacity:0;transition:opacity .22s;margin-top:7px;display:flex;align-items:center;gap:4px;}
+.card:hover .card-hint{opacity:.45;}
+
+.event.left .card::after{content:'';position:absolute;right:-8px;top:16px;width:0;height:0;
+  border-top:6px solid transparent;border-bottom:6px solid transparent;
+  border-left:8px solid rgba(200,180,120,.13);}
+.event.right .card::after{content:'';position:absolute;left:-8px;top:16px;width:0;height:0;
+  border-top:6px solid transparent;border-bottom:6px solid transparent;
+  border-right:8px solid rgba(200,180,120,.13);}
+.dot{position:absolute;left:50%;top:16px;width:13px;height:13px;border-radius:50%;
+  transform:translate(-50%,0);border:2px solid var(--bg);z-index:2;transition:box-shadow .28s;}
+.event:hover .dot{box-shadow:0 0 12px 4px currentColor;}
+.connector{width:44px;height:2px;background:var(--line);align-self:flex-start;
+  margin-top:23px;flex-shrink:0;}
+
+.card-tag{display:inline-block;font-size:.58rem;letter-spacing:.17em;text-transform:uppercase;
+  padding:2px 7px;border-radius:2px;margin-bottom:6px;border:1px solid;opacity:.68;}
+.card-icon{font-size:1.4rem;margin-bottom:4px;display:block;}
+.card-date{font-family:'Cinzel',serif;font-size:.65rem;letter-spacing:.18em;
+  text-transform:uppercase;margin-bottom:3px;opacity:.55;}
+.card-title{font-family:'Cinzel',serif;font-size:.88rem;font-weight:700;
+  line-height:1.28;margin-bottom:5px;}
+.card-desc{font-size:.82rem;line-height:1.52;color:rgba(232,223,196,.62);font-style:italic;}
+
+/* ── BRANCH VISIBILITY ── */
+.branch{display:none;}
+.branch.active{display:block;}
+
+/* ── MODAL ── */
+.modal-overlay{position:fixed;inset:0;z-index:1000;background:rgba(3,6,15,.92);
+  backdrop-filter:blur(10px);display:flex;align-items:center;justify-content:center;
+  padding:20px;opacity:0;pointer-events:none;transition:opacity .28s;}
+.modal-overlay.open{opacity:1;pointer-events:all;}
+.modal{background:linear-gradient(148deg,#0c1628,#080e1c);
+  border:1px solid rgba(200,180,120,.28);border-radius:6px;
+  max-width:540px;width:100%;max-height:87vh;overflow-y:auto;
+  padding:32px 28px 28px;position:relative;
+  transform:translateY(16px) scale(.97);transition:transform .28s;}
+.modal-overlay.open .modal{transform:none;}
+.modal-close{position:absolute;top:12px;right:14px;background:none;border:none;
+  color:rgba(232,223,196,.38);font-size:1.2rem;cursor:pointer;padding:4px 8px;
+  border-radius:3px;transition:color .18s,background .18s;}
+.modal-close:hover{color:var(--star);background:rgba(255,255,255,.06);}
+.modal-icon{font-size:2.2rem;margin-bottom:8px;display:block;}
+.modal-tag{display:inline-block;font-size:.58rem;letter-spacing:.18em;text-transform:uppercase;
+  padding:2px 10px;border-radius:2px;margin-bottom:10px;border:1px solid;opacity:.7;}
+.modal-date{font-family:'Cinzel',serif;font-size:.66rem;letter-spacing:.2em;
+  text-transform:uppercase;opacity:.5;margin-bottom:4px;}
+.modal-title{font-family:'Cinzel',serif;font-size:1.15rem;font-weight:900;
+  line-height:1.22;margin-bottom:12px;}
+.modal-intro{font-size:.9rem;line-height:1.6;color:rgba(232,223,196,.7);font-style:italic;
+  margin-bottom:18px;padding-bottom:14px;border-bottom:1px solid rgba(200,180,120,.14);}
+.modal-anec-title{font-family:'Cinzel',serif;font-size:.63rem;letter-spacing:.26em;
+  text-transform:uppercase;opacity:.4;margin-bottom:12px;}
+.anecdote{display:flex;gap:12px;margin-bottom:14px;align-items:flex-start;}
+.anecdote-bullet{font-size:1rem;flex-shrink:0;margin-top:1px;}
+.anecdote-text{font-size:.86rem;line-height:1.6;color:rgba(232,223,196,.78);}
+.anecdote-text strong{color:var(--star);font-style:normal;}
+
+/* COLORS */
+/* France/Europe */
+.c-cosmic{color:#a084d8}.dot.cosmic{background:#a084d8}.card.cosmic{border-left:3px solid #a084d8}.era-label.cosmic span{color:#a084d8;border-color:rgba(160,132,216,.35)}
+.c-geo{color:#4ec99a}.dot.geo{background:#4ec99a}.card.geo{border-left:3px solid #4ec99a}.era-label.geo span{color:#4ec99a;border-color:rgba(78,201,154,.35)}
+.c-paleo{color:#e8a850}.dot.paleo{background:#e8a850}.card.paleo{border-left:3px solid #e8a850}.era-label.paleo span{color:#e8a850;border-color:rgba(232,168,80,.35)}
+.c-antique{color:#d4a843}.dot.antique{background:#d4a843}.card.antique{border-left:3px solid #d4a843}.era-label.antique span{color:#d4a843;border-color:rgba(212,168,67,.35)}
+.c-medieval{color:#d46060}.dot.medieval{background:#d46060}.card.medieval{border-left:3px solid #d46060}.era-label.medieval span{color:#d46060;border-color:rgba(212,96,96,.35)}
+.c-merov{color:#e0884a}.dot.merov{background:#e0884a}.card.merov{border-left:3px solid #e0884a}.era-label.merov span{color:#e0884a;border-color:rgba(224,136,74,.38)}
+.c-caro{color:#6ea8e8}.dot.caro{background:#6ea8e8}.card.caro{border-left:3px solid #6ea8e8}.era-label.caro span{color:#6ea8e8;border-color:rgba(110,168,232,.38)}
+.c-capet{color:#c8b840}.dot.capet{background:#c8b840}.card.capet{border-left:3px solid #c8b840}.era-label.capet span{color:#c8b840;border-color:rgba(200,184,64,.38)}
+.c-renaiss{color:#5ec48a}.dot.renaiss{background:#5ec48a}.card.renaiss{border-left:3px solid #5ec48a}.era-label.renaiss span{color:#5ec48a;border-color:rgba(94,196,138,.38)}
+.c-moderne{color:#c084d8}.dot.moderne{background:#c084d8}.card.moderne{border-left:3px solid #c084d8}.era-label.moderne span{color:#c084d8;border-color:rgba(192,132,216,.38)}
+.c-revolution{color:#e84040}.dot.revolution{background:#e84040}.card.revolution{border-left:3px solid #e84040}.era-label.revolution span{color:#e84040;border-color:rgba(232,64,64,.38)}
+.c-empire{color:#d4a020}.dot.empire{background:#d4a020}.card.empire{border-left:3px solid #d4a020}.era-label.empire span{color:#d4a020;border-color:rgba(212,160,32,.38)}
+.c-republiques{color:#60a0d8}.dot.republiques{background:#60a0d8}.card.republiques{border-left:3px solid #60a0d8}.era-label.republiques span{color:#60a0d8;border-color:rgba(96,160,216,.38)}
+.c-guerres{color:#b89060}.dot.guerres{background:#b89060}.card.guerres{border-left:3px solid #b89060}.era-label.guerres span{color:#b89060;border-color:rgba(184,144,96,.38)}
+.c-contemp{color:#40c8b0}.dot.contemp{background:#40c8b0}.card.contemp{border-left:3px solid #40c8b0}.era-label.contemp span{color:#40c8b0;border-color:rgba(64,200,176,.38)}
+/* Parallèles */
+.c-meso{color:#e8c060}.dot.meso{background:#e8c060}.card.meso{border-left:3px solid #e8c060}.era-label.meso span{color:#e8c060;border-color:rgba(232,192,96,.38)}
+.c-chine{color:#e84848}.dot.chine{background:#e84848}.card.chine{border-left:3px solid #e84848}.era-label.chine span{color:#e84848;border-color:rgba(232,72,72,.38)}
+.c-japon{color:#e870a0}.dot.japon{background:#e870a0}.card.japon{border-left:3px solid #e870a0}.era-label.japon span{color:#e870a0;border-color:rgba(232,112,160,.38)}
+.c-mongols{color:#d09030}.dot.mongols{background:#d09030}.card.mongols{border-left:3px solid #d09030}.era-label.mongols span{color:#d09030;border-color:rgba(208,144,48,.38)}
+.c-ameriques{color:#60c880}.dot.ameriques{background:#60c880}.card.ameriques{border-left:3px solid #60c880}.era-label.ameriques span{color:#60c880;border-color:rgba(96,200,128,.38)}
+.c-islam{color:#40b8d0}.dot.islam{background:#40b8d0}.card.islam{border-left:3px solid #40b8d0}.era-label.islam span{color:#40b8d0;border-color:rgba(64,184,208,.38)}
+.c-religio{color:#b090e8}.dot.religio{background:#b090e8}.card.religio{border-left:3px solid #b090e8}.era-label.religio span{color:#b090e8;border-color:rgba(176,144,232,.38)}
+
+footer{position:relative;z-index:10;text-align:center;padding:0 20px 50px;
+  color:rgba(232,223,196,.25);font-size:.75rem;letter-spacing:.1em;}
+
+/* MOBILE */
+@media(max-width:780px){
+  :root{--nav-w:0px;}
+  #sidebar{width:100%;height:auto;position:relative;border-right:none;border-bottom:1px solid rgba(200,180,120,.12);flex-direction:row;overflow-x:auto;padding:12px 0;flex-wrap:nowrap;}
+  #sidebar-title{display:none;}
+  .nav-section{display:none;}
+  .nav-btn{white-space:nowrap;padding:8px 14px;}
+  .nav-btn .nav-label{display:none;}
+  #main{margin-left:0;}
+  .timeline::before{left:20px;}
+  .event{flex-direction:column;padding-left:50px;}
+  .event.right{flex-direction:column;}
+  .dot{left:20px;top:8px;}
+  .card{width:100%;}
+  .card::after,.event.right .card::after{display:none;}
+  .connector{display:none;}
+}
+</style>
+</head>
+<body>
+<canvas id="stars-canvas"></canvas>
+
+<nav id="sidebar">
+  <div id="sidebar-title">✦ Chronologie Historique</div>
+  <div class="nav-section">Histoire de France</div>
+  <button class="nav-btn active" data-branch="france" style="border-left-color:#d4a843">
+    <span class="nav-icon">🏰</span>
+    <span class="nav-label">France &amp; Europe</span>
+    <span class="nav-dot" style="background:#d4a843"></span>
+  </button>
+  <div class="nav-section">Civilisations du Monde</div>
+  <button class="nav-btn" data-branch="meso" style="border-left-color:transparent">
+    <span class="nav-icon">🏺</span>
+    <span class="nav-label">Mésopotamie</span>
+    <span class="nav-dot" style="background:#e8c060"></span>
+  </button>
+  <button class="nav-btn" data-branch="chine" style="border-left-color:transparent">
+    <span class="nav-icon">🐉</span>
+    <span class="nav-label">Chine &amp; Grande Muraille</span>
+    <span class="nav-dot" style="background:#e84848"></span>
+  </button>
+  <button class="nav-btn" data-branch="japon" style="border-left-color:transparent">
+    <span class="nav-icon">⚔️</span>
+    <span class="nav-label">Japon &amp; Samouraïs</span>
+    <span class="nav-dot" style="background:#e870a0"></span>
+  </button>
+  <button class="nav-btn" data-branch="mongols" style="border-left-color:transparent">
+    <span class="nav-icon">🏹</span>
+    <span class="nav-label">L'Empire Mongol</span>
+    <span class="nav-dot" style="background:#d09030"></span>
+  </button>
+  <button class="nav-btn" data-branch="ameriques" style="border-left-color:transparent">
+    <span class="nav-icon">🌽</span>
+    <span class="nav-label">Amériques — Mayas, Incas, Aztèques</span>
+    <span class="nav-dot" style="background:#60c880"></span>
+  </button>
+  <button class="nav-btn" data-branch="islam" style="border-left-color:transparent">
+    <span class="nav-icon">🌙</span>
+    <span class="nav-label">Islam &amp; Monde Arabe</span>
+    <span class="nav-dot" style="background:#40b8d0"></span>
+  </button>
+  <div class="nav-section">Philosophies &amp; Religions</div>
+  <button class="nav-btn" data-branch="religio" style="border-left-color:transparent">
+    <span class="nav-icon">🪷</span>
+    <span class="nav-label">Bouddhisme, Taoïsme &amp; Shintô</span>
+    <span class="nav-dot" style="background:#b090e8"></span>
+  </button>
+</nav>
+
+<div id="main">
+  <header>
+    <p class="subtitle">Du Big Bang à nos jours</p>
+    <h1>Chronologie Historique</h1>
+    <p class="desc">Explorez les grandes civilisations à travers le temps</p>
+  </header>
+
+  <div class="hint"><span>✦ Cliquez sur une carte pour découvrir anecdotes &amp; curiosités ✦</span></div>
+
+  <div id="branches-container"></div>
+</div>
+
+<div class="modal-overlay" id="modal-overlay">
+  <div class="modal">
+    <button class="modal-close" id="modal-close">✕</button>
+    <span class="modal-icon" id="m-icon"></span>
+    <div class="modal-tag" id="m-tag"></div>
+    <div class="modal-date" id="m-date"></div>
+    <div class="modal-title" id="m-title"></div>
+    <div class="modal-intro" id="m-intro"></div>
+    <div class="modal-anec-title">✦ Anecdotes &amp; curiosités</div>
+    <div id="m-anecdotes"></div>
+  </div>
+</div>
+
+<footer>Sources : CNRS · NASA · BnF · Encyclopædia Universalis · Académie française · Larousse</footer>
+
+<script>
+
+// ── Stars ──
+const canvas=document.getElementById('stars-canvas');
+const ctx=canvas.getContext('2d');
+let stars=[];
+function resize(){canvas.width=window.innerWidth;canvas.height=Math.max(document.body.scrollHeight,window.innerHeight);initStars();drawStars();}
+function initStars(){stars=[];const n=Math.floor(canvas.width*canvas.height/3500);for(let i=0;i<n;i++)stars.push({x:Math.random()*canvas.width,y:Math.random()*canvas.height,r:Math.random()*1.2+0.2,a:Math.random()*0.6+0.15});}
+function drawStars(){ctx.clearRect(0,0,canvas.width,canvas.height);stars.forEach(s=>{ctx.beginPath();ctx.arc(s.x,s.y,s.r,0,Math.PI*2);ctx.fillStyle=`rgba(232,223,196,${s.a})`;ctx.fill();});}
+window.addEventListener('resize',()=>setTimeout(resize,100));
+setTimeout(resize,200);
+
+// ── Background ──
+let currentBg=[6,10,20],targetBg=[6,10,20],animF=null;
+function lerpC(a,b,t){return a.map((v,i)=>Math.round(v+(b[i]-v)*t));}
+function animBg(){
+  currentBg=lerpC(currentBg,targetBg,0.04);
+  const[r,g,b]=currentBg;
+  document.body.style.background=`radial-gradient(ellipse at 8% 25%,rgba(${r},${g},${b},0.22) 0%,transparent 55%),radial-gradient(ellipse at 92% 65%,rgba(${r},${g},${b},0.14) 0%,transparent 50%),#060a14`;
+  if(currentBg.some((v,i)=>Math.abs(v-targetBg[i])>0.5))animF=requestAnimationFrame(animBg);else animF=null;
+}
+const eraBgMap={
+  cosmic:[80,40,160],geo:[20,100,70],paleo:[140,80,20],antique:[155,115,10],
+  medieval:[120,25,25],merov:[165,70,15],caro:[30,70,155],capet:[145,125,10],
+  renaiss:[15,110,55],moderne:[85,15,85],revolution:[165,15,15],empire:[145,105,0],
+  republiques:[40,75,145],guerres:[75,55,30],contemp:[15,105,115],
+  meso:[155,130,20],chine:[155,20,20],japon:[155,30,80],mongols:[155,100,10],
+  ameriques:[20,140,60],islam:[10,120,145],religio:[90,60,180]
+};
+function setEraBg(cls){const c=eraBgMap[cls];if(!c)return;targetBg=[...c];if(!animF)animF=requestAnimationFrame(animBg);}
+let eraMarkers=[];
+function buildMarkers(){eraMarkers=Array.from(document.querySelectorAll('.branch.active .era-label')).map(el=>({top:el.getBoundingClientRect().top+window.scrollY,cls:el.dataset.cls}));}
+window.addEventListener('scroll',()=>{
+  const sy=window.scrollY+window.innerHeight*.35;
+  let cur=eraMarkers[0];
+  for(const m of eraMarkers){if(m.top<=sy)cur=m;else break;}
+  if(cur)setEraBg(cur.cls);
+});
+
+// ── Color map ──
+const colorMap={
+  cosmic:'#a084d8',geo:'#4ec99a',paleo:'#e8a850',antique:'#d4a843',
+  medieval:'#d46060',merov:'#e0884a',caro:'#6ea8e8',capet:'#c8b840',
+  renaiss:'#5ec48a',moderne:'#c084d8',revolution:'#e84040',empire:'#d4a020',
+  republiques:'#60a0d8',guerres:'#b89060',contemp:'#40c8b0',
+  meso:'#e8c060',chine:'#e84848',japon:'#e870a0',mongols:'#d09030',
+  ameriques:'#60c880',islam:'#40b8d0',religio:'#b090e8'
+};
+
+// ── Data ──
+const branches = {
+  france: {
+    id:'france', icon:'🏰', title:'France & Europe', subtitle:'Du Big Bang à la Ve République',
+    period:'13,8 milliards d\'années – aujourd\'hui', color:'#d4a843',
+    eras:[
+      {label:'✦ Ère Cosmique',cls:'cosmic',events:[
+        {icon:'💥',tag:'Événement',date:'– 13,8 milliards d\'années',title:'Naissance de l\'Univers — Le Big Bang',
+         desc:'L\'espace, le temps et la matière apparaissent en une fraction de seconde.',
+         anecdotes:[
+           {e:'🌡️',t:'<strong>La température initiale dépassait 10 milliards de degrés.</strong> Le cœur du Soleil n\'est "que" 15 millions de degrés.'},
+           {e:'🕰️',t:'<strong>Le temps lui-même est né avec le Big Bang.</strong> Demander "qu\'y avait-il avant ?" n\'a pas de sens : le temps n\'existait pas encore.'},
+           {e:'🔇',t:'<strong>Le Big Bang ne fait pas "bang" !</strong> L\'espace n\'existait pas pour transmettre un son. L\'explosion s\'est produite partout à la fois.'}
+         ]},
+        {icon:'☀️',tag:'Événement',date:'– 4,6 milliards d\'années',title:'Naissance du Système Solaire',
+         desc:'Un nuage de gaz et de poussière s\'effondre sous sa propre gravité. Le Soleil s\'allume au centre.',
+         anecdotes:[
+           {e:'⚖️',t:'<strong>Le Soleil représente 99,86 % de la masse totale du système solaire.</strong> Toutes les planètes réunies ne font que 0,14 %.'},
+           {e:'⭐',t:'<strong>Le Soleil est une étoile de 2ème génération.</strong> Il contient des éléments lourds forgés dans des étoiles mortes avant lui. Nous sommes littéralement faits de poussière d\'étoiles.'},
+           {e:'🪐',t:'<strong>Jupiter protège probablement la Terre</strong> en capturant de sa gravité les gros astéroïdes qui nous menaceraient.'}
+         ]},
+        {icon:'🌍',tag:'Événement',date:'– 4,5 milliards d\'années',title:'Naissance de la Terre',
+         desc:'Accrétion de roches spatiales. La Lune se forme lors d\'un impact géant avec Théia.',
+         anecdotes:[
+           {e:'🌕',t:'<strong>La Lune s\'éloigne de 3,8 cm par an.</strong> À sa formation, elle était 15 fois plus proche — un disque immense dans le ciel.'},
+           {e:'🧲',t:'<strong>Sans la Lune, la Terre vacillerait sur son axe entre 0° et 85°,</strong> rendant tout climat stable impossible.'},
+           {e:'🌊',t:'<strong>L\'eau terrestre vient de l\'espace.</strong> Elle proviendrait de comètes et d\'astéroïdes riches en glace.'}
+         ]},
+      ]},
+      {label:'✦ Ère Géologique & Biologique',cls:'geo',events:[
+        {icon:'🧫',tag:'Événement',date:'– 3,8 milliards d\'années',title:'Naissance de la Vie',
+         desc:'Premières cellules procaryotes dans les océans, probablement près de sources hydrothermales.',
+         anecdotes:[
+           {e:'🔬',t:'<strong>Toute vie sur Terre partage le même code ADN.</strong> Bactérie ou être humain — mêmes 4 lettres chimiques. Nous sommes tous cousins.'},
+           {e:'💨',t:'<strong>L\'oxygène était un poison</strong> pour les premières bactéries. Les cyanobactéries l\'ont injecté dans l\'atmosphère il y a 2,4 milliards d\'années.'},
+           {e:'🧬',t:'<strong>Nos mitochondries sont des bactéries apprivoisées.</strong> Une cellule en avala une autre sans la digérer : elle devint notre centrale énergétique.'}
+         ]},
+        {icon:'🟢',tag:'Événement',date:'– 1 200 millions d\'années',title:'Premières Algues Pluricellulaires',
+         desc:'Les algues chlorophytes donnent naissance aux chloroplastes via endosymbiose — base de la photosynthèse chez tous les végétaux futurs.',
+         anecdotes:[
+           {e:'🌞',t:'<strong>Les algues produisent encore aujourd\'hui la moitié de l\'oxygène mondial.</strong> Sans elles, l\'atmosphère serait irrespirable.'},
+           {e:'🌊',t:'<strong>Les algues géantes (kelps) peuvent mesurer 60 m</strong> et pousser de 60 cm par jour — la croissance la plus rapide du règne végétal.'}
+         ]},
+        {icon:'🐚',tag:'Événement',date:'– 600 millions d\'années',title:'Premiers Animaux',
+         desc:'Explosion cambrienne : apparition soudaine des grands groupes animaux — mollusques, arthropodes, vertébrés ancestraux.',
+         anecdotes:[
+           {e:'👁️',t:'<strong>Les yeux sont apparus au Cambrien</strong> et déclenchèrent une "course aux armements" entre prédateurs et proies.'},
+           {e:'🧮',t:'<strong>Les invertébrés représentent 97 % de toutes les espèces animales.</strong> Les vertébrés (dont nous) sont une infime minorité.'}
+         ]},
+        {icon:'🌿',tag:'Événement',date:'– 470 millions d\'années',title:'Premiers Végétaux Terrestres',
+         desc:'Premières spores terrestres à l\'Ordovicien. Les plantes évoluent à partir d\'algues chlorophytes.',
+         anecdotes:[
+           {e:'🪨',t:'<strong>Les plantes ont créé les sols.</strong> Avant elles, les continents n\'étaient que roche nue. Leurs racines ont fracturé les pierres et créé la terre arable.'},
+           {e:'🌳',t:'<strong>Les premières forêts du Dévonien</strong> absorbèrent tant de CO₂ qu\'elles provoquèrent une glaciation mondiale.'}
+         ]},
+        {icon:'🦕',tag:'Événement',date:'– 230 millions d\'années',title:'Premiers Dinosaures',
+         desc:'Eoraptor et Herrerasaurus au Trias. Les dinosaures domineront la Terre 165 millions d\'années.',
+         anecdotes:[
+           {e:'🐦',t:'<strong>Les oiseaux sont des dinosaures.</strong> Un moineau est scientifiquement un dinosaure à plumes. Les dinos gazouillent encore dans vos jardins.'},
+           {e:'🌡️',t:'<strong>Les dinosaures n\'étaient probablement pas à sang froid</strong> — leur métabolisme était proche de celui des oiseaux modernes.'}
+         ]},
+        {icon:'☄️',tag:'Événement',date:'– 66 millions d\'années',title:'Extinction des Dinosaures',
+         desc:'Astéroïde Chicxulub (Mexique). 75 % des espèces disparaissent. Les mammifères prennent leur essor.',
+         anecdotes:[
+           {e:'💥',t:'<strong>L\'impact libéra l\'énergie d\'un milliard de bombes atomiques.</strong> Les poussières bloquèrent le Soleil pendant des années.'},
+           {e:'🐀',t:'<strong>Nos ancêtres étaient de petits mammifères</strong> de la taille d\'un rat, vivant sous terre. Sans cet astéroïde, tu n\'existerais pas.'}
+         ]},
+      ]},
+      {label:'✦ Préhistoire',cls:'paleo',events:[
+        {icon:'🦴',tag:'Événement',date:'– 7 millions d\'années',title:'Premiers Hominidés',
+         desc:'Sahelanthropus tchadensis au Tchad — le plus ancien fossile de notre lignée.',
+         anecdotes:[
+           {e:'🧬',t:'<strong>Nous partageons 98,7 % de notre ADN avec les chimpanzés.</strong> Cet infime écart suffit pourtant à tout changer.'},
+           {e:'🚶',t:'<strong>La bipédie est venue avant le gros cerveau</strong> — nos ancêtres marchaient debout 2 millions d\'années avant que leur cerveau grossisse.'}
+         ]},
+        {icon:'🪨',tag:'Événement',date:'– 3,3 millions d\'années',title:'Premières Pierres Taillées',
+         desc:'Outils de Lomekwi (Kenya). La taille du silex se généralise vers –1,7 Ma.',
+         anecdotes:[
+           {e:'🔪',t:'<strong>Un silex bien taillé est plus tranchant qu\'un scalpel chirurgical.</strong> Une technique très difficile que peu peuvent reproduire aujourd\'hui.'},
+           {e:'📍',t:'<strong>La même technique fut utilisée pendant 1,5 million d\'années</strong> sans changement — la plus longue tradition technologique de l\'histoire.'}
+         ]},
+        {icon:'🔥',tag:'Événement',date:'– 1 million d\'années',title:'Maîtrise du Feu',
+         desc:'Homo erectus contrôle le feu. Révolution alimentaire, protection, lien social.',
+         anecdotes:[
+           {e:'🍖',t:'<strong>La cuisson libère bien plus de calories</strong> et a permis le développement d\'un cerveau plus grand. Sans feu, nos cerveaux seraient peut-être restés plus petits.'},
+           {e:'🌙',t:'<strong>Le feu a inventé la soirée.</strong> La veillée autour du feu est probablement à l\'origine du langage, des récits et des mythes.'}
+         ]},
+        {icon:'🧠',tag:'Événement',date:'– 300 000 ans',title:'Homo Sapiens',
+         desc:'Notre espèce apparaît en Afrique (Jebel Irhoud, Maroc).',
+         anecdotes:[
+           {e:'🧡',t:'<strong>Nous avons des gènes néandertaliens.</strong> Les Européens et Asiatiques portent 1 à 4 % d\'ADN néandertalien — héritage de croisements anciens.'},
+           {e:'🌏',t:'<strong>Toute l\'humanité descend d\'un petit groupe africain</strong> d\'environ 1 000 à 10 000 individus ayant quitté l\'Afrique il y a ~70 000 ans.'}
+         ]},
+        {icon:'🌾',tag:'Événement',date:'– 10 000 ans',title:'Agriculture & Élevage',
+         desc:'Révolution néolithique au Croissant Fertile. Fin du nomadisme chasseur-cueilleur.',
+         anecdotes:[
+           {e:'🌽',t:'<strong>Le maïs n\'existe pas dans la nature.</strong> Il a été entièrement créé par sélection humaine à partir d\'une herbe sauvage sur 10 000 ans.'},
+           {e:'⏰',t:'<strong>L\'agriculture a inventé la notion de futur.</strong> Semer pour récolter plus tard : c\'est l\'origine des calendriers, de l\'écriture et des contrats.'}
+         ]},
+      ]},
+      {label:'✦ Antiquité',cls:'antique',events:[
+        {icon:'🏛️',tag:'Événement',date:'– 3 100 av. J.-C.',title:'Civilisation Égyptienne',
+         desc:'Unification sous Narmer. Pyramides, hiéroglyphes, pharaons — 3 000 ans de civilisation.',
+         anecdotes:[
+           {e:'⏳',t:'<strong>Cléopâtre est plus proche de nous que des pyramides.</strong> Il y a plus de temps entre Cléopâtre et les pyramides qu\'entre Cléopâtre et aujourd\'hui.'},
+           {e:'🐱',t:'<strong>Le chat s\'est lui-même domestiqué en Égypte</strong> en suivant les greniers à céréales. Les Égyptiens l\'ont ensuite déifié.'}
+         ]},
+        {icon:'🏺',tag:'Événement',date:'– 800 av. J.-C.',title:'Civilisation Grecque',
+         desc:'Cités-États, démocratie athénienne, philosophie, théâtre, Jeux Olympiques.',
+         anecdotes:[
+           {e:'🗳️',t:'<strong>La démocratie athénienne excluait les femmes, les esclaves et les étrangers</strong> — soit 80 à 90 % de la population.'},
+           {e:'🏋️',t:'<strong>Les athlètes olympiques concouraient entièrement nus.</strong> "Gymnase" vient du grec "gymnos" (nu).'}
+         ]},
+        {icon:'🐺',tag:'Événement',date:'– 753 av. J.-C.',title:'Civilisation Romaine',
+         desc:'De la fondation légendaire de Rome à l\'Empire qui dominera la Méditerranée 12 siècles.',
+         anecdotes:[
+           {e:'🐦',t:'<strong>Des oies ont sauvé Rome !</strong> En –390, leurs cris nocturnes réveillèrent les gardes attaqués par les Gaulois au Capitole.'},
+           {e:'🌡️',t:'<strong>Le roi Mithridate s\'immunisa aux poisons</strong> en en absorbant de petites doses chaque jour. Il fut si bien immunisé qu\'il ne put même pas se suicider au poison.'}
+         ]},
+        {icon:'🛡️',tag:'Événement',date:'– 52 av. J.-C.',title:'Défaite Gauloise — Alésia',
+         desc:'Vercingétorix capitule devant César. La Gaule devient province romaine.',
+         anecdotes:[
+           {e:'📖',t:'<strong>On ne connaît Vercingétorix qu\'à travers les écrits de César, son ennemi.</strong> Dans l\'Antiquité, c\'est toujours le vainqueur qui écrit l\'histoire.'},
+           {e:'🍷',t:'<strong>En moins d\'un siècle, les Gaulois parlaient latin</strong> et construisaient des aqueducs. Le gaulois disparut presque entièrement. La France parle encore ce latin transformé.'}
+         ]},
+      ]},
+      {label:'✦ Haut Moyen Âge',cls:'medieval',events:[
+        {icon:'⚡',tag:'Événement',date:'376 – 476',title:'Invasions Barbares & Chute de Rome',
+         desc:'Huns, Wisigoths, Vandales déferlent. Romulus Augustule est déposé en 476.',
+         anecdotes:[
+           {e:'😏',t:'<strong>Romulus Augustule n\'avait que 14 ans.</strong> Odoacre lui accorda une pension et l\'envoya en retraite. La grande "chute de Rome" fut finalement peu dramatique.'},
+           {e:'🧱',t:'<strong>L\'Empire d\'Orient (Byzance) survécut encore 977 ans</strong> après 476. Rome ne mourut pas vraiment ce jour-là.'}
+         ]},
+        {icon:'⚜️',tag:'Roi mérovingien',date:'481 – 511',title:'Clovis Ier — Fondateur du Royaume de France',
+         desc:'Il unifie les Francs et se fait baptiser à Reims vers 496.',
+         anecdotes:[
+           {e:'🏺',t:'<strong>Le Vase de Soissons :</strong> Clovis attendit un an avant de fracasser le crâne du soldat qui avait refusé de rendre un vase à l\'évêque. La vengeance royale se fait attendre.'},
+           {e:'⚔️',t:'<strong>Clovis élimina méthodiquement tous ses rivaux francs,</strong> y compris ses propres cousins. À sa mort, il était le seul roi franc vivant.'}
+         ]},
+      ]},
+      {label:'✦ Mérovingiens',cls:'merov',events:[
+        {icon:'👑',tag:'Roi mérovingien',date:'629 – 639',title:'Dagobert Ier — Le Dernier Grand Mérovingien',
+         desc:'Dernier roi mérovingien puissant. Il unifie le royaume et fait de Saint-Denis la nécropole royale.',
+         anecdotes:[
+           {e:'👖',t:'<strong>"Le bon roi Dagobert avait sa culotte à l\'envers"</strong> — cette chanson fut inventée sous la Révolution pour se moquer de la royauté, pas du vrai Dagobert.'},
+           {e:'📍',t:'<strong>Il fit de Paris le centre du pouvoir franc.</strong> Avant lui, les rois mérovingiens gouvernaient de façon itinérante sans capitale fixe.'}
+         ]},
+        {icon:'😴',tag:'Événement',date:'639 – 751',title:'Les Rois Fainéants',
+         desc:'Les maires du palais prennent le vrai pouvoir. Les rois mérovingiens ne sont plus que des figurants.',
+         anecdotes:[
+           {e:'🐂',t:'<strong>Les "rois fainéants" étaient promenés lors des fêtes</strong> dans une charrette tirée par des bœufs, trop faibles pour monter à cheval.'},
+           {e:'💈',t:'<strong>Couper les cheveux d\'un roi mérovingien équivalait à l\'abdiquer.</strong> Plusieurs furent tonsurés de force et envoyés au monastère.'}
+         ]},
+      ]},
+      {label:'✦ Carolingiens',cls:'caro',events:[
+        {icon:'⚔️',tag:'Événement',date:'732',title:'Charles Martel — Bataille de Poitiers',
+         desc:'Il arrête l\'avancée arabe en Europe. Le surnom "Martel" (le marteau) lui est donné pour cette victoire.',
+         anecdotes:[
+           {e:'👶',t:'<strong>Charles Martel était né illégitime.</strong> Emprisonné par sa belle-mère, il s\'évada et prit le pouvoir. Le futur sauveur de l\'Europe chrétienne était un bâtard en fuite.'},
+           {e:'⛪',t:'<strong>Il confisqua massivement des terres d\'Église</strong> pour financer son armée. L\'Église le maudit, mais lui pardonna après sa mort — car il avait sauvé la chrétienté.'}
+         ]},
+        {icon:'⚜️',tag:'Roi carolingien',date:'751 – 768',title:'Pépin le Bref — 1er Roi Carolingien',
+         desc:'Il dépose le dernier mérovingien avec l\'accord du pape et fonde la dynastie carolingienne.',
+         anecdotes:[
+           {e:'📏',t:'<strong>Pépin était vraiment de petite taille.</strong> Pourtant, les chroniqueurs soulignent sa force physique exceptionnelle et son courage au combat.'},
+           {e:'🤝',t:'<strong>La "donation de Pépin" (754-756) :</strong> en échange de sa légitimation par le pape, il lui offrit des terres en Italie. Naissance des États pontificaux, qui dureront jusqu\'en 1870.'}
+         ]},
+        {icon:'👑',tag:'Roi carolingien',date:'768 – 814',title:'Charlemagne — Empereur d\'Occident',
+         desc:'Couronné Empereur à Rome le 25 décembre 800. Il unifie l\'Europe occidentale et crée les premières écoles.',
+         anecdotes:[
+           {e:'✍️',t:'<strong>Charlemagne apprit à lire mais avait du mal à écrire,</strong> selon son biographe Éginhard. Il gardait une ardoise sous son oreiller pour s\'exercer la nuit.'},
+           {e:'📏',t:'<strong>Il mesurait environ 1,92 m</strong> — confirmé par ses ossements à Aix-la-Chapelle. Il dominait physiquement toute son assemblée.'},
+           {e:'😤',t:'<strong>Il fut couronné "par surprise".</strong> Selon Éginhard, il aurait dit qu\'il ne serait jamais entré dans l\'église ce jour-là s\'il avait connu l\'intention du pape.'}
+         ]},
+      ]},
+      {label:'✦ Capétiens & Moyen Âge',cls:'capet',events:[
+        {icon:'🏰',tag:'Roi capétien',date:'987 – 996',title:'Hugues Capet — Fondateur de la Lignée',
+         desc:'Élu roi, sa descendance régnera 800 ans jusqu\'en 1848.',
+         anecdotes:[
+           {e:'🗳️',t:'<strong>Hugues fut choisi parce que les grands seigneurs le jugeaient... moins dangereux.</strong> Ils pensaient pouvoir le contrôler facilement. Ils se trompèrent.'},
+           {e:'🙏',t:'<strong>Il fit couronner son fils de son vivant</strong> pour assurer la succession — une astuce politique qui perpétua la lignée pendant des siècles.'}
+         ]},
+        {icon:'🗺️',tag:'Roi capétien',date:'1180 – 1223',title:'Philippe Auguste — Bâtisseur du Royaume',
+         desc:'Il quadruple le domaine royal et remporte Bouvines (1214). Fait construire le Louvre.',
+         anecdotes:[
+           {e:'🏆',t:'<strong>Bouvines (1214)</strong> est souvent appelée la "première victoire nationale" française. Philippe battit seul l\'Angleterre, l\'Empire et les Flandres alliés.'},
+           {e:'🚿',t:'<strong>Il ordonna le pavage de Paris</strong> parce qu\'il était incommodé par les odeurs. Paris reçut ses premières rues pavées grâce à sa sensibilité olfactive.'}
+         ]},
+        {icon:'🌳',tag:'Roi capétien',date:'1226 – 1270',title:'Louis IX — Saint Louis',
+         desc:'Roi pieux, il rend la justice sous un chêne à Vincennes. Canonisé en 1297.',
+         anecdotes:[
+           {e:'💸',t:'<strong>Louis IX racheta la "couronne d\'épines" du Christ</strong> pour une fortune colossale. Pour l\'abriter, il fit construire la Sainte-Chapelle à Paris.'},
+           {e:'💀',t:'<strong>Il mourut de dysenterie à Tunis</strong> lors de sa 2ème croisade. Ses derniers mots auraient été : "Jérusalem, Jérusalem."'}
+         ]},
+        {icon:'🎰',tag:'Événement',date:'1314',title:'La Malédiction des Rois Maudits',
+         desc:'Jacques de Molay, grand maître des Templiers, maudit Philippe le Bel depuis son bûcher.',
+         anecdotes:[
+           {e:'🔥',t:'<strong>Le pape Clément V mourut en avril 1314, le roi Philippe en novembre 1314.</strong> La malédiction semblait se réaliser...'},
+           {e:'📚',t:'<strong>"Les Rois Maudits" de Maurice Druon</strong> inspira directement George R.R. Martin pour Game of Thrones.'}
+         ]},
+        {icon:'⚔️',tag:'Événement',date:'1337 – 1453',title:'Guerre de Cent Ans',
+         desc:'France contre Angleterre. Azincourt (1415), Jeanne d\'Arc (1429), victoire finale française.',
+         anecdotes:[
+           {e:'🔥',t:'<strong>Jeanne d\'Arc avait 17 ans</strong> quand elle convainquit le roi de la laisser mener son armée. Brûlée à 19 ans. Canonisée en 1920 — 489 ans plus tard.'},
+           {e:'🏹',t:'<strong>La guerre dura 116 ans</strong> avec de longues trêves. Les contemporains ne savaient pas qu\'ils vivaient "la Guerre de Cent Ans" — ce nom fut inventé bien plus tard.'}
+         ]},
+        {icon:'💀',tag:'Événement',date:'1347 – 1351',title:'La Grande Peste Noire',
+         desc:'La peste bubonique tue un tiers de la population européenne — 25 à 50 millions de morts.',
+         anecdotes:[
+           {e:'🐀',t:'<strong>La chasse aux chats (associés aux sorcières) avait multiplié les rats.</strong> Un préjugé religieux a peut-être tué des millions de personnes.'},
+           {e:'💸',t:'<strong>Les survivants héritèrent des terres des morts.</strong> Les salaires explosèrent. La Peste accéléra la fin du servage en Europe.'}
+         ]},
+      ]},
+      {label:'✦ Renaissance & Réforme',cls:'renaiss',events:[
+        {icon:'🖨️',tag:'Événement',date:'vers 1450',title:'Invention de l\'Imprimerie — Gutenberg',
+         desc:'Caractères mobiles en métal à Mayence. La Bible de Gutenberg est imprimée vers 1455.',
+         anecdotes:[
+           {e:'📖',t:'<strong>Un moine copiste mettait 5 mois pour copier une Bible.</strong> Une presse Gutenberg en produisait 180 en une semaine.'},
+           {e:'😅',t:'<strong>Gutenberg mourut ruiné :</strong> son associé Fust lui prit ses presses par un procès. L\'inventeur de l\'imprimerie ne profita pas de son invention.'}
+         ]},
+        {icon:'⛪',tag:'Événement',date:'1517',title:'Naissance du Protestantisme — Luther',
+         desc:'Luther diffuse ses 95 thèses contre les indulgences. L\'Europe chrétienne se fracture.',
+         anecdotes:[
+           {e:'📌',t:'<strong>Luther n\'a peut-être jamais affiché ses thèses sur une porte</strong> — il les envoya probablement par courrier. La scène dramatique est peut-être une légende.'},
+           {e:'🍺',t:'<strong>Luther brassait de la bière</strong> avec sa femme Katharina. La Réforme et la bière — deux spécialités allemandes.'}
+         ]},
+        {icon:'👑',tag:'Roi',date:'1515 – 1547',title:'François Ier — Roi de la Renaissance',
+         desc:'Grand mécène. Attire Léonard de Vinci. Ordonnance de Villers-Cotterêts (1539).',
+         anecdotes:[
+           {e:'🎨',t:'<strong>Léonard de Vinci mourut en France à 67 ans.</strong> La Joconde, qu\'il avait emportée, devint propriété de François Ier et finit au Louvre.'},
+           {e:'⚔️',t:'<strong>Capturé à Pavie (1525) par Charles Quint,</strong> il signa un traité humiliant... puis le renia sitôt rentré : les promesses faites sous contrainte ne l\'engageaient pas.'}
+         ]},
+      ]},
+      {label:'✦ Monarchie Absolue',cls:'moderne',events:[
+        {icon:'🕊️',tag:'Roi',date:'1589 – 1610',title:'Henri IV — Le Vert-Galant',
+         desc:'Premier Bourbon. L\'Édit de Nantes (1598) met fin aux guerres de Religion.',
+         anecdotes:[
+           {e:'🛐',t:'<strong>"Paris vaut bien une messe."</strong> Henri IV, protestant, se convertit au catholicisme pour être accepté comme roi. Un acte de pragmatisme politique resté célèbre.'},
+           {e:'🗡️',t:'<strong>Ravaillac était un fanatique catholique</strong> convaincu qu\'Henri IV allait attaquer le pape. Il le poignarda dans son carrosse bloqué dans la rue de la Ferronnerie, le 14 mai 1610.'}
+         ]},
+        {icon:'☀️',tag:'Roi',date:'1643 – 1715',title:'Louis XIV — Le Roi-Soleil',
+         desc:'72 ans de règne. Versailles, absolutisme, révocation de l\'Édit de Nantes (1685).',
+         anecdotes:[
+           {e:'🚽',t:'<strong>Versailles manquait cruellement de sanitaires.</strong> Des milliers de courtisans utilisaient les coins du château. Le palais le plus luxueux d\'Europe était aussi l\'un des plus malodorants.'},
+           {e:'💃',t:'<strong>Louis XIV était un danseur exceptionnel</strong> qui participa à au moins 40 ballets de cour. Le ballet classique est une invention royale française.'}
+         ]},
+        {icon:'🗡️',tag:'Roi',date:'1774 – 1792',title:'Louis XVI — La Fin de la Monarchie',
+         desc:'Guillotiné le 21 janvier 1793. La Révolution éclate en 1789.',
+         anecdotes:[
+           {e:'😴',t:'<strong>Dans son journal intime, le 14 juillet 1789, Louis XVI écrit : "Rien".</strong> Il chassait et n\'avait rien tué. Il ne savait pas que la Bastille venait de tomber.'},
+           {e:'🔧',t:'<strong>Louis XVI était passionné de serrurerie.</strong> Dans son atelier secret, on découvrit après son arrestation une armoire de fer contenant ses correspondances compromettantes.'}
+         ]},
+      ]},
+      {label:'✦ Révolution Française',cls:'revolution',events:[
+        {icon:'🎾',tag:'Événement',date:'20 juin 1789',title:'Serment du Jeu de Paume',
+         desc:'Les députés du Tiers-État jurent de ne pas se séparer avant d\'avoir donné une constitution à la France.',
+         anecdotes:[
+           {e:'🚪',t:'<strong>Les députés trouvèrent leur salle fermée à clé</strong> sans explication. C\'est une décision improvisée — se réunir dans la salle de jeu de paume voisine — qui devint historique.'},
+           {e:'✍️',t:'<strong>577 députés sur 578 signèrent le serment.</strong> Un seul refusa, Martin d\'Auch. L\'unanimité fut presque totale.'}
+         ]},
+        {icon:'🏰',tag:'Événement',date:'14 juillet 1789',title:'Prise de la Bastille',
+         desc:'Le peuple de Paris prend d\'assaut la forteresse-prison, symbole de l\'absolutisme royal.',
+         anecdotes:[
+           {e:'🔓',t:'<strong>La Bastille ne contenait que 7 prisonniers :</strong> 4 faussaires, 2 fous et 1 noble. La forteresse symbole de la tyrannie était presque vide.'},
+           {e:'🧱',t:'<strong>Des pierres de la Bastille furent vendues comme souvenirs dès 1789</strong> — peut-être les premiers "souvenirs révolutionnaires" de l\'histoire.'}
+         ]},
+        {icon:'👩',tag:'Événement',date:'5 – 6 oct. 1789',title:'Marche sur Versailles',
+         desc:'Des milliers de femmes marchent jusqu\'à Versailles et ramènent la famille royale à Paris.',
+         anecdotes:[
+           {e:'🍞',t:'<strong>La marche fut déclenchée par la famine.</strong> Des femmes des marchés partirent à pied — 20 kilomètres — pour réclamer du pain au roi.'},
+           {e:'🏰',t:'<strong>Louis XVI ne retourna jamais à Versailles.</strong> Il était désormais prisonnier de sa propre capitale.'}
+         ]},
+        {icon:'🚗',tag:'Événement',date:'21 juin 1791',title:'La Fuite à Varennes',
+         desc:'La famille royale tente de fuir en Belgique, déguisée. Arrêtée à Varennes-en-Argonne.',
+         anecdotes:[
+           {e:'🎭',t:'<strong>Louis XVI se déguisa en valet.</strong> Mais son embonpoint et sa démarche lente le rendaient facilement reconnaissable.'},
+           {e:'💔',t:'<strong>Cette fuite fut le tournant fatal.</strong> Avant Varennes, beaucoup de Français lui restaient fidèles. Après, il était clairement un traître.'}
+         ]},
+        {icon:'⚖️',tag:'Événement',date:'1793 – 1794',title:'La Terreur — Robespierre',
+         desc:'Le Comité de Salut Public envoie des milliers à la guillotine. 17 000 exécutions officielles.',
+         anecdotes:[
+           {e:'😱',t:'<strong>Danton, qui avait voté la Terreur, fut guillotiné sur ordre de Robespierre.</strong> Sur l\'échafaud, il cria : "Tu me suivras, Robespierre !" Il avait raison — 3 mois plus tard.'},
+           {e:'🌡️',t:'<strong>Robespierre fut arrêté le 9 Thermidor</strong> avec une blessure à la mâchoire. Il fut guillotiné le lendemain. La Terreur s\'était dévorée elle-même.'}
+         ]},
+        {icon:'🏛️',tag:'Événement',date:'1795 – 1799',title:'Le Directoire — Fin de la Révolution',
+         desc:'5 "Directeurs" tentent de stabiliser la France. Corruption et instabilité permanentes.',
+         anecdotes:[
+           {e:'💰',t:'<strong>Le Directoire fut l\'un des régimes les plus corrompus de l\'histoire française.</strong> Les 5 Directeurs s\'enrichissaient ouvertement.'},
+           {e:'⚔️',t:'<strong>C\'est pendant le Directoire qu\'un jeune général corse fit ses preuves :</strong> Napoléon Bonaparte gagna la campagne d\'Italie (1796-1797) et rentra en héros.'}
+         ]},
+      ]},
+      {label:'✦ Empire Napoléonien',cls:'empire',events:[
+        {icon:'⚡',tag:'Événement',date:'9 nov. 1799',title:'18 Brumaire — Coup d\'État de Napoléon',
+         desc:'Napoléon renverse le Directoire. Il devient Premier Consul, puis Consul à vie, puis Empereur.',
+         anecdotes:[
+           {e:'😅',t:'<strong>Le coup d\'état faillit échouer.</strong> Napoléon, stressé, bégaya devant le Conseil. Les députés l\'attaquèrent physiquement. Son frère Lucien sauva la situation.'},
+           {e:'🎭',t:'<strong>Napoléon prétendit avoir été "invité" pour sauver la République</strong> — alors que c\'était un coup d\'état militaire classique.'}
+         ]},
+        {icon:'👑',tag:'Empereur',date:'1804 – 1815',title:'Napoléon Ier — Empereur des Français',
+         desc:'Sacré en 1804 à Notre-Dame. Code civil, lycées, Légion d\'honneur. Il domine l\'Europe.',
+         anecdotes:[
+           {e:'📏',t:'<strong>Napoléon n\'était pas si petit !</strong> Il mesurait ~1,68 m — la taille française moyenne de l\'époque. La confusion vient d\'une erreur de conversion entre pouces français et anglais.'},
+           {e:'👑',t:'<strong>Lors de son sacre, il prit la couronne des mains du pape et se couronna lui-même</strong> — il ne voulait pas devoir sa couronne à l\'Église.'},
+           {e:'📚',t:'<strong>Le Code civil de 1804</strong> est toujours la base du droit en France, Belgique, Québec et des dizaines d\'autres pays. Napoléon le considérait comme sa vraie gloire.'}
+         ]},
+        {icon:'🏳️',tag:'Événement',date:'18 juin 1815',title:'Waterloo — La Chute de Napoléon',
+         desc:'Défaite face aux armées anglaise et prussienne. Exil à Sainte-Hélène où il mourra en 1821.',
+         anecdotes:[
+           {e:'🌧️',t:'<strong>Napoléon attendit jusqu\'à 11h pour attaquer,</strong> espérant que le sol sèche après la pluie. Ce retard permit aux Prussiens d\'arriver à temps pour aider Wellington.'},
+           {e:'📝',t:'<strong>À Sainte-Hélène, Napoléon dicta ses Mémoires</strong> et construisit soigneusement sa légende de "défenseur des idéaux révolutionnaires".'}
+         ]},
+      ]},
+      {label:'✦ Républiques & Guerres Mondiales',cls:'republiques',events:[
+        {icon:'🕊️',tag:'Événement',date:'1815 – 1870',title:'Restauration, Monarchie de Juillet & 2ème République',
+         desc:'Louis XVIII, Charles X, Louis-Philippe se succèdent. Le suffrage universel masculin est instauré en 1848.',
+         anecdotes:[
+           {e:'🗣️',t:'<strong>Charles X fut renversé en 3 jours.</strong> Ses ordonnances restreignant la presse déclenchèrent les "Trois Glorieuses" (27-29 juillet 1830).'},
+           {e:'🗳️',t:'<strong>Le suffrage universel masculin fut proclamé en mars 1848</strong> — tous les hommes adultes pouvaient voter pour la première fois dans l\'histoire de France.'}
+         ]},
+        {icon:'🏗️',tag:'Roi / Empereur',date:'1852 – 1870',title:'Napoléon III & le Second Empire',
+         desc:'Louis-Napoléon Bonaparte fait un coup d\'État et devient Napoléon III. Paris est entièrement transformée par Haussmann.',
+         anecdotes:[
+           {e:'🏗️',t:'<strong>Le baron Haussmann transforma Paris</strong> entre 1853 et 1870 : grands boulevards, parcs, gares modernes et égouts. Paris devint la "Ville Lumière".'},
+           {e:'🎩',t:'<strong>Victor Hugo, exilé à Guernesey pendant 19 ans,</strong> appela Napoléon III "Napoléon le Petit" dans un pamphlet féroce.'}
+         ]},
+        {icon:'🏛️',tag:'Événement',date:'1870 – 1940',title:'3ème République',
+         desc:'70 ans de République. École laïque et gratuite (Jules Ferry, 1881-82), liberté de la presse, Tour Eiffel (1889).',
+         anecdotes:[
+           {e:'📚',t:'<strong>Jules Ferry instaura l\'école gratuite et laïque.</strong> Pour la première fois, tous les enfants — riches ou pauvres, filles ou garçons — avaient droit à l\'éducation publique.'},
+           {e:'🗼',t:'<strong>La Tour Eiffel devait être démolie après 20 ans.</strong> Elle fut sauvée uniquement parce qu\'elle servait d\'antenne radio. Le monument le plus visité du monde a failli être détruit.'}
+         ]},
+      ]},
+      {label:'✦ Guerres Mondiales',cls:'guerres',events:[
+        {icon:'🪖',tag:'Événement',date:'1914 – 1918',title:'Première Guerre Mondiale',
+         desc:'18 millions de morts dont 1,4 million de soldats français. La guerre des tranchées traumatise toute une génération.',
+         anecdotes:[
+           {e:'🕊️',t:'<strong>La guerre fut déclenchée par l\'assassinat de l\'archiduc François-Ferdinand</strong> à Sarajevo. Un seul attentat entraîna toute l\'Europe dans la guerre en moins de 6 semaines.'},
+           {e:'✋',t:'<strong>Le 11 novembre 1918 à 11h,</strong> les canons se turent sur tout le front. Des soldats qui s\'étaient entre-tués pendant 4 ans se levèrent et se regardèrent en silence.'}
+         ]},
+        {icon:'🔥',tag:'Événement',date:'1939 – 1945',title:'Deuxième Guerre Mondiale',
+         desc:'La France est occupée de 1940 à 1944. La Résistance et le débarquement du 6 juin 1944 libèrent le pays.',
+         anecdotes:[
+           {e:'📻',t:'<strong>Le 18 juin 1940, de Gaulle lança son appel depuis Londres :</strong> "La France a perdu une bataille, mais la France n\'a pas perdu la guerre !" Peu de Français l\'entendirent en direct.'},
+           {e:'🕊️',t:'<strong>75 000 Juifs de France furent déportés</strong> vers les camps d\'extermination nazis. Seulement 2 500 en revinrent. La Shoah fit environ 6 millions de morts en Europe.'}
+         ]},
+      ]},
+      {label:'✦ Époque Contemporaine',cls:'contemp',events:[
+        {icon:'🕊️',tag:'Événement',date:'1946 – 1958',title:'4ème République',
+         desc:'La France se reconstruit après la Libération. 25 gouvernements en 12 ans. Décolonisation et Trente Glorieuses.',
+         anecdotes:[
+           {e:'👩',t:'<strong>Les femmes votèrent pour la première fois en France en 1944,</strong> parmi les dernières grandes démocraties d\'Europe à l\'accorder.'},
+           {e:'🏗️',t:'<strong>Les "Trente Glorieuses" (1945-1975)</strong> : croissance économique exceptionnelle, le niveau de vie doubla en une génération.'}
+         ]},
+        {icon:'🗳️',tag:'Événement',date:'1958 – aujourd\'hui',title:'5ème République — De Gaulle & Nos Jours',
+         desc:'La Constitution de 1958 instaure un régime semi-présidentiel fort. Toujours en vigueur aujourd\'hui.',
+         anecdotes:[
+           {e:'🌸',t:'<strong>Mai 1968 : des millions de Français se mirent en grève.</strong> De Gaulle quitta secrètement l\'Élysée pour consulter ses généraux. La France fut à deux doigts de la révolution.'},
+           {e:'🌍',t:'<strong>La France fut l\'un des 6 pays fondateurs de l\'Europe,</strong> avec l\'Allemagne. De Gaulle et Adenauer forgèrent la réconciliation franco-allemande, fondement de l\'Union Européenne.'}
+         ]},
+      ]},
+    ]
+  },
+
+  meso: {
+    id:'meso', icon:'🏺', title:'Mésopotamie', subtitle:'Le berceau de la civilisation',
+    period:'~3 500 av. J.-C. — 539 av. J.-C.', color:'#e8c060',
+    eras:[
+      {label:'✦ Sumer — Les Premières Cités',cls:'meso',events:[
+        {icon:'🏙️',tag:'Événement',date:'~3 500 av. J.-C.',title:'Sumer — Naissance des Premières Villes',
+         desc:'En Mésopotamie (actuel Irak), entre le Tigre et l\'Euphrate, naissent les premières grandes villes : Uruk, Ur, Lagash. C\'est ici que la civilisation commence.',
+         anecdotes:[
+           {e:'🏙️',t:'<strong>Uruk comptait déjà 50 000 habitants</strong> vers 3200 av. J.-C. — une métropole dans un monde de villages. Elle était entourée de 9 km de remparts.'},
+           {e:'🌾',t:'<strong>L\'irrigation inventée en Mésopotamie</strong> permit de cultiver dans un désert. Les Sumériens creusèrent des canaux de centaines de kilomètres pour amener l\'eau des fleuves aux champs.'},
+           {e:'📜',t:'<strong>Le premier texte littéraire connu</strong> vient de Mésopotamie : l\'Épopée de Gilgamesh (~2100 av. J.-C.), qui raconte un déluge et un héros qui cherche l\'immortalité — 1 500 ans avant la Bible.'}
+         ]},
+        {icon:'📝',tag:'Événement',date:'~3 200 av. J.-C.',title:'Invention de l\'Écriture Cunéiforme',
+         desc:'Les Sumériens inventent l\'écriture cunéiforme pour gérer leurs échanges commerciaux. C\'est la première écriture connue de l\'humanité.',
+         anecdotes:[
+           {e:'📋',t:'<strong>Les premières tablettes sumériennes</strong> sont des reçus de livraison d\'orge et de bière. L\'écriture est née de la comptabilité, pas de la poésie ou de la religion.'},
+           {e:'🎓',t:'<strong>Les scribes étudiaient dans des "edubba"</strong> (maisons des tablettes) pendant 10 à 15 ans pour maîtriser les centaines de signes cunéiformes. Une éducation d\'élite très sélective.'},
+           {e:'🔍',t:'<strong>Le cunéiforme fut déchiffré en 1857</strong> par Henry Rawlinson, grâce à l\'inscription de Behistun (Iran) — le "Rosette de la Mésopotamie" — gravée en 3 langues dont une connue.'}
+         ]},
+        {icon:'⚖️',tag:'Événement',date:'~2 334 av. J.-C.',title:'Sargon d\'Akkad — Premier Empire de l\'Histoire',
+         desc:'Sargon d\'Akkad crée le premier empire connu de l\'histoire, unifiant Sumer et Akkad sous une seule autorité.',
+         anecdotes:[
+           {e:'👶',t:'<strong>La légende de Sargon ressemble à celle de Moïse :</strong> enfant abandonné dans un panier sur le fleuve, recueilli par une jardinière, il devient le plus grand conquérant de son époque.'},
+           {e:'🌍',t:'<strong>Son empire s\'étendait de la Méditerranée au golfe Persique</strong> — une superficie inédite pour l\'époque. Il nommait ses fils gouverneurs des provinces conquises.'},
+           {e:'📮',t:'<strong>Il créa le premier service postal de l\'histoire :</strong> des messagers royaux portaient des tablettes d\'argile scellées d\'un bout à l\'autre de son empire.'}
+         ]},
+        {icon:'📜',tag:'Événement',date:'~1 792 av. J.-C.',title:'Hammurabi — Le Code de Lois',
+         desc:'Le roi babylonien Hammurabi promulgue le premier grand code de lois écrit de l\'histoire : 282 lois gravées sur une stèle de 2,25 m.',
+         anecdotes:[
+           {e:'⚖️',t:'<strong>"Œil pour œil, dent pour dent"</strong> vient du Code d\'Hammurabi. Mais c\'était en réalité un progrès : la vengeance privée illimitée était remplacée par une peine proportionnelle au crime.'},
+           {e:'🏛️',t:'<strong>La stèle d\'Hammurabi</strong> est aujourd\'hui conservée au musée du Louvre à Paris. Elle fut découverte en Iran en 1901 par des archéologues français. Tu peux aller la voir !'},
+           {e:'🍺',t:'<strong>Le Code régule même la bière.</strong> Il interdit aux tavernières (souvent des femmes) de diluer la bière avec de l\'eau — sous peine d\'être noyées dans leur propre cuve.'}
+         ]},
+        {icon:'🏛️',tag:'Événement',date:'~605 – 562 av. J.-C.',title:'Babylone — Les Jardins Suspendus',
+         desc:'Nabuchodonosor II fait de Babylone la plus grande ville du monde. Il y fait construire les légendaires Jardins Suspendus, l\'une des 7 Merveilles du monde antique.',
+         anecdotes:[
+           {e:'🌿',t:'<strong>Les Jardins Suspendus de Babylone</strong> auraient été construits par Nabuchodonosor pour sa femme qui s\'ennuyait des montagnes de son pays natal. Un cadeau royal de plusieurs centaines de mètres carrés.'},
+           {e:'🔍',t:'<strong>Les archéologues n\'ont jamais retrouvé</strong> de traces certaines des Jardins Suspendus. Certains historiens pensent qu\'ils se trouvaient en réalité à Ninive, pas à Babylone.'},
+           {e:'📏',t:'<strong>La porte d\'Ishtar de Babylone,</strong> reconstruite au musée de Pergame à Berlin, était couverte de briques bleu azur et ornée de 120 dragons et taureaux en relief. Une entrée de ville à couper le souffle.'}
+         ]},
+        {icon:'⚡',tag:'Événement',date:'539 av. J.-C.',title:'Chute de Babylone — Cyrus le Grand',
+         desc:'Le roi perse Cyrus le Grand prend Babylone sans combattre. La Mésopotamie indépendante disparaît.',
+         anecdotes:[
+           {e:'🕊️',t:'<strong>Cyrus entra dans Babylone comme un libérateur,</strong> pas un conquérant. Il permettait aux peuples déportés de rentrer chez eux — dont les Juifs de la captivité babylonienne.'},
+           {e:'📜',t:'<strong>Le "cylindre de Cyrus"</strong>, conservé au British Museum, est souvent appelé la "première déclaration des droits de l\'homme" — il proclame la liberté de culte et de religion.'},
+           {e:'🌍',t:'<strong>L\'empire perse qui suivit</strong> fut le plus grand de l\'Antiquité, s\'étendant de l\'Inde à la Grèce. Il fut arrêté par Alexandre le Grand en –330.'}
+         ]},
+      ]},
+    ]
+  },
+
+  chine: {
+    id:'chine', icon:'🐉', title:'Chine & Grande Muraille', subtitle:'L\'Empire du Milieu à travers les dynasties',
+    period:'~2 100 av. J.-C. — aujourd\'hui', color:'#e84848',
+    eras:[
+      {label:'✦ Premières Dynasties',cls:'chine',events:[
+        {icon:'🐉',tag:'Événement',date:'~2 100 av. J.-C.',title:'Dynasties Xia & Shang — Les Origines',
+         desc:'Les premières dynasties chinoises apparaissent. Les Shang (~1600-1046 av. J.-C.) développent l\'écriture chinoise et le travail du bronze.',
+         anecdotes:[
+           {e:'🦴',t:'<strong>Les "os oraculaires" des Shang</strong> sont les premières traces de l\'écriture chinoise. Les devins gravaient des questions sur des os et des carapaces de tortues, les chauffaient, et interprétaient les craquelures comme des réponses divines.'},
+           {e:'🐉',t:'<strong>Le dragon chinois</strong> est un symbole de bon augure, associé à la pluie et à la prospérité. Contrairement au dragon européen maléfique, il est bienveillant — une différence culturelle fondamentale.'},
+           {e:'🏺',t:'<strong>La Chine a inventé la soie</strong> vers 2700 av. J.-C. selon la légende. Pendant 3 000 ans, les Chinois gardèrent le secret de sa fabrication sous peine de mort. La "Route de la Soie" relia Chine et Europe pendant des siècles.'}
+         ]},
+        {icon:'📜',tag:'Événement',date:'551 – 479 av. J.-C.',title:'Confucius — La Philosophie Chinoise',
+         desc:'Confucius enseigne les valeurs de respect, de famille, d\'harmonie et de gouvernement juste. Sa philosophie influencera la Chine pendant 2 500 ans.',
+         anecdotes:[
+           {e:'🎓',t:'<strong>Confucius fut d\'abord un fonctionnaire raté.</strong> Incapable de convaincre les princes de son époque d\'appliquer ses idées, il parcourut la Chine pendant 13 ans avec ses disciples avant de rentrer chez lui déçu.'},
+           {e:'📚',t:'<strong>Ses paroles furent compilées dans les "Entretiens" (Lunyu)</strong> par ses disciples après sa mort. C\'est l\'un des livres les plus lus de l\'histoire humaine.'},
+           {e:'🌏',t:'<strong>Le confucianisme n\'est pas une religion</strong> mais une philosophie de vie et de gouvernement. Il fut la base de la sélection des fonctionnaires chinois (mandarins) par concours pendant 1 300 ans.'}
+         ]},
+      ]},
+      {label:'✦ L\'Empire Unifié',cls:'chine',events:[
+        {icon:'🏰',tag:'Événement',date:'221 av. J.-C.',title:'Qin Shi Huang — Premier Empereur de Chine',
+         desc:'Le roi Ying Zheng unifie 7 royaumes en guerre et devient le premier Empereur de Chine. Il lance la construction de la Grande Muraille.',
+         anecdotes:[
+           {e:'😤',t:'<strong>Qin Shi Huang standardisa tout :</strong> l\'écriture, les poids, les mesures et même la largeur des essieux des chariots — pour que les routes (faites de sillons) fonctionnent partout.'},
+           {e:'💀',t:'<strong>Il était obsédé par l\'immortalité.</strong> Il envoya des expéditions chercher l\'élixir de vie et mourut probablement empoisonné par les pilules de mercure que ses médecins lui administraient pour le "rendre immortel".'},
+           {e:'⚔️',t:'<strong>Son armée de terracotta</strong> — 8 000 soldats en argile grandeur nature — fut découverte en 1974 par des paysans creusant un puits. Chaque visage est unique. C\'est l\'une des plus grandes découvertes archéologiques du XXe siècle.'}
+         ]},
+        {icon:'🧱',tag:'Événement',date:'~220 av. J.-C. – XVIIe s.',title:'La Grande Muraille de Chine',
+         desc:'Construite sur 2 000 ans par diverses dynasties, la Grande Muraille atteint 21 196 km au total. Elle visait à protéger la Chine des invasions du nord.',
+         anecdotes:[
+           {e:'🧱',t:'<strong>La Grande Muraille n\'est pas visible de la Lune</strong> à l\'œil nu — c\'est un mythe. Sa largeur (~5 m) est trop petite. En revanche, elle est visible depuis certains satellites à basse altitude.'},
+           {e:'☠️',t:'<strong>Des centaines de milliers de travailleurs moururent</strong> lors de sa construction. Selon la légende, leurs corps furent intégrés dans les murs. Les archéologues ont effectivement retrouvé des ossements humains dans certaines sections.'},
+           {e:'🚶',t:'<strong>La Muraille ne fut jamais vraiment efficace</strong> militairement — les Mongols et les Mandchous la contournèrent ou la franchirent par la corruption. Elle servait surtout à contrôler le commerce et les migrations.'}
+         ]},
+        {icon:'🌾',tag:'Roi',date:'206 av. J.-C. – 220 ap.',title:'Dynastie Han — L\'Âge d\'Or Chinois',
+         desc:'La dynastie Han crée une administration stable, développe la Route de la Soie et invente le papier. La Chine devient la première puissance mondiale.',
+         anecdotes:[
+           {e:'📄',t:'<strong>La Chine inventa le papier</strong> vers 105 ap. J.-C., grâce à Cai Lun. Avant lui, on écrivait sur des soies ou des bambous — beaucoup plus lourds. Cette invention mit 1 000 ans à atteindre l\'Europe.'},
+           {e:'🧪',t:'<strong>Les Chinois Han inventèrent aussi</strong> la porcelaine, la brouette, le sismographe (pour détecter les tremblements de terre), l\'acupuncture et le moulinage de la soie.'},
+           {e:'🌏',t:'<strong>Les Chinois s\'appellent eux-mêmes "Han"</strong> en référence à cette dynastie — 92 % de la population chinoise se revendique de l\'ethnie Han. La dynastie a marqué l\'identité nationale pour 2 000 ans.'}
+         ]},
+        {icon:'🧭',tag:'Événement',date:'~600 – 900',title:'Dynasties Sui & Tang — Renaissance Chinoise',
+         desc:'La Chine réunifiée sous les Sui puis les Tang devient la civilisation la plus avancée du monde. Arts, poésie, céramique et commerce atteignent leur apogée.',
+         anecdotes:[
+           {e:'🌐',t:'<strong>Chang\'an (Xi\'an) sous les Tang</strong> comptait 1 million d\'habitants — la plus grande ville du monde. Elle accueillait des marchands de toute l\'Asie, d\'Arabie et de Perse.'},
+           {e:'🍜',t:'<strong>Les pâtes alimentaires viendraient de Chine,</strong> pas d\'Italie. Des pâtes de millet vieilles de 4 000 ans ont été retrouvées en 2005 dans une jarre chinoise. Marco Polo n\'a pas "apporté les pâtes d\'Italie" — c\'est un mythe.'},
+           {e:'🎨',t:'<strong>La poésie Tang est considérée comme</strong> l\'âge d\'or de la littérature chinoise. Li Bai et Du Fu, deux poètes contemporains (VIIIe siècle), sont encore aujourd\'hui les poètes les plus cités en Chine.'}
+         ]},
+        {icon:'🧩',tag:'Événement',date:'960 – 1279',title:'Dynasties Song — Innovations & Impressions',
+         desc:'Les Song inventent la boussole, la poudre à canon et l\'imprimerie à caractères mobiles — 400 ans avant Gutenberg.',
+         anecdotes:[
+           {e:'🖨️',t:'<strong>Bi Sheng inventa l\'imprimerie à caractères mobiles</strong> vers 1040 — soit 400 ans avant Gutenberg. Mais l\'écriture chinoise avec ses milliers de caractères rendait cette technique moins pratique qu\'en Europe.'},
+           {e:'🧭',t:'<strong>La boussole chinoise</strong> fut d\'abord utilisée... pour la géomancie (feng shui), pas pour la navigation. C\'est seulement vers le XIe siècle qu\'on l\'appliqua à la navigation maritime.'},
+           {e:'💣',t:'<strong>La poudre à canon fut inventée par des alchimistes chinois</strong> cherchant l\'élixir d\'immortalité. Ils mélangeaient des ingrédients et un jour la mixture explosa. L\'immortalité attendit, mais la poudre à canon naquit.'}
+         ]},
+        {icon:'🌸',tag:'Événement',date:'1368 – 1644',title:'Dynasties Ming — La Grande Muraille Reconstruite',
+         desc:'Les Ming chassent les Mongols, restaurent la culture chinoise et reconstruisent la Grande Muraille en briques. Zheng He explore l\'océan Indien avec une flotte gigantesque.',
+         anecdotes:[
+           {e:'⛵',t:'<strong>Zheng He commandait des "jonques au trésor"</strong> de 130 m de long — les plus grands navires en bois jamais construits. Sa flotte de 317 bateaux explora l\'Afrique... 87 ans avant Vasco de Gama.'},
+           {e:'🚫',t:'<strong>La Chine abandonna ensuite l\'exploration maritime</strong> par décision politique. Des siècles d\'isolement choisi suivirent. Si elle avait continué, l\'histoire du monde aurait été totalement différente.'},
+           {e:'🧱',t:'<strong>La Grande Muraille que vous voyez dans les photos</strong> est celle des Ming — en briques et en pierre, bien conservée. La muraille de Qin Shi Huang en terre battue a presque entièrement disparu.'}
+         ]},
+      ]},
+    ]
+  },
+
+  japon: {
+    id:'japon', icon:'⚔️', title:'Japon & Samouraïs', subtitle:'Du Yamato à l\'ère Meiji',
+    period:'~300 ap. — 1868', color:'#e870a0',
+    eras:[
+      {label:'✦ Japon Ancien',cls:'japon',events:[
+        {icon:'🌸',tag:'Événement',date:'~300 – 710',title:'Périodes Yayoi & Kofun — Les Origines',
+         desc:'Les premiers clans japonais se fédèrent sous des chefs guerriers. Les immenses tumulus (kofun) témoignent de la puissance des chefs.',
+         anecdotes:[
+           {e:'🌾',t:'<strong>La riziculture arriva de Chine/Corée</strong> vers 300 av. J.-C. et transforma la société japonaise. Elle nécessite une coopération intense entre villages, forgeant le sens japonais du collectif.'},
+           {e:'⛩️',t:'<strong>Le shintô ("voie des dieux")</strong> est la religion indigène du Japon. Tout dans la nature a une âme (kami) : les rivières, les montagnes, les arbres. La forêt du mont Fuji est sacrée.'},
+           {e:'🏛️',t:'<strong>L\'Empereur japonais descend "en ligne directe" de la déesse du Soleil</strong> Amaterasu, selon la mythologie shintô. La famille impériale est la plus ancienne monarchie continue du monde — depuis ~660 av. J.-C. selon la tradition.'}
+         ]},
+        {icon:'🪷',tag:'Événement',date:'538 – 710',title:'Arrivée du Bouddhisme & Prince Shôtoku',
+         desc:'Le bouddhisme arrive de Corée. Le Prince Shôtoku en fait la religion d\'État et dote le Japon de sa première constitution.',
+         anecdotes:[
+           {e:'🛕',t:'<strong>Le temple Hôryûji (607),</strong> fondé par Shôtoku, est le plus vieux bâtiment en bois encore debout au monde. Sa charpente en cyprès résiste depuis 1 400 ans.'},
+           {e:'✍️',t:'<strong>Le prince Shôtoku rédigea la première "constitution" japonaise en 604 :</strong> 17 articles promouvant l\'harmonie, le respect de l\'État et le bouddhisme. Le Japon se dotait d\'une philosophie d\'État.'},
+           {e:'🤝',t:'<strong>Shintô et bouddhisme coexistèrent pacifiquement</strong> au Japon — un exploit rare dans l\'histoire des religions. Aujourd\'hui encore, la plupart des Japonais pratiquent les deux simultanément.'}
+         ]},
+        {icon:'🏯',tag:'Événement',date:'710 – 1185',title:'Périodes Nara & Heian — L\'Aristocratie Raffinée',
+         desc:'La capitale à Nara puis Heian (Kyoto). La cour impériale développe une culture d\'une raffinement extrême. La femme de cour Murasaki Shikibu écrit le premier roman du monde.',
+         anecdotes:[
+           {e:'📖',t:'<strong>"Le Dit du Genji" (~1010)</strong> de Murasaki Shikibu est considéré comme le premier roman de l\'histoire. Écrit par une dame de cour, il décrit avec finesse les intrigues amoureuses de l\'aristocratie impériale.'},
+           {e:'🎭',t:'<strong>Le théâtre Nô (XIVe s.) et le théâtre Kabuki (XVIIe s.)</strong> sont nés au Japon. Le Nô est un théâtre de masques lent et contemplatif, le Kabuki est flamboyant avec maquillages extrêmes.'},
+           {e:'🌸',t:'<strong>Le "hanami" (contemplation des cerisiers en fleurs)</strong> est une tradition née à la période Heian, quand la cour impériale organisait des pique-niques sous les cerisiers. 1 200 ans plus tard, tout le Japon le pratique encore.'}
+         ]},
+      ]},
+      {label:'✦ L\'Ère des Samouraïs',cls:'japon',events:[
+        {icon:'⚔️',tag:'Événement',date:'1185 – 1333',title:'Shogunat de Kamakura — La Naissance des Samouraïs',
+         desc:'Minamoto no Yoritomo prend le pouvoir militaire et crée le premier shogunat. Les samouraïs deviennent la classe dirigeante.',
+         anecdotes:[
+           {e:'⚔️',t:'<strong>Le "Bushidô" (voie du guerrier)</strong> codifie les valeurs du samouraï : loyauté absolue, honneur, courage et maîtrise de soi. Un samouraï préférait mourir (seppuku) plutôt que de se déshonorer.'},
+           {e:'🗡️',t:'<strong>Le katana samouraï</strong> était fabriqué par un forgeron pendant des semaines, avec un acier plié des centaines de fois. Il était considéré comme l\'âme du guerrier — si précieux qu\'il avait un nom propre.'},
+           {e:'🌊',t:'<strong>En 1274 et 1281, la flotte mongole de Kubilai Khan</strong> tenta d\'envahir le Japon. Les deux fois, une tempête (le "kamikaze" — vent divin) détruisit la flotte. Les Japonais en conclurent que les dieux les protégeaient.'}
+         ]},
+        {icon:'🏯',tag:'Événement',date:'1467 – 1615',title:'L\'Ère Sengoku — Le Japon en Guerre',
+         desc:'Pendant 150 ans, des centaines de seigneurs de guerre (daimyô) se battent pour le contrôle du Japon. C\'est l\'époque des grands samouraïs légendaires.',
+         anecdotes:[
+           {e:'🦅',t:'<strong>Oda Nobunaga, Toyotomi Hideyoshi et Tokugawa Ieyasu</strong> sont les trois unificateurs du Japon. Un proverbe dit : "Nobunaga pétrit le riz, Hideyoshi le fait cuire, Ieyasu le mange." Chacun profita du travail du précédent.'},
+           {e:'🔫',t:'<strong>Les Portugais apportèrent les arquebuses au Japon en 1543.</strong> Nobunaga les adopta massivement et bouleversa la guerre. Les samouraïs à cheval furent remplacés par des fantassins armés à feu.'},
+           {e:'🎭',t:'<strong>Le théâtre Kabuki naquit pendant l\'ère Sengoku.</strong> Ses maquillages extrêmes (kumadori) symbolisent les émotions : rouge pour la colère héroïque, bleu pour le mal, brun pour les démons.'}
+         ]},
+        {icon:'🏯',tag:'Événement',date:'1603 – 1868',title:'Shogunat Tokugawa — La Paix Édô',
+         desc:'Tokugawa Ieyasu unifie le Japon et impose 250 ans de paix. Le Japon se ferme au monde extérieur. La culture samouraï atteint son apogée.',
+         anecdotes:[
+           {e:'🚪',t:'<strong>Le Japon s\'isola volontairement du monde en 1639</strong> (politique du "sakoku"). Seuls les Hollandais avaient le droit de commercer, depuis une minuscule île artificielle à Nagasaki. Le Japon se coupa du monde pendant 200 ans.'},
+           {e:'🌸',t:'<strong>L\'ère Edo vit fleurir la culture populaire :</strong> le haïku (poème de 17 syllabes), les estampes ukiyo-e (dont les Trente-six vues du Fuji de Hokusai), le théâtre Kabuki. Une explosion artistique dans un pays en paix.'},
+           {e:'🗡️',t:'<strong>Le "seppuku"</strong> (suicide rituel par éviscération) était réservé aux samouraïs déshonorésy. L\'acte était souvent assisté d\'un ami qui décapitait le mourant pour abréger sa souffrance après la première entaille. Un acte de dignité ultime.'}
+         ]},
+      ]},
+    ]
+  },
+
+  mongols: {
+    id:'mongols', icon:'🏹', title:'L\'Empire Mongol', subtitle:'La plus grande conquête de l\'histoire',
+    period:'1162 – 1370', color:'#d09030',
+    eras:[
+      {label:'✦ Naissance d\'un Empire',cls:'mongols',events:[
+        {icon:'👶',tag:'Événement',date:'1162',title:'Naissance de Temüjin — Le Futur Gengis Khan',
+         desc:'Temüjin naît dans la steppe mongole dans un clan affaibli. Son père est empoisonné quand il a 9 ans. Il sera capturé, réduit en esclavage, s\'évade et construit peu à peu un empire.',
+         anecdotes:[
+           {e:'🍖',t:'<strong>Temüjin grandit dans la pauvreté extrême.</strong> Sa famille survécut en mangeant des souris et des baies après l\'empoisonnement de son père. Ce futur conquérant du monde connut la faim dans son enfance.'},
+           {e:'🤝',t:'<strong>Son système d\'alliance était révolutionnaire :</strong> il brisait les liens de clan et de tribu pour créer un réseau de loyauté personnelle. Les meilleurs guerriers étaient promus sans égard à leur naissance.'},
+           {e:'🌟',t:'<strong>Son vrai prénom était Temüjin.</strong> "Gengis Khan" signifie "souverain universel" — un titre qu\'il reçut en 1206 lors d\'un grand rassemblement (kurultai) des tribus mongoles unifiées.'}
+         ]},
+        {icon:'🏹',tag:'Événement',date:'1206',title:'Gengis Khan — Unification des Mongols',
+         desc:'Après 30 ans de combats, Temüjin unifie toutes les tribus mongoles et est proclamé Gengis Khan. La conquête du monde commence.',
+         anecdotes:[
+           {e:'⚡',t:'<strong>La cavalerie mongole pouvait parcourir 100 km par jour</strong> — 4 fois plus vite que les armées européennes. Chaque cavalier avait 3 à 5 chevaux et alternait leur utilisation. La vitesse était leur arme principale.'},
+           {e:'🧠',t:'<strong>Gengis Khan était un stratège brillant.</strong> Il utilisait de fausses retraites pour attirer l\'ennemi dans des pièges, des espions pour infiltrer les villes, et des ingénieurs chinois pour assiéger les forteresses.'},
+           {e:'📜',t:'<strong>Il introduisit la "Yassa"</strong> — un code de lois universel pour son empire. Il interdisait le vol, garantissait la liberté de culte pour toutes les religions, et punissait de mort quiconque volait de l\'eau dans le désert.'}
+         ]},
+        {icon:'🌍',tag:'Événement',date:'1206 – 1227',title:'Les Conquêtes de Gengis Khan',
+         desc:'En 20 ans, Gengis Khan conquiert la Chine du Nord, l\'Asie centrale, la Perse et atteint l\'Europe de l\'Est. Son empire est le plus grand jamais créé.',
+         anecdotes:[
+           {e:'😱',t:'<strong>Samarkand, ville de 500 000 habitants,</strong> fut détruite en quelques jours. Gengis Khan fit tuer tous les habitants sauf les artisans. Des villes entières disparurent — l\'Asie centrale mit des siècles à se relever.'},
+           {e:'🕊️',t:'<strong>Les villes qui se rendaient sans combattre</strong> étaient généralement épargnées. Gengis Khan proposait toujours la capitulation avant l\'assaut. C\'était une stratégie autant qu\'une clémence.'},
+           {e:'🧬',t:'<strong>Environ 0,5 % de la population mondiale</strong> (soit ~16 millions de personnes aujourd\'hui) descendrait directement de Gengis Khan, selon des études génétiques. Il eut des centaines d\'enfants.'}
+         ]},
+      ]},
+      {label:'✦ L\'Apogée de l\'Empire',cls:'mongols',events:[
+        {icon:'🗺️',tag:'Événement',date:'1227 – 1260',title:'Les Successeurs — L\'Empire à son Apogée',
+         desc:'Les fils et petits-fils de Gengis Khan étendent l\'empire. Ögedei prend la Russie. Batu fonde la Horde d\'Or. Hülegü détruit Bagdad.',
+         anecdotes:[
+           {e:'🏰',t:'<strong>En 1241, les Mongols atteignirent la Pologne et la Hongrie</strong> et écrasèrent les armées européennes. Vienne était à portée. Seule la mort d\'Ögedei les fit rebrousser chemin pour élire un nouveau Khan. L\'Europe fut sauvée par un décès.'},
+           {e:'📚',t:'<strong>La destruction de Bagdad en 1258</strong> par Hülegü fut une catastrophe culturelle majeure. La Grande Bibliothèque de Bagdad, qui contenait des siècles de savoir arabe, grec et perse, fut détruite. On dit que le Tigre coula noir d\'encre.'},
+           {e:'🌐',t:'<strong>La "Pax Mongolica"</strong> — la paix mongole — permit pendant un siècle de voyager de Chine en Europe en sécurité. Marco Polo en profita. Le commerce et les idées circulèrent comme jamais.'}
+         ]},
+        {icon:'🏯',tag:'Roi',date:'1260 – 1294',title:'Kubilai Khan — Maître de la Chine',
+         desc:'Petit-fils de Gengis Khan, il conquiert toute la Chine et fonde la dynastie Yuan. Sa capitale Khanbalik (Pékin) éblouit Marco Polo.',
+         anecdotes:[
+           {e:'🍝',t:'<strong>Marco Polo séjourna 17 ans à la cour de Kubilai Khan</strong> (1271-1295). Son livre "Il Milione" (Le Livre des Merveilles) fit connaître la Chine à l\'Europe. Beaucoup ne le crurent pas — ses récits semblaient trop extraordinaires.'},
+           {e:'🌊',t:'<strong>Kubilai Khan tenta deux fois d\'envahir le Japon</strong> (1274 et 1281) avec des flottes de centaines de navires. Les deux fois, des typhons (les "kamikaze" divins) détruisirent sa flotte.'},
+           {e:'🎯',t:'<strong>Kubilai Khan introduisit le papier-monnaie</strong> à grande échelle en Chine. Marco Polo fut stupéfait — en Europe, l\'argent était encore du métal. Le concept de monnaie abstraite était révolutionnaire.'}
+         ]},
+        {icon:'🌅',tag:'Événement',date:'1370',title:'Déclin et Chute de l\'Empire Mongol',
+         desc:'L\'empire se fragmente en 4 khanats rivaux. La Chine se soulève et chasse les Mongols (1368). L\'empire le plus grand de l\'histoire s\'effondre de l\'intérieur.',
+         anecdotes:[
+           {e:'🦠',t:'<strong>La Peste Noire voyagea le long des routes mongoles.</strong> C\'est probablement par les caravanes de la Pax Mongolica que la peste atteignit l\'Europe depuis l\'Asie centrale dans les années 1340.'},
+           {e:'🌾',t:'<strong>Les Mongols étaient des nomades guerriers</strong> mal équipés pour administrer des empires agricoles complexes. Ils durent déléguer aux fonctionnaires locaux, qui reprirent peu à peu le contrôle.'},
+           {e:'🌟',t:'<strong>Tamerlan (Timur Lang, 1336-1405)</strong> se présentait comme l\'héritier de Gengis Khan et reconstitua brièvement un empire comparable. Mais après sa mort, tout s\'effondra à nouveau.'}
+         ]},
+      ]},
+    ]
+  },
+
+  ameriques: {
+    id:'ameriques', icon:'🌽', title:'Mayas, Incas & Aztèques', subtitle:'Les grandes civilisations d\'Amérique',
+    period:'~2 000 av. J.-C. — 1533', color:'#60c880',
+    eras:[
+      {label:'✦ Les Olmèques & les Mayas',cls:'ameriques',events:[
+        {icon:'🗿',tag:'Événement',date:'~1 200 – 400 av. J.-C.',title:'Les Olmèques — Mère de toutes les Civilisations',
+         desc:'Les Olmèques, sur les côtes du Mexique actuel, créent la première grande civilisation d\'Amérique. Ils inventent la balle en caoutchouc, un calendrier et peut-être l\'écriture.',
+         anecdotes:[
+           {e:'🗿',t:'<strong>Les Olmèques sculptèrent d\'immenses têtes en basalte</strong> jusqu\'à 3 m de haut et 15 tonnes. Elles représentaient probablement des chefs ou joueurs de balle. Le basalte venait de carrières à 150 km — sans roue ni cheval.'},
+           {e:'🏐',t:'<strong>Le jeu de balle olmèque</strong> (avec une balle en caoutchouc plein) fut pratiqué pendant 3 000 ans partout en Mésoamérique. Certains disent que les perdants étaient sacrifiés — mais d\'autres pensent que c\'étaient les vainqueurs, en sacrifice honorifique.'},
+           {e:'🌽',t:'<strong>Les Olmèques développèrent la culture du maïs</strong> en une véritable religion. Le maïs était le "corps des dieux" — dans leur mythe de création, les humains furent eux-mêmes fabriqués à partir de maïs.'}
+         ]},
+        {icon:'🏛️',tag:'Événement',date:'~250 – 900',title:'Les Mayas — Astronomie & Écriture',
+         desc:'Les Mayas construisent des cités-pyramides, inventent un système d\'écriture complexe, et développent le calendrier le plus précis du monde antique.',
+         anecdotes:[
+           {e:'⭐',t:'<strong>Les Mayas calculèrent l\'année solaire à 365,2420 jours.</strong> La valeur exacte est 365,2422. Ils étaient plus précis que le calendrier julien romain utilisé en Europe à la même époque.'},
+           {e:'🔢',t:'<strong>Les Mayas inventèrent le zéro</strong> indépendamment de l\'Inde, vers le IVe siècle. Le zéro est l\'une des inventions mathématiques les plus importantes de l\'histoire — sans lui, pas d\'algèbre, pas d\'informatique.'},
+           {e:'📚',t:'<strong>Les Espagnols brûlèrent presque tous les livres mayas (codex)</strong> au XVIe siècle, jugeant leur contenu "diabolique". Il n\'en reste que 4. Une destruction culturelle irréparable — l\'équivalent de brûler toutes les bibliothèques d\'Europe.'}
+         ]},
+        {icon:'❓',tag:'Événement',date:'~800 – 1000',title:'Le Mystérieux Effondrement des Mayas Classiques',
+         desc:'Entre 800 et 1000, les grandes cités mayas du sud sont abandonnées une à une. Des millions de personnes disparaissent. La cause reste débattue.',
+         anecdotes:[
+           {e:'🌵',t:'<strong>La cause principale serait une sécheresse prolongée</strong> combinée à la surpopulation et aux guerres entre cités. Les analyses de sédiments de lacs montrent des périodes de sécheresse intense précisément à cette époque.'},
+           {e:'🌆',t:'<strong>Les cités ne furent pas toutes abandonnées :</strong> Chichén Itzá, Uxmal et d\'autres cités du nord continuèrent de prospérer jusqu\'à l\'arrivée des Espagnols. Ce sont les Mayas du nord qui rencontrèrent Colomb.'},
+           {e:'🧬',t:'<strong>Les Mayas n\'ont pas "disparu".</strong> Environ 6 millions de Maya vivent encore aujourd\'hui au Mexique, Guatemala, Belize et Honduras, parlant des langues maya. Une civilisation vivante, pas un mystère mort.'}
+         ]},
+      ]},
+      {label:'✦ Les Aztèques & les Incas',cls:'ameriques',events:[
+        {icon:'🌞',tag:'Événement',date:'1325 – 1521',title:'Les Aztèques & Tenochtitlan',
+         desc:'Les Aztèques fondent Tenochtitlan (Mexico actuelle) sur une île du lac Texcoco. En 200 ans, ils construisent l\'empire le plus puissant de Mésoamérique.',
+         anecdotes:[
+           {e:'🏙️',t:'<strong>Tenochtitlan comptait 200 000 habitants en 1519,</strong> plus que Madrid ou Paris à la même époque. La ville sur le lac, reliée par des chaussées, éblouit les Espagnols conquérants.'},
+           {e:'💀',t:'<strong>Les sacrifices humains aztèques</strong> visaient à "nourrir" le Soleil pour qu\'il continue de se lever. Des milliers de personnes étaient sacrifiées chaque année — surtout des prisonniers de guerre.'},
+           {e:'🍫',t:'<strong>Le chocolat vient des Aztèques.</strong> Ils buvaient le cacao comme une boisson amère et sacrée réservée aux élites et aux guerriers. Ils l\'utilisaient aussi comme monnaie. C\'est l\'un de leurs plus beaux cadeaux au monde.'}
+         ]},
+        {icon:'⚡',tag:'Événement',date:'1519 – 1521',title:'Cortés & la Chute des Aztèques',
+         desc:'Hernán Cortés arrive avec 500 hommes et détruit l\'empire aztèque en 2 ans. La trahison, les maladies et les alliés locaux furent ses vraies armes.',
+         anecdotes:[
+           {e:'🦠',t:'<strong>La variole fut l\'arme principale des Espagnols</strong> sans qu\'ils le sachent vraiment. Les Aztèques, sans immunité contre cette maladie inconnue, moururent par millions. On estime que 50 à 90 % de la population indigène mourut en moins d\'un siècle.'},
+           {e:'🤝',t:'<strong>Des milliers d\'indigènes aidèrent Cortés</strong> à détruire les Aztèques. Ces peuples que les Aztèques avaient réduits en esclavage pour leurs sacrifices saisirent l\'occasion de se venger. Cortés ne pouvait pas vaincre seul.'},
+           {e:'💰',t:'<strong>La Malinche (Malintzin)</strong> fut une femme indigène offerte à Cortés comme esclave. Elle devint sa traductrice, sa conseillère et sa maîtresse. Sans elle, Cortés n\'aurait probablement pas pu conquérir le Mexique.'}
+         ]},
+        {icon:'🏔️',tag:'Événement',date:'1438 – 1533',title:'Les Incas — L\'Empire des Andes',
+         desc:'Les Incas construisent en moins d\'un siècle un empire de 5 000 km de long dans les Andes, relié par 40 000 km de routes pavées.',
+         anecdotes:[
+           {e:'🏗️',t:'<strong>Le Machu Picchu (1450)</strong> fut construit sans roue, sans fer et sans ciment. Les pierres s\'emboîtent si parfaitement qu\'une feuille de papier ne passe pas entre elles. Les Incas avaient une maîtrise extraordinaire de la taille de pierre.'},
+           {e:'🌽',t:'<strong>Les Incas cultivaient plus de 3 000 variétés de pommes de terre</strong> à différentes altitudes. Ils inventèrent aussi le "chuño" — pomme de terre lyophilisée — en utilisant les gelées nocturnes andines. L\'ancêtre des aliments déshydratés.'},
+           {e:'📨',t:'<strong>Les Incas n\'avaient pas d\'écriture</strong> mais utilisaient les "quipus" — des systèmes de nœuds sur des cordes colorées — pour enregistrer des données et peut-être des récits. On commence seulement à déchiffrer leur signification.'}
+         ]},
+        {icon:'😢',tag:'Événement',date:'1532 – 1533',title:'Pizarro & la Chute des Incas',
+         desc:'Francisco Pizarro capture l\'Inca Atahualpa avec 168 hommes. Malgré une rançon colossale, Atahualpa est exécuté. L\'empire s\'effondre.',
+         anecdotes:[
+           {e:'💰',t:'<strong>La rançon d\'Atahualpa</strong> fut la plus grande de l\'histoire : une pièce de 57 m² remplie d\'or jusqu\'à hauteur d\'homme, puis deux fois la même pièce remplie d\'argent. Les Espagnols prirent l\'or... et exécutèrent quand même l\'Inca.'},
+           {e:'🦠',t:'<strong>Comme pour les Aztèques, la variole avait déjà ravagé les Incas</strong> avant l\'arrivée de Pizarro. Elle avait tué l\'Inca précédent et déclenché une guerre civile. Pizarro arriva dans un empire déjà affaibli.'},
+           {e:'🥇',t:'<strong>La quantité d\'or fondu par les Espagnols</strong> dérégulia l\'économie européenne — une inflation massive toucha toute l\'Europe pendant un siècle. L\'or volé aux Amériques détruisit la prospérité espagnole à long terme.'}
+         ]},
+      ]},
+    ]
+  },
+
+  islam: {
+    id:'islam', icon:'🌙', title:'Islam & Monde Arabe', subtitle:'De Mahomet à l\'Empire Ottoman',
+    period:'570 – 1683', color:'#40b8d0',
+    eras:[
+      {label:'✦ Naissance de l\'Islam',cls:'islam',events:[
+        {icon:'🌙',tag:'Événement',date:'570',title:'Naissance de Mahomet à La Mecque',
+         desc:'Mahomet (Muhammad ibn Abdallah) naît dans la tribu des Qurayshites à La Mecque (Arabie). Orphelin à 6 ans, il devient marchand et développe une profonde réflexion spirituelle.',
+         anecdotes:[
+           {e:'📿',t:'<strong>La péninsule arabique avant l\'islam</strong> était divisée en centaines de tribus polythéistes. La Kaaba de La Mecque était déjà un centre religieux — elle abritait 360 idoles, une pour chaque jour.'},
+           {e:'📖',t:'<strong>Mahomet était illettré</strong> selon la tradition islamique. Le Coran lui fut révélé oralement par l\'archange Gabriel et mémorisé par ses disciples avant d\'être mis par écrit. "Iqra" (Lis/Récite) fut le premier mot révélé.'},
+           {e:'🌍',t:'<strong>L\'islam considère Mahomet comme "le sceau des prophètes"</strong> — le dernier d\'une longue lignée incluant Abraham, Moïse et Jésus. Pour les musulmans, l\'islam ne s\'oppose pas au judaïsme et au christianisme : il les complète.'}
+         ]},
+        {icon:'🕌',tag:'Événement',date:'622',title:'L\'Hégire — La Fuite vers Médine',
+         desc:'Persécuté à La Mecque, Mahomet fuit à Médine. Cette date (622 ap. J.-C.) marque le début du calendrier musulman. À Médine, il construit la première communauté islamique.',
+         anecdotes:[
+           {e:'📅',t:'<strong>Le calendrier musulman commence en 622 ap. J.-C.</strong> (l\'Hégire). Nous sommes actuellement en l\'an 1446 de l\'Hégire. L\'année musulmane est lunaire (354 jours), donc les fêtes comme le Ramadan tournent sur tout le calendrier solaire.'},
+           {e:'🕊️',t:'<strong>À Médine, Mahomet signa la "Constitution de Médine"</strong> avec les tribus juives et arabes de la ville — l\'un des premiers documents de coexistence religieuse de l\'histoire.'},
+           {e:'⚔️',t:'<strong>La bataille de Badr (624)</strong> vit 313 musulmans mal équipés vaincre 1 000 Mecquois. Cet événement fondateur renforça la foi des premiers musulmans : la victoire était perçue comme un signe divin.'}
+         ]},
+        {icon:'⭐',tag:'Événement',date:'630 – 632',title:'Conquête de La Mecque & Mort de Mahomet',
+         desc:'Mahomet retourne à La Mecque avec 10 000 soldats. Il pardonne ses ennemis et purifie la Kaaba. Il meurt en 632 sans désigner clairement de successeur.',
+         anecdotes:[
+           {e:'🕌',t:'<strong>La Kaaba de La Mecque</strong> est le bâtiment cubique au centre de la Grande Mosquée. Elle abrite la Pierre Noire, un fragment de météorite que les musulmans touchent en pèlerinage. Le Hajj — pèlerinage à La Mecque — est l\'un des 5 piliers de l\'islam.'},
+           {e:'💔',t:'<strong>La mort de Mahomet sans successeur désigné</strong> créa le premier grand schisme de l\'islam : les sunnites acceptèrent Abu Bakr comme premier calife, les chiites pensaient que Ali (gendre de Mahomet) était le seul légitime. Cette division existe encore.'},
+           {e:'🌍',t:'<strong>En 10 ans après sa mort,</strong> ses successeurs conquirent la Perse, l\'Égypte, la Syrie et la Palestine. Une expansion militaire sans précédent dans l\'histoire.'}
+         ]},
+      ]},
+      {label:'✦ L\'Âge d\'Or de l\'Islam',cls:'islam',events:[
+        {icon:'🏰',tag:'Événement',date:'661 – 750',title:'Le Califat Omeyyade — L\'Expansion',
+         desc:'Les Omeyyades portent l\'islam de l\'Espagne (711) à l\'Inde (712). Le premier grand empire islamique couvre un territoire plus grand que Rome.',
+         anecdotes:[
+           {e:'🌍',t:'<strong>En 80 ans, l\'islam s\'étendit</strong> de l\'Espagne (Al-Andalus) à l\'Indus. Une vitesse d\'expansion sans précédent dans l\'histoire. En comparaison, Rome avait mis 5 siècles pour construire son empire.'},
+           {e:'🏛️',t:'<strong>Le Dôme du Rocher de Jérusalem (691)</strong> est le premier grand monument islamique — et l\'un des plus beaux. Il fut construit sur le site du Temple de Salomon, lieu saint pour les trois religions monothéistes.'},
+           {e:'⚔️',t:'<strong>Charles Martel stoppa l\'avancée omeyyade à Poitiers (732).</strong> Mais l\'Espagne islamique (Al-Andalus) existera pendant 800 ans, jusqu\'en 1492 — une coexistence de cultures, de langues et de religions unique en Europe.'}
+         ]},
+        {icon:'📚',tag:'Événement',date:'750 – 1258',title:'Le Califat Abbasside — L\'Âge d\'Or de l\'Islam',
+         desc:'Bagdad devient la capitale du monde islamique et la ville la plus grande et cultivée du monde. La "Maison de la Sagesse" traduit et préserve tout le savoir grec, perse et indien.',
+         anecdotes:[
+           {e:'🔢',t:'<strong>Les mathématiques arabes nous ont donné</strong> l\'algèbre (al-jabr), les chiffres arabes (0 à 9), et la trigonométrie. Sans eux, les mathématiques européennes auraient eu des siècles de retard.'},
+           {e:'⚕️',t:'<strong>Ibn Sina (Avicenne, 980-1037)</strong> rédigea le "Canon de la Médecine" — un manuel médical utilisé en Europe jusqu\'au XVIIe siècle. Il décrivit la contagion des maladies 800 ans avant Pasteur.'},
+           {e:'🌟',t:'<strong>La moitié des étoiles ont des noms arabes :</strong> Algol, Aldébaran, Rigel, Véga, Bételgeuse... Les astronomes arabes médiévaux avaient cartographié le ciel avec une précision remarquable quand l\'Europe traversait le "haut Moyen Âge".'}
+         ]},
+        {icon:'🏰',tag:'Événement',date:'711 – 1492',title:'Al-Andalus — L\'Espagne Islamique',
+         desc:'Pendant 800 ans, l\'Espagne islamique est le phare culturel de l\'Europe. Cordoue, Grenade et Séville sont des centres de philosophie, de médecine et de poésie.',
+         anecdotes:[
+           {e:'🌹',t:'<strong>Cordoue au Xe siècle</strong> était la plus grande ville d\'Europe occidentale avec ~500 000 habitants. Elle comptait 300 mosquées, 70 bibliothèques et des rues éclairées la nuit — quand Paris était un village boueux.'},
+           {e:'🏛️',t:'<strong>L\'Alhambra de Grenade</strong> est le chef-d\'œuvre de l\'architecture islamique en Espagne. Ses jardins, ses fontaines et ses décors en stuc ciselé influencèrent toute l\'architecture méditerranéenne.'},
+           {e:'📖',t:'<strong>Averroès (Ibn Rushd, 1126-1198)</strong> commenta toute l\'œuvre d\'Aristote depuis Cordoue. Ses commentaires furent traduits en latin et transmis la philosophie grecque à l\'Europe médiévale. Sans lui, la Renaissance européenne aurait peut-être n\'aurait pas eu lieu.'}
+         ]},
+        {icon:'💀',tag:'Événement',date:'1258',title:'Chute de Bagdad — Les Mongols Détruisent l\'Âge d\'Or',
+         desc:'Hülegü Khan assiège et détruit Bagdad. Le calife est exécuté. La Maison de la Sagesse est brûlée. L\'âge d\'or de l\'islam prend fin brutalement.',
+         anecdotes:[
+           {e:'📚',t:'<strong>La bibliothèque de Bagdad</strong> contenait des centaines de milliers de manuscrits — le plus grand trésor intellectuel du monde. Les livres jetés dans le Tigre auraient coloré l\'eau en noir pendant des jours.'},
+           {e:'☠️',t:'<strong>Le calife Al-Musta\'sim fut tué sans effusion de sang</strong> — les Mongols l\'enveloppèrent dans un tapis et piétinèrent par leurs chevaux. Cette méthode évitait de répandre le sang royal, considéré comme sacré.'},
+           {e:'🌱',t:'<strong>L\'islam ne mourut pas pour autant.</strong> Les Mongols se convertirent progressivement à l\'islam en quelques générations. L\'Islam absorba ses conquérants comme il l\'avait fait avec tant d\'autres peuples.'}
+         ]},
+        {icon:'🏰',tag:'Événement',date:'1299 – 1683',title:'L\'Empire Ottoman — Le Successeur',
+         desc:'Les Ottomans prennent Constantinople en 1453 et construisent le plus grand empire islamique du Moyen Âge tardif et des Temps Modernes.',
+         anecdotes:[
+           {e:'🏰',t:'<strong>La prise de Constantinople en 1453</strong> par Mehmed II marqua la fin de l\'Empire Byzantin (héritier de Rome). Mehmed entra dans Sainte-Sophie et la transforma en mosquée. Elle est redevenue mosquée en 2020.'},
+           {e:'🌍',t:'<strong>À son apogée (XVIe s.), l\'Empire Ottoman</strong> s\'étendait du Maroc à l\'Irak, de la Hongrie à l\'Yémen. Il contrôlait les routes commerciales entre l\'Europe et l\'Asie — ce qui poussa les Européens à chercher d\'autres routes (d\'où Colomb).'},
+           {e:'🕌',t:'<strong>Soliman le Magnifique (1520-1566)</strong> fut à la fois législateur, poète et mécène. Sous son règne, l\'empire atteignit son apogée culturel et militaire. Il assiégea Vienne en 1529 — la porte de l\'Europe ne fut jamais franchie.'}
+         ]},
+      ]},
+    ]
+  },
+
+  religio: {
+    id:'religio', icon:'🪷', title:'Bouddhisme, Taoïsme & Shintô', subtitle:'Les grandes sagesses de l\'Asie',
+    period:'~600 av. J.-C. — aujourd\'hui', color:'#b090e8',
+    eras:[
+      {label:'✦ Bouddhisme',cls:'religio',events:[
+        {icon:'🪷',tag:'Religion',date:'~563 – 483 av. J.-C.',title:'Siddhartha Gautama — Le Bouddha',
+         desc:'Prince indien de la famille Shakya, Siddhartha quitte son palais à 29 ans, choqué par la souffrance humaine. Après 6 ans de méditation, il atteint l\'Éveil sous un arbre Bodhi.',
+         anecdotes:[
+           {e:'🏰',t:'<strong>Siddhartha fut élevé dans un luxe absolu.</strong> Son père, le roi, fit entourer le palais de jardins pour lui cacher toute souffrance. Quand il découvrit la maladie, la vieillesse et la mort à 29 ans, ce fut un choc fondateur.'},
+           {e:'🌳',t:'<strong>L\'arbre Bodhi sous lequel le Bouddha atteignit l\'Éveil</strong> est encore vénéré à Bodh Gaya (Inde). L\'arbre actuel serait une bouture de l\'arbre original — âgé de plus de 2 000 ans.'},
+           {e:'☯️',t:'<strong>Le Bouddha ne se déclarait pas dieu,</strong> refusait qu\'on le vénère et demandait à chacun de vérifier ses enseignements par l\'expérience. C\'est une philosophie de l\'éveil personnel, pas un acte de foi aveugle.'}
+         ]},
+        {icon:'☸️',tag:'Religion',date:'~250 av. J.-C.',title:'Ashoka — Le Roi Bouddhiste',
+         desc:'L\'Empereur indien Ashoka, après une guerre devastatrice, se convertit au bouddhisme et en fait la religion d\'État. Il diffuse le bouddhisme dans toute l\'Asie.',
+         anecdotes:[
+           {e:'😢',t:'<strong>La bataille de Kalinga (261 av. J.-C.)</strong> fit 100 000 morts et 150 000 déportés. Ashoka, horrifié par le carnage qu\'il avait lui-même provoqué, se convertit au bouddhisme et jura de ne plus faire la guerre.'},
+           {e:'📜',t:'<strong>Les "édits d\'Ashoka"</strong> gravés sur des piliers et des rochers dans tout l\'Inde prônaient la non-violence, la tolérance religieuse et le respect des animaux. C\'est l\'un des premiers textes de gouvernance éthique de l\'histoire.'},
+           {e:'🌏',t:'<strong>Ashoka envoya des missionnaires bouddhistes</strong> au Sri Lanka, en Thaïlande, à l\'Égypte et en Grèce. Le bouddhisme devint ainsi la première "religion mondiale" à se répandre au-delà de ses frontières d\'origine.'}
+         ]},
+        {icon:'🛕',tag:'Religion',date:'67 ap. J.-C.',title:'Le Bouddhisme en Chine & en Asie',
+         desc:'Le bouddhisme arrive en Chine sous les Han, se répand en Asie du Sud-Est, en Corée, au Japon, au Tibet. Il se transforme en s\'adaptant à chaque culture.',
+         anecdotes:[
+           {e:'🇨🇳',t:'<strong>La Chine créa le bouddhisme "Chan"</strong> (Zen au Japon) — une forme radicale centrée sur la méditation directe plutôt que sur les textes. "Si tu rencontres le Bouddha sur le chemin, tue-le" — un koan zen pour se libérer des dogmes.'},
+           {e:'🏔️',t:'<strong>Le bouddhisme tibétain</strong> est une fusion de bouddhisme indien et de la religion indigène Bön. Le Dalaï-Lama en est le chef spirituel. Il vit en exil en Inde depuis l\'invasion chinoise du Tibet en 1950.'},
+           {e:'🌍',t:'<strong>Aujourd\'hui, environ 500 millions de personnes</strong> pratiquent le bouddhisme dans le monde. C\'est la 4ème religion mondiale, avec une forte présence en Asie du Sud-Est, Chine, Japon, et une croissance en Occident.'}
+         ]},
+      ]},
+      {label:'✦ Taoïsme',cls:'religio',events:[
+        {icon:'☯️',tag:'Philosophie',date:'~600 – 400 av. J.-C.',title:'Lao-Tseu & la Naissance du Taoïsme',
+         desc:'Lao-Tseu (peut-être légendaire) rédige le "Tao Te Ching" — 81 courts chapitres sur le Tao (la Voie). Une philosophie de l\'harmonie avec la nature et du "non-agir".',
+         anecdotes:[
+           {e:'📖',t:'<strong>Le "Tao Te Ching" est le texte le plus traduit au monde</strong> après la Bible — plus de 250 traductions en anglais seul. En 81 chapitres de quelques lignes, il exprime une sagesse immense.'},
+           {e:'💧',t:'<strong>"L\'eau est la chose la plus douce du monde,</strong> et pourtant elle creuse la pierre." Cette image du Tao te Ching résume la philosophie taoïste : la douceur persistante vaut mieux que la force brutale.'},
+           {e:'🦋',t:'<strong>Zhuangzi, philosophe taoïste (IVe s. av.),</strong> rêva qu\'il était un papillon. À son réveil, il ne savait plus s\'il était un homme qui avait rêvé qu\'il était papillon, ou un papillon qui rêvait d\'être homme. La plus belle question de l\'identité.'}
+         ]},
+        {icon:'🌊',tag:'Philosophie',date:'Ve siècle ap. J.-C.',title:'Le Taoïsme Devient une Religion',
+         desc:'Le taoïsme philosophique devient une religion organisée avec temples, rituels et panthéon de divinités. Il fusionne avec le bouddhisme et les croyances populaires chinoises.',
+         anecdotes:[
+           {e:'⚗️',t:'<strong>Les alchimistes taoïstes cherchaient l\'élixir d\'immortalité.</strong> Leurs expériences avec le mercure, le soufre et d\'autres substances furent les ancêtres de la chimie. La poudre à canon fut découverte lors d\'une de ces recherches.'},
+           {e:'🥋',t:'<strong>Les arts martiaux chinois (kung-fu, tai-chi)</strong> sont profondément influencés par le taoïsme. Le tai-chi reproduit les mouvements lents et fluides de l\'eau — force par la douceur, équilibre par l\'harmonie.'},
+           {e:'🌿',t:'<strong>La médecine traditionnelle chinoise</strong> (acupuncture, plantes médicinales) est fondée sur des principes taoïstes d\'équilibre entre le yin et le yang, et de circulation du "qi" (énergie vitale) dans le corps.'}
+         ]},
+      ]},
+      {label:'✦ Shintô',cls:'religio',events:[
+        {icon:'⛩️',tag:'Religion',date:'~700 av. J.-C.',title:'Le Shintô — La Voie des Dieux Japonais',
+         desc:'Le shintô est la religion indigène du Japon. Il vénère les "kami" — les esprits qui habitent la nature : rivières, montagnes, arbres, phénomènes naturels. Pas de fondateur, pas de texte sacré unique.',
+         anecdotes:[
+           {e:'🌸',t:'<strong>Le mont Fuji est un kami.</strong> Grimper le Fuji est un acte de dévotion shintô, pas seulement du tourisme. À son sommet se trouve un sanctuaire. Des millions de Japonais l\'escaladent encore pour des raisons spirituelles.'},
+           {e:'⛩️',t:'<strong>Le "torii" rouge</strong> (portail shintô) marque l\'entrée dans un espace sacré. Il signale la frontière entre le monde profane et le monde des kami. Le Japon compte plus de 80 000 sanctuaires shintô.'},
+           {e:'🎍',t:'<strong>Le Nouvel An japonais (Shôgatsu)</strong> est une fête shintô. Des millions de Japonais visitent les sanctuaires dans les premières heures de l\'année pour prier les kami. C\'est la tradition la plus universellement respectée au Japon.'}
+         ]},
+        {icon:'🏯',tag:'Religion',date:'538 ap. J.-C.',title:'Shintô & Bouddhisme — Une Coexistence Unique',
+         desc:'Quand le bouddhisme arrive au Japon, il ne remplace pas le shintô mais coexiste avec lui. Les Japonais pratiquent les deux simultanément depuis 1 500 ans.',
+         anecdotes:[
+           {e:'🤝',t:'<strong>"Shinbutsu-shûgô" (fusion shintô-bouddhisme)</strong> — pendant des siècles, les kami shintô furent considérés comme des manifestations des bouddhas. Les mêmes temples servaient aux deux religions simultanément.'},
+           {e:'💒',t:'<strong>Un Japonais typique</strong> naît dans une cérémonie shintô, se marie à une cérémonie parfois chrétienne, et meurt dans un funéraire bouddhiste. Les trois religions coexistent sans contradiction dans la vie quotidienne.'},
+           {e:'🌸',t:'<strong>L\'Ise Jingû</strong>, le sanctuaire shintô le plus sacré du Japon, est démoli et reconstruit à l\'identique tous les 20 ans depuis 689 ap. J.-C. — c\'est la 62ème reconstruction. Cette tradition symbolise la régénération éternelle.'}
+         ]},
+        {icon:'☀️',tag:'Événement',date:'1868 – 1945',title:'Le Shintô d\'État & l\'Ère Meiji',
+         desc:'L\'Ère Meiji restaure l\'Empereur au pouvoir. Le shintô devient religion d\'État et sert à justifier l\'expansion militaire japonaise. Après 1945, le shintô d\'État est aboli.',
+         anecdotes:[
+           {e:'⚡',t:'<strong>L\'Ère Meiji (1868)</strong> fut une révolution totale : en 40 ans, le Japon féodal devint une puissance industrielle et militaire moderne. Le Japon voulait "apprendre de l\'Occident pour résister à l\'Occident".'},
+           {e:'✈️',t:'<strong>Les pilotes "kamikaze"</strong> (vent divin) de la Seconde Guerre Mondiale se sacrifiaient dans un esprit shintô d\'offrande à l\'Empereur-Dieu et à la nation. Après la défaite, l\'Empereur Hirohito déclara publiquement n\'être pas un dieu.'},
+           {e:'🌸',t:'<strong>Aujourd\'hui, le shintô redevenu purement spirituel</strong> est pratiqué par environ 90 % des Japonais pour les fêtes et rituels de vie, sans que la plupart se considèrent "religieux". Une spiritualité culturelle plus qu\'une foi dogmatique.'}
+         ]},
+      ]},
+    ]
+  },
+
+};
+
+// ── Render timeline ──
+function renderBranch(branchId) {
+  const branch = branches[branchId];
+  if (!branch) return '';
+  
+  const colorMap2 = {
+    cosmic:'#a084d8',geo:'#4ec99a',paleo:'#e8a850',antique:'#d4a843',
+    medieval:'#d46060',merov:'#e0884a',caro:'#6ea8e8',capet:'#c8b840',
+    renaiss:'#5ec48a',moderne:'#c084d8',revolution:'#e84040',empire:'#d4a020',
+    republiques:'#60a0d8',guerres:'#b89060',contemp:'#40c8b0',
+    meso:'#e8c060',chine:'#e84848',japon:'#e870a0',mongols:'#d09030',
+    ameriques:'#60c880',islam:'#40b8d0',religio:'#b090e8'
+  };
+
+  const container = document.getElementById('branches-container');
+  const div = document.createElement('div');
+  div.className = 'branch';
+  div.id = `branch-${branchId}`;
+  
+  let html = `
+    <div class="branch-header">
+      <span class="branch-icon-big">${branch.icon}</span>
+      <div>
+        <div class="branch-title" style="color:${branch.color}">${branch.title}</div>
+        <div class="branch-subtitle">${branch.subtitle}</div>
+        <span class="branch-period" style="color:${branch.color};border-color:${branch.color}">${branch.period}</span>
+      </div>
+    </div>
+    <div class="timeline" id="tl-${branchId}">`;
+
+  let side = 0;
+  for (const era of branch.eras) {
+    const c = colorMap2[era.cls] || branch.color;
+    html += `<div class="era-label ${era.cls}" data-cls="${era.cls}"><span>${era.label}</span></div>`;
+    for (const ev of era.events) {
+      const dir = side % 2 === 0 ? 'left' : 'right';
+      side++;
+      const esc = (s) => s.replace(/`/g,'\\`').replace(/\\/g,'\\\\').replace(/'/g,"\\'");
+      html += `
+        <div class="event ${dir}">
+          <div class="card ${era.cls}" data-event="${branchId}-${side}" role="button" tabindex="0">
+            <span class="card-tag c-${era.cls}" style="border-color:${c}33">${ev.tag}</span>
+            <span class="card-icon">${ev.icon}</span>
+            <div class="card-date c-${era.cls}">${ev.date}</div>
+            <div class="card-title">${ev.title}</div>
+            <div class="card-desc">${ev.desc}</div>
+            <div class="card-hint" style="color:${c}">✦ Cliquer pour les anecdotes</div>
+          </div>
+          <div class="connector"></div>
+          <div class="dot ${era.cls}"></div>
+        </div>`;
+    }
+  }
+  html += `</div>`;
+  div.innerHTML = html;
+  container.appendChild(div);
+  
+  // Attach click events
+  let idx = 0;
+  for (const era of branch.eras) {
+    for (const ev of era.events) {
+      idx++;
+      const card = div.querySelector(`[data-event="${branchId}-${idx}"]`);
+      if (card) {
+        const evCopy = ev;
+        const clsCopy = era.cls;
+        card.addEventListener('click', () => openModal(evCopy, clsCopy));
+        card.addEventListener('keydown', e => { if(e.key==='Enter'||e.key===' ')openModal(evCopy,clsCopy); });
+      }
+    }
+  }
+}
+
+// Render all branches
+Object.keys(branches).forEach(id => renderBranch(id));
+
+// Activate france by default
+document.getElementById('branch-france').classList.add('active');
+
+// ── Modal ──
+const overlay = document.getElementById('modal-overlay');
+const mIcon   = document.getElementById('m-icon');
+const mTag    = document.getElementById('m-tag');
+const mDate   = document.getElementById('m-date');
+const mTitle  = document.getElementById('m-title');
+const mIntro  = document.getElementById('m-intro');
+const mAne    = document.getElementById('m-anecdotes');
+const mClose  = document.getElementById('modal-close');
+
+function openModal(ev, cls) {
+  const c = colorMap[cls] || '#e8dfc4';
+  mIcon.textContent  = ev.icon;
+  mTag.textContent   = ev.tag;
+  mTag.style.cssText = `color:${c};border-color:${c};background:${c}18`;
+  mDate.textContent  = ev.date;
+  mTitle.textContent = ev.title;
+  mTitle.style.color = c;
+  mIntro.textContent = ev.desc;
+  mAne.innerHTML     = ev.anecdotes.map(a =>
+    `<div class="anecdote"><span class="anecdote-bullet">${a.e}</span><div class="anecdote-text">${a.t}</div></div>`
+  ).join('');
+  overlay.classList.add('open');
+  document.body.style.overflow = 'hidden';
+}
+function closeModal() { overlay.classList.remove('open'); document.body.style.overflow = ''; }
+mClose.addEventListener('click', closeModal);
+overlay.addEventListener('click', e => { if(e.target===overlay) closeModal(); });
+document.addEventListener('keydown', e => { if(e.key==='Escape') closeModal(); });
+
+// ── Navigation ──
+document.querySelectorAll('.nav-btn').forEach(btn => {
+  btn.addEventListener('click', () => {
+    const id = btn.dataset.branch;
+    // hide all
+    document.querySelectorAll('.branch').forEach(b => b.classList.remove('active'));
+    document.querySelectorAll('.nav-btn').forEach(b => {
+      b.classList.remove('active');
+      b.style.borderLeftColor = 'transparent';
+    });
+    // show selected
+    document.getElementById(`branch-${id}`).classList.add('active');
+    btn.classList.add('active');
+    btn.style.borderLeftColor = branches[id].color;
+    window.scrollTo({top:0, behavior:'smooth'});
+    // reset bg
+    targetBg = [6,10,20];
+    if (!animF) animF = requestAnimationFrame(animBg);
+    // rebuild markers
+    setTimeout(() => { buildMarkers(); resize(); setupObserver(); }, 100);
+  });
+});
+// init france active
+document.querySelector('[data-branch="france"]').style.borderLeftColor = branches.france.color;
+
+// ── IntersectionObserver ──
+let obs = null;
+function setupObserver() {
+  if (obs) obs.disconnect();
+  obs = new IntersectionObserver(entries => {
+    entries.forEach(e => { if(e.isIntersecting){ e.target.classList.add('visible'); obs.unobserve(e.target); } });
+  }, { threshold: 0.06, rootMargin: '0px 0px -20px 0px' });
+  document.querySelectorAll('.branch.active .event').forEach(el => obs.observe(el));
+}
+setTimeout(() => { buildMarkers(); resize(); setupObserver(); }, 400);
+
+</script>
+</body>
+</html>

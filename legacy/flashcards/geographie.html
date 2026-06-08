@@ -1,0 +1,636 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Flashcards Géographie — L'Encyclopédie des Explorateurs</title>
+<link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;700;900&family=Crimson+Pro:ital,wght@0,300;0,400;1,300&display=swap" rel="stylesheet">
+<style>
+:root {
+  --bg:#060a14; --gold:#d4a843; --gold-dim:rgba(200,180,120,0.18);
+  --text:#e8dfc4; --text-dim:rgba(232,223,196,0.48);
+  --card-bg:rgba(8,13,26,0.94); --border:rgba(200,180,120,0.18);
+  --blue:#4db8ff; --blue-dim:rgba(77,184,255,0.15);
+}
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0;}
+body{background:var(--bg);color:var(--text);font-family:'Crimson Pro',Georgia,serif;min-height:100vh;overflow-x:hidden;user-select:none;}
+#stars-canvas{position:fixed;inset:0;z-index:0;pointer-events:none;}
+.content{position:relative;z-index:1;}
+.back{position:fixed;top:22px;left:24px;z-index:100;font-family:'Cinzel',serif;font-size:.6rem;letter-spacing:.25em;text-transform:uppercase;color:rgba(212,168,67,.5);text-decoration:none;display:flex;align-items:center;gap:8px;transition:color .2s;}
+.back:hover{color:#d4a843;}
+header{text-align:center;padding:52px 20px 28px;}
+.enc-label{font-size:.72rem;letter-spacing:.38em;text-transform:uppercase;color:var(--text-dim);margin-bottom:14px;}
+h1{font-family:'Cinzel',serif;font-weight:900;font-size:clamp(1.7rem,4.5vw,3.2rem);background:linear-gradient(135deg,#a0d8ff,#4db8ff 38%,#80ccff 68%,#e0f4ff);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;line-height:1.1;}
+.tagline{margin-top:10px;font-size:.95rem;color:var(--text-dim);font-style:italic;}
+.divider{height:1px;background:var(--gold-dim);max-width:300px;margin:20px auto;}
+.filter-bar{display:flex;gap:8px;justify-content:center;flex-wrap:wrap;padding:0 20px 20px;max-width:900px;margin:0 auto;}
+.filter-btn{font-family:'Cinzel',serif;font-size:.52rem;letter-spacing:.14em;text-transform:uppercase;padding:6px 12px;border-radius:3px;border:1px solid var(--border);background:rgba(6,10,20,.9);color:var(--text-dim);cursor:pointer;transition:all .2s;}
+.filter-btn:hover,.filter-btn.active{border-color:rgba(77,184,255,.5);color:var(--blue);background:rgba(77,184,255,.07);}
+.filter-btn.active{box-shadow:0 0 12px rgba(77,184,255,.12);}
+.progress-wrap{max-width:520px;margin:0 auto 28px;text-align:center;}
+.progress-text{font-family:'Cinzel',serif;font-size:.72rem;letter-spacing:.2em;text-transform:uppercase;color:var(--text-dim);margin-bottom:10px;}
+.progress-bar{height:2px;background:var(--gold-dim);border-radius:2px;overflow:hidden;}
+.progress-fill{height:100%;background:var(--blue);transition:width .4s ease;border-radius:2px;}
+.stage{display:flex;justify-content:center;align-items:center;perspective:1200px;padding:8px 0 20px;}
+.fc-wrap{width:420px;max-width:88vw;height:500px;position:relative;transform-style:preserve-3d;transition:transform .6s cubic-bezier(0.34,1.4,0.64,1);will-change:transform;cursor:pointer;}
+.fc-wrap.flipped{transform:rotateY(180deg);}
+.fc-wrap.no-anim{transition:none!important;}
+.face{position:absolute;inset:0;border-radius:14px;backface-visibility:hidden;-webkit-backface-visibility:hidden;transform:translateZ(0);border:1px solid var(--border);box-shadow:0 20px 60px rgba(0,0,0,.7),0 0 0 1px rgba(200,180,120,.06);overflow:hidden;}
+.face-front{background:var(--card-bg);display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;padding:36px 32px 24px;}
+.face-front::before{content:'';position:absolute;inset:0;border-radius:14px;background:radial-gradient(ellipse at 50% 0%,rgba(77,184,255,.05) 0%,transparent 65%);pointer-events:none;}
+.face-front.has-svg{padding:0;justify-content:flex-start;}
+.svg-zone{width:100%;height:210px;display:flex;align-items:center;justify-content:center;background:rgba(4,10,24,.7);border-bottom:1px solid var(--border);flex-shrink:0;}
+.svg-zone svg{max-height:195px;max-width:92%;}
+.q-inner{display:flex;flex-direction:column;align-items:center;gap:12px;padding:16px 28px 60px;}
+.face-front:not(.has-svg) .q-inner{padding-bottom:60px;}
+.q-category{font-size:.58rem;letter-spacing:.22em;text-transform:uppercase;color:var(--blue);border:1px solid rgba(77,184,255,.3);padding:4px 14px;border-radius:3px;opacity:.9;}
+.q-text{font-family:'Cinzel',serif;font-size:1rem;font-weight:700;color:var(--text);line-height:1.55;}
+.front-footer{position:absolute;bottom:0;left:0;right:0;display:flex;align-items:center;justify-content:center;gap:10px;padding:12px 20px;border-top:1px solid var(--border);background:rgba(6,10,20,.6);}
+.flip-hint{font-size:.7rem;letter-spacing:.2em;text-transform:uppercase;color:var(--text-dim);}
+.flip-arrow{color:var(--gold);opacity:.7;font-size:1rem;}
+.face-back{transform:rotateY(180deg);background:linear-gradient(145deg,#080e1a 0%,#0d1e2e 50%,#080e1a 100%);display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;padding:40px 32px;border-color:rgba(77,184,255,.25);}
+.face-back::before{content:'';position:absolute;inset:0;border-radius:14px;background:radial-gradient(ellipse at 50% 20%,rgba(77,184,255,.06) 0%,transparent 65%);pointer-events:none;}
+.b-category{font-size:.58rem;letter-spacing:.22em;text-transform:uppercase;color:var(--blue);border:1px solid rgba(77,184,255,.35);padding:4px 16px;border-radius:3px;margin-bottom:20px;opacity:.9;}
+.b-question{font-family:'Cinzel',serif;font-size:.85rem;font-weight:700;color:rgba(232,223,196,.5);line-height:1.4;margin-bottom:16px;}
+.b-answer{font-family:'Cinzel',serif;font-size:1.25rem;font-weight:900;background:linear-gradient(135deg,#a0d8ff,#4db8ff);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;margin-bottom:16px;line-height:1.4;}
+.b-explain{font-size:.88rem;line-height:1.75;color:rgba(232,223,196,.55);font-style:italic;max-width:300px;}
+.overlay{position:absolute;inset:0;border-radius:14px;background:rgba(6,10,20,.95);z-index:30;opacity:0;pointer-events:none;transition:opacity 0.18s ease;}
+.overlay.dark{opacity:1;}
+@keyframes iris{from{clip-path:inset(50% 50% 50% 50% round 8px);opacity:0;}to{clip-path:inset(0% 0% 0% 0% round 14px);}}
+.face-front.iris{animation:iris 0.4s cubic-bezier(0.34,1.2,0.64,1) forwards;}
+.controls{display:flex;justify-content:center;gap:12px;margin-top:20px;flex-wrap:wrap;}
+.btn{font-family:'Cinzel',serif;font-size:.72rem;letter-spacing:.18em;text-transform:uppercase;padding:11px 26px;border-radius:4px;border:1px solid var(--border);background:rgba(6,10,20,.9);color:var(--text-dim);cursor:pointer;transition:all .2s;}
+.btn:hover{border-color:rgba(200,180,120,.5);color:var(--text);background:rgba(200,180,120,.07);}
+.btn-gold{border-color:rgba(212,168,67,.6);color:var(--gold);background:rgba(212,168,67,.07);}
+.btn-gold:hover{background:rgba(212,168,67,.16);box-shadow:0 0 18px rgba(212,168,67,.2);}
+.btn-green{border-color:rgba(94,196,138,.5);color:#5ec48a;}
+.btn-green:hover{background:rgba(94,196,138,.1);}
+.btn-red{border-color:rgba(232,80,80,.5);color:#e84848;}
+.btn-red:hover{background:rgba(232,80,80,.1);}
+.review-row{display:flex;justify-content:center;gap:12px;margin-top:12px;flex-wrap:wrap;}
+.review-label{text-align:center;margin-top:16px;font-size:.65rem;letter-spacing:.18em;text-transform:uppercase;color:var(--text-dim);}
+.known-bar{max-width:520px;margin:20px auto 0;display:flex;gap:20px;justify-content:center;}
+.known-stat{font-family:'Cinzel',serif;font-size:.68rem;letter-spacing:.14em;text-transform:uppercase;color:var(--text-dim);}
+.known-stat span{color:var(--text);font-weight:700;}
+.strip{display:flex;gap:8px;overflow-x:auto;padding:12px 20px;scrollbar-width:none;}
+.strip::-webkit-scrollbar{display:none;}
+.thumb-geo{width:52px;height:38px;border-radius:4px;border:1px solid var(--border);flex-shrink:0;opacity:.45;transition:opacity .2s;cursor:pointer;background:rgba(77,184,255,.08);display:flex;align-items:center;justify-content:center;font-size:.5rem;font-family:'Cinzel',serif;color:rgba(77,184,255,.65);text-align:center;padding:2px;}
+.thumb-geo:hover{opacity:.7;}
+.thumb-geo.cur{opacity:1;border-color:var(--blue);}
+@media(max-width:600px){.fc-wrap{height:460px;}.b-answer{font-size:1rem;}}
+</style>
+</head>
+<body>
+<canvas id="stars-canvas"></canvas>
+<a class="back" href="/flashcards/index.html">← Flashcards</a>
+<div class="content">
+  <header>
+    <div class="enc-label">L'Encyclopédie des Explorateurs</div>
+    <h1>Flashcards Géographie</h1>
+    <div class="tagline">Pays · Capitales · Ressources · Géopolitique — programme collège</div>
+  </header>
+
+  <div class="filter-bar" id="filter-bar">
+    <button class="filter-btn active" onclick="filterBy('all',this)">Tout</button>
+    <button class="filter-btn" onclick="filterBy('Pays & Capitales',this)">🌍 Pays & Capitales</button>
+    <button class="filter-btn" onclick="filterBy('Silhouettes',this)">🗺️ Silhouettes</button>
+    <button class="filter-btn" onclick="filterBy('Reliefs & Milieux',this)">🏔️ Reliefs & Milieux</button>
+    <button class="filter-btn" onclick="filterBy('Géopolitique',this)">🌐 Géopolitique</button>
+    <button class="filter-btn" onclick="filterBy('Ressources & Économie',this)">💰 Ressources & Éco.</button>
+    <button class="filter-btn" onclick="filterBy('Environnement',this)">🌱 Environnement</button>
+    <button class="filter-btn" onclick="filterBy('Repères',this)">🧭 Repères</button>
+  </div>
+
+  <div style="padding:0 20px 80px;">
+    <div class="progress-wrap">
+      <div class="progress-text" id="p-text">Carte 1 / 155</div>
+      <div class="progress-bar"><div class="progress-fill" id="p-fill" style="width:0%"></div></div>
+    </div>
+    <div class="stage">
+      <div class="fc-wrap" id="fc" onclick="flipCard()">
+        <div class="overlay" id="overlay"></div>
+        <div class="face face-front" id="front">
+          <div class="svg-zone" id="fc-svg" style="display:none"></div>
+          <div class="q-inner">
+            <div class="q-category" id="fc-cat"></div>
+            <div class="q-text" id="fc-q"></div>
+          </div>
+          <div class="front-footer">
+            <span class="flip-arrow">↩</span>
+            <span class="flip-hint">Cliquez pour révéler</span>
+          </div>
+        </div>
+        <div class="face face-back">
+          <div class="b-category" id="fc-cat2"></div>
+          <div class="b-question" id="fc-q2"></div>
+          <div class="b-answer" id="fc-ans"></div>
+          <div class="b-explain" id="fc-exp"></div>
+        </div>
+      </div>
+    </div>
+    <div class="controls">
+      <button class="btn" onclick="prevCard()">← Précédente</button>
+      <button class="btn btn-gold" onclick="nextCard()">Suivante →</button>
+      <button class="btn" onclick="shuffleCards()">🔀 Mélanger</button>
+    </div>
+    <div class="review-label">Après avoir révélé la carte :</div>
+    <div class="review-row">
+      <button class="btn btn-green" onclick="markKnown()">✓ Je savais</button>
+      <button class="btn btn-red" onclick="markReview()">↩ À revoir</button>
+    </div>
+    <div class="known-bar">
+      <div class="known-stat">Connues : <span id="k-count">0</span></div>
+      <div class="known-stat">À revoir : <span id="r-count">0</span></div>
+      <div class="known-stat">Restantes : <span id="rem-count">155</span></div>
+    </div>
+    <div class="divider"></div>
+    <div class="strip" id="strip"></div>
+  </div>
+</div>
+
+<script>
+/* ══ SVG SILHOUETTES ══ */
+const C = 'rgba(232,223,196,.6)', S = 'rgba(120,165,255,.7)', B = '#4db8ff';
+const t = (x,y,txt,col,sz) => `<text x="${x}" y="${y}" ${x===110||x===105||x===100||x===95||x===108||x===88||x===112||x===115||x===85?'text-anchor="middle" ':''}fill="${col||C}" font-size="${sz||8}" font-family="serif">${txt}</text>`;
+const SVG = {
+  france: `<svg viewBox="0 0 220 180" xmlns="http://www.w3.org/2000/svg">
+    <polygon points="50,30 135,20 178,65 165,128 118,155 50,152 26,92" fill="rgba(77,184,255,.2)" stroke="${B}" stroke-width="2.5"/>
+    <text x="100" y="95" text-anchor="middle" fill="${B}" font-size="26" font-family="serif" font-weight="bold">?</text>
+    <text x="4" y="90" fill="${S}" font-size="8" font-family="serif">Atlantique</text>
+    <text x="130" y="15" fill="${C}" font-size="8" font-family="serif">Belgique</text>
+    <text x="180" y="88" fill="${C}" font-size="8" font-family="serif">Suisse</text>
+    <text x="38" y="172" fill="${C}" font-size="8" font-family="serif">Espagne</text>
+    <text x="125" y="172" fill="${S}" font-size="8" font-family="serif">Méditerranée</text>
+  </svg>`,
+
+  italie: `<svg viewBox="0 0 220 180" xmlns="http://www.w3.org/2000/svg">
+    <path d="M 78,10 L 148,12 L 158,30 L 162,55 L 160,80 L 158,104 L 162,127 L 168,147 L 160,160 L 148,163 L 138,150 L 128,148 L 118,158 L 110,165 L 100,160 L 92,148 L 98,133 L 88,114 L 80,92 L 78,68 L 78,40 Z" fill="rgba(77,184,255,.2)" stroke="${B}" stroke-width="2.5"/>
+    <text x="118" y="80" text-anchor="middle" fill="${B}" font-size="22" font-family="serif" font-weight="bold">?</text>
+    <text x="4" y="45" fill="${C}" font-size="8" font-family="serif">France</text>
+    <text x="170" y="72" fill="${S}" font-size="8" font-family="serif">Adriatique</text>
+    <text x="18" y="108" fill="${S}" font-size="8" font-family="serif">Tyrrhénienne</text>
+    <text x="100" y="177" text-anchor="middle" fill="${S}" font-size="8" font-family="serif">Méditerranée</text>
+  </svg>`,
+
+  uk: `<svg viewBox="0 0 220 180" xmlns="http://www.w3.org/2000/svg">
+    <path d="M 98,10 L 122,12 L 135,25 L 140,45 L 145,65 L 140,84 L 142,102 L 135,120 L 125,138 L 112,148 L 98,145 L 84,132 L 78,115 L 75,96 L 78,78 L 72,60 L 72,40 L 78,24 Z" fill="rgba(77,184,255,.2)" stroke="${B}" stroke-width="2.5"/>
+    <text x="108" y="80" text-anchor="middle" fill="${B}" font-size="22" font-family="serif" font-weight="bold">?</text>
+    <text x="148" y="52" fill="${S}" font-size="8" font-family="serif">Mer du Nord</text>
+    <text x="4" y="80" fill="${S}" font-size="8" font-family="serif">Atlantique</text>
+    <text x="84" y="168" text-anchor="middle" fill="${S}" font-size="8" font-family="serif">Manche → France</text>
+  </svg>`,
+
+  espagne: `<svg viewBox="0 0 220 180" xmlns="http://www.w3.org/2000/svg">
+    <polygon points="38,32 172,28 184,72 168,130 95,150 38,120" fill="rgba(77,184,255,.2)" stroke="${B}" stroke-width="2.5"/>
+    <text x="110" y="85" text-anchor="middle" fill="${B}" font-size="26" font-family="serif" font-weight="bold">?</text>
+    <text x="90" y="16" fill="${C}" font-size="8" font-family="serif">France (Pyrénées)</text>
+    <text x="186" y="90" fill="${S}" font-size="8" font-family="serif">Médit.</text>
+    <text x="4" y="90" fill="${S}" font-size="8" font-family="serif">Atlantique</text>
+    <text x="75" y="168" text-anchor="middle" fill="${C}" font-size="8" font-family="serif">Détroit → Maroc</text>
+  </svg>`,
+
+  allemagne: `<svg viewBox="0 0 220 180" xmlns="http://www.w3.org/2000/svg">
+    <polygon points="62,18 130,15 165,34 170,80 152,130 108,145 68,130 48,76" fill="rgba(77,184,255,.2)" stroke="${B}" stroke-width="2.5"/>
+    <text x="108" y="82" text-anchor="middle" fill="${B}" font-size="26" font-family="serif" font-weight="bold">?</text>
+    <text x="75" y="10" fill="${S}" font-size="8" font-family="serif">Mer Baltique</text>
+    <text x="172" y="72" fill="${C}" font-size="8" font-family="serif">Pologne</text>
+    <text x="4" y="72" fill="${C}" font-size="8" font-family="serif">France</text>
+    <text x="90" y="162" text-anchor="middle" fill="${C}" font-size="8" font-family="serif">Autriche / Suisse</text>
+  </svg>`,
+
+  norvege: `<svg viewBox="0 0 220 180" xmlns="http://www.w3.org/2000/svg">
+    <path d="M 78,12 L 96,8 L 106,20 L 112,38 L 116,58 L 118,78 L 120,98 L 124,118 L 128,138 L 132,155 L 120,162 L 108,158 L 100,143 L 94,125 L 88,105 L 83,85 L 78,65 L 72,45 L 68,28 Z" fill="rgba(77,184,255,.2)" stroke="${B}" stroke-width="2.5"/>
+    <text x="100" y="88" text-anchor="middle" fill="${B}" font-size="16" font-family="serif" font-weight="bold">?</text>
+    <text x="4" y="78" fill="${S}" font-size="8" font-family="serif">Mer de Norvège</text>
+    <text x="132" y="75" fill="${C}" font-size="8" font-family="serif">Suède</text>
+    <text x="62" y="8" fill="${S}" font-size="8" font-family="serif">Mer de Barents</text>
+    <text x="28" y="165" fill="${S}" font-size="8" font-family="serif">Mer du Nord</text>
+  </svg>`,
+
+  egypte: `<svg viewBox="0 0 220 180" xmlns="http://www.w3.org/2000/svg">
+    <path d="M 42,28 L 148,28 L 148,50 L 168,60 L 168,82 L 148,82 L 148,150 L 42,150 Z" fill="rgba(77,184,255,.2)" stroke="${B}" stroke-width="2.5"/>
+    <text x="95" y="95" text-anchor="middle" fill="${B}" font-size="26" font-family="serif" font-weight="bold">?</text>
+    <text x="80" y="20" fill="${S}" font-size="8" font-family="serif">Méditerranée</text>
+    <text x="170" y="72" fill="${S}" font-size="8" font-family="serif">Mer Rouge</text>
+    <text x="4" y="95" fill="${C}" font-size="8" font-family="serif">Libye</text>
+    <text x="80" y="165" text-anchor="middle" fill="${C}" font-size="8" font-family="serif">Soudan</text>
+    <text x="148" y="20" fill="${C}" font-size="8" font-family="serif">Sinaï →</text>
+  </svg>`,
+
+  afrique_sud: `<svg viewBox="0 0 220 180" xmlns="http://www.w3.org/2000/svg">
+    <polygon points="40,30 155,30 178,55 185,90 170,128 145,158 112,168 80,158 52,130 36,95" fill="rgba(77,184,255,.2)" stroke="${B}" stroke-width="2.5"/>
+    <text x="110" y="100" text-anchor="middle" fill="${B}" font-size="22" font-family="serif" font-weight="bold">?</text>
+    <text x="75" y="20" fill="${C}" font-size="8" font-family="serif">Namibie, Botswana</text>
+    <text x="186" y="95" fill="${S}" font-size="8" font-family="serif">Oc. Indien</text>
+    <text x="4" y="95" fill="${S}" font-size="8" font-family="serif">Atlantique</text>
+    <text x="112" y="178" text-anchor="middle" fill="rgba(232,223,196,.4)" font-size="7" font-family="serif">Pointe sud du continent</text>
+  </svg>`,
+
+  madagascar: `<svg viewBox="0 0 220 180" xmlns="http://www.w3.org/2000/svg">
+    <path d="M 88,15 L 130,20 L 158,55 L 162,90 L 155,128 L 138,155 L 108,168 L 80,162 L 58,132 L 50,98 L 55,65 L 68,35 Z" fill="rgba(77,184,255,.2)" stroke="${B}" stroke-width="2.5"/>
+    <text x="105" y="95" text-anchor="middle" fill="${B}" font-size="22" font-family="serif" font-weight="bold">?</text>
+    <text x="4" y="92" fill="${S}" font-size="8" font-family="serif">Canal Mozambique</text>
+    <text x="164" y="92" fill="${S}" font-size="8" font-family="serif">Oc. Indien</text>
+    <text x="106" y="8" text-anchor="middle" fill="rgba(232,223,196,.4)" font-size="7" font-family="serif">4e plus grande île du monde</text>
+  </svg>`,
+
+  inde: `<svg viewBox="0 0 220 180" xmlns="http://www.w3.org/2000/svg">
+    <path d="M 78,15 L 148,15 L 162,38 L 165,65 L 158,92 L 148,112 L 135,132 L 122,150 L 110,168 L 98,155 L 85,135 L 72,112 L 62,88 L 60,65 L 65,40 Z" fill="rgba(77,184,255,.2)" stroke="${B}" stroke-width="2.5"/>
+    <text x="112" y="80" text-anchor="middle" fill="${B}" font-size="22" font-family="serif" font-weight="bold">?</text>
+    <text x="46" y="10" fill="${C}" font-size="8" font-family="serif">Pakistan</text>
+    <text x="128" y="10" fill="${C}" font-size="8" font-family="serif">Chine</text>
+    <text x="166" y="75" fill="${S}" font-size="8" font-family="serif">Golfe du Bengale</text>
+    <text x="4" y="75" fill="${S}" font-size="8" font-family="serif">Mer Arabique</text>
+    <text x="110" y="178" text-anchor="middle" fill="${S}" font-size="8" font-family="serif">Océan Indien</text>
+  </svg>`,
+
+  chine: `<svg viewBox="0 0 220 180" xmlns="http://www.w3.org/2000/svg">
+    <polygon points="18,28 75,18 145,15 185,28 198,55 192,82 175,108 158,130 135,142 100,148 68,138 42,128 20,100 15,72" fill="rgba(77,184,255,.2)" stroke="${B}" stroke-width="2.5"/>
+    <text x="110" y="82" text-anchor="middle" fill="${B}" font-size="26" font-family="serif" font-weight="bold">?</text>
+    <text x="85" y="10" fill="${C}" font-size="8" font-family="serif">Russie / Mongolie</text>
+    <text x="186" y="95" fill="${S}" font-size="8" font-family="serif">Pacifique</text>
+    <text x="4" y="88" fill="${C}" font-size="8" font-family="serif">Asie Centrale</text>
+    <text x="88" y="162" text-anchor="middle" fill="${C}" font-size="8" font-family="serif">Vietnam, Inde, Myanmar</text>
+  </svg>`,
+
+  japon: `<svg viewBox="0 0 220 180" xmlns="http://www.w3.org/2000/svg">
+    <path d="M 118,15 L 135,18 L 148,35 L 155,55 L 152,78 L 142,100 L 128,118 L 112,125 L 95,120 L 82,108 L 78,90 L 80,70 L 86,50 L 98,30 Z" fill="rgba(77,184,255,.2)" stroke="${B}" stroke-width="2.5"/>
+    <polygon points="148,10 168,8 172,18 162,24 148,22" fill="rgba(77,184,255,.18)" stroke="${B}" stroke-width="1.5"/>
+    <text x="118" y="72" text-anchor="middle" fill="${B}" font-size="22" font-family="serif" font-weight="bold">?</text>
+    <text x="4" y="72" fill="${S}" font-size="8" font-family="serif">Mer du Japon</text>
+    <text x="158" y="68" fill="${S}" font-size="8" font-family="serif">Pacifique</text>
+    <text x="55" y="145" fill="${S}" font-size="8" font-family="serif">Mer de Chine orientale</text>
+  </svg>`,
+
+  arabie_saoudite: `<svg viewBox="0 0 220 180" xmlns="http://www.w3.org/2000/svg">
+    <polygon points="48,25 145,22 175,48 182,88 160,115 128,138 90,135 52,98 40,62" fill="rgba(77,184,255,.2)" stroke="${B}" stroke-width="2.5"/>
+    <text x="112" y="82" text-anchor="middle" fill="${B}" font-size="22" font-family="serif" font-weight="bold">?</text>
+    <text x="4" y="75" fill="${S}" font-size="8" font-family="serif">Mer Rouge</text>
+    <text x="184" y="78" fill="${S}" font-size="8" font-family="serif">G. Persique</text>
+    <text x="78" y="16" fill="${C}" font-size="8" font-family="serif">Jordanie, Irak</text>
+    <text x="110" y="155" text-anchor="middle" fill="${C}" font-size="8" font-family="serif">Yémen, Oman</text>
+  </svg>`,
+
+  australie: `<svg viewBox="0 0 220 180" xmlns="http://www.w3.org/2000/svg">
+    <polygon points="22,50 78,22 138,28 172,40 192,72 185,108 172,138 152,158 122,165 90,162 62,150 38,132 22,108" fill="rgba(77,184,255,.2)" stroke="${B}" stroke-width="2.5"/>
+    <text x="110" y="95" text-anchor="middle" fill="${B}" font-size="26" font-family="serif" font-weight="bold">?</text>
+    <text x="82" y="14" fill="${S}" font-size="8" font-family="serif">Mer de Timor / Papouasie</text>
+    <text x="186" y="90" fill="${S}" font-size="8" font-family="serif">Pacifique</text>
+    <text x="4" y="90" fill="${S}" font-size="8" font-family="serif">Oc. Indien</text>
+    <text x="110" y="178" text-anchor="middle" fill="${S}" font-size="8" font-family="serif">Mer de Tasman</text>
+  </svg>`,
+
+  bresil: `<svg viewBox="0 0 220 180" xmlns="http://www.w3.org/2000/svg">
+    <polygon points="30,50 72,30 112,22 162,40 180,68 172,108 160,138 148,158 118,165 88,162 60,148 38,128 22,95 25,68" fill="rgba(77,184,255,.2)" stroke="${B}" stroke-width="2.5"/>
+    <text x="100" y="95" text-anchor="middle" fill="${B}" font-size="22" font-family="serif" font-weight="bold">?</text>
+    <text x="30" y="20" fill="${C}" font-size="8" font-family="serif">Venezuela, Colombie</text>
+    <text x="4" y="90" fill="${C}" font-size="8" font-family="serif">Pérou, Bolivie</text>
+    <text x="182" y="90" fill="${S}" font-size="8" font-family="serif">Atlantique</text>
+    <text x="85" y="178" text-anchor="middle" fill="${C}" font-size="8" font-family="serif">Argentine, Uruguay</text>
+  </svg>`,
+
+  chili: `<svg viewBox="0 0 220 180" xmlns="http://www.w3.org/2000/svg">
+    <polygon points="90,12 112,12 108,168 85,168" fill="rgba(77,184,255,.2)" stroke="${B}" stroke-width="2.5"/>
+    <text x="100" y="85" text-anchor="middle" fill="${B}" font-size="13" font-family="serif" font-weight="bold">?</text>
+    <text x="115" y="28" fill="${C}" font-size="8" font-family="serif">Pérou (N)</text>
+    <text x="115" y="88" fill="${C}" font-size="8" font-family="serif">Argentine (E)</text>
+    <text x="4" y="88" fill="${S}" font-size="8" font-family="serif">Pacifique (O)</text>
+    <text x="100" y="178" text-anchor="middle" fill="${S}" font-size="8" font-family="serif">Cap Horn</text>
+  </svg>`,
+
+  argentine: `<svg viewBox="0 0 220 180" xmlns="http://www.w3.org/2000/svg">
+    <path d="M 52,22 L 148,22 L 162,50 L 162,82 L 155,112 L 145,138 L 130,158 L 112,168 L 100,168 L 90,158 L 78,145 L 62,125 L 48,98 L 40,72 L 45,48 Z" fill="rgba(77,184,255,.2)" stroke="${B}" stroke-width="2.5"/>
+    <text x="105" y="95" text-anchor="middle" fill="${B}" font-size="22" font-family="serif" font-weight="bold">?</text>
+    <text x="4" y="95" fill="${C}" font-size="8" font-family="serif">Chili</text>
+    <text x="164" y="58" fill="${C}" font-size="8" font-family="serif">Uruguay, Brésil</text>
+    <text x="78" y="14" fill="${C}" font-size="8" font-family="serif">Bolivie, Paraguay</text>
+    <text x="165" y="110" fill="${S}" font-size="8" font-family="serif">Atlantique</text>
+  </svg>`,
+
+  usa: `<svg viewBox="0 0 220 180" xmlns="http://www.w3.org/2000/svg">
+    <path d="M 15,30 L 162,22 L 182,30 L 188,58 L 180,82 L 172,105 L 158,118 L 145,128 L 132,118 L 108,115 L 82,118 L 58,112 L 35,95 L 15,72 Z" fill="rgba(77,184,255,.2)" stroke="${B}" stroke-width="2.5"/>
+    <text x="100" y="72" text-anchor="middle" fill="${B}" font-size="24" font-family="serif" font-weight="bold">?</text>
+    <text x="78" y="14" fill="${C}" font-size="8" font-family="serif">Canada</text>
+    <text x="186" y="72" fill="${S}" font-size="8" font-family="serif">Atlantique</text>
+    <text x="4" y="65" fill="${S}" font-size="8" font-family="serif">Pacifique</text>
+    <text x="100" y="145" text-anchor="middle" fill="${C}" font-size="8" font-family="serif">Mexique / Golfe du Mexique</text>
+  </svg>`,
+
+  mexique: `<svg viewBox="0 0 220 180" xmlns="http://www.w3.org/2000/svg">
+    <path d="M 18,30 L 128,25 L 150,38 L 160,58 L 158,82 L 148,102 L 135,118 L 122,115 L 95,112 L 65,105 L 40,92 L 18,68 Z" fill="rgba(77,184,255,.2)" stroke="${B}" stroke-width="2.5"/>
+    <text x="88" y="70" text-anchor="middle" fill="${B}" font-size="24" font-family="serif" font-weight="bold">?</text>
+    <text x="58" y="16" fill="${C}" font-size="8" font-family="serif">États-Unis</text>
+    <text x="136" y="128" fill="${C}" font-size="8" font-family="serif">Guatemala</text>
+    <text x="4" y="60" fill="${S}" font-size="8" font-family="serif">Pacifique</text>
+    <text x="140" y="58" fill="${S}" font-size="8" font-family="serif">G. du Mexique</text>
+  </svg>`,
+
+  turquie: `<svg viewBox="0 0 220 180" xmlns="http://www.w3.org/2000/svg">
+    <polygon points="28,52 132,32 192,40 198,68 190,95 168,112 142,118 108,115 72,118 48,115 24,92" fill="rgba(77,184,255,.2)" stroke="${B}" stroke-width="2.5"/>
+    <text x="110" y="80" text-anchor="middle" fill="${B}" font-size="22" font-family="serif" font-weight="bold">?</text>
+    <text x="88" y="22" fill="${S}" font-size="8" font-family="serif">Mer Noire</text>
+    <text x="4" y="88" fill="${S}" font-size="8" font-family="serif">Mer Égée</text>
+    <text x="88" y="135" text-anchor="middle" fill="${S}" font-size="8" font-family="serif">Méditerranée / Syrie</text>
+    <text x="184" y="88" fill="${C}" font-size="8" font-family="serif">Iran</text>
+  </svg>`
+};
+
+/* ══ CARTES ══ */
+const ALL_CARDS = [
+
+// ══════════════════════════════════════════════════════════════════
+// PAYS & CAPITALES (30 cartes)
+// ══════════════════════════════════════════════════════════════════
+{id:1, cat:"Pays & Capitales", q:"Quelle est la capitale de la France ?", ans:"Paris", exp:"68 M d'hab. République en Europe de l'Ouest. Membre UE, OTAN, G7. Tourisme (1er pays visité), industrie aéronautique (Airbus), agriculture, services financiers."},
+{id:2, cat:"Pays & Capitales", q:"Quelle est la capitale de l'Allemagne ?", ans:"Berlin", exp:"84 M d'hab. 1ère économie de l'UE. Industrie automobile (BMW, Volkswagen, Mercedes), chimie, machines. Réunifiée en 1990 après la chute du Mur."},
+{id:3, cat:"Pays & Capitales", q:"Quelle est la capitale du Royaume-Uni ?", ans:"Londres", exp:"67 M d'hab. Île en Europe du Nord-Ouest. A quitté l'UE en 2020 (Brexit). Finance (City de Londres), pharmacie, pétrole de mer du Nord."},
+{id:4, cat:"Pays & Capitales", q:"Quelle est la capitale de l'Espagne ?", ans:"Madrid", exp:"47 M d'hab. Membre UE. 4e économie de la zone euro. Tourisme (2e mondial), énergie éolienne et solaire, agriculture (olives, agrumes), automobile."},
+{id:5, cat:"Pays & Capitales", q:"Quelle est la capitale de l'Italie ?", ans:"Rome", exp:"60 M d'hab. Péninsule en forme de botte en Méditerranée. Membre UE/G7. Tourisme, mode (Milan), agroalimentaire (pasta, vin), industrie mécanique."},
+{id:6, cat:"Pays & Capitales", q:"Quelle est la capitale de la Russie ?", ans:"Moscou", exp:"145 M d'hab. sur 17 millions km² = plus grand pays du monde. Immenses réserves de pétrole, gaz et minerais. Puissance nucléaire. Taïga et Sibérie couvrent la majorité du territoire."},
+{id:7, cat:"Pays & Capitales", q:"Quelle est la capitale de la Turquie ?", ans:"Ankara — et non Istanbul !", exp:"85 M d'hab. Carrefour Europe-Asie (péninsule d'Anatolie). Membre OTAN. Industrie textile, agroalimentaire, tourisme, construction. Istanbul est la plus grande ville."},
+{id:8, cat:"Pays & Capitales", q:"Quelle est la capitale de l'Égypte ?", ans:"Le Caire", exp:"105 M d'hab. Traversée par le Nil ; 96% du territoire est désertique. Canal de Suez = voie maritime stratégique mondiale. Tourisme (pyramides), agriculture du Nil, hydrocarbures."},
+{id:9, cat:"Pays & Capitales", q:"Quelle est la capitale du Nigeria ?", ans:"Abuja", exp:"~220 M d'hab. = pays le plus peuplé d'Afrique. 1ère puissance économique africaine. Pétrole du delta du Niger (membre OPEP). Lagos = plus grande ville du continent."},
+{id:10, cat:"Pays & Capitales", q:"Quelle est la capitale administrative de l'Afrique du Sud ?", ans:"Pretoria — mais 3 capitales : Pretoria, Le Cap, Bloemfontein", exp:"60 M d'hab. Économie la plus industrialisée d'Afrique sub-saharienne. Or, diamants, platine, charbon. Fin de l'apartheid en 1994 avec Nelson Mandela."},
+{id:11, cat:"Pays & Capitales", q:"Quelle est la capitale de l'Éthiopie ?", ans:"Addis-Abeba", exp:"~120 M d'hab. = 2e pays le plus peuplé d'Afrique. Siège de l'Union Africaine. Berceau du café arabica. Pays enclavé depuis 1993 (pas d'accès à la mer)."},
+{id:12, cat:"Pays & Capitales", q:"Quelle est la capitale du Maroc ?", ans:"Rabat — et non Casablanca !", exp:"37 M d'hab. Monarchie d'Afrique du Nord. Tourisme, phosphates (1er exportateur mondial), agriculture (agrumes, olives), textile. Casablanca = capitale économique."},
+{id:13, cat:"Pays & Capitales", q:"Quelle est la capitale du Kenya ?", ans:"Nairobi", exp:"55 M d'hab. Afrique de l'Est, traversé par l'équateur. Hub économique régional. Tourisme safari, fleurs (1er exportateur mondial vers UE), thé, café."},
+{id:14, cat:"Pays & Capitales", q:"Quelle est la capitale des États-Unis ?", ans:"Washington D.C. — et non New York !", exp:"333 M d'hab. 1ère économie mondiale. Silicon Valley (tech), Wall Street (finance), pétrole (Texas), agriculture. New York et Los Angeles sont les plus grandes villes."},
+{id:15, cat:"Pays & Capitales", q:"Quelle est la capitale du Canada ?", ans:"Ottawa — et non Toronto ou Montréal !", exp:"38 M d'hab. sur 10 millions km² = 2e plus grand pays. Pétrole (sables bitumineux Alberta), bois, minerais, agriculture (blé). Bilingue français/anglais."},
+{id:16, cat:"Pays & Capitales", q:"Quelle est la capitale du Mexique ?", ans:"Mexico", exp:"~130 M d'hab. 15e économie mondiale. Accord commercial USMCA avec USA et Canada. Pétrole, industrie d'assemblage, tourisme, maïs (plante originaire du Mexique)."},
+{id:17, cat:"Pays & Capitales", q:"Quelle est la capitale du Brésil ?", ans:"Brasília — et non São Paulo ou Rio de Janeiro !", exp:"215 M d'hab. 1ère économie d'Amérique Latine. Soja (1er exportateur), café, canne à sucre, pétrole offshore (Petrobras), minerai de fer. Amazonie = 60% du territoire."},
+{id:18, cat:"Pays & Capitales", q:"Quelle est la capitale de l'Argentine ?", ans:"Buenos Aires", exp:"46 M d'hab. Soja, bœuf (pampas), lithium (2e réserves mondiales), pétrole (Vaca Muerta). Patagonie = immense territoire austral quasi désert."},
+{id:19, cat:"Pays & Capitales", q:"Quelle est la capitale de la Chine ?", ans:"Pékin (Beijing)", exp:"1,4 milliard d'hab. 2e économie mondiale. Surnommée 'l'atelier du monde' : manufacture, électronique. Terres rares, charbon, riz, acier. Route de la Soie 2.0 (Belt & Road Initiative)."},
+{id:20, cat:"Pays & Capitales", q:"Quelle est la capitale de l'Inde ?", ans:"New Delhi — et non Mumbai ou Calcutta !", exp:"1,4 milliard d'hab. = pays le plus peuplé du monde (2023). 5e économie mondiale. Informatique (Bangalore), textile, agriculture (riz, blé, thé, coton), pharmacie."},
+{id:21, cat:"Pays & Capitales", q:"Quelle est la capitale du Japon ?", ans:"Tokyo", exp:"125 M d'hab. Archipel de 4 îles principales. 3e économie mondiale. Technologie (Sony, Panasonic), automobile (Toyota, Honda), robotique. Zone sismique active (Anneau de feu)."},
+{id:22, cat:"Pays & Capitales", q:"Quelle est la capitale de l'Indonésie ?", ans:"Jakarta (en cours de déplacement vers Nusantara)", exp:"277 M d'hab. = 4e plus peuplé du monde. Archipel de +17 000 îles. Huile de palme (1er producteur), charbon, gaz, nickel, textile, tourisme (Bali)."},
+{id:23, cat:"Pays & Capitales", q:"Quelle est la capitale de l'Arabie Saoudite ?", ans:"Riyad", exp:"35 M d'hab. 1ères réserves prouvées de pétrole au monde. Monarchie absolue. Membre fondateur de l'OPEP. Territoire majoritairement désertique. Vision 2030 : diversification économique."},
+{id:24, cat:"Pays & Capitales", q:"Quelle est la capitale de l'Iran ?", ans:"Téhéran", exp:"87 M d'hab. 4e réserves mondiales de pétrole, 2e de gaz. République islamique depuis 1979. Sous sanctions internationales. Carrefour Moyen-Orient / Asie centrale."},
+{id:25, cat:"Pays & Capitales", q:"Quelle est la capitale du Pakistan ?", ans:"Islamabad — et non Karachi !", exp:"~230 M d'hab. = 5e pays le plus peuplé. Agriculture (coton, riz, blé). Puissance nucléaire. Frontalier avec Inde, Afghanistan, Chine et Iran."},
+{id:26, cat:"Pays & Capitales", q:"Quelle est la capitale de l'Australie ?", ans:"Canberra — et non Sydney ou Melbourne !", exp:"26 M d'hab. Continent-île entouré d'océans. Charbon, minerai de fer, gaz naturel, blé, laine. Principal fournisseur de matières premières de l'Asie du Nord-Est."},
+{id:27, cat:"Pays & Capitales", q:"Quelle est la capitale de la Grèce ?", ans:"Athènes", exp:"11 M d'hab. + 6 000 îles. Berceau de la démocratie. Tourisme (25% du PIB), armateurs (1ère flotte commerciale mondiale), huile d'olive, coton."},
+{id:28, cat:"Pays & Capitales", q:"Quelle est la capitale de la Pologne ?", ans:"Varsovie (Warszawa)", exp:"38 M d'hab. Grande économie d'Europe centrale. Industrie (charbon, acier, agroalimentaire), hub logistique. Membre UE et OTAN. Frontière avec l'Ukraine à l'est."},
+{id:29, cat:"Pays & Capitales", q:"Quelle est la capitale de la Colombie ?", ans:"Bogotá", exp:"51 M d'hab. Café (3e producteur mondial), fleurs (2e exportateur), pétrole, or, charbon. Seul pays d'Amérique du Sud avec accès aux deux océans (Pacifique et Atlantique)."},
+{id:30, cat:"Pays & Capitales", q:"Quelle est la capitale du Bangladesh ?", ans:"Dacca (Dhaka)", exp:"170 M d'hab. sur 147 000 km² = densité extrême. 2e exportateur mondial de textile et vêtements. Delta du Gange très fertile mais très vulnérable aux cyclones et inondations."},
+
+// ══════════════════════════════════════════════════════════════════
+// SILHOUETTES — 20 cartes à deviner
+// ══════════════════════════════════════════════════════════════════
+{id:31, cat:"Silhouettes", q:"Quel est ce pays ?", ans:"France — Capitale : Paris — Europe de l'Ouest", exp:"Surnommée l'Hexagone. Traversée par la Loire, la Garonne, le Rhône. Frontalière de 8 pays : Belgique, Luxembourg, Allemagne, Suisse, Italie, Monaco, Espagne, Andorre.", svg:SVG.france},
+{id:32, cat:"Silhouettes", q:"Quel est ce pays ?", ans:"Italie — Capitale : Rome — Europe du Sud", exp:"Péninsule en forme de botte dans la Méditerranée. Bordée par les Alpes au nord. La Sicile et la Sardaigne sont ses deux plus grandes îles.", svg:SVG.italie},
+{id:33, cat:"Silhouettes", q:"Quel est ce pays ?", ans:"Royaume-Uni — Capitale : Londres — Europe du Nord-Ouest", exp:"Île séparée du continent par la Manche. Comprend l'Angleterre, le Pays de Galles, l'Écosse, et l'Irlande du Nord. A quitté l'UE (Brexit, 2020).", svg:SVG.uk},
+{id:34, cat:"Silhouettes", q:"Quel est ce pays ?", ans:"Espagne — Capitale : Madrid — Europe du Sud", exp:"Péninsule Ibérique partagée avec le Portugal. Bordée par les Pyrénées au nord. Ouverture sur Atlantique et Méditerranée. Détroit de Gibraltar vers le Maroc.", svg:SVG.espagne},
+{id:35, cat:"Silhouettes", q:"Quel est ce pays ?", ans:"Allemagne — Capitale : Berlin — Europe centrale", exp:"Au cœur de l'Europe, frontalière de 9 pays. Plaines au nord, Alpes bavaroises au sud. Rhin et Elbe = fleuves majeurs. Réunification est-ouest en 1990.", svg:SVG.allemagne},
+{id:36, cat:"Silhouettes", q:"Quel est ce pays ?", ans:"Norvège — Capitale : Oslo — Europe du Nord", exp:"Très allongée du nord au sud, côte ouest découpée par les fjords. Une partie au-delà du cercle polaire. Riches ressources en pétrole et gaz (mer du Nord).", svg:SVG.norvege},
+{id:37, cat:"Silhouettes", q:"Quel est ce pays ?", ans:"Égypte — Capitale : Le Caire — Afrique du Nord", exp:"Rectangulaire avec la péninsule du Sinaï à l'est. Le Nil traverse du sud au nord. 96% du territoire est désertique. Canal de Suez à l'est.", svg:SVG.egypte},
+{id:38, cat:"Silhouettes", q:"Quel est ce pays ?", ans:"Afrique du Sud — Capitale : Pretoria — Afrique australe", exp:"Pointe sud du continent africain, entouré par l'Atlantique et l'Indien. Entoure le Lesotho. Cap de Bonne-Espérance = cap emblématique.", svg:SVG.afrique_sud},
+{id:39, cat:"Silhouettes", q:"Quel est ce pays ?", ans:"Madagascar — Capitale : Antananarivo — Océan Indien", exp:"4e plus grande île du monde. Séparée de l'Afrique par le canal du Mozambique. 80% des espèces endémiques. Biodiversité exceptionnelle.", svg:SVG.madagascar},
+{id:40, cat:"Silhouettes", q:"Quel est ce pays ?", ans:"Inde — Capitale : New Delhi — Asie du Sud", exp:"Triangle inversé dans l'Océan Indien. Himalaya au nord. Gange et Indus = grands fleuves. Frontières avec 6 pays. 1,4 milliard d'habitants.", svg:SVG.inde},
+{id:41, cat:"Silhouettes", q:"Quel est ce pays ?", ans:"Chine — Capitale : Pékin — Asie de l'Est", exp:"3e plus grand pays du monde (9,6 M km²). Irrégulier : montagnes à l'ouest, plaines côtières à l'est. Himalaya au SW, désert de Gobi au nord.", svg:SVG.chine},
+{id:42, cat:"Silhouettes", q:"Quel est ce pays ?", ans:"Japon — Capitale : Tokyo — Asie de l'Est", exp:"Archipel de +6 800 îles. 4 îles principales : Hokkaido, Honshu, Shikoku, Kyushu. Zone sismique intense (Anneau de feu). 73% du territoire montagneux.", svg:SVG.japon},
+{id:43, cat:"Silhouettes", q:"Quel est ce pays ?", ans:"Arabie Saoudite — Capitale : Riyad — Moyen-Orient", exp:"Occupe presque toute la péninsule Arabique. Bordée par la mer Rouge à l'ouest et le golfe Persique à l'est. Territoire majoritairement désertique (Rub al-Khali).", svg:SVG.arabie_saoudite},
+{id:44, cat:"Silhouettes", q:"Quel est ce pays ?", ans:"Australie — Capitale : Canberra — Océanie", exp:"Continent-île = 6e plus grand pays (7,7 M km²). Aucune frontière terrestre. Centre aride (Outback). Grande Barrière de Corail à l'est.", svg:SVG.australie},
+{id:45, cat:"Silhouettes", q:"Quel est ce pays ?", ans:"Brésil — Capitale : Brasília — Amérique du Sud", exp:"Plus grand pays d'Amérique Latine (8,5 M km²). Forêt Amazonienne = 60% du territoire. Longue façade atlantique. Frontières avec 10 pays.", svg:SVG.bresil},
+{id:46, cat:"Silhouettes", q:"Quel est ce pays ?", ans:"Chili — Capitale : Santiago — Amérique du Sud", exp:"Pays le plus long du monde (4 300 km du nord au sud) pour environ 177 km de large. Andes à l'est, Pacifique à l'ouest. Désert d'Atacama au nord.", svg:SVG.chili},
+{id:47, cat:"Silhouettes", q:"Quel est ce pays ?", ans:"Argentine — Capitale : Buenos Aires — Amérique du Sud", exp:"2e plus grand pays d'Amérique Latine. Andes à l'ouest. Pampas = grandes plaines agricoles au centre. Patagonie australe très froide et ventée.", svg:SVG.argentine},
+{id:48, cat:"Silhouettes", q:"Quel est ce pays ?", ans:"États-Unis — Capitale : Washington D.C. — Amérique du Nord", exp:"4e plus grand pays du monde (9,8 M km²). Atlantique à l'est, Pacifique à l'ouest. Canada au nord, Mexique au sud. Grandes Plaines au centre.", svg:SVG.usa},
+{id:49, cat:"Silhouettes", q:"Quel est ce pays ?", ans:"Mexique — Capitale : Mexico — Amérique du Nord", exp:"En forme de corne. Partage 3 180 km de frontière avec les USA. Accès au Pacifique et au golfe du Mexique. Péninsule du Yucatan au SE.", svg:SVG.mexique},
+{id:50, cat:"Silhouettes", q:"Quel est ce pays ?", ans:"Turquie — Capitale : Ankara — Carrefour Europe/Asie", exp:"Péninsule d'Anatolie = 97% en Asie, 3% en Europe. Détroits du Bosphore et des Dardanelles = passages stratégiques entre mer Noire et Méditerranée.", svg:SVG.turquie},
+
+// ══════════════════════════════════════════════════════════════════
+// RELIEFS & MILIEUX (20 cartes)
+// ══════════════════════════════════════════════════════════════════
+{id:51, cat:"Reliefs & Milieux", q:"Qu'est-ce que le Sahara ?", ans:"Le plus grand désert chaud du monde (9,2 millions km²).", exp:"S'étend sur 11 pays d'Afrique du Nord. Températures extrêmes (50°C le jour, 0°C la nuit). Couvre 31% du continent africain. Pas que du sable : 25% d'ergs (dunes), le reste = rochers et plateaux."},
+{id:52, cat:"Reliefs & Milieux", q:"Pourquoi le désert d'Atacama est-il unique ?", ans:"C'est le désert le plus aride de la planète.", exp:"Situé au Chili et Pérou. Certaines zones n'ont jamais reçu de pluie. Altitude élevée (2 000-5 000 m). Grandes réserves de lithium et cuivre. Utilisé pour simuler les conditions martiennes."},
+{id:53, cat:"Reliefs & Milieux", q:"Qu'est-ce que le désert de Gobi ?", ans:"Le plus grand désert froid d'Asie (~1,3 million km²).", exp:"S'étend sur la Chine et la Mongolie. Températures : -40°C en hiver à +40°C en été. En expansion à cause de la désertification. Riche en fossiles de dinosaures."},
+{id:54, cat:"Reliefs & Milieux", q:"Qu'est-ce que l'Himalaya ?", ans:"La plus haute chaîne de montagnes du monde, avec l'Everest (8 849 m).", exp:"S'étend sur 5 pays : Népal, Inde, Pakistan, Chine, Bhoutan. Alimente les grands fleuves d'Asie (Gange, Yangtsé, Mékong, Indus). Source d'eau pour 3 milliards de personnes."},
+{id:55, cat:"Reliefs & Milieux", q:"Pourquoi les Andes sont-elles remarquables ?", ans:"C'est la plus longue chaîne de montagnes du monde (7 000 km).", exp:"Borde la côte ouest de l'Amérique du Sud sur 7 pays. Sépare la forêt amazonienne (est) du Pacifique (ouest). Riches en minerais : cuivre (Chili), lithium (Bolivie/Argentine), argent (Pérou)."},
+{id:56, cat:"Reliefs & Milieux", q:"Où se trouvent les Alpes et quelle est leur importance ?", ans:"En Europe de l'Ouest, sur 8 pays. Point culminant : Mont Blanc (4 808 m).", exp:"Source du Rhin, du Rhône et du Pô. Tourisme hivernal (ski). Barrière naturelle historique. La Suisse et l'Autriche sont presque entièrement couvertes d'Alpes."},
+{id:57, cat:"Reliefs & Milieux", q:"Pourquoi le Nil est-il stratégique pour l'Égypte ?", ans:"Le Nil est la principale source d'eau douce et de fertilité de l'Égypte.", exp:"Long de 6 650 km, traverse 11 pays. 95% des Égyptiens vivent dans sa vallée. Le barrage d'Assouan régule les crues. Le Grand Barrage de la Renaissance en Éthiopie crée des tensions."},
+{id:58, cat:"Reliefs & Milieux", q:"Pourquoi l'Amazone est-il le fleuve le plus puissant du monde ?", ans:"Il déverse 20% de toute l'eau douce des fleuves du monde dans l'Atlantique.", exp:"Long d'environ 6 400 km. Bassin de 7 millions km². Traverse Brésil, Pérou, Colombie. Débit 10x supérieur au Congo. La forêt amazonienne = 'poumon de la Terre'."},
+{id:59, cat:"Reliefs & Milieux", q:"Pourquoi la forêt du Congo est-elle importante ?", ans:"C'est la 2e plus grande forêt tropicale du monde et le 2e poumon de la Terre.", exp:"3,6 millions km². Couvre Congo, RD Congo, Gabon, Cameroun... Le fleuve Congo est le plus profond du monde (220 m). Gorilles, bonobos, okapis = biodiversité unique."},
+{id:60, cat:"Reliefs & Milieux", q:"Qu'est-ce que la taïga ?", ans:"La plus grande forêt du monde : zone de forêts de conifères boréales.", exp:"S'étend en Russie, Canada, Scandinavie. Couvre ~17 millions km² (11% des terres émergées). Immenses réserves de bois. Faible densité de population. Très sensible au réchauffement climatique."},
+{id:61, cat:"Reliefs & Milieux", q:"Qu'est-ce que la savane africaine ?", ans:"Un biome de transition entre forêt tropicale et désert, avec herbes hautes et arbres épars.", exp:"Couvre 40% de l'Afrique. Sèche en saison sèche, verte en saison des pluies. Accueille les plus grandes migrations animales (gnous, zèbres). Menacée par l'agriculture."},
+{id:62, cat:"Reliefs & Milieux", q:"Qu'est-ce que la toundra ?", ans:"Biome polaire sans arbres, avec sol gelé en permanence (pergélisol).", exp:"S'étend dans l'Arctique, en Sibérie, Canada, Alaska. Très fragile : le réchauffement fait fondre le pergélisol, libérant du méthane (puissant gaz à effet de serre)."},
+{id:63, cat:"Reliefs & Milieux", q:"Qu'est-ce que le Yangtsé ?", ans:"Le plus long fleuve d'Asie (6 380 km), en Chine.", exp:"Traverse la Chine d'ouest en est. Le barrage des Trois-Gorges (le plus grand barrage hydroélectrique du monde) est sur le Yangtsé. Source vitale d'eau et d'énergie pour 400 millions de personnes."},
+{id:64, cat:"Reliefs & Milieux", q:"Quels sont les Grands Lacs africains ?", ans:"Tanganyika, Victoria, Malawi, Kivu, Turkana — dans la vallée du Rift.", exp:"Le lac Victoria = 2e plus grand lac d'eau douce du monde. Le Tanganyika = plus profond d'Afrique (1 470 m). La vallée du Rift = fissure tectonique divisant l'Afrique orientale."},
+{id:65, cat:"Reliefs & Milieux", q:"Qu'est-ce que la mer Méditerranée ?", ans:"Une mer presque fermée entre l'Europe, l'Afrique et l'Asie, reliée à l'Atlantique par le détroit de Gibraltar.", exp:"2,5 millions km². 22 pays riverains. Berceau de nombreuses civilisations (Égypte, Grèce, Rome). Route migratoire importante. L'une des mers les plus polluées du monde."},
+{id:66, cat:"Reliefs & Milieux", q:"Qu'est-ce que les mangroves ?", ans:"Des forêts côtières tropicales qui poussent dans l'eau salée.", exp:"Protègent les côtes des tempêtes et tsunamis. Pépinières à poissons et crustacés. Stockent 3x plus de carbone que les forêts terrestres. Menacées par l'urbanisation et l'aquaculture."},
+{id:67, cat:"Reliefs & Milieux", q:"Pourquoi les récifs coralliens sont-ils menacés ?", ans:"Le réchauffement des océans provoque le blanchissement et la mort des coraux.", exp:"Couvrent moins de 1% des océans mais abritent 25% des espèces marines. La Grande Barrière de Corail (Australie) = plus grand récif du monde (2 300 km). Vulnérables aussi à l'acidification."},
+{id:68, cat:"Reliefs & Milieux", q:"Quelle est la différence entre l'Arctique et l'Antarctique ?", ans:"Arctique = océan glacé au nord / Antarctique = continent glacé au sud.", exp:"L'Arctique fond en été (banquise). L'Antarctique contient 90% des glaces de la Terre. La banquise arctique a réduit de 40% en volume depuis 1979."},
+{id:69, cat:"Reliefs & Milieux", q:"Qu'est-ce que le Mississippi ?", ans:"Le plus long fleuve des États-Unis (~3 730 km), drainant le centre du pays.", exp:"S'écoule des Grands Lacs au golfe du Mexique. Bassin de 3 millions km². Voie navigable essentielle (soja, maïs). La Nouvelle-Orléans est à son embouchure."},
+{id:70, cat:"Reliefs & Milieux", q:"Qu'est-ce que le détroit de Gibraltar ?", ans:"Un passage maritime de 14 km de large entre l'Espagne (Europe) et le Maroc (Afrique).", exp:"Relie l'Atlantique à la Méditerranée. Des milliers de navires le traversent chaque jour. Route migratoire (Afrique vers Europe). Contrôlé par Gibraltar, territoire britannique."},
+
+// ══════════════════════════════════════════════════════════════════
+// GÉOPOLITIQUE (25 cartes)
+// ══════════════════════════════════════════════════════════════════
+{id:71, cat:"Géopolitique", q:"Qu'est-ce que l'ONU ?", ans:"Organisation des Nations Unies — organe international créé en 1945 pour maintenir la paix mondiale.", exp:"193 États membres. Siège à New York. 5 membres permanents du Conseil de Sécurité : USA, Russie, Chine, France, Royaume-Uni. Chacun a un droit de véto."},
+{id:72, cat:"Géopolitique", q:"Qu'est-ce que l'OTAN ?", ans:"Alliance militaire de l'Atlantique Nord (32 membres), créée en 1949.", exp:"Siège à Bruxelles. L'article 5 : attaque contre un membre = attaque contre tous. Fondée contre l'URSS. S'est élargie à l'Est depuis 1990. Ukraine = candidature controversée."},
+{id:73, cat:"Géopolitique", q:"Qu'est-ce que l'Union Européenne ?", ans:"Organisation politique et économique de 27 États membres européens.", exp:"Créée par le Traité de Rome (1957). Marché unique, monnaie commune (euro, 20 pays). Libre circulation des personnes. Siège à Bruxelles. Brexit = départ du Royaume-Uni en 2020."},
+{id:74, cat:"Géopolitique", q:"Qu'est-ce que l'Union Africaine ?", ans:"Organisation de 55 États membres africains, créée en 2002.", exp:"Siège à Addis-Abeba. Succède à l'OUA. Objectifs : paix, développement, démocratie en Afrique. Ambition d'une zone de libre-échange africaine (ZLECAf) = plus grand marché commun du monde."},
+{id:75, cat:"Géopolitique", q:"Qu'est-ce que l'ASEAN ?", ans:"Association des Nations de l'Asie du Sud-Est (10 membres).", exp:"Créée en 1967. Membres : Thaïlande, Indonésie, Malaisie, Philippines, Singapour, Vietnam, Myanmar, Cambodge, Laos, Brunei. Siège à Jakarta. PIB combiné = 3e zone économique mondiale."},
+{id:76, cat:"Géopolitique", q:"Qu'est-ce que le MERCOSUR ?", ans:"Marché commun d'Amérique du Sud : Brésil, Argentine, Uruguay, Paraguay.", exp:"Créé en 1991. Zone de libre-échange. Accord avec l'UE en négociation depuis 1999. Cherche à s'affranchir de la domination économique des USA en Amérique Latine."},
+{id:77, cat:"Géopolitique", q:"Qu'est-ce que le G7 ?", ans:"Groupe des 7 grandes démocraties industrialisées : USA, Canada, France, Allemagne, Italie, Japon, Royaume-Uni.", exp:"Forum informel créé en 1975. Représente ~45% du PIB mondial. L'UE participe. Anciennement G8 avec la Russie, exclue en 2014 après l'annexion de la Crimée."},
+{id:78, cat:"Géopolitique", q:"Qu'est-ce que le G20 ?", ans:"Forum des 20 plus grandes économies mondiales (pays développés + émergents).", exp:"Représente 85% du PIB, 80% du commerce, 2/3 de la population mondiale. Créé en 1999. Inclut les BRICS (Chine, Inde, Brésil, Russie, Afrique du Sud) + nouvelles économies."},
+{id:79, cat:"Géopolitique", q:"Qu'est-ce que les BRICS ?", ans:"Groupe des puissances émergentes : Brésil, Russie, Inde, Chine, Afrique du Sud (+ nouveaux membres).", exp:"Représentent 40% de la population mondiale et 30% du PIB mondial (en parité de pouvoir d'achat). Veulent réformer la gouvernance mondiale et réduire la domination du dollar américain."},
+{id:80, cat:"Géopolitique", q:"Qu'est-ce que l'OPEP ?", ans:"Organisation des Pays Exportateurs de Pétrole (13 membres).", exp:"Fondée en 1960. Siège à Vienne. Contrôle ~40% de la production mondiale. Fixe les quotas de production pour stabiliser les prix. L'Arabie Saoudite = membre dominant."},
+{id:81, cat:"Géopolitique", q:"Qu'est-ce qu'une démocratie ?", ans:"Régime politique où le pouvoir émane du peuple, exercé directement ou par des représentants élus.", exp:"Caractéristiques : élections libres, séparation des pouvoirs, liberté de la presse, droits fondamentaux. Démocratie directe (rare) vs représentative (la plus fréquente)."},
+{id:82, cat:"Géopolitique", q:"Quelle est la différence entre monarchie absolue et monarchie constitutionnelle ?", ans:"Absolue : le roi a tous les pouvoirs. Constitutionnelle : le roi règne mais un parlement gouverne.", exp:"Exemples de monarchie absolue : Arabie Saoudite, Eswatini. Exemples constitutionnelles : Royaume-Uni, Espagne, Belgique, Pays-Bas, Maroc (semi-constitutionnelle)."},
+{id:83, cat:"Géopolitique", q:"Qu'est-ce qu'une dictature ?", ans:"Régime où le pouvoir est concentré dans les mains d'une personne ou d'un groupe, sans contrôle démocratique.", exp:"Absence d'élections libres, censure, répression des opposants, contrôle de l'armée. Exemples : Corée du Nord, Biélorussie. Historiques : Staline (URSS), Hitler (Allemagne nazie)."},
+{id:84, cat:"Géopolitique", q:"Qu'est-ce que la mondialisation ?", ans:"L'intensification des échanges de marchandises, services, capitaux et personnes à l'échelle mondiale.", exp:"Accélérée depuis les années 1980 par les conteneurs, Internet et le libre-échange. Avantages : croissance, échanges culturels. Inconvénients : délocalisations, inégalités, uniformisation culturelle."},
+{id:85, cat:"Géopolitique", q:"Qu'est-ce que l'IDH (Indice de Développement Humain) ?", ans:"Indicateur mesurant le développement via 3 critères : espérance de vie, éducation, revenu.", exp:"Créé par le PNUD (ONU). Varie de 0 à 1. IDH très élevé > 0,8. IDH faible < 0,55 (pays les moins avancés). Le PIB seul ne mesure pas le bien-être. Niger = IDH le plus bas en 2023."},
+{id:86, cat:"Géopolitique", q:"Qu'est-ce qu'un pays du Sud (ou pays en développement) ?", ans:"Pays à faible niveau de développement économique, social et technologique.", exp:"Anciens termes : Tiers-monde, PVD. Généralement dans la zone intertropicale. Indicateurs faibles : IDH, espérance de vie, accès à l'éducation et aux soins, revenus. Terme critiqué pour sa généralisation."},
+{id:87, cat:"Géopolitique", q:"Qu'est-ce que le libre-échange ?", ans:"Système commercial sans barrières entre pays : ni droits de douane, ni quotas d'importation.", exp:"Promu par l'OMC (Organisation Mondiale du Commerce). Avantages : baisse des prix pour les consommateurs, spécialisation. Inconvénients : concurrence déloyale, délocalisations, inégalités entre pays."},
+{id:88, cat:"Géopolitique", q:"Qu'est-ce que la DUDH ?", ans:"Déclaration Universelle des Droits de l'Homme — texte adopté par l'ONU en 1948.", exp:"30 articles garantissant droits civils (liberté, vie), politiques (vote), économiques (travail), culturels. Non contraignante juridiquement mais base de nombreuses constitutions. ONG : Amnesty International."},
+{id:89, cat:"Géopolitique", q:"Qu'est-ce qu'une Zone Économique Exclusive (ZEE) ?", ans:"Zone maritime de 200 miles nautiques (370 km) où un pays a des droits économiques exclusifs.", exp:"La France a la 2e plus grande ZEE du monde grâce à ses territoires ultramarins (Polynésie, Guyane, Antilles, Réunion...). Les ZEE permettent l'exploitation des ressources marines."},
+{id:90, cat:"Géopolitique", q:"Qu'est-ce qu'un réfugié selon le droit international ?", ans:"Personne contrainte de fuir son pays à cause d'une guerre, d'une persécution ou d'une catastrophe.", exp:"Protégé par la Convention de Genève (1951) et le HCR (ONU). À distinguer du migrant économique. Actuellement ~110 millions de déplacés dans le monde. Syrie, Ukraine, Afghanistan = principales crises."},
+{id:91, cat:"Géopolitique", q:"Qu'est-ce que la Cour Pénale Internationale (CPI) ?", ans:"Tribunal international permanent jugeant les crimes de guerre, crimes contre l'humanité et génocides.", exp:"Créée en 2002, siège à La Haye. 124 États membres. Les USA, Russie et Chine n'ont pas ratifié son statut. A condamné des chefs de guerre pour crimes au Congo, Darfour, Libye."},
+{id:92, cat:"Géopolitique", q:"Qu'est-ce que la dette extérieure des pays du Sud ?", ans:"Prêts contractés auprès de pays riches ou d'organisations (FMI, Banque Mondiale) qui grèvent le budget des pays pauvres.", exp:"Les pays doivent rembourser la dette avant d'investir en santé ou éducation. La Chine prête massivement à l'Afrique (Route de la Soie). Débat sur l'annulation de la dette."},
+{id:93, cat:"Géopolitique", q:"Qu'est-ce que le protectionnisme ?", ans:"Politique protégeant les industries nationales contre la concurrence étrangère (droits de douane, quotas).", exp:"Opposé au libre-échange. Trump a imposé des droits de douane à la Chine. L'UE taxe les voitures électriques chinoises. Argument : protéger les emplois et les industries stratégiques."},
+{id:94, cat:"Géopolitique", q:"Qu'est-ce que la COP sur le climat ?", ans:"Conférence des Parties : réunion annuelle de l'ONU sur les changements climatiques.", exp:"La COP21 (Paris, 2015) = Accord de Paris, objectif +1,5°C maximum. Les pays s'engagent sur des réductions d'émissions (NDC). Critiquée pour le manque d'engagements contraignants."},
+{id:95, cat:"Géopolitique", q:"Qu'est-ce que l'UNESCO ?", ans:"Organisation des Nations Unies pour l'Éducation, la Science et la Culture.", exp:"Siège à Paris. Classe les sites du Patrimoine Mondial (1 200 sites dans 167 pays). Exemples : Pyramides d'Égypte, Mont-Saint-Michel, Galápagos, Grande Barrière de Corail."},
+
+// ══════════════════════════════════════════════════════════════════
+// RESSOURCES & ÉCONOMIE (25 cartes)
+// ══════════════════════════════════════════════════════════════════
+{id:96, cat:"Ressources & Économie", q:"Quels sont les 3 premiers pays producteurs de pétrole ?", ans:"États-Unis, Arabie Saoudite, Russie (ordre 2023).", exp:"Les USA sont devenus 1ers grâce au pétrole de schiste (fracking). L'OPEP tente de réguler les prix. Le pétrole représente ~30% de l'énergie mondiale. Réserves : 50 ans au rythme actuel."},
+{id:97, cat:"Ressources & Économie", q:"Pourquoi les terres rares sont-elles stratégiques ?", ans:"Métaux indispensables aux technologies modernes : batteries, smartphones, éoliennes, armement.", exp:"La Chine contrôle 60% de la production et 85% du raffinage mondial. Enjeu géopolitique majeur : les USA et l'UE cherchent à diversifier leurs approvisionnements. RD Congo, Australie = autres sources."},
+{id:98, cat:"Ressources & Économie", q:"Qu'est-ce que le lithium et où se trouve-t-il ?", ans:"Métal léger essentiel aux batteries des véhicules électriques et appareils portables.", exp:"Le 'triangle du lithium' (Argentine, Bolivie, Chili) contient 60% des réserves mondiales. L'Australie est le 1er producteur. La Bolivie a les plus grandes réserves mais peu exploitées. Demande en explosion."},
+{id:99, cat:"Ressources & Économie", q:"Pourquoi le cobalt est-il controversé ?", ans:"Métal essentiel aux batteries Li-ion, produit à 70% en RD Congo dans des conditions difficiles.", exp:"La RD Congo = 70% de la production mondiale mais parmi les pays les plus pauvres. Travail des enfants dans les mines artisanales signalé. Les marques tech sous pression pour tracer l'approvisionnement."},
+{id:100, cat:"Ressources & Économie", q:"Quels sont les principaux producteurs d'or ?", ans:"Chine, Russie, Australie, Canada, USA, Ghana.", exp:"L'Afrique du Sud, autrefois 1er producteur mondial, a vu sa production baisser. L'or est une valeur refuge en temps de crise. Le Ghana = 1er producteur africain aujourd'hui."},
+{id:101, cat:"Ressources & Économie", q:"Où sont produits les diamants dans le monde ?", ans:"Principalement Russie, Botswana, Canada, RD Congo, Australie.", exp:"Le Botswana tire 70% de ses revenus des diamants (Debswana/De Beers). Les 'diamants du sang' ont financé des guerres civiles en Sierra Leone et Angola. La certification Kimberley Process tente d'y remédier."},
+{id:102, cat:"Ressources & Économie", q:"Quels sont les 5 premiers producteurs de blé ?", ans:"Chine, Inde, Russie, USA, France.", exp:"La Russie est le 1er exportateur mondial. L'Ukraine (2e exportateur) = 'grenier à blé de l'Europe'. La guerre en Ukraine 2022 a provoqué une crise alimentaire mondiale. Blé = nourriture de base pour 2 milliards."},
+{id:103, cat:"Ressources & Économie", q:"Quels sont les principaux producteurs de riz ?", ans:"Chine, Inde, Bangladesh, Indonésie, Vietnam.", exp:"Le riz nourrit 3,5 milliards de personnes. 90% de la production est en Asie. Très dépendant de l'eau : 1 kg de riz = 3 500 litres d'eau. Cultive principalement dans des rizières inondées."},
+{id:104, cat:"Ressources & Économie", q:"Pourquoi le Brésil est-il le roi du soja ?", ans:"Le Brésil est le 1er exportateur mondial de soja, devant USA et Argentine.", exp:"Le soja brésilien pousse dans le Cerrado (savane brésilienne). Sert à nourrir les élevages (poulets, porcs) en Europe et en Chine. La déforestation pour le soja = enjeu environnemental majeur."},
+{id:105, cat:"Ressources & Économie", q:"Où est produit le cacao et pourquoi est-ce stratégique ?", ans:"70% du cacao mondial vient d'Afrique de l'Ouest : Côte d'Ivoire (1er) et Ghana (2e).", exp:"Le chocolat européen dépend entièrement de ces pays. Les producteurs perçoivent moins de 6% de la valeur du chocolat vendu. Enjeu du commerce équitable et de la déforestation des forêts tropicales."},
+{id:106, cat:"Ressources & Économie", q:"Quels sont les principaux pays producteurs de café ?", ans:"Brésil (1er), Vietnam, Colombie, Indonésie, Éthiopie.", exp:"Le café arabica (Éthiopie, Colombie) = café de qualité supérieure. Le robusta (Vietnam) = moins cher. Le café est le 2e produit le plus échangé dans le monde après le pétrole."},
+{id:107, cat:"Ressources & Économie", q:"Pourquoi le canal de Suez est-il stratégique ?", ans:"Il relie la mer Rouge à la Méditerranée, évitant de contourner l'Afrique (gain de 7 000 km).", exp:"Ouvert en 1869. Situé en Égypte = 12% du commerce mondial. 19 000 navires/an. En 2021, le porte-conteneurs 'Ever Given' bloqué a causé 10 milliards de dollars de pertes par jour."},
+{id:108, cat:"Ressources & Économie", q:"Pourquoi le canal de Panama est-il stratégique ?", ans:"Il relie l'Atlantique au Pacifique, évitant le cap Horn (gain de 15 000 km).", exp:"Ouvert en 1914 (USA). Géré par Panama depuis 1999. Élargi en 2016. 14 000 navires/an. La Chine cherche à financer un canal concurrent au Nicaragua."},
+{id:109, cat:"Ressources & Économie", q:"Quels sont les 5 premières économies mondiales (PIB nominal) ?", ans:"USA (1er), Chine (2e), Allemagne (3e), Japon (4e), Inde (5e) en 2023.", exp:"En Parité de Pouvoir d'Achat (PPA), la Chine dépasse les USA. L'Inde devrait devenir 3e avant 2030. Les pays du G7 représentent encore ~45% du PIB mondial mais leur part diminue."},
+{id:110, cat:"Ressources & Économie", q:"Qu'est-ce que les délocalisations industrielles ?", ans:"Le transfert de la production d'un pays riche vers un pays à moindre coût de main-d'œuvre.", exp:"Exemples : textile au Bangladesh/Vietnam, électronique en Chine, call centers en Inde. Avantages pour les entreprises : coûts réduits. Conséquences : chômage dans les pays riches, conditions sociales difficiles."},
+{id:111, cat:"Ressources & Économie", q:"Pourquoi le Bangladesh est-il un géant du textile ?", ans:"2e exportateur mondial de vêtements (après la Chine), avec des salaires très bas.", exp:"L'effondrement du Rana Plaza (2013 : 1 130 morts) a révélé les conditions de travail. Grandes marques (Zara, H&M, Gap) se fournissent au Bangladesh. Le secteur = 80% des exportations du pays."},
+{id:112, cat:"Ressources & Économie", q:"Qu'est-ce que le tourisme représente dans l'économie mondiale ?", ans:"Environ 10% du PIB mondial et 10% des emplois (avant la pandémie).", exp:"La France = 1er pays visité (90 millions de touristes/an). L'Espagne, USA, Italie, Turquie = grands pôles. Le tourisme de masse peut détruire l'environnement local et les cultures."},
+{id:113, cat:"Ressources & Économie", q:"Quels sont les principaux producteurs de gaz naturel ?", ans:"USA (1er), Russie (2e), Iran (3e), Qatar (4e), Canada.", exp:"Le Qatar exporte massivement du GNL (gaz naturel liquéfié). La Russie fournissait 40% du gaz européen avant 2022 (guerre Ukraine). L'Europe diversifie depuis : GNL américain, algérien, norvégien."},
+{id:114, cat:"Ressources & Économie", q:"Qu'est-ce que la Route de la Soie chinoise (Belt and Road) ?", ans:"Projet d'investissement massif de la Chine dans des infrastructures à travers l'Asie, l'Afrique et l'Europe.", exp:"Lancé par Xi Jinping en 2013. 140+ pays concernés. Ports (Hambourg, Pirée, Djibouti), routes, voies ferrées. Critiqué pour le 'piège de la dette' envers les pays pauvres."},
+{id:115, cat:"Ressources & Économie", q:"Qu'est-ce que le commerce équitable ?", ans:"Système garantissant aux producteurs du Sud un prix minimum et juste pour leur production.", exp:"Label Fairtrade/Max Havelaar. Concerne café, cacao, bananes, coton, thé, quinoa. Le consommateur paie un peu plus, l'argent va aux producteurs. Représente ~1% du commerce mondial."},
+{id:116, cat:"Ressources & Économie", q:"Qu'est-ce que les paradis fiscaux ?", ans:"Territoires offrant une très faible imposition aux entreprises et aux particuliers fortunés.", exp:"Exemples : îles Caïmans, Luxembourg, Suisse, Singapour, Monaco. Coût estimé : 200 à 600 milliards de dollars de recettes fiscales perdues par les États chaque année. L'OCDE impose un taux minimum de 15%."},
+{id:117, cat:"Ressources & Économie", q:"Pourquoi le Maroc est-il stratégique pour les engrais mondiaux ?", ans:"Le Maroc possède 75% des réserves mondiales de phosphate, indispensable aux engrais agricoles.", exp:"Sans phosphate, l'agriculture mondiale ne peut nourrir 8 milliards de personnes. OCP = entreprise marocaine, 1er exportateur mondial. Le phosphate = littéralement 'la nourriture des plantes'."},
+{id:118, cat:"Ressources & Économie", q:"Qu'est-ce qu'une zone franche industrielle ?", ans:"Zone où les règles économiques (taxes, droit du travail) sont allégées pour attirer les investisseurs étrangers.", exp:"Exemples : Shenzhen (Chine, modèle du genre), zones EPZ au Bangladesh, maquiladoras au Mexique. Attirent les usines étrangères mais critiquées pour les conditions de travail souvent précaires."},
+{id:119, cat:"Ressources & Économie", q:"Quel pays est le 1er importateur de matières premières ?", ans:"La Chine est le 1er importateur mondial : pétrole, minerai de fer, cuivre, soja...", exp:"La Chine importe massivement pour alimenter son industrie et nourrir 1,4 milliard de personnes. Cette dépendance explique sa politique d'investissement en Afrique, Amérique Latine et Moyen-Orient."},
+{id:120, cat:"Ressources & Économie", q:"Qu'est-ce que l'économie de plantation héritée de la colonisation ?", ans:"Système où les pays du Sud produisent des matières premières exportées sans transformation, au profit des pays du Nord.", exp:"Héritage de la colonisation : coton (Afrique), sucre (Caraïbes), thé (Inde). Crée une dépendance économique. Les pays du Sud réclament plus de valeur ajoutée en transformant eux-mêmes leurs ressources."},
+
+// ══════════════════════════════════════════════════════════════════
+// ENVIRONNEMENT (20 cartes)
+// ══════════════════════════════════════════════════════════════════
+{id:121, cat:"Environnement", q:"Quelles sont les grandes zones climatiques mondiales ?", ans:"Tropical, aride (désertique), méditerranéen, tempéré, continental, polaire.", exp:"La latitude détermine en grande partie le climat. Le réchauffement climatique modifie ces zones. La zone tropicale (entre les tropiques) reçoit le plus de chaleur et de précipitations."},
+{id:122, cat:"Environnement", q:"Qu'est-ce que l'effet de serre naturel ?", ans:"Phénomène naturel où des gaz atmosphériques (CO₂, vapeur d'eau, méthane) retiennent la chaleur solaire.", exp:"Sans effet de serre naturel, la Terre serait à -18°C (au lieu de +15°C). C'est un phénomène vital. Le problème = l'effet de serre renforcé par les activités humaines (combustibles fossiles)."},
+{id:123, cat:"Environnement", q:"Qu'est-ce que le réchauffement climatique ?", ans:"Augmentation de la température moyenne de la Terre à cause des émissions humaines de gaz à effet de serre.", exp:"La Terre a réchauffé de +1,1°C depuis l'ère pré-industrielle. Causes : transports, industrie, élevage, déforestation. Conséquences : sécheresses, inondations, montée des eaux, migrations climatiques."},
+{id:124, cat:"Environnement", q:"Quelles sont les conséquences de la fonte des glaciers ?", ans:"Montée des eaux, manque d'eau douce, déstabilisation des écosystèmes polaires, libération de méthane.", exp:"L'Arctique se réchauffe 4x plus vite que la moyenne mondiale. Le Groenland et l'Antarctique perdent des milliards de tonnes de glace par an. Le niveau des mers monte de 3,3 mm/an."},
+{id:125, cat:"Environnement", q:"Quels pays sont les plus menacés par la montée des eaux ?", ans:"Bangladesh, îles Maldives, Tuvalu, Kiribati, Pays-Bas, Vietnam, Égypte (delta du Nil).", exp:"Les îles du Pacifique (Tuvalu, Kiribati) pourraient disparaître d'ici 2100 avec +1 m de montée. Le Bangladesh (170 M d'hab. sur un delta) = catastrophe humanitaire annoncée."},
+{id:126, cat:"Environnement", q:"Pourquoi la déforestation de l'Amazonie est-elle un problème mondial ?", ans:"L'Amazonie absorbe des millions de tonnes de CO₂ et produit de l'oxygène pour la planète entière.", exp:"17% de la forêt déjà détruite depuis 1970. Causes : agriculture (soja, élevage), bois illégal, mines. Conséquences : disparition d'espèces, modification du cycle de l'eau, libération de CO₂."},
+{id:127, cat:"Environnement", q:"Qu'est-ce que la désertification du Sahel ?", ans:"L'avancée du désert vers le sud en Afrique, réduisant les terres agricoles disponibles.", exp:"Le Sahel (bande Afrique entre Sahara et savane) se dessèche à cause du réchauffement + surpâturage + déforestation. La 'Grande Muraille Verte' : projet pour planter 8 000 km d'arbres de Dakar à Djibouti."},
+{id:128, cat:"Environnement", q:"Pourquoi la pollution plastique des océans est-elle alarmante ?", ans:"8 millions de tonnes de plastique entrent dans les océans chaque année.", exp:"Le 7e continent de plastique dans le Pacifique fait 1,6 million km² (3x la France). Les microplastiques entrent dans la chaîne alimentaire (poissons puis humains). Principaux pollueurs : Asie du Sud-Est et Afrique."},
+{id:129, cat:"Environnement", q:"Qu'est-ce que la pénurie d'eau douce ?", ans:"Un manque d'eau potable touchant 2 milliards de personnes actuellement.", exp:"Seuls 3% de l'eau de la Terre est douce, dont 2% dans les glaciers. Agriculture = 70% de la consommation mondiale. Zones en stress hydrique : Moyen-Orient, Afrique du Nord, nord de l'Inde."},
+{id:130, cat:"Environnement", q:"Qu'est-ce que la biodiversité et pourquoi est-elle menacée ?", ans:"La diversité du vivant (espèces, gènes, écosystèmes), en crise à cause des activités humaines.", exp:"1 million d'espèces menacées d'extinction. Causes : déforestation, agriculture intensive, pollution, espèces invasives, changement climatique. Hotspots : Madagascar, Amazonie, Bornéo, Mésoamérique."},
+{id:131, cat:"Environnement", q:"Qu'est-ce que l'Accord de Paris (COP21, 2015) ?", ans:"Accord international visant à limiter le réchauffement climatique à +1,5°C (max. +2°C).", exp:"195 pays signataires. Chaque pays fixe ses propres objectifs (NDC). Non contraignant. Les émissions mondiales continuent de croître. Succès diplomatique mais mise en oeuvre insuffisante."},
+{id:132, cat:"Environnement", q:"Qu'est-ce que l'empreinte carbone ?", ans:"La quantité totale de CO₂ émise par une personne, entreprise ou pays (directement et indirectement).", exp:"Empreinte d'un Américain : ~15 t CO₂/an. Européen : ~7 t. Indien : ~2 t. Pour limiter à +1,5°C, il faudrait descendre à 2 t/an/personne. Transport aérien, viande rouge, chauffage = principaux postes."},
+{id:133, cat:"Environnement", q:"Quelles sont les principales énergies renouvelables ?", ans:"Solaire, éolien (terrestre et offshore), hydraulique, géothermique, biomasse, marémotrice.", exp:"L'hydraulique produit encore le plus d'électricité renouvelable (Chine, Canada, Brésil). Le solaire et l'éolien croissent le plus vite. L'Allemagne et la Chine sont leaders. France = 75% nucléaire."},
+{id:134, cat:"Environnement", q:"Quels sont les pays les plus émetteurs de CO₂ ?", ans:"Chine (1ère, ~30%), USA (2e, ~15%), Inde (3e, ~7%), Russie, Japon.", exp:"La Chine est le 1er émetteur total mais pas par habitant (USA = 2x plus par personne). Historiquement, l'Europe et les USA ont le plus émis. Les pays du Sud refusent des contraintes sans aide financière."},
+{id:135, cat:"Environnement", q:"Qu'est-ce qu'El Niño ?", ans:"Phénomène climatique naturel de réchauffement des eaux du Pacifique équatorial, perturbant le climat mondial.", exp:"Revient tous les 2-7 ans. Cause : sécheresses en Australie/Asie du Sud-Est, inondations en Amérique du Sud. Le réchauffement climatique intensifie El Niño. Son opposé = La Niña."},
+{id:136, cat:"Environnement", q:"Qu'est-ce que le nucléaire comme source d'énergie ?", ans:"Énergie produite par la fission de l'uranium, sans émissions de CO₂ pendant la production.", exp:"32 pays utilisent le nucléaire. France = 75% de son électricité nucléaire. Avantages : faible CO₂, grande puissance. Inconvénients : déchets radioactifs millénaires, risques (Tchernobyl 1986, Fukushima 2011)."},
+{id:137, cat:"Environnement", q:"Qu'est-ce que le développement durable ?", ans:"Développement répondant aux besoins du présent sans compromettre les générations futures.", exp:"Défini en 1987 (rapport Brundtland). 3 piliers : économique (croissance), social (équité), environnemental (préservation). L'ONU a fixé 17 Objectifs de Développement Durable (ODD) pour 2030."},
+{id:138, cat:"Environnement", q:"Qu'est-ce que la couche d'ozone et comment est-elle menacée ?", ans:"Couche de la stratosphère filtrant les UV-B nocifs du soleil, menacée par les CFC.", exp:"Trou découvert en 1985 (Antarctique). Protocole de Montréal (1987) = interdiction des CFC. La couche se reconstitue lentement. Rare succès diplomatique environnemental."},
+{id:139, cat:"Environnement", q:"Qu'est-ce qu'une aire protégée ?", ans:"Zone terrestre ou marine protégée des activités humaines : parc national, réserve, site Ramsar...", exp:"17% des terres et 8% des océans sont protégés. Objectif : 30% d'ici 2030 (accord Kunming-Montréal 2022). Grandes aires : Patagonie, Sibérie, Arctique, désert de Gobi."},
+{id:140, cat:"Environnement", q:"Qu'est-ce que l'économie circulaire ?", ans:"Modèle économique éliminant les déchets en réutilisant, réparant et recyclant les matériaux.", exp:"Opposé à l'économie linéaire (extraire → produire → jeter). Exemples : textile de seconde main, électronique réparable, compostage. L'UE développe un cadre réglementaire ambitieux."},
+
+// ══════════════════════════════════════════════════════════════════
+// REPÈRES (15 cartes)
+// ══════════════════════════════════════════════════════════════════
+{id:141, cat:"Repères", q:"Qu'est-ce que l'équateur ?", ans:"La ligne imaginaire à 0° de latitude divisant la Terre en hémisphère nord et hémisphère sud.", exp:"Pays traversés : Équateur, Brésil, Congo, Kenya, Indonésie, Gabon, Somalie... Il y fait chaud toute l'année (forêt tropicale). Circonférence de la Terre sur l'équateur : 40 075 km."},
+{id:142, cat:"Repères", q:"Qu'est-ce que le tropique du Cancer et le tropique du Capricorne ?", ans:"Cancer (23,5°N) et Capricorne (23,5°S) délimitent la zone intertropicale.", exp:"La zone intertropicale reçoit le soleil à la verticale deux fois par an. Pays traversés par le Cancer : Mexique, Sahara, Inde, Chine. Par le Capricorne : Chili, Brésil, Mozambique, Australie."},
+{id:143, cat:"Repères", q:"Qu'est-ce que les cercles polaires ?", ans:"Arctique (66,5°N) et Antarctique (66,5°S) délimitent les zones de nuit polaire et de soleil de minuit.", exp:"Au-delà : 'nuit polaire' (soleil jamais levé en hiver) et 'soleil de minuit' (soleil jamais couché en été). Pays arctiques : Norvège, Finlande, Suède, Russie, Canada, Alaska, Islande, Groenland."},
+{id:144, cat:"Repères", q:"Qu'est-ce que le méridien de Greenwich ?", ans:"La ligne à 0° de longitude passant par Greenwich (Londres), référence de l'heure mondiale (UTC/GMT).", exp:"Défini en 1884 lors d'une conférence internationale à Washington. Sert de référence pour toutes les longitudes. Paris est à 2°20'E de Greenwich. Tokyo à 139°45'E."},
+{id:145, cat:"Repères", q:"Qu'est-ce que la latitude ?", ans:"Distance angulaire d'un point par rapport à l'équateur, mesurée de 0° à 90° N ou S.", exp:"Plus on monte en latitude, plus il fait généralement froid. Paris ≈ 48°N. New York ≈ 40°N. Sydney ≈ 34°S. À l'équateur = 0°. Aux pôles = 90°. Mesurée depuis l'Antiquité par les ombres."},
+{id:146, cat:"Repères", q:"Qu'est-ce que la longitude ?", ans:"Distance angulaire d'un point par rapport au méridien de Greenwich, de 0° à 180° E ou O.", exp:"Les méridiens convergent aux pôles. 15° = 1 heure de décalage horaire. Le 180e méridien = la ligne internationale de changement de date (dans l'océan Pacifique)."},
+{id:147, cat:"Repères", q:"Comment se lisent les coordonnées géographiques ?", ans:"Sous la forme (Latitude, Longitude) : ex. Paris = (48°51'N, 2°21'E).", exp:"Un GPS utilise ces coordonnées. 1 minute d'arc (1/60°) ≈ 1,8 km. La notion existe depuis Ptolémée (~150 ap. J.-C.). Aujourd'hui les satellites GPS précisent à quelques mètres."},
+{id:148, cat:"Repères", q:"Qu'est-ce qu'un fuseau horaire ?", ans:"Zone géographique où l'heure est la même. La Terre est divisée en 24 fuseaux de 15° chacun.", exp:"La France est à UTC+1 (hiver) / UTC+2 (été). La Russie couvre 11 fuseaux horaires ! La Chine n'en utilise qu'un seul malgré sa superficie. La ligne de changement de date est à 180° (Pacifique)."},
+{id:149, cat:"Repères", q:"Quelle est la différence entre hémisphère nord et hémisphère sud ?", ans:"L'hémisphère nord concentre la plupart des terres et des populations. Le sud est surtout océanique.", exp:"90% de la population mondiale vit dans l'hémisphère nord. Les saisons sont inversées entre les deux hémisphères. Les cyclones tournent dans des sens opposés (force de Coriolis)."},
+{id:150, cat:"Repères", q:"Qu'est-ce que l'échelle d'une carte ?", ans:"Le rapport entre une distance sur la carte et la distance réelle sur le terrain.", exp:"1/100 000 = 1 cm sur la carte = 1 km dans la réalité. Plus l'échelle est grande (1/10 000), plus les détails sont visibles mais moins la zone couverte est étendue. IGN France : cartes à 1/25 000."},
+{id:151, cat:"Repères", q:"Qu'est-ce que la projection de Mercator ?", ans:"Projection cartographique qui déforme les surfaces aux hautes latitudes (agrandit les pôles).", exp:"Créée en 1569. Utile pour la navigation (les angles sont corrects). Défaut : le Groenland semble aussi grand que l'Afrique alors qu'il est 14x plus petit ! La projection de Peters est une alternative plus juste."},
+{id:152, cat:"Repères", q:"Qu'est-ce que les points cardinaux ?", ans:"Les 4 directions principales : Nord (N), Sud (S), Est (E), Ouest (O).", exp:"Le nord magnétique (boussole) diffère légèrement du nord géographique (pôle). L'écart = déclinaison magnétique. Intermédiaires : NE, NO, SE, SO. Le Soleil se lève à l'Est et se couche à l'Ouest."},
+{id:153, cat:"Repères", q:"Qu'est-ce que la ligne internationale de changement de date ?", ans:"Ligne imaginaire dans le Pacifique (≈180e méridien) où la date change d'un jour.", exp:"En franchissant vers l'est : on recule d'un jour. Vers l'ouest : on avance d'un jour. C'est le principe du tour du monde de Philéas Fogg (Jules Verne). Kiribati l'a déplacée à l'est pour rester du même côté."},
+{id:154, cat:"Repères", q:"Comment orienter une carte sans boussole ?", ans:"En cherchant la position du Soleil (levant = Est) ou l'Étoile Polaire (Nord) dans l'hémisphère nord.", exp:"L'Étoile Polaire (Polaris) est pratiquement fixe dans le ciel. Dans l'hémisphère sud, on utilise la Croix du Sud. Les ombres à midi solaire pointent vers le nord (hémisphère nord)."},
+{id:155, cat:"Repères", q:"Qu'est-ce qu'une carte topographique ?", ans:"Carte représentant le relief (altitude, pentes) à l'aide de courbes de niveau.", exp:"Les courbes de niveau relient les points de même altitude. Plus elles sont rapprochées, plus la pente est raide. L'IGN (France) produit des cartes topo à 1/25 000 utilisées par les randonneurs."},
+];
+
+/* ══ STATE ══ */
+let deck=[], idx=0, flipped=false, knownSet=new Set(), reviewSet=new Set();
+
+/* ══ FILTER ══ */
+function filterBy(cat, btn){
+  document.querySelectorAll('.filter-btn').forEach(b=>b.classList.remove('active'));
+  btn.classList.add('active');
+  deck = cat==='all' ? shuffle([...ALL_CARDS]) : shuffle(ALL_CARDS.filter(c=>c.cat===cat));
+  idx=0; flipped=false; knownSet.clear(); reviewSet.clear();
+  updateCounters(); buildStrip(); advance();
+}
+
+/* ══ LOAD ══ */
+function loadContent(){
+  const card=deck[idx];
+  const front=document.getElementById('front');
+  const svgZone=document.getElementById('fc-svg');
+  if(card.svg){
+    svgZone.style.display='flex';
+    svgZone.innerHTML=card.svg;
+    front.classList.add('has-svg');
+  } else {
+    svgZone.style.display='none';
+    svgZone.innerHTML='';
+    front.classList.remove('has-svg');
+  }
+  document.getElementById('fc-cat').textContent  = card.cat;
+  document.getElementById('fc-cat2').textContent = card.cat;
+  document.getElementById('fc-q').textContent    = card.q;
+  document.getElementById('fc-q2').textContent   = card.q;
+  document.getElementById('fc-ans').textContent  = card.ans;
+  document.getElementById('fc-exp').textContent  = card.exp||'';
+  const pct=(idx/deck.length)*100;
+  document.getElementById('p-text').textContent=`Carte ${idx+1} / ${deck.length}`;
+  document.getElementById('p-fill').style.width=pct+'%';
+  document.querySelectorAll('#strip .thumb-geo').forEach((el,i)=>el.classList.toggle('cur',i===idx));
+}
+
+/* ══ ADVANCE ══ */
+function advance(){
+  const ov=document.getElementById('overlay'), fr=document.getElementById('front'), wrap=document.getElementById('fc');
+  ov.classList.add('dark');
+  setTimeout(()=>{
+    wrap.classList.add('no-anim');
+    wrap.classList.remove('flipped');
+    flipped=false; fr.classList.remove('iris');
+    loadContent();
+    requestAnimationFrame(()=>requestAnimationFrame(()=>{
+      wrap.classList.remove('no-anim');
+      ov.classList.remove('dark');
+      fr.classList.add('iris');
+    }));
+  }, 180);
+}
+
+/* ══ FLIP ══ */
+function flipCard(){
+  if(flipped){ idx=(idx+1)%deck.length; advance(); }
+  else { flipped=true; document.getElementById('fc').classList.add('flipped'); }
+}
+
+/* ══ NAV ══ */
+function nextCard(){ idx=(idx+1)%deck.length; advance(); }
+function prevCard(){ idx=(idx-1+deck.length)%deck.length; advance(); }
+function shuffleCards(){ deck=shuffle([...deck]); idx=0; flipped=false; knownSet.clear(); reviewSet.clear(); updateCounters(); buildStrip(); advance(); }
+function markKnown(){ knownSet.add(deck[idx].id); reviewSet.delete(deck[idx].id); updateCounters(); idx=(idx+1)%deck.length; advance(); }
+function markReview(){ reviewSet.add(deck[idx].id); knownSet.delete(deck[idx].id); const c=deck.splice(idx,1)[0]; deck.splice(Math.min(idx+3,deck.length),0,c); updateCounters(); if(idx>=deck.length)idx=0; advance(); }
+
+/* ══ UI ══ */
+function updateCounters(){
+  document.getElementById('k-count').textContent=knownSet.size;
+  document.getElementById('r-count').textContent=reviewSet.size;
+  document.getElementById('rem-count').textContent=deck.length-knownSet.size-reviewSet.size;
+}
+function buildStrip(){
+  const strip=document.getElementById('strip'); strip.innerHTML='';
+  deck.forEach((card,i)=>{
+    const d=document.createElement('div');
+    d.className='thumb-geo'+(i===0?' cur':'');
+    d.textContent=card.cat.slice(0,4);
+    d.onclick=()=>{idx=i;advance();};
+    d.title=card.q;
+    strip.appendChild(d);
+  });
+}
+function shuffle(arr){for(let i=arr.length-1;i>0;i--){const j=Math.floor(Math.random()*(i+1));[arr[i],arr[j]]=[arr[j],arr[i]];}return arr;}
+
+/* ══ KEYBOARD ══ */
+document.addEventListener('keydown',e=>{
+  if(e.key==='ArrowRight'||e.key===' '){e.preventDefault();nextCard();}
+  if(e.key==='ArrowLeft'){e.preventDefault();prevCard();}
+  if(e.key==='Enter'){e.preventDefault();flipCard();}
+  if(e.key==='k'||e.key==='K')markKnown();
+  if(e.key==='r'||e.key==='R')markReview();
+});
+
+/* ══ STARS ══ */
+(function(){
+  const c=document.getElementById('stars-canvas'),ctx=c.getContext('2d');let stars=[];
+  function resize(){c.width=innerWidth;c.height=innerHeight;}
+  function init(){resize();stars=Array.from({length:200},()=>({x:Math.random(),y:Math.random(),r:Math.random()*1.2+.15,a:Math.random()*.5+.08,speed:Math.random()*.0004+.00015,phase:Math.random()*Math.PI*2}));}
+  let t=0;function draw(){t++;ctx.clearRect(0,0,c.width,c.height);for(const s of stars){const f=s.a*(.65+.35*Math.sin(t*s.speed*80+s.phase));ctx.beginPath();ctx.arc(s.x*c.width,s.y*c.height,s.r,0,Math.PI*2);ctx.fillStyle=`rgba(180,220,255,${f})`;ctx.fill();}requestAnimationFrame(draw);}
+  addEventListener('resize',init);init();draw();
+})();
+
+/* ══ BOOT ══ */
+deck=shuffle([...ALL_CARDS]);
+buildStrip();
+loadContent();
+</script>
+</body>
+</html>
