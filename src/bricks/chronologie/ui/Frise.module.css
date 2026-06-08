@@ -135,12 +135,19 @@
   border-radius: var(--radius-lg);
   box-shadow: var(--shadow-card);
   overflow: hidden;
+  cursor: pointer;
   transition: border-color var(--transition), box-shadow var(--transition);
 }
 
 .card:hover {
   border-color: var(--color-gold);
   box-shadow: var(--shadow-glow);
+}
+
+.card:focus-visible {
+  outline: none;
+  border-color: var(--color-gold);
+  box-shadow: var(--shadow-focus);
 }
 
 /* Pastille posee sur la ligne (alignee sur le trait a 8px en mobile). */
@@ -155,11 +162,12 @@
   box-shadow: var(--shadow-glow);
 }
 
+/* Image affichee a son ratio naturel : largeur contrainte par la carte, hauteur auto,
+   aucun rognage (pas de hauteur imposee ni d'object-fit). */
 .image {
   display: block;
   width: 100%;
-  max-height: 240px;
-  object-fit: cover;
+  height: auto;
   border-bottom: 1px solid var(--color-border);
 }
 
@@ -212,33 +220,126 @@
   line-height: 1.6;
 }
 
-/* --- Anecdotes depliables --- */
-.toggle {
-  display: inline-flex;
-  align-items: center;
-  min-height: var(--tap-min);
+/* Indice au survol : invite a ouvrir la modale (l'ancien "Cliquer pour les anecdotes"). */
+.hint {
   margin-top: var(--space-4);
-  padding: 0 var(--space-4);
-  background: transparent;
-  border: 1px solid var(--color-gold);
-  border-radius: var(--radius);
-  color: var(--color-gold);
   font-family: var(--font-display);
   font-size: var(--font-xs);
   letter-spacing: var(--tracking);
   text-transform: uppercase;
-  cursor: pointer;
-  transition: background var(--transition), color var(--transition);
+  color: var(--color-text-muted);
+  opacity: 0;
+  transition: opacity var(--transition), color var(--transition);
 }
 
-.toggle:hover {
+.card:hover .hint,
+.card:focus-visible .hint {
+  opacity: 1;
+  color: var(--color-gold);
+}
+
+/* --- Modale d'evenement (overlay + boite centree) --- */
+.overlay {
+  position: fixed;
+  inset: 0;
+  z-index: var(--z-modal);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: var(--space-5);
+  background: var(--color-overlay);
+}
+
+.modale {
+  position: relative;
+  width: 100%;
+  max-width: 620px;
+  max-height: 90vh;
+  overflow-y: auto;
+  padding: var(--space-7) var(--space-6) var(--space-6);
+  background: var(--color-modal-bg);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-lg);
+  box-shadow: var(--shadow-card);
+}
+
+.close {
+  position: absolute;
+  top: var(--space-4);
+  right: var(--space-4);
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-width: var(--tap-min);
+  min-height: var(--tap-min);
+  background: var(--color-surface-2);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius);
+  color: var(--color-text-muted);
+  font-size: var(--font-md);
+  line-height: 1;
+  cursor: pointer;
+  transition: background var(--transition), color var(--transition),
+    border-color var(--transition);
+}
+
+.close:hover {
   background: var(--color-gold);
   color: var(--color-bg);
+  border-color: var(--color-gold);
+}
+
+.close:focus-visible {
+  outline: none;
+  box-shadow: var(--shadow-focus);
+}
+
+/* Image de la modale : ratio naturel, aucune coupe (hauteur auto). */
+.modaleImage {
+  display: block;
+  width: 100%;
+  height: auto;
+  margin-bottom: var(--space-5);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius);
+}
+
+.modaleHead {
+  display: flex;
+  align-items: center;
+  gap: var(--space-3);
+  margin-bottom: var(--space-2);
+}
+
+.modaleTitre {
+  font-family: var(--font-display);
+  font-weight: var(--weight-black);
+  font-size: var(--font-xl);
+  margin: var(--space-2) 0 var(--space-4);
+  line-height: 1.25;
+}
+
+.modaleDesc {
+  color: var(--color-text);
+  font-size: var(--font-md);
+  line-height: 1.7;
+  margin-bottom: var(--space-5);
+  padding-bottom: var(--space-5);
+  border-bottom: 1px solid var(--color-border);
+}
+
+.anecdotesHead {
+  font-family: var(--font-display);
+  font-size: var(--font-xs);
+  letter-spacing: var(--tracking-wide);
+  text-transform: uppercase;
+  color: var(--color-text-muted);
+  margin-bottom: var(--space-4);
 }
 
 .anecdotes {
   list-style: none;
-  margin: var(--space-4) 0 0;
+  margin: 0;
   padding: 0;
   display: flex;
   flex-direction: column;
