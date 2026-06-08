@@ -14,6 +14,8 @@ export interface DomainEvents {
   'streak.advance': { brick: string; valeur: number };
   // Frise : un evenement a ete consulte (anecdotes depliees).
   'timeline.viewed': { brick: string; sujet: string; eventId: string };
+  // Frise : la modale d'un evenement (image + anecdotes) a ete ouverte.
+  'anecdote.opened': { brick: string; sujet: string; eventId: string };
 }
 
 export type DomainEventName = keyof DomainEvents;

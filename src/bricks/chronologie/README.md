@@ -1,9 +1,11 @@
 # Brique `chronologie` (frise historique)
 
 Frise verticale interactive : des periodes, des evenements dates avec icone, tag,
-date, titre, description, image et anecdotes depliables. Conforme au contrat de brique
-(`manifest` / `mount` / `unmount`) et a la presentation decrite dans
-`docs/audit-legacy.md` (section 3.3).
+date, titre, description et image. Les cartes restent compactes dans la frise (image a
+son ratio naturel, hauteur epousant le contenu) ; un clic ouvre une MODALE centree qui
+affiche l'image, la date, le titre, la description complete et les anecdotes. Conforme
+au contrat de brique (`manifest` / `mount` / `unmount`) et a la presentation decrite
+dans `docs/audit-legacy.md` (section 3.3).
 
 ## Frontiere
 
@@ -22,7 +24,7 @@ La brique ne connait que `ctx`. Elle lit le pack a jouer dans l'URL
 ## Evenements de domaine
 
 - `activity.start` a l'ouverture de la frise.
-- `timeline.viewed` la premiere fois que les anecdotes d'un evenement sont depliees.
+- `anecdote.opened` a chaque ouverture de la modale d'un evenement (image + anecdotes).
 
 La brique ne sait rien des consommateurs (gamification, telemetrie).
 

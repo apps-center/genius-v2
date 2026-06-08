@@ -86,11 +86,24 @@ function Frise({ ctx, pack }: { ctx: AppContext; pack: ChronologiePack }) {
   const nbEvenements = useMemo(() => compterEvenements(pack.periodes), [pack]);
   const nbPeriodes = useMemo(() => compterPeriodes(pack.periodes), [pack]);
 
+  // Evenement actuellement affiche dans la modale (null = modale fermee).
+  const [selectionne, setSelectionne] = useState<EvenementFrise | null>(null);
+
   // Evenement de domaine : debut de consultation (consomme par gamification/telemetrie).
   useEffect(() => {
     ctx.events.emit('activity.start', { brick: manifest.id, sujet: pack.sujet });
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
+
+  function ouvrir(ev: EvenementFrise) {
+    setSelectionne(ev);
+    // Evenement de domaine : la modale d'un evenement a ete ouverte.
+    ctx.events.emit('anecdote.opened', {
+      brick: manifest.id,
+      sujet: pack.sujet,
+      eventId: `${ev.numero}`,
+    });
+  }
 
   return (
     <div className={styles.wrap}>
@@ -113,49 +126,44 @@ function Frise({ ctx, pack }: { ctx: AppContext; pack: ChronologiePack }) {
               <h2 className={styles.era}>{section.era}</h2>
               <div className={styles.events}>
                 {section.evenements.map((ev) => (
-                  <Evenement key={ev.cle} ctx={ctx} sujet={pack.sujet} ev={ev} />
+                  <Evenement key={ev.cle} ev={ev} onOuvrir={ouvrir} />
                 ))}
               </div>
             </section>
           ),
         )}
       </div>
+
+      {selectionne && (
+        <Modale ev={selectionne} onFermer={() => setSelectionne(null)} />
+      )}
     </div>
   );
 }
 
 function Evenement({
-  ctx,
-  sujet,
   ev,
+  onOuvrir,
 }: {
-  ctx: AppContext;
-  sujet: string;
   ev: EvenementFrise;
+  onOuvrir: (ev: EvenementFrise) => void;
 }) {
-  const [ouvert, setOuvert] = useState(false);
-  const dejaEmis = useRef(false);
-  const aAnecdotes = ev.anecdotes.length > 0;
-  const panneauId = `anecdotes-${ev.numero}`;
-
-  function basculer() {
-    setOuvert((o) => {
-      const next = !o;
-      // Evenement de domaine emis une seule fois, a la premiere consultation.
-      if (next && !dejaEmis.current) {
-        dejaEmis.current = true;
-        ctx.events.emit('timeline.viewed', {
-          brick: manifest.id,
-          sujet,
-          eventId: `${ev.numero}`,
-        });
-      }
-      return next;
-    });
+  function onKeyDown(e: React.KeyboardEvent) {
+    if (e.key === 'Enter' || e.key === ' ') {
+      e.preventDefault();
+      onOuvrir(ev);
+    }
   }
 
   return (
-    <article className={`${styles.card} ${ev.cote === 'gauche' ? styles.gauche : styles.droite}`}>
+    <article
+      className={`${styles.card} ${ev.cote === 'gauche' ? styles.gauche : styles.droite}`}
+      role="button"
+      tabIndex={0}
+      aria-label={`${ev.title} - ouvrir les details et anecdotes`}
+      onClick={() => onOuvrir(ev)}
+      onKeyDown={onKeyDown}
+    >
       <span className={styles.point} aria-hidden="true" />
       {ev.img && (
         <img className={styles.image} src={ev.img} alt={ev.title} loading="lazy" decoding="async" />
@@ -172,36 +180,131 @@ function Evenement({
         <p className={styles.date}>{ev.date}</p>
         <h3 className={styles.cardTitle}>{ev.title}</h3>
         <RichText className={styles.desc} html={ev.desc} />
+        <p className={styles.hint} aria-hidden="true">
+          Cliquer pour les anecdotes
+        </p>
+      </div>
+    </article>
+  );
+}
+
+/*
+  Modale centree par-dessus la frise (overlay sombre). Reproduit le comportement de
+  l'ancien site : image, date, titre, description complete et anecdotes. Accessible :
+  role dialog + aria-modal, focus pose sur la croix et piege dans la boite, fermeture
+  au clic sur l'overlay, sur la croix ou via la touche Echap. Le focus revient sur la
+  carte d'origine a la fermeture, le defilement de la page est gele pendant l'ouverture.
+*/
+function Modale({ ev, onFermer }: { ev: EvenementFrise; onFermer: () => void }) {
+  const boxRef = useRef<HTMLDivElement>(null);
+  const fermerRef = useRef<HTMLButtonElement>(null);
+  const titreId = `modale-titre-${ev.numero}`;
+  const aAnecdotes = ev.anecdotes.length > 0;
+
+  useEffect(() => {
+    const precedent = document.activeElement as HTMLElement | null;
+    fermerRef.current?.focus();
+    const overflowInitial = document.body.style.overflow;
+    document.body.style.overflow = 'hidden';
+
+    function onKeyDown(e: KeyboardEvent) {
+      if (e.key === 'Escape') {
+        e.preventDefault();
+        onFermer();
+        return;
+      }
+      if (e.key !== 'Tab') return;
+      const box = boxRef.current;
+      if (!box) return;
+      const focusables = box.querySelectorAll<HTMLElement>(
+        'button, [href], input, select, textarea, [tabindex]:not([tabindex="-1"])',
+      );
+      const premier = focusables[0];
+      const dernier = focusables[focusables.length - 1];
+      if (!premier || !dernier) return;
+      if (e.shiftKey && document.activeElement === premier) {
+        e.preventDefault();
+        dernier.focus();
+      } else if (!e.shiftKey && document.activeElement === dernier) {
+        e.preventDefault();
+        premier.focus();
+      }
+    }
+
+    document.addEventListener('keydown', onKeyDown, true);
+    return () => {
+      document.removeEventListener('keydown', onKeyDown, true);
+      document.body.style.overflow = overflowInitial;
+      precedent?.focus?.();
+    };
+  }, [onFermer]);
+
+  return (
+    <div
+      className={styles.overlay}
+      onClick={(e) => {
+        if (e.target === e.currentTarget) onFermer();
+      }}
+    >
+      <div
+        ref={boxRef}
+        className={styles.modale}
+        role="dialog"
+        aria-modal="true"
+        aria-labelledby={titreId}
+      >
+        <button
+          ref={fermerRef}
+          type="button"
+          className={styles.close}
+          onClick={onFermer}
+          aria-label="Fermer"
+        >
+          &#10005;
+        </button>
+
+        {ev.img && (
+          <img
+            className={styles.modaleImage}
+            src={ev.img}
+            alt={ev.title}
+            decoding="async"
+          />
+        )}
+
+        <div className={styles.modaleHead}>
+          {ev.icon && (
+            <span className={styles.icon} aria-hidden="true">
+              {ev.icon}
+            </span>
+          )}
+          {ev.tag && <span className={styles.tag}>{ev.tag}</span>}
+        </div>
+        <p className={styles.date}>{ev.date}</p>
+        <h3 id={titreId} className={styles.modaleTitre}>
+          {ev.title}
+        </h3>
+        <RichText className={styles.modaleDesc} html={ev.desc} />
 
         {aAnecdotes && (
           <>
-            <button
-              type="button"
-              className={styles.toggle}
-              aria-expanded={ouvert}
-              aria-controls={panneauId}
-              onClick={basculer}
-            >
-              {ouvert ? 'Masquer les anecdotes' : `Anecdotes & curiosites (${ev.anecdotes.length})`}
-            </button>
-            {ouvert && (
-              <ul className={styles.anecdotes} id={panneauId}>
-                {ev.anecdotes.map((a, i) => (
-                  <li key={i} className={styles.anecdote}>
-                    {a.e && (
-                      <span className={styles.anecdoteEmoji} aria-hidden="true">
-                        {a.e}
-                      </span>
-                    )}
-                    <RichText className={styles.anecdoteText} html={a.t} />
-                  </li>
-                ))}
-              </ul>
-            )}
+            <p className={styles.anecdotesHead}>Anecdotes &amp; curiosites</p>
+            <ul className={styles.anecdotes}>
+              {ev.anecdotes.map((a, i) => (
+                <li key={i} className={styles.anecdote}>
+                  {a.e && (
+                    <span className={styles.anecdoteEmoji} aria-hidden="true">
+                      {a.e}
+                    </span>
+                  )}
+                  <RichText className={styles.anecdoteText} html={a.t} />
+                </li>
+              ))}
+            </ul>
           </>
         )}
       </div>
-    </article>
+    </div>
   );
 }
 

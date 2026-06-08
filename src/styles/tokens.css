@@ -15,6 +15,7 @@
   --color-surface-2: #0d1828;
   --color-card-bg: rgba(8, 13, 26, 0.94);
   --color-modal-bg: #0a1220;
+  --color-overlay: rgba(2, 4, 10, 0.88);
 
   /* --- Lignes et bordures (or tres dilue) --- */
   --color-border: rgba(200, 180, 120, 0.18);
@@ -98,6 +99,9 @@
 
   /* --- Cible tactile minimale (a11y enfant) --- */
   --tap-min: 44px;
+
+  /* --- Couches (z-index) --- */
+  --z-modal: 1000;
 
   /* --- Animation flip : standard Genius (NE PAS modifier) --- */
   --flip-perspective: 1200px;
