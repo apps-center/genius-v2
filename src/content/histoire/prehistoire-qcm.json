@@ -1,0 +1,427 @@
+{
+  "contentKind": "qcm",
+  "sujet": "histoire",
+  "titre": "Préhistoire",
+  "items": [
+    {
+      "id": "prehist-01",
+      "question": "Quel est le plus ancien fossile de la lignée humaine, découvert au Tchad ?",
+      "choix": [
+        "Sahelanthropus tchadensis",
+        "Homo habilis",
+        "Homo erectus",
+        "Australopithecus afarensis"
+      ],
+      "bonneReponse": 0,
+      "explication": "Sahelanthropus tchadensis, découvert au Tchad, daterait de 7 millions d'années - juste après la séparation avec les chimpanzés.",
+      "niveau": "6e",
+      "sujet": "Préhistoire"
+    },
+    {
+      "id": "prehist-02",
+      "question": "Comment appelle-t-on l'outil taillé emblématique d'Homo erectus ?",
+      "choix": [
+        "Le biface",
+        "La sagaie",
+        "Le propulseur",
+        "L'atlatl"
+      ],
+      "bonneReponse": 0,
+      "explication": "Le biface est le premier outil façonné des deux côtés - un véritable chef-d'œuvre de la préhistoire, taillé il y a 1,7 million d'années.",
+      "niveau": "6e",
+      "sujet": "Préhistoire"
+    },
+    {
+      "id": "prehist-03",
+      "question": "La grotte de Lascaux se trouve dans quel département français ?",
+      "choix": [
+        "Dordogne",
+        "Ardèche",
+        "Ariège",
+        "Lot"
+      ],
+      "bonneReponse": 0,
+      "explication": "Lascaux se trouve en Dordogne. Elle a été découverte en 1940 par des adolescents et fermée au public en 1963 pour préserver les peintures.",
+      "niveau": "6e",
+      "sujet": "Préhistoire"
+    },
+    {
+      "id": "prehist-04",
+      "question": "La grotte Chauvet, la plus ancienne connue, est en…",
+      "choix": [
+        "Ardèche",
+        "Dordogne",
+        "Pyrénées-Orientales",
+        "Haute-Garonne"
+      ],
+      "bonneReponse": 0,
+      "explication": "La grotte Chauvet, dans l'Ardèche, date d'environ 36 000 ans. C'est la plus ancienne grande grotte ornée connue.",
+      "niveau": "6e",
+      "sujet": "Préhistoire"
+    },
+    {
+      "id": "prehist-05",
+      "question": "Göbekli Tepe, premier monument religieux connu, est situé en…",
+      "choix": [
+        "Turquie",
+        "Irak",
+        "Syrie",
+        "Iran"
+      ],
+      "bonneReponse": 0,
+      "explication": "Göbekli Tepe est situé dans le sud-est de la Turquie actuelle. Il précède l'agriculture et bouleverse notre vision de la préhistoire.",
+      "niveau": "6e",
+      "sujet": "Préhistoire"
+    },
+    {
+      "id": "prehist-06",
+      "question": "La révolution néolithique désigne avant tout…",
+      "choix": [
+        "L'invention de l'agriculture et de l'élevage",
+        "La maîtrise du feu",
+        "L'invention de l'écriture",
+        "La domestication du cheval"
+      ],
+      "bonneReponse": 0,
+      "explication": "Le Néolithique (vers -10 000) voit les humains passer de la chasse-cueillette à l'agriculture sédentaire - une transformation radicale de civilisation.",
+      "niveau": "6e",
+      "sujet": "Préhistoire"
+    },
+    {
+      "id": "prehist-07",
+      "question": "Quel animal a été domestiqué en premier par l'être humain ?",
+      "choix": [
+        "Le chien",
+        "Le mouton",
+        "Le bœuf",
+        "Le cheval"
+      ],
+      "bonneReponse": 0,
+      "explication": "Le chien est le premier animal domestiqué, issu du loup gris, bien avant les animaux de ferme. La domestication remonte à environ 15 000 ans.",
+      "niveau": "6e",
+      "sujet": "Préhistoire"
+    },
+    {
+      "id": "prehist-08",
+      "question": "Ötzi, l'homme des glaces, a été retrouvé dans…",
+      "choix": [
+        "Les Alpes tyroliennes (Autriche/Italie)",
+        "Les Pyrénées",
+        "Le Massif Central",
+        "Les Alpes suisses"
+      ],
+      "bonneReponse": 0,
+      "explication": "Ötzi a été découvert en 1991 dans les Alpes, à la frontière austro-italienne. Il a vécu vers -3 300 av. J.-C. et porte encore ses vêtements et équipements.",
+      "niveau": "6e",
+      "sujet": "Préhistoire"
+    },
+    {
+      "id": "prehist-09",
+      "question": "Quel est le nom du plus ancien fossile de notre lignée humaine, découvert au Tchad ?",
+      "choix": [
+        "Sahelanthropus tchadensis",
+        "Homo habilis",
+        "Australopithecus afarensis",
+        "Homo erectus"
+      ],
+      "bonneReponse": 0,
+      "explication": "Sahelanthropus tchadensis vivait il y a 7 millions d'années - juste après la séparation évolutive avec les chimpanzés. Son crâne a été découvert au Tchad en 2001 par l'équipe de Michel Brunet.",
+      "niveau": "6e",
+      "sujet": "Préhistoire"
+    },
+    {
+      "id": "prehist-10",
+      "question": "Pendant combien de millions d'années le biface a-t-il été utilisé sans modification ?",
+      "choix": [
+        "1,5 million d'années",
+        "10 000 ans",
+        "100 000 ans",
+        "500 000 ans"
+      ],
+      "bonneReponse": 0,
+      "explication": "Le biface a été utilisé pendant 1,5 million d'années sans modification majeure - la plus longue tradition technologique de l'histoire humaine. Un signe de stabilité culturelle extraordinaire.",
+      "niveau": "6e",
+      "sujet": "Préhistoire"
+    },
+    {
+      "id": "prehist-11",
+      "question": "Dans quelle grotte d'Afrique du Sud se trouvent les premières traces de feu contrôlé, vieilles d'un million d'années ?",
+      "choix": [
+        "La grotte de Wonderwerk",
+        "La grotte de Blombos",
+        "La grotte de Klasies River",
+        "La grotte de Pinnacle Point"
+      ],
+      "bonneReponse": 0,
+      "explication": "La grotte de Wonderwerk (Afrique du Sud) contient des os et végétaux brûlés vieux d'un million d'années. C'est la trace la plus ancienne connue de maîtrise du feu par Homo erectus.",
+      "niveau": "6e",
+      "sujet": "Préhistoire"
+    },
+    {
+      "id": "prehist-12",
+      "question": "Dans quelle ville allemande ont été retrouvées 8 lances en bois vieilles de 400 000 ans ?",
+      "choix": [
+        "Schöningen",
+        "Heidelberg",
+        "Düsseldorf",
+        "Neandertal"
+      ],
+      "bonneReponse": 0,
+      "explication": "Les lances de Schöningen (-400 000 ans) sont les armes en bois les plus anciennes connues. Leur équilibre est identique à celui d'un javelot olympique moderne - preuve d'une technique de chasse élaborée.",
+      "niveau": "6e",
+      "sujet": "Préhistoire"
+    },
+    {
+      "id": "prehist-13",
+      "question": "Quel matériau les Néandertaliens utilisaient-ils pour coller les pointes de silex sur leurs lances ?",
+      "choix": [
+        "La résine de bouleau chauffée",
+        "De la colle animale",
+        "De l'argile cuite",
+        "De la cire d'abeille"
+      ],
+      "bonneReponse": 0,
+      "explication": "La résine de bouleau (goudron naturel) était obtenue en chauffant l'écorce à 340°C en atmosphère pauvre en oxygène - une opération nécessitant planification et connaissance des matériaux.",
+      "niveau": "6e",
+      "sujet": "Préhistoire"
+    },
+    {
+      "id": "prehist-14",
+      "question": "Sur quel site d'Afrique du Sud ont été retrouvés les plus anciens bijoux connus (coquillages percés, -100 000 ans) ?",
+      "choix": [
+        "Blombos Cave",
+        "Klasies River",
+        "Pinnacle Point",
+        "Border Cave"
+      ],
+      "bonneReponse": 0,
+      "explication": "Blombos Cave (Afrique du Sud) a livré des coquillages percés il y a 100 000 ans, transportés à 35 km de la côte - preuve de valeur symbolique et de pensée abstraite bien avant Homo Sapiens moderne.",
+      "niveau": "6e",
+      "sujet": "Préhistoire"
+    },
+    {
+      "id": "prehist-15",
+      "question": "Quel insecte parasite a permis de dater l'apparition des vêtements à -80 000 ans ?",
+      "choix": [
+        "Le pou de corps",
+        "La puce",
+        "Le moustique",
+        "Le pou de tête"
+      ],
+      "bonneReponse": 0,
+      "explication": "Le pou de corps diverge génétiquement du pou de tête dès que l'humain commence à porter des vêtements, car il vit dans les fibres textiles. Cette divergence génétique donne une date d'apparition des vêtements.",
+      "niveau": "6e",
+      "sujet": "Préhistoire"
+    },
+    {
+      "id": "prehist-16",
+      "question": "Quel détroit les premiers Homo Sapiens ont-ils franchi pour quitter l'Afrique, il y a 70 000 ans ?",
+      "choix": [
+        "Le détroit de Bab-el-Mandeb",
+        "Le détroit de Gibraltar",
+        "Le canal de Suez",
+        "Le détroit d'Ormuz"
+      ],
+      "bonneReponse": 0,
+      "explication": "Le détroit de Bab-el-Mandeb (entre la Corne de l'Afrique et le Yémen) était plus étroit durant la période glaciaire. Ce passage permit la grande migration d'Homo Sapiens hors d'Afrique.",
+      "niveau": "6e",
+      "sujet": "Préhistoire"
+    },
+    {
+      "id": "prehist-17",
+      "question": "Quel pourcentage d'ADN néandertalien les Européens et Asiatiques actuels portent-ils dans leurs gènes ?",
+      "choix": [
+        "1 à 4 %",
+        "10 à 20 %",
+        "Moins de 0,1 %",
+        "Environ 30 %"
+      ],
+      "bonneReponse": 0,
+      "explication": "Les Européens et Asiatiques portent 1 à 4 % d'ADN néandertalien - héritage de croisements survenus il y a 50 000-60 000 ans. Certains gènes immunitaires hérités des Néandertaliens nous protègent encore aujourd'hui.",
+      "niveau": "6e",
+      "sujet": "Préhistoire"
+    },
+    {
+      "id": "prehist-18",
+      "question": "À quelle vitesse une sagaie lancée au propulseur (atlatl) peut-elle atteindre sa cible ?",
+      "choix": [
+        "150 km/h",
+        "50 km/h",
+        "80 km/h",
+        "200 km/h"
+      ],
+      "bonneReponse": 0,
+      "explication": "Le propulseur multiplie la portée et la puissance de lancement : une sagaie peut atteindre 150 km/h et transpercer 10 cm de chair à 50 mètres - révolutionnant la chasse au Paléolithique.",
+      "niveau": "6e",
+      "sujet": "Préhistoire"
+    },
+    {
+      "id": "prehist-19",
+      "question": "Dans quelle matière est taillée la flûte de Hohle Fels, la plus ancienne connue (-35 000 ans) ?",
+      "choix": [
+        "Un os de vautour fauve (le radius)",
+        "Un os de mammouth",
+        "Une corne de renne",
+        "Un os de cerf"
+      ],
+      "bonneReponse": 0,
+      "explication": "La flûte de Hohle Fels (Allemagne) est taillée dans le radius d'un vautour fauve. Elle possède 5 trous digitaux et peut encore produire des sons aujourd'hui - preuve d'une vie musicale paléolithique.",
+      "niveau": "6e",
+      "sujet": "Préhistoire"
+    },
+    {
+      "id": "prehist-20",
+      "question": "Dans quel pays ont été retrouvées des huttes construites entièrement en os de mammouths (-15 000 ans) ?",
+      "choix": [
+        "En Ukraine (site de Mezhirich)",
+        "En Sibérie",
+        "En France",
+        "En Allemagne"
+      ],
+      "bonneReponse": 0,
+      "explication": "Le site de Mezhirich (Ukraine, -15 000 ans) révèle des huttes circulaires construites avec des centaines de mandibules, crânes et fémurs de mammouths - ingénierie préhistorique remarquable.",
+      "niveau": "6e",
+      "sujet": "Préhistoire"
+    },
+    {
+      "id": "prehist-21",
+      "question": "De combien de mètres le niveau des mers était-il plus bas au maximum glaciaire, vers -20 000 ans ?",
+      "choix": [
+        "120 mètres",
+        "30 mètres",
+        "60 mètres",
+        "200 mètres"
+      ],
+      "bonneReponse": 0,
+      "explication": "Au maximum glaciaire (-20 000 ans), le niveau des mers était 120 m plus bas. La Grande-Bretagne était reliée au continent, la Sibérie à l'Alaska (la Béringie), l'Australie à la Nouvelle-Guinée.",
+      "niveau": "6e",
+      "sujet": "Préhistoire"
+    },
+    {
+      "id": "prehist-22",
+      "question": "Dans quels pays ont été retrouvées les premières poteries connues de l'humanité ?",
+      "choix": [
+        "En Chine et au Japon",
+        "En Mésopotamie",
+        "En Égypte",
+        "En Europe centrale"
+      ],
+      "bonneReponse": 0,
+      "explication": "Les premières poteries connues (-17 500 av. J.-C.) viennent de Chine et du Japon, inventées par des chasseurs-cueilleurs. Elles précèdent l'agriculture de 5 000 ans - réfutant l'idée que la poterie suivit la sédentarisation.",
+      "niveau": "6e",
+      "sujet": "Préhistoire"
+    },
+    {
+      "id": "prehist-23",
+      "question": "En quelle année la grotte de Lascaux a-t-elle été fermée au public pour préserver ses peintures ?",
+      "choix": [
+        "1963",
+        "1940",
+        "1980",
+        "2000"
+      ],
+      "bonneReponse": 0,
+      "explication": "Lascaux a été découverte en 1940 et ouverte au public. Mais le CO₂ et les moisissures de 1 000 visiteurs par jour dégradaient les peintures. Elle est fermée depuis 1963 - remplacée par une réplique, Lascaux II.",
+      "niveau": "6e",
+      "sujet": "Préhistoire"
+    },
+    {
+      "id": "prehist-24",
+      "question": "Par quel pont terrestre les premiers humains ont-ils rejoint l'Amérique depuis la Sibérie ?",
+      "choix": [
+        "La Béringie (actuel détroit de Béring)",
+        "L'isthme de Panama",
+        "Un pont de glace arctique",
+        "La route des îles aléoutiennes"
+      ],
+      "bonneReponse": 0,
+      "explication": "La Béringie était une vaste plaine émergée (aujourd'hui engloutie sous le détroit de Béring) reliant la Sibérie à l'Alaska. Des chasseurs l'ont franchie il y a environ 15 000 ans, peuplant progressivement les Amériques.",
+      "niveau": "6e",
+      "sujet": "Préhistoire"
+    },
+    {
+      "id": "prehist-25",
+      "question": "Combien d'heures par jour les chasseurs-cueilleurs travaillaient-ils, selon les études anthropologiques ?",
+      "choix": [
+        "Environ 4 heures par jour",
+        "12 heures par jour",
+        "8 heures par jour",
+        "6 heures par jour"
+      ],
+      "bonneReponse": 0,
+      "explication": "Les études sur les peuples chasseurs-cueilleurs actuels montrent qu'ils travaillent environ 4 heures par jour pour se nourrir. L'agriculture a rendu les humains plus nombreux - mais aussi plus petits, plus malades et plus occupés.",
+      "niveau": "6e",
+      "sujet": "Préhistoire"
+    },
+    {
+      "id": "prehist-26",
+      "question": "Quel pourcentage du site de Göbekli Tepe (-9 500 av. J.-C.) a été fouillé à ce jour ?",
+      "choix": [
+        "5 % seulement",
+        "50 %",
+        "80 %",
+        "25 %"
+      ],
+      "bonneReponse": 0,
+      "explication": "Le géoradar révèle au moins 16 enceintes encore enfouies sous la colline de Göbekli Tepe. Après 30 ans de fouilles, seuls 5 % ont été mis au jour - l'essentiel des secrets du premier temple du monde reste enfoui.",
+      "niveau": "6e",
+      "sujet": "Préhistoire"
+    },
+    {
+      "id": "prehist-27",
+      "question": "Combien de menhirs comptent les alignements de Carnac, en Bretagne ?",
+      "choix": [
+        "Plus de 3 000 menhirs",
+        "500 menhirs",
+        "10 000 menhirs",
+        "1 000 menhirs"
+      ],
+      "bonneReponse": 0,
+      "explication": "Les alignements de Carnac comptent plus de 3 000 menhirs disposés en 11 rangées sur 4 km - le plus grand ensemble mégalithique du monde. Leur usage reste mystérieux : calendrier astronomique ? Lieu de culte ?",
+      "niveau": "6e",
+      "sujet": "Préhistoire"
+    },
+    {
+      "id": "prehist-28",
+      "question": "Quel était l'usage premier de la roue, avant son utilisation pour le transport (-3 500 av. J.-C.) ?",
+      "choix": [
+        "Le tour du potier",
+        "Lever des fardeaux",
+        "Irriguer les champs",
+        "Moudre le grain"
+      ],
+      "bonneReponse": 0,
+      "explication": "La roue a d'abord été utilisée comme tour du potier pour façonner l'argile en la faisant tourner. L'adaptation au transport sur char vint quelques siècles plus tard - une idée qui semblait pourtant évidente.",
+      "niveau": "6e",
+      "sujet": "Préhistoire"
+    },
+    {
+      "id": "prehist-29",
+      "question": "Comment Ötzi, l'homme des glaces (-3 300 av. J.-C.), est-il mort selon les analyses scientifiques ?",
+      "choix": [
+        "Assassiné - une flèche lui a sectionné une artère",
+        "Mort de froid lors d'une tempête",
+        "Tué lors d'un combat au corps à corps",
+        "Mort de maladie, d'après l'analyse de ses os"
+      ],
+      "bonneReponse": 0,
+      "explication": "Ötzi a été tué d'une flèche dans le dos qui a sectionné l'artère sous-clavière gauche. C'est le premier 'cold case' de l'histoire - 5 300 ans après son meurtre, on connaît la cause de sa mort avec certitude.",
+      "niveau": "6e",
+      "sujet": "Préhistoire"
+    },
+    {
+      "id": "prehist-30",
+      "question": "Quel est le taux de survie des patients trépanés au Néolithique (-6 500 av. J.-C.) ?",
+      "choix": [
+        "Plus de 50 %",
+        "Moins de 10 %",
+        "Environ 90 %",
+        "Presque 0 %"
+      ],
+      "bonneReponse": 0,
+      "explication": "Plus de 50 % des patients trépanés au Néolithique ont survécu à l'opération - les bords recalcifiés des trous le prouvent. Ces chirurgiens préhistoriques connaissaient l'anatomie crânienne et maîtrisaient la stérilisation empirique.",
+      "niveau": "6e",
+      "sujet": "Préhistoire"
+    }
+  ]
+}

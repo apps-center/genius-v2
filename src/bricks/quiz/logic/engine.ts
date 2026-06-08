@@ -10,6 +10,7 @@ export interface QuizState {
   courant: number; // position dans ordre
   score: number;
   total: number;
+  graine: number; // graine du tirage : rend le melange des choix reproductible
 }
 
 // Nombre max de questions par partie (le reste du pack reste disponible aux tirages suivants).
@@ -21,7 +22,13 @@ export function init(items: QcmItem[], seed = Date.now(), taille = DEFAULT_TAILL
     seed,
   );
   const ordre = indices.slice(0, Math.min(taille, indices.length));
-  return { ordre, courant: 0, score: 0, total: ordre.length };
+  return { ordre, courant: 0, score: 0, total: ordre.length, graine: seed };
+}
+
+// Graine du melange des choix pour la question a la position donnee.
+// Derivee de la graine de partie : reproductible, mais distincte par question.
+export function graineChoix(state: QuizState): number {
+  return (state.graine + (state.courant + 1) * 1009) % 2147483647;
 }
 
 // Index de l'item courant dans le tableau d'items source.
@@ -49,9 +56,42 @@ export function repondre(
 
 export const fini = (s: QuizState): boolean => s.courant >= s.total;
 
+/*
+  Melange des choix A L'AFFICHAGE.
+  La bonne reponse est presque toujours en position 0 dans le contenu legacy :
+  sans melange, l'enfant repondrait toujours "A". On permute donc les choix et on
+  recalcule ou se trouve la bonne reponse APRES permutation. Pur et deterministe.
+*/
+export interface ChoixAffichage {
+  ordre: number[]; // position affichee -> index d'origine dans item.choix
+  bonneReponse: number; // position affichee de la bonne reponse
+}
+
+export function melangeChoix(
+  nbChoix: number,
+  bonneReponseOrigine: number,
+  seed: number,
+): ChoixAffichage {
+  const ordre = melange(
+    Array.from({ length: nbChoix }, (_, i) => i),
+    seed,
+  );
+  return { ordre, bonneReponse: ordre.indexOf(bonneReponseOrigine) };
+}
+
+// Brassage de graine (variante splitmix32) : deux graines proches donnent des
+// suites tres differentes. Sans lui, le Lehmer correle les graines voisines et
+// la bonne reponse retomberait sur la meme case d'une question a l'autre.
+function brasse(seed: number): number {
+  let s = seed >>> 0;
+  s = Math.imul(s ^ (s >>> 16), 0x45d9f3b);
+  s = Math.imul(s ^ (s >>> 16), 0x45d9f3b);
+  return (s ^ (s >>> 16)) >>> 0;
+}
+
 // PRNG deterministe (Lehmer) : tirages reproductibles pour les tests.
 function melange(a: number[], seed: number): number[] {
-  let s = seed % 2147483647;
+  let s = brasse(seed) % 2147483647;
   if (s <= 0) s += 2147483646;
   const r = () => (s = (s * 16807) % 2147483647) / 2147483647;
   const out = [...a];

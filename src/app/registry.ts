@@ -24,6 +24,12 @@ export const CONTENT: readonly ContentEntry[] = [
   {
     sujet: 'histoire',
     contentKind: 'qcm',
+    titre: 'Préhistoire',
+    load: () => import('../content/histoire/prehistoire-qcm.json'),
+  },
+  {
+    sujet: 'histoire',
+    contentKind: 'qcm',
     titre: 'Antiquite',
     load: () => import('../content/histoire/antiquite-qcm.json'),
   },

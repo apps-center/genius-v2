@@ -59,6 +59,21 @@
   padding: var(--space-6) var(--space-5);
 }
 
+.badge {
+  display: inline-block;
+  align-self: flex-start;
+  font-family: var(--font-display);
+  font-size: var(--font-xs);
+  font-weight: var(--weight-bold);
+  letter-spacing: var(--tracking);
+  text-transform: uppercase;
+  color: var(--color-gold);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-sm);
+  padding: var(--space-1) var(--space-3);
+  margin-bottom: var(--space-4);
+}
+
 .question {
   font-family: var(--font-display);
   font-weight: var(--weight-bold);
