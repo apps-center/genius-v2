@@ -1,0 +1,717 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Arts & Culture — L'Encyclopédie des Explorateurs</title>
+<link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;700;900&family=Crimson+Pro:ital,wght@0,300;0,400;0,600;1,300&display=swap" rel="stylesheet">
+<style>
+@font-face{font-family:'Cinzel';font-display:swap;}
+@font-face{font-family:'Crimson Pro';font-display:swap;}
+:root{
+  --bg:#060a14;--star:#e8dfc4;--gold:#d4a843;--gold-dim:rgba(212,168,67,.35);
+  --line:rgba(200,180,120,.18);--card-bg:rgba(10,18,36,.92);
+  --modal-bg:#0a1220;--accent:#c8a060;
+}
+*{box-sizing:border-box;margin:0;padding:0;}
+html{scroll-behavior:smooth;}
+body{background:var(--bg);color:var(--star);font-family:'Crimson Pro',Georgia,serif;min-height:100vh;overflow-x:hidden;}
+
+/* ── STARS ── */
+#stars{position:fixed;inset:0;z-index:0;pointer-events:none;}
+
+/* ── BACK NAV ── */
+.back-bar{position:relative;z-index:20;padding:18px 36px;display:flex;align-items:center;gap:12px;border-bottom:1px solid var(--line);}
+.back-link{font-family:'Cinzel',serif;font-size:.62rem;letter-spacing:.28em;text-transform:uppercase;color:rgba(212,168,67,.55);text-decoration:none;display:flex;align-items:center;gap:8px;transition:color .2s;}
+.back-link:hover{color:var(--gold);}
+.back-link::before{content:'←';font-size:.9rem;}
+
+/* ── HEADER ── */
+header{position:relative;z-index:10;text-align:center;padding:52px 20px 40px;}
+.over-title{font-size:.72rem;letter-spacing:.42em;text-transform:uppercase;color:rgba(212,168,67,.6);margin-bottom:18px;font-family:'Cinzel',serif;}
+h1{font-family:'Cinzel',serif;font-size:clamp(1.8rem,5vw,3.4rem);font-weight:900;line-height:1.08;
+  background:linear-gradient(135deg,#f5e6a3,#d4a843 38%,#f0c060 65%,#fff8e0);
+  -webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;}
+.tagline{margin-top:14px;font-size:1rem;color:rgba(232,223,196,.45);font-style:italic;letter-spacing:.02em;}
+.header-deco{display:flex;align-items:center;justify-content:center;gap:18px;margin-top:26px;}
+.header-deco::before,.header-deco::after{content:'';flex:1;max-width:200px;height:1px;background:linear-gradient(to right,transparent,rgba(212,168,67,.35),transparent);}
+.header-deco span{font-family:'Cinzel',serif;font-size:.6rem;letter-spacing:.3em;color:rgba(212,168,67,.4);text-transform:uppercase;}
+
+/* ── ERA NAV TABS ── */
+.era-nav{position:sticky;top:0;z-index:30;background:rgba(6,10,20,.95);backdrop-filter:blur(14px);border-bottom:1px solid var(--line);padding:0 28px;}
+.era-tabs{display:flex;gap:0;overflow-x:auto;scrollbar-width:none;max-width:1100px;margin:0 auto;}
+.era-tabs::-webkit-scrollbar{display:none;}
+.era-tab{flex-shrink:0;padding:10px 18px 10px;font-family:'Cinzel',serif;cursor:pointer;border-bottom:2px solid transparent;transition:color .22s,border-color .22s;background:none;border-top:none;border-left:none;border-right:none;white-space:nowrap;text-align:center;display:flex;flex-direction:column;gap:3px;}
+.era-tab-name{font-size:.6rem;letter-spacing:.18em;text-transform:uppercase;color:rgba(212,168,67,.42);transition:color .22s;}
+.era-tab-dates{font-size:.8rem;letter-spacing:.08em;color:rgba(232,223,196,.28);font-family:'Crimson Pro',serif;font-style:italic;transition:color .22s;}
+.era-tab:hover .era-tab-name{color:rgba(212,168,67,.75);}
+.era-tab:hover .era-tab-dates{color:rgba(232,223,196,.4);}
+.era-tab.active .era-tab-name{color:var(--gold);}
+.era-tab.active .era-tab-dates{color:rgba(212,168,67,.55);}
+.era-tab.active{border-bottom-color:var(--gold);}
+
+/* ── DISCIPLINE FILTER BAR ── */
+.filter-bar{position:relative;z-index:10;max-width:1100px;margin:0 auto;padding:24px 28px 0;}
+.filter-label{font-family:'Cinzel',serif;font-size:.52rem;letter-spacing:.28em;text-transform:uppercase;color:rgba(212,168,67,.4);margin-bottom:12px;}
+.filter-chips{display:flex;flex-wrap:wrap;gap:8px;}
+.filter-chip{font-family:'Cinzel',serif;font-size:.6rem;letter-spacing:.15em;text-transform:uppercase;
+  padding:7px 16px;border-radius:3px;cursor:pointer;border:1px solid rgba(200,180,120,.2);
+  background:transparent;color:rgba(232,223,196,.4);transition:all .22s;white-space:nowrap;}
+.filter-chip:hover{border-color:rgba(212,168,67,.45);color:rgba(212,168,67,.75);}
+.filter-chip.active{border-color:var(--gold);color:var(--gold);background:rgba(212,168,67,.08);}
+.filter-chip .chip-icon{margin-right:5px;}
+
+/* ── ERA DATE BADGE ── */
+.era-dates{font-family:'Crimson Pro',serif;font-style:italic;font-size:1.8rem;font-weight:300;color:rgba(212,168,67,.5);margin-left:12px;letter-spacing:.02em;}
+
+/* ── MAIN CONTENT ── */
+.content{position:relative;z-index:10;max-width:1100px;margin:0 auto;padding:28px 28px 100px;}
+.era-section{margin-bottom:70px;opacity:0;transform:translateY(18px);transition:opacity .5s,transform .5s;}
+.era-section.vis{opacity:1;transform:none;}
+.era-header{margin-bottom:30px;}
+.era-title{font-family:'Cinzel',serif;font-size:1.6rem;font-weight:700;letter-spacing:.06em;
+  background:linear-gradient(135deg,#f5e6a3,#d4a843 50%,#f0c060);
+  -webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;
+  display:inline-block;}
+.era-line{height:1px;background:linear-gradient(to right,rgba(212,168,67,.3),transparent);margin-top:10px;}
+.era-siecle{font-family:'Crimson Pro',serif;font-style:italic;font-size:1rem;font-weight:300;
+  color:rgba(212,168,67,.42);margin-left:10px;letter-spacing:.04em;
+  -webkit-text-fill-color:rgba(212,168,67,.42);}
+
+/* ── CARDS GRID ── */
+.cards-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(280px,1fr));gap:20px;}
+.art-card{position:relative;background:var(--card-bg);border:1px solid var(--line);border-radius:6px;overflow:hidden;cursor:pointer;
+  transition:transform .28s cubic-bezier(.22,1,.36,1),border-color .25s,box-shadow .28s,opacity .3s;
+  display:flex;flex-direction:column;}
+.art-card.hidden{display:none;}
+.art-card:hover{transform:translateY(-5px) scale(1.013);border-color:rgba(200,180,120,.38);box-shadow:0 0 40px rgba(200,160,60,.08),0 8px 32px rgba(0,0,0,.5);}
+.card-img{width:100%;aspect-ratio:4/3;object-fit:cover;display:block;filter:brightness(.85) saturate(.9);transition:filter .3s;}
+.art-card:hover .card-img{filter:brightness(1) saturate(1);}
+
+/* ── NO IMAGE : couleur par discipline ── */
+.card-no-img{width:100%;aspect-ratio:4/3;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:12px;
+  font-size:2.8rem;}
+.card-no-img[data-disc="Littérature"]{background:linear-gradient(135deg,rgba(48,18,60,.9),rgba(20,10,40,.95));}
+.card-no-img[data-disc="Cinéma"]{background:linear-gradient(135deg,rgba(10,30,50,.9),rgba(5,15,35,.95));}
+.card-no-img[data-disc="Musique"]{background:linear-gradient(135deg,rgba(50,30,5,.9),rgba(25,15,5,.95));}
+.card-no-img[data-disc="Architecture & Arts"]{background:linear-gradient(135deg,rgba(10,35,30,.9),rgba(5,18,15,.95));}
+.card-no-img[data-disc="Peinture"]{background:linear-gradient(135deg,rgba(30,20,10,.8),rgba(10,15,30,.9));}
+.card-no-img-label{font-family:'Cinzel',serif;font-size:.52rem;letter-spacing:.2em;text-transform:uppercase;color:rgba(212,168,67,.4);}
+
+/* ── DISCIPLINE BADGE on card ── */
+.card-disc-badge{position:absolute;top:10px;right:10px;
+  font-family:'Cinzel',serif;font-size:.48rem;letter-spacing:.18em;text-transform:uppercase;
+  padding:4px 9px;border-radius:2px;backdrop-filter:blur(8px);border:1px solid;
+  transition:opacity .2s;}
+.disc-Peinture        {background:rgba(212,168,67,.12);border-color:rgba(212,168,67,.3);color:rgba(212,168,67,.75);}
+.disc-Littérature     {background:rgba(160,100,200,.15);border-color:rgba(160,100,200,.35);color:rgba(190,140,230,.8);}
+.disc-Cinéma          {background:rgba(80,160,220,.12);border-color:rgba(80,160,220,.3);color:rgba(120,190,240,.8);}
+.disc-Musique         {background:rgba(220,140,50,.12);border-color:rgba(220,140,50,.3);color:rgba(240,170,80,.8);}
+.disc-Architecture    {background:rgba(80,200,160,.1);border-color:rgba(80,200,160,.28);color:rgba(100,220,180,.75);}
+
+.card-body{padding:18px 18px 16px;flex:1;display:flex;flex-direction:column;gap:8px;}
+.card-mouvement{font-family:'Cinzel',serif;font-size:.52rem;letter-spacing:.22em;text-transform:uppercase;color:rgba(212,168,67,.5);}
+.card-title{font-family:'Cinzel',serif;font-size:.95rem;font-weight:700;letter-spacing:.04em;color:var(--star);line-height:1.3;}
+.card-meta{font-size:.8rem;color:rgba(232,223,196,.38);display:flex;flex-direction:column;gap:2px;margin-top:2px;}
+.card-date{font-style:italic;}
+.card-museum{font-size:.75rem;}
+.card-cta{margin-top:auto;padding-top:12px;font-family:'Cinzel',serif;font-size:.55rem;letter-spacing:.2em;text-transform:uppercase;color:rgba(212,168,67,.4);display:flex;align-items:center;gap:6px;transition:color .2s;}
+.art-card:hover .card-cta{color:rgba(212,168,67,.85);}
+.card-cta::after{content:'→';transition:transform .22s;}
+.art-card:hover .card-cta::after{transform:translateX(4px);}
+
+/* ── "Aucun résultat" message ── */
+.no-result{font-family:'Cinzel',serif;font-size:.7rem;letter-spacing:.2em;text-transform:uppercase;
+  color:rgba(212,168,67,.3);padding:40px 0;text-align:center;display:none;}
+.no-result.visible{display:block;}
+
+/* ── MODAL ── */
+.modal-overlay{position:fixed;inset:0;z-index:100;background:rgba(2,5,14,.88);backdrop-filter:blur(8px);
+  display:flex;align-items:center;justify-content:center;padding:20px;
+  opacity:0;pointer-events:none;transition:opacity .3s;}
+.modal-overlay.open{opacity:1;pointer-events:all;}
+.modal{background:var(--modal-bg);border:1px solid rgba(200,180,120,.2);border-radius:8px;
+  width:100%;max-width:860px;max-height:90vh;overflow-y:auto;overflow-x:hidden;
+  position:relative;transform:translateY(20px) scale(.97);transition:transform .3s;
+  scrollbar-width:thin;scrollbar-color:rgba(212,168,67,.2) transparent;}
+.modal-overlay.open .modal{transform:none;}
+.modal::-webkit-scrollbar{width:4px;}
+.modal::-webkit-scrollbar-thumb{background:rgba(212,168,67,.2);border-radius:2px;}
+.modal-close{position:absolute;top:16px;right:18px;background:none;border:none;color:rgba(232,223,196,.4);font-size:1.4rem;cursor:pointer;z-index:10;line-height:1;transition:color .2s;}
+.modal-close:hover{color:var(--gold);}
+
+/* modal image ou placeholder discipline */
+.modal-img-wrap{width:100%;aspect-ratio:16/7;overflow:hidden;position:relative;}
+.modal-img{width:100%;height:100%;object-fit:cover;filter:brightness(.9);}
+.modal-img-grad{position:absolute;inset:0;background:linear-gradient(to top,var(--modal-bg) 0%,transparent 55%);}
+.modal-no-img{width:100%;aspect-ratio:16/7;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:14px;position:relative;}
+.modal-no-img[data-disc="Littérature"]{background:linear-gradient(135deg,rgba(48,18,60,.95),rgba(20,10,40,1));}
+.modal-no-img[data-disc="Cinéma"]{background:linear-gradient(135deg,rgba(10,30,55,.95),rgba(5,15,40,1));}
+.modal-no-img[data-disc="Musique"]{background:linear-gradient(135deg,rgba(55,32,5,.95),rgba(28,15,5,1));}
+.modal-no-img[data-disc="Architecture & Arts"]{background:linear-gradient(135deg,rgba(10,40,32,.95),rgba(5,20,16,1));}
+.modal-no-img-icon{font-size:4rem;}
+.modal-no-img-label{font-family:'Cinzel',serif;font-size:.7rem;letter-spacing:.3em;text-transform:uppercase;color:rgba(212,168,67,.5);}
+.modal-no-img-grad{position:absolute;inset:0;background:linear-gradient(to top,var(--modal-bg) 0%,transparent 60%);}
+
+.modal-body{padding:28px 32px 36px;}
+.modal-supra{font-family:'Cinzel',serif;font-size:.55rem;letter-spacing:.3em;text-transform:uppercase;color:rgba(212,168,67,.5);margin-bottom:10px;}
+.modal-title{font-family:'Cinzel',serif;font-size:1.5rem;font-weight:700;line-height:1.2;
+  background:linear-gradient(135deg,#f5e6a3,#d4a843 50%,#f0c060);
+  -webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;}
+.modal-meta{display:flex;flex-wrap:wrap;gap:16px;margin:14px 0 22px;font-size:.82rem;color:rgba(232,223,196,.45);}
+.modal-meta span{display:flex;align-items:center;gap:5px;}
+.modal-meta strong{color:rgba(232,223,196,.7);font-weight:400;}
+.modal-desc{font-size:1rem;line-height:1.7;color:rgba(232,223,196,.72);}
+
+/* anecdotes */
+.anecdotes-title,.quiz-title{font-family:'Cinzel',serif;font-size:.62rem;letter-spacing:.28em;text-transform:uppercase;color:rgba(212,168,67,.55);margin:28px 0 14px;display:flex;align-items:center;gap:10px;}
+.anecdotes-title::after,.quiz-title::after{content:'';flex:1;height:1px;background:linear-gradient(to right,rgba(212,168,67,.2),transparent);}
+.anecdote{display:flex;gap:14px;padding:14px 16px;border:1px solid rgba(200,180,120,.1);border-radius:4px;margin-bottom:10px;background:rgba(255,255,255,.02);}
+.anecdote-icon{font-size:1.3rem;flex-shrink:0;margin-top:2px;}
+.anecdote-text{font-size:.9rem;line-height:1.6;color:rgba(232,223,196,.65);}
+.anecdote-text b{color:rgba(232,223,196,.9);font-weight:600;}
+
+/* quiz */
+.quiz-box{border:1px solid rgba(212,168,67,.18);border-radius:5px;padding:20px 22px;background:rgba(212,168,67,.04);}
+.quiz-q{font-size:1rem;font-style:italic;line-height:1.55;color:rgba(232,223,196,.8);margin-bottom:16px;}
+.quiz-hint{font-size:.82rem;color:rgba(232,223,196,.35);margin-bottom:14px;padding:10px 14px;border-left:2px solid rgba(212,168,67,.2);}
+.quiz-hint strong{color:rgba(212,168,67,.55);}
+.quiz-toggle{font-family:'Cinzel',serif;font-size:.58rem;letter-spacing:.22em;text-transform:uppercase;padding:9px 18px;background:transparent;border:1px solid rgba(212,168,67,.3);color:rgba(212,168,67,.7);cursor:pointer;border-radius:3px;transition:all .2s;}
+.quiz-toggle:hover{background:rgba(212,168,67,.08);border-color:rgba(212,168,67,.6);color:var(--gold);}
+.quiz-answer{margin-top:14px;padding:14px 16px;background:rgba(212,168,67,.07);border-radius:4px;font-size:.95rem;line-height:1.6;color:rgba(232,223,196,.82);display:none;}
+.quiz-answer.show{display:block;}
+
+/* ── FOOTER ── */
+footer{position:relative;z-index:10;text-align:center;padding:32px 20px 48px;border-top:1px solid var(--line);}
+footer p{font-size:.72rem;letter-spacing:.15em;text-transform:uppercase;color:rgba(232,223,196,.2);}
+
+/* ── RESPONSIVE ── */
+@media(max-width:600px){
+  .modal-body{padding:20px 18px 28px;}
+  .modal-title{font-size:1.2rem;}
+  .back-bar{padding:14px 20px;}
+  .content{padding:28px 16px 80px;}
+  .filter-bar{padding:16px 16px 0;}
+}
+</style>
+</head>
+<body>
+<canvas id="stars"></canvas>
+
+<nav class="back-bar">
+  <a class="back-link" href="accueil.html">Portail des savoirs</a>
+</nav>
+
+<header>
+  <div class="over-title">Modules interactifs</div>
+  <h1>Arts & Culture</h1>
+  <p class="tagline">Peinture, Littérature, Musique, Cinéma — œuvres, artistes &amp; anecdotes</p>
+  <div class="header-deco"><span>🎨</span></div>
+</header>
+
+<!-- ERA TABS -->
+<nav class="era-nav" id="era-nav">
+  <div class="era-tabs" id="era-tabs"></div>
+</nav>
+
+<!-- FILTER BAR -->
+<div class="filter-bar" id="filter-bar">
+  <div class="filter-label">Filtrer par discipline</div>
+  <div class="filter-chips" id="filter-chips"></div>
+</div>
+
+<!-- MAIN -->
+<main class="content" id="main-content"></main>
+
+<footer>
+  <p>L'Encyclopédie des Explorateurs &nbsp;·&nbsp; Arts &amp; Culture</p>
+</footer>
+
+<!-- MODAL -->
+<div class="modal-overlay" id="modal-overlay" role="dialog" aria-modal="true">
+  <div class="modal" id="modal">
+    <button class="modal-close" id="modal-close" aria-label="Fermer">✕</button>
+    <div id="modal-inner"></div>
+  </div>
+</div>
+
+<script>
+/* ──────────────────────────────────────────
+   STARS (canvas)
+────────────────────────────────────────── */
+(function(){
+  const c=document.getElementById('stars');
+  const ctx=c.getContext('2d');
+  let stars=[];
+  function resize(){c.width=window.innerWidth;c.height=window.innerHeight;}
+  function init(){
+    resize();
+    stars=Array.from({length:180},()=>({
+      x:Math.random()*c.width,y:Math.random()*c.height,
+      r:Math.random()*.9+.1,o:Math.random()*.6+.1,
+      s:(Math.random()-.5)*.008
+    }));
+  }
+  function draw(){
+    ctx.clearRect(0,0,c.width,c.height);
+    stars.forEach(s=>{
+      s.o+=s.s;if(s.o<.05||s.o>.75)s.s*=-1;
+      ctx.beginPath();ctx.arc(s.x,s.y,s.r,0,Math.PI*2);
+      ctx.fillStyle=`rgba(232,223,196,${s.o})`;ctx.fill();
+    });
+    requestAnimationFrame(draw);
+  }
+  window.addEventListener('resize',resize);
+  init();draw();
+})();
+
+/* ──────────────────────────────────────────
+   DATA (loaded from arts-data.json)
+────────────────────────────────────────── */
+let DATA = [{"era":"Renaissance","events":[{"title":"La Joconde — Léonard de Vinci","artiste":"Léonard de Vinci","date":"1503–1519","mouvement":"Renaissance","discipline":"Peinture","img":"img/arts/joconde.webp","musee":"Musée du Louvre, Paris","technique":"Huile sur panneau de bois de peuplier, 77 × 53 cm","desc":"La Joconde est le tableau le plus célèbre et le plus visité du monde. Elle représente probablement Lisa Gherardini, épouse d'un marchand florentin, mais son identité reste débattue. Léonard innove avec le sfumato — une technique de glacis superposés créant des contours flous et un modelé atmosphérique jamais vu. Son sourire ambigu et son regard qui suit le spectateur ont fasciné des générations de visiteurs.","anecdotes":[{"e":"🕵️","t":"<b>La Joconde a été volée en 1911.</b> Vincenzo Peruggia, un ouvrier du Louvre, la cacha sous son manteau. Le tableau disparut deux ans sans qu'on le retrouve. Pablo Picasso fut même interrogé comme suspect. Peruggia fut arrêté en 1913 en tentant de la vendre à un marchand florentin."},{"e":"😐","t":"<b>Elle est plus petite que tout le monde ne l'imagine.</b> 77 × 53 cm — à peu près la taille d'une feuille A1. Les visiteurs du Louvre sont souvent déçus : ils s'attendent à une œuvre immense et découvrent un tableau que l'on pourrait porter sous le bras. Elle est protégée derrière un verre blindé depuis 1956."},{"e":"🧬","t":"<b>Les sourcils de Mona Lisa ont disparu.</b> Léonard les avait peints, mais des restaurations maladroites au fil des siècles les ont effacés. Un ingénieur français a scanné le tableau en 2007 à ultra-haute résolution et retrouvé des traces d'un sourcil gauche à peine perceptible."}],"quiz":{"q":"Quelle technique de Léonard crée les contours flous caractéristiques de la Joconde ?","r":"Le sfumato — des glacis translucides superposés qui fondent les contours dans la lumière","hint":"Ce mot vient de l'italien 'sfumare' : s'estomper, comme la fumée"},"era_disc":"Renaissance","era_disc_start":1400},{"title":"L'École d'Athènes — Raphaël","artiste":"Raphaël","date":"1509–1510","mouvement":"Renaissance","discipline":"Peinture","img":"img/arts/LEcole-dAthenes-de-Raphael.webp","musee":"Musées du Vatican, Rome","technique":"Fresque, 500 × 770 cm","desc":"Commandée par le pape Jules II pour décorer sa bibliothèque, L'École d'Athènes est le sommet de la peinture de la Haute Renaissance. Elle rassemble les plus grands philosophes de l'Antiquité dans un décor architectural inspiré de Bramante. Au centre, Platon pointe vers le ciel (le monde des Idées) et Aristote vers la terre (le monde réel). Raphaël a donné aux philosophes antiques les visages de ses contemporains : Platon ressemble à Léonard de Vinci.","anecdotes":[{"e":"🧠","t":"<b>Raphaël s'est représenté lui-même dans le coin droit.</b> Il se glisse discrètement dans la foule des philosophes, coiffé d'un béret noir, regardant le spectateur. Cette pratique de l'autoportrait caché était courante chez les artistes de la Renaissance pour signer discrètement leurs œuvres."},{"e":"🤔","t":"<b>Héraclite, seul assis, représente Michel-Ange.</b> Raphaël aurait ajouté ce personnage isolé et mélancolique après avoir vu les premières esquisses du plafond de la Chapelle Sixtine. Michel-Ange n'avait pas laissé Raphaël entrer pour voir son travail — cette figure serait un hommage indirect au grand rival."},{"e":"📐","t":"<b>La perspective est mathématiquement parfaite.</b> Le point de fuite central tombe exactement entre les deux philosophes principaux. L'architecture en arches rappelle les grandes basiliques romaines et crée une profondeur vertigineuse qui n'existait dans aucune peinture antérieure."}],"quiz":{"q":"Quel philosophe, au centre, pointe vers le ciel pour symboliser le monde des Idées ?","r":"Platon — auquel Raphaël aurait donné le visage de Léonard de Vinci","hint":"Son opposé Aristote pointe vers la terre, symbolisant le monde réel et l'empirisme"},"era_disc":"Renaissance","era_disc_start":1400},{"title":"La Naissance de Vénus — Botticelli","artiste":"Sandro Botticelli","date":"1484–1486","mouvement":"Renaissance","discipline":"Peinture","img":"img/arts/naissance de venus.webp","musee":"Galerie des Offices, Florence","technique":"Tempera sur toile, 172,5 × 278,9 cm","desc":"Vénus, née de l'écume de la mer, arrive sur le rivage portée par les vents Zéphyr et Chloris, tandis qu'une Heure lui tend un manteau fleuri. Commandée par la famille Médicis, cette œuvre illustre le néoplatonisme florentin — Vénus n'est pas une déesse de chair, mais le symbole de la Beauté céleste, de l'amour divin. C'est la première grande peinture de nu féminin depuis l'Antiquité.","anecdotes":[{"e":"👱","t":"<b>Le modèle serait Simonetta Vespucci, aimée de Julien de Médicis.</b> Cette beauté florentine morte à 23 ans de tuberculose était célébrée comme l'idéal de beauté de la Florence des Médicis. Botticelli, dit-on, demanda à être enterré à ses pieds dans l'église Ognissanti — ce qui fut fait en 1510."},{"e":"🏃","t":"<b>Les nazis faillirent s'en emparer — et elle survécut cachée dans une villa.</b> En 1943, les Offices de Florence furent évacués pour protéger les collections de la guerre. La Naissance de Vénus et d'autres chefs-d'œuvre furent démontés et cachés dans des châteaux et villas de campagne."},{"e":"📐","t":"<b>Les proportions de Vénus sont délibérément irréelles.</b> Son cou est trop long, ses épaules trop tombantes, sa hanche gauche anatomiquement impossible. Botticelli ne cherche pas le réalisme mais l'idéal — une beauté spirituelle qui transcende la nature."}],"quiz":{"q":"Pourquoi Botticelli a-t-il peint les proportions de Vénus de façon anatomiquement incorrecte ?","r":"Délibérément — il cherchait non le réalisme mais un idéal de beauté spirituelle qui transcende la nature","hint":"Son cou est trop long, ses épaules trop tombantes — c'est la signature du style botticellien et du néoplatonisme"},"era_disc":"Renaissance","era_disc_start":1400},{"title":"Don Quichotte — Miguel de Cervantès","artiste":"Miguel de Cervantès","date":"1605–1615","mouvement":"Renaissance / Humanisme","discipline":"Littérature","img":"img/arts/don quichotte.webp","musee":"Roman en deux volumes","technique":"Roman, ~1 000 pages","desc":"Considéré comme le premier roman moderne de la littérature occidentale, Don Quichotte raconte les aventures d'Alonso Quijano, un gentilhomme espagnol qui, ayant trop lu de romans de chevalerie, perd la raison et part sur les routes d'Espagne comme chevalier errant sous le nom de Don Quichotte de la Manche. Accompagné de son fidèle écuyer Sancho Pança, il combat des moulins à vent qu'il prend pour des géants.","anecdotes":[{"e":"⚔️","t":"<b>Cervantès écrivit Don Quichotte en prison.</b> Deux fois emprisonné pour dettes et erreurs comptables, il commença à écrire le roman lors de son incarcération à Séville en 1597. Ironie de l'histoire : l'œuvre qui allait révolutionner la littérature mondiale naquit dans une cellule."},{"e":"🌍","t":"<b>Don Quichotte est le livre le plus traduit après la Bible.</b> Traduit dans plus de 140 langues, il a été élu 'meilleur roman de tous les temps' en 2002 par un jury de 100 écrivains du monde entier. L'expression 'se battre contre des moulins à vent' vient directement de ce livre."},{"e":"✍️","t":"<b>Cervantès invente le roman dans le roman.</b> Dans la deuxième partie (1615), les personnages savent qu'ils sont des personnages d'un livre publié dix ans plus tôt — ils rencontrent des gens qui les ont lus ! Cette mise en abyme révolutionnaire préfigure la littérature postmoderne du XXe siècle."}],"quiz":{"q":"Contre quoi Don Quichotte se bat-il en croyant combattre des géants ?","r":"Des moulins à vent — d'où l'expression 'se battre contre des moulins à vent' pour désigner une lutte inutile","hint":"Ces structures agricoles typiques de La Manche lui semblent être des monstres à abattre"},"era_disc":"Renaissance","era_disc_start":1400},{"title":"La Chapelle Sixtine — Michel-Ange","artiste":"Michel-Ange","date":"1508–1512","mouvement":"Renaissance","discipline":"Architecture & Arts","img":"img/arts/chapelle sixtine.webp","musee":"Palais apostolique, Vatican","technique":"Fresque sur plafond voûté, 40 × 14 m","desc":"Le plafond de la Chapelle Sixtine est l'une des plus grandes réalisations artistiques de l'humanité. Michel-Ange y représente neuf scènes de la Genèse, dont la célèbre Création d'Adam où les doigts de Dieu et de l'homme se frôlent. Commandé par le pape Jules II, ce chantier titanesque dura quatre ans — Michel-Ange travaillait allongé sur des échafaudages, seul.","anecdotes":[{"e":"😤","t":"<b>Michel-Ange refusa d'abord la commande.</b> Il se considérait comme sculpteur, pas peintre. Il tenta même de faire confier le projet à Raphaël. Finalement contraint d'accepter par le pape, il décida de tout faire seul — renvoyant ses assistants florentins après quelques semaines."},{"e":"🙈","t":"<b>Les nus furent censurés par l'Église.</b> Après la mort de Michel-Ange, le pape Pie IV chargea Daniele da Volterra de couvrir les parties intimes des figures du Jugement Dernier. Ce peintre entra dans l'histoire sous le surnom de 'Il Braghettone' — le culottier."},{"e":"🎨","t":"<b>Michel-Ange inventa une technique inédite pour la fresque.</b> Face à des problèmes de moisissures sur son premier essai, il mit au point un intonaco (enduit) spécial. La chimie particulière de ce plâtre donne aux couleurs de la Sixtine leur éclat intense, même après 500 ans."}],"quiz":{"q":"Combien d'années Michel-Ange a-t-il mis pour peindre le plafond de la Chapelle Sixtine ?","r":"Quatre ans (1508–1512) — travaillant seul, allongé sur des échafaudages","hint":"Il avait d'abord refusé la commande, se considérant comme sculpteur et non peintre"},"era_disc":"Renaissance","era_disc_start":1400},{"title":"Messe de Notre-Dame — Guillaume de Machaut","artiste":"Guillaume de Machaut","date":"vers 1365","mouvement":"Polyphonie médiévale","discipline":"Musique","era_disc":"Moyen Âge musical","era_disc_start":500,"img":"img/arts/Johann_Sebastian_Bach.webp","musee":"Cathédrale de Reims (probable lieu de création)","technique":"Messe polyphonique à 4 voix","desc":"La Messe de Notre-Dame de Machaut est la première mise en musique complète et unifiée de l'Ordinaire de la messe par un seul compositeur. Cette œuvre polyphonique à quatre voix, composée à Reims, représente le sommet de l'Ars Nova — le style musical révolutionnaire du XIVe siècle qui abandonne le plain-chant monodique pour des harmonies complexes et rythmiquement sophistiquées.","anecdotes":[{"e":"🏰","t":"<b>Machaut passa 30 ans au service du roi Jean de Bohême.</b> Ce poète-musicien, l'un des premiers artistes à considérer son œuvre comme un tout à préserver, accompagna le roi aveugle dans toutes ses campagnes militaires. Jean de Bohême mourut à Crécy en 1346 — Machaut lui survécut 40 ans."},{"e":"🎵","t":"<b>C'est la première grande œuvre musicale attribuable à un seul auteur.</b> Avant Machaut, la musique médiévale était largement anonyme ou collective. En revendiquant la paternité de ses œuvres et en les faisant copier dans des manuscrits enluminés luxueux, Machaut invente l'idée moderne du compositeur."},{"e":"🔔","t":"<b>L'Ars Nova bouleversa l'Église.</b> Le pape Jean XXII publia en 1324 une bulle condamnant la polyphonie complexe dans la liturgie — trop festive, trop savante, trop éloignée de la solennité requise. Machaut continua néanmoins à composer dans ce style révolutionnaire."}],"quiz":{"q":"Quelle innovation majeure représente la Messe de Notre-Dame de Machaut dans l'histoire de la musique ?","r":"C'est la première mise en musique complète de l'Ordinaire de la messe par un seul compositeur identifié — naissance du compositeur comme auteur","hint":"Avant Machaut, la musique médiévale était largement anonyme — il invente l'idée de l'artiste responsable de son œuvre"}},{"title":"Le Parthénon — Ictinos & Callicratès","artiste":"Ictinos & Callicratès (architectes), Phidias (décoration)","date":"-447 à -432","mouvement":"Architecture antique","discipline":"Architecture & Arts","era_disc":"Architecture antique","era_disc_start":-3000,"img":"img/arts/parthenon.webp","musee":"Acropole d'Athènes, Grèce","technique":"Temple dorique en marbre pentélique, 69,5 × 30,9 m","desc":"Le Parthénon est le temple dédié à Athéna Parthénos sur l'Acropole d'Athènes, construit sous Périclès. Chef-d'œuvre de l'ordre dorique, il repose sur des corrections optiques subtiles : les colonnes légèrement inclinées vers l'intérieur et renflées au milieu (entasis) donnent une impression de rectitude parfaite à l'œil. Aucune ligne n'est réellement droite — tout est calculé pour paraître parfait.","anecdotes":[{"e":"📐","t":"<b>Aucune ligne du Parthénon n'est droite — tout est illusion d'optique.</b> Le stylobate (plateforme) est légèrement bombé. Les colonnes sont légèrement inclinées vers l'intérieur et renflées. Sans ces corrections, le bâtiment paraîtrait affaissé et les colonnes creuses. Les Grecs avaient une compréhension parfaite des déformations visuelles."},{"e":"💥","t":"<b>Il fut détruit par une explosion en 1687.</b> Les Ottomans l'utilisaient comme poudrière. Les Vénitiens qui assiégeaient Athènes tirèrent un boulet qui mit le feu aux munitions. L'explosion souffla le toit et la cella. C'est cette explosion, et non les siècles, qui explique l'état actuel du monument."},{"e":"🏛️","t":"<b>Ses marbres sont à Londres depuis 1801.</b> Lord Elgin, ambassadeur britannique, fit démonter et emporter la moitié des frises et métopes — avec une autorisation ottomane contestée. Ces 'marbres d'Elgin' sont exposés au British Museum. La Grèce réclame leur retour depuis 1832, sans succès."}],"quiz":{"q":"Pourquoi aucune ligne du Parthénon n'est-elle réellement droite, malgré les apparences ?","r":"Pour corriger les illusions d'optique — sans ces corrections, les lignes droites paraîtraient affaissées ou creuses à l'œil humain","hint":"Les colonnes sont légèrement renflées au milieu (entasis) et le stylobate est bombé — tout est calcul optique"}},{"title":"Sainte-Sophie — Anthémios de Tralles","artiste":"Anthémios de Tralles & Isidore de Milet","date":"532–537","mouvement":"Art paléochrétien & byzantin","discipline":"Architecture & Arts","era_disc":"Art paléochrétien & byzantin","era_disc_start":300,"img":"img/arts/sainte sophie.webp","musee":"Istanbul, Turquie","technique":"Basilique à coupole, 82 m de hauteur","desc":"Sainte-Sophie fut la plus grande cathédrale du monde pendant mille ans. Sa coupole principale de 31 mètres de diamètre semble flotter dans les airs, portée par 40 fenêtres à sa base qui inondent l'espace de lumière. Construite en 5 ans sur ordre de Justinien, elle fut successivement église chrétienne, mosquée ottomane, et musée — statut controversé aujourd'hui.","anecdotes":[{"e":"🌟","t":"<b>Justinien s'écria en la voyant : 'Salomon, je t'ai surpassé !'</b> Allusion au Temple de Jérusalem — la plus grande construction sacrée de l'Antiquité. La vitesse de construction (5 ans) et les dimensions jamais vues auparavant stupéfièrent le monde byzantin. On fit venir des matériaux de tout l'Empire."},{"e":"💡","t":"<b>La coupole semble flotter grâce à un anneau de 40 fenêtres.</b> La lumière qui entre par la base de la coupole dissout visuellement son appui — elle paraît suspendue. Les contemporains croyaient qu'elle était 'suspendue au ciel par une chaîne d'or'. Cette illusion lumineuse est le tour de force architectural majeur de l'édifice."},{"e":"🕌","t":"<b>Les mosaïques chrétiennes furent recouvertes de plâtre en 1453.</b> Quand Mehmed II conquit Constantinople, il fit transformer Sainte-Sophie en mosquée en quelques heures. Les mosaïques représentant le Christ et les saints furent recouvertes — conservées par inadvertance. Atatürk en fit un musée en 1934 ; Erdoğan la refit mosquée en 2020."}],"quiz":{"q":"Quelle illusion architecturale crée l'impression que la coupole de Sainte-Sophie flotte dans l'air ?","r":"Un anneau de 40 fenêtres à la base de la coupole — la lumière dissout visuellement l'appui et la fait paraître suspendue","hint":"Les contemporains disaient qu'elle était 'suspendue au ciel par une chaîne d'or'"}},{"title":"Abbaye de Cluny — Bâtisseurs clunisiens","artiste":"Bâtisseurs clunisiens (Saint Hugues de Semur)","date":"1088–1130","mouvement":"Architecture romane","discipline":"Architecture & Arts","era_disc":"Architecture romane","era_disc_start":900,"img":"img/arts/abbaye-cluny-bourgogne.webp","musee":"Cluny, Bourgogne, France (ruines)","technique":"Basilique romane à 5 nefs, 187 m de long","desc":"Cluny III était la plus grande église du monde chrétien pendant 500 ans — 187 mètres de long, cinq nefs, deux transepts, cinq clochers. Centre du plus puissant réseau monastique d'Europe (plus de 1 000 abbayes), Cluny incarnait la réforme grégorienne. Elle fut presque entièrement détruite à la Révolution française et utilisée comme carrière de pierre.","anecdotes":[{"e":"⛏️","t":"<b>La Révolution utilisa Cluny comme carrière pendant 20 ans.</b> Vendue comme bien national en 1798, l'abbaye fut dynamitée et ses pierres vendues. En 1823, il ne restait qu'un bras du transept. Ce qui était la plus grande église d'Europe pendant 500 ans fut réduit à 10% de sa surface en quelques décennies."},{"e":"🌍","t":"<b>L'ordre de Cluny contrôlait plus de 1 000 monastères en Europe.</b> Au XIIe siècle, l'abbaye de Cluny dirigeait un réseau couvrant la France, l'Espagne, l'Italie, l'Angleterre, la Pologne. C'était une puissance économique, politique et spirituelle comparable à un État — avec ses propres routes, ses marchés, ses armées de moines."},{"e":"📐","t":"<b>L'architecture romane inventée ici définit un style continental.</b> Les arcs en plein cintre, les murs épais, les petites fenêtres hautes, les chapiteaux sculptés de Cluny furent copiés dans toute l'Europe. Des centaines d'architectes et tailleurs de pierre formés à Cluny répandirent ce vocabulaire architectural jusqu'en Angleterre et en Pologne."}],"quiz":{"q":"Pourquoi l'abbaye de Cluny, la plus grande église d'Europe pendant 500 ans, n'existe-t-elle plus qu'en ruines ?","r":"Elle fut vendue comme bien national à la Révolution et utilisée comme carrière de pierre pendant 20 ans — 90% du bâtiment fut détruit","hint":"En 1823, il ne restait qu'un seul bras du transept d'un édifice de 187 mètres"}},{"title":"Cathédrale Notre-Dame de Paris","artiste":"Maurice de Sully (initiateur), maîtres d'œuvre successifs","date":"1163–1345","mouvement":"Architecture gothique","discipline":"Architecture & Arts","era_disc":"Architecture gothique","era_disc_start":1140,"img":"img/arts/notre dame paris.webp","musee":"Île de la Cité, Paris, France","technique":"Cathédrale gothique, 130 m de long, tours de 69 m","desc":"Notre-Dame de Paris est le chef-d'œuvre du gothique rayonnant, construite sur deux siècles. Ses arcs-boutants extérieurs — invention majeure du gothique — permettent d'élancer les murs vers le ciel et d'ouvrir de gigantesques rosaces. Hugo en fit le roman du même nom en 1831, sauvant la cathédrale d'une démolition imminente. L'incendie de 2019 et sa reconstruction ont relancé sa célébrité mondiale.","anecdotes":[{"e":"🔥","t":"<b>Victor Hugo la sauva de la démolition avec son roman.</b> En 1831, Notre-Dame était dans un état de délabrement tel que la ville de Paris envisageait sa démolition. Le roman de Hugo, qui la mit en scène, déclencha un mouvement de conservation. Viollet-le-Duc entama la restauration en 1844 — les gargouilles actuelles sont en grande partie de lui."},{"e":"🏗️","t":"<b>Les arcs-boutants furent une révolution structurelle.</b> Avant le gothique, les cathédrales avaient des murs épais pour soutenir la voûte. Les arcs-boutants reportent la poussée à l'extérieur, libérant les murs et permettant de gigantesques fenêtres et rosaces. Notre-Dame fut l'une des premières cathédrales à les utiliser systématiquement."},{"e":"🌹","t":"<b>L'incendie du 15 avril 2019 fut suivi d'un élan mondial.</b> En 48 heures, plus d'un milliard d'euros furent promis pour la reconstruction. La flèche de Viollet-le-Duc, effondrée, a été reconstruite à l'identique. La cathédrale a rouvert en décembre 2024 après 5 ans de travaux mobilisant 2 000 artisans."}],"quiz":{"q":"Quelle innovation structurelle gothique permit d'élancer les cathédrales vers le ciel et d'ouvrir de gigantesques fenêtres ?","r":"Les arcs-boutants — qui reportent la poussée de la voûte à l'extérieur, libérant les murs intérieurs pour les remplacer par des vitraux","hint":"Avant cette invention, les cathédrales avaient des murs épais et de petites fenêtres comme dans l'architecture romane"}},{"title":"L'Odyssée — Homère","artiste":"Homère","date":"vers -800 à -700","mouvement":"Antiquité","discipline":"Littérature","era_disc":"Antiquité","era_disc_start":-800,"img":"img/arts/l odyssee.webp","musee":"Épopée de la Grèce antique","technique":"Épopée en 24 chants, ~12 000 vers","desc":"L'Odyssée raconte le retour d'Ulysse à Ithaque après la guerre de Troie — dix ans d'aventures et d'épreuves face aux dieux, aux monstres et aux hommes. C'est l'une des deux grandes épopées fondatrices de la littérature occidentale avec l'Iliade. L'œuvre pose tous les thèmes qui traverseront la littérature : le voyage initiatique, la fidélité, la ruse, le désir du retour.","anecdotes":[{"e":"🎭","t":"<b>Homère est peut-être une légende.</b> On ne sait pas si 'Homère' a réellement existé comme auteur unique. Certains chercheurs pensent que ces épopées sont le fruit de siècles de tradition orale, compilées et fixées par écrit vers le VIIIe siècle av. J.-C. La 'question homérique' passionne les philologues depuis l'Antiquité."},{"e":"🌊","t":"<b>L'Odyssée est le récit fondateur du voyage initiatique.</b> Chaque épisode — Circé, les Sirènes, Charybde et Scylla, le Cyclope — est une épreuve qui révèle le caractère d'Ulysse. Ce schéma narratif (le héros quitte son monde, affronte des épreuves, revient transformé) structure encore aujourd'hui des milliers de romans et de films."},{"e":"🏺","t":"<b>Ulysse est le premier héros qui gagne par la ruse, pas par la force.</b> Achille est le héros de la force et de la gloire. Ulysse est le héros de l'intelligence et de l'adaptation. Ce choix d'Homère fut révolutionnaire — il préfigure le héros moderne, qui survit grâce à son esprit plus qu'à ses muscles."}],"quiz":{"q":"En quoi Ulysse est-il un héros révolutionnaire par rapport aux héros épiques précédents comme Achille ?","r":"Il gagne par la ruse et l'intelligence plutôt que par la force — préfigurant le héros moderne qui survit par son esprit","hint":"Son nom grec Odysseus est lié à la douleur et à la ruse — opposé à Achille, héros de la gloire guerrière"}},{"title":"La Divine Comédie — Dante Alighieri","artiste":"Dante Alighieri","date":"1308–1321","mouvement":"Moyen Âge","discipline":"Littérature","era_disc":"Moyen Âge","era_disc_start":500,"img":"img/arts/la divine comedie.webp","musee":"Œuvre composée en exil — Florence, Italie","technique":"Poème épique en 3 parties (Enfer, Purgatoire, Paradis), 14 233 vers","desc":"La Divine Comédie est le voyage de Dante à travers l'Enfer, le Purgatoire et le Paradis, guidé d'abord par Virgile puis par Béatrice. Écrite en toscan — et non en latin — c'est l'œuvre fondatrice de la langue italienne. Elle synthétise toute la pensée médiévale : théologie, philosophie, politique, amour courtois. Elle influencera directement Milton, Balzac, Proust, Borges et Joyce.","anecdotes":[{"e":"❤️","t":"<b>Béatrice, guide du Paradis, est une vraie femme que Dante aima sans jamais lui parler.</b> Béatrice Portinari, fille d'un noble florentin, rencontrée une seule fois à 9 ans puis à 18 ans. Elle mourut à 24 ans sans que Dante lui ait jamais déclaré son amour. Il en fit le symbole de la grâce divine et l'héroïne de son chef-d'œuvre."},{"e":"🏙️","t":"<b>Dante écrivit la Comédie en exil, condamné à mort par sa propre ville.</b> Impliqué dans les guerres de factions à Florence, il fut exilé en 1302 et condamné à être brûlé vif s'il revenait. Il ne revit jamais Florence et mourut à Ravenne en 1321. La ville de Florence attendit 600 ans pour officiellement lever sa condamnation — en 2008."},{"e":"🌍","t":"<b>Elle fonda la langue italienne.</b> En choisissant le toscan populaire plutôt que le latin savant, Dante donna à sa langue une légitimité littéraire immense. Pétrarque et Boccace suivirent. Sans ce choix de Dante, la littérature italienne aurait pu se développer très différemment — et la langue italienne avec elle."}],"quiz":{"q":"Pourquoi Dante écrivit-il La Divine Comédie en toscan populaire plutôt qu'en latin, la langue savante de l'époque ?","r":"Pour toucher un public plus large et donner une légitimité littéraire à la langue du peuple — fondant ainsi la langue italienne moderne","hint":"Ce choix fut suivi par Pétrarque et Boccace — les trois auteurs fondèrent ensemble la littérature italienne"}}]},{"era":"Baroque","events":[{"title":"La Fille à la Perle — Vermeer","artiste":"Johannes Vermeer","date":"1665","mouvement":"Baroque","discipline":"Peinture","img":"img/arts/la fille a la perle.webp","musee":"Mauritshuis, La Haye","technique":"Huile sur toile, 44,5 × 39 cm","desc":"Surnommée 'la Joconde du Nord', cette œuvre représente une jeune fille au regard tourné par-dessus l'épaule, portant un turban bleu et une perle pendante. Contrairement aux portraits d'apparat, ce n'est pas un portrait commandé mais une 'tronie' — étude d'expression. Le fond sombre et la lumière dramatique plongeant sur le visage créent une intimité saisissante.","anecdotes":[{"e":"🔬","t":"<b>La 'perle' n'est peut-être pas une perle.</b> Des experts ont analysé l'objet à haute résolution : sa forme, son éclat et sa taille correspondent davantage à du verre soufflé peint. Les vraies perles de cette taille auraient été extraordinairement rares et chères. Mais l'ambiguïté fait partie du mystère Vermeer."},{"e":"📖","t":"<b>Un roman best-seller et un film lui ont été consacrés.</b> Tracy Chevalier a imaginé en 1999 l'histoire fictive de la servante qui aurait servi de modèle ('La Jeune Fille à la perle'). Le film avec Scarlett Johansson et Colin Firth (2003) a relancé l'intérêt mondial pour Vermeer."},{"e":"🏠","t":"<b>Vermeer ne vendait presque rien de son vivant.</b> Il peignait lentement — peut-être 2 à 3 tableaux par an — et mourut endetté en 1675 à 43 ans. Sa femme dut déposer le bilan. Pourtant, il est aujourd'hui l'un des peintres les plus admirés de l'histoire."}],"quiz":{"q":"Qu'est-ce qu'une 'tronie', le genre auquel appartient La Fille à la Perle ?","r":"Une étude d'expression ou de type humain — pas un portrait d'identité précise, mais une figure imaginaire ou anonyme","hint":"Ce genre néerlandais du XVIIe siècle s'intéressait aux expressions, aux costumes exotiques et aux effets de lumière"},"era_disc":"Baroque","era_disc_start":1600},{"title":"La Ronde de Nuit — Rembrandt","artiste":"Rembrandt van Rijn","date":"1642","mouvement":"Baroque","discipline":"Peinture","img":"img/arts/la ronde de nuit.webp","musee":"Rijksmuseum, Amsterdam","technique":"Huile sur toile, 363 × 437 cm","desc":"Ce tableau monumental représente la milice bourgeoise du capitaine Frans Banninck Cocq partant en ronde. Rembrandt révolutionne le portrait de groupe en le transformant en scène d'action vivante, avec une lumière dramatique qui distingue les personnages principaux dans l'obscurité. Contrairement à ce que son titre suggère, la scène se passe en plein jour — la couche de vernis obscurcissant l'a rendu 'nocturne' avec le temps.","anecdotes":[{"e":"✂️","t":"<b>Le tableau fut découpé pour s'adapter à une porte.</b> Au XVIIIe siècle, La Ronde de Nuit fut déplacée dans l'hôtel de ville d'Amsterdam. Comme elle était trop grande pour le mur prévu, on coupa simplement les bords — perdant deux personnages à gauche et une portion du décor."},{"e":"🔪","t":"<b>Elle a été attaquée à l'acide et au couteau, deux fois au XXe siècle.</b> En 1975, un chômeur au couteau lacéra le tableau de plusieurs coups. En 1990, un homme aspergea d'acide sulfurique la surface. Les restaurateurs ont effacé les dégâts, mais certaines zones restent fragilisées."},{"e":"🧒","t":"<b>La mystérieuse petite fille blonde en or est une énigme.</b> Au milieu du tableau, une enfant en robe dorée avance, tenant une poule morte à sa ceinture. Elle semble surgir d'un autre monde. Son identité reste inconnue."}],"quiz":{"q":"Pourquoi le titre 'La Ronde de Nuit' est-il trompeur ?","r":"La scène se passe en plein jour — l'accumulation de vernis obscurcissant au fil des siècles a donné l'impression d'une scène nocturne","hint":"Un nettoyage au XXe siècle a révélé que les couleurs originales étaient bien plus claires"},"era_disc":"Baroque","era_disc_start":1600},{"title":"Les Quatre Saisons — Antonio Vivaldi","artiste":"Antonio Vivaldi","date":"1723","mouvement":"Baroque","discipline":"Musique","img":"img/arts/Vivaldi.webp","musee":"Première publication : Amsterdam, 1725","technique":"Concertos pour violon et orchestre à cordes","desc":"Les Quatre Saisons sont quatre concertos pour violon composés par Vivaldi à Venise, chacun accompagné d'un sonnet décrivant la saison correspondante. C'est l'une des premières œuvres de musique à programme de l'histoire : la musique imite les oiseaux, les orages, le gel, la chaleur estivale. Composées vers 1720 et publiées en 1725, elles restent parmi les œuvres classiques les plus jouées au monde.","anecdotes":[{"e":"🎻","t":"<b>Vivaldi les accompagna de sonnets qu'il aurait écrits lui-même.</b> Chaque concerto est précédé d'un poème décrivant la saison : les oiseaux du printemps, l'orage de l'été, la chasse d'automne, le froid de l'hiver. Cette fusion entre texte et musique était révolutionnaire — on parlait de musique 'illustrée'."},{"e":"🤫","t":"<b>Vivaldi fut oublié pendant près de 200 ans.</b> À sa mort en 1741 à Vienne, il était ruiné et presque inconnu. Ses manuscrits furent vendus à vil prix. Ce n'est qu'en 1926, lorsqu'un collectionneur retrouva des centaines de partitions dans un couvent piémontais, que Vivaldi fut redécouvert et sa gloire restituée."},{"e":"🔴","t":"<b>'Il Prete Rosso' — le prêtre roux.</b> Vivaldi était connu à Venise pour sa chevelure rousse et sa soutane rouge. Prêtre ordonné, il fut rapidement dispensé de dire la messe en raison de son asthme sévère — ce qui lui laissait tout le temps de composer. Il dirigeait l'orchestre de l'orphelinat féminin de la Pietà pendant 35 ans."}],"quiz":{"q":"Que sont les sonnets qui accompagnent chaque concerto des Quatre Saisons ?","r":"Des poèmes décrivant la saison — oiseaux, orage, chasse, gel — que Vivaldi aurait écrits lui-même pour guider l'auditeur","hint":"C'est l'une des premières œuvres de musique à programme : la musique illustre un texte"},"era_disc":"Baroque","era_disc_start":1600},{"title":"Hamlet — William Shakespeare","artiste":"William Shakespeare","date":"vers 1600–1601","mouvement":"Classicisme","discipline":"Littérature","img":"img/arts/hamlet.webp","musee":"Globe Theatre, Londres","technique":"Pièce de théâtre en 5 actes, ~4 000 vers","desc":"Hamlet, prince du Danemark, apprend de son père défunt que son oncle Claudius l'a assassiné pour s'emparer du trône et épouser sa mère. Tiraillé entre le devoir de vengeance et le doute philosophique, il feint la folie et hésite. Ce drame de la procrastination et de l'identité ('Être ou ne pas être') est la pièce la plus jouée, la plus traduite et la plus analysée du répertoire mondial.","anecdotes":[{"e":"💀","t":"<b>'Être ou ne pas être' est le monologue le plus célèbre de la littérature.</b> Ces cinq mots traduits dans toutes les langues résument la crise existentielle d'Hamlet — et de l'homme moderne. Hamlet se demande si l'existence vaut la peine d'être vécue face à la souffrance. Shakespeare invente ici la psychologie moderne avant Freud."},{"e":"🎭","t":"<b>Shakespeare a peut-être écrit Hamlet après la mort de son fils.</b> Hamnet Shakespeare, son fils unique, mourut en 1596 à 11 ans. L'œuvre, écrite quelques années plus tard, est traversée par la douleur du deuil, la question de la mort et l'impossibilité d'agir. Le prénom Hamnet et Hamlet sont quasi identiques."},{"e":"🌍","t":"<b>Hamlet est la pièce la plus jouée de l'histoire.</b> On estime qu'une représentation d'Hamlet a lieu quelque part dans le monde presque chaque jour depuis 400 ans. Goethe, Freud, Marx, Nietzsche — tous ont écrit sur ce personnage. Il est devenu le symbole de l'intellectuel paralysé par la pensée."}],"quiz":{"q":"Quel dilemme résume le célèbre monologue 'Être ou ne pas être' d'Hamlet ?","r":"La question de savoir si la vie vaut la peine d'être vécue face à la souffrance — une méditation sur l'existence et la mort","hint":"Ce monologue du Acte III est le plus célèbre de toute la littérature mondiale"},"era_disc":"Classicisme","era_disc_start":1600},{"title":"L'Orfeo — Claudio Monteverdi","artiste":"Claudio Monteverdi","date":"1607","mouvement":"Renaissance musicale","discipline":"Musique","era_disc":"Renaissance musicale","era_disc_start":1400,"img":"img/arts/Claudio_Monteverdi.webp","musee":"Cour des Gonzague, Mantoue (création)","technique":"Favola in musica — premier opéra, 5 actes","desc":"L'Orfeo de Monteverdi est considéré comme le premier grand opéra de l'histoire. Basé sur le mythe d'Orphée descendant aux Enfers pour ramener Eurydice, il fusionne musique, poésie, danse et décors spectaculaires. Monteverdi y développe le recitar cantando — une façon de chanter qui respecte les inflexions naturelles du langage — et crée ainsi la dramaturgie musicale moderne.","anecdotes":[{"e":"🎭","t":"<b>L'opéra naît d'une erreur historique.</b> La Camerata fiorentina, un groupe d'intellectuels florentins, voulait recréer la tragédie grecque antique telle qu'ils l'imaginaient — entièrement chantée. Ils se trompaient sur l'Antiquité, mais ils inventèrent l'opéra. Monteverdi porta cette invention à sa perfection."},{"e":"🪕","t":"<b>L'orchestre de L'Orfeo est le premier orchestre documenté de l'histoire.</b> Monteverdi précise dans la partition les instruments requis : 40 musiciens, dont violes, luths, harpes, trompettes, trombones, orgues. C'est la première fois qu'un compositeur spécifie aussi précisément l'instrumentation."},{"e":"💔","t":"<b>Orphée perd Eurydice une seconde fois à cause du doute.</b> Monteverdi transforme le mythe : Orphée se retourne non par curiosité, mais parce qu'il doute que les dieux aient tenu leur promesse. Ce moment psychologique — la trahison de soi par la méfiance — fait de L'Orfeo une œuvre profondément humaine."}],"quiz":{"q":"Quelle ambition historique erronée des intellectuels florentins du XVIe siècle mena involontairement à l'invention de l'opéra ?","r":"Ils voulaient recréer la tragédie grecque antique entièrement chantée — ils se trompaient sur l'Antiquité mais inventèrent l'opéra","hint":"Monteverdi porta cette invention à sa perfection avec L'Orfeo en 1607"}}]},{"era":"Néoclassicisme","events":[{"title":"Le Sacre de Napoléon — Jacques-Louis David","artiste":"Jacques-Louis David","date":"1805–1807","mouvement":"Néoclassicisme","discipline":"Peinture","img":"img/arts/Le Sacre de Napoléon.webp","musee":"Musée du Louvre, Paris","technique":"Huile sur toile, 621 × 979 cm","desc":"Cette œuvre monumentale immortalise le sacre de Napoléon Ier le 2 décembre 1804 à Notre-Dame de Paris. David, peintre officiel de l'Empire, a représenté le moment où Napoléon couronne Joséphine. Plus de 200 portraits sont reconnaissables dans ce tableau, véritable document historique autant qu'œuvre d'art.","anecdotes":[{"e":"👑","t":"<b>Napoléon s'est couronné lui-même, snobant le pape.</b> Pour ne devoir sa couronne qu'à lui-même, il prit la couronne des mains du pape Pie VII et se la posa sur la tête. David a 'corrigé' l'histoire en peignant à la place le couronnement de Joséphine."},{"e":"👩","t":"<b>La mère de Napoléon est dans le tableau — alors qu'elle n'y était pas.</b> Laetitia Bonaparte avait boycotté la cérémonie par désapprobation. Napoléon ordonna à David de la peindre quand même dans la loge d'honneur. La peinture est donc un mensonge historique délibéré."},{"e":"📏","t":"<b>Le tableau mesure plus de 6 mètres de haut sur presque 10 de large.</b> David travailla trois ans sur cette toile. Napoléon lui-même vint voir le tableau terminé et se serait écrié : 'Chapeau, David !'"}],"quiz":{"q":"Qui Napoléon est-il en train de couronner dans le tableau de David ?","r":"Joséphine, son épouse — David a modifié la scène réelle où Napoléon s'était couronné lui-même","hint":"La mère de Napoléon est également présente dans le tableau… bien qu'elle ait boycotté la cérémonie"},"era_disc":"Néoclassicisme","era_disc_start":1760},{"title":"Napoléon traversant les Alpes — David","artiste":"Jacques-Louis David","date":"1801–1805","mouvement":"Néoclassicisme","discipline":"Peinture","img":"img/arts/napoleon alpes.webp","musee":"Château de Malmaison / Charlottenburg / Belvedere (5 versions)","technique":"Huile sur toile, 261 × 221 cm","desc":"Napoléon, sur un cheval cabré, montre le chemin à ses troupes dans le col du Grand-Saint-Bernard. Le geste héroïque, le manteau rouge battant dans le vent, le regard déterminé — tout est glorification. En réalité, Napoléon traversa les Alpes sur un mulet.","anecdotes":[{"e":"🫏","t":"<b>Napoléon traversa les Alpes sur un mulet, pas un cheval.</b> C'est un guide local qui lui prêta l'animal plus sûr pour le terrain montagneux. David le peignit quand même sur un étalon cabré. Napoléon se contenta de demander qu'on le représente 'calme sur un cheval fougueux'."},{"e":"5️⃣","t":"<b>David peignit cinq versions de ce tableau.</b> Commandées par différents souverains et États alliés de Napoléon, chacune présente des variations subtiles. Les cinq versions existent encore dans différents musées européens."},{"e":"🪨","t":"<b>Les noms gravés dans le rocher forment une séquence historique.</b> Dans la roche, on peut lire 'Hannibal', 'Karolus Magnus' (Charlemagne) et 'Bonaparte' — les trois grands chefs militaires qui traversèrent les Alpes."}],"quiz":{"q":"Sur quel animal Napoléon a-t-il réellement traversé les Alpes, contrairement à la peinture de David ?","r":"Sur un mulet — plus sûr sur le terrain montagneux — prêté par un guide local","hint":"Napoléon, pragmatique, demanda simplement à David de le peindre 'calme sur un cheval fougueux'"},"era_disc":"Néoclassicisme","era_disc_start":1760},{"title":"Symphonie n°40 — Wolfgang Amadeus Mozart","artiste":"Wolfgang Amadeus Mozart","date":"1788","mouvement":"Classicisme viennois","discipline":"Musique","img":"img/arts/mozart.webp","musee":"Manuscrit : Bibliothèque nationale d'Autriche","technique":"Symphonie en sol mineur, 4 mouvements","desc":"La Symphonie n°40 en sol mineur est l'une des deux seules symphonies de Mozart en mineur, et la plus connue. Son premier mouvement — Molto allegro — avec son motif en trois notes syncopées est l'une des mélodies les plus reconnaissables de toute la musique classique. Mozart la composa en six semaines pendant l'été 1788, dans une période de graves difficultés financières.","anecdotes":[{"e":"💸","t":"<b>Mozart l'écrivit alors qu'il était dans la misère.</b> L'été 1788 fut l'un des plus sombres de sa vie : criblé de dettes, abandonné par ses mécènes, il écrivit en six semaines trois de ses plus grandes symphonies (39, 40 et 41). On ne sait pas si elles furent jamais jouées de son vivant."},{"e":"🎵","t":"<b>Le motif de trois notes syncopées est une innovation rythmique.</b> Ce 'da-da-dum' répété obsessionnellement crée une tension anxieuse inhabituelle pour l'époque. Les contemporains y entendaient quelque chose d'étrange et d'inquiet — bien éloigné de la galanterie classique attendue."},{"e":"🌍","t":"<b>C'est la symphonie classique la plus jouée et la plus enregistrée du monde.</b> Plus de 150 enregistrements existent. Elle a été utilisée dans des dizaines de films et émissions. Sa mélodie est souvent la première que les enfants reconnaissent en entendant 'de la musique classique'."}],"quiz":{"q":"Dans quel état financier et psychologique Mozart se trouvait-il quand il composa la Symphonie n°40 ?","r":"Dans la misère — criblé de dettes, abandonné par ses mécènes, il écrivit trois grandes symphonies en six semaines en 1788","hint":"On ne sait même pas si ces symphonies furent jouées de son vivant — Mozart mourut trois ans plus tard"},"era_disc":"Classicisme","era_disc_start":1750}]},{"era":"Romantisme","events":[{"title":"La Liberté Guidant le Peuple — Delacroix","artiste":"Eugène Delacroix","date":"1830","mouvement":"Romantisme","discipline":"Peinture","img":"img/arts/la liberte guidant le peuple.webp","musee":"Musée du Louvre, Paris","technique":"Huile sur toile, 260 × 325 cm","desc":"Peint dans la foulée des Trois Glorieuses de juillet 1830, ce tableau représente Marianne — figure allégorique de la France — brandissant le drapeau tricolore par-dessus des barricades et des cadavres. À ses côtés, un gamin parisien armé de pistolets, un ouvrier avec un sabre, un bourgeois en chapeau. Delacroix s'est représenté lui-même en chapeau haut-de-forme à gauche.","anecdotes":[{"e":"🗓️","t":"<b>Delacroix ne participa pas aux combats mais en fut témoin.</b> Il écrivit à son frère : 'Si je n'ai pas combattu pour la patrie, au moins peindrai-je pour elle.' Cette honnêteté est touchante — le tableau est à la fois engagement et aveu."},{"e":"🇫🇷","t":"<b>Ce tableau est devenu un symbole si puissant qu'il figure sur les billets de 100 francs.</b> Marianne aux seins nus guidant le peuple est l'image de la France révolutionnaire par excellence. Elle a inspiré des dizaines d'interprétations contemporaines."},{"e":"🎭","t":"<b>La femme n'est pas une vraie femme — c'est une allégorie.</b> Contrairement à ce que l'on croit souvent, Marianne n'est pas un portrait. C'est la France, la Liberté, la République personnifiées. Ses seins nus ne sont pas érotiques mais symboliques."}],"quiz":{"q":"Qui Delacroix a-t-il représenté dans son propre tableau à gauche de la composition ?","r":"Lui-même — en chapeau haut-de-forme, bourgeois au milieu des combattants qu'il n'avait pas rejoint","hint":"Il écrivit à son frère : 'Si je n'ai pas combattu, au moins peindrai-je pour la patrie'"},"era_disc":"Romantisme","era_disc_start":1800},{"title":"Le Radeau de la Méduse — Géricault","artiste":"Théodore Géricault","date":"1818–1819","mouvement":"Romantisme","discipline":"Peinture","img":"img/arts/radeau de la meduse.webp","musee":"Musée du Louvre, Paris","technique":"Huile sur toile, 491 × 716 cm","desc":"Ce tableau colossal représente le naufrage de la frégate Méduse en 1816 — scandale d'État car le capitaine incompétent avait été nommé par favoritisme royaliste. 147 personnes furent abandonnées sur un radeau de fortune ; seules 15 survécurent. Géricault interrogea des survivants, étudia des corps et des membres à la morgue, et peignit la vérité brute.","anecdotes":[{"e":"💀","t":"<b>Géricault conservait des membres humains dans son atelier.</b> Pour peindre les corps avec un réalisme absolu, il emprunta à la morgue et aux hôpitaux des membres et des têtes de morts. Ses amis et modèles évitaient de venir dans son atelier à cause de l'odeur."},{"e":"⚖️","t":"<b>Le tableau était un brûlot politique contre le gouvernement royaliste.</b> Le capitaine de la Méduse avait été nommé par pure faveur politique malgré son incompétence notoire. En peignant ce désastre, Géricault dénonçait le régime de la Restauration."},{"e":"🏛️","t":"<b>Le Salon officiel l'accueillit dans l'embarras.</b> Le jury du Salon de 1819 ne pouvait pas refuser ce chef-d'œuvre techniquement parfait — mais il était gênant politiquement. Ils lui attribuèrent une médaille d'or tout en minimisant son impact dans les journaux officiels."}],"quiz":{"q":"Pourquoi Géricault conservait-il des membres humains dans son atelier pendant qu'il peignait Le Radeau ?","r":"Pour peindre les corps naufragés avec un réalisme absolu — il étudiait la décomposition directement sur des membres empruntés à la morgue","hint":"Ses amis évitaient de lui rendre visite à cause de l'odeur dans l'atelier"},"era_disc":"Romantisme","era_disc_start":1800},{"title":"Les Misérables — Victor Hugo","artiste":"Victor Hugo","date":"1862","mouvement":"Romantisme littéraire","discipline":"Littérature","img":"img/arts/les miserables.webp","musee":"Roman en 5 volumes, publié à Bruxelles et Paris","technique":"Roman, 1 900 pages","desc":"Chef-d'œuvre du romantisme social, Les Misérables suit Jean Valjean, ancien forçat condamné pour avoir volé un pain, qui tente de se racheter dans une France du XIXe siècle marquée par la misère et l'injustice. Face à lui, l'inflexible inspecteur Javert. À travers leurs destins croisés et celui de Cosette, Hugo dresse un tableau total de la société française, plaidoyer universel pour la dignité humaine.","anecdotes":[{"e":"✉️","t":"<b>Hugo échangea le télégramme le plus court de l'histoire avec son éditeur.</b> Depuis son exil à Guernesey, il envoya à son éditeur Hetzel : '?' (point d'interrogation) pour savoir comment se vendait le roman. La réponse fut : '!' (point d'exclamation). C'était un triomphe."},{"e":"⛓️","t":"<b>Hugo mit 17 ans à écrire le roman.</b> Il en écrivit la première ébauche en 1845, fut contraint de l'abandonner lors de son engagement politique, puis reprit le manuscrit en exil à Guernesey après le coup d'État de Napoléon III. Publié en 1862, le roman fut un succès immédiat mondial."},{"e":"🎭","t":"<b>Les Misérables est la comédie musicale la plus jouée du monde.</b> L'adaptation musicale créée en 1980 à Paris puis à Londres en 1985 totalise plus de 65 000 représentations dans 52 pays. La chanson 'I Dreamed a Dream' est connue dans le monde entier."}],"quiz":{"q":"Pour quel crime Jean Valjean fut-il condamné aux galères dans Les Misérables ?","r":"Pour avoir volé un pain afin de nourrir les enfants de sa sœur affamés","hint":"Cette injustice sociale de départ structure tout le roman — la question du mérite et de la rédemption"},"era_disc":"Romantisme","era_disc_start":1800},{"title":"La Symphonie n°9 — Ludwig van Beethoven","artiste":"Ludwig van Beethoven","date":"1824","mouvement":"Romantisme","discipline":"Musique","img":"img/arts/Beethoven.webp","musee":"Création au Kärntnertortheater, Vienne","technique":"Symphonie pour orchestre, chœur et solistes","desc":"La Neuvième Symphonie est considérée comme l'une des plus grandes œuvres musicales jamais composées. Son dernier mouvement introduit une révolution : des voix humaines entrent dans la symphonie pour chanter l'Ode à la Joie de Schiller. Composée alors que Beethoven était totalement sourd, elle se termine par un hymne à la fraternité universelle devenu l'hymne officiel de l'Union Européenne.","anecdotes":[{"e":"🙉","t":"<b>Beethoven était totalement sourd quand il la composa.</b> Il n'entendit jamais sa Neuvième — il la ressentit, la visualisa dans son imagination intérieure. Lors de la création à Vienne en 1824, il se tenait sur scène pour indiquer les tempos. À la fin, il fallut lui tourner le corps pour qu'il voie les applaudissements — il n'entendait rien."},{"e":"🇪🇺","t":"<b>L'Ode à la Joie est l'hymne de l'Union Européenne depuis 1972.</b> Le Conseil de l'Europe adopta le thème du dernier mouvement (sans les paroles, pour ne favoriser aucune langue) comme son hymne. C'est l'une des rares musiques à être simultanément un chef-d'œuvre absolu et un symbole politique actif."},{"e":"📝","t":"<b>Il introduit des voix dans la symphonie pour la première fois.</b> Avant Beethoven, une symphonie était purement instrumentale. En faisant entrer le chœur et les solistes dans le dernier mouvement, il brise une règle fondamentale du genre. Sa rupture ouvrit la voie à toute la musique chorale romantique et au poème symphonique."}],"quiz":{"q":"Quelle innovation révolutionnaire Beethoven introduit-il dans le dernier mouvement de la Neuvième ?","r":"Il fait entrer des voix humaines — chœur et solistes — dans la symphonie pour la première fois, chantant l'Ode à la Joie de Schiller","hint":"Avant lui, une symphonie était purement instrumentale — cette rupture ouvrit la voie à toute la musique romantique"},"era_disc":"Romantisme","era_disc_start":1800}]},{"era":"Impressionnisme","events":[{"title":"Bal du Moulin de la Galette — Renoir","artiste":"Pierre-Auguste Renoir","date":"1876","mouvement":"Impressionnisme","discipline":"Peinture","img":"img/arts/moulin de la galette.webp","musee":"Musée d'Orsay, Paris","technique":"Huile sur toile, 131 × 175 cm","desc":"Cette grande toile festive représente une guinguette de Montmartre où se retrouvait la classe ouvrière parisienne les dimanches. Les taches de lumière filtrées par les arbres jouent sur les visages et les vêtements des danseurs et des buveurs. Renoir transportait sa toile géante chaque semaine depuis son atelier pour peindre en plein air, sur le motif, saisissant l'instant éphémère de la fête.","anecdotes":[{"e":"🎡","t":"<b>Renoir transportait sa grande toile à la main chaque semaine.</b> De son atelier de la rue Cortot jusqu'à la guinguette, il portait lui-même ce tableau de presque 2 mètres avec l'aide d'amis. Les modèles sont ses amis peintres, acteurs et artisans du quartier — tous reconnaissables."},{"e":"💰","t":"<b>Une version de ce tableau a été vendue 78 millions de dollars en 1990.</b> L'acquéreur était le milliardaire japonais Ryoei Saito, qui scandalisa le monde de l'art en déclarant vouloir faire incinérer le tableau avec lui à sa mort."},{"e":"☀️","t":"<b>Les taches de lumière sur les vêtements étaient révolutionnaires.</b> Les critiques conservateurs trouvaient les 'taches' de soleil vulgaires et non finies. Pour les impressionnistes, c'était au contraire la vraie peinture : capturer la lumière telle qu'elle est, mouvante et changeante."}],"quiz":{"q":"Où se trouve la guinguette du Moulin de la Galette que Renoir a immortalisée ?","r":"Montmartre, à Paris — Renoir y transportait sa grande toile chaque jour pour peindre sur le motif","hint":"Ce quartier populaire de Paris était au XIXe siècle un village de vignes et de moulins"},"era_disc":"Impressionnisme","era_disc_start":1860},{"title":"Le Déjeuner des Canotiers — Renoir","artiste":"Pierre-Auguste Renoir","date":"1880–1881","mouvement":"Impressionnisme","discipline":"Peinture","img":"img/arts/dejeuner des canotiers.webp","musee":"Phillips Collection, Washington D.C.","technique":"Huile sur toile, 130 × 173 cm","desc":"Cette scène de déjeuner sur la terrasse du Restaurant Fournaise à Chatou montre des amis de Renoir — peintres, acteurs, canotiers — réunis dans la joie d'un repas d'été au bord de la Seine. La femme au premier plan jouant avec son chien est Aline Charigot, future épouse de Renoir. C'est l'un des tableaux les plus joyeux et vivants de tout l'impressionnisme.","anecdotes":[{"e":"💑","t":"<b>La femme au premier plan deviendra l'épouse de Renoir.</b> Aline Charigot, modèle et couturière de 20 ans, jouant avec un petit chien au premier plan. Renoir et elle se marièrent en 1890. Elle lui donnera trois fils, dont Jean Renoir (cinéaste, futur auteur de 'La Règle du Jeu')."},{"e":"🥂","t":"<b>Les verres et bouteilles sont encore là, les convives arrivent ou partent.</b> Renoir a capturé cet instant suspendu où le repas touche à sa fin. La composition est savamment construite pour donner une impression de spontanéité totale."},{"e":"🎨","t":"<b>Ce tableau marque un tournant dans la carrière de Renoir.</b> Après ce chef-d'œuvre, Renoir voyagera en Italie et sera impressionné par Raphaël. Il traversera une 'période aigre' en cherchant plus de rigueur et de dessin."}],"quiz":{"q":"Qui est la femme jouant avec le chien au premier plan du Déjeuner des Canotiers ?","r":"Aline Charigot, future épouse de Renoir et mère du cinéaste Jean Renoir","hint":"Renoir l'a rencontrée dans son atelier où elle venait poser — ils se marièrent dix ans plus tard"},"era_disc":"Impressionnisme","era_disc_start":1860},{"title":"Les Nymphéas — Claude Monet","artiste":"Claude Monet","date":"1896–1926","mouvement":"Impressionnisme","discipline":"Peinture","img":"img/arts/les nympheas.webp","musee":"Musée de l'Orangerie, Paris","technique":"Huile sur toile, séries de grands formats","desc":"Les Nymphéas constituent la grande œuvre tardive de Monet — près de 250 peintures du bassin de son jardin à Giverny, réalisées sur trente ans. Les huit panneaux géants de l'Orangerie (chacun faisant plusieurs mètres) sont son testament artistique. Monet les peignit alors qu'il perdait progressivement la vue, obsédé par la lumière changeante sur l'eau et les fleurs de lotus.","anecdotes":[{"e":"👁️","t":"<b>Monet peignit ses chefs-d'œuvre en perdant la vue.</b> À partir de 1912, une double cataracte obscurcit sa vision. Il voyait le monde à travers des filtres jaune-brun qui altéraient ses couleurs. En 1923, opéré avec succès, il détruisit plusieurs tableaux peints 'à l'aveugle'."},{"e":"🌸","t":"<b>Il a créé le jardin pour le peindre.</b> Monet acheta une propriété à Giverny en 1883 et consacra autant d'énergie à concevoir son jardin qu'à peindre. Il fit dériver la Epte pour créer l'étang, acheta des nénuphars japonais, construisit le pont vert."},{"e":"🕊️","t":"<b>Les grandes décorations de l'Orangerie furent offertes à la France le jour de l'Armistice.</b> Monet annonça en 1918 son intention d'offrir ces panneaux monumentaux à l'État français en souvenir de la victoire. Ils furent inaugurés en 1927, quelques mois après la mort du peintre."}],"quiz":{"q":"Pourquoi les Nymphéas tardifs de Monet ont-ils des tonalités rougeâtres et dorées inhabituelles ?","r":"Monet souffrait d'une double cataracte qui filtrait sa vision en tons jaune-brun, altérant sa perception des couleurs","hint":"Il fut finalement opéré en 1923 et put voir à nouveau — mais détruisit plusieurs tableaux peints pendant sa 'période aveugle'"},"era_disc":"Impressionnisme","era_disc_start":1860},{"title":"Madame Bovary — Gustave Flaubert","artiste":"Gustave Flaubert","date":"1857","mouvement":"Réalisme","discipline":"Littérature","img":"img/arts/madame bovary.webp","musee":"Revue de Paris, puis Éditions Michel Lévy","technique":"Roman, 500 pages","desc":"Emma Bovary, fille de fermier devenue femme de médecin de province, s'ennuie dans sa vie ordinaire. Nourrie de romans romantiques, elle rêve de passion et d'élégance, prend des amants et accumule des dettes pour fuir la médiocrité. Flaubert invente le style indirect libre — la voix du narrateur se fond dans les pensées du personnage — et fait de ce roman un miroir impitoyable de l'illusion romantique.","anecdotes":[{"e":"⚖️","t":"<b>Flaubert fut jugé pour 'outrage à la morale publique'.</b> À sa publication en 1857, le roman fut poursuivi en justice — comme Baudelaire la même année pour Les Fleurs du Mal. Flaubert fut acquitté, ce qui lança le livre. Le scandale était sa meilleure publicité."},{"e":"✍️","t":"<b>Flaubert mettait une semaine pour écrire une page.</b> Perfectionniste absolu, il réécrivait chaque phrase des dizaines de fois à voix haute pour en tester le rythme. Sa correspondance avec son amie Louise Colet est un journal de création unique : 'Quelle chienne de chose que la prose !'"},{"e":"🌍","t":"<b>'Madame Bovary, c'est moi', aurait dit Flaubert.</b> Cette phrase célèbre — peut-être apocryphe — résume son procédé : l'identification totale avec un personnage opposé à lui. Lui, l'homme, le cynique, s'est glissé dans la peau d'une femme romantique pour mieux la comprendre et la critiquer."}],"quiz":{"q":"Quelle technique narrative Flaubert invente-t-il dans Madame Bovary ?","r":"Le style indirect libre — la voix du narrateur se fond dans les pensées du personnage, sans guillemets ni verbe de parole","hint":"Ce procédé permet de ressentir le monde comme Emma le perçoit, sans qu'on sache si c'est elle ou le narrateur qui parle"},"era_disc":"Réalisme & Naturalisme","era_disc_start":1850}]},{"era":"Post-Impressionnisme","events":[{"title":"Les Tournesols — Vincent van Gogh","artiste":"Vincent van Gogh","date":"1888","mouvement":"Post-Impressionnisme","discipline":"Peinture","img":"img/arts/les tournesols.webp","musee":"National Gallery, Londres (version principale)","technique":"Huile sur toile, 92 × 73 cm","desc":"Van Gogh peint plusieurs versions des Tournesols à Arles pour décorer la chambre de son ami Gauguin, attendu en visite. Les jaunes vibrants — Van Gogh utilisait jusqu'à cinq jaunes différents — sont rendus avec des empâtements épais, quasi sculptés. Les tournesols deviennent le symbole de l'amitié et de la gratitude, mais aussi de la fragilité — ils se fanent vite, comme les espoirs de Van Gogh.","anecdotes":[{"e":"🌻","t":"<b>Van Gogh a peint au moins 11 versions des Tournesols.</b> Il en fit deux séries : quatre avec des fleurs dans un vase en 1888, puis cinq autres versions en 1889. Chacune est légèrement différente."},{"e":"😤","t":"<b>Gauguin, pour qui il peignait, n'aimait pas ces tableaux.</b> Gauguin préférait les peintures 'intellectuelles' et trouvait Van Gogh trop spontané, trop émotionnel. Leur cohabitation à Arles dura deux mois et se termina par la crise au cours de laquelle Van Gogh se coupa l'oreille."},{"e":"💛","t":"<b>Le jaune de Van Gogh a viré au brun avec le temps.</b> Van Gogh utilisait du chrome jaune, un pigment moins stable. Certains jaunes de ses tableaux ont viré au brun verdâtre au fil des décennies."}],"quiz":{"q":"Pour qui Van Gogh a-t-il peint les Tournesols d'Arles, et qu'est-il arrivé à cette amitié ?","r":"Pour accueillir Gauguin dans sa maison jaune — leur cohabitation dura deux mois et se termina par la crise où Van Gogh se coupa l'oreille","hint":"Gauguin n'appréciait pas vraiment le style émotionnel de Van Gogh"},"era_disc":"Post-Impressionnisme","era_disc_start":1880},{"title":"La Nuit Étoilée — Vincent van Gogh","artiste":"Vincent van Gogh","date":"1889","mouvement":"Post-Impressionnisme","discipline":"Peinture","img":"img/arts/nuit etoilee 1.webp","musee":"Museum of Modern Art (MoMA), New York","technique":"Huile sur toile, 73,7 × 92,1 cm","desc":"Peinte depuis la fenêtre de sa chambre à l'asile Saint-Paul-de-Mausole à Saint-Rémy-de-Provence, La Nuit Étoilée est le tableau le plus célèbre de Van Gogh. Le ciel tourbillonnant d'énergie — avec ses étoiles et sa lune en spirales — contraste avec la quiétude du village endormi.","anecdotes":[{"e":"🌀","t":"<b>Les tourbillons de Van Gogh ressemblent à des turbulences scientifiques réelles.</b> Des physiciens ont analysé les spirales de La Nuit Étoilée et trouvé qu'elles correspondent aux équations mathématiques décrivant les turbulences des fluides."},{"e":"🏥","t":"<b>Van Gogh l'a peinte depuis un asile psychiatrique.</b> Il s'y était lui-même interné en 1889 après sa crise et la mutilation de son oreille. L'internement fut paradoxalement une période créative intense."},{"e":"📬","t":"<b>Van Gogh ne l'aimait pas beaucoup.</b> Dans ses lettres à son frère Théo, il décrivait La Nuit Étoilée comme un 'échec'. Aujourd'hui c'est l'un des tableaux les plus reproduits de l'histoire."}],"quiz":{"q":"D'où Van Gogh peignait-il La Nuit Étoilée, et quelle était sa situation à ce moment ?","r":"Depuis sa chambre à l'asile psychiatrique de Saint-Paul-de-Mausole à Saint-Rémy, où il s'était lui-même interné","hint":"Il considérait ce tableau comme un échec — c'est aujourd'hui l'un des plus reproduits au monde"},"era_disc":"Post-Impressionnisme","era_disc_start":1880},{"title":"Nuit Étoilée sur le Rhône — Vincent van Gogh","artiste":"Vincent van Gogh","date":"1888","mouvement":"Post-Impressionnisme","discipline":"Peinture","img":"img/arts/nuit etoilee 2.webp","musee":"Musée d'Orsay, Paris","technique":"Huile sur toile, 72,5 × 92 cm","desc":"Peinte à Arles quelques mois avant La Nuit Étoilée de Saint-Rémy, cette œuvre montre la Grande Ourse reflétée dans le Rhône, avec les lumières jaunes de la ville sur l'eau. Van Gogh écrivait à sa sœur Wil : 'Je désire absolument peindre un ciel étoilé.'","anecdotes":[{"e":"⭐","t":"<b>Van Gogh peignait la nuit, une bougie accrochée à son chapeau.</b> Pour capter les lumières nocturnes sur le Rhône, il fixait des bougies allumées à son chapeau de paille et à son chevalet."},{"e":"💌","t":"<b>Les étoiles ont un sens particulier pour Van Gogh.</b> Il écrivit à Théo : 'Comme nous prenons le train pour aller à Tarascon, nous prenons la mort pour aller dans une étoile.' Les astres étaient pour lui une promesse d'au-delà."},{"e":"🌊","t":"<b>Les reflets sur l'eau sont aussi précis que des instantanés photographiques.</b> La Grande Ourse et ses sept étoiles sont reconnaissables avec une grande fidélité astronomique."}],"quiz":{"q":"Comment Van Gogh éclairait-il son chevalet pour peindre de nuit au bord du Rhône ?","r":"Il fixait des bougies allumées à son chapeau de paille et à son chevalet","hint":"Les habitants d'Arles le regardaient, intrigués par cette silhouette lumineuse dans l'obscurité"},"era_disc":"Post-Impressionnisme","era_disc_start":1880},{"title":"La Terrasse du Café le Soir — Van Gogh","artiste":"Vincent van Gogh","date":"1888","mouvement":"Post-Impressionnisme","discipline":"Peinture","img":"img/arts/la terrasse du cafe.webp","musee":"Kröller-Müller Museum, Otterlo","technique":"Huile sur toile, 80,7 × 65,3 cm","desc":"Ce café de la Place du Forum à Arles brille de jaune dans la nuit bleue — c'est l'une des premières peintures de nuit sans lumière noire. Van Gogh voulait exprimer qu'on peut se passer du noir absolu pour peindre la nuit : la couleur seule suffit.","anecdotes":[{"e":"☕","t":"<b>Le café existe encore aujourd'hui et s'appelle 'Le Café van Gogh'.</b> Place du Forum à Arles, l'établissement a conservé (ou reconstitué) l'aspect jaune de la façade. Des milliers de touristes s'y retrouvent chaque année."},{"e":"🌙","t":"<b>C'est la première peinture de nuit sans noir de Van Gogh.</b> Il écrivit à Théo : 'Voilà une peinture de nuit sans noir. Rien que du beau bleu-violet, du vert et du jaune citron.'"},{"e":"🔮","t":"<b>Certains chercheurs y voient une représentation de la Cène.</b> Douze clients sont assis à la terrasse, et le serveur en blanc au centre pourrait évoquer le Christ entouré de ses apôtres."}],"quiz":{"q":"Quelle innovation technique Van Gogh expérimenta-t-il dans La Terrasse du Café le Soir ?","r":"Peindre la nuit sans utiliser de noir — uniquement des bleus violets, verts et jaunes","hint":"Il écrivit à son frère : 'Voilà une peinture de nuit sans noir'"},"era_disc":"Post-Impressionnisme","era_disc_start":1880},{"title":"Le Portrait de Dorian Gray — Oscar Wilde","artiste":"Oscar Wilde","date":"1890","mouvement":"Symbolisme littéraire","discipline":"Littérature","img":"img/arts/dorian grey.webp","musee":"Lippincott's Monthly Magazine, puis Éditions Ward Lock","technique":"Roman gothique, 250 pages","desc":"Dorian Gray, jeune homme d'une beauté exceptionnelle à Londres victorienne, formule le vœu que son portrait vieillisse à sa place. Le vœu s'exauce. Pendant qu'il mène une vie de plaisirs et de vices, son portrait se dégrade, accumulant les marques de son âme corrompue. Ce conte moral, habillé d'un dandysme brillant, est la plus grande œuvre de la littérature décadente.","anecdotes":[{"e":"✍️","t":"<b>Wilde remania le roman pour répondre aux scandales.</b> La première version, jugée 'immorale', fut sévèrement critiquée. Wilde ajouta une préface provocatrice : 'Il n'existe pas de livre moral ou immoral. Il n'existe que des livres bien écrits ou mal écrits.' Il refusait que l'art soit jugé selon la morale."},{"e":"⚖️","t":"<b>Le roman fut utilisé contre Wilde lors de son procès.</b> En 1895, poursuivi pour 'grossière indécence', les adversaires de Wilde citrèrent des passages du roman comme preuves de sa dépravation. Il fut condamné à deux ans de travaux forcés — le procès le détruisit."},{"e":"🖼️","t":"<b>Le roman préfigure la photographie comme double mortifère.</b> L'idée d'une image qui capture l'âme et vieillit à la place du sujet anticipe les angoisses modernes autour de la photo et de l'image numérique. Wilde écrit ce roman six ans après l'invention de la photographie commerciale."}],"quiz":{"q":"Quel pacte implicite Dorian Gray réalise-t-il au début du roman ?","r":"Son portrait vieillit et se dégrade à sa place, pendant que lui conserve éternellement sa beauté et sa jeunesse","hint":"Ce vœu formulé devant le peintre Basil Hallward est la mécanique centrale de tout le roman"},"era_disc":"Symbolisme","era_disc_start":1880}]},{"era":"Art Nouveau / Symbolisme","events":[{"title":"Le Baiser — Gustav Klimt","artiste":"Gustav Klimt","date":"1907–1908","mouvement":"Art Nouveau / Symbolisme","discipline":"Peinture","img":"img/arts/le baiser.webp","musee":"Österreichische Galerie Belvedere, Vienne","technique":"Huile sur toile avec feuilles d'or, 180 × 180 cm","desc":"Deux amants enlacés, drapés d'un manteau orné de motifs géométriques et floraux en feuilles d'or et d'argent, s'embrassent au bord d'un précipice fleuri. Ce tableau est le symbole absolu de la 'période dorée' de Klimt — une fusion entre arts décoratifs, symbolisme et sensualité. Les feuilles d'or réelles donnent à l'œuvre une aura quasi sacrée.","anecdotes":[{"e":"💛","t":"<b>Klimt a utilisé de vraies feuilles d'or.</b> Fils d'un graveur, il connaissait les techniques orfévristes. L'or, l'argent et le platine réels sont appliqués sur la toile. Cette technique, inspirée des mosaïques byzantines vues lors d'un voyage à Ravenne, donne à ses tableaux leur caractère à la fois précieux et spirituel."},{"e":"😶","t":"<b>On ne voit pas le visage de l'homme.</b> Le visage de l'amant est caché — seul celui de la femme est visible, les yeux fermés. Klimt laisse délibérément l'homme dans l'anonymat. Certains historiens pensent que c'est un autoportrait avec Emilie Flöge, son amie de toujours."},{"e":"🏛️","t":"<b>L'Autriche refusa de laisser sortir le tableau.</b> Acheté par la Galerie du Belvédère en 1908, Le Baiser ne quitta presque jamais l'Autriche. En 1938, lors de l'Anschluss, les nazis cataloguèrent l'œuvre mais ne purent s'en emparer — elle était propriété de l'État autrichien."}],"quiz":{"q":"Quelle technique décorative, inspirée des mosaïques byzantines de Ravenne, Klimt utilise-t-il dans Le Baiser ?","r":"L'application de vraies feuilles d'or et d'argent sur la toile — une technique héritée de son père graveur","hint":"Ce voyage en Italie fut une révélation pour Klimt — il vit les mosaïques de Ravenne et décida d'intégrer l'or à sa peinture"},"era_disc":"Art Nouveau / Symbolisme","era_disc_start":1890},{"title":"Le Cri — Edvard Munch","artiste":"Edvard Munch","date":"1893","mouvement":"Art Nouveau / Symbolisme","discipline":"Peinture","img":"img/arts/le cri 2.webp","musee":"Galerie nationale, Oslo","technique":"Tempera et pastel sur carton, 91 × 73,5 cm","desc":"Une figure androgyine à la tête de crâne se tord les mains sur un pont tandis que le ciel tourbillonne en rouge et orange. Ce n'est pas le cri d'une personne — c'est le cri de la nature tout entière qui envahit la tête du personnage. Munch nota dans son journal : 'J'entendis un cri infini déchirer la nature.' Le tableau est devenu le symbole universel de l'angoisse moderne.","anecdotes":[{"e":"🌋","t":"<b>Le ciel rouge pourrait être dû à l'éruption du Krakatoa.</b> En 1883, le volcan indonésien projeta des cendres dans la stratosphère, créant des couchers de soleil rouges extraordinaires dans toute l'Europe pendant des mois. Munch a peut-être observé ce phénomène depuis le fjord d'Oslo."},{"e":"✏️","t":"<b>Munch a écrit le texte du tableau sur le tableau.</b> Dans le coin supérieur gauche de la version au pastel, on peut lire : 'Kan kun være malet af en gal Mand' (Ceci ne peut avoir été peint que par un fou). Ce texte fut longtemps attribué à un vandale — on découvrit en 2021 qu'il s'agissait bien de l'écriture de Munch."},{"e":"🔓","t":"<b>Le tableau a été volé deux fois.</b> En 1994, il fut dérobé du Musée national d'Oslo pendant les Jeux olympiques de Lillehammer. En 2004, une autre version fut volée au Munch Museum en plein jour, par des hommes armés. Les deux fois, les œuvres furent récupérées."}],"quiz":{"q":"Selon son journal, qu'est-ce que Munch 'entend' au moment d'avoir la vision qui l'inspire ?","r":"'Un cri infini déchirant la nature' — ce n'est pas lui qui crie, c'est la nature entière qui hurle en lui","hint":"La figure au centre ne crie pas — elle se bouche les oreilles face au cri du monde qui l'envahit"},"era_disc":"Art Nouveau / Symbolisme","era_disc_start":1890},{"title":"Le Voyage de Chihiro — Hayao Miyazaki","artiste":"Hayao Miyazaki / Studio Ghibli","date":"2001","mouvement":"Cinéma d'auteur","discipline":"Cinéma","img":"img/arts/le voyage de chihiro.webp","musee":"Studio Ghibli, Tokyo","technique":"Film d'animation, 125 min","desc":"Chihiro, une fillette de 10 ans, pénètre par accident dans le monde des esprits japonais. Ses parents transformés en cochons, elle doit travailler dans les thermes d'une sorcière pour les sauver. Ce film d'animation est le plus grand succès de l'histoire du cinéma japonais, Oscar du meilleur film d'animation en 2003, et l'une des œuvres les plus poétiques et inventives de la culture mondiale.","anecdotes":[{"e":"🐷","t":"<b>Le film est une critique voilée de la société de consommation.</b> Les parents de Chihiro se transforment en cochons pour avoir mangé gloutonnement sans permission — la gourmandise et l'avidité matérielle sont leur perte. Miyazaki décrit une société japonaise qui a oublié ses racines spirituelles pour le consumérisme."},{"e":"🥇","t":"<b>Il a détrôné Titanic au box-office japonais en 2001.</b> Avec 304 millions de dollars de recettes mondiales, il resta le film le plus vu au Japon pendant 20 ans — jusqu'à ce que Demon Slayer le détrône en 2020. En 2022, une ressortie en salles lui rendit sa première place."},{"e":"🎨","t":"<b>Miyazaki a dessiné personnellement des milliers d'images-clés.</b> Dans le processus d'animation japonais, le réalisateur dessine les images 'clés' à la main. Pour Le Voyage de Chihiro, Miyazaki supervisa l'animation de façon quasi obsessionnelle, refusant les processus numériques pour de nombreuses séquences."}],"quiz":{"q":"Pourquoi les parents de Chihiro se transforment-ils en cochons dans le film ?","r":"Pour avoir mangé gloutonnement de la nourriture des esprits sans permission — symbole de la gourmandise et du consumérisme","hint":"Miyazaki critique la société de consommation japonaise à travers cette punition symbolique"},"era_disc":"Ère numérique","era_disc_start":2000},{"title":"Pelléas et Mélisande — Claude Debussy","artiste":"Claude Debussy","date":"1902","mouvement":"Modernité musicale","discipline":"Musique","img":"img/arts/debussy.webp","musee":"Opéra-Comique, Paris (création)","technique":"Opéra en 5 actes","desc":"Unique opéra de Debussy, Pelléas et Mélisande est considéré comme le chef-d'œuvre de l'impressionnisme musical. Basé sur la pièce symboliste de Maeterlinck, il raconte l'amour interdit de deux âmes dans un château médiéval brumeux. La musique refuse les effets wagnériens : elle murmure, suggère, laisse des silences. Debussy invente ici un langage musical entièrement nouveau.","anecdotes":[{"e":"🌊","t":"<b>Debussy passa dix ans à composer cet opéra.</b> Il y travailla de 1893 à 1902, recommençant plusieurs fois des actes entiers. Sa méthode : rester le plus près possible de la prosodie naturelle du français, éviter les grands airs et les effets dramatiques de l'opéra traditionnel."},{"e":"😤","t":"<b>Maeterlinck détestait la mise en scène de la création.</b> Le dramaturge belge avait voulu que sa compagne chante le rôle de Mélisande. Debussy choisit une autre soprano. Maeterlinck publia une lettre ouverte souhaitant 'l'échec immédiat et retentissant' de l'œuvre. Elle fut un triomphe."},{"e":"🎹","t":"<b>Debussy invente l'harmonie impressionniste.</b> Il utilise des gammes pentatoniques, des accords de neuvième flottants, des modalités médiévales — tout ce que l'harmonie académique germanique proscrivait. Cette liberté harmonique influencera directement le jazz et toute la musique du XXe siècle."}],"quiz":{"q":"Quelle philosophie musicale Debussy oppose-t-il à Wagner dans Pelléas et Mélisande ?","r":"Suggérer plutôt qu'affirmer — la musique murmure, laisse des silences, refuse les grands effets dramatiques wagnériens","hint":"Debussy voulait rester le plus proche possible de la prosodie naturelle du français parlé"},"era_disc":"La modernité","era_disc_start":1900}]},{"era":"Modernisme","events":[{"title":"La Persistance de la Mémoire — Salvador Dalí","artiste":"Salvador Dalí","date":"1931","mouvement":"Modernisme","discipline":"Peinture","img":"img/arts/persistance de la memoire.webp","musee":"Museum of Modern Art (MoMA), New York","technique":"Huile sur toile, 24 × 33 cm","desc":"Les montres molles qui fondent sur un paysage de Cap Creus en Catalogne sont l'image surréaliste la plus connue au monde. Dalí dit avoir eu l'idée en regardant fondre un camembert. Le tableau illustre la conception freudienne du temps dans les rêves — le temps n'y est pas linéaire, il se distord.","anecdotes":[{"e":"🧀","t":"<b>L'idée vint d'un camembert trop mûr.</b> Dalí raconte : 'Je m'assis à table pour manger et vis un camembert qui fondait. Je le regardai et aussitôt l'idée des montres molles me vint.' Il aurait réalisé ce tableau en moins de deux heures."},{"e":"🪰","t":"<b>La montre couverte de fourmis représente la décomposition et la mort.</b> Les fourmis apparaissent souvent dans les œuvres de Dalí — symbole de putréfaction, d'angoisse et d'obsession."},{"e":"📏","t":"<b>Ce chef-d'œuvre est minuscule.</b> 24 × 33 cm — environ la taille d'une tablette numérique. Dalí préférait peindre petit pour atteindre une précision quasi photographique, inspirée des maîtres flamands du XVe siècle."}],"quiz":{"q":"Quelle vision quotidienne aurait inspiré à Dalí l'idée des montres molles ?","r":"Un camembert trop mûr qui fondait — il aurait peint le tableau en moins de deux heures","hint":"Ce fromage normand, observé pendant un repas, aurait déclenché l'une des images les plus célèbres de l'art"},"era_disc":"Modernisme","era_disc_start":1900},{"title":"Guernica — Pablo Picasso","artiste":"Pablo Picasso","date":"1937","mouvement":"Modernisme","discipline":"Peinture","img":"img/arts/guernica.webp","musee":"Museo Reina Sofía, Madrid","technique":"Huile sur toile, 349,3 × 776,6 cm","desc":"Guernica est la réponse de Picasso au bombardement de la ville basque de Guernica par l'aviation nazie et franquiste le 26 avril 1937. Peint en noir, blanc et gris — les couleurs des photographies de presse — en quelques semaines, ce tableau de presque 8 mètres de large est devenu le symbole universel contre la guerre.","anecdotes":[{"e":"🕊️","t":"<b>Un officier nazi demanda à Picasso : 'C'est vous qui avez fait ça ?'</b> Dans son atelier à Paris pendant l'Occupation, Picasso répondit : 'Non, c'est vous.' Cette anecdote symbolise l'engagement politique de l'œuvre."},{"e":"✊","t":"<b>Le tableau vécut en exil 43 ans.</b> Picasso le confia au MoMA de New York avec instruction formelle : il ne devait retourner en Espagne que lorsque la liberté y serait rétablie. Le tableau rentra à Madrid en 1981."},{"e":"🐴","t":"<b>Les symboles sont délibérément ambigus.</b> Picasso refusa toujours d'expliquer la signification du taureau, du cheval agonisant ou de la lampe. 'Le taureau est un taureau et le cheval un cheval', dit-il."}],"quiz":{"q":"Pourquoi Picasso a-t-il peint Guernica uniquement en noir, blanc et gris ?","r":"Pour évoquer les couleurs des photographies de presse et des journaux — ancrer l'œuvre dans la réalité documentaire","hint":"La couleur aurait rendu la scène 'belle' — le noir et blanc la rend témoignage"},"era_disc":"Modernisme","era_disc_start":1900},{"title":"Les Demoiselles d'Avignon — Pablo Picasso","artiste":"Pablo Picasso","date":"1907","mouvement":"Modernisme","discipline":"Peinture","img":"img/arts/demoiselles d'avignon.webp","musee":"Museum of Modern Art (MoMA), New York","technique":"Huile sur toile, 243,9 × 233,7 cm","desc":"Ce tableau choc marque la naissance du Cubisme et révolutionne toute l'histoire de l'art. Picasso représente cinq femmes nues en fragmentant leurs corps en facettes géométriques, montrant plusieurs angles simultanément. Les deux figures de droite, aux visages comme des masques africains, indiquent l'influence de l'art tribal sur Picasso.","anecdotes":[{"e":"😱","t":"<b>Même ses amis proches furent choqués.</b> Matisse fut scandalisé. Degas hocha la tête de désapprobation. Seule Gertrude Stein soutint Picasso. Le tableau ne fut montré au public qu'en 1916 — neuf ans après sa création."},{"e":"🌍","t":"<b>C'est l'art africain qui a tout changé.</b> Picasso visita une exposition d'art africain et océanien au Trocadéro en 1907. Les masques africains lui révélèrent une façon de représenter le visage humain tel qu'il est pensé, avec plusieurs faces simultanées."},{"e":"🖼️","t":"<b>Picasso travailla avec une centaine d'études préparatoires.</b> La composition originale incluait deux hommes. Peu à peu, Picasso les supprima pour garder les cinq femmes dans leur confrontation directe avec le spectateur."}],"quiz":{"q":"Quelle découverte artistique a transformé la peinture des deux figures de droite dans Les Demoiselles d'Avignon ?","r":"L'art africain et océanien — Picasso fut bouleversé par les masques africains vus au Trocadéro en 1907","hint":"Ces masques représentent le visage tel qu'il est pensé, pas tel qu'il est vu — plusieurs faces simultanées"},"era_disc":"Modernisme","era_disc_start":1900},{"title":"La Danse — Henri Matisse","artiste":"Henri Matisse","date":"1910","mouvement":"Modernisme","discipline":"Peinture","img":"img/arts/la danse.webp","musee":"Musée de l'Ermitage, Saint-Pétersbourg","technique":"Huile sur toile, 260 × 391 cm","desc":"Cinq figures nues forment une ronde dans un espace réduit à trois aplats de couleurs : le bleu du ciel, le vert de la colline, le rouge-brique des corps. Matisse simplifie tout à l'extrême — plus d'ombres, plus de profondeur, plus de détails.","anecdotes":[{"e":"🎨","t":"<b>Matisse a réduit la peinture à ses éléments essentiels.</b> Pas de perspective, pas d'ombre, pas de détail anatomique. Juste la couleur et la ligne. Cette radicalité influencera tout l'art abstrait du XXe siècle."},{"e":"🩺","t":"<b>Matisse était destiné à être avocat.</b> Cloué au lit par une appendicite à 20 ans, sa mère lui offrit une boîte de couleurs pour passer le temps. Il découvrit 'une sorte de paradis' et abandonna le droit."},{"e":"✂️","t":"<b>Immobilisé à 70 ans, Matisse inventa les 'papiers découpés'.</b> Ne pouvant plus peindre debout, il demanda à ses assistants de peindre de grandes feuilles en aplats de couleurs, qu'il découpait et composait depuis son fauteuil."}],"quiz":{"q":"À combien de couleurs Matisse a-t-il réduit La Danse, et lesquelles ?","r":"Trois : bleu du ciel, vert de la colline, rouge-brique des corps — plus d'ombres ni de détails","hint":"Cette radicalité — tout simplifier à l'extrême — influencera tout l'art abstrait du siècle suivant"},"era_disc":"Modernisme","era_disc_start":1900},{"title":"Composition VIII — Wassily Kandinsky","artiste":"Wassily Kandinsky","date":"1923","mouvement":"Modernisme","discipline":"Peinture","img":"img/arts/kandinsky.webp","musee":"Solomon R. Guggenheim Museum, New York","technique":"Huile sur toile, 140 × 201 cm","desc":"Kandinsky est considéré comme le père de la peinture abstraite. Dans Composition VIII, formes géométriques — cercles, triangles, lignes — s'organisent dans un espace sans référence au monde visible. Pour Kandinsky, les formes et les couleurs ont des équivalents émotionnels et musicaux.","anecdotes":[{"e":"🎵","t":"<b>Kandinsky 'entendait' les couleurs et 'voyait' la musique.</b> Il souffrait de synesthésie — un croisement des sens qui lui faisait associer sons et couleurs. En entendant Wagner, il voyait des couleurs."},{"e":"📚","t":"<b>Son livre 'Du Spirituel dans l'Art' (1912) est la bible de l'abstraction.</b> Il y théorise que chaque couleur a une 'résonance intérieure' — le jaune est actif et irritant, le bleu est profond et céleste, le rouge brûle."},{"e":"🏫","t":"<b>Kandinsky enseigna au Bauhaus aux côtés de Klee et Moholy-Nagy.</b> Lorsque les nazis fermèrent le Bauhaus en 1933, Kandinsky s'exila à Paris, où il mourut en 1944."}],"quiz":{"q":"Pourquoi Kandinsky comparait-il la peinture abstraite à la musique ?","r":"Il souffrait de synesthésie et associait sons et couleurs — pour lui, la peinture pouvait toucher l'âme directement, sans représenter le monde visible","hint":"En entendant Wagner, il voyait des couleurs — cette condition rare fut sa révélation artistique"},"era_disc":"Modernisme","era_disc_start":1900},{"title":"Metropolis — Fritz Lang","artiste":"Fritz Lang","date":"1927","mouvement":"Muet & Expressionnisme","discipline":"Cinéma","img":"img/arts/Metropolis.webp","musee":"Universum Film AG (UFA), Berlin","technique":"Film muet, 153 min (version restaurée 2010)","desc":"Dans une mégapole futuriste du XXIIe siècle, les élites vivent dans des tours lumineuses pendant que les ouvriers s'épuisent dans des souterrains. Freder, fils du maître de la ville, descend dans les profondeurs et découvre Maria, prophétesse ouvrière. Premier grand film de science-fiction, Metropolis invente visuellement l'imaginaire dystopique qui inspirera tout le cinéma à venir.","anecdotes":[{"e":"🤖","t":"<b>Le robot féminin de Metropolis est l'ancêtre de tous les robots du cinéma.</b> Maschinenmensch, la femme-robot à l'armure d'or, a directement inspiré C-3PO de Star Wars, le robot de Terminator, et d'innombrables autres. Son design, créé par le sculpteur Walter Schulze-Mittendorff, est l'image emblématique de la science-fiction."},{"e":"🔥","t":"<b>Le film coûta une fortune et ruina la UFA.</b> Le tournage de 17 mois mobilisa 36 000 figurants et 1 million de mètres de pellicule. Son coût catapulta le studio dans la faillite. Pourtant, c'est l'un des films les plus influents de l'histoire du cinéma."},{"e":"🎵","t":"<b>Giorgio Moroder en fit une version musicale en 1984.</b> Le compositeur électronique ajouta une bande originale rock avec Freddie Mercury, Bonnie Tyler et Pat Benatar. Cette version, d'abord scandaleuse pour les puristes, contribua à faire redécouvrir le film à toute une génération."}],"quiz":{"q":"Quelle créature emblématique de Metropolis a directement inspiré C-3PO dans Star Wars ?","r":"Maschinenmensch, la femme-robot à l'armure d'or — dont le design fut directement copié par George Lucas","hint":"Fritz Lang invente ici l'archétype visuel du robot humanoïde qui hantera tout le cinéma du XXe siècle"},"era_disc":"Cinéma muet","era_disc_start":1910},{"title":"À la Recherche du Temps Perdu — Marcel Proust","artiste":"Marcel Proust","date":"1913–1927","mouvement":"Modernisme littéraire","discipline":"Littérature","img":"img/arts/a la recherche du temps perdu.webp","musee":"Éditions Grasset puis Gallimard, Paris","technique":"Roman en 7 volumes, 3 000 pages","desc":"Le narrateur, Marcel, trempe une madeleine dans du thé et est soudain submergé par le souvenir de son enfance à Combray. Cette involuntary memory déclenche le roman le plus long et le plus ambitieux de la littérature française. Proust explore la mémoire, le temps, l'amour, la jalousie et la société aristocratique de la Belle Époque à travers un style de phrases interminables et précises.","anecdotes":[{"e":"🍪","t":"<b>La madeleine n'était pas une madeleine dans la première version.</b> Dans les brouillons, le souvenir était déclenché par une biscotte, puis un morceau de pain grillé. C'est seulement en révisant que Proust choisit la madeleine — plus poétique, plus ronde, plus symboliquement féminine et enfantine."},{"e":"🛏️","t":"<b>Proust écrivait couché dans une chambre tapissée de liège.</b> Souffrant d'asthme sévère, il fit tapisser sa chambre de liège pour atténuer les bruits et filtrer les pollens. Il écrivait la nuit, au lit, dans une chaleur étouffante, les carnets de brouillon posés sur ses genoux."},{"e":"📚","t":"<b>C'est le plus long roman de la littérature mondiale.</b> Avec ses 3 000 pages et 1,5 million de mots, il dépasse Guerre et Paix et Les Misérables. La première édition fut refusée par Gallimard — André Gide s'en mordit les doigts toute sa vie."}],"quiz":{"q":"Quel aliment trempe le narrateur dans son thé, déclenchant le torrent de souvenirs qui ouvre À la Recherche du Temps Perdu ?","r":"Une madeleine — dont le goût fait resurgir involontairement toute son enfance à Combray","hint":"Ce moment est devenu le symbole de la 'mémoire involontaire' — un souvenir déclenché par un sens, non par la volonté"},"era_disc":"Littérature moderne & contemporaine","era_disc_start":1900},{"title":"Le Voyage dans la Lune — Georges Méliès","artiste":"Georges Méliès","date":"1902","mouvement":"Débuts du cinéma","discipline":"Cinéma","era_disc":"Débuts du cinéma","era_disc_start":1895,"img":"img/arts/Le_Voyage_dans_la_lune.webp","musee":"Production Star Film, Paris","technique":"Film muet, 14 min, noir et blanc colorié","desc":"Premier film de science-fiction de l'histoire du cinéma, Le Voyage dans la Lune adapte Jules Verne et H.G. Wells. Des savants sont propulsés sur la Lune dans un obus, rencontrent des Sélénites et reviennent sur Terre. Méliès invente les effets spéciaux, les trucages, les transitions — et pose les bases du cinéma comme art du rêve et de l'illusion.","anecdotes":[{"e":"🎩","t":"<b>Méliès était prestidigitateur avant d'être cinéaste.</b> Directeur du Théâtre Robert-Houdin à Paris, il appliqua ses techniques de magie au cinéma : arrêts caméra, substitutions, fondus. Il découvrit accidentellement les trucages quand sa caméra se bloqua en filmant la rue — un omnibus se transforma en corbillard."},{"e":"🔵","t":"<b>Le film était colorié à la main, image par image.</b> Méliès employait des dizaines de femmes pour colorier chaque photogramme avec de minuscules pinceaux. La version colorée fut retrouvée en 1993 dans un état de décomposition avancé — une restauration numérique de plusieurs années la rendit au monde en 2011."},{"e":"😢","t":"<b>Méliès mourut ruiné et oublié.</b> Incapable de s'adapter au cinéma industriel, il vendit ses films pour en récupérer l'argent de la pellicule — détruisant ainsi une grande partie de son œuvre. Redécouvert dans les années 1920, il terminait ses jours dans un kiosque à bonbons à Paris quand des cinéphiles le retrouvèrent."}],"quiz":{"q":"Comment Méliès découvrit-il accidentellement les effets spéciaux cinématographiques ?","r":"Sa caméra se bloqua en filmant la rue — à la projection, un omnibus semblait se transformer en corbillard par magie","hint":"Ce hasard technique devint la base de toute sa carrière de prestidigitateur du cinéma"}},{"title":"M le Maudit — Fritz Lang","artiste":"Fritz Lang","date":"1931","mouvement":"Cinéma parlant","discipline":"Cinéma","era_disc":"Cinéma parlant","era_disc_start":1927,"img":"","musee":"Nero-Film AG, Berlin","technique":"Film parlant, 117 min, noir et blanc","desc":"M le Maudit est le premier film parlant de Fritz Lang. Un tueur en série d'enfants terrorise une ville allemande. Traqué à la fois par la police et par le milieu criminel, il est finalement jugé par les criminels eux-mêmes. Chef-d'œuvre du thriller psychologique, le film invente le portrait du tueur en série au cinéma et utilise le son comme outil dramatique inédit.","anecdotes":[{"e":"🎵","t":"<b>Peter Lorre siffle 'Dans le hall du roi de la montagne' de Grieg pour signaler sa présence.</b> Ce motif musical, sifflé compulsivement par le tueur, devient sa signature — le moyen par lequel un aveugle le reconnaît dans la foule. C'est l'une des utilisations les plus brillantes du son dans l'histoire du cinéma."},{"e":"🇩🇪","t":"<b>Lang quitta l'Allemagne le lendemain de sa rencontre avec Goebbels.</b> En 1933, le ministre de la propagande nazie convoqua Lang pour lui proposer de diriger le cinéma du Reich. Lang fit semblant d'accepter, rentra chez lui et prit le premier train pour Paris — abandonnant sa femme nazie et toute sa fortune."},{"e":"🔍","t":"<b>Le film utilise deux espaces sonores parallèles : la police et les criminels.</b> Lang monte en alternance les réunions de la police criminelle et celles du milieu — mêmes problèmes, même structure. Cette construction formelle souligne que les deux camps utilisent les mêmes méthodes pour le même but."}],"quiz":{"q":"Par quel moyen sonore le tueur Hans Beckert est-il finalement reconnu dans la foule ?","r":"Son sifflement compulsif du thème de Grieg — reconnu par un mendiant aveugle qui lui colle une lettre M dans le dos","hint":"C'est l'une des utilisations les plus célèbres du son comme élément dramatique dans l'histoire du cinéma"}},{"title":"Citizen Kane — Orson Welles","artiste":"Orson Welles","date":"1941","mouvement":"Âge d’or","discipline":"Cinéma","era_disc":"Âge d’or","era_disc_start":1930,"img":"img/arts/Citizen_Kane.webp","musee":"RKO Radio Pictures, Hollywood","technique":"Film noir, 119 min, noir et blanc","desc":"Citizen Kane retrace la vie de Charles Foster Kane, magnat de la presse, à travers les témoignages de ceux qui l'ont connu. La narration fragmentée en flash-backs, la profondeur de champ révolutionnaire, les angles de caméra inédits, la bande-son complexe — tout ici est innovation. Élu régulièrement 'meilleur film de tous les temps', il reste la référence absolue du cinéma d'auteur américain.","anecdotes":[{"e":"🌹","t":"<b>'Rosebud' est l'un des plus grands MacGuffins de l'histoire du cinéma.</b> Le mot murmuré par Kane à sa mort déclenche toute l'enquête du film — et la réponse finale, révélée au spectateur seul, est à la fois simple et bouleversante. Hearst, dont Kane est le portrait-clé, tenta par tous les moyens d'empêcher la sortie du film."},{"e":"🎬","t":"<b>Welles avait 25 ans et n'avait jamais réalisé de film.</b> Après son canular radiophonique de 'La Guerre des Mondes' en 1938, RKO lui offrit un contrat rêvé : liberté totale. Welles passa des semaines à étudier le cinéma — regardant notamment Stagecoach de Ford des dizaines de fois — avant de tourner."},{"e":"📸","t":"<b>La profondeur de champ révolutionnaire fut obtenue avec le directeur de la photo Gregg Toland.</b> Pour la première fois, le premier plan et l'arrière-plan sont nets simultanément dans la même image. Cette technique, combinée aux plafonds visibles (impossibles dans le cinéma classique), donna au film son esthétique unique."}],"quiz":{"q":"Quel aspect technique révolutionnaire Orson Welles introduit-il dans Citizen Kane, permettant de voir le premier et l'arrière-plan nets simultanément ?","r":"La grande profondeur de champ — obtenue avec le directeur de la photo Gregg Toland grâce à des optiques et éclairages inédits","hint":"Cette technique rendit également visible les plafonds des décors, jusque-là cachés car la caméra filmait de bas vers le haut"}},{"title":"À bout de souffle — Jean-Luc Godard","artiste":"Jean-Luc Godard","date":"1960","mouvement":"Nouvelles vagues","discipline":"Cinéma","era_disc":"Nouvelles vagues","era_disc_start":1950,"img":"img/arts/a bout de soufle_.webp","musee":"Les Films Georges de Beauregard, Paris","technique":"Film, 90 min, noir et blanc","desc":"Michel Poiccard, petit criminel qui se prend pour Humphrey Bogart, tue un policier et fuit à Paris avec une Américaine. Tourné avec une caméra portée dans les rues de Paris, avec un budget minimal et des acteurs peu connus, À bout de souffle invente un nouveau langage cinématographique : jump cuts, caméra à l'épaule, improvisation, références au cinéma américain. C'est l'acte fondateur de la Nouvelle Vague française.","anecdotes":[{"e":"✂️","t":"<b>Le jump cut — la coupe brutale dans un plan continu — fut inventé par accident.</b> Le film était trop long. Au montage, Godard coupa des morceaux au milieu des plans au lieu de couper entre les plans — créant des sauts visuels choquants. Ce 'défaut' devint une signature esthétique copiée dans le monde entier."},{"e":"📋","t":"<b>Il n'y avait pas de scénario.</b> Godard écrivait les dialogues chaque matin sur des petits papiers qu'il glissait dans les poches des acteurs. Belmondo et Seberg improvisaient en grande partie. Ce tournage 'à la volée' dans les rues de Paris était radicalement opposé au cinéma de studio français de l'époque."},{"e":"🎬","t":"<b>Le film fut tourné en 4 semaines pour 40 millions de francs — dix fois moins qu'un film classique.</b> Godard utilisa une caméra de reportage légère (Caméflex) portée à l'épaule, qui permit de tourner dans de vraies rues, de vrais cafés, de vrais appartements. Cette économie de moyens devint une esthétique."}],"quiz":{"q":"Comment le jump cut — coupe brutale au milieu d'un plan — fut-il inventé dans À bout de souffle ?","r":"Par accident au montage : le film était trop long, Godard coupa des morceaux dans les plans au lieu d'entre les plans","hint":"Ce 'défaut' technique choquant devint une signature esthétique de la Nouvelle Vague copiée dans le monde entier"}},{"title":"Centre Pompidou — Piano & Rogers","artiste":"Renzo Piano & Richard Rogers","date":"1971–1977","mouvement":"Architecture contemporaine","discipline":"Architecture & Arts","era_disc":"Architecture contemporaine","era_disc_start":1950,"img":"img/arts/centre pompidou.webp","musee":"Beaubourg, Paris, France","technique":"Structure métallique et verre, façade high-tech, 166 m × 60 m","desc":"Le Centre Pompidou renversa toutes les conventions architecturales : la structure porteuse, les conduits techniques, les escalators sont à l'extérieur du bâtiment, exposés et colorés selon leur fonction (bleu pour l'air, vert pour l'eau, jaune pour l'électricité, rouge pour la circulation). Le bâtiment est son propre squelette visible — l'intérieur est un plateau libre, adaptable à toutes les configurations.","anecdotes":[{"e":"😱","t":"<b>Le projet fut surnommé 'la raffinerie de pétrole' par les Parisiens.</b> Lancé en 1971 à la suite d'un concours international remporté par deux inconnus de 34 ans, le projet choqua profondément. Les riverains protestèrent, les architectes établis s'indignèrent. Aujourd'hui, c'est l'un des bâtiments les plus aimés de Paris, visité par 3 millions de personnes par an."},{"e":"🔧","t":"<b>L'idée centrale : libérer l'intérieur en mettant tout à l'extérieur.</b> En exposant les structures et les circuits techniques sur la façade, Piano et Rogers obtinrent un plateau de 7 500 m² par étage, sans aucun pilier ni cloison fixe — adaptable à n'importe quelle exposition, spectacle ou activité. C'est l'architecture comme flexibilité absolue."},{"e":"🌍","t":"<b>Le concours international reçut 681 projets de 49 pays.</b> Le jury présidé par Jean Prouvé choisit le projet Piano-Rogers — le plus radical et le plus inattendu. La plupart des jurés ne s'attendaient pas à ce qu'il soit réellement construit à l'identique. Il le fut, sans compromis majeurs."}],"quiz":{"q":"Quelle philosophie architecturale révolutionnaire le Centre Pompidou incarne-t-il en exposant ses structures et conduites à l'extérieur ?","r":"Libérer l'intérieur en externalisant tout le technique — obtenant un plateau libre sans piliers, adaptable à toute configuration","hint":"Les conduites sont codées par couleur selon leur fonction : bleu pour l'air, vert pour l'eau, rouge pour la circulation"}}]}];
+let activeFilter = 'Tout';
+
+const eraDates = {
+  'Renaissance':             'vers 1400 – 1600',
+  'Baroque':                 'vers 1600 – 1750',
+  'Néoclassicisme':          'vers 1760 – 1830',
+  'Romantisme':              'vers 1800 – 1850',
+  'Impressionnisme':         'vers 1860 – 1890',
+  'Post-Impressionnisme':    'vers 1880 – 1910',
+  'Art Nouveau / Symbolisme':'vers 1890 – 1910',
+  'Modernisme':              'vers 1900 – 1960',
+};
+
+// Siècle affiché entre parenthèses dans les tabs et titres
+const eraSiecle = {
+  'Renaissance':              '(XVe – XVIe s.)',
+  'Baroque':                  '(XVIIe – XVIIIe s.)',
+  'Néoclassicisme':           '(XVIIIe – XIXe s.)',
+  'Romantisme':               '(XIXe s.)',
+  'Impressionnisme':          '(XIXe s.)',
+  'Post-Impressionnisme':     '(XIXe – XXe s.)',
+  'Art Nouveau / Symbolisme': '(XIXe – XXe s.)',
+  'Modernisme':               '(XXe s.)',
+};
+
+const eraEmojis = {
+  'Renaissance':'🖼️','Baroque':'🎻','Néoclassicisme':'🏛️',
+  'Romantisme':'🌊','Impressionnisme':'☀️','Post-Impressionnisme':'🌻',
+  'Art Nouveau / Symbolisme':'🌿','Modernisme':'🎭',
+};
+
+const discConfig = {
+  'Tout':               {icon:'✦', cls:''},
+  'Peinture':           {icon:'🖼️', cls:'disc-Peinture'},
+  'Littérature':        {icon:'📚', cls:'disc-Littérature'},
+  'Cinéma':             {icon:'🎬', cls:'disc-Cinéma'},
+  'Musique':            {icon:'🎵', cls:'disc-Musique'},
+  'Architecture & Arts':{icon:'🏛️', cls:'disc-Architecture'},
+};
+
+const discCta = {
+  'Peinture':           'Découvrir l\'œuvre',
+  'Littérature':        'Découvrir l\'œuvre',
+  'Cinéma':             'Découvrir le film',
+  'Musique':            'Découvrir la pièce',
+  'Architecture & Arts':'Découvrir l\'œuvre',
+};
+
+function encodeImgPath(p){
+  return p.split('/').map((seg,i)=>i===0?seg:encodeURIComponent(seg)).join('/');
+}
+
+function discClass(disc){
+  if(!disc) return 'disc-Peinture';
+  if(disc.startsWith('Architecture')) return 'disc-Architecture';
+  return 'disc-'+disc;
+}
+
+/* ──────────────────────────────────────────
+   BUILD UI
+────────────────────────────────────────── */
+
+/* ──────────────────────────────────────────
+   ÈRES PAR DISCIPLINE
+────────────────────────────────────────── */
+const DISC_ERAS_CONFIG = {
+  "Tout": [
+    {name:"XVe – XVIe s.", dates:"1400 – 1600", start:1400},
+    {name:"XVIIe s.", dates:"1600 – 1700", start:1600},
+    {name:"XVIIIe s.", dates:"1700 – 1800", start:1700},
+    {name:"XIXe s.", dates:"1800 – 1900", start:1800},
+    {name:"XXe – XXIe s.", dates:"1900 – aujourd’hui", start:1900},
+  ],
+  "Peinture": [
+    {name:"Renaissance", dates:"vers 1400 – 1600", start:1400},
+    {name:"Baroque", dates:"vers 1600 – 1750", start:1600},
+    {name:"Néoclassicisme", dates:"vers 1760 – 1830", start:1760},
+    {name:"Romantisme", dates:"vers 1800 – 1850", start:1800},
+    {name:"Impressionnisme", dates:"vers 1860 – 1890", start:1860},
+    {name:"Post-Impressionnisme", dates:"vers 1880 – 1910", start:1880},
+    {name:"Art Nouveau / Symbolisme", dates:"vers 1890 – 1910", start:1890},
+    {name:"Modernisme", dates:"vers 1900 – 1960", start:1900},
+  ],
+  "Musique": [
+    {name:"Moyen Âge musical", dates:"jusqu’au XVe s.", start:500},
+    {name:"Renaissance musicale", dates:"XVe – XVIe s.", start:1400},
+    {name:"Baroque", dates:"1600 – 1750", start:1600},
+    {name:"Classicisme", dates:"1750 – 1800", start:1750},
+    {name:"La tornade Beethoven", dates:"1770 – 1827", start:1770},
+    {name:"Romantisme", dates:"1800 – 1900", start:1800},
+    {name:"La modernité", dates:"1900 – 1945", start:1900},
+    {name:"Contemporain", dates:"depuis 1950", start:1950},
+  ],
+  "Cinéma": [
+    {name:"Débuts du cinéma", dates:"fin XIXe – vers 1910", start:1895},
+    {name:"Cinéma muet", dates:"vers 1910 – fin 1920s", start:1910},
+    {name:"Cinéma parlant", dates:"fin 1920s – 1930s", start:1927},
+    {name:"Âge d’or", dates:"1930s – 1950s", start:1930},
+    {name:"Nouvelles vagues", dates:"1950s – 1970s", start:1950},
+    {name:"Cinéma contemporain", dates:"depuis 1980", start:1980},
+    {name:"Ère numérique", dates:"2000 – aujourd’hui", start:2000},
+  ],
+  "Architecture & Arts": [
+    {name:"Architecture antique", dates:"Antiquité", start:-3000},
+    {name:"Art paléochrétien & byzantin", dates:"IVe – Xe s.", start:300},
+    {name:"Architecture romane", dates:"Xe – XIIe s.", start:900},
+    {name:"Architecture gothique", dates:"XIIe – XVe s.", start:1140},
+    {name:"Renaissance", dates:"XVe – XVIe s.", start:1400},
+    {name:"Baroque & Classicisme", dates:"XVIIe – XVIIIe s.", start:1600},
+    {name:"Architecture moderne", dates:"fin XIXe – milieu XXe s.", start:1850},
+    {name:"Architecture contemporaine", dates:"depuis 1950", start:1950},
+  ],
+  "Littérature": [
+    {name:"Antiquité", dates:"jusqu’au Ve s.", start:-800},
+    {name:"Moyen Âge", dates:"Ve – XVe s.", start:500},
+    {name:"Renaissance", dates:"XVe – XVIe s.", start:1400},
+    {name:"Classicisme", dates:"XVIIe s.", start:1600},
+    {name:"Lumières", dates:"XVIIIe s.", start:1715},
+    {name:"Romantisme", dates:"début XIXe s.", start:1800},
+    {name:"Réalisme & Naturalisme", dates:"XIXe s.", start:1850},
+    {name:"Symbolisme", dates:"fin XIXe s.", start:1880},
+    {name:"Littérature moderne & contemporaine", dates:"XXe – XXIe s.", start:1900},
+  ]
+};
+// Siècle pour "Tout" : déterminé par date de début de l'œuvre
+function getToutEra(ev){
+  const d = parseInt((ev.date||'').replace(/[^0-9].*$/, '')) || 9999;
+  if(d < 1600) return 'XVe – XVIe s.';
+  if(d < 1700) return 'XVIIe s.';
+  if(d < 1800) return 'XVIIIe s.';
+  if(d < 1900) return 'XIXe s.';
+  return 'XXe – XXIe s.';
+}
+
+// Retourne l'era à afficher pour une œuvre selon le filtre actif
+function getDisplayEra(ev){
+  if(activeFilter === 'Tout') return getToutEra(ev);
+  const disc = ev.discipline || 'Peinture';
+  if(activeFilter === disc) return ev.era_disc || ev.mouvement;
+  return null; // ne pas afficher dans ce filtre
+}
+
+function buildFilterChips(){
+  const chipsEl = document.getElementById('filter-chips');
+  chipsEl.innerHTML='';
+
+  // Collect disciplines present in data
+  const present = new Set(['Tout']);
+  DATA.forEach(era=>era.events.forEach(ev=>present.add(ev.discipline||'Peinture')));
+
+  Object.entries(discConfig).forEach(([name,cfg])=>{
+    if(!present.has(name)) return;
+    const btn = document.createElement('button');
+    btn.className = 'filter-chip' + (name===activeFilter?' active':'');
+    btn.dataset.disc = name;
+    btn.innerHTML = `<span class="chip-icon">${cfg.icon}</span>${name}`;
+    btn.addEventListener('click',()=>setFilter(name));
+    chipsEl.appendChild(btn);
+  });
+}
+
+function buildEraTabs(){
+  const tabsEl = document.getElementById('era-tabs');
+  tabsEl.innerHTML='';
+  const eras = DISC_ERAS_CONFIG[activeFilter] || DISC_ERAS_CONFIG['Tout'];
+  // Ne garder que les ères qui ont au moins une œuvre visible
+  const present = new Set();
+  DATA.forEach(era => era.events.forEach(ev => {
+    const disc = ev.discipline || 'Peinture';
+    if(activeFilter === 'Tout' || disc === activeFilter){
+      present.add(ev.era_disc || ev.mouvement);
+      if(activeFilter === 'Tout') present.add(getToutEra(ev));
+    }
+  }));
+  eras.filter(e => present.has(e.name)).forEach((e,i)=>{
+    const tab = document.createElement('button');
+    tab.className = 'era-tab'+(i===0?' active':'');
+    tab.dataset.eraname = e.name;
+    tab.innerHTML=`<span class="era-tab-name">${e.name}</span><span class="era-tab-dates">${e.dates}</span>`;
+    tab.addEventListener('click',()=>scrollToDiscEra(e.name));
+    tabsEl.appendChild(tab);
+  });
+}
+
+function buildMain(){
+  const mainEl = document.getElementById('main-content');
+  mainEl.innerHTML='';
+
+  // Collecter toutes les œuvres plate + les regrouper par era_disc selon le filtre
+  const eraGroups = {}; // eraName -> {events:[], start:number}
+  const eras = DISC_ERAS_CONFIG[activeFilter] || DISC_ERAS_CONFIG['Tout'];
+
+  // Index plat de toutes les œuvres avec référence era/ev
+  const allEvents = [];
+  DATA.forEach((era,eraIdx)=>{
+    era.events.forEach((ev,evIdx)=>{
+      allEvents.push({ev, eraIdx, evIdx});
+    });
+  });
+
+  allEvents.forEach(({ev, eraIdx, evIdx})=>{
+    const disc = ev.discipline||'Peinture';
+    const show = activeFilter==='Tout' || disc===activeFilter;
+    if(!show) return;
+    const eraName = activeFilter==='Tout' ? getToutEra(ev) : (ev.era_disc||ev.mouvement);
+    if(!eraGroups[eraName]) eraGroups[eraName]={items:[], start: eras.find(e=>e.name===eraName)?.start||9999};
+    eraGroups[eraName].items.push({ev,eraIdx,evIdx});
+  });
+
+  // Trier les groupes par start
+  const sortedGroups = Object.entries(eraGroups).sort((a,b)=>a[1].start-b[1].start);
+
+  sortedGroups.forEach(([eraName, group],gIdx)=>{
+    const section = document.createElement('section');
+    section.className='era-section';
+    section.id=`disc-era-${gIdx}`;
+    section.dataset.eraname = eraName;
+
+    // Trouver l'info de dates pour ce groupe
+    const eraInfo = eras.find(e=>e.name===eraName)||{dates:''};
+    // Emoji : pour peinture on garde l'emoji d'époque, sinon on prend celui de la discipline
+    const discEmojis = {'Littérature':'📚','Musique':'🎵','Cinéma':'🎬','Architecture & Arts':'🏛️'};
+    let emoji;
+    if(activeFilter==='Tout'){
+      emoji = '✦';
+    } else if(activeFilter==='Peinture'){
+      // trouver l'emoji de l'ère picturale correspondante
+      const paintEra = group.items[0]?.ev?.mouvement;
+      emoji = eraEmojis[paintEra]||'🖼️';
+    } else {
+      emoji = discEmojis[activeFilter]||'🎨';
+    }
+
+    const hdr = document.createElement('div');
+    hdr.className='era-header';
+    hdr.innerHTML=`
+      <h2 class="era-title">
+        ${emoji}&nbsp; ${eraName}
+        <span class="era-dates" style="font-size:1.4rem">${eraInfo.dates}</span>
+      </h2>
+      <div class="era-line"></div>`;
+    section.appendChild(hdr);
+
+    const grid = document.createElement('div');
+    grid.className='cards-grid';
+
+    group.items.forEach(({ev,eraIdx,evIdx})=>{
+      const disc = ev.discipline||'Peinture';
+      const cfg = discConfig[disc]||discConfig['Peinture'];
+      const card = document.createElement('div');
+      card.className='art-card';
+      card.dataset.discipline=disc;
+      card.setAttribute('role','button');
+      card.setAttribute('tabindex','0');
+      card.setAttribute('aria-label',`Voir la fiche de ${ev.title}`);
+
+      const imgSrc = ev.img ? encodeImgPath(ev.img):'';
+      let imgHtml;
+      if(imgSrc){
+        imgHtml=`<img class="card-img" src="${imgSrc}" alt="${ev.title}" loading="lazy" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'">
+                 <div class="card-no-img" data-disc="${disc}" style="display:none">${cfg.icon}<span class="card-no-img-label">${disc}</span></div>`;
+      } else {
+        imgHtml=`<div class="card-no-img" data-disc="${disc}">${cfg.icon}<span class="card-no-img-label">${disc}</span></div>`;
+      }
+      const badgeCls=discClass(disc);
+      const ctaLabel=discCta[disc]||"Découvrir l\'œuvre";
+      // Sur la carte : afficher mouvement propre si pas Peinture
+      const mouvLabel = disc==='Peinture' ? ev.mouvement : ev.mouvement;
+
+      card.innerHTML=`
+        ${imgHtml}
+        <div class="card-disc-badge ${badgeCls}">${cfg.icon} ${disc}</div>
+        <div class="card-body">
+          <div class="card-mouvement">${mouvLabel}</div>
+          <div class="card-title">${ev.title}</div>
+          <div class="card-meta">
+            <span class="card-date">${ev.date}</span>
+            <span class="card-museum">📍 ${ev.musee}</span>
+          </div>
+          <div class="card-cta">${ctaLabel}</div>
+        </div>`;
+
+      card.addEventListener('click',()=>openModal(eraIdx,evIdx));
+      card.addEventListener('keydown',e=>{if(e.key==='Enter'||e.key===' '){e.preventDefault();openModal(eraIdx,evIdx);}});
+      grid.appendChild(card);
+    });
+
+    section.appendChild(grid);
+    mainEl.appendChild(section);
+  });
+
+  // Observers
+  const sectionEls=document.querySelectorAll('.era-section');
+  const cardObs=new IntersectionObserver(entries=>{
+    entries.forEach(e=>{if(e.isIntersecting)e.target.classList.add('vis');});
+  },{threshold:.08});
+  sectionEls.forEach(s=>cardObs.observe(s));
+
+  const eraObs=new IntersectionObserver(entries=>{
+    entries.forEach(e=>{
+      if(e.isIntersecting){
+        const name=e.target.dataset.eraname;
+        document.querySelectorAll('.era-tab').forEach(t=>t.classList.toggle('active',t.dataset.eraname===name));
+      }
+    });
+  },{rootMargin:'-40% 0px -50% 0px'});
+  sectionEls.forEach(s=>eraObs.observe(s));
+}
+
+/* ──────────────────────────────────────────
+   FILTER LOGIC
+────────────────────────────────────────── */
+function setFilter(disc){
+  activeFilter = disc;
+  document.querySelectorAll('.filter-chip').forEach(c=>{
+    c.classList.toggle('active', c.dataset.disc===disc);
+  });
+  // Reconstruire les tabs ET le contenu
+  buildEraTabs();
+  buildMain();
+  window.scrollTo({top:0,behavior:'smooth'});
+}
+
+/* ──────────────────────────────────────────
+   SCROLL & ACTIVE LOGIC
+────────────────────────────────────────── */
+function scrollToDiscEra(eraName){
+  const sections=document.querySelectorAll('.era-section');
+  for(const s of sections){
+    if(s.dataset.eraname===eraName){
+      const navH=document.getElementById('era-nav').offsetHeight;
+      const filterH=document.getElementById('filter-bar').offsetHeight;
+      const top=s.getBoundingClientRect().top+window.scrollY-navH-filterH-16;
+      window.scrollTo({top,behavior:'smooth'});
+      return;
+    }
+  }
+}
+
+/* ──────────────────────────────────────────
+   MODAL
+────────────────────────────────────────── */
+const overlay=document.getElementById('modal-overlay');
+const modalInner=document.getElementById('modal-inner');
+const modalClose=document.getElementById('modal-close');
+let lastFocus=null;
+
+function openModal(eraIdx,evIdx){
+  const ev=DATA[eraIdx].events[evIdx];
+  lastFocus=document.activeElement;
+
+  const disc=ev.discipline||'Peinture';
+  const cfg=discConfig[disc]||discConfig['Peinture'];
+
+  let imgSection;
+  if(ev.img){
+    imgSection=`<div class="modal-img-wrap">
+      <img class="modal-img" src="${encodeImgPath(ev.img)}" alt="${ev.title}" onerror="this.parentElement.style.display='none'">
+      <div class="modal-img-grad"></div>
+    </div>`;
+  } else {
+    imgSection=`<div class="modal-no-img" data-disc="${disc}">
+      <div class="modal-no-img-icon">${cfg.icon}</div>
+      <div class="modal-no-img-label">${disc}</div>
+      <div class="modal-no-img-grad"></div>
+    </div>`;
+  }
+
+  // Icône adaptée pour les métadonnées
+  const metaIcon = disc==='Peinture'?'🖌️':disc==='Cinéma'?'🎬':disc==='Musique'?'🎼':disc==='Littérature'?'✍️':'🏛️';
+  const metaLabel = disc==='Peinture'?'Artiste':disc==='Cinéma'?'Réalisateur':disc==='Musique'?'Compositeur':disc==='Littérature'?'Auteur':'Créateur';
+  const techLabel = disc==='Peinture'?'🔬':disc==='Cinéma'?'📽️':disc==='Musique'?'🎹':disc==='Littérature'?'📖':'🏗️';
+
+  const anecdotes=ev.anecdotes.map(a=>`
+    <div class="anecdote">
+      <div class="anecdote-icon">${a.e}</div>
+      <div class="anecdote-text">${a.t}</div>
+    </div>`).join('');
+
+  const quiz=ev.quiz?`
+    <div class="quiz-title">Quiz</div>
+    <div class="quiz-box">
+      <div class="quiz-q">❓ ${ev.quiz.q}</div>
+      <div class="quiz-hint"><strong>Indice :</strong> ${ev.quiz.hint}</div>
+      <button class="quiz-toggle" onclick="toggleQuiz(this)">Révéler la réponse</button>
+      <div class="quiz-answer">✅ ${ev.quiz.r}</div>
+    </div>`:'';
+
+  modalInner.innerHTML=`
+    ${imgSection}
+    <div class="modal-body">
+      <div class="modal-supra">${ev.mouvement} · ${disc} · ${ev.date}</div>
+      <h2 class="modal-title">${ev.title}</h2>
+      <div class="modal-meta">
+        <span>${metaIcon} <strong>${ev.artiste}</strong></span>
+        <span>📍 <strong>${ev.musee}</strong></span>
+        <span>${techLabel} ${ev.technique}</span>
+      </div>
+      <p class="modal-desc">${ev.desc}</p>
+      <div class="anecdotes-title">Anecdotes</div>
+      ${anecdotes}
+      ${quiz}
+    </div>`;
+
+  overlay.classList.add('open');
+  document.body.style.overflow='hidden';
+  document.getElementById('modal').scrollTop=0;
+  modalClose.focus();
+}
+
+function closeModal(){
+  overlay.classList.remove('open');
+  document.body.style.overflow='';
+  if(lastFocus)lastFocus.focus();
+}
+
+function toggleQuiz(btn){
+  const ans=btn.nextElementSibling;
+  const show=!ans.classList.contains('show');
+  ans.classList.toggle('show',show);
+  btn.textContent=show?'Masquer la réponse':'Révéler la réponse';
+}
+
+modalClose.addEventListener('click',closeModal);
+overlay.addEventListener('click',e=>{if(e.target===overlay)closeModal();});
+document.addEventListener('keydown',e=>{if(e.key==='Escape')closeModal();});
+
+/* ──────────────────────────────────────────
+   INIT — load JSON then build
+────────────────────────────────────────── */
+fetch('json/arts/arts-data.json')
+  .then(r=>r.json())
+  .then(data=>{
+    DATA=data;
+    buildEraTabs();
+    buildFilterChips();
+    buildMain();
+  })
+  .catch(err=>{
+    console.error('Erreur chargement arts-data.json',err);
+    document.getElementById('main-content').innerHTML=
+      '<p style="text-align:center;padding:60px;color:rgba(232,223,196,.4)">Impossible de charger les données.</p>';
+  });
+</script>
+</body>
+</html>

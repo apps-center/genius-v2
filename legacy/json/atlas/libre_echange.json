@@ -1,0 +1,156 @@
+{
+  "_meta": {
+    "title": "Zones de Libre-Échange",
+    "emoji": "🤝",
+    "source": "OMC 2024"
+  },
+  "zones": [
+    {
+      "id": "ue",
+      "label": "Union Européenne",
+      "emoji": "🇪🇺",
+      "couleur": "#3060c0",
+      "pays": [
+        "FR",
+        "DE",
+        "IT",
+        "ES",
+        "PT",
+        "NL",
+        "BE",
+        "LU",
+        "AT",
+        "FI",
+        "SE",
+        "DK",
+        "IE",
+        "GR",
+        "PL",
+        "CZ",
+        "SK",
+        "HU",
+        "RO",
+        "BG",
+        "HR",
+        "SI",
+        "LT",
+        "LV",
+        "EE",
+        "CY",
+        "MT"
+      ]
+    },
+    {
+      "id": "nafta",
+      "label": "USMCA (ex-NAFTA)",
+      "emoji": "🦅",
+      "couleur": "#c04020",
+      "pays": [
+        "US",
+        "CA",
+        "MX"
+      ]
+    },
+    {
+      "id": "asean",
+      "label": "ASEAN",
+      "emoji": "🌏",
+      "couleur": "#e08020",
+      "pays": [
+        "TH",
+        "VN",
+        "ID",
+        "PH",
+        "MY",
+        "SG",
+        "MM",
+        "KH",
+        "LA",
+        "BN"
+      ]
+    },
+    {
+      "id": "mercosur",
+      "label": "MERCOSUR",
+      "emoji": "🌎",
+      "couleur": "#20a860",
+      "pays": [
+        "BR",
+        "AR",
+        "UY",
+        "PY",
+        "BO",
+        "CL"
+      ]
+    },
+    {
+      "id": "cedeao",
+      "label": "CEDEAO",
+      "emoji": "🌍",
+      "couleur": "#e0a020",
+      "pays": [
+        "NG",
+        "GH",
+        "SN",
+        "CI",
+        "ML",
+        "BF",
+        "NE",
+        "TG",
+        "BJ",
+        "GN",
+        "SL",
+        "LR",
+        "GM",
+        "GW",
+        "CV"
+      ]
+    },
+    {
+      "id": "ua",
+      "label": "Union Africaine",
+      "emoji": "🌍",
+      "couleur": "#60a030",
+      "pays": [
+        "NG",
+        "ZA",
+        "EG",
+        "ET",
+        "KE",
+        "TZ",
+        "GH",
+        "CI",
+        "SN",
+        "CM",
+        "AO",
+        "MZ",
+        "TN",
+        "MA",
+        "DZ"
+      ]
+    },
+    {
+      "id": "rcep",
+      "label": "RCEP (Asie-Pacifique)",
+      "emoji": "🐉",
+      "couleur": "#c02060",
+      "pays": [
+        "CN",
+        "JP",
+        "KR",
+        "AU",
+        "NZ",
+        "TH",
+        "VN",
+        "ID",
+        "PH",
+        "MY",
+        "SG",
+        "MM",
+        "KH",
+        "LA",
+        "BN"
+      ]
+    }
+  ]
+}

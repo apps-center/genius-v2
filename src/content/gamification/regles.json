@@ -1,0 +1,6 @@
+{
+  "regles": [
+    { "id": "premiere-bonne", "label": "Premiere bonne reponse", "quand": "answer.correct", "xp": 10 },
+    { "id": "activite-finie", "label": "Activite terminee", "quand": "activity.complete", "xp": 50, "badge": "explorateur" }
+  ]
+}

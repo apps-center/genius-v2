@@ -1,0 +1,843 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Atlas Géopolitique Mondial</title>
+<link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;700;900&family=Crimson+Pro:ital,wght@0,300;0,400;1,300&display=swap" rel="stylesheet">
+<style>
+:root{
+  --bg:#05080f;--panel:#0b1120;--panel2:#0e1628;
+  --star:#e8dfc4;--line:rgba(200,180,120,.15);
+  --eau:#3ab4d4;--energie:#e8c040;--alim:#80c840;
+  --demo:#e87040;--villes:#c070e0;--flux:#4080e0;--tensions:#e04040;
+}
+*{box-sizing:border-box;margin:0;padding:0;}
+html,body{height:100%;overflow:hidden;}
+body{background:var(--bg);color:var(--star);font-family:'Crimson Pro',Georgia,serif;display:flex;flex-direction:column;}
+
+/* ── TOP BAR ── */
+.topbar{
+  display:flex;align-items:center;justify-content:space-between;
+  padding:0 20px;height:54px;flex-shrink:0;
+  background:rgba(5,8,15,.96);border-bottom:1px solid var(--line);
+  backdrop-filter:blur(12px);z-index:100;
+}
+.topbar-logo{font-family:'Cinzel',serif;font-size:.95rem;font-weight:900;letter-spacing:.12em;
+  background:linear-gradient(135deg,#f5e6a3,#d4a843 50%,#f0c060);
+  -webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;
+  white-space:nowrap;}
+.topbar-sub{font-size:.7rem;color:rgba(232,223,196,.35);letter-spacing:.18em;text-transform:uppercase;margin-left:10px;}
+.topbar-nav{display:flex;gap:6px;}
+.tnav{font-family:'Cinzel',serif;font-size:.62rem;letter-spacing:.14em;text-transform:uppercase;
+  padding:6px 14px;border:1px solid rgba(200,180,120,.2);border-radius:3px;
+  background:none;color:rgba(232,223,196,.5);cursor:pointer;transition:all .2s;}
+.tnav:hover,.tnav.active{color:var(--star);border-color:rgba(200,180,120,.5);background:rgba(200,180,120,.08);}
+.tnav.question-btn{color:#60c8a0;border-color:rgba(96,200,160,.35);}
+.tnav.question-btn:hover,.tnav.question-btn.active{background:rgba(96,200,160,.1);border-color:rgba(96,200,160,.6);}
+
+/* ── MAIN LAYOUT ── */
+.app{flex:1;display:flex;overflow:hidden;}
+
+/* ── LEFT SIDEBAR ── */
+.sidebar{
+  width:62px;flex-shrink:0;
+  background:rgba(5,8,15,.95);border-right:1px solid var(--line);
+  display:flex;flex-direction:column;align-items:center;
+  padding:12px 0;gap:4px;overflow-y:auto;transition:width .25s;
+}
+.sys-btn{
+  width:46px;height:46px;border-radius:8px;border:1px solid rgba(200,180,120,.12);
+  background:none;cursor:pointer;font-size:1.3rem;
+  display:flex;align-items:center;justify-content:center;
+  transition:all .2s;position:relative;flex-shrink:0;
+}
+.sys-btn:hover,.sys-btn.active{background:rgba(200,180,120,.1);border-color:rgba(200,180,120,.4);transform:scale(1.08);}
+.sys-btn .stip{
+  position:absolute;left:52px;top:50%;transform:translateY(-50%);
+  background:var(--panel);border:1px solid rgba(200,180,120,.3);
+  border-radius:4px;padding:4px 10px;
+  font-family:'Cinzel',serif;font-size:.6rem;letter-spacing:.1em;text-transform:uppercase;
+  color:var(--star);white-space:nowrap;pointer-events:none;opacity:0;transition:opacity .15s;z-index:200;
+}
+.sys-btn:hover .stip{opacity:1;}
+.sys-divider{width:36px;height:1px;background:var(--line);margin:6px 0;flex-shrink:0;}
+
+/* ── CENTER : MAP VIEW ── */
+.center{flex:1;display:flex;flex-direction:column;overflow:hidden;position:relative;}
+
+/* MAP */
+#map-view{flex:1;position:relative;overflow:hidden;}
+#world-svg{width:100%;height:100%;display:block;}
+.country-path{fill:#1a2540;stroke:#0b1120;stroke-width:.5;cursor:pointer;transition:fill .2s;}
+.country-path:hover{fill:#2a3a60;}
+.country-path.highlighted{fill:#2a4070;}
+.country-path.active-country{stroke-width:1.5;}
+
+.map-overlay{position:absolute;top:12px;left:12px;right:12px;display:flex;justify-content:space-between;align-items:flex-start;pointer-events:none;}
+.map-title{font-family:'Cinzel',serif;font-size:.75rem;letter-spacing:.2em;text-transform:uppercase;
+  color:rgba(232,223,196,.4);background:rgba(5,8,15,.7);padding:5px 12px;border-radius:3px;backdrop-filter:blur(4px);}
+.map-controls{display:flex;gap:6px;pointer-events:all;}
+.map-btn{font-size:.65rem;letter-spacing:.1em;text-transform:uppercase;padding:5px 12px;
+  border:1px solid rgba(200,180,120,.2);border-radius:3px;background:rgba(5,8,15,.8);
+  color:rgba(232,223,196,.5);cursor:pointer;transition:all .2s;backdrop-filter:blur(4px);}
+.map-btn:hover,.map-btn.active{color:var(--star);border-color:rgba(200,180,120,.5);}
+
+/* HOTSPOTS */
+.hotspot{position:absolute;cursor:pointer;transform:translate(-50%,-50%);z-index:10;}
+.hotspot-dot{width:10px;height:10px;border-radius:50%;border:2px solid rgba(255,255,255,.6);
+  animation:pulse 2s infinite;}
+@keyframes pulse{0%,100%{box-shadow:0 0 0 0 rgba(255,255,255,.3);}50%{box-shadow:0 0 0 8px rgba(255,255,255,.0);}}
+.hotspot-label{position:absolute;left:14px;top:50%;transform:translateY(-50%);
+  font-size:.58rem;letter-spacing:.1em;text-transform:uppercase;white-space:nowrap;
+  background:rgba(5,8,15,.85);padding:2px 7px;border-radius:2px;opacity:0;transition:opacity .15s;}
+.hotspot:hover .hotspot-label{opacity:1;}
+
+/* ── RIGHT PANEL ── */
+.right-panel{
+  width:0;flex-shrink:0;overflow:hidden;
+  background:var(--panel);border-left:1px solid var(--line);
+  transition:width .3s ease;display:flex;flex-direction:column;
+}
+.right-panel.open{width:380px;}
+.panel-inner{width:380px;height:100%;overflow-y:auto;padding:20px;}
+
+.panel-close{position:absolute;top:12px;right:12px;background:none;border:none;
+  color:rgba(232,223,196,.35);font-size:1.1rem;cursor:pointer;padding:4px 8px;border-radius:3px;
+  transition:color .2s;}
+.panel-close:hover{color:var(--star);}
+
+/* Panel content */
+.p-icon{font-size:2rem;margin-bottom:8px;display:block;}
+.p-tag{font-size:.58rem;letter-spacing:.2em;text-transform:uppercase;
+  padding:2px 8px;border-radius:2px;margin-bottom:10px;border:1px solid;display:inline-block;opacity:.7;}
+.p-title{font-family:'Cinzel',serif;font-size:1.1rem;font-weight:900;line-height:1.2;margin-bottom:6px;}
+.p-question{font-size:.88rem;color:rgba(232,223,196,.55);font-style:italic;margin-bottom:16px;
+  padding-bottom:14px;border-bottom:1px solid var(--line);}
+
+.p-section{margin-bottom:16px;}
+.p-section-title{font-family:'Cinzel',serif;font-size:.6rem;letter-spacing:.24em;
+  text-transform:uppercase;opacity:.38;margin-bottom:10px;}
+
+.stat-row{display:flex;gap:8px;margin-bottom:12px;}
+.stat-box{flex:1;text-align:center;padding:10px 6px;background:rgba(255,255,255,.03);
+  border:1px solid var(--line);border-radius:4px;}
+.stat-val{font-family:'Cinzel',serif;font-size:1.1rem;font-weight:700;line-height:1;}
+.stat-label{font-size:.65rem;color:rgba(232,223,196,.45);margin-top:4px;line-height:1.3;}
+
+.tension-item{padding:10px 12px;border-radius:4px;margin-bottom:8px;
+  background:rgba(255,255,255,.03);border-left:3px solid;cursor:pointer;transition:background .2s;}
+.tension-item:hover{background:rgba(255,255,255,.06);}
+.tension-title{font-family:'Cinzel',serif;font-size:.75rem;font-weight:700;margin-bottom:3px;}
+.tension-desc{font-size:.78rem;color:rgba(232,223,196,.6);line-height:1.45;font-style:italic;}
+
+.actor-chips{display:flex;flex-wrap:wrap;gap:5px;margin-bottom:4px;}
+.actor-chip{font-size:.65rem;padding:3px 9px;border-radius:12px;
+  background:rgba(255,255,255,.04);border:1px solid rgba(200,180,120,.18);
+  color:rgba(232,223,196,.7);}
+
+.scenario-row{display:flex;gap:8px;margin-top:10px;}
+.scenario-box{flex:1;padding:10px;border-radius:4px;border:1px solid;}
+.scenario-label{font-family:'Cinzel',serif;font-size:.62rem;font-weight:700;margin-bottom:5px;}
+.scenario-desc{font-size:.74rem;line-height:1.45;color:rgba(232,223,196,.65);}
+
+.case-item{padding:10px 12px;background:rgba(255,255,255,.03);border-radius:4px;
+  margin-bottom:8px;border:1px solid var(--line);}
+.case-title{font-family:'Cinzel',serif;font-size:.75rem;font-weight:700;margin-bottom:4px;}
+.case-desc{font-size:.76rem;color:rgba(232,223,196,.6);line-height:1.45;}
+
+.link-chips{display:flex;gap:6px;flex-wrap:wrap;}
+.link-chip{font-size:.62rem;letter-spacing:.1em;text-transform:uppercase;
+  padding:4px 11px;border-radius:12px;border:1px solid;cursor:pointer;
+  background:none;transition:all .2s;}
+.link-chip:hover{opacity:.8;}
+
+/* Country panel */
+.country-dep{display:flex;flex-direction:column;gap:5px;}
+.dep-item{font-size:.78rem;padding:5px 10px;background:rgba(255,255,255,.03);
+  border-radius:3px;border-left:2px solid rgba(232,220,100,.3);color:rgba(232,223,196,.75);}
+.vuln-item{font-size:.78rem;padding:5px 10px;background:rgba(232,80,60,.05);
+  border-radius:3px;border-left:2px solid rgba(232,80,60,.35);color:rgba(232,223,196,.75);}
+.role-item{font-size:.78rem;padding:5px 10px;background:rgba(96,200,160,.05);
+  border-radius:3px;border-left:2px solid rgba(96,200,160,.35);color:rgba(232,223,196,.75);}
+
+/* ── BOTTOM BAR (system selector strip) ── */
+.bottom-strip{
+  height:60px;flex-shrink:0;
+  background:rgba(5,8,15,.95);border-top:1px solid var(--line);
+  display:flex;align-items:center;justify-content:center;gap:6px;padding:0 16px;
+  overflow-x:auto;
+}
+.sys-pill{
+  display:flex;align-items:center;gap:7px;padding:7px 14px;border-radius:20px;
+  border:1px solid rgba(200,180,120,.15);background:none;cursor:pointer;
+  transition:all .2s;flex-shrink:0;white-space:nowrap;
+}
+.sys-pill:hover,.sys-pill.active{border-color:rgba(200,180,120,.45);background:rgba(200,180,120,.08);}
+.sys-pill .spi{font-size:1rem;}
+.sys-pill .spl{font-family:'Cinzel',serif;font-size:.62rem;letter-spacing:.1em;text-transform:uppercase;
+  color:rgba(232,223,196,.6);}
+.sys-pill.active .spl{color:var(--star);}
+
+/* ── QUESTION MODE ── */
+#question-view{
+  position:absolute;inset:0;background:rgba(5,8,15,.97);
+  backdrop-filter:blur(16px);z-index:50;display:none;
+  flex-direction:column;align-items:center;justify-content:center;padding:40px 20px;overflow-y:auto;
+}
+#question-view.open{display:flex;}
+.qv-title{font-family:'Cinzel',serif;font-size:1.1rem;font-weight:900;margin-bottom:6px;
+  background:linear-gradient(135deg,#f5e6a3,#d4a843);-webkit-background-clip:text;
+  -webkit-text-fill-color:transparent;background-clip:text;}
+.qv-sub{font-size:.78rem;color:rgba(232,223,196,.38);letter-spacing:.12em;text-transform:uppercase;margin-bottom:36px;}
+.q-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(280px,1fr));gap:12px;max-width:900px;width:100%;}
+.q-card{padding:18px 20px;background:var(--panel);border:1px solid rgba(200,180,120,.18);
+  border-radius:6px;cursor:pointer;transition:all .22s;text-align:left;}
+.q-card:hover{border-color:rgba(200,180,120,.45);background:var(--panel2);transform:translateY(-2px);
+  box-shadow:0 8px 24px rgba(0,0,0,.4);}
+.q-card-q{font-family:'Cinzel',serif;font-size:.85rem;font-weight:700;margin-bottom:8px;line-height:1.3;}
+.q-card-t{font-size:.78rem;color:rgba(232,223,196,.5);font-style:italic;line-height:1.45;}
+.q-card-arrow{margin-top:12px;font-size:.65rem;letter-spacing:.15em;text-transform:uppercase;opacity:.4;}
+
+/* ── FIL ROUGE ── */
+.fil-rouge{
+  position:absolute;bottom:70px;left:70px;right:0;
+  pointer-events:none;z-index:5;
+}
+.fr-chain{display:flex;align-items:center;gap:0;padding:8px 16px;
+  background:rgba(5,8,15,.85);border-top:1px solid var(--line);backdrop-filter:blur(8px);
+  overflow-x:auto;pointer-events:all;
+}
+.fr-node{font-size:.68rem;letter-spacing:.08em;padding:3px 8px;border-radius:3px;
+  border:1px solid;cursor:pointer;white-space:nowrap;transition:all .18s;}
+.fr-node:hover{opacity:.8;}
+.fr-arrow{color:rgba(232,223,196,.25);margin:0 4px;font-size:.7rem;}
+.fr-label{font-family:'Cinzel',serif;font-size:.58rem;letter-spacing:.2em;text-transform:uppercase;
+  color:rgba(232,223,196,.28);margin-right:12px;flex-shrink:0;}
+
+/* ── STARS ── */
+#stars-bg{position:fixed;inset:0;z-index:0;pointer-events:none;}
+
+/* scrollbar */
+::-webkit-scrollbar{width:4px;height:4px;}
+::-webkit-scrollbar-track{background:transparent;}
+::-webkit-scrollbar-thumb{background:rgba(200,180,120,.2);border-radius:2px;}
+
+@media(max-width:700px){
+  .right-panel.open{width:100%;position:absolute;inset:0;z-index:40;}
+  .topbar-sub{display:none;}
+  .sidebar{width:0;overflow:hidden;}
+  .bottom-strip{gap:4px;}
+  .sys-pill .spl{display:none;}
+  .sys-pill{padding:8px 10px;}
+}
+</style>
+</head>
+<body>
+
+<canvas id="stars-bg"></canvas>
+
+<!-- TOP BAR -->
+<div class="topbar">
+  <div style="display:flex;align-items:baseline;gap:0">
+    <span class="topbar-logo">Atlas Géopolitique Mondial</span>
+    <span class="topbar-sub">Ressources · Flux · Tensions · Transitions</span>
+  </div>
+  <div class="topbar-nav">
+    <button class="tnav active" onclick="showView('map')" id="btn-map">🗺️ Carte</button>
+    <button class="tnav question-btn" onclick="showView('questions')" id="btn-q">❓ Questions</button>
+    <button class="tnav" onclick="window.open('chronologie_historique.html')" style="color:rgba(212,168,67,.7);border-color:rgba(212,168,67,.2)">⏳ Chronologie</button>
+  </div>
+</div>
+
+<div class="app">
+
+  <!-- SIDEBAR -->
+  <div class="sidebar">
+    <div id="sys-btns"></div>
+    <div class="sys-divider"></div>
+    <button class="sys-btn" onclick="showView('questions')" title="Questions">
+      <span>❓</span>
+      <span class="stip">Mode Questions</span>
+    </button>
+  </div>
+
+  <!-- CENTER -->
+  <div class="center">
+
+    <!-- MAP VIEW -->
+    <div id="map-view">
+      <svg id="world-svg" viewBox="0 0 960 500"></svg>
+      <div class="map-overlay">
+        <span class="map-title" id="map-title">Vue globale — cliquez sur un système ou un pays</span>
+        <div class="map-controls">
+          <button class="map-btn active" onclick="setMapMode('global')" id="mbtn-global">Monde</button>
+          <button class="map-btn" onclick="setMapMode('stress')" id="mbtn-stress">Stress hydrique</button>
+          <button class="map-btn" onclick="setMapMode('demo')" id="mbtn-demo">Démographie</button>
+          <button class="map-btn" onclick="setMapMode('energy')" id="mbtn-energy">Énergie</button>
+        </div>
+      </div>
+      <!-- Fil rouge -->
+      <div class="fil-rouge" id="fil-rouge" style="display:none">
+        <div class="fr-chain" id="fr-chain"></div>
+      </div>
+    </div>
+
+    <!-- BOTTOM STRIP -->
+    <div class="bottom-strip" id="bottom-strip"></div>
+
+  </div>
+
+  <!-- RIGHT PANEL -->
+  <div class="right-panel" id="right-panel">
+    <div class="panel-inner" id="panel-inner"></div>
+  </div>
+
+</div>
+
+<!-- QUESTION VIEW -->
+<div id="question-view">
+  <div class="qv-title">❓ Questions Géopolitiques</div>
+  <div class="qv-sub">Choisissez une question pour explorer le système</div>
+  <div class="q-grid" id="q-grid"></div>
+  <button class="map-btn" style="margin-top:28px;pointer-events:all" onclick="showView('map')">← Retour à la carte</button>
+</div>
+
+<script>
+const GEO = {"systems":[{"id":"eau","icon":"🌊","color":"#3ab4d4","title":"Eau & Climat","question":"Qui manquera d'eau en 2050 ?","intro":"L'eau douce représente 2,5 % de l'eau sur Terre. 70 % est captive des glaciers. Moins de 1 % est accessible à l'humanité. Pourtant, l'agriculture en consomme 70 %, l'industrie 20 %, les ménages 10 %.","stats":[{"val":"2,2 Md","label":"humains sans eau potable sûre"},{"val":"+55 %","label":"hausse de la demande mondiale d'ici 2050"},{"val":"40 %","label":"de la population mondiale en stress hydrique d'ici 2030"}],"actors":["États riverains","Banque Mondiale","FAO","Multinationales de l'eau (Veolia, Suez)","Agriculteurs","ONG Water Aid"],"tensions":[{"title":"Nil : Éthiopie vs Égypte","desc":"Le barrage GERD d'Éthiopie menace le débit du Nil. L'Égypte dépend à 95 % du Nil. Une crise diplomatique majeure, potentiellement militaire."},{"title":"Mékong : Chine vs Asie du Sud-Est","desc":"La Chine a construit 11 barrages sur le Mékong, réduisant les débits vers le Cambodge, le Laos, la Thaïlande et le Vietnam. Sécurité alimentaire de 60 millions de personnes menacée."},{"title":"Aquifère d'Arabie : surexploitation","desc":"L'Arabie Saoudite pompe des nappes fossiles vieilles de 20 000 ans pour l'agriculture. Réserves estimées à 75 ans. Aucune recharge possible."}],"scenarios":[{"label":"Optimiste 2050","color":"#40c880","desc":"Accords de gestion transfrontalière, dessalement solaire, agriculture sèche. 90 % de la population mondiale avec accès sécurisé."},{"label":"Pessimiste 2050","color":"#e84040","desc":"3 milliards d'humains en stress hydrique sévère. Premières guerres officiellement liées à l'eau. Exodes massifs des zones arides."}],"cases":[{"title":"Singapour — Zéro dépendance","flag":"🇸🇬","desc":"Singapour importe 60 % de son eau de Malaisie mais vise l'indépendance totale via le recyclage des eaux usées (NEWater) et le dessalement. Modèle mondial de sobriété hydrique."},{"title":"Aral — La mer disparue","flag":"🌍","desc":"La mer d'Aral (Asie centrale) a perdu 90 % de sa surface en 50 ans à cause de l'irrigation soviétique intensive. Catastrophe écologique, économique et sanitaire sans précédent."}],"links":["energie","alimentation","demographie"]},{"id":"energie","icon":"⚡","color":"#e8c040","title":"Énergie & Minerais","question":"Qui contrôle les minerais de la transition énergétique ?","intro":"La transition vers les énergies renouvelables ne réduit pas les dépendances aux matières premières — elle les déplace. Du pétrole vers le lithium, le cobalt, le cuivre, les terres rares. De nouveaux monopoles remplacent les anciens.","stats":[{"val":"60 %","label":"du cobalt mondial extrait en RDC"},{"val":"85 %","label":"des terres rares transformées en Chine"},{"val":"1 500 %","label":"hausse de la demande en lithium d'ici 2040"}],"actors":["OPEP+","Chine (CATL, BYD)","Tesla, Volkswagen","Glencore, Rio Tinto","Banques de développement","Communautés minières"],"tensions":[{"title":"Triangle du lithium : Chili, Argentine, Bolivie","desc":"70 % des réserves mondiales de lithium se trouvent dans ces 3 pays. La Chine rachète les mines. Les États-Unis et l'Europe tentent de contre-investir. Enjeu stratégique de la décennie."},{"title":"Terres rares : dépendance occidentale","desc":"L'Occident dépend à 85-90 % de la Chine pour le traitement des terres rares (néodyme, dysprosium...) utilisées dans les éoliennes et les moteurs électriques. Une dépendance structurelle."},{"title":"Gaz naturel : Europe post-Ukraine","desc":"L'invasion de l'Ukraine a exposé la dépendance européenne au gaz russe (40 % des imports). Réorientation vers le GNL américain, qatari, algérien. Un réassemblage géopolitique en cours."}],"scenarios":[{"label":"Optimiste 2050","color":"#40c880","desc":"Diversification des chaînes d'approvisionnement, recyclage des batteries, fusion nucléaire commerciale. Souveraineté énergétique démocratisée."},{"label":"Pessimiste 2050","color":"#e84040","desc":"Course aux minerais critiques incontrôlée, conflits en Afrique centrale, nouvelles dépendances aussi fortes que le pétrole. La transition renforce les inégalités géopolitiques."}],"cases":[{"title":"RDC — Richesse sans développement","flag":"🇨🇩","desc":"La RDC possède 70 % du cobalt mondial, des réserves colossales de cuivre et de coltan. Pourtant, 75 % de la population vit sous le seuil de pauvreté. Paradoxe des ressources (Resource Curse)."},{"title":"Norvège — Le fonds souverain","flag":"🇳🇴","desc":"La Norvège a transformé ses revenus pétroliers en fonds souverain de 1 400 milliards de dollars — le plus grand au monde. Un modèle de gestion intergénérationnelle des ressources."}],"links":["eau","tensions","transitions"]},{"id":"alimentation","icon":"🌾","color":"#80c840","title":"Alimentation & Sols","question":"Peut-on nourrir 10 milliards d'humains durablement ?","intro":"L'agriculture utilise 70 % de l'eau douce mondiale, 50 % des terres habitables et génère 25 % des émissions de gaz à effet de serre. Le système alimentaire mondial est à la fois la plus grande menace écologique et la première nécessité humaine.","stats":[{"val":"820 M","label":"personnes en situation de faim chronique"},{"val":"33 %","label":"des sols mondiaux dégradés ou épuisés"},{"val":"4 pays","label":"produisent 70 % des exportations mondiales de blé"}],"actors":["FAO","PAM","Cargill, ADM, Bunge (Big Food)","Monsanto-Bayer","Petits agriculteurs (70 % des aliments mondiaux)","Fonds d'investissement fonciers"],"tensions":[{"title":"Accaparement des terres (Land Grabbing)","desc":"Des fonds souverains (Chine, Émirats, Qatar) et des multinationales achètent des millions d'hectares en Afrique, en Asie et en Amérique latine. Les communautés locales sont expropriées."},{"title":"Guerre en Ukraine : crise du blé mondial","desc":"Ukraine et Russie fournissent 30 % du blé mondial. Le blocus de 2022 a déclenché une crise alimentaire en Afrique du Nord et au Moyen-Orient. La géopolitique décide qui mange."},{"title":"Déforestation amazonienne","desc":"80 % de la déforestation amazonienne est liée à l'élevage bovin et au soja (alimentation animale). Le Brésil est le premier exportateur mondial de viande — et le premier déforesteur."}],"scenarios":[{"label":"Optimiste 2050","color":"#40c880","desc":"Agroécologie à grande échelle, réduction du gaspillage (1/3 de la production mondiale), protéines alternatives, régimes alimentaires décarbonés. Sécurité alimentaire universelle possible."},{"label":"Pessimiste 2050","color":"#e84040","desc":"Dégradation des sols accélérée, sécheresses chroniques, chocs de prix alimentaires répétés. 2 milliards de personnes en insécurité alimentaire sévère."}],"cases":[{"title":"Pays-Bas — L'agriculture ultra-intensive","flag":"🇳🇱","desc":"Les Pays-Bas sont le 2ème exportateur mondial de produits agricoles (après les USA) sur un territoire grand comme la Bretagne. Une prouesse technologique — mais aussi l'un des pays avec la plus forte pollution aux nitrates d'Europe."},{"title":"Éthiopie — Le tigre africain de l'agriculture","flag":"🇪🇹","desc":"L'Éthiopie a quadruplé sa production agricole en 20 ans grâce à l'irrigation. Mais elle reste vulnérable aux sécheresses (El Niño) et dépendante d'aides extérieures en année sèche."}],"links":["eau","demographie","transitions"]},{"id":"demographie","icon":"👥","color":"#e87040","title":"Démographie & Migrations","question":"Où la pression humaine va-t-elle exploser ?","intro":"En 2100, la Terre abritera 10 à 12 milliards d'humains — presque tous la croissance venant d'Afrique subsaharienne. Pendant ce temps, l'Europe et la Chine vieillissent et se dépopulent. Deux planètes démographiques coexistent.","stats":[{"val":"8,2 Md","label":"d'humains aujourd'hui (2024)"},{"val":"2,5 Md","label":"d'Africains prévus en 2050"},{"val":"100 M","label":"de migrants climatiques d'ici 2050 (Banque Mondiale)"}],"actors":["UNHCR","OIM (migrants)","Frontex (UE)","Gouvernements nationaux","Diasporas","Passeurs et réseaux clandestins"],"tensions":[{"title":"Sahel : la poudrière démographique","desc":"Le Sahel (Niger, Mali, Burkina Faso...) est la région au taux de fécondité le plus élevé du monde (6-7 enfants/femme) + stress hydrique + insécurité alimentaire + instabilité politique. Une crise humanitaire en cours."},{"title":"Chine : la bombe du vieillissement","desc":"La Chine a perdu de la population en 2022 pour la première fois depuis 1961. Le ratio actifs/retraités s'effondre. La politique de l'enfant unique (1980-2015) aura des conséquences structurelles pendant 50 ans."},{"title":"Méditerranée : le mur de l'Europe","desc":"Entre 2014 et 2024, plus de 30 000 personnes ont péri en Méditerranée. L'UE externalise sa frontière vers le Maroc, la Tunisie, la Turquie. Une géopolitique de l'abandon organisé."}],"scenarios":[{"label":"Optimiste 2050","color":"#40c880","desc":"Dividende démographique africain bien géré, migrations ordonnées comblant les déficits démographiques européens, transition éducative accélérant la baisse de fécondité."},{"label":"Pessimiste 2050","color":"#e84040","desc":"100 à 200 millions de déplacés climatiques, fermeture des frontières, radicalisation politique, vieillissement non financé en Europe et en Asie orientale."}],"cases":[{"title":"Niger — Le pays le plus jeune du monde","flag":"🇳🇪","desc":"L'âge médian au Niger est 15 ans. 50 % de la population a moins de 15 ans. Avec un taux de fécondité de 7, la population doublera d'ici 2040. Les infrastructures, l'éducation et l'emploi ne suivent pas."},{"title":"Japon — Le modèle du vieillissement extrême","flag":"🇯🇵","desc":"Le Japon perd 500 000 habitants par an. 30 % de la population a plus de 65 ans. 10 millions de maisons abandonnées (akiya). Un laboratoire mondial du vieillissement non choisi."}],"links":["villes","alimentation","tensions"]},{"id":"villes","icon":"🏙️","color":"#c070e0","title":"Villes & Habitat","question":"Comment les mégapoles absorbent-elles les chocs du XXIe siècle ?","intro":"En 1800, 3 % de l'humanité vivait en ville. Aujourd'hui : 57 %. En 2050 : 70 %. La ville est devenue le format dominant de l'existence humaine. Mais la moitié de la croissance urbaine mondiale se fait dans des bidonvilles.","stats":[{"val":"1,1 Md","label":"d'humains vivent dans des bidonvilles"},{"val":"33","label":"mégapoles de plus de 10 millions d'habitants"},{"val":"70 %","label":"des émissions mondiales de CO₂ viennent des villes"}],"actors":["Maires (C40 Cities)","Promoteurs immobiliers","Banque Mondiale (urbanisme)","ONU-Habitat","Habitants des slums","Architectes et urbanistes"],"tensions":[{"title":"Lagos 2050 : 30 millions sans plan","desc":"Lagos pourrait devenir la plus grande métropole mondiale avec 30 à 35 millions d'habitants en 2050. Elle manque déjà d'eau, de transports, d'électricité. La croissance urbaine non planifiée comme défi majeur du siècle."},{"title":"Miami : la ville qui coule","desc":"Miami repose sur du calcaire poreux. La montée des eaux s'infiltre par le bas. L'imperméabilisation du sol accélère les inondations. La Floride investit 4 milliards dans la résilience — mais déjà trop tard pour certains quartiers."},{"title":"Ségrégation urbaine et gentrification","desc":"Dans les grandes métropoles mondiales (London, Paris, San Francisco, Mumbai), les centres se gentrifient et expulsent les classes populaires en périphérie. La ville devient une machine à inégalités spatiales."}],"scenarios":[{"label":"Optimiste 2050","color":"#40c880","desc":"Villes compactes, mixtes, vertes. Transport décarbonés. Logement abordable. Résilience climatique intégrée. Le modèle Copenhagen/Amsterdam généralisé."},{"label":"Pessimiste 2050","color":"#e84040","desc":"Métropolisation chaotique, bidonvilles incontrôlables, chaleur extrême, inondations répétées. 2 milliards d'urbains pauvres sans filet de sécurité."}],"cases":[{"title":"Medellín — La ville la plus innovante du monde","flag":"🇨🇴","desc":"En 1993, Medellín était la ville la plus meurtrière du monde (Pablo Escobar). En 2013, elle reçoit le prix de la ville la plus innovante. Télécabines, escalators dans les quartiers pauvres, bibliothèques urbaines. Un modèle de transformation."},{"title":"Singapour — La ville-État jardin","flag":"🇸🇬","desc":"Singapour est à la fois la ville la plus dense et la plus verte d'Asie. Toitures végétalisées obligatoires, intégration de la nature dans l'architecture, gestion de l'eau parfaite. Un modèle coûteux mais reproductible."}],"links":["demographie","eau","transitions"]},{"id":"flux","icon":"🚢","color":"#4080e0","title":"Flux & Commerce Mondial","question":"Quels détroits peuvent paralyser l'économie mondiale ?","intro":"90 % des marchandises mondiales voyagent par mer. Six détroits stratégiques peuvent bloquer le commerce mondial. Chaque jour, 15 millions de barils de pétrole passent par Ormuz. La mondialisation repose sur quelques goulets d'étranglement.","stats":[{"val":"90 %","label":"du commerce mondial transporté par mer"},{"val":"6","label":"détroits peuvent bloquer 60 % du commerce mondial"},{"val":"800 M","label":"de conteneurs EVP transportés par an"}],"actors":["Maersk, MSC, CMA-CGM (3 groupes = 50 % des conteneurs)","OMC","Autorités portuaires (Shanghaï, Rotterdam, Singapour)","Marines nationales","Pirates (golfe de Guinée, Aden)"],"tensions":[{"title":"Ormuz : le robinet du pétrole mondial","desc":"Le détroit d'Ormuz (34 km) est traversé par 20 % du pétrole mondial. L'Iran menace régulièrement de le fermer. Une crise iranienne pourrait multiplier par 3 le prix du pétrole en 48 heures."},{"title":"Suez : la cicatrice de l'Ever Given","desc":"En mars 2021, un porte-conteneurs bloqua le canal de Suez 6 jours. Coût : 9 milliards de dollars par jour. La fragilité des chaînes logistiques mondiales révélée en direct."},{"title":"Mer de Chine méridionale : la revendication totale","desc":"La Chine revendique 90 % de la Mer de Chine méridionale (ligne des 9 traits). 5 000 milliards de dollars de commerce y transitent chaque année. Vietnam, Philippines, Malaisie contestent. Les USA patrouillent."}],"scenarios":[{"label":"Optimiste 2050","color":"#40c880","desc":"Diversification des routes (Arctique, nouvelles lignes trans-africaines), relocalisation de certaines productions, résilience logistique. Le monde apprend de l'Ever Given."},{"label":"Pessimiste 2050","color":"#e84040","desc":"Fragmentation du commerce mondial en blocs régionaux rivaux, piraterie en hausse, fermetures de détroits lors de conflits. La mondialisation se fracture."}],"cases":[{"title":"Rotterdam — La porte de l'Europe","flag":"🇳🇱","desc":"Rotterdam est le plus grand port d'Europe. 470 millions de tonnes de marchandises par an. 40 % des imports énergétiques européens y transitent. La transition vers le GNL américain post-Ukraine y est parfaitement visible."},{"title":"Route de la Soie Maritme — L'OBOR chinois","flag":"🇨🇳","desc":"La Chine investit dans des ports du monde entier (Pakistan, Sri Lanka, Tanzanie, Grèce-Pirée). Une stratégie de contrôle des flux mondiaux qui inquiète les USA et l'Europe."}],"links":["energie","tensions","alimentation"]},{"id":"tensions","icon":"⚔️","color":"#e04040","title":"Tensions & Gouvernance","question":"Qui contrôle, qui conteste, qui arbitre ?","intro":"La géopolitique du XXIe siècle n'est plus seulement la géopolitique des États — c'est la géopolitique des ressources, des données, des routes et des normes. De nouveaux acteurs (entreprises tech, fonds souverains, villes) contestent la souveraineté des États.","stats":[{"val":"55+","label":"conflits armés actifs dans le monde (2024)"},{"val":"117 M","label":"de déplacés forcés dans le monde"},{"val":"3","label":"pays possèdent 80 % des armes nucléaires mondiales"}],"actors":["P5 (USA, Chine, Russie, France, UK)","OTAN","BRICS+","ONU (Conseil de sécurité)","Entreprises tech (Meta, Google, Huawei)","Milices non-étatiques"],"tensions":[{"title":"Rivalité USA-Chine : le découplage technologique","desc":"Les USA bloquent l'accès de la Chine aux semi-conducteurs avancés (TSMC, NVIDIA). La Chine riposte sur les terres rares. Une guerre froide technologique remodèle les alliances mondiales."},{"title":"Russie-Ukraine : le retour des guerres territoriales","desc":"Le conflit en Ukraine (2022-) a brisé l'ordre de sécurité européen post-1991. Il remet en cause les frontières, le droit international, les garanties de sécurité. Un précédent pour Taiwan, la Corée, l'Arctique."},{"title":"Sahel : la fin de la sphère d'influence française","desc":"Entre 2020 et 2023, 4 pays du Sahel (Mali, Burkina Faso, Niger, Tchad) ont connu des coups d'État. La France a été expulsée de 3 d'entre eux. La Russie (Wagner) et la Chine avancent leurs pions."}],"scenarios":[{"label":"Optimiste 2050","color":"#40c880","desc":"Multilatéralisme réformé, gouvernance globale des biens communs (eau, climat, espace), réduction des arsenaux nucléaires, diplomatie climatique comme ciment coopératif."},{"label":"Pessimiste 2050","color":"#e84040","desc":"Monde bipolaire USA-Chine fragmenté, course aux armements dans l'espace et le cyber, effondrement de l'ONU comme arbitre, conflits de ressources endémiques."}],"cases":[{"title":"Taiwan — L'île qui vaut 3 000 milliards","flag":"🇹🇼","desc":"TSMC fabrique 90 % des puces les plus avancées du monde. Une invasion de Taiwan par la Chine provoquerait une pénurie mondiale de semi-conducteurs estimée à 3 000 milliards de dollars de pertes en 2 ans. La géopolitique des puces."},{"title":"Arctique — Le nouveau Far West","flag":"🌍","desc":"La fonte de l'Arctique ouvre de nouvelles routes maritimes et révèle des ressources (pétrole, gaz, minerais). Russie, USA, Canada, Danemark (via Groenland) et Chine se disputent cette nouvelle frontière."}],"links":["energie","flux","eau"]}],"questions":[{"q":"Qui va manquer d'eau en 2050 ?","system":"eau","teaser":"La réponse dépend à la fois du climat, de l'agriculture et de la géopolitique des fleuves transfrontaliers."},{"q":"Pourquoi la guerre en Ukraine a-t-elle fait monter le prix du pain en Afrique ?","system":"alimentation","teaser":"Ukraine + Russie = 30 % du blé mondial. Le blocus de 2022 a déclenché une crise alimentaire de l'Égypte au Sénégal."},{"q":"Qui contrôle les minerais de la transition énergétique ?","system":"energie","teaser":"La transition du pétrole vers le lithium et le cobalt crée de nouvelles dépendances, aussi fortes que les anciennes."},{"q":"Quels détroits peuvent paralyser l'économie mondiale ?","system":"flux","teaser":"Six points névralgiques concentrent 60 % du commerce mondial. Ormuz, Malacca, Suez, Bab-el-Mandeb, Bosphore, Panama."},{"q":"Où la population va-t-elle exploser d'ici 2050 ?","system":"demographie","teaser":"Presque toute la croissance mondiale vient d'Afrique subsaharienne. L'Asie et l'Europe vieillissent et se dépopulent."},{"q":"La Chine va-t-elle envahir Taiwan ?","system":"tensions","teaser":"Taiwan fabrique 90 % des puces avancées mondiales. Une invasion déstabiliserait l'économie mondiale bien au-delà du conflit militaire."},{"q":"Comment nourrir 10 milliards d'humains ?","system":"alimentation","teaser":"Un tiers de la production est gaspillé. L'agriculture génère 25 % des émissions mondiales. Des solutions existent — si on veut bien les adopter."},{"q":"Les villes peuvent-elles survivre au changement climatique ?","system":"villes","teaser":"Chaleur extrême, inondations, pénuries d'eau : les villes concentrent 70 % des émissions et la majorité des vulnérabilités climatiques."}],"countries":{"CN":{"name":"Chine","flag":"🇨🇳","pop":"1,41 Md","pib":"18 000 Mds $","deps":["Terres rares (monopole mondial)","Lithium (Amérique latine)","Pétrole (Golfe, Afrique)","Blé (Ukraine, Australie)"],"vulns":["Vieillissement démographique","Stress hydrique (nord)","Dépendance alimentaire croissante"],"roles":["1er émetteur mondial de CO₂","1er producteur d'énergies renouvelables","1er exportateur mondial","Contrôle 85 % du traitement des terres rares"],"tensions":["Taiwan","Mer de Chine méridionale","Rivalité USA","Tibet, Xinjiang"]},"US":{"name":"États-Unis","flag":"🇺🇸","pop":"340 M","pib":"27 000 Mds $","deps":["Semi-conducteurs (TSMC/Taiwan)","Terres rares (Chine)","Lithium (en transition)"],"vulns":["Infrastructure vieillissante","Inégalités extrêmes","Polarisation politique"],"roles":["2ème émetteur mondial CO₂","1ère puissance militaire","1er producteur de pétrole (depuis 2018)","Dominance financière (dollar)"],"tensions":["Chine (Tech, Taiwan)","Russie","Proche-Orient","Frontière mexicaine"]},"RU":{"name":"Russie","flag":"🇷🇺","pop":"144 M","pib":"2 100 Mds $","deps":["Technologies occidentales (sous sanctions)","Composants électroniques"],"vulns":["Sanctions économiques","Démographie en déclin","Dépendance aux hydrocarbures"],"roles":["1ère réserve de gaz naturel","2ème exportateur d'armes","Grenier à blé mondial (co-)","Puissance nucléaire"],"tensions":["Ukraine","OTAN","Arctique","Caucase"]},"IN":{"name":"Inde","flag":"🇮🇳","pop":"1,44 Md","pib":"3 700 Mds $","deps":["Pétrole (Golfe, Russie)","Armement (Russie, France)","Engrais (Russie, Chine)"],"vulns":["Stress hydrique croissant","Chaleur extrême","Agriculture vulnérable"],"roles":["1ère population mondiale (2023)","3ème émetteur CO₂","Puissance spatiale émergente","Hub pharmaceutique mondial"],"tensions":["Pakistan (Cachemire)","Chine (frontière himalayenne)","Maldives, Sri Lanka (influence)"]},"BR":{"name":"Brésil","flag":"🇧🇷","pop":"215 M","pib":"2 100 Mds $","deps":["Engrais (Russie, Chine, Maroc)","Technologie industrielle"],"vulns":["Déforestation amazonienne","Inégalités extrêmes","Sécheresses et inondations"],"roles":["1er exportateur mondial de viande bovine","1er exportateur de soja","Amazonie = 20 % forêts tropicales mondiales","Triangle du lithium"],"tensions":["Amazonie (souveraineté vs conservation)","Agriculture vs environnement"]},"DE":{"name":"Allemagne","flag":"🇩🇪","pop":"84 M","pib":"4 400 Mds $","deps":["Gaz (ex-Russie, maintenant GNL)","Semi-conducteurs (Asie)","Terres rares (Chine)","Lithium (en transition)"],"vulns":["Vieillissement démographique","Désindustrialisation risquée","Sécheresses croissantes"],"roles":["1ère économie européenne","Leader transition énergétique (en partie)","Hub logistique européen"],"tensions":["Dépendance énergétique post-Ukraine","Compétitivité vs Chine et USA"]}}};
+
+// ── Stars ──
+const cv=document.getElementById('stars-bg'),cx=cv.getContext('2d');
+function drawStars(){cv.width=window.innerWidth;cv.height=window.innerHeight;
+  for(let i=0;i<200;i++){cx.beginPath();cx.arc(Math.random()*cv.width,Math.random()*cv.height,Math.random()*.9+.1,0,Math.PI*2);cx.fillStyle=`rgba(232,223,196,${Math.random()*.35+.05})`;cx.fill();}}
+drawStars();window.addEventListener('resize',drawStars);
+
+// ── Color map ──
+const SYS_COLORS={eau:'#3ab4d4',energie:'#e8c040',alimentation:'#80c840',demographie:'#e87040',villes:'#c070e0',flux:'#4080e0',tensions:'#e04040'};
+const HOTSPOTS=[
+  {id:'ormuz',x:58,y:37,label:'Détroit Ormuz',system:'flux',color:'#4080e0'},
+  {id:'suez',x:52,y:33,label:'Canal de Suez',system:'flux',color:'#4080e0'},
+  {id:'malacca',x:70,y:45,label:'Détroit de Malacca',system:'flux',color:'#4080e0'},
+  {id:'sahel',x:46,y:40,label:'Sahel — Crise',system:'demographie',color:'#e87040'},
+  {id:'aral',x:60,y:25,label:'Mer Aral disparue',system:'eau',color:'#3ab4d4'},
+  {id:'amazonie',x:27,y:52,label:'Amazonie',system:'alimentation',color:'#80c840'},
+  {id:'arctique',x:50,y:5,label:'Arctique — Enjeu',system:'tensions',color:'#e04040'},
+  {id:'taiwan',x:77,y:35,label:'Taiwan — Tension',system:'tensions',color:'#e04040'},
+  {id:'mekong',x:71,y:38,label:'Mékong',system:'eau',color:'#3ab4d4'},
+];
+
+const COUNTRY_COLORS = {
+  // Stress hydrique: rouge = critique, orange = fort, jaune = moyen, vert = faible
+  stress:{
+    EG:'#d03010',SA:'#c82010',IQ:'#c82010',IR:'#c03010',YE:'#d03010',SY:'#c03010',
+    LY:'#c82010',TN:'#c84010',DZ:'#b84010',MA:'#b84010',SD:'#c04020',ET:'#b84020',
+    IN:'#d06030',PK:'#c05020',AF:'#c05020',MX:'#b86040',CN:'#c07040',
+    US:'#7ca860',DE:'#6aa860',FR:'#6aa870',BR:'#60a860',AU:'#c08050',
+    NO:'#40a870',SE:'#40a870',FI:'#40a870',CA:'#50b060',RU:'#60a860',
+    NG:'#b07040',ML:'#c06030',NE:'#c05020',TD:'#c06030',
+  },
+  // Démographie: rouge = croissance très forte, bleu = vieillissement
+  demo:{
+    NE:'#e02020',ML:'#d02020',TD:'#d02020',SO:'#d02020',NG:'#d03030',
+    CD:'#c03030',CF:'#c03030',SS:'#c03030',MR:'#c04040',ET:'#c04040',
+    GH:'#c05050',MZ:'#b05050',TZ:'#b05050',UG:'#b05050',ZM:'#b06060',
+    SN:'#a06060',CM:'#a06060',AO:'#a06060',
+    IN:'#d07040',BD:'#c07040',PK:'#c07040',PH:'#a07050',ID:'#907050',
+    MX:'#906050',
+    CN:'#7090a0',KR:'#5080b0',
+    JP:'#3060d0',DE:'#3060d0',IT:'#4060c0',GR:'#4060c0',PT:'#4060c0',
+    ES:'#4070c0',FR:'#5070c0',BE:'#5070c0',AT:'#5070c0',
+    RU:'#5070a0',UA:'#5070a0',
+  },
+  // Énergie: rouge = forte dépendance import, vert = export/auto-suffisance
+  energy:{
+    RU:'#40b040',SA:'#50c040',NO:'#50b040',IR:'#50b040',IQ:'#50b040',
+    KW:'#50b040',AE:'#50c040',QA:'#50c040',VE:'#50b040',NG:'#50b040',
+    AO:'#50b040',LY:'#50b040',DZ:'#50b040',KZ:'#50b040',AZ:'#50b040',
+    US:'#80b040',CA:'#80b040',AU:'#80b040',BR:'#70a040',MX:'#70a040',
+    CN:'#a0a040',IN:'#c07030',
+    DE:'#d03030',FR:'#c04040',IT:'#d03030',ES:'#d03030',TR:'#d03030',
+    JP:'#e02020',KR:'#e02020',GB:'#c04040',BE:'#c04040',
+    UA:'#c04040',PL:'#b04040',
+  },
+};
+
+// ── Build sidebar buttons ──
+const sb = document.getElementById('sys-btns');
+GEO.systems.forEach(s=>{
+  const btn=document.createElement('button');
+  btn.className='sys-btn';btn.dataset.id=s.id;
+  btn.innerHTML=`<span>${s.icon}</span><span class="stip">${s.title}</span>`;
+  btn.style.borderColor=s.color+'44';
+  btn.addEventListener('click',()=>openSystem(s.id));
+  sb.appendChild(btn);
+});
+
+// ── Build bottom strip ──
+const bs=document.getElementById('bottom-strip');
+GEO.systems.forEach(s=>{
+  const pill=document.createElement('button');
+  pill.className='sys-pill';pill.dataset.id=s.id;
+  pill.innerHTML=`<span class="spi">${s.icon}</span><span class="spl">${s.title}</span>`;
+  pill.style.setProperty('--c',s.color);
+  pill.addEventListener('click',()=>openSystem(s.id));
+  bs.appendChild(pill);
+});
+
+// ── Build question grid ──
+const qg=document.getElementById('q-grid');
+GEO.questions.forEach(q=>{
+  const sys=GEO.systems.find(s=>s.id===q.system)||{};
+  const card=document.createElement('div');card.className='q-card';
+  card.style.borderLeftColor=sys.color||'#e8dfc4';
+  card.style.borderLeftWidth='3px';
+  card.innerHTML=`<div class="q-card-q">${sys.icon||''} ${q.q}</div>
+    <div class="q-card-t">${q.teaser}</div>
+    <div class="q-card-arrow">Explorer → ${sys.title||''}</div>`;
+  card.addEventListener('click',()=>{openSystem(q.system);showView('map');});
+  qg.appendChild(card);
+});
+
+// ── World SVG map (simplified) ──
+// Using a simple rectangular projection with country outlines as paths
+// Countries as simplified SVG paths (key countries)
+const worldSVG = document.getElementById('world-svg');
+
+// Draw graticule lines
+function drawGraticule(){
+  const g=document.createElementNS('http://www.w3.org/2000/svg','g');
+  g.setAttribute('stroke','rgba(200,220,255,0.06)');g.setAttribute('stroke-width','.5');g.setAttribute('fill','none');
+  for(let lon=-180;lon<=180;lon+=30){const x=((lon+180)/360)*960;const l=document.createElementNS('http://www.w3.org/2000/svg','line');l.setAttribute('x1',x);l.setAttribute('y1',0);l.setAttribute('x2',x);l.setAttribute('y2',500);g.appendChild(l);}
+  for(let lat=-90;lat<=90;lat+=30){const y=((90-lat)/180)*500;const l=document.createElementNS('http://www.w3.org/2000/svg','line');l.setAttribute('x1',0);l.setAttribute('y1',y);l.setAttribute('x2',960);l.setAttribute('y2',y);g.appendChild(l);}
+  worldSVG.appendChild(g);
+}
+drawGraticule();
+
+// Ocean background
+const ocean=document.createElementNS('http://www.w3.org/2000/svg','rect');
+ocean.setAttribute('width','960');ocean.setAttribute('height','500');
+ocean.setAttribute('fill','#0a1525');ocean.setAttribute('rx','0');
+worldSVG.insertBefore(ocean,worldSVG.firstChild);
+
+// Equator & Tropics
+function addLatLine(lat,dash,color){
+  const y=((90-lat)/180)*500;
+  const l=document.createElementNS('http://www.w3.org/2000/svg','line');
+  l.setAttribute('x1',0);l.setAttribute('y1',y);l.setAttribute('x2',960);l.setAttribute('y2',y);
+  l.setAttribute('stroke',color);l.setAttribute('stroke-width','.8');
+  if(dash)l.setAttribute('stroke-dasharray','4,4');
+  worldSVG.appendChild(l);
+}
+addLatLine(0,false,'rgba(100,180,255,0.2)');
+addLatLine(23.5,true,'rgba(255,200,100,0.12)');
+addLatLine(-23.5,true,'rgba(255,200,100,0.12)');
+
+// Country shapes (simplified polygons — key countries)
+const COUNTRIES_SVG = [
+  {id:'US',name:'États-Unis',cont:'Americas',color:'#1a2d28',d:'M 147.5,115.6 L 226.1,113.9 L 258.7,121.9 L 277.3,125.8 L 301.3,118.1 L 301.3,126.4 L 292.0,136.1 L 280.0,152.8 L 264.3,180.6 L 248.0,166.7 L 240.0,169.4 L 221.3,178.3 L 221.3,177.8 L 202.7,169.4 L 184.0,163.1 L 167.7,159.7 L 160.0,155.6 L 148.3,137.8 L 147.5,115.6 Z'},
+  {id:'CA',name:'Canada',cont:'Americas',color:'#1a2d28',d:'M 104.0,82.5 L 226.4,113.9 L 277.3,125.8 L 301.3,118.1 L 320.5,121.7 L 309.3,126.4 L 304.0,125.0 L 301.3,118.1 L 339.7,119.2 L 331.7,106.7 L 337.9,96.7 L 308.0,82.5 L 298.7,76.4 L 265.3,75.6 L 258.7,77.2 L 242.7,74.4 L 226.1,84.7 L 208.0,83.3 L 186.7,83.3 L 104.0,82.5 Z'},
+  {id:'MX',name:'Mexique',cont:'Americas',color:'#1a2d28',d:'M 167.7,159.7 L 184.0,163.1 L 202.7,169.4 L 221.3,177.8 L 221.3,188.9 L 240.0,200.0 L 246.7,206.4 L 244.8,206.4 L 242.1,200.6 L 238.9,200.6 L 237.3,205.3 L 234.1,209.7 L 234.7,201.9 L 238.4,198.6 L 240.0,191.7 L 248.8,190.8 L 248.5,185.3 L 246.9,183.3 L 241.3,190.8 L 238.9,190.0 L 248.0,190.3 L 248.5,191.4 L 238.7,194.7 L 237.3,198.1 L 244.5,205.3 L 239.7,211.9 L 234.1,207.5 L 229.3,205.0 L 221.9,206.7 L 219.2,205.8 L 208.0,204.2 L 198.1,193.3 L 188.0,185.3 L 186.7,183.3 L 188.5,178.9 L 184.0,175.0 L 178.7,169.4 L 173.9,163.3 L 174.1,159.2 L 167.7,159.7 Z'},
+  {id:'GT',name:'Guatemala',cont:'Americas',color:'#1a2d28',d:'M 234.1,200.6 L 242.1,205.8 L 244.8,206.4 L 246.7,206.4 L 248.0,208.1 L 242.7,207.5 L 242.1,209.4 L 234.1,209.7 L 234.1,200.6 Z'},
+  {id:'CU',name:'Cuba',cont:'Americas',color:'#1a2d28',d:'M 253.6,187.8 L 282.7,194.4 L 282.1,188.3 L 265.3,185.8 L 253.6,187.8 Z'},
+  {id:'CO',name:'Colombie',cont:'Americas',color:'#1a2d28',d:'M 274.1,227.8 L 288.0,217.2 L 293.3,216.1 L 301.3,220.8 L 318.1,235.6 L 318.1,238.9 L 312.0,244.4 L 300.5,245.0 L 294.7,246.9 L 293.1,260.6 L 279.2,250.6 L 274.7,247.8 L 269.6,246.1 L 272.8,228.3 L 274.1,227.8 Z'},
+  {id:'VE',name:'Venezuela',cont:'Americas',color:'#1a2d28',d:'M 285.3,217.2 L 320.5,227.2 L 318.1,235.6 L 301.3,238.1 L 300.5,245.0 L 294.7,246.9 L 301.3,244.4 L 312.0,244.4 L 318.1,238.9 L 314.7,238.1 L 309.9,239.2 L 304.0,247.2 L 300.5,245.0 L 294.7,246.9 L 288.0,251.4 L 288.0,238.9 L 288.0,230.6 L 293.3,216.1 L 301.3,220.8 L 309.9,220.3 L 312.8,221.1 L 320.0,226.1 L 317.3,226.4 L 312.0,228.3 L 305.6,221.7 L 301.3,220.8 L 293.3,216.1 L 285.3,217.2 Z'},
+  {id:'BR',name:'Brésil',cont:'Americas',color:'#1a2d28',d:'M 288.0,276.4 L 346.7,329.4 L 338.1,343.6 L 325.3,344.4 L 326.4,333.9 L 330.7,327.8 L 326.7,320.8 L 325.3,306.1 L 320.0,295.3 L 319.5,286.9 L 325.3,279.7 L 333.3,277.8 L 338.7,285.3 L 341.3,288.9 L 350.9,301.1 L 362.7,313.9 L 370.7,308.3 L 372.0,305.6 L 377.3,286.1 L 385.3,275.0 L 387.2,269.4 L 386.7,265.3 L 383.2,262.5 L 369.3,258.3 L 362.7,256.9 L 355.2,251.4 L 344.0,238.9 L 342.1,238.3 L 337.9,239.4 L 336.0,244.2 L 332.8,244.4 L 326.4,244.7 L 324.3,245.8 L 320.8,245.0 L 321.3,251.9 L 318.1,252.8 L 319.7,255.6 L 320.0,256.9 L 317.3,260.8 L 312.0,260.8 L 307.5,262.2 L 306.7,265.3 L 294.7,253.1 L 293.1,260.6 L 292.0,276.4 L 288.0,276.4 Z'},
+  {id:'PE',name:'Pérou',cont:'Americas',color:'#1a2d28',d:'M 262.9,261.7 L 279.2,250.6 L 288.0,251.4 L 292.0,276.4 L 293.1,260.6 L 294.7,253.1 L 306.7,265.3 L 307.5,262.2 L 312.0,260.8 L 312.0,277.8 L 296.8,280.8 L 294.4,280.3 L 292.0,280.6 L 279.2,289.4 L 274.7,289.4 L 268.3,271.9 L 266.7,263.9 L 262.9,261.7 Z'},
+  {id:'BO',name:'Bolivie',cont:'Americas',color:'#1a2d28',d:'M 294.7,277.8 L 319.5,286.9 L 325.3,306.1 L 326.7,320.8 L 310.1,311.1 L 308.0,312.2 L 306.7,311.4 L 299.7,313.6 L 298.7,303.9 L 294.4,280.3 L 294.7,277.8 Z'},
+  {id:'CL',name:'Chili',cont:'Americas',color:'#1a2d28',d:'M 293.3,298.6 L 298.7,303.9 L 299.7,313.6 L 306.7,311.4 L 308.0,312.2 L 310.1,311.1 L 326.7,320.8 L 330.7,327.8 L 326.4,333.9 L 325.3,344.4 L 338.1,343.6 L 336.5,349.4 L 337.3,402.8 L 294.4,402.8 L 278.4,372.2 L 287.2,348.6 L 288.5,332.5 L 292.0,309.7 L 293.3,298.6 Z'},
+  {id:'AR',name:'Argentine',cont:'Americas',color:'#1a2d28',d:'M 306.7,311.4 L 325.3,306.1 L 326.4,333.9 L 325.3,344.4 L 338.1,343.6 L 336.5,349.4 L 337.3,402.8 L 294.4,402.8 L 288.5,332.5 L 287.2,348.6 L 278.4,372.2 L 288.5,355.0 L 292.8,333.9 L 294.7,311.4 L 306.7,311.4 Z'},
+  {id:'PY',name:'Paraguay',cont:'Americas',color:'#1a2d28',d:'M 326.7,320.8 L 325.3,306.1 L 320.0,295.3 L 312.0,311.1 L 310.1,311.1 L 308.0,312.2 L 306.7,311.4 L 326.7,320.8 Z'},
+  {id:'UY',name:'Uruguay',cont:'Americas',color:'#1a2d28',d:'M 325.3,344.4 L 338.1,343.6 L 336.5,349.4 L 330.7,345.8 L 325.3,344.4 Z'},
+  {id:'IS',name:'Islande',cont:'Europe',color:'#1a2840',d:'M 415.2,73.6 L 443.7,73.6 L 443.7,65.3 L 432.0,65.3 L 415.2,70.8 L 415.2,73.6 Z'},
+  {id:'NO',name:'Norvège',cont:'Europe',color:'#1a2840',d:'M 492.0,89.2 L 562.7,54.2 L 553.3,52.2 L 518.7,67.2 L 494.1,76.4 L 492.0,89.2 Z'},
+  {id:'SE',name:'Suède',cont:'Europe',color:'#1a2840',d:'M 509.3,96.1 L 544.5,67.2 L 562.7,54.2 L 534.7,96.1 L 509.3,96.1 Z'},
+  {id:'FI',name:'Finlande',cont:'Europe',color:'#1a2840',d:'M 534.7,84.7 L 564.3,84.7 L 557.3,55.3 L 534.7,68.1 L 534.7,84.7 Z'},
+  {id:'EE',name:'Estonie',cont:'Europe',color:'#1a2840',d:'M 537.3,90.3 L 555.2,90.3 L 555.2,84.4 L 537.3,84.4 L 537.3,90.3 Z'},
+  {id:'LV',name:'Lettonie',cont:'Europe',color:'#1a2840',d:'M 536.0,95.3 L 555.2,95.3 L 555.2,90.3 L 536.0,90.3 L 536.0,95.3 Z'},
+  {id:'LT',name:'Lituanie',cont:'Europe',color:'#1a2840',d:'M 535.7,100.3 L 550.9,100.3 L 550.9,93.3 L 535.7,93.3 L 535.7,100.3 Z'},
+  {id:'PL',name:'Pologne',cont:'Europe',color:'#1a2840',d:'M 517.6,113.9 L 544.3,113.9 L 544.3,97.8 L 517.6,97.8 L 517.6,113.9 Z'},
+  {id:'DE',name:'Allemagne',cont:'Europe',color:'#1a2840',d:'M 495.7,118.6 L 520.0,118.6 L 520.0,97.2 L 495.7,97.2 L 495.7,118.6 Z'},
+  {id:'FR',name:'France',cont:'Europe',color:'#1a2840',d:'M 466.4,132.5 L 501.9,132.5 L 501.9,108.1 L 486.7,108.1 L 485.3,107.5 L 474.7,115.6 L 467.2,116.9 L 466.4,115.6 L 475.2,120.0 L 474.7,129.7 L 475.2,129.4 L 466.4,129.2 L 466.4,132.5 Z'},
+  {id:'ES',name:'Espagne',cont:'Europe',color:'#1a2840',d:'M 454.9,150.3 L 488.8,150.3 L 488.8,128.3 L 454.9,128.3 L 454.9,150.3 Z'},
+  {id:'PT',name:'Portugal',cont:'Europe',color:'#1a2840',d:'M 454.7,147.8 L 463.5,147.8 L 463.5,132.8 L 454.7,132.8 L 454.7,147.8 Z'},
+  {id:'GB',name:'Royaume-Uni',cont:'Europe',color:'#1a2840',d:'M 464.8,111.4 L 485.3,107.5 L 485.3,107.5 L 480.0,102.8 L 478.7,86.9 L 465.3,86.9 L 464.0,94.4 L 472.0,98.6 L 472.0,105.6 L 464.8,111.4 Z'},
+  {id:'IE',name:'Irlande',cont:'Europe',color:'#1a2840',d:'M 452.0,107.2 L 464.0,107.2 L 464.0,96.1 L 452.0,96.1 L 452.0,107.2 Z'},
+  {id:'IT',name:'Italie',cont:'Europe',color:'#1a2840',d:'M 498.7,147.2 L 529.3,138.9 L 523.2,136.1 L 514.7,127.8 L 508.0,128.3 L 500.0,128.1 L 498.7,127.5 L 497.6,127.8 L 498.7,129.4 L 500.0,128.3 L 501.3,122.2 L 517.3,119.4 L 520.0,119.4 L 514.7,123.6 L 513.3,126.4 L 510.7,126.4 L 506.7,128.3 L 498.7,128.1 L 498.7,127.5 L 498.4,128.6 L 498.7,147.2 Z'},
+  {id:'CH',name:'Suisse',cont:'Europe',color:'#1a2840',d:'M 496.0,122.8 L 508.0,122.8 L 508.0,117.2 L 496.0,117.2 L 496.0,122.8 Z'},
+  {id:'AT',name:'Autriche',cont:'Europe',color:'#1a2840',d:'M 505.3,121.1 L 525.9,121.1 L 525.9,113.9 L 505.3,113.9 L 505.3,121.1 Z'},
+  {id:'CZ',name:'Tchéquie',cont:'Europe',color:'#1a2840',d:'M 512.3,115.3 L 530.4,115.3 L 530.4,108.1 L 512.3,108.1 L 512.3,115.3 Z'},
+  {id:'SK',name:'Slovaquie',cont:'Europe',color:'#1a2840',d:'M 524.8,117.2 L 540.3,117.2 L 540.3,112.2 L 524.8,112.2 L 524.8,117.2 Z'},
+  {id:'HU',name:'Hongrie',cont:'Europe',color:'#1a2840',d:'M 522.9,122.8 L 541.1,122.8 L 541.1,115.0 L 522.9,115.0 L 522.9,122.8 Z'},
+  {id:'RO',name:'Roumanie',cont:'Europe',color:'#1a2840',d:'M 539.2,128.6 L 560.0,127.8 L 560.0,115.8 L 539.2,115.8 L 539.2,128.6 Z'},
+  {id:'UA',name:'Ukraine',cont:'Europe',color:'#1a2840',d:'M 538.9,126.7 L 587.2,126.7 L 584.0,104.4 L 538.9,104.4 L 538.9,126.7 Z'},
+  {id:'BY',name:'Biélorussie',cont:'Europe',color:'#1a2840',d:'M 543.2,107.5 L 567.5,107.5 L 567.5,100.3 L 543.2,100.3 L 543.2,107.5 Z'},
+  {id:'MD',name:'Moldavie',cont:'Europe',color:'#1a2840',d:'M 550.9,123.6 L 560.3,123.6 L 560.3,115.3 L 550.9,115.3 L 550.9,123.6 Z'},
+  {id:'GR',name:'Grèce',cont:'Europe',color:'#1a2840',d:'M 531.7,152.8 L 550.9,152.8 L 550.9,133.3 L 531.7,133.3 L 531.7,152.8 Z'},
+  {id:'BG',name:'Bulgarie',cont:'Europe',color:'#1a2840',d:'M 539.7,135.6 L 556.3,135.6 L 556.3,127.2 L 539.7,127.2 L 539.7,135.6 Z'},
+  {id:'RS',name:'Serbie',cont:'Europe',color:'#1a2840',d:'M 530.7,133.6 L 541.3,133.6 L 541.3,121.7 L 530.7,121.7 L 530.7,133.6 Z'},
+  {id:'HR',name:'Croatie',cont:'Europe',color:'#1a2840',d:'M 516.0,132.2 L 531.7,125.6 L 531.7,120.6 L 516.0,120.6 L 516.0,132.2 Z'},
+  {id:'NL',name:'Pays-Bas',cont:'Europe',color:'#1a2840',d:'M 488.8,109.2 L 499.2,109.2 L 499.2,101.1 L 488.8,101.1 L 488.8,109.2 Z'},
+  {id:'BE',name:'Belgique',cont:'Europe',color:'#1a2840',d:'M 486.7,112.5 L 497.1,112.5 L 497.1,106.9 L 486.7,106.9 L 486.7,112.5 Z'},
+  {id:'DK',name:'Danemark',cont:'Europe',color:'#1a2840',d:'M 501.3,98.3 L 513.9,98.3 L 513.9,89.4 L 501.3,89.4 L 501.3,98.3 Z'},
+  {id:'TR',name:'Turquie',cont:'Asia',color:'#1e2535',d:'M 549.3,150.6 L 599.5,147.8 L 599.5,132.5 L 549.3,132.5 L 549.3,150.6 Z'},
+  {id:'RU',name:'Russie',cont:'Europe',color:'#182030',d:'M 538.7,98.9 L 613.3,102.8 L 640.0,102.8 L 693.3,100.0 L 746.7,105.6 L 800.0,105.6 L 853.3,122.2 L 856.0,102.8 L 856.0,98.6 L 853.3,83.3 L 880.0,84.7 L 914.7,83.3 L 960.0,59.7 L 960.0,51.4 L 906.7,47.2 L 826.7,47.2 L 746.7,45.8 L 666.7,47.2 L 613.3,50.0 L 560.0,56.9 L 538.7,68.1 L 538.7,98.9 Z'},
+  {id:'CN',name:'Chine',cont:'Asia',color:'#1e2535',d:'M 676.0,199.4 L 840.3,199.4 L 840.3,101.1 L 676.0,101.1 L 676.0,199.4 Z'},
+  {id:'MN',name:'Mongolie',cont:'Asia',color:'#1e2535',d:'M 714.1,134.4 L 799.7,134.4 L 799.7,105.3 L 714.1,105.3 L 714.1,134.4 Z'},
+  {id:'KZ',name:'Kazakhstan',cont:'Asia',color:'#1e2535',d:'M 614.1,137.2 L 713.1,137.2 L 713.1,96.1 L 614.1,96.1 L 614.1,137.2 Z'},
+  {id:'UZ',name:'Ouzbékistan',cont:'Asia',color:'#1e2535',d:'M 629.1,146.7 L 674.9,146.7 L 674.9,123.3 L 629.1,123.3 L 629.1,146.7 Z'},
+  {id:'TM',name:'Turkménistan',cont:'Asia',color:'#1e2535',d:'M 620.0,152.2 L 657.6,152.2 L 657.6,131.1 L 620.0,131.1 L 620.0,152.2 Z'},
+  {id:'AF',name:'Afghanistan',cont:'Asia',color:'#1e2535',d:'M 641.3,168.3 L 679.7,168.3 L 679.7,143.1 L 641.3,143.1 L 641.3,168.3 Z'},
+  {id:'PK',name:'Pakistan',cont:'Asia',color:'#1e2535',d:'M 642.4,184.2 L 687.5,184.2 L 687.5,146.9 L 642.4,146.9 L 642.4,184.2 Z'},
+  {id:'IN',name:'Inde',cont:'Asia',color:'#1e2535',d:'M 661.6,228.1 L 739.7,191.7 L 738.7,171.4 L 714.7,151.4 L 677.3,146.9 L 661.3,146.9 L 661.3,186.1 L 661.6,228.1 Z'},
+  {id:'BD',name:'Bangladesh',cont:'Asia',color:'#1e2535',d:'M 714.7,192.5 L 727.2,192.5 L 727.2,176.1 L 714.7,176.1 L 714.7,192.5 Z'},
+  {id:'NP',name:'Népal',cont:'Asia',color:'#1e2535',d:'M 693.6,176.7 L 715.2,176.7 L 715.2,165.6 L 693.6,165.6 L 693.6,176.7 Z'},
+  {id:'LK',name:'Sri Lanka',cont:'Asia',color:'#1e2535',d:'M 692.5,233.6 L 698.4,233.6 L 698.4,222.8 L 692.5,222.8 L 692.5,233.6 Z'},
+  {id:'MM',name:'Myanmar',cont:'Asia',color:'#1e2535',d:'M 725.9,222.5 L 749.6,191.1 L 749.6,171.1 L 725.9,171.1 L 725.9,222.5 Z'},
+  {id:'TH',name:'Thaïlande',cont:'Asia',color:'#1e2535',d:'M 740.0,238.9 L 761.6,211.7 L 752.8,193.1 L 740.0,193.1 L 740.0,238.9 Z'},
+  {id:'VN',name:'Viêt Nam',cont:'Asia',color:'#1e2535',d:'M 752.3,226.9 L 772.0,216.7 L 768.0,185.3 L 752.3,185.3 L 752.3,226.9 Z'},
+  {id:'KH',name:'Cambodge',cont:'Asia',color:'#1e2535',d:'M 752.8,222.5 L 766.9,222.5 L 766.9,209.2 L 752.8,209.2 L 752.8,222.5 Z'},
+  {id:'LA',name:'Laos',cont:'Asia',color:'#1e2535',d:'M 746.9,211.4 L 767.2,211.4 L 767.2,187.5 L 746.9,187.5 L 746.9,211.4 Z'},
+  {id:'MY',name:'Malaisie',cont:'Asia',color:'#1e2535',d:'M 745.9,246.4 L 797.9,238.9 L 797.9,229.4 L 745.9,229.4 L 745.9,246.4 Z'},
+  {id:'ID',name:'Indonésie',cont:'Asia',color:'#1e2535',d:'M 732.8,266.4 L 856.0,266.4 L 856.0,233.3 L 732.8,233.3 L 732.8,266.4 Z'},
+  {id:'PH',name:'Philippines',cont:'Asia',color:'#1e2535',d:'M 792.5,237.2 L 817.6,225.8 L 817.6,193.1 L 792.5,193.1 L 792.5,237.2 Z'},
+  {id:'JP',name:'Japon',cont:'Asia',color:'#1e2535',d:'M 825.3,164.4 L 868.8,143.1 L 867.2,123.6 L 825.3,126.7 L 825.3,164.4 Z'},
+  {id:'KR',name:'Corée du Sud',cont:'Asia',color:'#1e2535',d:'M 816.0,155.6 L 825.6,155.6 L 825.6,142.8 L 816.0,142.8 L 816.0,155.6 Z'},
+  {id:'KP',name:'Corée du Nord',cont:'Asia',color:'#1e2535',d:'M 811.5,145.3 L 828.5,145.3 L 828.5,131.9 L 811.5,131.9 L 811.5,145.3 Z'},
+  {id:'TW',name:'Taïwan',cont:'Asia',color:'#1e2535',d:'M 800.0,189.2 L 805.3,189.2 L 805.3,179.7 L 800.0,179.7 L 800.0,189.2 Z'},
+  {id:'IR',name:'Iran',cont:'Asia',color:'#1e2535',d:'M 597.3,180.6 L 648.8,180.6 L 648.8,139.4 L 597.3,139.4 L 597.3,180.6 Z'},
+  {id:'IQ',name:'Irak',cont:'Asia',color:'#1e2535',d:'M 583.5,169.2 L 609.6,169.2 L 609.6,146.1 L 583.5,146.1 L 583.5,169.2 Z'},
+  {id:'SA',name:'Arabie Saoudite',cont:'Asia',color:'#1e2535',d:'M 577.3,206.7 L 628.5,206.7 L 628.5,160.6 L 577.3,160.6 L 577.3,206.7 Z'},
+  {id:'YE',name:'Yémen',cont:'Asia',color:'#1e2535',d:'M 593.3,216.9 L 621.9,216.9 L 621.9,197.2 L 593.3,197.2 L 593.3,216.9 Z'},
+  {id:'OM',name:'Oman',cont:'Asia',color:'#1e2535',d:'M 618.1,203.9 L 639.7,203.9 L 639.7,176.7 L 618.1,176.7 L 618.1,203.9 Z'},
+  {id:'AE',name:'ÉAU',cont:'Asia',color:'#1e2535',d:'M 617.6,187.2 L 630.4,187.2 L 630.4,177.5 L 617.6,177.5 L 617.6,187.2 Z'},
+  {id:'SY',name:'Syrie',cont:'Asia',color:'#1e2535',d:'M 575.2,160.3 L 593.1,160.3 L 593.1,146.4 L 575.2,146.4 L 575.2,160.3 Z'},
+  {id:'JO',name:'Jordanie',cont:'Asia',color:'#1e2535',d:'M 573.1,168.9 L 584.8,168.9 L 584.8,157.2 L 573.1,157.2 L 573.1,168.9 Z'},
+  {id:'IL',name:'Israël',cont:'Asia',color:'#1e2535',d:'M 571.5,168.1 L 575.7,168.1 L 575.7,157.5 L 571.5,157.5 L 571.5,168.1 Z'},
+  {id:'GE',name:'Géorgie',cont:'Asia',color:'#1e2535',d:'M 586.7,136.1 L 604.5,136.1 L 604.5,128.9 L 586.7,128.9 L 586.7,136.1 Z'},
+  {id:'AZ',name:'Azerbaïdjan',cont:'Asia',color:'#1e2535',d:'M 599.5,143.3 L 614.4,143.3 L 614.4,133.6 L 599.5,133.6 L 599.5,143.3 Z'},
+  {id:'MA',name:'Maroc',cont:'Africa',color:'#2a2015',d:'M 464.0,173.1 L 480.0,173.1 L 480.0,150.3 L 464.0,150.3 L 464.0,173.1 Z'},
+  {id:'DZ',name:'Algérie',cont:'Africa',color:'#2a2015',d:'M 474.9,197.5 L 504.0,186.1 L 512.0,186.1 L 512.0,146.9 L 474.9,146.9 L 474.9,197.5 Z'},
+  {id:'TN',name:'Tunisie',cont:'Africa',color:'#2a2015',d:'M 500.0,165.8 L 510.9,165.8 L 510.9,145.8 L 500.0,145.8 L 500.0,165.8 Z'},
+  {id:'LY',name:'Libye',cont:'Africa',color:'#2a2015',d:'M 504.0,195.8 L 547.2,195.8 L 547.2,157.8 L 504.0,157.8 L 504.0,195.8 Z'},
+  {id:'EG',name:'Égypte',cont:'Africa',color:'#2a2015',d:'M 545.9,189.2 L 578.7,189.2 L 578.7,161.9 L 545.9,161.9 L 545.9,189.2 Z'},
+  {id:'MR',name:'Mauritanie',cont:'Africa',color:'#2a2015',d:'M 434.4,209.4 L 467.2,196.9 L 467.2,174.2 L 434.4,174.2 L 434.4,209.4 Z'},
+  {id:'ML',name:'Mali',cont:'Africa',color:'#2a2015',d:'M 468.8,221.7 L 491.5,203.3 L 491.5,180.6 L 468.8,180.6 L 468.8,221.7 Z'},
+  {id:'NE',name:'Niger',cont:'Africa',color:'#2a2015',d:'M 486.1,217.5 L 519.7,208.6 L 519.7,184.7 L 486.1,184.7 L 486.1,217.5 Z'},
+  {id:'TD',name:'Tchad',cont:'Africa',color:'#2a2015',d:'M 515.7,229.2 L 544.0,215.3 L 544.0,184.7 L 515.7,184.7 L 515.7,229.2 Z'},
+  {id:'SD',name:'Soudan',cont:'Africa',color:'#2a2015',d:'M 538.1,225.8 L 582.4,225.8 L 582.4,188.3 L 538.1,188.3 L 538.1,225.8 Z'},
+  {id:'SS',name:'Soudan du Sud',cont:'Africa',color:'#2a2015',d:'M 543.7,240.3 L 574.1,240.3 L 574.1,216.1 L 543.7,216.1 L 543.7,240.3 Z'},
+  {id:'ET',name:'Éthiopie',cont:'Africa',color:'#2a2015',d:'M 568.0,240.6 L 607.7,228.1 L 607.7,208.6 L 568.0,208.6 L 568.0,240.6 Z'},
+  {id:'SO',name:'Somalie',cont:'Africa',color:'#2a2015',d:'M 589.1,254.7 L 617.1,229.4 L 617.1,216.7 L 589.1,216.7 L 589.1,254.7 Z'},
+  {id:'DJ',name:'Djibouti',cont:'Africa',color:'#2a2015',d:'M 591.5,219.7 L 596.0,219.7 L 596.0,214.7 L 591.5,214.7 L 591.5,219.7 Z'},
+  {id:'ER',name:'Érythrée',cont:'Africa',color:'#2a2015',d:'M 577.1,215.3 L 594.9,209.7 L 594.9,200.0 L 577.1,200.0 L 577.1,215.3 Z'},
+  {id:'SN',name:'Sénégal',cont:'Africa',color:'#2a2015',d:'M 433.3,215.8 L 449.6,215.8 L 449.6,206.1 L 433.3,206.1 L 433.3,215.8 Z'},
+  {id:'GN',name:'Guinée',cont:'Africa',color:'#2a2015',d:'M 439.7,229.7 L 458.4,229.7 L 458.4,214.7 L 439.7,214.7 L 439.7,229.7 Z'},
+  {id:'CI',name:'Côte d’Ivoire',cont:'Africa',color:'#2a2015',d:'M 457.1,238.1 L 473.3,235.3 L 473.3,220.3 L 457.1,220.3 L 457.1,238.1 Z'},
+  {id:'GH',name:'Ghana',cont:'Africa',color:'#2a2015',d:'M 471.2,236.9 L 483.2,236.9 L 483.2,218.9 L 471.2,218.9 L 471.2,236.9 Z'},
+  {id:'BF',name:'Burkina Faso',cont:'Africa',color:'#2a2015',d:'M 465.3,223.9 L 486.4,223.9 L 486.4,208.1 L 465.3,208.1 L 465.3,223.9 Z'},
+  {id:'NG',name:'Nigeria',cont:'Africa',color:'#2a2015',d:'M 487.2,238.1 L 519.2,238.1 L 519.2,211.4 L 487.2,211.4 L 487.2,238.1 Z'},
+  {id:'CM',name:'Cameroun',cont:'Africa',color:'#2a2015',d:'M 501.1,245.6 L 523.2,235.0 L 523.2,213.6 L 501.1,213.6 L 501.1,245.6 Z'},
+  {id:'GA',name:'Gabon',cont:'Africa',color:'#2a2015',d:'M 503.5,260.8 L 518.7,244.4 L 518.7,243.3 L 503.5,243.3 L 503.5,260.8 Z'},
+  {id:'CF',name:'Centrafrique',cont:'Africa',color:'#2a2015',d:'M 518.7,243.9 L 553.3,236.1 L 553.3,219.4 L 518.7,219.4 L 518.7,243.9 Z'},
+  {id:'CD',name:'RD Congo',cont:'Africa',color:'#2a2015',d:'M 512.5,287.5 L 563.5,262.2 L 563.5,235.0 L 512.5,235.0 L 512.5,287.5 Z'},
+  {id:'CG',name:'Congo',cont:'Africa',color:'#2a2015',d:'M 509.6,263.9 L 529.6,239.7 L 529.6,239.7 L 509.6,239.7 L 509.6,263.9 Z'},
+  {id:'AO',name:'Angola',cont:'Africa',color:'#2a2015',d:'M 511.2,300.0 L 544.3,263.9 L 544.3,262.2 L 511.2,262.2 L 511.2,300.0 Z'},
+  {id:'TZ',name:'Tanzanie',cont:'Africa',color:'#2a2015',d:'M 558.1,282.8 L 587.7,252.8 L 587.7,236.9 L 558.1,236.9 L 558.1,282.8 Z'},
+  {id:'KE',name:'Kenya',cont:'Africa',color:'#2a2015',d:'M 570.4,263.1 L 591.7,250.0 L 591.7,236.1 L 570.4,236.1 L 570.4,263.1 Z'},
+  {id:'UG',name:'Ouganda',cont:'Africa',color:'#2a2015',d:'M 558.9,254.2 L 573.3,254.2 L 573.3,238.3 L 558.9,238.3 L 558.9,254.2 Z'},
+  {id:'RW',name:'Rwanda',cont:'Africa',color:'#2a2015',d:'M 557.1,257.8 L 562.4,257.8 L 562.4,252.8 L 557.1,252.8 L 557.1,257.8 Z'},
+  {id:'MZ',name:'Mozambique',cont:'Africa',color:'#2a2015',d:'M 566.1,324.7 L 589.1,279.4 L 589.1,277.8 L 566.1,277.8 L 566.1,324.7 Z'},
+  {id:'ZM',name:'Zambie',cont:'Africa',color:'#2a2015',d:'M 538.7,300.3 L 569.9,272.8 L 569.9,272.2 L 538.7,272.2 L 538.7,300.3 Z'},
+  {id:'ZW',name:'Zimbabwe',cont:'Africa',color:'#2a2015',d:'M 547.2,311.9 L 568.3,300.0 L 568.3,293.3 L 547.2,293.3 L 547.2,311.9 Z'},
+  {id:'BW',name:'Botswana',cont:'Africa',color:'#2a2015',d:'M 533.1,324.4 L 558.4,300.0 L 558.4,299.4 L 533.1,299.4 L 533.1,324.4 Z'},
+  {id:'NA',name:'Namibie',cont:'Africa',color:'#2a2015',d:'M 511.2,330.6 L 533.1,299.4 L 533.1,297.2 L 511.2,297.2 L 511.2,330.6 Z'},
+  {id:'ZA',name:'Afrique du Sud',cont:'Africa',color:'#2a2015',d:'M 523.7,346.7 L 568.0,324.4 L 568.0,311.9 L 547.2,311.9 L 533.1,324.4 L 525.3,330.6 L 523.7,331.9 L 523.7,346.7 Z'},
+  {id:'MG',name:'Madagascar',cont:'Africa',color:'#2a2015',d:'M 595.2,321.1 L 614.7,283.1 L 614.7,280.6 L 595.2,280.6 L 595.2,321.1 Z'},
+  {id:'LR',name:'Liberia',cont:'Africa',color:'#2a2015',d:'M 449.3,237.8 L 460.3,237.8 L 460.3,226.4 L 449.3,226.4 L 449.3,237.8 Z'},
+  {id:'SL',name:'Sierra Leone',cont:'Africa',color:'#2a2015',d:'M 444.5,230.8 L 452.5,230.8 L 452.5,222.2 L 444.5,222.2 L 444.5,230.8 Z'},
+  {id:'MW',name:'Malawi',cont:'Africa',color:'#2a2015',d:'M 567.2,297.2 L 575.7,277.8 L 575.7,276.1 L 567.2,276.1 L 567.2,297.2 Z'},
+  {id:'AU',name:'Australie',cont:'Oceania',color:'#1a2535',d:'M 782.1,347.2 L 890.7,328.3 L 890.7,279.7 L 782.1,279.7 L 782.1,347.2 Z'},
+  {id:'NZ',name:'Nouvelle-Zélande',cont:'Oceania',color:'#1a2535',d:'M 923.7,379.4 L 956.3,345.6 L 956.3,344.4 L 923.7,344.4 L 923.7,379.4 Z'},
+  {id:'PG',name:'Papouasie',cont:'Oceania',color:'#1a2535',d:'M 855.7,276.7 L 882.1,257.2 L 882.1,253.6 L 855.7,253.6 L 855.7,276.7 Z'}
+];
+
+const countryGroup=document.createElementNS('http://www.w3.org/2000/svg','g');
+worldSVG.appendChild(countryGroup);
+const labelGroup=document.createElementNS('http://www.w3.org/2000/svg','g');
+
+COUNTRIES_SVG.forEach(c=>{
+  const p=document.createElementNS('http://www.w3.org/2000/svg','path');
+  p.setAttribute('d',c.d);
+  p.setAttribute('fill',c.color);
+  p.setAttribute('stroke','#060d1a');
+  p.setAttribute('stroke-width','0.5');
+  p.setAttribute('class','country-path');
+  p.dataset.id=c.id;p.dataset.name=c.name;p.dataset.cont=c.cont;
+  p.addEventListener('click',()=>openCountry(c.id));
+  p.addEventListener('mouseenter',()=>showTooltip(c,p));
+  p.addEventListener('mouseleave',hideTooltip);
+  const title=document.createElementNS('http://www.w3.org/2000/svg','title');
+  title.textContent=c.name;p.appendChild(title);
+  countryGroup.appendChild(p);
+});
+
+// Labels for large + medium countries
+const LABEL_COUNTRIES={
+  RU:{x:550,y:150},CN:{x:800,y:230},US:{x:170,y:190},BR:{x:270,y:360},
+  AU:{x:750,y:390},CA:{x:160,y:130},IN:{x:660,y:270},DZ:{x:490,y:245},
+  SD:{x:535,y:280},MX:{x:155,y:245},AR:{x:240,y:440},CD:{x:490,y:350},
+  SA:{x:570,y:265},IR:{x:620,y:230},KZ:{x:700,y:175},MN:{x:780,y:165},
+  NG:{x:475,y:305},ET:{x:540,y:300},AO:{x:445,y:360},MZ:{x:520,y:370},
+  ZA:{x:490,y:430},LY:{x:490,y:215},EG:{x:540,y:228},TR:{x:545,y:205}
+};
+Object.entries(LABEL_COUNTRIES).forEach(([id,pos])=>{
+  const t=document.createElementNS('http://www.w3.org/2000/svg','text');
+  t.setAttribute('x',pos.x);t.setAttribute('y',pos.y);
+  t.setAttribute('text-anchor','middle');t.setAttribute('dominant-baseline','middle');
+  t.setAttribute('font-size','7');t.setAttribute('fill','rgba(232,223,196,0.28)');
+  t.setAttribute('font-family','Cinzel,serif');t.setAttribute('letter-spacing','0.8');
+  t.setAttribute('pointer-events','none');
+  t.textContent=id;
+  labelGroup.appendChild(t);
+});
+worldSVG.appendChild(labelGroup);
+
+// Tooltip
+const tooltip=document.createElement('div');
+tooltip.style.cssText='position:absolute;z-index:20;background:rgba(8,14,28,.92);border:1px solid rgba(200,180,120,.35);border-radius:4px;padding:6px 12px;pointer-events:none;opacity:0;transition:opacity .15s;font-family:Cinzel,serif;font-size:.65rem;letter-spacing:.1em;text-transform:uppercase;color:#e8dfc4;backdrop-filter:blur(6px);';
+document.getElementById('map-view').appendChild(tooltip);
+
+function showTooltip(c,poly){
+  const hasFiche=GEO.countries[c.id];
+  tooltip.innerHTML=`${c.name}<span style="color:rgba(232,223,196,.35);margin-left:8px;font-size:.55rem">${hasFiche?'Cliquer pour la fiche':'→'}</span>`;
+  tooltip.style.opacity='1';
+  document.getElementById('map-view').addEventListener('mousemove',moveTooltip);
+}
+function moveTooltip(e){
+  const r=document.getElementById('map-view').getBoundingClientRect();
+  tooltip.style.left=(e.clientX-r.left+12)+'px';
+  tooltip.style.top=(e.clientY-r.top-28)+'px';
+}
+function hideTooltip(){tooltip.style.opacity='0';document.getElementById('map-view').removeEventListener('mousemove',moveTooltip);}
+
+// Hotspots
+const hsGroup=document.createElementNS('http://www.w3.org/2000/svg','g');
+worldSVG.appendChild(hsGroup);
+HOTSPOTS.forEach(h=>{
+  const x=(h.x/100)*960, y=(h.y/100)*500;
+  const g=document.createElementNS('http://www.w3.org/2000/svg','g');
+  g.style.cursor='pointer';
+  // Outer pulse ring
+  const ring=document.createElementNS('http://www.w3.org/2000/svg','circle');
+  ring.setAttribute('cx',x);ring.setAttribute('cy',y);ring.setAttribute('r',8);
+  ring.setAttribute('fill','none');ring.setAttribute('stroke',h.color);ring.setAttribute('stroke-width',1);ring.setAttribute('opacity',.4);
+  // Inner dot
+  const dot=document.createElementNS('http://www.w3.org/2000/svg','circle');
+  dot.setAttribute('cx',x);dot.setAttribute('cy',y);dot.setAttribute('r',4);
+  dot.setAttribute('fill',h.color);dot.setAttribute('opacity',.85);
+  // Label
+  const label=document.createElementNS('http://www.w3.org/2000/svg','text');
+  label.setAttribute('x',x+9);label.setAttribute('y',y+1);label.setAttribute('font-size',7);
+  label.setAttribute('fill',h.color);label.setAttribute('opacity',.7);label.setAttribute('font-family','Cinzel,serif');
+  label.textContent=h.label;
+  g.appendChild(ring);g.appendChild(dot);g.appendChild(label);
+  g.addEventListener('click',()=>openSystem(h.system));
+  hsGroup.appendChild(g);
+});
+
+// Route lines (trade routes)
+const routes=[
+  {from:[30,45],to:[52,33],color:'rgba(64,128,224,0.25)',label:'Route Europe-Asie'},
+  {from:[52,33],to:[70,45],color:'rgba(64,128,224,0.25)'},
+  {from:[15,35],to:[52,33],color:'rgba(64,128,224,0.2)'},
+  {from:[70,45],to:[85,35],color:'rgba(64,128,224,0.2)'},
+];
+const routeGroup=document.createElementNS('http://www.w3.org/2000/svg','g');
+worldSVG.insertBefore(routeGroup,countryGroup);
+routes.forEach(r=>{
+  const line=document.createElementNS('http://www.w3.org/2000/svg','path');
+  const x1=(r.from[0]/100)*960,y1=(r.from[1]/100)*500;
+  const x2=(r.to[0]/100)*960,y2=(r.to[1]/100)*500;
+  const mx=(x1+x2)/2, my=Math.min(y1,y2)-30;
+  line.setAttribute('d',`M${x1},${y1} Q${mx},${my} ${x2},${y2}`);
+  line.setAttribute('fill','none');line.setAttribute('stroke',r.color);line.setAttribute('stroke-width',1.5);
+  line.setAttribute('stroke-dasharray','6,4');
+  routeGroup.appendChild(line);
+});
+
+// ── Map modes ──
+let currentMode='global';
+function setMapMode(mode){
+  currentMode=mode;
+  document.querySelectorAll('.map-btn').forEach(b=>b.classList.remove('active'));
+  document.getElementById('mbtn-'+mode)?.classList.add('active');
+  const colors=COUNTRY_COLORS[mode]||{};
+  document.querySelectorAll('.country-path').forEach(p=>{
+    const id=p.dataset.id;
+    p.setAttribute('fill',colors[id]||'#1a2540');
+  });
+  const titles={global:'Vue globale — cliquez sur un système ou un pays',stress:'Stress hydrique mondial',demo:'Pressions démographiques',energy:'Dépendances énergétiques'};
+  document.getElementById('map-title').textContent=titles[mode]||'';
+}
+
+// ── View management ──
+function showView(v){
+  document.getElementById('question-view').classList.toggle('open',v==='questions');
+  document.getElementById('btn-map').classList.toggle('active',v==='map');
+  document.getElementById('btn-q').classList.toggle('active',v==='questions');
+}
+
+// ── Open system ──
+let currentSystem=null;
+function openSystem(id){
+  const sys=GEO.systems.find(s=>s.id===id);if(!sys)return;
+  currentSystem=id;
+  // update UI
+  document.querySelectorAll('.sys-btn,.sys-pill').forEach(b=>{
+    b.classList.toggle('active',b.dataset.id===id);
+  });
+  // highlight countries on map
+  document.querySelectorAll('.country-path').forEach(p=>p.classList.remove('active-country'));
+  // Render panel
+  const c=sys.color;
+  let html=`
+    <div style="position:relative">
+      <button class="panel-close" onclick="closePanel()">✕</button>
+      <span class="p-icon">${sys.icon}</span>
+      <div class="p-tag" style="color:${c};border-color:${c};background:${c}18">${sys.title}</div>
+      <div class="p-title" style="color:${c}">${sys.title}</div>
+      <div class="p-question">${sys.question}</div>
+      <p style="font-size:.82rem;line-height:1.58;color:rgba(232,223,196,.72);margin-bottom:18px">${sys.intro}</p>
+
+      <div class="p-section">
+        <div class="p-section-title">Chiffres clés</div>
+        <div class="stat-row">
+          ${sys.stats.map(s=>`<div class="stat-box"><div class="stat-val" style="color:${c}">${s.val}</div><div class="stat-label">${s.label}</div></div>`).join('')}
+        </div>
+      </div>
+
+      <div class="p-section">
+        <div class="p-section-title">Tensions & Points chauds</div>
+        ${sys.tensions.map(t=>`<div class="tension-item" style="border-color:${c}">
+          <div class="tension-title" style="color:${c}">${t.title}</div>
+          <div class="tension-desc">${t.desc}</div>
+        </div>`).join('')}
+      </div>
+
+      <div class="p-section">
+        <div class="p-section-title">Acteurs clés</div>
+        <div class="actor-chips">${sys.actors.map(a=>`<span class="actor-chip">${a}</span>`).join('')}</div>
+      </div>
+
+      <div class="p-section">
+        <div class="p-section-title">Études de cas</div>
+        ${sys.cases.map(cs=>`<div class="case-item">
+          <div class="case-title">${cs.flag} ${cs.title}</div>
+          <div class="case-desc">${cs.desc}</div>
+        </div>`).join('')}
+      </div>
+
+      <div class="p-section">
+        <div class="p-section-title">Scénarios 2050</div>
+        <div class="scenario-row">
+          ${sys.scenarios.map(s=>`<div class="scenario-box" style="border-color:${s.color}22;background:${s.color}08">
+            <div class="scenario-label" style="color:${s.color}">${s.label}</div>
+            <div class="scenario-desc">${s.desc}</div>
+          </div>`).join('')}
+        </div>
+      </div>
+
+      <div class="p-section">
+        <div class="p-section-title">Systèmes connexes</div>
+        <div class="link-chips">
+          ${sys.links.map(l=>{const ls=GEO.systems.find(s=>s.id===l)||{};return`<button class="link-chip" style="color:${ls.color||'#e8dfc4'};border-color:${ls.color||'#e8dfc4'}44" onclick="openSystem('${l}')">${ls.icon||''} ${ls.title||l}</button>`;}).join('')}
+        </div>
+      </div>
+    </div>`;
+  document.getElementById('panel-inner').innerHTML=html;
+  document.getElementById('right-panel').classList.add('open');
+  // fil rouge
+  showFilRouge(id);
+}
+
+// ── Open country ──
+function openCountry(id){
+  const country=GEO.countries[id];
+  if(!country){
+    // Generic
+    const name=COUNTRIES_SVG.find(c=>c.id===id)?.name||id;
+    document.getElementById('panel-inner').innerHTML=`<div style="position:relative"><button class="panel-close" onclick="closePanel()">✕</button><div class="p-title">${name}</div><p style="font-size:.82rem;color:rgba(232,223,196,.5);margin-top:12px;font-style:italic">Données détaillées disponibles pour les grandes puissances. Cliquez sur un système pour explorer les dynamiques mondiales.</p></div>`;
+    document.getElementById('right-panel').classList.add('open');
+    return;
+  }
+  let html=`<div style="position:relative">
+    <button class="panel-close" onclick="closePanel()">✕</button>
+    <div style="font-size:2rem;margin-bottom:6px">${country.flag}</div>
+    <div class="p-title">${country.name}</div>
+    <div style="display:flex;gap:12px;margin:10px 0 16px">
+      <div class="stat-box"><div class="stat-val" style="color:#e8dfc4;font-size:.9rem">${country.pop}</div><div class="stat-label">Population</div></div>
+      <div class="stat-box"><div class="stat-val" style="color:#e8dfc4;font-size:.9rem">${country.pib}</div><div class="stat-label">PIB</div></div>
+    </div>
+    <div class="p-section">
+      <div class="p-section-title">🔴 Dépendances critiques</div>
+      <div class="country-dep">${country.deps.map(d=>`<div class="dep-item">${d}</div>`).join('')}</div>
+    </div>
+    <div class="p-section">
+      <div class="p-section-title">⚠️ Vulnérabilités</div>
+      <div class="country-dep">${country.vulns.map(d=>`<div class="vuln-item">${d}</div>`).join('')}</div>
+    </div>
+    <div class="p-section">
+      <div class="p-section-title">🌍 Rôles mondiaux</div>
+      <div class="country-dep">${country.roles.map(d=>`<div class="role-item">${d}</div>`).join('')}</div>
+    </div>
+    <div class="p-section">
+      <div class="p-section-title">⚔️ Tensions actives</div>
+      <div class="actor-chips">${country.tensions.map(t=>`<span class="actor-chip" style="border-color:rgba(224,64,64,.3);color:rgba(232,180,180,.8)">${t}</span>`).join('')}</div>
+    </div>
+  </div>`;
+  document.getElementById('panel-inner').innerHTML=html;
+  document.getElementById('right-panel').classList.add('open');
+  // Highlight country
+  document.querySelectorAll('.country-path').forEach(p=>{
+    p.classList.toggle('active-country',p.dataset.id===id);
+    p.setAttribute('stroke',p.dataset.id===id?'rgba(232,223,196,0.6)':'#0b1120');
+  });
+}
+
+function closePanel(){
+  document.getElementById('right-panel').classList.remove('open');
+  document.querySelectorAll('.sys-btn,.sys-pill').forEach(b=>b.classList.remove('active'));
+  document.querySelectorAll('.country-path').forEach(p=>{p.setAttribute('stroke','#0b1120');p.classList.remove('active-country');});
+  document.getElementById('fil-rouge').style.display='none';
+  currentSystem=null;
+}
+
+// ── Fil Rouge ──
+const FIL_ROUGE={
+  eau:[{id:'eau',label:'Stress hydrique',c:'#3ab4d4'},{id:'alimentation',label:'Sécurité alimentaire',c:'#80c840'},{id:'demographie',label:'Pression démographique',c:'#e87040'},{id:'tensions',label:'Conflits transfrontaliers',c:'#e04040'}],
+  energie:[{id:'energie',label:'Minerais critiques',c:'#e8c040'},{id:'tensions',label:'Rivalités géopolitiques',c:'#e04040'},{id:'flux',label:'Routes approvisionnement',c:'#4080e0'},{id:'transitions',label:'Transition énergétique',c:'#40c880'}],
+  alimentation:[{id:'alimentation',label:'Production alimentaire',c:'#80c840'},{id:'eau',label:'Irrigation',c:'#3ab4d4'},{id:'demographie',label:'Croissance pop.',c:'#e87040'},{id:'tensions',label:'Accaparement terres',c:'#e04040'}],
+  demographie:[{id:'demographie',label:'Croissance pop.',c:'#e87040'},{id:'villes',label:'Urbanisation',c:'#c070e0'},{id:'alimentation',label:'Besoins alimentaires',c:'#80c840'},{id:'tensions',label:'Migrations forcées',c:'#e04040'}],
+  villes:[{id:'villes',label:'Mégapoles',c:'#c070e0'},{id:'eau',label:'Pénuries urbaines',c:'#3ab4d4'},{id:'demographie',label:'Exode rural',c:'#e87040'},{id:'energie',label:'Consommation énergétique',c:'#e8c040'}],
+  flux:[{id:'flux',label:'Routes maritimes',c:'#4080e0'},{id:'energie',label:'Transport pétrole/gaz',c:'#e8c040'},{id:'alimentation',label:'Commerce alimentaire',c:'#80c840'},{id:'tensions',label:'Points étranglement',c:'#e04040'}],
+  tensions:[{id:'tensions',label:'Rivalités de puissance',c:'#e04040'},{id:'energie',label:'Ressources stratégiques',c:'#e8c040'},{id:'flux',label:'Contrôle routes',c:'#4080e0'},{id:'eau',label:'Diplomatie eau',c:'#3ab4d4'}],
+};
+
+function showFilRouge(id){
+  const chain=FIL_ROUGE[id]||[];
+  const fc=document.getElementById('fr-chain');
+  fc.innerHTML=`<span class="fr-label">Fil rouge</span>`;
+  chain.forEach((n,i)=>{
+    const btn=document.createElement('button');
+    btn.className='fr-node';btn.textContent=n.label;
+    btn.style.color=n.c;btn.style.borderColor=n.c+'55';
+    btn.addEventListener('click',()=>openSystem(n.id));
+    fc.appendChild(btn);
+    if(i<chain.length-1){const arr=document.createElement('span');arr.className='fr-arrow';arr.textContent='→';fc.appendChild(arr);}
+  });
+  document.getElementById('fil-rouge').style.display='';
+}
+
+</script>
+</body>
+</html>

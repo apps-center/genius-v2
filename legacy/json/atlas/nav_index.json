@@ -1,0 +1,298 @@
+{
+  "categories": [
+    {
+      "id": "geo",
+      "label": "Géographie",
+      "emoji": "🌍",
+      "layers": [
+        {
+          "id": "world",
+          "label": "Monde",
+          "emoji": "🌍",
+          "file": "layer_colors.json",
+          "type": "colors"
+        },
+        {
+          "id": "demo",
+          "label": "Population",
+          "emoji": "👥",
+          "file": "layer_colors.json",
+          "type": "colors"
+        },
+        {
+          "id": "water",
+          "label": "Eau",
+          "emoji": "💧",
+          "file": "layer_colors.json",
+          "type": "colors"
+        },
+        {
+          "id": "climat",
+          "label": "Climat",
+          "emoji": "🌡",
+          "file": "climat.json",
+          "type": "climat"
+        },
+        {
+          "id": "langues",
+          "label": "Langues",
+          "emoji": "📖",
+          "file": "langues.json",
+          "type": "thematic"
+        },
+        {
+          "id": "religions",
+          "label": "Religions",
+          "emoji": "🙏",
+          "file": "religions.json",
+          "type": "thematic"
+        },
+        {
+          "id": "migrations",
+          "label": "Migrations",
+          "emoji": "🧬",
+          "file": "migrations_prehistoriques.json",
+          "type": "routes"
+        }
+      ]
+    },
+    {
+      "id": "economie",
+      "label": "Économie",
+      "emoji": "💰",
+      "layers": [
+        {
+          "id": "energy",
+          "label": "PIB & Énergie",
+          "emoji": "⚡",
+          "file": "layer_colors.json",
+          "type": "colors"
+        },
+        {
+          "id": "energy-res",
+          "label": "Fossiles & Nucl.",
+          "emoji": "🛢",
+          "file": "ressources.json",
+          "type": "resources"
+        },
+        {
+          "id": "minerais",
+          "label": "Minerais",
+          "emoji": "⛏",
+          "file": "ressources.json",
+          "type": "resources"
+        },
+        {
+          "id": "maritime",
+          "label": "Routes maritimes",
+          "emoji": "🚢",
+          "file": "routes_maritimes.json",
+          "type": "maritime"
+        },
+        {
+          "id": "food",
+          "label": "Alimentation",
+          "emoji": "🍽",
+          "file": "securite_alimentaire.json",
+          "type": "thematic"
+        },
+        {
+          "id": "cables",
+          "label": "Câbles internet",
+          "emoji": "🌐",
+          "file": "cables_internet.json",
+          "type": "routes"
+        },
+        {
+          "id": "libre_echange",
+          "label": "Libre-échange",
+          "emoji": "🤝",
+          "file": "libre_echange.json",
+          "type": "thematic"
+        },
+        {
+          "id": "militaire",
+          "label": "Militaire & Nucl.",
+          "emoji": "💥",
+          "file": "militaire_nucleaire.json",
+          "type": "thematic"
+        },
+        {
+          "id": "soft_power",
+          "label": "Soft Power",
+          "emoji": "🏆",
+          "file": "soft_power.json",
+          "type": "thematic"
+        }
+      ]
+    },
+    {
+      "id": "histoire",
+      "label": "Histoire",
+      "emoji": "⚔️",
+      "sous_categories": [
+        {
+          "id": "empires",
+          "label": "Empires",
+          "emoji": "👑",
+          "file": "empires.json",
+          "type": "empires",
+          "layers": [
+            {
+              "id": "alexandre",
+              "label": "Alexandre le Grand",
+              "emoji": "⚔️",
+              "annee": "–323 av. J.-C."
+            },
+            {
+              "id": "romain",
+              "label": "Empire Romain",
+              "emoji": "🦅",
+              "annee": "117 ap. J.-C."
+            },
+            {
+              "id": "byzantin",
+              "label": "Byzance",
+              "emoji": "⚜️",
+              "annee": "550"
+            },
+            {
+              "id": "omeyyade",
+              "label": "Califat Omeyyade",
+              "emoji": "🌙",
+              "annee": "750"
+            },
+            {
+              "id": "charlemagne",
+              "label": "Charlemagne",
+              "emoji": "👑",
+              "annee": "814"
+            },
+            {
+              "id": "huns",
+              "label": "Attila & les Huns",
+              "emoji": "🐎",
+              "annee": "451"
+            },
+            {
+              "id": "mongol",
+              "label": "Empire Mongol",
+              "emoji": "🏹",
+              "annee": "1279"
+            },
+            {
+              "id": "ottoman",
+              "label": "Empire Ottoman",
+              "emoji": "🦁",
+              "annee": "1683"
+            },
+            {
+              "id": "aztec_inca",
+              "label": "Aztèques & Incas",
+              "emoji": "☀️",
+              "annee": "1500"
+            },
+            {
+              "id": "ming",
+              "label": "Chine Ming / Qing",
+              "emoji": "🐉",
+              "annee": "1644"
+            },
+            {
+              "id": "britannique",
+              "label": "Empire Britannique",
+              "emoji": "🇬🇧",
+              "annee": "1920"
+            },
+            {
+              "id": "napoleon",
+              "label": "Napoléon",
+              "emoji": "🥐",
+              "annee": "1812"
+            }
+          ]
+        },
+        {
+          "id": "explorations",
+          "label": "Explorations",
+          "emoji": "⛵",
+          "file": "explorations.json",
+          "type": "explorations",
+          "layers": [
+            {
+              "id": "colomb",
+              "label": "Christophe Colomb",
+              "emoji": "⛵",
+              "annee": "1492"
+            },
+            {
+              "id": "vasco",
+              "label": "Vasco de Gama",
+              "emoji": "🧭",
+              "annee": "1498"
+            },
+            {
+              "id": "magellan",
+              "label": "Tour du Monde",
+              "emoji": "🌍",
+              "annee": "1522"
+            },
+            {
+              "id": "soie",
+              "label": "Routes de la Soie",
+              "emoji": "🧵",
+              "annee": "Ier-XVe s."
+            },
+            {
+              "id": "traite",
+              "label": "Traite Négrière",
+              "emoji": "⛓️",
+              "annee": "1500-1900"
+            },
+            {
+              "id": "colonisation",
+              "label": "Colonisation",
+              "emoji": "🗺️",
+              "annee": "1500-1960"
+            }
+          ]
+        },
+        {
+          "id": "conflits",
+          "label": "Conflits",
+          "emoji": "💥",
+          "file": "guerre_froide.json",
+          "type": "conflits",
+          "layers": [
+            {
+              "id": "guerre_froide",
+              "label": "Guerre Froide",
+              "emoji": "🔴",
+              "annee": "1947-1991"
+            },
+            {
+              "id": "pandemies",
+              "label": "Grandes Pandémies",
+              "emoji": "🦠",
+              "annee": "XIVe-XXIe s."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "environnement",
+      "label": "Environnement",
+      "emoji": "🌱",
+      "layers": [
+        {
+          "id": "catastrophes",
+          "label": "Risques naturels",
+          "emoji": "🌊",
+          "file": "catastrophes.json",
+          "type": "thematic"
+        }
+      ]
+    }
+  ]
+}

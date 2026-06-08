@@ -1,0 +1,932 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Quiz — L'Encyclopédie des Explorateurs</title>
+<link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;700;900&family=Crimson+Pro:ital,wght@0,300;0,400;0,600;1,300&display=swap" rel="stylesheet">
+<style>
+:root{
+  --bg:#060a14;--star:#e8dfc4;--gold:#d4a843;--gold2:#f0c060;
+  --line:rgba(200,180,120,.18);--card-bg:rgba(10,18,36,.92);
+  --green:#5ec48a;--red:#e84848;--blue:#4a9edd;
+}
+*{box-sizing:border-box;margin:0;padding:0;}
+html{scroll-behavior:smooth;}
+body{background:var(--bg);color:var(--star);font-family:'Crimson Pro',Georgia,serif;min-height:100vh;overflow-x:hidden;}
+#stars{position:fixed;inset:0;z-index:0;pointer-events:none;}
+
+/* BACK */
+.back{position:fixed;top:22px;left:24px;z-index:100;font-family:'Cinzel',serif;font-size:.6rem;letter-spacing:.25em;text-transform:uppercase;color:rgba(212,168,67,.5);text-decoration:none;display:flex;align-items:center;gap:8px;transition:color .2s;}
+.back:hover{color:var(--gold);}
+
+/* HEADER */
+header{position:relative;z-index:10;text-align:center;padding:72px 20px 48px;}
+.over-title{font-size:.68rem;letter-spacing:.4em;text-transform:uppercase;color:rgba(212,168,67,.5);margin-bottom:14px;font-family:'Cinzel',serif;}
+h1{font-family:'Cinzel',serif;font-size:clamp(2rem,5vw,3.6rem);font-weight:900;background:linear-gradient(135deg,#f5e6a3,#d4a843 38%,#f0c060 65%,#fff8e0);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;}
+.tagline{margin-top:12px;font-size:.95rem;color:rgba(232,223,196,.44);font-style:italic;}
+.header-deco{display:flex;align-items:center;justify-content:center;gap:18px;margin-top:24px;}
+.header-deco::before,.header-deco::after{content:'';flex:1;max-width:180px;height:1px;background:linear-gradient(to right,transparent,rgba(212,168,67,.3),transparent);}
+.header-deco span{font-size:.6rem;letter-spacing:.3em;color:rgba(212,168,67,.35);font-family:'Cinzel',serif;text-transform:uppercase;}
+
+/* STATS */
+.stats-bar{position:relative;z-index:10;display:flex;justify-content:center;gap:40px;margin:0 auto 52px;max-width:500px;padding:18px 28px;border:1px solid rgba(200,180,120,.12);border-radius:6px;background:rgba(10,18,36,.6);}
+.stat{text-align:center;}
+.stat-num{font-family:'Cinzel',serif;font-size:1.5rem;font-weight:900;color:var(--gold);}
+.stat-label{font-size:.58rem;letter-spacing:.2em;text-transform:uppercase;color:rgba(232,223,196,.32);margin-top:3px;}
+
+/* MODE CARDS */
+.modes{position:relative;z-index:10;display:grid;grid-template-columns:repeat(3,1fr);gap:20px;max-width:900px;margin:0 auto 80px;padding:0 24px;}
+.mode-card{position:relative;background:var(--card-bg);border:1px solid rgba(200,180,120,.15);border-radius:10px;padding:36px 28px 32px;cursor:pointer;text-decoration:none;color:inherit;display:flex;flex-direction:column;gap:14px;overflow:hidden;transition:border-color .25s,box-shadow .25s;}
+.mode-card:hover{border-color:rgba(212,168,67,.45);box-shadow:0 4px 28px rgba(0,0,0,.4);}
+.mode-card::before{content:'';position:absolute;inset:0;opacity:.07;background:var(--acc);pointer-events:none;}
+.mode-icon{font-size:2.6rem;line-height:1;}
+.mode-title{font-family:'Cinzel',serif;font-size:1.2rem;font-weight:700;color:var(--star);}
+.mode-desc{font-size:.88rem;line-height:1.6;color:rgba(232,223,196,.52);}
+.mode-badge{display:inline-block;font-family:'Cinzel',serif;font-size:.52rem;letter-spacing:.18em;text-transform:uppercase;padding:4px 12px;border-radius:3px;border:1px solid rgba(212,168,67,.3);color:var(--gold);background:rgba(212,168,67,.08);margin-top:4px;}
+.mode-arrow{position:absolute;bottom:20px;right:20px;font-size:.9rem;color:rgba(212,168,67,.35);transition:color .25s;}
+.mode-card:hover .mode-arrow{color:rgba(212,168,67,.7);}
+
+@media(max-width:660px){.modes{grid-template-columns:1fr;}}
+
+/* ═══════════════════════════════════════════
+   QUIZ OVERLAY
+═══════════════════════════════════════════ */
+#quiz-screen{
+  display:none;position:fixed;inset:0;z-index:500;
+  background:rgba(4,8,20,.97);
+  flex-direction:column;align-items:center;
+  padding:0 20px 40px;overflow-y:auto;
+}
+#quiz-screen.open{display:flex;}
+
+/* TOP BAR */
+.quiz-topbar{
+  width:100%;max-width:640px;
+  display:flex;align-items:center;justify-content:space-between;
+  padding:20px 0 16px;
+  border-bottom:1px solid rgba(200,180,120,.12);
+  margin-bottom:28px;flex-shrink:0;
+}
+.quiz-title{font-family:'Cinzel',serif;font-size:.78rem;letter-spacing:.22em;text-transform:uppercase;color:var(--gold);}
+.quiz-close{background:none;border:1px solid rgba(200,180,120,.2);color:rgba(232,223,196,.45);font-size:.7rem;font-family:'Cinzel',serif;letter-spacing:.12em;text-transform:uppercase;padding:6px 14px;border-radius:3px;cursor:pointer;transition:all .2s;}
+.quiz-close:hover{border-color:rgba(232,80,80,.5);color:#e84848;}
+
+/* PROGRESS DOTS */
+.quiz-dots{display:flex;gap:6px;margin-bottom:24px;flex-wrap:wrap;justify-content:center;max-width:400px;}
+.qdot{width:28px;height:6px;border-radius:3px;background:rgba(200,180,120,.15);transition:background .3s;}
+.qdot.done-ok{background:var(--green);}
+.qdot.done-ko{background:var(--red);}
+.qdot.current{background:var(--gold);box-shadow:0 0 8px rgba(212,168,67,.4);}
+.qdot.done-mid{background:var(--gold);}
+
+/* SCORE LINE */
+.quiz-scoreline{font-family:'Cinzel',serif;font-size:.68rem;letter-spacing:.18em;text-transform:uppercase;color:rgba(232,223,196,.38);margin-bottom:28px;}
+.quiz-scoreline em{color:var(--gold);font-style:normal;font-weight:700;}
+
+/* CARD */
+.quiz-card{
+  width:100%;max-width:640px;
+  background:rgba(10,18,36,.9);border:1px solid rgba(200,180,120,.16);border-radius:12px;
+  padding:32px 28px;margin-bottom:20px;
+  animation:fadeUp .35s ease forwards;
+}
+@keyframes fadeUp{from{opacity:0;transform:translateY(16px);}to{opacity:1;transform:none;}}
+
+/* ERA TAG */
+.quiz-era{font-family:'Cinzel',serif;font-size:.52rem;letter-spacing:.2em;text-transform:uppercase;color:var(--gold);border:1px solid rgba(212,168,67,.3);padding:3px 12px;border-radius:3px;display:inline-block;margin-bottom:16px;}
+
+/* QUESTION */
+.quiz-q{font-family:'Cinzel',serif;font-size:1.05rem;font-weight:700;line-height:1.5;color:var(--star);margin-bottom:6px;}
+
+/* DATE MODE: input */
+.quiz-date-wrap{margin-top:20px;display:flex;flex-direction:column;gap:10px;align-items:center;}
+.quiz-date-input{
+  font-family:'Cinzel',serif;font-size:1.4rem;font-weight:900;text-align:center;
+  background:rgba(6,10,20,.8);border:2px solid rgba(200,180,120,.25);color:var(--star);
+  border-radius:6px;padding:12px 24px;width:200px;letter-spacing:.08em;
+  transition:border-color .2s;
+}
+.quiz-date-input:focus{outline:none;border-color:rgba(212,168,67,.6);}
+.quiz-date-input.correct{border-color:var(--green);color:var(--green);}
+.quiz-date-input.wrong{border-color:var(--red);color:var(--red);}
+.quiz-date-input.approx{border-color:var(--gold);color:var(--gold);}
+
+/* IMAGE QUIZ */
+.qz-img-display{width:100%;max-height:240px;object-fit:contain;border-radius:8px;border:1px solid rgba(200,180,120,.15);margin-bottom:14px;display:none;background:rgba(6,10,20,.4);}
+.quiz-hint{font-size:.82rem;color:rgba(212,168,67,.52);font-style:italic;text-align:center;margin-bottom:12px;display:none;}
+.quiz-validate{font-family:'Cinzel',serif;font-size:.68rem;letter-spacing:.2em;text-transform:uppercase;padding:13px 32px;border-radius:5px;border:1px solid rgba(212,168,67,.5);background:rgba(212,168,67,.1);color:var(--gold);cursor:pointer;transition:all .22s;width:100%;max-width:300px;}
+.quiz-validate:hover{background:rgba(212,168,67,.2);box-shadow:0 0 18px rgba(212,168,67,.15);}
+.quiz-validate:disabled{opacity:.4;cursor:default;}
+
+/* QCM CHOICES */
+.quiz-choices{display:flex;flex-direction:column;gap:10px;margin-top:20px;}
+.choice{
+  display:flex;align-items:center;gap:14px;
+  background:rgba(6,10,20,.6);border:1px solid rgba(200,180,120,.16);
+  border-radius:7px;padding:14px 18px;
+  cursor:pointer;transition:border-color .2s,background .2s;
+  font-size:.95rem;line-height:1.4;
+}
+.choice:hover:not(.locked){border-color:rgba(212,168,67,.45);background:rgba(212,168,67,.05);}
+.choice.correct{border-color:var(--green);background:rgba(94,196,138,.12);}
+.choice.wrong{border-color:var(--red);background:rgba(232,80,80,.08);}
+.choice.reveal-ok{border-color:var(--green);background:rgba(94,196,138,.08);}
+.choice-letter{font-family:'Cinzel',serif;font-size:.62rem;letter-spacing:.1em;width:22px;height:22px;border-radius:4px;border:1px solid rgba(200,180,120,.22);display:flex;align-items:center;justify-content:center;flex-shrink:0;color:rgba(232,223,196,.5);}
+.choice.correct .choice-letter{background:var(--green);border-color:var(--green);color:#fff;}
+.choice.wrong .choice-letter{background:var(--red);border-color:var(--red);color:#fff;}
+.choice.reveal-ok .choice-letter{background:rgba(94,196,138,.3);border-color:var(--green);color:var(--green);}
+
+/* FEEDBACK */
+.quiz-feedback{
+  margin-top:14px;padding:12px 16px;border-radius:6px;font-size:.88rem;line-height:1.55;
+  display:none;
+}
+.quiz-feedback.show{display:block;}
+.quiz-feedback.ok{background:rgba(94,196,138,.1);border:1px solid rgba(94,196,138,.3);color:rgba(94,196,138,.9);}
+.quiz-feedback.ko{background:rgba(232,80,80,.08);border:1px solid rgba(232,80,80,.3);color:rgba(232,223,196,.7);}
+.quiz-feedback.approx{background:rgba(212,168,67,.07);border:1px solid rgba(212,168,67,.35);color:rgba(212,168,67,.85);}
+
+/* NEXT BTN */
+.quiz-next{
+  display:none;margin-top:18px;font-family:'Cinzel',serif;font-size:.68rem;letter-spacing:.2em;text-transform:uppercase;
+  padding:13px 32px;border-radius:5px;border:1px solid rgba(212,168,67,.5);
+  background:rgba(212,168,67,.1);color:var(--gold);cursor:pointer;transition:all .22s;
+  width:100%;max-width:300px;align-self:center;
+}
+.quiz-next.show{display:block;}
+.quiz-next:hover{background:rgba(212,168,67,.2);box-shadow:0 0 18px rgba(212,168,67,.15);}
+
+/* ═══ RESULTS ═══ */
+#results-screen{display:none;flex-direction:column;align-items:center;text-align:center;gap:20px;padding:40px 20px 60px;max-width:560px;width:100%;}
+#results-screen.open{display:flex;}
+.result-trophy{font-size:5rem;line-height:1;animation:tropheePop .6s cubic-bezier(.34,1.6,.64,1) forwards;}
+@keyframes tropheePop{from{opacity:0;transform:scale(.4);}to{opacity:1;transform:scale(1);}}
+.result-score{font-family:'Cinzel',serif;font-size:3.2rem;font-weight:900;background:linear-gradient(135deg,#f5e6a3,#d4a843);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;}
+.result-label{font-family:'Cinzel',serif;font-size:.78rem;letter-spacing:.22em;text-transform:uppercase;color:rgba(232,223,196,.45);}
+.result-msg{font-size:1.05rem;line-height:1.6;color:rgba(232,223,196,.65);font-style:italic;max-width:380px;}
+.result-stars{display:flex;gap:10px;justify-content:center;font-size:2rem;margin:4px 0;}
+.result-breakdown{display:flex;gap:24px;margin:8px 0;}
+.rb{text-align:center;}
+.rb-num{font-family:'Cinzel',serif;font-size:1.4rem;font-weight:900;}
+.rb-num.ok{color:var(--green);}
+.rb-num.ko{color:var(--red);}
+.rb-num.mid{color:var(--gold);}
+.rb-lbl{font-size:.58rem;letter-spacing:.18em;text-transform:uppercase;color:rgba(232,223,196,.38);margin-top:2px;}
+.result-btns{display:flex;gap:12px;flex-wrap:wrap;justify-content:center;margin-top:8px;}
+.rbtn{font-family:'Cinzel',serif;font-size:.62rem;letter-spacing:.18em;text-transform:uppercase;padding:12px 24px;border-radius:4px;border:1px solid rgba(200,180,120,.25);background:rgba(10,18,36,.8);color:rgba(232,223,196,.55);cursor:pointer;transition:all .2s;}
+.rbtn.gold{border-color:rgba(212,168,67,.5);color:var(--gold);background:rgba(212,168,67,.08);}
+.rbtn:hover{border-color:rgba(212,168,67,.6);color:var(--gold);}
+
+/* CONFIRM ABANDON */
+#abandon-modal{display:none;position:fixed;inset:0;z-index:600;background:rgba(4,8,20,.95);align-items:center;justify-content:center;}
+#abandon-modal.open{display:flex;}
+.abandon-box{background:rgba(10,18,36,.98);border:1px solid rgba(200,180,120,.2);border-radius:10px;padding:36px 32px;text-align:center;max-width:380px;}
+.abandon-box h3{font-family:'Cinzel',serif;font-size:1.1rem;color:var(--star);margin-bottom:12px;}
+.abandon-box p{font-size:.9rem;color:rgba(232,223,196,.5);line-height:1.6;margin-bottom:24px;}
+.abandon-btns{display:flex;gap:12px;justify-content:center;}
+.abn-cancel{font-family:'Cinzel',serif;font-size:.6rem;letter-spacing:.16em;text-transform:uppercase;padding:10px 22px;border-radius:4px;border:1px solid rgba(200,180,120,.2);background:none;color:rgba(232,223,196,.5);cursor:pointer;transition:all .2s;}
+.abn-cancel:hover{border-color:rgba(200,180,120,.45);color:var(--star);}
+.abn-confirm{font-family:'Cinzel',serif;font-size:.6rem;letter-spacing:.16em;text-transform:uppercase;padding:10px 22px;border-radius:4px;border:1px solid rgba(232,80,80,.4);background:rgba(232,80,80,.08);color:#e84848;cursor:pointer;transition:all .2s;}
+.abn-confirm:hover{background:rgba(232,80,80,.18);}
+
+footer{position:relative;z-index:10;text-align:center;padding:24px 20px 40px;border-top:1px solid var(--line);}
+footer p{font-size:.65rem;letter-spacing:.14em;text-transform:uppercase;color:rgba(232,223,196,.18);}
+</style>
+</head>
+<body>
+<canvas id="stars"></canvas>
+<a class="back" href="accueil.html">← Accueil</a>
+
+<header>
+  <div class="over-title">L'Encyclopédie des Explorateurs</div>
+  <h1>Quiz</h1>
+  <p class="tagline">10 questions, une récompense — es-tu à la hauteur ?</p>
+  <div class="header-deco"><span>🎯</span></div>
+</header>
+
+<div class="stats-bar">
+  <div class="stat"><div class="stat-num" id="stat-qcm">180+</div><div class="stat-label">Questions QCM</div></div>
+  <div class="stat"><div class="stat-num" id="stat-dates">200+</div><div class="stat-label">Dates historiques</div></div>
+  <div class="stat"><div class="stat-num">10</div><div class="stat-label">Questions par quiz</div></div>
+</div>
+
+<div class="modes">
+  <div class="mode-card" style="--acc:linear-gradient(135deg,#b8860b,#8b4513)" onclick="startQuiz('qcm')">
+    <div class="mode-icon">🎯</div>
+    <div class="mode-title">Quiz Questions</div>
+    <div class="mode-desc">10 QCM tirés aléatoirement — 4 choix par question. Réponds, découvre la bonne réponse, et accumule les points.</div>
+    <div class="mode-badge">QCM · 4 choix · Histoire</div>
+    <span class="mode-arrow">→</span>
+  </div>
+  <div class="mode-card" style="--acc:linear-gradient(135deg,#1a3a6b,#0d2a5a)" onclick="startQuiz('dates')">
+    <div class="mode-icon">🗓️</div>
+    <div class="mode-title">Quiz Dates</div>
+    <div class="mode-desc">Un événement historique s'affiche — tu dois retrouver son siècle ou son année. Teste ta mémoire des repères chronologiques.</div>
+    <div class="mode-badge">QCM · Chronologie · Époque</div>
+    <span class="mode-arrow">→</span>
+  </div>
+  <div class="mode-card" style="--acc:linear-gradient(135deg,#1a5c38,#0a3520)" onclick="startQuiz('images')">
+    <div class="mode-icon">🖼️</div>
+    <div class="mode-title">Quiz Images</div>
+    <div class="mode-desc">Une image historique — devine l'année de l'événement. Entrée libre : plus tu es précis, plus tu marques de points !</div>
+    <div class="mode-badge">Libre · Dates · /20 points</div>
+    <span class="mode-arrow">→</span>
+  </div>
+</div>
+
+<!-- QUIZ SCREEN -->
+<div id="quiz-screen">
+  <div class="quiz-topbar">
+    <div class="quiz-title" id="quiz-title-bar">🎯 Quiz Questions</div>
+    <button class="quiz-close" onclick="askAbandon()">✕ Abandonner</button>
+  </div>
+  <div class="quiz-dots" id="quiz-dots"></div>
+  <div class="quiz-scoreline">Question <em id="q-num">1</em> / <em>10</em> &nbsp;·&nbsp; Score : <em id="q-score">0</em> / <em id="q-possible">0</em></div>
+
+  <div class="quiz-card" id="quiz-card">
+    <div class="quiz-era" id="qz-era"></div>
+    <img id="qz-img" class="qz-img-display" src="" alt="Illustration historique">
+    <p id="qz-hint" class="quiz-hint"></p>
+    <div class="quiz-q" id="qz-question"></div>
+    <div class="quiz-choices" id="qz-choices"></div>
+    <div id="qz-date-wrap" class="quiz-date-wrap" style="display:none">
+      <input id="qz-date-input" class="quiz-date-input" type="number">
+      <button id="qz-validate-btn" class="quiz-validate" onclick="validateImageAnswer()">Valider →</button>
+    </div>
+    <div class="quiz-feedback" id="qz-feedback"></div>
+  </div>
+  <button class="quiz-next" id="quiz-next-btn" onclick="nextQuestion()">Question suivante →</button>
+
+  <!-- RESULTS (inside screen) -->
+  <div id="results-screen">
+    <div class="result-trophy" id="result-trophy">🏆</div>
+    <div class="result-stars" id="result-stars"></div>
+    <div class="result-score" id="result-score">0 / 10</div>
+    <div class="result-label">Score final</div>
+    <div class="result-breakdown">
+      <div class="rb"><div class="rb-num ok" id="rb-ok">0</div><div class="rb-lbl" id="rb-ok-lbl">Correctes</div></div>
+      <div class="rb" id="rb-mid-wrap" style="display:none"><div class="rb-num mid" id="rb-mid">0</div><div class="rb-lbl">Proches</div></div>
+      <div class="rb"><div class="rb-num ko" id="rb-ko">0</div><div class="rb-lbl" id="rb-ko-lbl">Ratées</div></div>
+    </div>
+    <div class="result-msg" id="result-msg"></div>
+    <div class="result-btns">
+      <button class="rbtn gold" onclick="startQuiz(currentMode)">🔄 Rejouer</button>
+      <button class="rbtn" onclick="switchMode()">⇄ Changer de mode</button>
+      <button class="rbtn" onclick="closeQuiz()">✕ Fermer</button>
+    </div>
+  </div>
+</div>
+
+<!-- ABANDON CONFIRM -->
+<div id="abandon-modal">
+  <div class="abandon-box">
+    <h3>Abandonner le quiz ?</h3>
+    <p>Si tu quittes maintenant, ta progression sera perdue et tu n'obtiendras pas ton score final.</p>
+    <div class="abandon-btns">
+      <button class="abn-cancel" onclick="closeAbandon()">Continuer</button>
+      <button class="abn-confirm" onclick="confirmAbandon()">Abandonner</button>
+    </div>
+  </div>
+</div>
+
+<footer><p>L'Encyclopédie des Explorateurs &nbsp;·&nbsp; Quiz</p></footer>
+
+<script>
+/* ══════════════════════════════════════════════
+   STARS
+══════════════════════════════════════════════ */
+(function(){
+  const c=document.getElementById('stars'),ctx=c.getContext('2d');
+  let W,H,stars=[];
+  function resize(){W=c.width=innerWidth;H=c.height=innerHeight;}
+  function init(){stars=[];for(let i=0;i<200;i++)stars.push({x:Math.random()*W,y:Math.random()*H,r:Math.random()*1.1+.2,a:Math.random()*.6+.1,sp:Math.random()*.4+.1,ph:Math.random()*Math.PI*2});}
+  function draw(t){ctx.clearRect(0,0,W,H);stars.forEach(s=>{const a=s.a*(0.6+0.4*Math.sin(t*.001*s.sp+s.ph));ctx.beginPath();ctx.arc(s.x,s.y,s.r,0,Math.PI*2);ctx.fillStyle=`rgba(240,230,190,${a})`;ctx.fill();});requestAnimationFrame(draw);}
+  window.addEventListener('resize',()=>{resize();init();});
+  resize();init();requestAnimationFrame(draw);
+})();
+
+/* ══════════════════════════════════════════════
+   QCM DATABASE — Histoire & Moyen Âge
+══════════════════════════════════════════════ */
+const QCM = [
+  // ── PRÉHISTOIRE ──
+  {era:"Préhistoire",q:"Quel est le plus ancien fossile de la lignée humaine, découvert au Tchad ?",c:["Sahelanthropus tchadensis","Homo habilis","Homo erectus","Australopithecus afarensis"],ok:0,expl:"Sahelanthropus tchadensis, découvert au Tchad, daterait de 7 millions d'années — juste après la séparation avec les chimpanzés."},
+  {era:"Préhistoire",q:"Comment appelle-t-on l'outil taillé emblématique d'Homo erectus ?",c:["Le biface","La sagaie","Le propulseur","L'atlatl"],ok:0,expl:"Le biface est le premier outil façonné des deux côtés — un véritable chef-d'œuvre de la préhistoire, taillé il y a 1,7 million d'années."},
+  {era:"Préhistoire",q:"La grotte de Lascaux se trouve dans quel département français ?",c:["Dordogne","Ardèche","Ariège","Lot"],ok:0,expl:"Lascaux se trouve en Dordogne. Elle a été découverte en 1940 par des adolescents et fermée au public en 1963 pour préserver les peintures."},
+  {era:"Préhistoire",q:"La grotte Chauvet, la plus ancienne connue, est en…",c:["Ardèche","Dordogne","Pyrénées-Orientales","Haute-Garonne"],ok:0,expl:"La grotte Chauvet, dans l'Ardèche, date d'environ 36 000 ans. C'est la plus ancienne grande grotte ornée connue."},
+  {era:"Préhistoire",q:"Göbekli Tepe, premier monument religieux connu, est situé en…",c:["Turquie","Irak","Syrie","Iran"],ok:0,expl:"Göbekli Tepe est situé dans le sud-est de la Turquie actuelle. Il précède l'agriculture et bouleverse notre vision de la préhistoire."},
+  {era:"Préhistoire",q:"La révolution néolithique désigne avant tout…",c:["L'invention de l'agriculture et de l'élevage","La maîtrise du feu","L'invention de l'écriture","La domestication du cheval"],ok:0,expl:"Le Néolithique (vers -10 000) voit les humains passer de la chasse-cueillette à l'agriculture sédentaire — une transformation radicale de civilisation."},
+  {era:"Préhistoire",q:"Quel animal a été domestiqué en premier par l'être humain ?",c:["Le chien","Le mouton","Le bœuf","Le cheval"],ok:0,expl:"Le chien est le premier animal domestiqué, issu du loup gris, bien avant les animaux de ferme. La domestication remonte à environ 15 000 ans."},
+  {era:"Préhistoire",q:"Ötzi, l'homme des glaces, a été retrouvé dans…",c:["Les Alpes tyroliennes (Autriche/Italie)","Les Pyrénées","Le Massif Central","Les Alpes suisses"],ok:0,expl:"Ötzi a été découvert en 1991 dans les Alpes, à la frontière austro-italienne. Il a vécu vers -3 300 av. J.-C. et porte encore ses vêtements et équipements."},
+
+  // ── ANTIQUITÉ ORIENT ──
+  {era:"Antiquité",q:"Où se trouve Uruk, considérée comme la première grande ville du monde ?",c:["En Irak actuel (Mésopotamie)","En Égypte","En Grèce","En Iran"],ok:0,expl:"Uruk (Irak actuel) dépasse 50 000 habitants vers -3 200 av. J.-C. — la première métropole de l'histoire, entre le Tigre et l'Euphrate."},
+  {era:"Antiquité",q:"Qui a unifié la Haute et la Basse-Égypte pour créer le premier État égyptien ?",c:["Ménès (Narmer)","Ramsès II","Toutankhamon","Akhenaton"],ok:0,expl:"Ménès (ou Narmer) réunit les deux Égypte vers -3 100 av. J.-C. sous la double couronne blanche et rouge, symbole encore présent dans les hiéroglyphes."},
+  {era:"Antiquité",q:"Le Code d'Hammurabi, premier grand code de lois, est gravé sur…",c:["Une stèle de basalte noir","Un papyrus de 3 mètres","Des tablettes d'argile","Un mur de temple"],ok:0,expl:"Le Code d'Hammurabi est gravé sur une stèle de 2,25 m de basalte noir, aujourd'hui au musée du Louvre. Il contient 282 lois."},
+  {era:"Antiquité",q:"Quel pharaon est surnommé 'le Pharaon Hérétique' pour avoir imposé le monothéisme en Égypte ?",c:["Akhenaton","Ramsès II","Toutankhamon","Khéops"],ok:0,expl:"Amenhotep IV, dit Akhenaton, imposa le culte du seul dieu Aton, révolutionnant la religion égyptienne. À sa mort, son successeur Toutankhamon restaura les anciens dieux."},
+  {era:"Antiquité",q:"Cyrus le Grand est appelé 'Messie' dans la Bible car il…",c:["Libéra les Juifs déportés à Babylone et autorisa leur retour","Convertit la Perse au judaïsme","Construisit le Temple de Jérusalem","Vainquit Nabuchodonosor"],ok:0,expl:"En -538, Cyrus le Grand conquit Babylone et publia l'Édit de Cyrus, permettant à tous les peuples déportés de rentrer chez eux. C'est la première déclaration de liberté religieuse connue."},
+  {era:"Antiquité",q:"En quelle année Nabuchodonosor détruit-il le Temple de Salomon ?",c:["-586 av. J.-C.","-400 av. J.-C.","-722 av. J.-C.","-63 av. J.-C."],ok:0,expl:"En -586, Nabuchodonosor II rase le Premier Temple et déporte les élites juives à Babylone — le traumatisme fondateur de l'histoire juive."},
+  {era:"Antiquité",q:"Quelle ville est appelée 'la ville aux trois religions' ?",c:["Jérusalem","Alexandrie","Carthage","Antioche"],ok:0,expl:"Jérusalem est le lieu saint du judaïsme, du christianisme et de l'islam. Elle fut fondée comme capitale par David vers -1000 av. J.-C."},
+  {era:"Antiquité",q:"Le peuple phénicien est connu pour quelle invention majeure ?",c:["L'alphabet à consonnes","La roue","Les chiffres arabes","Le papyrus"],ok:0,expl:"Les Phéniciens inventèrent l'alphabet consonantique vers -1 200 av. J.-C. — ancêtre de l'alphabet grec, latin et de la quasi-totalité des alphabets modernes."},
+
+  // ── GRÈCE ──
+  {era:"Grèce Antique",q:"Qui invente la démocratie directe à Athènes en -508 av. J.-C. ?",c:["Clisthène","Périclès","Solon","Thémistocle"],ok:0,expl:"Clisthène réforme Athènes et crée la démocratie directe : chaque citoyen vote en assemblée (l'Ecclésia). Périclès portera ce système à son apogée un demi-siècle plus tard."},
+  {era:"Grèce Antique",q:"La bataille des Thermopyles (-480) voit 300 Spartiates résister à qui ?",c:["L'armée perse de Xerxès","Alexandre le Grand","L'armée carthaginoise","Les Romains"],ok:0,expl:"Léonidas et ses 300 Spartiates (plus plusieurs milliers d'alliés) retardèrent l'armée de Xerxès aux Thermopyles, permettant à la Grèce de s'organiser pour la victoire de Salamine."},
+  {era:"Grèce Antique",q:"Socrate est condamné à mort par…",c:["Le tribunal d'Athènes, pour impiété","Alexandre le Grand","L'Oracle de Delphes","Les Perses"],ok:0,expl:"En -399, le tribunal démocratique d'Athènes condamne Socrate pour impiété et corruption de la jeunesse. Il boit la ciguë. Son procès reste le symbole de l'injustice politique."},
+  {era:"Grèce Antique",q:"Alexandre le Grand est le fils de quel roi ?",c:["Philippe II de Macédoine","Périclès d'Athènes","Léonidas de Sparte","Darios de Perse"],ok:0,expl:"Alexandre est le fils de Philippe II, roi de Macédoine, et de la princesse épirote Olympias. Aristote fut son précepteur de 13 à 16 ans."},
+  {era:"Grèce Antique",q:"Qui fonde Massalia, la plus vieille ville de France ?",c:["Des marins grecs de Phocée","Les Romains","Les Celtes gaulois","Des marins phéniciens"],ok:0,expl:"Vers -600 av. J.-C., des Grecs venus de Phocée (actuelle Turquie) fondent Massalia sur une calanque — aujourd'hui Marseille, la plus ancienne ville de France."},
+
+  // ── ROME ──
+  {era:"Rome Antique",q:"Jules César franchit le Rubicon en disant…",c:["Alea jacta est (le sort en est jeté)","Veni vidi vici","Ave Caesar","Roma locuta est"],ok:0,expl:"En -49, César franchit le Rubicon — fleuve frontière qu'aucun général armé n'avait le droit de traverser. 'Alea jacta est' marque le début de la guerre civile romaine."},
+  {era:"Rome Antique",q:"Auguste est le titre donné à qui lors de la fondation de l'Empire romain ?",c:["Octave, petit-neveu de Jules César","Marc Antoine","Pompée","Tibère"],ok:0,expl:"Octave reçoit le titre d'Auguste ('le Vénérable') en -27 av. J.-C. et devient le premier empereur romain. Il règne 44 ans et inaugure la Pax Romana."},
+  {era:"Rome Antique",q:"En quelle année le Vésuve détruit-il Pompéi ?",c:["79 ap. J.-C.","79 av. J.-C.","44 ap. J.-C.","14 ap. J.-C."],ok:0,expl:"Le 24 août 79 ap. J.-C., le Vésuve entre en éruption et ensevelit Pompéi sous 6 mètres de cendres en quelques heures, conservant la ville comme une photographie romaine."},
+  {era:"Rome Antique",q:"En quelle année l'Empire romain d'Occident s'effondre-t-il officiellement ?",c:["476 ap. J.-C.","410 ap. J.-C.","313 ap. J.-C.","395 ap. J.-C."],ok:0,expl:"Le 4 septembre 476, Odoacre destitue Romulus Augustule, dernier empereur d'Occident. C'est la date conventionnelle de la fin de l'Antiquité et du début du Moyen Âge."},
+  {era:"Rome Antique",q:"L'Édit de Milan (313) accorde quelle liberté ?",c:["La liberté de culte dans tout l'Empire","La citoyenneté romaine à tous les habitants","La libération des esclaves","La fin des gladiateurs"],ok:0,expl:"Constantin et Licinius signent l'Édit de Milan en 313, accordant la liberté religieuse dans tout l'Empire. Le christianisme, religion illégale depuis des siècles, devient enfin légal."},
+  {era:"Rome Antique",q:"Hannibal traverse les Alpes avec des éléphants pour attaquer…",c:["Rome, lors de la 2e Guerre Punique","Carthage, pour reprendre le contrôle","Alexandrie, pour conquérir l'Égypte","Athènes, pour venger les Perses"],ok:0,expl:"Lors de la 2e Guerre Punique (-218), Hannibal part de Carthage, traverse l'Espagne, les Pyrénées et les Alpes avec des éléphants pour surprendre Rome par le nord."},
+
+  // ── MÉROVINGIENS / CAROLINGIENS ──
+  {era:"Moyen Âge",q:"Clovis se fait baptiser à Reims vers 496. Quelle est l'importance de cet acte ?",c:["Il crée l'alliance entre la royauté franque et l'Église catholique","Il fonde le Saint-Empire romain germanique","Il conquiert Rome","Il chasse les Wisigoths d'Espagne"],ok:0,expl:"En se baptisant, Clovis est le premier roi barbare à adopter le catholicisme. Cette alliance Trône-Autel durera 1 300 ans et fera de la France 'fille aînée de l'Église'."},
+  {era:"Moyen Âge",q:"Que désigne l'expression 'maire du palais' sous les Mérovingiens ?",c:["Le chef du gouvernement qui gouverne à la place du roi","Le responsable des appartements royaux","Le fils du roi","Le général en chef des armées"],ok:0,expl:"Les maires du palais étaient les grands officiers de la couronne qui exercèrent le vrai pouvoir politique, tandis que les rois mérovingiens (les 'rois fainéants') n'étaient plus que des symboles."},
+  {era:"Moyen Âge",q:"Charles Martel arrête l'avancée arabe en Europe lors de quelle bataille ?",c:["Poitiers (732)","Bouvines (1214)","Alésia (-52)","Hastings (1066)"],ok:0,expl:"En 732, Charles Martel, maire du palais, arrête l'armée arabe à Poitiers. Ce surnom 'Martel' (le marteau) lui est donné pour cette victoire décisive pour l'avenir de l'Europe chrétienne."},
+  {era:"Moyen Âge",q:"Charlemagne est couronné Empereur d'Occident par le pape à Rome le…",c:["25 décembre 800","1er janvier 768","14 juillet 789","1er novembre 843"],ok:0,expl:"Le 25 décembre 800, le pape Léon III couronne Charlemagne Empereur d'Occident à Rome, restaurant symboliquement l'Empire romain d'Occident après 324 ans."},
+  {era:"Moyen Âge",q:"Le traité de Verdun (843) divise l'empire de Charlemagne entre ses petits-fils. Que reçoit Charles le Chauve ?",c:["La partie ouest — l'ancêtre de la France","La partie est — l'ancêtre de l'Allemagne","L'Italie et la Lotharingie","L'Espagne et la Gaule"],ok:0,expl:"Charles le Chauve reçoit la Francia occidentalis (l'Ouest), qui deviendra progressivement le royaume de France. Louis le Germanique reçoit l'Est (future Allemagne)."},
+  {era:"Moyen Âge",q:"Les Vikings qui s'installent en France en 911 donnent leur nom à quelle région ?",c:["La Normandie (pays des hommes du Nord)","La Bretagne","La Picardie","L'Alsace"],ok:0,expl:"Le chef viking Rollon signe le traité de Saint-Clair-sur-Epte en 911. Le roi franc lui cède une région en échange de la paix — la Normandie (Nortmannia = pays des hommes du Nord)."},
+
+  // ── CAPÉTIENS & MOYEN ÂGE ──
+  {era:"Moyen Âge",q:"Hugues Capet est élu roi en 987. Quel est son territoire de départ ?",c:["Un petit domaine autour de Paris et d'Orléans","Toute la France actuelle","La Bourgogne et la Normandie","La Flandre et l'Artois"],ok:0,expl:"Le domaine royal initial d'Hugues Capet ne dépassait pas l'Île-de-France — moins grand qu'un département actuel. Mais sa lignée régnera sans interruption 800 ans sur la France."},
+  {era:"Moyen Âge",q:"Guillaume le Conquérant est le duc de quelle région française ?",c:["Normandie","Bourgogne","Aquitaine","Bretagne"],ok:0,expl:"Guillaume, duc de Normandie, descendant de Vikings, conquiert l'Angleterre à Hastings en 1066 et devient Guillaume Ier d'Angleterre — preuve que les Vikings intégrés étaient devenus Français."},
+  {era:"Moyen Âge",q:"Les Croisades sont lancées en 1095 par le pape Urbain II pour…",c:["Reprendre Jérusalem aux musulmans","Convertir les Vikings","Combattre l'hérésie cathare","Protéger Constantinople"],ok:0,expl:"En 1095, Urbain II prêche à Clermont-Ferrand et lance la 1ère Croisade avec le cri 'Dieu le veut !'. Jérusalem est prise en 1099 dans un bain de sang."},
+  {era:"Moyen Âge",q:"Quelle reine fut successivement reine de France puis reine d'Angleterre ?",c:["Aliénor d'Aquitaine","Blanche de Castille","Isabeau de Bavière","Marie de Médicis"],ok:0,expl:"Aliénor d'Aquitaine épouse Louis VII de France (1137), puis Henri Plantagenêt qui devient Henri II d'Angleterre (1152). Elle vécut jusqu'à 82 ans, une longévité exceptionnelle pour l'époque."},
+  {era:"Moyen Âge",q:"La bataille de Bouvines (1214) oppose Philippe Auguste à…",c:["Une coalition anglo-flamande-germanique","Les Sarrasins","Les Albigeois","Les Vikings"],ok:0,expl:"À Bouvines, Philippe Auguste bat la coalition formée par Jean sans Terre d'Angleterre, l'Empereur Othon IV et les comtes flamands. C'est la première grande victoire nationale française."},
+  {era:"Moyen Âge",q:"Qui fonde les premiers États Généraux en 1302 ?",c:["Philippe le Bel","Louis IX (Saint Louis)","Philippe Auguste","Charles V"],ok:0,expl:"Philippe le Bel convoque les États Généraux pour obtenir le soutien du peuple dans son conflit avec le pape. C'est l'ancêtre lointain de notre Assemblée nationale."},
+  {era:"Moyen Âge",q:"Quel ordre militaire Philippe le Bel fait-il arrêter en 1307 pour s'emparer de ses richesses ?",c:["Les Templiers","Les Hospitaliers","Les Teutoniques","Les Franciscains"],ok:0,expl:"Philippe IV dit 'le Bel', criblé de dettes envers les Templiers, les fait arrêter le vendredi 13 octobre 1307 — vendredi 13 et templiers : origine de cette superstition."},
+  {era:"Moyen Âge",q:"La Guerre de Cent Ans oppose la France à…",c:["L'Angleterre","L'Empire Germanique","L'Espagne","L'Italie"],ok:0,expl:"La Guerre de Cent Ans (1337-1453) oppose la France aux rois d'Angleterre qui revendiquent le trône de France. Elle durera en réalité 116 ans."},
+  {era:"Moyen Âge",q:"Jeanne d'Arc est brûlée à Rouen en quelle année ?",c:["1431","1415","1453","1348"],ok:0,expl:"Jeanne d'Arc est brûlée vive le 30 mai 1431, à 19 ans, par un tribunal ecclésiastique contrôlé par les Anglais. Elle sera réhabilitée en 1456 et canonisée en 1920."},
+  {era:"Moyen Âge",q:"Quelle maladie tue un tiers de la population européenne entre 1347 et 1351 ?",c:["La Peste Noire (bubonique)","La variole","Le typhus","La lèpre"],ok:0,expl:"La Peste Noire, venue d'Asie par les navires génois, tue entre 25 et 50 millions d'Européens en 4 ans. Elle transforme profondément la société médiévale — obsession de la mort, remise en cause de l'Église."},
+  {era:"Moyen Âge",q:"L'imprimerie de Gutenberg (vers 1455) révolutionne l'Europe car…",c:["Elle permet de diffuser massivement les idées et le savoir","Elle remplace les manuscrits monastiques","Elle permet de produire des cartes géographiques","Elle est utilisée pour fabriquer la monnaie"],ok:0,expl:"Avec les caractères mobiles en plomb, Gutenberg peut imprimer 200 pages par jour contre quelques pages à la main. En 50 ans, 15 millions de livres circulent en Europe — la première 'révolution numérique'."},
+
+  // ── RENAISSANCE & MONARCHIE ABSOLUE ──
+  {era:"Renaissance",q:"François Ier attire en France quel génie de la Renaissance italienne ?",c:["Léonard de Vinci","Michel-Ange","Raphaël","Botticelli"],ok:0,expl:"Léonard de Vinci arrive en France en 1516, invité par François Ier. Il s'installe au Clos Lucé, près d'Amboise, et y mourra en 1519. La Joconde est ainsi en France depuis lors."},
+  {era:"Renaissance",q:"L'ordonnance de Villers-Cotterêts (1539) impose quelle langue dans les actes officiels ?",c:["Le français","Le latin","L'occitan","L'italien"],ok:0,expl:"François Ier impose le français à la place du latin dans tous les actes officiels et judiciaires. C'est l'acte de naissance de l'État français et du français comme langue nationale."},
+  {era:"Monarchie Absolue",q:"Henri IV signe en 1598 l'Édit de Nantes qui…",c:["Accorde la liberté de culte aux protestants","Crée la Cour de Versailles","Annule les dettes royales","Fonde l'Académie française"],ok:0,expl:"L'Édit de Nantes met fin à 36 ans de guerres de Religion en accordant aux protestants la liberté de culte et des places de sûreté. Henri IV sera néanmoins assassiné en 1610."},
+  {era:"Monarchie Absolue",q:"Louis XIV révoque l'Édit de Nantes en 1685, forçant combien de protestants à fuir ?",c:["200 000 environ","20 000 environ","2 millions","500 000"],ok:0,expl:"La révocation de l'Édit de Nantes provoque l'exode de 200 000 protestants (huguenots) vers la Prusse, les Pays-Bas, l'Angleterre et l'Afrique du Sud — perte économique et humaine considérable."},
+  {era:"Monarchie Absolue",q:"Quelle formule célèbre est attribuée à Louis XIV ?",c:["L'État, c'est moi","Paris vaut bien une messe","Je pense donc je suis","Liberté, Égalité, Fraternité"],ok:0,expl:"'L'État, c'est moi' résume la doctrine absolutiste de Louis XIV : le roi est l'incarnation de l'État. Il concentre tous les pouvoirs et gouverne sans premier ministre de 1661 à 1715."},
+  {era:"Monarchie Absolue",q:"L'Encyclopédie de Diderot et d'Alembert (1751-1772) est subversive car elle affirme que…",c:["Le savoir appartient à tous, pas à l'Église ni au roi","Dieu n'existe pas","La révolution est nécessaire","Le pape doit être élu"],ok:0,expl:"L'Encyclopédie, avec ses 72 000 articles et 150 auteurs, affirme que la connaissance appartient à tous — sapant l'autorité de l'Église et de l'Ancien Régime, inspirant directement la Révolution de 1789."},
+  {era:"Monarchie Absolue",q:"Rousseau affirme dans Le Contrat Social (1762) que le pouvoir vient…",c:["Du peuple, qui peut reprendre ce pouvoir","De Dieu, par le roi","Des nobles et du clergé","De la raison naturelle seule"],ok:0,expl:"Rousseau révolutionne la pensée politique : le pouvoir est délégué par le peuple à un gouvernement. Si ce gouvernement trahit le peuple, celui-ci peut le renverser — théorie qui alimentera la Révolution."},
+
+  // ── RÉVOLUTION & XIXe ──
+  {era:"Révolution & XIXe siècle",q:"La prise de la Bastille a lieu le…",c:["14 juillet 1789","4 août 1789","20 juin 1789","26 août 1789"],ok:0,expl:"Le 14 juillet 1789, les Parisiens prennent d'assaut la Bastille. Cette date devient la fête nationale française. La forteresse ne contenait que 7 prisonniers — mais le symbole était immense."},
+  {era:"Révolution & XIXe siècle",q:"Napoléon se fait sacrer Empereur en quelle année, dans quel lieu ?",c:["1804, à Notre-Dame de Paris","1799, aux Tuileries","1806, à Versailles","1804, à Rome"],ok:0,expl:"Le 2 décembre 1804, Napoléon se sacre lui-même Empereur à Notre-Dame de Paris, en présence du pape Pie VII qu'il avait fait venir de Rome — geste symbolique d'indépendance vis-à-vis du pouvoir religieux."},
+  {era:"Révolution & XIXe siècle",q:"Le Code civil napoléonien (1804) est révolutionnaire car il établit…",c:["L'égalité juridique de tous les citoyens devant la loi","La séparation de l'Église et de l'État","Le suffrage universel masculin","La liberté de la presse"],ok:0,expl:"Le Code civil (ou Code Napoléon) établit pour la première fois l'égalité juridique : même loi pour tous, droit de propriété garanti, laïcité du droit. Il est encore en vigueur aujourd'hui dans sa version modifiée."},
+  {era:"Révolution & XIXe siècle",q:"Haussmann transforme Paris sous Napoléon III en…",c:["Traçant 137 km de grands boulevards et dotant Paris d'égouts","Construisant le Louvre et Versailles","Créant le métro parisien","Rasant les faubourgs pour créer des parcs"],ok:0,expl:"Mandaté par Napoléon III, Haussmann détruit 20 000 immeubles vétustes et crée les grands boulevards, les égouts modernes, les squares. Paris, ville médiévale, devient une capitale moderne."},
+  {era:"Révolution & XIXe siècle",q:"L'affaire Dreyfus divise la France autour de quelle question ?",c:["L'antisémitisme et la justice militaire","La séparation de l'Église et de l'État","L'extension du droit de vote","L'indépendance des colonies"],ok:0,expl:"Alfred Dreyfus, officier juif injustement condamné pour trahison, est défendu par Zola ('J'accuse !', 1898). L'affaire révèle un antisémitisme profond dans l'armée et la société françaises."},
+  {era:"Révolution & XIXe siècle",q:"La Première Guerre mondiale fait combien de morts parmi les soldats français ?",c:["1,4 million","400 000","4 millions","600 000"],ok:0,expl:"La France perd 1,4 million de soldats entre 1914 et 1918 — une génération décimée. Avec les blessés et mutilés, c'est près de 6 millions de victimes françaises, militaires et civiles."},
+
+  // ── MONDE ──
+  {era:"Histoire du monde",q:"L'alphabet latin, utilisé dans la plupart des langues européennes, vient de…",c:["L'alphabet phénicien (via le grec)","L'alphabet cunéiforme","L'écriture hiéroglyphique","L'alphabet cyrillique"],ok:0,expl:"La chaîne est : Phéniciens → Grecs → Étrusques → Romains. L'alphabet latin, que tu utilises en ce moment, est donc le descendant direct de l'invention phénicienne de -1 200 av. J.-C."},
+  {era:"Histoire du monde",q:"Qui rédige la première déclaration de liberté religieuse de l'histoire ?",c:["Cyrus le Grand (roi perse, -538)","Moïse (-1 250)","Constantin (313)","Mahomet (622)"],ok:0,expl:"L'Édit de Cyrus (-538) autorise tous les peuples déportés à rentrer chez eux et à pratiquer leur religion librement. C'est le premier document de tolérance religieuse connu de l'histoire."},
+  {era:"Histoire du monde",q:"Quel empire a survécu 977 ans après la 'chute de Rome' en 476 ?",c:["L'Empire byzantin (Empire romain d'Orient)","L'Empire perse","L'Empire arabe","L'Empire ottoman"],ok:0,expl:"L'Empire romain d'Orient (Byzance), avec Constantinople comme capitale, survit jusqu'en 1453 — date de la prise de Constantinople par les Ottomans. Rome n'est donc pas vraiment morte en 476."},
+
+  // ── ANTIQUITÉ : questions manquantes ──
+  {era:"Proche-Orient antique",q:"Sous quel nom désigne-t-on la traduction grecque de la Bible hébraïque, réalisée vers −250 av. J.-C. à Alexandrie ?",c:["La Septante (ou LXX)","La Vulgate","La Peshitta","La Torah"],ok:0,expl:"La Septante (LXX) est traduite à Alexandrie par 72 sages juifs selon la tradition. C'est la version de la Bible utilisée par les premiers chrétiens — d'où son immense influence sur l'Occident."},
+  {era:"Proche-Orient antique",q:"Dans quelle roche la cité nabatéenne de Pétra est-elle principalement sculptée ?",c:["Dans le grès rose-rouge","Dans le calcaire blanc","Dans le basalte noir","Dans le marbre"],ok:0,expl:"Pétra (Jordanie actuelle) est taillée dans la roche de grès rose-rouge. Capitale des Nabatéens, elle contrôlait les routes de l'encens. Ses façades monumentales atteignent 40 mètres de haut."},
+  {era:"Rome Antique",q:"Selon la légende, qui allaita Romulus et Remus après leur abandon sur les rives du Tibre ?",c:["Une louve","Une ourse","Une biche","Une chienne"],ok:0,expl:"La louve capitoline allaitant Romulus et Remus est le symbole de Rome. Après avoir été abandonnés sur le Tibre par leur grand-oncle, les jumeaux auraient été nourris par une louve avant d'être recueillis par un berger."},
+  {era:"Grèce Antique",q:"Quel était le nom du cheval légendaire d'Alexandre le Grand, auquel il dédia une ville en Inde ?",c:["Bucéphale — la ville s'appelait Bucéphalie","Pégase — la ville s'appelait Pégasion","Arion — la ville s'appelait Ariona","Xanthos — la ville s'appelait Xanthia"],ok:0,expl:"Bucéphale (tête de bœuf) refusait d'être monté par quiconque. Alexandre, 13 ans, remarqua qu'il avait peur de son ombre et l'apprivoisa en le tournant face au soleil. À sa mort en Inde, Alexandre lui dédia la ville de Bucéphalie."},
+  {era:"Rome Antique",q:"Quelle phrase César aurait-il prononcée en franchissant le Rubicon en −49 av. J.-C. ?",c:["Alea jacta est (le sort en est jeté)","Veni vidi vici (je suis venu, j'ai vu, j'ai vaincu)","Et tu, Brute ? (toi aussi, Brutus ?)","Gallia est omnis divisa (la Gaule est tout entière divisée)"],ok:0,expl:"'Alea jacta est' — le sort en est jeté. En franchissant le Rubicon avec son armée, César trahit la République. La phrase illustre un point de non-retour — expression encore utilisée aujourd'hui."},
+  {era:"Rome Antique",q:"Quelle est la pente remarquable du canal du Pont du Gard sur ses 50 km de longueur ?",c:["34 cm de dénivelé total — soit 0,07 % d'inclinaison","5 mètres de dénivelé — pente de 1 %","50 cm de dénivelé — pente de 0,1 %","1 cm de dénivelé — pente quasi nulle"],ok:0,expl:"Le canal romain de Nîmes descend de 34 cm sur 50 km — une précision d'orfèvre permettant à l'eau de couler par simple gravité. Le Pont du Gard, son aqueduc le plus haut (49 m), est l'œuvre de génie romain la mieux conservée."},
+  {era:"Rome Antique",q:"Dans quelle œuvre biblique le nombre 666 désigne-t-il probablement Néron en code hébreu ?",c:["L'Apocalypse de Jean","L'Évangile de Matthieu","Les Épîtres de Paul","Le Livre de Daniel"],ok:0,expl:"En hébreu, les lettres ont une valeur numérique (guématrie). 'Neron Kaiser' en lettres hébraïques donne 666. L'Apocalypse, écrite sous persécution, utilise ce code pour désigner Néron sans le nommer."},
+  {era:"Rome Antique",q:"Quel écrivain chrétien du IIe siècle formula la phrase 'Le sang des martyrs est semence de chrétiens' ?",c:["Tertullien","Saint Augustin","Origène","Saint Cyprien"],ok:0,expl:"Tertullien (vers 160-220) est l'un des Pères de l'Église latine. Sa formule résume le paradoxe des persécutions romaines : elles consolidèrent la foi chrétienne au lieu de l'éteindre."},
+  {era:"Rome Antique",q:"Quel objet sacré du Temple de Jérusalem est représenté sur l'Arc de Titus à Rome ?",c:["La Menorah (chandelier à 7 branches)","L'Arche d'Alliance","La Table des pains","Le brûle-parfum en or"],ok:0,expl:"L'Arc de Titus (81 ap. J.-C.) commémore la destruction du Temple de Jérusalem en 70. On y voit des soldats romains emportant la Menorah en trophée — représentation la plus ancienne connue de cet objet sacré."},
+  {era:"Rome Antique",q:"Que signifiait réellement le pouce levé dans les combats de gladiateurs, contrairement à la légende hollywoodienne ?",c:["Tuer le vaincu — le pouce caché dans le poing signifiait la grâce","Épargner le vaincu — le pouce levé voulait dire 'laissez-le vivre'","Rien de certain — les historiens débattent encore du geste exact","Recommencer le combat"],ok:0,expl:"L'historien Anthony Corbeill et d'autres chercheurs estiment que le pouce levé signifiait 'frappe' (imitant un coup d'épée) et le pouce caché 'rengaine'. Hollywood a inversé le sens. La foule criait 'mitte' (laisse-le) ou 'iugula' (égorge-le)."},
+  {era:"Rome Antique",q:"Comment s'appelait la pièce centrale d'une maison romaine, dotée d'un bassin pour recueillir l'eau de pluie ?",c:["L'atrium","Le triclinium","Le péristyle","Le tablinum"],ok:0,expl:"L'atrium était le cœur de la maison romaine : une grande pièce à ciel ouvert avec un bassin central (l'impluvium) pour récupérer l'eau de pluie. C'était l'espace de réception et de vie sociale."},
+  {era:"Rome Antique",q:"Quel écrivain latin du Ier siècle a décrit la vallus, moissonneuse gauloise inventée 1 800 ans avant l'ère industrielle ?",c:["Pline l'Ancien","Virgile","Cicéron","Columelle"],ok:0,expl:"Pline l'Ancien décrit dans son Histoire Naturelle la vallus gauloise : un cadre à dents poussé par un âne qui arrachait les épis. Cette machine à moissonner disparut avec Rome et ne fut réinventée qu'au XIXe siècle."},
+  {era:"Rome Antique",q:"Quel monument romain de Nîmes inspira Thomas Jefferson pour l'architecture du Capitole de Virginie ?",c:["La Maison Carrée de Nîmes","Le Pont du Gard","Les Arènes de Nîmes","La Tour Magne"],ok:0,expl:"Jefferson, ambassadeur à Paris, fit le voyage à Nîmes uniquement pour contempler la Maison Carrée (temple romain du Ier siècle). Il en fit faire des dessins qui inspirèrent directement le Virginia State Capitol (1788)."},
+  {era:"Rome Antique",q:"Combien d'empereurs Rome eut-elle en 50 ans lors de la terrible crise du IIIe siècle (235-284 ap. J.-C.) ?",c:["50 empereurs en 50 ans","10 empereurs","5 empereurs","25 empereurs"],ok:0,expl:"La crise du IIIe siècle (235-284) vit défiler près de 50 empereurs — dont la plupart moururent assassinés. Guerres civiles, invasions barbares, épidémies et effondrement économique faillirent anéantir l'Empire."},
+  {era:"Rome Antique",q:"Sur quelle montagne parisienne est construit le Panthéon, qui tire son nom de sainte Geneviève ?",c:["La Montagne Sainte-Geneviève","La Butte Montmartre","La Butte-aux-Cailles","Les hauteurs de Belleville"],ok:0,expl:"Sainte Geneviève (422-512), bergère devenue patronne de Paris, aurait sauvé la ville d'Attila par ses prières en 451. La montagne qui porte son nom, au cœur du Quartier Latin, accueille le Panthéon et la Sorbonne."},
+  {era:"Histoire du monde",q:"L'université de Bologne, considérée comme la première université du monde, a été fondée en…",c:["1088","1150","1167","1209"],ok:0,expl:"L'Université de Bologne (1088) est la plus ancienne université en activité continue dans le monde. Paris suivra vers 1150, Oxford vers 1167, Cambridge en 1209."},
+  // ── PRÉHISTOIRE & ÈRE COSMIQUE ──
+  {era:"Ère Cosmique",q:"Il y a combien de milliards d'années le Big Bang a-t-il eu lieu ?",c:["13,8 milliards d'années","4,5 milliards d'années","65 millions d'années","1 milliard d'années"],ok:0,expl:"Le Big Bang date d'environ 13,8 milliards d'années. C'est la première date de toute la chronologie universelle. La Terre, bien plus récente, a 4,5 milliards d'années."},
+  {era:"Ère Cosmique",q:"Quel pourcentage de la masse du système solaire le Soleil représente-t-il ?",c:["99,86 %","75 %","50 %","90 %"],ok:0,expl:"Le Soleil représente 99,86 % de la masse totale du système solaire. Toutes les planètes réunies — dont Jupiter, la plus grande — ne font que 0,14 %."},
+  {era:"Ère Cosmique",q:"De combien de centimètres la Lune s'éloigne-t-elle de la Terre chaque année ?",c:["3,8 cm par an","10 cm par an","1 cm par an","50 cm par an"],ok:0,expl:"La Lune s'éloigne de 3,8 cm par an à cause des effets de marée. À sa formation, elle était 15 fois plus proche de la Terre — et la journée terrestre ne durait que 6 heures."},
+  {era:"Ère Biologique",q:"Dans quel environnement est probablement apparue la première vie sur Terre ?",c:["Autour de cheminées hydrothermales sous-marines","Dans les eaux douces d'un lac","Dans des mares à la surface des continents","Dans l'atmosphère terrestre"],ok:0,expl:"La vie est probablement apparue autour de cheminées hydrothermales à 300°C dans les profondeurs des océans primitifs, il y a 3,8 milliards d'années. Ces environnements fournissent énergie et minéraux."},
+  {era:"Ère Biologique",q:"Quel pourcentage de l'oxygène mondial les algues marines produisent-elles encore aujourd'hui ?",c:["50 % — la moitié","15 %","80 %","5 %"],ok:0,expl:"Les algues marines (phytoplancton) produisent environ 50 % de l'oxygène terrestre — plus que toutes les forêts réunies. Sans elles, la vie terrestre serait impossible."},
+  {era:"Ère Biologique",q:"Quelle invention biologique déclencha une 'course aux armements' entre prédateurs et proies au Cambrien ?",c:["L'œil","La coquille dure","La mâchoire","Les membres articulés"],ok:0,expl:"L'apparition de l'œil au Cambrien (-538 millions d'années) révolutionna l'évolution : pour la première fois, les proies pouvaient voir les prédateurs arriver — déclenchant une course aux armements évolutive."},
+  {era:"Ère Biologique",q:"Pendant combien de millions d'années les dinosaures ont-ils dominé la Terre ?",c:["165 millions d'années","65 millions d'années","300 millions d'années","10 millions d'années"],ok:0,expl:"Les dinosaures ont dominé la Terre pendant 165 millions d'années — soit 40 fois la durée d'existence d'Homo Sapiens. Ils ont disparu il y a 66 millions d'années lors de l'impact de Chicxulub."},
+  {era:"Préhistoire",q:"Quel est le nom du plus ancien fossile de notre lignée humaine, découvert au Tchad ?",c:["Sahelanthropus tchadensis","Homo habilis","Australopithecus afarensis","Homo erectus"],ok:0,expl:"Sahelanthropus tchadensis vivait il y a 7 millions d'années — juste après la séparation évolutive avec les chimpanzés. Son crâne a été découvert au Tchad en 2001 par l'équipe de Michel Brunet."},
+  {era:"Préhistoire",q:"Pendant combien de millions d'années le biface a-t-il été utilisé sans modification ?",c:["1,5 million d'années","10 000 ans","100 000 ans","500 000 ans"],ok:0,expl:"Le biface a été utilisé pendant 1,5 million d'années sans modification majeure — la plus longue tradition technologique de l'histoire humaine. Un signe de stabilité culturelle extraordinaire."},
+  {era:"Préhistoire",q:"Dans quelle grotte d'Afrique du Sud se trouvent les premières traces de feu contrôlé, vieilles d'un million d'années ?",c:["La grotte de Wonderwerk","La grotte de Blombos","La grotte de Klasies River","La grotte de Pinnacle Point"],ok:0,expl:"La grotte de Wonderwerk (Afrique du Sud) contient des os et végétaux brûlés vieux d'un million d'années. C'est la trace la plus ancienne connue de maîtrise du feu par Homo erectus."},
+  {era:"Préhistoire",q:"Dans quelle ville allemande ont été retrouvées 8 lances en bois vieilles de 400 000 ans ?",c:["Schöningen","Heidelberg","Düsseldorf","Neandertal"],ok:0,expl:"Les lances de Schöningen (–400 000 ans) sont les armes en bois les plus anciennes connues. Leur équilibre est identique à celui d'un javelot olympique moderne — preuve d'une technique de chasse élaborée."},
+  {era:"Préhistoire",q:"Quel matériau les Néandertaliens utilisaient-ils pour coller les pointes de silex sur leurs lances ?",c:["La résine de bouleau chauffée","De la colle animale","De l'argile cuite","De la cire d'abeille"],ok:0,expl:"La résine de bouleau (goudron naturel) était obtenue en chauffant l'écorce à 340°C en atmosphère pauvre en oxygène — une opération nécessitant planification et connaissance des matériaux."},
+  {era:"Préhistoire",q:"Sur quel site d'Afrique du Sud ont été retrouvés les plus anciens bijoux connus (coquillages percés, –100 000 ans) ?",c:["Blombos Cave","Klasies River","Pinnacle Point","Border Cave"],ok:0,expl:"Blombos Cave (Afrique du Sud) a livré des coquillages percés il y a 100 000 ans, transportés à 35 km de la côte — preuve de valeur symbolique et de pensée abstraite bien avant Homo Sapiens moderne."},
+  {era:"Préhistoire",q:"Quel insecte parasite a permis de dater l'apparition des vêtements à –80 000 ans ?",c:["Le pou de corps","La puce","Le moustique","Le pou de tête"],ok:0,expl:"Le pou de corps diverge génétiquement du pou de tête dès que l'humain commence à porter des vêtements, car il vit dans les fibres textiles. Cette divergence génétique donne une date d'apparition des vêtements."},
+  {era:"Préhistoire",q:"Quel détroit les premiers Homo Sapiens ont-ils franchi pour quitter l'Afrique, il y a 70 000 ans ?",c:["Le détroit de Bab-el-Mandeb","Le détroit de Gibraltar","Le canal de Suez","Le détroit d'Ormuz"],ok:0,expl:"Le détroit de Bab-el-Mandeb (entre la Corne de l'Afrique et le Yémen) était plus étroit durant la période glaciaire. Ce passage permit la grande migration d'Homo Sapiens hors d'Afrique."},
+  {era:"Préhistoire",q:"Quel pourcentage d'ADN néandertalien les Européens et Asiatiques actuels portent-ils dans leurs gènes ?",c:["1 à 4 %","10 à 20 %","Moins de 0,1 %","Environ 30 %"],ok:0,expl:"Les Européens et Asiatiques portent 1 à 4 % d'ADN néandertalien — héritage de croisements survenus il y a 50 000-60 000 ans. Certains gènes immunitaires hérités des Néandertaliens nous protègent encore aujourd'hui."},
+  {era:"Préhistoire",q:"À quelle vitesse une sagaie lancée au propulseur (atlatl) peut-elle atteindre sa cible ?",c:["150 km/h","50 km/h","80 km/h","200 km/h"],ok:0,expl:"Le propulseur multiplie la portée et la puissance de lancement : une sagaie peut atteindre 150 km/h et transpercer 10 cm de chair à 50 mètres — révolutionnant la chasse au Paléolithique."},
+  {era:"Préhistoire",q:"Dans quelle matière est taillée la flûte de Hohle Fels, la plus ancienne connue (–35 000 ans) ?",c:["Un os de vautour fauve (le radius)","Un os de mammouth","Une corne de renne","Un os de cerf"],ok:0,expl:"La flûte de Hohle Fels (Allemagne) est taillée dans le radius d'un vautour fauve. Elle possède 5 trous digitaux et peut encore produire des sons aujourd'hui — preuve d'une vie musicale paléolithique."},
+  {era:"Préhistoire",q:"Dans quel pays ont été retrouvées des huttes construites entièrement en os de mammouths (–15 000 ans) ?",c:["En Ukraine (site de Mezhirich)","En Sibérie","En France","En Allemagne"],ok:0,expl:"Le site de Mezhirich (Ukraine, –15 000 ans) révèle des huttes circulaires construites avec des centaines de mandibules, crânes et fémurs de mammouths — ingénierie préhistorique remarquable."},
+  {era:"Préhistoire",q:"De combien de mètres le niveau des mers était-il plus bas au maximum glaciaire, vers –20 000 ans ?",c:["120 mètres","30 mètres","60 mètres","200 mètres"],ok:0,expl:"Au maximum glaciaire (-20 000 ans), le niveau des mers était 120 m plus bas. La Grande-Bretagne était reliée au continent, la Sibérie à l'Alaska (la Béringie), l'Australie à la Nouvelle-Guinée."},
+  {era:"Préhistoire",q:"Dans quels pays ont été retrouvées les premières poteries connues de l'humanité ?",c:["En Chine et au Japon","En Mésopotamie","En Égypte","En Europe centrale"],ok:0,expl:"Les premières poteries connues (–17 500 av. J.-C.) viennent de Chine et du Japon, inventées par des chasseurs-cueilleurs. Elles précèdent l'agriculture de 5 000 ans — réfutant l'idée que la poterie suivit la sédentarisation."},
+  {era:"Préhistoire",q:"En quelle année la grotte de Lascaux a-t-elle été fermée au public pour préserver ses peintures ?",c:["1963","1940","1980","2000"],ok:0,expl:"Lascaux a été découverte en 1940 et ouverte au public. Mais le CO₂ et les moisissures de 1 000 visiteurs par jour dégradaient les peintures. Elle est fermée depuis 1963 — remplacée par une réplique, Lascaux II."},
+  {era:"Préhistoire",q:"Par quel pont terrestre les premiers humains ont-ils rejoint l'Amérique depuis la Sibérie ?",c:["La Béringie (actuel détroit de Béring)","L'isthme de Panama","Un pont de glace arctique","La route des îles aléoutiennes"],ok:0,expl:"La Béringie était une vaste plaine émergée (aujourd'hui engloutie sous le détroit de Béring) reliant la Sibérie à l'Alaska. Des chasseurs l'ont franchie il y a environ 15 000 ans, peuplant progressivement les Amériques."},
+  {era:"Préhistoire",q:"Combien d'heures par jour les chasseurs-cueilleurs travaillaient-ils, selon les études anthropologiques ?",c:["Environ 4 heures par jour","12 heures par jour","8 heures par jour","6 heures par jour"],ok:0,expl:"Les études sur les peuples chasseurs-cueilleurs actuels montrent qu'ils travaillent environ 4 heures par jour pour se nourrir. L'agriculture a rendu les humains plus nombreux — mais aussi plus petits, plus malades et plus occupés."},
+  {era:"Préhistoire",q:"Quel pourcentage du site de Göbekli Tepe (–9 500 av. J.-C.) a été fouillé à ce jour ?",c:["5 % seulement","50 %","80 %","25 %"],ok:0,expl:"Le géoradar révèle au moins 16 enceintes encore enfouies sous la colline de Göbekli Tepe. Après 30 ans de fouilles, seuls 5 % ont été mis au jour — l'essentiel des secrets du premier temple du monde reste enfoui."},
+  {era:"Préhistoire",q:"Combien de menhirs comptent les alignements de Carnac, en Bretagne ?",c:["Plus de 3 000 menhirs","500 menhirs","10 000 menhirs","1 000 menhirs"],ok:0,expl:"Les alignements de Carnac comptent plus de 3 000 menhirs disposés en 11 rangées sur 4 km — le plus grand ensemble mégalithique du monde. Leur usage reste mystérieux : calendrier astronomique ? Lieu de culte ?"},
+  {era:"Préhistoire",q:"Quel était l'usage premier de la roue, avant son utilisation pour le transport (–3 500 av. J.-C.) ?",c:["Le tour du potier","Lever des fardeaux","Irriguer les champs","Moudre le grain"],ok:0,expl:"La roue a d'abord été utilisée comme tour du potier pour façonner l'argile en la faisant tourner. L'adaptation au transport sur char vint quelques siècles plus tard — une idée qui semblait pourtant évidente."},
+  {era:"Préhistoire",q:"Comment Ötzi, l'homme des glaces (–3 300 av. J.-C.), est-il mort selon les analyses scientifiques ?",c:["Assassiné — une flèche lui a sectionné une artère","Mort de froid lors d'une tempête","Tué lors d'un combat au corps à corps","Mort de maladie, d'après l'analyse de ses os"],ok:0,expl:"Ötzi a été tué d'une flèche dans le dos qui a sectionné l'artère sous-clavière gauche. C'est le premier 'cold case' de l'histoire — 5 300 ans après son meurtre, on connaît la cause de sa mort avec certitude."},
+  {era:"Préhistoire",q:"Quel est le taux de survie des patients trépanés au Néolithique (–6 500 av. J.-C.) ?",c:["Plus de 50 %","Moins de 10 %","Environ 90 %","Presque 0 %"],ok:0,expl:"Plus de 50 % des patients trépanés au Néolithique ont survécu à l'opération — les bords recalcifiés des trous le prouvent. Ces chirurgiens préhistoriques connaissaient l'anatomie crânienne et maîtrisaient la stérilisation empirique."},
+
+  // ── MOYEN ÂGE (depuis moyenage.json) ──
+  {era:"Carolingiens",q:"Pourquoi les Serments de Strasbourg (842) sont-ils fondamentaux pour la langue française ?",c:["C'est le premier texte écrit en vieux-français","C'est la première constitution française","C'est l'acte de fondation de l'Académie française","C'est le premier texte imprimé en France"],ok:0,expl:"Les Serments de Strasbourg (842) sont rédigés en lingua romana rustica — vieux-français. C'est le premier document officiel dans une langue romane, ancêtre direct du français moderne."},
+  {era:"Carolingiens",q:"Quel pays futur correspond aux terres que Charles le Chauve reçoit au traité de Verdun en 843 ?",c:["La France (la Francia occidentalis)","L'Allemagne (la Francia orientalis)","L'Italie (la Lotharingie)","La Belgique (les Flandres)"],ok:0,expl:"Au traité de Verdun, Charles le Chauve reçoit la Francia occidentalis (l'Ouest), qui deviendra progressivement le royaume de France. Louis le Germanique reçoit l'Est (future Allemagne)."},
+  {era:"Capétiens",q:"Quelle conséquence inattendue la conquête normande de 1066 eut-elle sur la langue anglaise ?",c:["La moitié des mots anglais viennent du français normand","L'anglais fut temporairement interdit en Angleterre","Le latin devint la seule langue officielle","Le français remplaça l'anglais pendant 3 siècles"],ok:0,expl:"Beef, pork, justice, noble, adventure… Des milliers de mots anglais sont en réalité du vieux-français normand apporté par la noblesse de Guillaume. L'anglais moderne est un mélange d'anglo-saxon et de français."},
+  {era:"Capétiens",q:"Quel moine a inventé le style gothique en reconstruisant la basilique Saint-Denis en 1144 ?",c:["Suger, abbé de Saint-Denis","Bernard de Clairvaux","Pierre Abélard","Hildegarde de Bingen"],ok:0,expl:"L'abbé Suger voulait que les églises soient remplies de lumière pour symboliser la présence de Dieu. Il inventa l'arc-boutant et les grandes verrières — révolutionnant l'architecture médiévale."},
+  {era:"Capétiens",q:"Pourquoi Blanche de Castille est-elle une figure exceptionnelle dans l'histoire médiévale de France ?",c:["Première femme étrangère à gouverner la France, pendant la minorité de Louis IX","Première reine à participer à une croisade","Première femme à siéger au Parlement de Paris","Première régente à diriger une armée en bataille"],ok:0,expl:"Blanche de Castille, née en Espagne, assura la régence pour son fils Louis IX (12 ans) après la mort de Louis VIII en 1226. Elle repoussa les barons révoltés et maintint le royaume intact."},
+  {era:"Capétiens",q:"Quelle institution née en 1302 sous Philippe le Bel est l'ancêtre lointain de notre Assemblée Nationale ?",c:["Les États Généraux","Le Parlement de Paris","Le Conseil du roi","Le Tribunal de l'Inquisition"],ok:0,expl:"Les États Généraux réunissent clergé, noblesse et tiers état. Convoqués une dernière fois en 1789, ils déclenchent la Révolution française — devenant l'Assemblée nationale constituante."},
+  {era:"Capétiens",q:"Pendant combien d'années les papes ont-ils résidé à Avignon au lieu de Rome ?",c:["68 ans — de 1309 à 1377","10 ans","200 ans","30 ans"],ok:0,expl:"Sept papes successifs, tous français, résidèrent à Avignon de 1309 à 1377. Le retour à Rome provoqua le Grand Schisme d'Occident — deux papes rivaux pendant 40 ans."},
+  {era:"Capétiens",q:"Qu'arriva-t-il d'extraordinaire au roi Jean II de France lors de la bataille de Poitiers en 1356 ?",c:["Il fut fait prisonnier par les Anglais et emmené à Londres","Il fut tué d'une flèche comme Harold à Hastings","Il se rendit aux Bourguignons pour sauver son armée","Il s'enfuit déguisé en paysan pour échapper aux Anglais"],ok:0,expl:"Jean II le Bon est capturé à Poitiers par le Prince Noir et emmené à Londres. La France dut payer une rançon colossale de 3 millions d'écus d'or pour le récupérer — l'équivalent de plusieurs années de revenus royaux."},
+  {era:"Capétiens",q:"En quelle année les Juifs de France ont-ils obtenu les mêmes droits que tous les citoyens, après l'expulsion de 1394 ?",c:["1791 — lors de la Révolution française","1848 — lors de la IIe République","1905 — lors de la séparation Église-État","1944 — après la Libération"],ok:0,expl:"Il fallut attendre 397 ans après l'expulsion de 1394 pour que la Révolution française accorde en 1791 la pleine citoyenneté aux Juifs — première fois dans l'histoire européenne moderne."},
+  {era:"Capétiens",q:"Quel livre Christine de Pisan écrit-elle en 1405 pour défendre la valeur des femmes ?",c:["La Cité des Dames","Le Roman de la Rose","Les Cent Nouvelles Nouvelles","Le Livre des Faits et Bonnes Mœurs"],ok:0,expl:"La Cité des Dames (1405) imagine une cité imaginaire peuplée des femmes les plus remarquables de l'histoire. Christine de Pisan répond ainsi à la misogynie de son époque — première féministe littéraire française."},
+  {era:"Capétiens",q:"Quelle nouvelle arme permit à la France de remporter la victoire décisive de Castillon en 1453 ?",c:["Les canons (l'artillerie à poudre)","La cavalerie lourde","Les arbalètes en acier","Les archers gallois"],ok:0,expl:"L'artillerie française de Jean Bureau écrase la cavalerie anglaise à Castillon — rendant obsolètes les archers aux longbows qui avaient dominé Crécy et Azincourt. L'ère des chevaliers prend fin."},
+  {era:"Capétiens",q:"Sous quel roi les relais de poste furent-ils organisés en France en 1476, révolutionnant les communications ?",c:["Louis XI, l'Universelle Araignée","Charles V le Sage","Philippe le Bel","François Ier"],ok:0,expl:"Louis XI crée les relais de poste royaux en 1476 : des chevaux frais disponibles toutes les 4 lieues sur les grandes routes. Ce réseau permit au roi de recevoir des nouvelles en 24h depuis n'importe quelle province."},
+  {era:"Capétiens",q:"Comment la Provence est-elle devenue française en 1481, sans guerre ni mariage ?",c:["Le comte de Provence mourut sans héritier et légua sa région à Louis XI","Louis XI l'acheta au Saint-Empire romain germanique","Charles le Téméraire la céda en échange de la Bourgogne","La population provençale vota son rattachement au royaume"],ok:0,expl:"René d'Anjou, dernier comte de Provence, mourut sans héritier direct en 1480. Son successeur Charles III légua ses terres au roi de France Louis XI en 1481 — réunification pacifique et définitive."},
+  {era:"Capétiens",q:"Qui était Charles le Téméraire, et pourquoi sa mort en 1477 profita-t-elle tant à Louis XI ?",c:["Duc de Bourgogne, le plus puissant rival du roi — sa mort permit à Louis XI de récupérer Bourgogne et Picardie","Roi d'Angleterre — sa mort mit fin à la Guerre de Cent Ans","Duc de Bretagne — sa mort permit l'annexion de la Bretagne","Duc d'Anjou — sa mort permit d'annexer la Provence et le Maine"],ok:0,expl:"Charles le Téméraire rêvait d'un grand État entre France et Allemagne. Sa mort à Nancy (1477) fut un cadeau pour Louis XI, qui récupéra la Bourgogne et la Picardie, achevant le puzzle territorial français."},
+
+  // ── TEMPS MODERNES (depuis tempsmodernes.json) ──
+  {era:"Renaissance",q:"Quelle ordonnance de 1539, signée par François Ier, impose le français dans tous les actes officiels ?",c:["L'ordonnance de Villers-Cotterêts","L'ordonnance de Blois","L'édit de Fontainebleau","La pragmatique sanction de Bourges"],ok:0,expl:"L'ordonnance de Villers-Cotterêts (1539) impose le français à la place du latin dans tous les actes judiciaires et officiels. C'est l'acte de naissance de l'État français et du français comme langue nationale."},
+  {era:"Renaissance",q:"Quel génie de la Renaissance italienne François Ier fait-il venir en France en 1516 ?",c:["Léonard de Vinci","Michel-Ange","Raphaël","Titien"],ok:0,expl:"Léonard de Vinci arrive en France en 1516, invité par François Ier, et s'installe au Clos Lucé près d'Amboise. Il y mourra en 1519. La Joconde est ainsi en France depuis lors."},
+  {era:"Renaissance",q:"Rabelais publie Pantagruel et Gargantua dans les années 1530. Quel courant humaniste ces œuvres incarnent-elles ?",c:["L'humanisme de la Renaissance (curiosité universelle et libre pensée)","Le romantisme du XIXe siècle","Le classicisme du XVIIe siècle","Le naturalisme de Zola"],ok:0,expl:"Rabelais mêle érudition humaniste, satire sociale, humour débridé et réflexion philosophique. Il incarne l'idéal rabelaisien : 'Science sans conscience n'est que ruine de l'âme.'"},
+  {era:"Renaissance",q:"Comment Henri II, roi de France, meurt-il accidentellement en 1559 ?",c:["Tué lors d'un tournoi — la lance de Gabriel de Montgomery lui perce l'œil","Empoisonné par sa femme Catherine de Médicis","Tué lors du siège de Calais","Victime d'une chute de cheval à la chasse"],ok:0,expl:"Le 30 juin 1559, lors d'un tournoi, la lance de Montgomery brise la visière d'Henri II et lui perce l'œil. Il meurt 10 jours plus tard. Sa mort plonge la France dans l'instabilité — début des guerres de Religion."},
+  {era:"Guerres de Religion",q:"La Saint-Barthélemy (24 août 1572) est un massacre ordonné par qui ?",c:["Catherine de Médicis et Charles IX","Henri de Navarre (futur Henri IV)","Le duc de Guise seul","Le pape Grégoire XIII"],ok:0,expl:"Catherine de Médicis convainc son fils Charles IX d'ordonner l'assassinat des chefs protestants réunis à Paris pour le mariage d'Henri de Navarre. Le massacre fait entre 3 000 et 30 000 morts en France."},
+  {era:"Guerres de Religion",q:"L'Édit de Nantes (1598) met fin aux guerres de Religion. Combien d'années ces guerres ont-elles duré ?",c:["36 ans (1562-1598)","10 ans","100 ans","50 ans"],ok:0,expl:"Les guerres de Religion (1562-1598) déchirent la France pendant 36 ans en 8 conflits distincts. L'Édit de Nantes d'Henri IV accorde la liberté de culte aux protestants — paix précaire, révoquée en 1685."},
+  {era:"Monarchie Absolue",q:"Richelieu, ministre de Louis XIII, est surnommé l'Éminence rouge. Quelle était sa principale ambition pour la France ?",c:["Centraliser le pouvoir royal et réduire la noblesse","Convertir les protestants au catholicisme","Conquérir l'Espagne et l'Angleterre","Créer un empire colonial en Amérique"],ok:0,expl:"Richelieu centralise le pouvoir : il rase les châteaux forts des nobles, interdit les duels, crée l'Académie française (1635) et engage la France dans la Guerre de Trente Ans contre les Habsbourg."},
+  {era:"Monarchie Absolue",q:"Le Cid de Corneille (1637) déclenche une querelle littéraire car il transgresse quelle règle classique ?",c:["La règle des trois unités (temps, lieu, action)","L'interdiction de mêler tragédie et comédie","L'obligation d'écrire en latin","L'interdiction des personnages historiques réels"],ok:0,expl:"La querelle du Cid porte sur le respect des règles classiques (unité de temps/lieu/action) et la vraisemblance morale. L'Académie française tranche : le Cid est beau mais irrégulier."},
+  {era:"Monarchie Absolue",q:"Blaise Pascal est surtout connu pour ses travaux en mathématiques et en physique. Quelle invention pratique lui doit-on ?",c:["La pascaline — première machine à calculer mécanique (1642)","Le baromètre","La machine à vapeur","Le télescope à réflexion"],ok:0,expl:"À 19 ans, Pascal invente la pascaline (1642) pour aider son père percepteur des impôts. C'est la première machine à calculer mécanique opérationnelle — ancêtre lointain de l'ordinateur."},
+  {era:"Monarchie Absolue",q:"La Fronde (1648-1653) est une révolte contre qui, et comment se termine-t-elle ?",c:["Contre Mazarin et la régente Anne d'Autriche — écrasée, elle rend Louis XIV hostile à Paris pour toujours","Contre Louis XIV, qui doit fuir Versailles","Contre Richelieu, assassiné par les nobles","Contre le pape, qui excommunia la France"],ok:0,expl:"La Fronde des princes (1648-1653) oblige le jeune Louis XIV à fuir Paris. Ce traumatisme explique pourquoi il construira Versailles pour éloigner la noblesse de la capitale et mieux la contrôler."},
+  {era:"Monarchie Absolue",q:"Molière est mort comment, en 1673, d'une façon particulièrement dramatique ?",c:["Sur scène, lors d'une représentation du Malade imaginaire, pris de convulsions","Assassiné par un noble qu'il avait satirisé dans ses pièces","Empoisonné par des rivaux jaloux à la cour de Louis XIV","Mort de la peste lors d'une tournée en province"],ok:0,expl:"Molière, malade, insiste pour jouer malgré sa fièvre. Il est pris de convulsions sur scène lors de la 4e représentation du Malade imaginaire et meurt quelques heures plus tard — ironie tragique."},
+  {era:"Monarchie Absolue",q:"Le Château de Versailles, construit par Louis XIV, compte combien de pièces ?",c:["700 pièces","100 pièces","2 000 pièces","250 pièces"],ok:0,expl:"Versailles compte 700 pièces, 2 000 fenêtres, 67 escaliers et héberge jusqu'à 20 000 personnes (noblesse, serviteurs, gardes). Louis XIV y installe sa cour en 1682 pour mieux surveiller les grands nobles."},
+  {era:"Monarchie Absolue",q:"La 'Guerre de Sept Ans' (1756-1763) est parfois surnommée la première guerre mondiale. Pourquoi ?",c:["Elle se déroule sur 5 continents (Europe, Amériques, Afrique, Inde, Philippines)","Elle mobilise 7 pays différents en Europe","Elle dure exactement 7 ans jour pour jour","Elle est la première guerre avec des sous-marins"],ok:0,expl:"La Guerre de Sept Ans oppose la France à l'Angleterre sur 5 continents simultanément. La France perd le Canada, la Louisiane, l'Inde — un désastre colonial qui prépare la Révolution de 1789."},
+  {era:"Monarchie Absolue",q:"La Grande Peste de Marseille (1720-1722) tue combien de personnes dans la ville ?",c:["50 000 morts — la moitié de la population","5 000 morts","200 000 morts","1 000 morts"],ok:0,expl:"La Grande Peste tue 50 000 des 90 000 habitants de Marseille en deux ans. Un mur de pierre (le 'Mur de la Peste') est construit pour isoler la Provence du reste de la France — encore visible en Vaucluse."},
+  {era:"Monarchie Absolue",q:"Le commerce triangulaire implique trois trajets. Dans quel ordre ?",c:["Europe → Afrique (marchandises) → Amériques (esclaves) → Europe (sucre/café/coton)","Amériques → Europe → Afrique → Amériques","Afrique → Europe → Amériques → Afrique","Europe → Amériques → Afrique → Europe"],ok:0,expl:"Les navires partent d'Europe avec des marchandises vers l'Afrique, échangées contre des esclaves, puis traversent l'Atlantique vers les Amériques, et reviennent avec sucre, café et coton. La France transporta 1,3 million d'esclaves."},
+  {era:"Monarchie Absolue",q:"Voltaire est emprisonné deux fois à la Bastille. Pour quelle raison en 1717 ?",c:["Pour avoir écrit des vers satiriques contre le Régent Philippe d'Orléans","Pour avoir refusé de se convertir au catholicisme","Pour avoir insulté un noble anglais en duel","Pour avoir publié ses Lettres philosophiques sans autorisation"],ok:0,expl:"Le jeune François-Marie Arouet (futur Voltaire) est embastillé en 1717 pour des vers satiriques contre la cour. Cette expérience le rend ardent défenseur de la liberté d'expression et ennemi du despotisme."},
+  {era:"Lumières",q:"Jean-Jacques Rousseau affirme dans Du Contrat Social que la légitimité du gouvernement vient…",c:["Du peuple, qui peut reprendre son pouvoir si trahi","De Dieu, transmis au roi par le sacre","Des nobles et du clergé réunis","De la raison naturelle universelle"],ok:0,expl:"Rousseau révolutionne la pensée politique : le pouvoir est délégué par le peuple. Si le gouvernement trahit le peuple, celui-ci peut le renverser — théorie qui alimentera directement la Révolution de 1789."},
+  {era:"Lumières",q:"Louis XVI convoque les États Généraux en mai 1789 pour quelle raison principale ?",c:["La France est au bord de la faillite et a besoin de lever de nouveaux impôts","Il veut réformer la constitution du royaume","Il veut préparer une guerre contre l'Angleterre","Il répond à une révolte populaire qui menaçait Versailles"],ok:0,expl:"La France est criblée de dettes après la Guerre de Sept Ans et le soutien à la Révolution américaine. Louis XVI convoque les États Généraux pour lever de nouveaux impôts — déclenchant involontairement la Révolution."},
+
+  // ── ANTIQUITÉ : PREMIÈRES CIVILISATIONS ──
+  {era:"Premières Civilisations",q:"Quel est le nom du premier être humain dont on connaît le nom dans l'histoire ?",c:["Kushim — un comptable d'Uruk","Gilgamesh — un roi sumérien","Ménès — pharaon égyptien","Hammurabi — roi de Babylone"],ok:0,expl:"Kushim est un comptable sumérien d'Uruk dont le nom figure sur des tablettes d'argile vers -3 100 av. J.-C. C'est la première signature connue de l'histoire humaine."},
+  {era:"Premières Civilisations",q:"En quelle matière les premières tablettes d'écriture cunéiforme étaient-elles façonnées ?",c:["En argile cuite","En pierre calcaire","En bois de cèdre","En or martelé"],ok:0,expl:"L'argile était abondante en Mésopotamie. Les signes cunéiformes étaient gravés avec un stylet, puis la tablette était cuite pour la durcir et la conserver indéfiniment."},
+  {era:"Premières Civilisations",q:"De quelle région du Pays de Galles proviennent les bluestones de Stonehenge, transportées sur 240 km ?",c:["Les collines de Preseli (Pembrokeshire)","Les Highlands d'Écosse","La vallée de la Tamise","Le Dartmoor (Devon)"],ok:0,expl:"Les bluestones de Stonehenge pèsent jusqu'à 4 tonnes et ont été transportées depuis les collines de Preseli — un exploit logistique préhistorique encore inexpliqué aujourd'hui."},
+  {era:"Premières Civilisations",q:"Quel objet archéologique célèbre commémore l'unification de l'Égypte par Narmer ?",c:["La palette de Narmer, au Musée du Caire","La pierre de Rosette, au British Museum","Le masque d'Agamemnon, à Athènes","La stèle de Hammurabi, au Louvre"],ok:0,expl:"La palette de Narmer (vers -3 100 av. J.-C.) représente le pharaon portant la double couronne d'Égypte unifiée. C'est l'un des plus anciens documents historiques illustrés."},
+  {era:"Premières Civilisations",q:"Quelle est la précision extraordinaire de l'alignement cardinal de la Grande Pyramide ?",c:["0,05 degré — plus précis que l'Observatoire de Paris","1 degré — précision remarquable pour l'époque","5 degrés — estimé à l'œil nu","0,5 degré — mesuré aux étoiles"],ok:0,expl:"La Grande Pyramide est alignée sur les points cardinaux avec une précision de 0,05 degré — plus précise que l'Observatoire de Paris construit 4 400 ans plus tard avec nos instruments modernes."},
+  {era:"Premières Civilisations",q:"Quels deux métaux compose-t-on pour obtenir le bronze ?",c:["Cuivre et étain","Fer et charbon","Or et argent","Plomb et zinc"],ok:0,expl:"Le bronze = cuivre + étain. Cet alliage est plus dur et plus tranchant que le cuivre seul. Comme l'étain est rare, son commerce structure les premières routes commerciales à longue distance."},
+
+  // ── ANTIQUITÉ : ÉGYPTE & MÉSOPOTAMIE ──
+  {era:"Égypte & Mésopotamie",q:"Combien d'articles contient le Code d'Hammurabi, et où est-il conservé ?",c:["282 articles — au Louvre à Paris","100 articles — au British Museum","450 articles — au Musée du Caire","50 articles — à Istanbul"],ok:0,expl:"Le Code d'Hammurabi compte 282 lois gravées sur une stèle de basalte noir de 2,25 m. Elle a été découverte à Suse en 1901 et est aujourd'hui exposée au Louvre."},
+  {era:"Égypte & Mésopotamie",q:"Quel dieu unique Akhenaton imposa-t-il aux Égyptiens ?",c:["Aton — le disque solaire aux rayons terminés par des mains","Rê — le dieu-soleil traditionnel","Osiris — dieu des morts","Horus — le dieu faucon"],ok:0,expl:"Akhenaton imposa le culte d'Aton, disque solaire dont les rayons se terminent en mains humaines symbolisant sa bienveillance. C'est le premier monothéisme d'État connu de l'histoire."},
+  {era:"Égypte & Mésopotamie",q:"Quel archéologue découvrit la tombe intacte de Toutankhamon en 1922 ?",c:["Howard Carter — financé par Lord Carnarvon","Heinrich Schliemann — découvreur de Troie","Jean-François Champollion — déchiffreur des hiéroglyphes","Arthur Evans — fouilleur de Cnossos"],ok:0,expl:"Howard Carter découvre le 4 novembre 1922 l'entrée de la tombe KV62. C'est la seule tombe royale égyptienne retrouvée quasiment intacte, avec ses 5 000 objets funéraires."},
+  {era:"Égypte & Mésopotamie",q:"Quel est le premier traité de paix international connu, signé par Ramsès II ?",c:["Le traité de Qadesh avec les Hittites (−1 259)","Le traité d'Alexandrie avec la Perse","Le traité de Ninive avec les Assyriens","Le traité d'Amarna avec la Nubie"],ok:0,expl:"Le traité de Qadesh (-1 259) entre Ramsès II et le roi hittite Hattusili III est le plus ancien traité de paix connu. Une copie est exposée au siège de l'ONU à New York."},
+  {era:"Égypte & Mésopotamie",q:"Quelle fête juive commémore chaque année la libération d'Égypte sous Moïse ?",c:["La Pâque (Pessah)","Yom Kippour","Roch Hachana","Souccot"],ok:0,expl:"La Pâque (Pessah) est célébrée chaque printemps depuis 3 000 ans. Elle commémore la sortie d'Égypte et se célèbre autour d'un repas rituel, le seder, où l'on raconte l'histoire de la libération."},
+
+  // ── ANTIQUITÉ : PROCHE-ORIENT ──
+  {era:"Proche-Orient antique",q:"Combien d'années dura le siège de Troie selon la tradition grecque ?",c:["Dix ans","Cinq ans","Deux ans","Vingt ans"],ok:0,expl:"Selon Homère, la guerre de Troie dura dix ans. Elle se termina grâce à la ruse du cheval de bois imaginé par Ulysse, permettant aux Grecs de pénétrer dans la cité."},
+  {era:"Proche-Orient antique",q:"Combien de lettres comptait l'alphabet phénicien original ?",c:["22 consonnes — sans aucune voyelle","26 lettres dont voyelles","30 signes syllabiques","44 hiéroglyphes"],ok:0,expl:"L'alphabet phénicien compte 22 consonnes, sans voyelles. Les Grecs l'adoptèrent vers -800 et ajoutèrent les voyelles, créant le premier alphabet complet — ancêtre direct du latin."},
+  {era:"Proche-Orient antique",q:"Quel roi hébreu fit de Jérusalem sa capitale vers −1000 av. J.-C. ?",c:["Le roi David","Le roi Salomon","Le roi Saül","Le roi Josias"],ok:0,expl:"David conquiert Jérusalem vers -1000 av. J.-C. sur les Jébuséens et en fait la 'Ville de David'. Son fils Salomon y construira le Premier Temple."},
+  {era:"Proche-Orient antique",q:"Dans quelle vallée se déroula le combat entre David et Goliath ?",c:["La vallée d'Éla","La vallée du Jourdain","La vallée de Qadesh","La vallée de Josaphat"],ok:0,expl:"Selon le premier livre de Samuel, David et Goliath s'affrontent dans la vallée d'Éla. David tue Goliath d'une pierre de fronde, puis lui tranche la tête avec sa propre épée."},
+  {era:"Proche-Orient antique",q:"Quelle ruse permit à la reine Didon de fonder Carthage avec un minimum de terrain ?",c:["Elle découpa une peau de bœuf en fines lanières pour délimiter un grand cercle","Elle construisit une digue sur la mer pour gagner du terrain","Elle racheta des terres avec de l'or phénicien","Elle épousa le roi local pour obtenir la région en dot"],ok:0,expl:"On dit à Didon qu'elle peut prendre autant de terrain qu'une peau de bœuf peut en couvrir. Elle la découpe en lanières pour former un immense périmètre — fondant ainsi Carthage vers -814 av. J.-C."},
+  {era:"Proche-Orient antique",q:"Quel roi perse libéra les Juifs exilés à Babylone dans le premier édit de tolérance religieuse connu ?",c:["Cyrus le Grand (–538 av. J.-C.)","Darius Ier","Xerxès","Artaxerxès"],ok:0,expl:"L'Édit de Cyrus (-538) est le premier document connu à accorder la liberté religieuse. La Bible appelle Cyrus 'le Messie' — unique non-juif à recevoir ce titre dans les textes hébraïques."},
+
+  // ── ANTIQUITÉ : GRÈCE ──
+  {era:"Grèce Antique",q:"Quelle est la méthode philosophique inventée par Socrate, consistant à questionner pour faire émerger la vérité ?",c:["La maïeutique (l'art d'accoucher les esprits)","La dialectique hégélienne","Le syllogisme aristotélicien","La rhétorique sophistique"],ok:0,expl:"La maïeutique (du grec 'sage-femme') : Socrate se compare à une sage-femme qui aide à accoucher les idées déjà présentes dans l'esprit de l'interlocuteur par des questions successives."},
+  {era:"Grèce Antique",q:"Aristote est le précepteur de quel futur conquérant, qu'il forma de l'âge de 13 à 16 ans ?",c:["Alexandre le Grand","Philippe II de Macédoine","Ptolémée Ier","Antipater"],ok:0,expl:"Aristote enseigne à Alexandre (futur Alexandre le Grand) à Mieza de -343 à -340. Il lui transmet philosophie, science, médecine et littérature grecque."},
+  {era:"Grèce Antique",q:"À quelle distance mythique un messager court-il de Marathon à Athènes pour annoncer la victoire ?",c:["42 km — distance qui donne son nom au marathon moderne","100 km","15 km","200 km"],ok:0,expl:"Selon la légende, le soldat Phidippidès court les 42 km de Marathon à Athènes pour annoncer la victoire, puis tombe mort d'épuisement. Cette distance donne son nom au marathon olympique."},
+  {era:"Grèce Antique",q:"Quel philosophe grec vivait dans une jarre et demanda à Alexandre le Grand de 's'ôter de son soleil' ?",c:["Diogène de Sinope","Épicure","Zénon de Citium","Héraclite d'Éphèse"],ok:0,expl:"Diogène, fondateur du cynisme, rejetait toute convention sociale. Alexandre, impressionné, lui demanda ce qu'il désirait. 'Que tu t'ôtes de mon soleil.' Alexandre dit : 'Si je n'étais pas Alexandre, je voudrais être Diogène.'"},
+  {era:"Grèce Antique",q:"Quel est le premier historien connu, surnommé 'père de l'Histoire' ?",c:["Hérodote d'Halicarnasse","Thucydide d'Athènes","Polybe de Mégalopolis","Plutarque de Chéronée"],ok:0,expl:"Hérodote (vers -484 à -425) écrit les Histoires, récit des guerres médiques. Il voyage en Égypte, Babylone et Scythie pour collecter témoignages et légendes — première démarche historiographique."},
+  {era:"Grèce Antique",q:"En quelle année ont lieu les premiers Jeux Olympiques de l'Antiquité, et en l'honneur de quel dieu ?",c:["−776 av. J.-C., en l'honneur de Zeus","−500 av. J.-C., en l'honneur d'Apollon","−1000 av. J.-C., en l'honneur d'Héra","−400 av. J.-C., en l'honneur d'Athéna"],ok:0,expl:"Les premiers Jeux Olympiques datent de -776 av. J.-C. à Olympie. Pendant leur durée, toutes les guerres s'arrêtaient — la 'trêve sacrée'. Ils furent interdits par l'empereur Théodose en 393 ap. J.-C."},
+
+  // ── ANTIQUITÉ : ROME ──
+  {era:"Rome Antique",q:"Que signifie la phrase 'Veni, vidi, vici' de Jules César ?",c:["Je suis venu, j'ai vu, j'ai vaincu","Je suis venu, j'ai voulu, j'ai conquis","Je viens, je vois, je vaincs","Je suis arrivé, j'ai observé, j'ai gagné"],ok:0,expl:"'Veni, vidi, vici' résume la victoire éclair de César à Zéla (-47) en Asie Mineure, acquise en 4 heures. Ce laconisme fut jugé arrogant par ses ennemis, admirable par ses partisans."},
+  {era:"Rome Antique",q:"Quelle est la capacité du Colisée de Rome, inauguré en 80 ap. J.-C. ?",c:["50 000 spectateurs","20 000 spectateurs","100 000 spectateurs","10 000 spectateurs"],ok:0,expl:"Le Colisée pouvait accueillir 50 000 spectateurs. Il fut inauguré par Titus avec 100 jours de jeux consécutifs — 9 000 animaux tués, des milliers de gladiateurs engagés."},
+  {era:"Rome Antique",q:"Sous quel surnom désigne-t-on la période de paix et de prospérité romaine de −27 à 180 ap. J.-C. ?",c:["Pax Romana","Pax Augusta","Imperium Romanum","Aetas Aurea"],ok:0,expl:"La Pax Romana (27 av. J.-C. — 180 ap. J.-C.) est une période de relative paix sur 200 ans dans l'Empire romain. Elle commence avec Auguste et se termine avec Marc Aurèle."},
+  {era:"Rome Antique",q:"Quel édifice romain près de Nîmes, construit vers −19 av. J.-C., est l'aqueduc le plus haut du monde romain ?",c:["Le Pont du Gard (49 m)","Le Panthéon de Rome","Les thermes de Caracalla","L'aqueduc de Ségovie"],ok:0,expl:"Le Pont du Gard culmine à 49 mètres sur 3 niveaux d'arcades. Il transportait 20 000 m³ d'eau par jour vers Nîmes. Classé UNESCO, c'est l'un des aqueducs romains les mieux conservés au monde."},
+  {era:"Rome Antique",q:"Pourquoi franchir le Rubicon avec son armée était-il un acte de guerre civile ?",c:["C'était la frontière interdite aux généraux armés — le franchir revenait à se rebeller contre le Sénat","Le Rubicon était la frontière entre Rome et Carthage","Le Sénat avait expressément interdit à César de s'approcher de Rome","Cela signifiait abandonner la Gaule aux barbares"],ok:0,expl:"Le Rubicon séparait la province de Cisalpine (où César commandait légalement) de l'Italie. Passer avec son armée était un acte de rébellion — d'où 'franchir le Rubicon' pour désigner un point de non-retour."},
+
+  // ── ÉPOQUE CONTEMPORAINE ──
+  {era:"Révolution française",q:"Combien de prisonniers la Bastille comptait-elle lors de sa prise le 14 juillet 1789 ?",c:["7 prisonniers seulement","300 prisonniers","Des milliers de condamnés politiques","Aucun — la prison était vide"],ok:0,expl:"La Bastille ne comptait que 7 prisonniers le 14 juillet 1789 (dont 4 faussaires et 2 fous). Sa prise n'avait qu'une valeur symbolique — celle du despotisme royal qu'elle représentait."},
+  {era:"Révolution française",q:"Quel document fondamental est adopté par l'Assemblée nationale le 26 août 1789 ?",c:["La Déclaration des droits de l'Homme et du Citoyen","La Constitution de 1791","Le Code civil napoléonien","La Déclaration d'indépendance américaine"],ok:0,expl:"La Déclaration des droits de l'Homme et du Citoyen (26 août 1789) proclame liberté, égalité, souveraineté nationale et séparation des pouvoirs. Elle reste le texte fondateur de la démocratie française."},
+  {era:"Révolution française",q:"Robespierre est renversé lors de quelle journée révolutionnaire, mettant fin à la Terreur ?",c:["Le 9 thermidor an II (27 juillet 1794)","Le 18 brumaire an VIII","Le 10 août 1792","Le 21 janvier 1793"],ok:0,expl:"Le 9 thermidor (27 juillet 1794), Robespierre est arrêté à la Convention par ses propres alliés qui craignent d'être les prochains guillotinés. Il est exécuté le lendemain. La Terreur prend fin."},
+  {era:"Napoléon",q:"Quel code juridique fondamental Napoléon fait-il adopter en 1804, encore en vigueur aujourd'hui ?",c:["Le Code civil (Code Napoléon)","Le Code pénal","Le Code de commerce","Le Code d'instruction criminelle"],ok:0,expl:"Le Code civil de 1804 établit l'égalité juridique, le droit de propriété et la laïcité du droit. Traduit en 40 langues, il inspire les systèmes juridiques de plus de 80 pays dans le monde."},
+  {era:"Napoléon",q:"À quel endroit Napoléon est-il vaincu définitivement en juin 1815 ?",c:["Waterloo (actuelle Belgique)","Leipzig (Allemagne)","Trafalgar (Espagne)","Moscou (Russie)"],ok:0,expl:"La bataille de Waterloo (18 juin 1815) oppose Napoléon aux armées anglaise (Wellington) et prussienne (Blücher). Sa défaite entraîne son exil à Sainte-Hélène où il mourra en 1821."},
+  {era:"XIXe siècle",q:"Qui est le baron Haussmann, mandaté par Napoléon III pour transformer Paris ?",c:["Le préfet de la Seine qui perça les grands boulevards et créa les égouts modernes","L'architecte qui construisit l'Opéra Garnier","Le ministre qui créa l'école publique gratuite","L'ingénieur qui construisit la Tour Eiffel"],ok:0,expl:"Haussmann (1853-1870) détruit 20 000 immeubles médiévaux, trace 137 km de boulevards, crée 600 km d'égouts et 1 800 ha de parcs. Paris, ville médiévale insalubre, devient une capitale moderne."},
+  {era:"XIXe siècle",q:"L'impressionnisme tire son nom d'un tableau de quel artiste exposé en 1874 ?",c:["Claude Monet — 'Impression, Soleil Levant'","Edgar Degas — 'La Classe de danse'","Pierre-Auguste Renoir — 'Le Bal du Moulin de la Galette'","Berthe Morisot — 'Le Berceau'"],ok:0,expl:"Le critique Louis Leroy raille le tableau de Monet en l'appelant 'impression' avec mépris. Le mot est adopté par les artistes eux-mêmes. Le mouvement révolutionne la peinture en capturant la lumière instantanée."},
+  {era:"XIXe siècle",q:"L'Affaire Dreyfus divise la France entre 1894 et 1906. Qui écrit 'J'accuse' pour défendre Dreyfus ?",c:["Émile Zola, dans L'Aurore (13 janvier 1898)","Victor Hugo, dans Le Figaro","Georges Clemenceau, dans Le Temps","Anatole France, dans La Revue blanche"],ok:0,expl:"Zola publie 'J'accuse…!' en une lettre ouverte au Président de la République. Il y dénonce le complot militaire et risque la prison. L'article provoque une crise politique majeure qui mène à la révision du procès."},
+  {era:"Première Guerre mondiale",q:"Combien de soldats français sont morts pendant la Première Guerre mondiale (1914-1918) ?",c:["1,4 million","400 000","4 millions","600 000"],ok:0,expl:"La France perd 1,4 million de soldats en 4 ans — presque une génération entière. Avec les blessés et mutilés (les 'gueules cassées'), c'est près de 6 millions de victimes françaises au total."},
+  {era:"Première Guerre mondiale",q:"Comment s'appelle la ligne fortifiée construite par la France après 1918 pour se protéger de l'Allemagne ?",c:["La ligne Maginot","La ligne Siegfried","Le rideau de fer","La muraille de l'Est"],ok:0,expl:"La ligne Maginot (1929-1936), 700 km de fortifications souterraines du Luxembourg à la Méditerranée, était censée être infranchissable. Les Allemands la contournèrent simplement par la Belgique en 1940."},
+  {era:"Deuxième Guerre mondiale",q:"Quelle opération militaire désigne le débarquement allié en Normandie du 6 juin 1944 ?",c:["Opération Overlord","Opération Torch","Opération Market Garden","Opération Barbarossa"],ok:0,expl:"L'opération Overlord est le nom de code du débarquement en Normandie. 156 000 soldats alliés débarquent sur 80 km de côtes en une seule journée. Paris est libéré le 25 août 1944."},
+  {era:"Deuxième Guerre mondiale",q:"Quelle date marque la capitulation de l'Allemagne nazie et la fin de la guerre en Europe ?",c:["8 mai 1945","6 juin 1944","2 septembre 1945","11 novembre 1918"],ok:0,expl:"Le 8 mai 1945, l'Allemagne capitule sans condition. Cette date est célébrée comme la 'Victoire en Europe' (V-E Day). La guerre dans le Pacifique continuera jusqu'au 2 septembre 1945."},
+  {era:"France Contemporaine",q:"Quelle bataille de 1954 marque la défaite française en Indochine et la fin de la guerre ?",c:["Diên Biên Phu","Hanoï","Saïgon","Da Nang"],ok:0,expl:"La chute de Diên Biên Phu (7 mai 1954) après 55 jours de siège force la France à négocier. Les accords de Genève (juillet 1954) entérinent la partition du Vietnam et l'indépendance de l'Indochine."},
+  {era:"France Contemporaine",q:"Quelle crise de mai 1968 paralyse la France avec 10 millions de grévistes ?",c:["Une révolte étudiante à la Sorbonne qui devient une grève générale nationale","Un coup d'État militaire contre De Gaulle","Une grève uniquement dans les usines automobiles","Une révolution manquée des partis de gauche"],ok:0,expl:"Mai 68 commence par une révolte étudiante à la Sorbonne, puis s'étend à l'ensemble de la société. 10 millions de grévistes paralysent le pays. De Gaulle dissout l'Assemblée et gagne les élections de juin."},
+  {era:"France Contemporaine",q:"En quelle année le mur de Berlin tombe-t-il, symbole de la fin de la Guerre Froide ?",c:["1989","1991","1985","1979"],ok:0,expl:"Le 9 novembre 1989, les Berlinois de l'Est et de l'Ouest démantèlent le Mur. L'URSS se dissout deux ans plus tard en 1991. La Guerre Froide, qui durait depuis 1947, prend fin."},
+];
+
+/* ══════════════════════════════════════════════
+   DATE QUIZ DATABASE — époques
+══════════════════════════════════════════════ */
+const DATE_QCM = [
+  {era:"Préhistoire",ev:"Naissance de l'Univers",q:"À quelle époque s'est produit le Big Bang ?",c:["Il y a 13,8 milliards d'années","Il y a 4,5 milliards d'années","Il y a 1 milliard d'années","Il y a 65 millions d'années"],ok:0,expl:"Le Big Bang date d'environ 13,8 milliards d'années. La Terre est bien plus récente : 4,5 milliards d'années."},
+  {era:"Préhistoire",ev:"Homo Sapiens",q:"Quand apparaît Homo Sapiens, notre espèce ?",c:["Il y a environ 300 000 ans","Il y a 1 million d'années","Il y a 50 000 ans","Il y a 10 000 ans"],ok:0,expl:"Les premiers fossiles d'Homo Sapiens datent de 300 000 ans (Jebel Irhoud, Maroc). Notre espèce est donc beaucoup plus ancienne qu'on ne le pensait encore récemment."},
+  {era:"Préhistoire",ev:"Révolution néolithique",q:"La révolution néolithique (invention de l'agriculture) débute vers…",c:["-10 000 av. J.-C.","-3 000 av. J.-C.","-50 000 av. J.-C.","-1 500 av. J.-C."],ok:0,expl:"Le Néolithique commence vers -10 000 av. J.-C. au Proche-Orient (croissant fertile). Les humains passent progressivement de la chasse-cueillette à l'agriculture sédentaire."},
+  {era:"Antiquité",ev:"Les Pyramides de Gizeh",q:"Les Pyramides de Gizeh sont construites vers…",c:["-2 560 av. J.-C.","-1 000 av. J.-C.","-500 av. J.-C.","-3 500 av. J.-C."],ok:0,expl:"La Grande Pyramide de Khéops est érigée vers -2 560 av. J.-C. C'est l'une des 7 Merveilles du monde antique et la seule encore debout."},
+  {era:"Antiquité",ev:"Naissance de la démocratie athénienne",q:"Clisthène introduit la démocratie à Athènes en…",c:["-508 av. J.-C.","-776 av. J.-C.","-323 av. J.-C.","-400 av. J.-C."],ok:0,expl:"En -508, Clisthène réforme Athènes et invente la démocratie directe. Périclès la portera à son apogée vers -450 av. J.-C."},
+  {era:"Antiquité",ev:"Fondation de Rome",q:"Selon la tradition, Rome est fondée en…",c:["-753 av. J.-C.","-509 av. J.-C.","-264 av. J.-C.","-27 av. J.-C."],ok:0,expl:"La tradition situe la fondation de Rome en -753 av. J.-C. par Romulus. En réalité, Rome se développe progressivement à partir d'un village latin sur le Palatin."},
+  {era:"Antiquité",ev:"Alexandre le Grand — conquêtes",q:"Alexandre le Grand règne et conquiert son empire entre…",c:["-336 et -323 av. J.-C.","-500 et -450 av. J.-C.","-200 et -150 av. J.-C.","-100 et -44 av. J.-C."],ok:0,expl:"Alexandre règne de -336 à sa mort en -323 à Babylone, à 32 ans. En 13 ans, il conquiert de la Grèce jusqu'à l'Inde sans perdre une bataille."},
+  {era:"Antiquité",ev:"Chute de l'Empire romain d'Occident",q:"L'Empire romain d'Occident s'effondre officiellement en…",c:["476 ap. J.-C.","395 ap. J.-C.","313 ap. J.-C.","410 ap. J.-C."],ok:0,expl:"Le 4 septembre 476, Odoacre destitue Romulus Augustule. C'est la fin conventionnelle de l'Antiquité. L'Empire d'Orient (Byzance) survit jusqu'en 1453."},
+  {era:"Moyen Âge",ev:"Baptême de Clovis",q:"Clovis se fait baptiser à Reims vers…",c:["496 ap. J.-C.","732 ap. J.-C.","768 ap. J.-C.","987 ap. J.-C."],ok:0,expl:"Clovis se fait baptiser vers 496 à Reims par l'évêque Rémi. C'est le premier roi barbare à adopter le catholicisme."},
+  {era:"Moyen Âge",ev:"Bataille de Poitiers — Charles Martel",q:"Charles Martel arrête l'avancée arabe à Poitiers en…",c:["732","800","987","1066"],ok:0,expl:"En 732, Charles Martel bat l'armée musulmane commandée par Abd al-Rahman à Poitiers. Cette victoire est vue comme déterminante pour l'avenir de l'Europe chrétienne."},
+  {era:"Moyen Âge",ev:"Couronnement de Charlemagne",q:"Charlemagne est couronné Empereur d'Occident en…",c:["800","768","843","987"],ok:0,expl:"Le 25 décembre 800, le pape Léon III couronne Charlemagne à Rome. C'est le point culminant de la puissance carolingienne."},
+  {era:"Moyen Âge",ev:"Traité de Verdun",q:"Le traité de Verdun, qui divise l'empire de Charlemagne, date de…",c:["843","800","987","911"],ok:0,expl:"En 843, les trois petits-fils de Charlemagne signent le traité de Verdun. L'Ouest devient la future France, l'Est la future Allemagne."},
+  {era:"Moyen Âge",ev:"Élection d'Hugues Capet",q:"Hugues Capet est élu roi et fonde la dynastie capétienne en…",c:["987","1066","843","1095"],ok:0,expl:"En 987, Hugues Capet est élu roi des Francs. Sa lignée régnera sans interruption sur la France pendant 800 ans — l'une des plus longues dynasties de l'histoire."},
+  {era:"Moyen Âge",ev:"Conquête normande de l'Angleterre",q:"Guillaume le Conquérant envahit l'Angleterre en…",c:["1066","987","1095","1214"],ok:0,expl:"Le 14 octobre 1066, Guillaume bat Harold II à Hastings et devient Guillaume Ier d'Angleterre. La moitié du vocabulaire anglais vient du français normand introduit à cette date."},
+  {era:"Moyen Âge",ev:"Lancement des Croisades",q:"La première Croisade est lancée par le pape Urbain II en…",c:["1095","1066","1187","1204"],ok:0,expl:"En novembre 1095, Urbain II prêche la croisade à Clermont-Ferrand. Jérusalem sera prise en 1099. Il y aura 8 croisades majeures jusqu'en 1291."},
+  {era:"Moyen Âge",ev:"Grande Peste Noire",q:"La Grande Peste Noire frappe l'Europe entre…",c:["1347 et 1351","1300 et 1340","1380 et 1420","1250 et 1290"],ok:0,expl:"La Peste Noire arrive en Europe en 1347 par Marseille et tue en 4 ans entre un tiers et la moitié de la population européenne."},
+  {era:"Moyen Âge",ev:"Bûcher de Jeanne d'Arc",q:"Jeanne d'Arc est brûlée à Rouen en…",c:["1431","1453","1415","1429"],ok:0,expl:"Jeanne d'Arc est brûlée le 30 mai 1431 à Rouen, à 19 ans. La Guerre de Cent Ans se terminera 22 ans plus tard, en 1453."},
+  {era:"Moyen Âge",ev:"Fin de la Guerre de Cent Ans",q:"La Guerre de Cent Ans se termine en…",c:["1453","1431","1415","1337"],ok:0,expl:"La bataille de Castillon (1453) met fin à la Guerre de Cent Ans. Les Anglais ne conservent plus que Calais en France. C'est aussi l'année de la chute de Constantinople."},
+  {era:"Renaissance",ev:"François Ier — roi de la Renaissance",q:"François Ier règne sur la France entre…",c:["1515 et 1547","1461 et 1483","1547 et 1559","1589 et 1610"],ok:0,expl:"François Ier (1515-1547) est le roi de la Renaissance française. Il fait venir Léonard de Vinci, construit Chambord, et impose le français par l'ordonnance de Villers-Cotterêts (1539)."},
+  {era:"Monarchie Absolue",ev:"Édit de Nantes",q:"L'Édit de Nantes, accordant la liberté religieuse aux protestants, est signé en…",c:["1598","1562","1685","1572"],ok:0,expl:"Henri IV signe l'Édit de Nantes en 1598, mettant fin à 36 ans de guerres de Religion. Louis XIV le révoquera en 1685."},
+  {era:"Monarchie Absolue",ev:"Louis XIV — Le Roi-Soleil",q:"Louis XIV règne de 1643 à… (72 ans — le plus long règne de France)",c:["1715","1700","1720","1689"],ok:0,expl:"Louis XIV règne 72 ans, de 1643 à 1715 — le plus long règne de l'histoire de France. Il incarne l'absolutisme royal et la grandeur de Versailles."},
+  {era:"Monarchie Absolue",ev:"L'Encyclopédie de Diderot",q:"L'Encyclopédie de Diderot et d'Alembert est publiée entre…",c:["1751 et 1772","1700 et 1730","1762 et 1789","1720 et 1751"],ok:0,expl:"Les 28 volumes de l'Encyclopédie paraissent entre 1751 et 1772, malgré deux censures royales. Elle rassemble 72 000 articles et 150 auteurs des Lumières."},
+  {era:"Révolution",ev:"Prise de la Bastille",q:"La prise de la Bastille, début de la Révolution française, date du…",c:["14 juillet 1789","4 août 1789","21 janvier 1793","26 août 1789"],ok:0,expl:"Le 14 juillet 1789, les Parisiens prennent la Bastille. Cette date est devenue la fête nationale française. Elle marque symboliquement le début de la Révolution."},
+  {era:"Révolution",ev:"Exécution de Louis XVI",q:"Louis XVI est guillotiné le…",c:["21 janvier 1793","14 juillet 1789","5 mai 1789","9 thermidor an II"],ok:0,expl:"Louis XVI est guillotiné le 21 janvier 1793 sur la place de la Révolution (aujourd'hui place de la Concorde). C'est la fin de 800 ans de monarchie capétienne."},
+  {era:"XIXe siècle",ev:"Sacre de Napoléon",q:"Napoléon se fait sacrer Empereur en…",c:["1804","1799","1806","1815"],ok:0,expl:"Le 2 décembre 1804, Napoléon se sacre lui-même à Notre-Dame. Il sera vaincu à Waterloo en 1815 et mourra en exil à Sainte-Hélène en 1821."},
+  {era:"XIXe siècle",ev:"Tour Eiffel",q:"La Tour Eiffel est construite pour l'Exposition Universelle de…",c:["1889","1900","1878","1867"],ok:0,expl:"La Tour Eiffel est érigée entre 1887 et 1889 pour l'Exposition Universelle commémorant le centenaire de la Révolution. Elle mesure 330 m et était la plus haute structure du monde."},
+  {era:"XXe siècle",ev:"Première Guerre mondiale",q:"La Première Guerre mondiale se déroule de…",c:["1914 à 1918","1939 à 1945","1870 à 1871","1900 à 1905"],ok:0,expl:"La Grande Guerre (1914-1918) fait 18 millions de morts, dont 1,4 million de soldats français. La France perd presque une génération entière de jeunes hommes."},
+  {era:"XXe siècle",ev:"Débarquement en Normandie",q:"Le Débarquement allié en Normandie (Jour J) a lieu le…",c:["6 juin 1944","8 mai 1945","1er septembre 1939","11 novembre 1918"],ok:0,expl:"Le 6 juin 1944, 156 000 soldats alliés débarquent sur les plages normandes. C'est l'opération militaire amphibie la plus grande de l'histoire. Paris est libéré le 25 août 1944."},
+];
+
+/* ══════════════════════════════════════════════
+   IMAGE QUIZ DATABASE — Quelle date ?
+══════════════════════════════════════════════ */
+const IMAGE_QUIZ = [
+  // PRÉHISTOIRE
+  {img:"peintures_grotte_chauvet.webp",       title:"Grotte Chauvet — Premières peintures",         year:-36000, tolerance:3000, era:"Préhistoire",          hint:"Premières grandes peintures rupestres (~36 000 av. J.-C.)"},
+  {img:"Artiste_préhistorique_peignant_un_cheval.webp", title:"Grotte de Lascaux",              year:-17000, tolerance:2000, era:"Préhistoire",          hint:"Chef-d'œuvre du Paléolithique supérieur (~17 000 av. J.-C.)"},
+  {img:"Village néolithique au coucher du soleil.webp", title:"Révolution Néolithique",         year:-10000, tolerance:1000, era:"Préhistoire",          hint:"Invention de l'agriculture au Proche-Orient (~10 000 av. J.-C.)"},
+  // PREMIÈRES CIVILISATIONS
+  {img:"La construction de la pyramide.webp",  title:"Pyramides de Gizeh — Khéops",               year:-2560,  tolerance:100,  era:"Égypte Antique",       hint:"Pharaon Khéops, IVe millénaire av. J.-C."},
+  {img:"babylone vers -1800.webp",             title:"Hammurabi & Babylone — 1er Code de Lois",    year:-1800,  tolerance:50,   era:"Mésopotamie",          hint:"Premier grand code de lois, ~1800 av. J.-C."},
+  {img:"Ramsès II devant ses temples majestueux.webp", title:"Ramsès II — Le Pharaon Bâtisseur", year:-1279,  tolerance:25,   era:"Égypte Antique",       hint:"Le plus célèbre pharaon, XIIIe siècle av. J.-C."},
+  {img:"David_et_Goliath_sur_le_champ_de_bataille.webp", title:"David & Goliath",              year:-1020,  tolerance:30,   era:"Proche-Orient antique", hint:"Israël biblique, vers -1000 av. J.-C."},
+  // GRÈCE ANTIQUE
+  {img:"Rassemblement philosophique à Athènes.webp", title:"Démocratie Athénienne — Clisthène", year:-508,   tolerance:10,   era:"Grèce Antique",        hint:"Invention de la démocratie directe, fin du VIe siècle av. J.-C."},
+  {img:"Socrates face à la fatalité.webp",     title:"Mort de Socrate",                           year:-399,   tolerance:5,    era:"Grèce Antique",        hint:"Le philosophe boit la ciguë, IVe siècle av. J.-C."},
+  {img:"Alexandre le grand Le général au coucher du soleil.webp", title:"Mort d'Alexandre le Grand", year:-323, tolerance:5, era:"Grèce Antique",        hint:"Mort à Babylone à 32 ans, IVe siècle av. J.-C."},
+  // ROME ANTIQUE
+  {img:"Hannibal_traversant_les_Alpes_enneigées.webp", title:"Hannibal traverse les Alpes",    year:-218,   tolerance:10,   era:"Guerres Puniques",     hint:"IIe Guerre Punique, début du IIIe siècle av. J.-C."},
+  {img:"Jules César _ de général à empereur.webp", title:"Assassinat de Jules César",          year:-44,    tolerance:5,    era:"Rome Antique",         hint:"Ides de Mars, Ier siècle av. J.-C."},
+  {img:"Auguste.webp",                         title:"Auguste — 1er Empereur Romain",             year:-27,    tolerance:5,    era:"Empire Romain",        hint:"Naissance de l'Empire romain, ~27 av. J.-C."},
+  {img:"pont_du_gard.webp",                    title:"Construction du Pont du Gard",               year:-19,    tolerance:10,   era:"Empire Romain",        hint:"Chef-d'œuvre de l'ingénierie romaine, ~19 av. J.-C."},
+  {img:"L'éruption de Pompéi en 79 après J.-C..webp", title:"Éruption du Vésuve — Pompéi",    year:79,     tolerance:3,    era:"Empire Romain",        hint:"Le Vésuve ensevelit Pompéi, 79 ap. J.-C."},
+  {img:"Construction_du_Colisée_à_Rome.webp",  title:"Inauguration du Colisée",                   year:80,     tolerance:5,    era:"Empire Romain",        hint:"Amphithéâtre de 50 000 spectateurs, 80 ap. J.-C."},
+  {img:"L'édiction de l'Édit de Milan.webp",   title:"Édit de Milan — Liberté de Culte",          year:313,    tolerance:5,    era:"Bas-Empire",           hint:"Constantin légalise le christianisme, 313 ap. J.-C."},
+  {img:"La chute de Rome, 476 après J.-C..webp", title:"Chute de l'Empire Romain d'Occident",   year:476,    tolerance:3,    era:"Antiquité tardive",    hint:"Fin de l'Antiquité, date-clé à connaître, 476 ap. J.-C."},
+  // MÉROVINGIENS & CAROLINGIENS
+  {img:"Le_baptême_de_Clovis_à_Reims.webp",   title:"Baptême de Clovis",                          year:496,    tolerance:5,    era:"Mérovingiens",         hint:"1er roi barbare catholique, fin du Ve siècle ap. J.-C."},
+  {img:"charles martel.webp",                  title:"Bataille de Poitiers — Charles Martel",      year:732,    tolerance:3,    era:"Carolingiens",         hint:"Arrêt de l'expansion arabe en Europe, 732 ap. J.-C."},
+  {img:"sacre_charlemagne.webp",               title:"Sacre de Charlemagne — Noël 800",            year:800,    tolerance:2,    era:"Carolingiens",         hint:"Couronné Empereur d'Occident le 25 décembre 800"},
+  {img:"traite de verdun.webp",                title:"Traité de Verdun — Naissance de la France",  year:843,    tolerance:3,    era:"Carolingiens",         hint:"Partage de l'empire carolingien, 843 ap. J.-C."},
+  // CAPÉTIENS & MOYEN ÂGE
+  {img:"hugues capet.webp",                    title:"Élection d'Hugues Capet",                    year:987,    tolerance:2,    era:"Capétiens",            hint:"Fondateur de la monarchie capétienne, 987 ap. J.-C."},
+  {img:"guillaume le conquerant.webp",         title:"Conquête normande de l'Angleterre",          year:1066,   tolerance:2,    era:"Moyen Âge",            hint:"Bataille d'Hastings, 1066 ap. J.-C."},
+  {img:"urbain2_croisades.webp",               title:"Lancement de la 1ère Croisade",              year:1095,   tolerance:2,    era:"Moyen Âge",            hint:"Pape Urbain II à Clermont, 1095 ap. J.-C."},
+];
+
+/* ══════════════════════════════════════════════
+   QUIZ ENGINE
+══════════════════════════════════════════════ */
+let currentMode = 'qcm';
+let deck = [], deckIdx = 0, score = 0, answers = [];
+const QUIZ_LENGTH = 10;
+
+function shuffle(arr){ for(let i=arr.length-1;i>0;i--){const j=Math.floor(Math.random()*(i+1));[arr[i],arr[j]]=[arr[j],arr[i]];}return arr; }
+
+function formatYear(y){
+  if(y===0) return '0 ap. J.-C.';
+  const abs = Math.abs(y);
+  const formatted = abs >= 10000 ? abs.toLocaleString('fr-FR') : String(abs);
+  return y < 0 ? formatted + ' av. J.-C.' : formatted + ' ap. J.-C.';
+}
+
+function startQuiz(mode){
+  currentMode = mode;
+  const isImages = mode === 'images';
+  const isDate = mode === 'dates';
+
+  document.querySelector('header').style.display='none';
+  document.querySelector('.stats-bar').style.display='none';
+  document.querySelector('.modes').style.display='none';
+  document.querySelector('footer').style.display='none';
+
+  const pool = isImages ? [...IMAGE_QUIZ] : isDate ? [...DATE_QCM] : [...QCM];
+  shuffle(pool);
+  deck = pool.slice(0, QUIZ_LENGTH);
+  deckIdx = 0; score = 0; answers = [];
+
+  const titles = {qcm:'🎯 Quiz Questions', dates:'🗓️ Quiz Dates', images:'🖼️ Quiz Images'};
+  document.getElementById('quiz-title-bar').textContent = titles[mode] || '🎯 Quiz Questions';
+  document.getElementById('results-screen').classList.remove('open');
+  document.getElementById('results-screen').style.display='none';
+  document.getElementById('quiz-card').style.display='block';
+  document.getElementById('quiz-dots').style.display='flex';
+  document.querySelector('.quiz-scoreline').style.display='block';
+  document.getElementById('quiz-next-btn').classList.remove('show');
+
+  buildDots();
+  renderQuestion();
+  document.getElementById('quiz-screen').classList.add('open');
+}
+
+function buildDots(){
+  const c = document.getElementById('quiz-dots');
+  c.innerHTML = '';
+  for(let i=0;i<QUIZ_LENGTH;i++){
+    const d=document.createElement('div');
+    d.className='qdot'+(i===0?' current':'');
+    d.id='dot-'+i;
+    c.appendChild(d);
+  }
+}
+
+function updateDots(){
+  for(let i=0;i<QUIZ_LENGTH;i++){
+    const d=document.getElementById('dot-'+i);
+    if(!d) continue;
+    d.className='qdot';
+    if(i<deckIdx){
+      if(currentMode==='images'){
+        if(answers[i]===2) d.classList.add('done-ok');
+        else if(answers[i]===1) d.classList.add('done-mid');
+        else d.classList.add('done-ko');
+      } else {
+        d.classList.add(answers[i]?'done-ok':'done-ko');
+      }
+    } else if(i===deckIdx){ d.classList.add('current'); }
+  }
+}
+
+function renderQuestion(){
+  if(deckIdx >= QUIZ_LENGTH){ showResults(); return; }
+  if(currentMode === 'images'){ renderImageQuestion(); return; }
+
+  // Restore QCM layout (hide image-mode elements)
+  document.getElementById('qz-img').style.display='none';
+  document.getElementById('qz-hint').style.display='none';
+  document.getElementById('qz-date-wrap').style.display='none';
+  document.getElementById('qz-choices').style.display='';
+
+  const q = deck[deckIdx];
+  document.getElementById('q-num').textContent = deckIdx+1;
+  document.getElementById('q-score').textContent = score;
+  document.getElementById('q-possible').textContent = deckIdx;
+  document.getElementById('qz-era').textContent = q.era;
+  document.getElementById('qz-question').textContent = q.q;
+
+  // Choices
+  const cc = document.getElementById('qz-choices');
+  cc.innerHTML='';
+  const letters=['A','B','C','D'];
+
+  // Shuffle choices for display (track correct answer)
+  const indices = [0,1,2,3];
+  shuffle(indices);
+  const correctDisplay = indices.indexOf(q.ok);
+
+  indices.forEach((origIdx, displayIdx)=>{
+    const div=document.createElement('div');
+    div.className='choice';
+    div.innerHTML=`<div class="choice-letter">${letters[displayIdx]}</div><div>${q.c[origIdx]}</div>`;
+    div.onclick=()=>selectAnswer(displayIdx, origIdx===q.ok, q.expl, correctDisplay, div);
+    cc.appendChild(div);
+  });
+
+  // Feedback
+  const fb = document.getElementById('qz-feedback');
+  fb.className='quiz-feedback';
+  fb.textContent='';
+  document.getElementById('quiz-next-btn').classList.remove('show');
+  updateDots();
+
+  // Scroll to top of card
+  document.getElementById('quiz-screen').scrollTo({top:0,behavior:'smooth'});
+}
+
+function selectAnswer(clickedDisplay, isCorrect, expl, correctDisplay, clickedEl){
+  // Lock all choices
+  document.querySelectorAll('.choice').forEach(c=>{ c.classList.add('locked'); c.onclick=null; });
+  const choices = document.querySelectorAll('.choice');
+
+  if(isCorrect){
+    clickedEl.classList.add('correct');
+    score++;
+    answers.push(true);
+    const fb=document.getElementById('qz-feedback');
+    fb.className='quiz-feedback ok show';
+    fb.textContent='✓ Bonne réponse ! — '+expl;
+  } else {
+    clickedEl.classList.add('wrong');
+    choices[correctDisplay].classList.add('reveal-ok');
+    answers.push(false);
+    const fb=document.getElementById('qz-feedback');
+    fb.className='quiz-feedback ko show';
+    fb.textContent='✗ Raté — '+expl;
+  }
+
+  document.getElementById('q-score').textContent=score;
+  const btn=document.getElementById('quiz-next-btn');
+  btn.textContent = deckIdx<QUIZ_LENGTH-1 ? 'Question suivante →' : 'Voir mon score →';
+  btn.classList.add('show');
+}
+
+function renderImageQuestion(){
+  const q = deck[deckIdx];
+  document.getElementById('q-num').textContent = deckIdx+1;
+  document.getElementById('q-score').textContent = score;
+  document.getElementById('q-possible').textContent = deckIdx*2;
+  document.getElementById('qz-era').textContent = q.era;
+  document.getElementById('qz-question').textContent = 'Quelle est la date de cet événement ?';
+
+  const img = document.getElementById('qz-img');
+  img.src = 'img/histoire/' + q.img;
+  img.style.display = 'block';
+
+  const hint = document.getElementById('qz-hint');
+  if(q.hint){ hint.textContent = '💡 ' + q.hint; hint.style.display='block'; }
+  else { hint.style.display='none'; }
+
+  document.getElementById('qz-choices').style.display='none';
+  document.getElementById('qz-date-wrap').style.display='flex';
+  const input = document.getElementById('qz-date-input');
+  input.value='';
+  input.className='quiz-date-input';
+  input.disabled=false;
+  const vbtn = document.getElementById('qz-validate-btn');
+  vbtn.style.display='block';
+  vbtn.disabled=false;
+
+  const fb = document.getElementById('qz-feedback');
+  fb.className='quiz-feedback';
+  fb.textContent='';
+  document.getElementById('quiz-next-btn').classList.remove('show');
+  updateDots();
+  setTimeout(()=>input.focus(), 60);
+  document.getElementById('quiz-screen').scrollTo({top:0,behavior:'smooth'});
+}
+
+function validateImageAnswer(){
+  const q = deck[deckIdx];
+  const input = document.getElementById('qz-date-input');
+  const val = parseInt(input.value, 10);
+  if(isNaN(val)){ input.focus(); return; }
+
+  const diff = Math.abs(val - q.year);
+  let pts;
+  if(diff <= q.tolerance/2) pts = 2;
+  else if(diff <= q.tolerance) pts = 1;
+  else pts = 0;
+
+  score += pts;
+  answers.push(pts);
+
+  input.disabled = true;
+  document.getElementById('qz-validate-btn').style.display = 'none';
+
+  const exact = formatYear(q.year);
+  const fb = document.getElementById('qz-feedback');
+  if(pts === 2){
+    input.classList.add('correct');
+    fb.className='quiz-feedback ok show';
+    fb.textContent='✓ Parfait ! La date exacte est : '+exact+'. ('+q.title+')';
+  } else if(pts === 1){
+    input.classList.add('approx');
+    fb.className='quiz-feedback approx show';
+    fb.textContent='★ Proche ! La date exacte est : '+exact+'. (écart : '+diff+' an'+(diff>1?'s':'')+')';
+  } else {
+    input.classList.add('wrong');
+    fb.className='quiz-feedback ko show';
+    fb.textContent='✗ Raté — La date exacte était : '+exact+'. ('+q.title+')';
+  }
+
+  document.getElementById('q-score').textContent = score;
+  const btn = document.getElementById('quiz-next-btn');
+  btn.textContent = deckIdx < QUIZ_LENGTH-1 ? 'Question suivante →' : 'Voir mon score →';
+  btn.classList.add('show');
+  updateDots();
+}
+
+function nextQuestion(){
+  deckIdx++;
+  renderQuestion();
+}
+
+function showResults(){
+  document.getElementById('quiz-card').style.display='none';
+  document.getElementById('quiz-dots').style.display='none';
+  document.querySelector('.quiz-scoreline').style.display='none';
+  document.getElementById('quiz-next-btn').classList.remove('show');
+
+  let trophy, stars, msg, pct;
+
+  if(currentMode === 'images'){
+    const maxScore = QUIZ_LENGTH * 2;
+    pct = score / maxScore;
+    const exact = answers.filter(a=>a===2).length;
+    const close = answers.filter(a=>a===1).length;
+    const missed = answers.filter(a=>a===0).length;
+
+    if(pct===1){ trophy='🏆'; stars='⭐⭐⭐⭐⭐'; msg='Parfait ! Tu maîtrises toutes les dates. Explorateur hors pair !';}
+    else if(pct>=.8){ trophy='🥇'; stars='⭐⭐⭐⭐'; msg='Excellent ! Tu as une très bonne mémoire chronologique. Encore quelques dates à affiner !';}
+    else if(pct>=.6){ trophy='🥈'; stars='⭐⭐⭐'; msg='Bien joué ! Tu connais l\'essentiel de la chronologie. Continue à t\'entraîner !';}
+    else if(pct>=.4){ trophy='🥉'; stars='⭐⭐'; msg='Pas mal ! Les dates, ça s\'apprend avec de la pratique. Consulte les flashcards !';}
+    else { trophy='📚'; stars='⭐'; msg='Les dates te résistent encore — mais c\'est en s\'entraînant qu\'on les retient. À toi les flashcards !';}
+
+    document.getElementById('result-score').textContent = score + ' / ' + maxScore;
+    document.getElementById('rb-ok-lbl').textContent = 'Exactes';
+    document.getElementById('rb-ok').textContent = exact;
+    document.getElementById('rb-mid-wrap').style.display = '';
+    document.getElementById('rb-mid').textContent = close;
+    document.getElementById('rb-ko-lbl').textContent = 'Ratées';
+    document.getElementById('rb-ko').textContent = missed;
+
+  } else {
+    const ok = answers.filter(Boolean).length;
+    const ko = QUIZ_LENGTH - ok;
+    pct = ok / QUIZ_LENGTH;
+
+    if(pct===1){ trophy='🏆'; stars='⭐⭐⭐⭐⭐'; msg='Parfait ! Tu es un véritable explorateur du savoir. Toutes les réponses sont correctes !';}
+    else if(pct>=.8){ trophy='🥇'; stars='⭐⭐⭐⭐'; msg='Excellent ! Tu maîtrises très bien ce chapitre. Encore un effort pour la perfection !';}
+    else if(pct>=.6){ trophy='🥈'; stars='⭐⭐⭐'; msg='Bien joué ! Tu as de bonnes bases. Quelques révisions et tu seras au top !';}
+    else if(pct>=.4){ trophy='🥉'; stars='⭐⭐'; msg='Pas mal pour un début ! Continue à explorer et les bonnes réponses viendront naturellement.';}
+    else { trophy='📚'; stars='⭐'; msg='Le voyage commence ici ! Lis les fiches de l\'Encyclopédie et reviens relever le défi.';}
+
+    document.getElementById('result-score').textContent = ok + ' / ' + QUIZ_LENGTH;
+    document.getElementById('rb-ok-lbl').textContent = 'Correctes';
+    document.getElementById('rb-ok').textContent = ok;
+    document.getElementById('rb-mid-wrap').style.display = 'none';
+    document.getElementById('rb-ko-lbl').textContent = 'Ratées';
+    document.getElementById('rb-ko').textContent = ko;
+  }
+
+  document.getElementById('result-trophy').textContent = trophy;
+  document.getElementById('result-stars').textContent = stars;
+  document.getElementById('result-msg').textContent = msg;
+
+  const rs=document.getElementById('results-screen');
+  rs.style.display='flex';
+  rs.classList.add('open');
+  document.getElementById('quiz-screen').scrollTo({top:0,behavior:'smooth'});
+}
+
+function closeQuiz(){
+  document.getElementById('quiz-screen').classList.remove('open');
+  document.querySelector('header').style.display='';
+  document.querySelector('.stats-bar').style.display='';
+  document.querySelector('.modes').style.display='';
+  document.querySelector('footer').style.display='';
+}
+
+function switchMode(){
+  closeQuiz();
+  const modes = ['qcm','dates','images'];
+  const next = modes[(modes.indexOf(currentMode)+1) % modes.length];
+  setTimeout(()=>{ startQuiz(next); },100);
+}
+
+function askAbandon(){
+  document.getElementById('abandon-modal').classList.add('open');
+}
+function closeAbandon(){
+  document.getElementById('abandon-modal').classList.remove('open');
+}
+function confirmAbandon(){
+  document.getElementById('abandon-modal').classList.remove('open');
+  closeQuiz();
+}
+
+// Keyboard nav
+document.addEventListener('keydown', e=>{
+  if(e.key==='Escape' && document.getElementById('quiz-screen').classList.contains('open')){ askAbandon(); }
+  if(e.key==='Enter'){
+    const inputEnabled = currentMode==='images' && !document.getElementById('qz-date-input').disabled
+                         && document.getElementById('qz-date-wrap').style.display!=='none';
+    if(inputEnabled){ validateImageAnswer(); return; }
+    if(document.getElementById('quiz-next-btn').classList.contains('show')){ nextQuestion(); }
+    return;
+  }
+  if(currentMode==='images') return;
+  const map={'a':0,'b':1,'c':2,'d':3};
+  if(map[e.key.toLowerCase()]!==undefined){
+    const choices=document.querySelectorAll('.choice:not(.locked)');
+    if(choices[map[e.key.toLowerCase()]]) choices[map[e.key.toLowerCase()]].click();
+  }
+});
+</script>
+</body>
+</html>

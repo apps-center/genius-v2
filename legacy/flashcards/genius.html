@@ -1,0 +1,773 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Mode Genius — L'Encyclopédie des Explorateurs</title>
+<link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;700;900&family=Crimson+Pro:ital,wght@0,300;0,400;0,600;1,300&display=swap" rel="stylesheet">
+<style>
+:root {
+  --bg: #060a14;
+  --star: #e8dfc4;
+  --gold: #d4a843;
+  --gold-dim: rgba(212,168,67,.2);
+  --card-bg: rgba(8,14,28,.95);
+  --text-dim: rgba(232,223,196,.45);
+  --border: rgba(200,180,120,.16);
+}
+* { box-sizing: border-box; margin: 0; padding: 0; }
+html { scroll-behavior: smooth; }
+body {
+  background: var(--bg);
+  color: var(--star);
+  font-family: 'Crimson Pro', Georgia, serif;
+  min-height: 100vh;
+  overflow-x: hidden;
+  user-select: none;
+}
+
+#stars-canvas { position: fixed; inset: 0; z-index: 0; pointer-events: none; }
+
+/* BACK */
+.back {
+  position: fixed; top: 22px; left: 24px; z-index: 100;
+  font-family: 'Cinzel', serif; font-size: .6rem; letter-spacing: .25em;
+  text-transform: uppercase; color: rgba(212,168,67,.5);
+  text-decoration: none; display: flex; align-items: center; gap: 8px;
+  transition: color .2s;
+}
+.back:hover { color: var(--gold); }
+
+/* HEADER */
+header {
+  position: relative; z-index: 10;
+  text-align: center; padding: 72px 20px 32px;
+}
+.over-title {
+  font-size: .65rem; letter-spacing: .4em; text-transform: uppercase;
+  color: rgba(212,168,67,.4); margin-bottom: 12px; font-family: 'Cinzel', serif;
+}
+h1 {
+  font-family: 'Cinzel', serif; font-size: clamp(1.8rem, 5vw, 3.2rem);
+  font-weight: 900; line-height: 1.1;
+  background: linear-gradient(135deg, #ffe97a, #d4a843 38%, #f0c060 65%, #fff8e0);
+  -webkit-background-clip: text; -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+.tagline {
+  margin-top: 10px; font-size: .9rem;
+  color: rgba(232,223,196,.35); font-style: italic;
+}
+
+/* LOADING */
+#loading-screen {
+  position: relative; z-index: 10;
+  display: flex; flex-direction: column; align-items: center;
+  justify-content: center; min-height: 40vh; gap: 20px;
+}
+.loader-ring {
+  width: 56px; height: 56px;
+  border: 2px solid rgba(212,168,67,.12);
+  border-top-color: var(--gold);
+  border-radius: 50%;
+  animation: spin 1s linear infinite;
+}
+@keyframes spin { to { transform: rotate(360deg); } }
+.loader-text {
+  font-family: 'Cinzel', serif; font-size: .65rem; letter-spacing: .3em;
+  text-transform: uppercase; color: rgba(212,168,67,.5);
+}
+#loading-themes {
+  font-size: .78rem; color: rgba(232,223,196,.3); font-style: italic;
+  max-width: 360px; text-align: center; line-height: 1.7;
+}
+
+/* PROGRESS BAR */
+#progress-wrap {
+  position: relative; z-index: 10;
+  max-width: 680px; margin: 0 auto 28px;
+  padding: 0 24px;
+}
+.prog-bar {
+  height: 2px; background: var(--gold-dim); border-radius: 2px; overflow: hidden;
+  margin-bottom: 10px;
+}
+.prog-fill {
+  height: 100%;
+  background: linear-gradient(90deg, #d4a843, #ffe97a);
+  border-radius: 2px;
+  transition: width .4s ease;
+}
+.prog-info {
+  display: flex; justify-content: space-between; align-items: center;
+}
+.prog-count {
+  font-family: 'Cinzel', serif; font-size: .6rem; letter-spacing: .2em;
+  text-transform: uppercase; color: rgba(212,168,67,.5);
+}
+.prog-theme-badge {
+  font-family: 'Cinzel', serif; font-size: .52rem; letter-spacing: .14em;
+  text-transform: uppercase; padding: 3px 10px; border-radius: 3px;
+  border: 1px solid; opacity: .75;
+}
+
+/* FLASHCARD AREA */
+#arena {
+  position: relative; z-index: 10;
+  display: flex; flex-direction: column;
+  align-items: center; padding: 0 20px 40px;
+}
+
+/* 3D flip container */
+.fc-scene {
+  width: 100%; max-width: 640px;
+  perspective: 1200px;
+  cursor: pointer;
+  margin-bottom: 28px;
+}
+.fc-wrap {
+  position: relative;
+  width: 100%; height: 440px;
+  transform-style: preserve-3d;
+  transition: transform .55s cubic-bezier(.22,1,.36,1);
+}
+.fc-wrap.flipped { transform: rotateY(180deg); }
+.fc-wrap.no-anim { transition: none !important; }
+
+.face {
+  position: absolute; inset: 0;
+  border-radius: 14px;
+  backface-visibility: hidden;
+  -webkit-backface-visibility: hidden;
+  border: 1px solid var(--border);
+  box-shadow: 0 20px 60px rgba(0,0,0,.7), 0 0 0 1px rgba(200,180,120,.06);
+  overflow: hidden;
+}
+
+/* FRONT — adaptative selon le type */
+.face-front {
+  background: var(--card-bg);
+  display: flex; flex-direction: column;
+  align-items: center; justify-content: center;
+  text-align: center; padding: 40px 32px 70px;
+}
+.face-front::before {
+  content: ''; position: absolute; inset: 0; border-radius: 14px;
+  background: radial-gradient(ellipse at 50% 0%, rgba(212,168,67,.05) 0%, transparent 65%);
+  pointer-events: none;
+}
+
+/* Front image (Histoire) */
+.fc-img-wrap {
+  position: absolute; inset: 0; bottom: 60px;
+  overflow: hidden; border-radius: 14px 14px 0 0;
+}
+.fc-img-wrap img {
+  width: 100%; height: 100%; object-fit: cover; display: block;
+}
+.fc-img-overlay {
+  position: absolute; bottom: 0; left: 0; right: 0; height: 80px;
+  background: linear-gradient(transparent, var(--card-bg));
+}
+.fc-img-title {
+  position: absolute; bottom: 64px; left: 0; right: 0;
+  text-align: center; padding: 0 20px;
+  font-family: 'Cinzel', serif; font-size: 1rem; font-weight: 700;
+  color: var(--star); text-shadow: 0 2px 8px rgba(0,0,0,.8);
+}
+
+/* Front question (Logique, Art, Maths, Sciences, Géo) */
+.fc-cat {
+  font-family: 'Cinzel', serif; font-size: .55rem; letter-spacing: .22em;
+  text-transform: uppercase; color: rgba(212,168,67,.5); margin-bottom: 16px;
+}
+.fc-question {
+  font-family: 'Crimson Pro', Georgia, serif;
+  font-size: clamp(1rem, 2.5vw, 1.3rem);
+  font-weight: 600; line-height: 1.55;
+  color: var(--star); max-width: 480px;
+  white-space: pre-line;
+}
+.fc-hint-wrap {
+  margin-top: 20px; padding: 8px 16px;
+  border: 1px solid rgba(200,180,120,.1);
+  border-radius: 4px; background: rgba(200,180,120,.04);
+}
+.fc-hint {
+  font-size: .78rem; color: rgba(232,223,196,.35); font-style: italic;
+}
+
+/* Diff badges */
+.diff-badge {
+  font-family: 'Cinzel', serif; font-size: .48rem; letter-spacing: .14em;
+  text-transform: uppercase; padding: 3px 9px; border-radius: 3px;
+  position: absolute; top: 16px; right: 16px;
+}
+.diff-1 { background: rgba(94,196,138,.1); border: 1px solid rgba(94,196,138,.35); color: #5ec48a; }
+.diff-2 { background: rgba(212,168,67,.08); border: 1px solid rgba(212,168,67,.35); color: #d4a843; }
+.diff-3 { background: rgba(232,80,80,.08); border: 1px solid rgba(232,80,80,.35); color: #e84848; }
+
+/* Flip hint bar */
+.front-footer {
+  position: absolute; bottom: 0; left: 0; right: 0;
+  display: flex; align-items: center; justify-content: center; gap: 10px;
+  padding: 14px 20px; border-top: 1px solid var(--border);
+  background: rgba(6,10,20,.6);
+}
+.flip-hint {
+  font-size: .65rem; letter-spacing: .18em;
+  text-transform: uppercase; color: var(--text-dim);
+}
+.flip-arrow { color: var(--gold); opacity: .7; font-size: 1rem; }
+
+/* BACK — réponse */
+.face-back {
+  transform: rotateY(180deg);
+  background: linear-gradient(145deg, #0e1020 0%, #0a0c1c 50%, #060a14 100%);
+  display: flex; flex-direction: column;
+  align-items: center; justify-content: center;
+  text-align: center; padding: 36px 28px 80px;
+  border-color: var(--gold-dim);
+}
+.face-back::before {
+  content: ''; position: absolute; inset: 0; border-radius: 14px;
+  background: radial-gradient(ellipse at 50% 20%, rgba(212,168,67,.06) 0%, transparent 65%);
+  pointer-events: none;
+}
+.b-era {
+  font-family: 'Cinzel', serif; font-size: .55rem; letter-spacing: .2em;
+  text-transform: uppercase; color: rgba(212,168,67,.4); margin-bottom: 10px;
+}
+.b-date {
+  font-size: .85rem; color: rgba(232,223,196,.5); font-style: italic;
+  margin-bottom: 16px;
+}
+.b-answer {
+  font-family: 'Cinzel', serif; font-size: 1.3rem; font-weight: 900;
+  background: linear-gradient(135deg, #f5e6a3, #d4a843);
+  -webkit-background-clip: text; -webkit-text-fill-color: transparent;
+  background-clip: text; margin-bottom: 18px; line-height: 1.3;
+}
+.b-desc {
+  font-size: .92rem; line-height: 1.65;
+  color: rgba(232,223,196,.65); max-width: 460px;
+}
+
+/* Back action bar */
+.back-footer {
+  position: absolute; bottom: 0; left: 0; right: 0;
+  display: flex; align-items: center; justify-content: center; gap: 12px;
+  padding: 14px 20px; border-top: 1px solid var(--gold-dim);
+  background: rgba(6,10,20,.7);
+}
+.btn {
+  font-family: 'Cinzel', serif; font-size: .62rem; letter-spacing: .16em;
+  text-transform: uppercase; padding: 9px 22px;
+  border-radius: 4px; border: 1px solid var(--border);
+  background: rgba(6,10,20,.9); color: var(--text-dim);
+  cursor: pointer; transition: all .2s;
+}
+.btn:hover { border-color: rgba(200,180,120,.4); color: var(--star); }
+.btn-know {
+  border-color: rgba(94,196,138,.4); color: #5ec48a;
+  background: rgba(94,196,138,.06);
+}
+.btn-know:hover { background: rgba(94,196,138,.12); box-shadow: 0 0 18px rgba(94,196,138,.15); }
+.btn-review {
+  border-color: rgba(232,168,67,.4); color: var(--gold);
+  background: rgba(212,168,67,.05);
+}
+.btn-review:hover { background: rgba(212,168,67,.12); }
+
+/* OVERLAY fade */
+.overlay {
+  position: absolute; inset: 0; border-radius: 14px;
+  background: #000; z-index: 30; opacity: 0;
+  pointer-events: none; transition: opacity .28s ease;
+}
+
+/* CONTROLS */
+#controls {
+  display: flex; align-items: center; gap: 14px;
+  flex-wrap: wrap; justify-content: center;
+}
+.ctrl-btn {
+  font-family: 'Cinzel', serif; font-size: .6rem; letter-spacing: .18em;
+  text-transform: uppercase; padding: 9px 20px;
+  border-radius: 4px; border: 1px solid var(--border);
+  background: rgba(6,10,20,.8); color: var(--text-dim);
+  cursor: pointer; transition: all .2s;
+}
+.ctrl-btn:hover { border-color: rgba(200,180,120,.4); color: var(--star); }
+.ctrl-btn.active {
+  border-color: rgba(212,168,67,.5); color: var(--gold);
+  background: rgba(212,168,67,.07);
+}
+
+/* END SCREEN */
+#end-screen {
+  display: none; position: relative; z-index: 10;
+  flex-direction: column; align-items: center;
+  justify-content: center; min-height: 50vh;
+  padding: 40px 24px; text-align: center; gap: 20px;
+}
+.end-icon { font-size: 3rem; margin-bottom: 8px; }
+.end-title {
+  font-family: 'Cinzel', serif; font-size: clamp(1.5rem, 4vw, 2.5rem);
+  font-weight: 900;
+  background: linear-gradient(135deg, #f5e6a3, #d4a843);
+  -webkit-background-clip: text; -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+.end-score {
+  font-family: 'Cinzel', serif; font-size: 1rem;
+  color: rgba(212,168,67,.7); margin-top: 6px;
+}
+.end-msg { font-size: .95rem; color: rgba(232,223,196,.5); max-width: 400px; font-style: italic; }
+.btn-gold {
+  border-color: rgba(212,168,67,.6); color: var(--gold);
+  background: rgba(212,168,67,.07); margin-top: 16px;
+}
+.btn-gold:hover { background: rgba(212,168,67,.16); box-shadow: 0 0 24px rgba(212,168,67,.2); }
+
+/* THEME COLORS */
+.theme-histoire { color: #c8903a; border-color: rgba(200,140,58,.4); }
+.theme-geographie { color: #4a9e7a; border-color: rgba(74,158,122,.4); }
+.theme-mathematiques { color: #6a8ad0; border-color: rgba(106,138,208,.4); }
+.theme-sciences { color: #7ac07a; border-color: rgba(122,192,122,.4); }
+.theme-art { color: #c07ab0; border-color: rgba(192,122,176,.4); }
+.theme-logique { color: #a87be8; border-color: rgba(168,123,232,.4); }
+
+@media (max-width: 600px) {
+  .fc-wrap { height: 480px; }
+  .fc-question { font-size: .95rem; }
+  .b-answer { font-size: 1.1rem; }
+}
+
+/* Animations */
+@keyframes fadeIn { from { opacity: 0; transform: translateY(8px); } to { opacity: 1; transform: none; } }
+.face-front.iris { animation: fadeIn .35s ease forwards; }
+</style>
+</head>
+<body>
+<canvas id="stars-canvas"></canvas>
+<a class="back" href="index.html">← Flashcards</a>
+
+<header>
+  <div class="over-title">L'Encyclopédie des Explorateurs</div>
+  <h1>⚡ Mode Genius</h1>
+  <p class="tagline">Tous les thèmes mélangés — le vrai test de culture générale</p>
+</header>
+
+<!-- LOADING -->
+<div id="loading-screen">
+  <div class="loader-ring"></div>
+  <div class="loader-text">Chargement des thèmes…</div>
+  <div id="loading-themes"></div>
+</div>
+
+<!-- GAME UI (hidden until loaded) -->
+<div id="game-ui" style="display:none">
+
+  <div id="progress-wrap">
+    <div class="prog-bar"><div class="prog-fill" id="prog-fill" style="width:0%"></div></div>
+    <div class="prog-info">
+      <span class="prog-count" id="prog-count">Carte 1 / 424</span>
+      <span class="prog-theme-badge" id="prog-theme"></span>
+    </div>
+  </div>
+
+  <div id="arena">
+    <div class="fc-scene" id="fc-scene">
+      <div class="fc-wrap" id="fc-wrap">
+
+        <!-- FRONT -->
+        <div class="face face-front" id="fc-front">
+          <!-- image layer (Histoire) -->
+          <div class="fc-img-wrap" id="fc-img-wrap" style="display:none">
+            <img id="fc-img" src="" alt="">
+            <div class="fc-img-overlay"></div>
+          </div>
+          <div class="fc-img-title" id="fc-img-title" style="display:none"></div>
+
+          <!-- question layer (autres thèmes) -->
+          <div id="fc-q-wrap">
+            <div class="fc-cat" id="fc-cat"></div>
+            <div class="fc-question" id="fc-question"></div>
+            <div class="fc-hint-wrap" id="fc-hint-wrap" style="display:none">
+              <div class="fc-hint" id="fc-hint"></div>
+            </div>
+          </div>
+
+          <div class="diff-badge" id="fc-diff" style="display:none"></div>
+          <div class="overlay" id="overlay"></div>
+
+          <div class="front-footer">
+            <span class="flip-hint">Cliquer pour révéler</span>
+            <span class="flip-arrow">↻</span>
+          </div>
+        </div>
+
+        <!-- BACK -->
+        <div class="face face-back">
+          <div class="b-era"  id="fc-era"></div>
+          <div class="b-date" id="fc-date"></div>
+          <div class="b-answer" id="fc-answer"></div>
+          <div class="b-desc"  id="fc-desc"></div>
+          <div class="back-footer">
+            <button class="btn btn-review" onclick="vote(false)">À revoir ↩</button>
+            <button class="btn btn-know"   onclick="vote(true)">Je sais ! ✓</button>
+          </div>
+        </div>
+
+      </div><!-- fc-wrap -->
+    </div><!-- fc-scene -->
+
+    <div id="controls">
+      <button class="ctrl-btn" onclick="prevCard()">← Précédent</button>
+      <button class="ctrl-btn" onclick="shuffleDeck()">Mélanger</button>
+      <button class="ctrl-btn" onclick="resetDeck()">Recommencer</button>
+    </div>
+  </div><!-- arena -->
+
+</div><!-- game-ui -->
+
+<!-- END -->
+<div id="end-screen">
+  <div class="end-icon">🏆</div>
+  <div class="end-title">Genius Accompli !</div>
+  <div class="end-score" id="end-score"></div>
+  <div class="end-msg">Tu as traversé toutes les cartes du Mode Genius. Impressionnant.</div>
+  <button class="btn btn-gold" onclick="resetDeck()">Rejouer →</button>
+  <a class="btn" href="index.html" style="text-decoration:none;margin-top:8px">Changer de thème</a>
+</div>
+
+<script>
+/* ─── STARS ─── */
+(function(){
+  const c=document.getElementById('stars-canvas'),ctx=c.getContext('2d');
+  let stars=[];
+  function resize(){c.width=innerWidth;c.height=innerHeight;}
+  function init(){resize();stars=Array.from({length:200},()=>({x:Math.random(),y:Math.random(),r:Math.random()*1.1+.2,a:Math.random()*.55+.1,sp:Math.random()*.0004+.00015,ph:Math.random()*Math.PI*2}));}
+  let t=0;
+  function draw(){t++;ctx.clearRect(0,0,c.width,c.height);for(const s of stars){const f=s.a*(.6+.4*Math.sin(t*s.sp*80+s.ph));ctx.beginPath();ctx.arc(s.x*c.width,s.y*c.height,s.r,0,Math.PI*2);ctx.fillStyle=`rgba(240,230,190,${f})`;ctx.fill();}requestAnimationFrame(draw);}
+  addEventListener('resize',init);init();draw();
+})();
+
+/* ─── THEMES CONFIG ─── */
+const THEMES = [
+  {
+    id: 'histoire',
+    file: 'histoire.html',
+    label: '🏛️ Histoire',
+    color: 'theme-histoire',
+    type: 'image',
+    imgBase: '../img/histoire/'
+  },
+  {
+    id: 'geographie',
+    file: 'geographie.html',
+    label: '🌍 Géographie',
+    color: 'theme-geographie',
+    type: 'qa'
+  },
+  {
+    id: 'mathematiques',
+    file: 'mathematiques.html',
+    label: '🔢 Mathématiques',
+    color: 'theme-mathematiques',
+    type: 'qa'
+  },
+  {
+    id: 'sciences',
+    file: 'sciences.html',
+    label: '🔬 Sciences',
+    color: 'theme-sciences',
+    type: 'qa'
+  },
+  {
+    id: 'art',
+    file: 'art.html',
+    label: '🎨 Arts',
+    color: 'theme-art',
+    type: 'qa'
+  },
+  {
+    id: 'logique',
+    file: 'logique.html',
+    label: '🧠 Logique',
+    color: 'theme-logique',
+    type: 'qa'
+  }
+];
+
+/* ─── CARD EXTRACTION ─── */
+function extractCARDS(html) {
+  // Match const CARDS = [ ... ]; robustly
+  const start = html.indexOf('const CARDS = [');
+  if (start === -1) return [];
+  // Find the matching closing ]; by counting brackets
+  let depth = 0, i = start + 'const CARDS = '.length;
+  let begin = i;
+  for (; i < html.length; i++) {
+    if (html[i] === '[') depth++;
+    else if (html[i] === ']') { depth--; if (depth === 0) break; }
+  }
+  const arrText = html.slice(begin, i + 1);
+  try {
+    // Use Function constructor to safely evaluate the JS array literal
+    return (new Function('return ' + arrText))();
+  } catch (e) {
+    console.warn('Parse error:', e);
+    return [];
+  }
+}
+
+function normalizeCard(raw, theme) {
+  const base = {
+    _theme: theme.id,
+    _themeLabel: theme.label,
+    _themeColor: theme.color,
+    _type: theme.type,
+    _imgBase: theme.imgBase || null
+  };
+
+  if (theme.type === 'image') {
+    // Histoire format: img, title, date, year, era, desc
+    return {
+      ...base,
+      front_img: raw.img,
+      front_title: raw.title || '',
+      back_era: raw.era || '',
+      back_date: raw.date || '',
+      back_answer: raw.title || '',
+      back_desc: raw.desc || '',
+      diff: null, cat: raw.era || ''
+    };
+  } else {
+    // QA format: q, ans, exp, cat, diff, hint
+    return {
+      ...base,
+      front_q: raw.q || raw.question || '',
+      front_cat: raw.cat || raw.category || '',
+      front_hint: raw.hint || '',
+      back_answer: raw.ans || raw.answer || '',
+      back_desc: raw.exp || raw.explanation || '',
+      diff: raw.diff || null,
+      cat: raw.cat || ''
+    };
+  }
+}
+
+/* ─── SHUFFLE ─── */
+function shuffle(arr) {
+  for (let i = arr.length - 1; i > 0; i--) {
+    const j = Math.floor(Math.random() * (i + 1));
+    [arr[i], arr[j]] = [arr[j], arr[i]];
+  }
+  return arr;
+}
+
+/* ─── STATE ─── */
+let deck = [], idx = 0, flipped = false;
+
+/* ─── LOAD ALL THEMES ─── */
+async function loadAll() {
+  const loadingThemes = document.getElementById('loading-themes');
+  let allCards = [];
+
+  for (const theme of THEMES) {
+    loadingThemes.textContent = `Chargement : ${theme.label}…`;
+    try {
+      const res = await fetch(theme.file);
+      if (!res.ok) throw new Error(`HTTP ${res.status}`);
+      const html = await res.text();
+      const raw = extractCARDS(html);
+      const normalized = raw.map(c => normalizeCard(c, theme));
+      allCards = allCards.concat(normalized);
+      loadingThemes.textContent += ` ✓ (${normalized.length} cartes)`;
+      await new Promise(r => setTimeout(r, 80)); // petit délai pour voir le feedback
+    } catch (err) {
+      console.warn(`Impossible de charger ${theme.file}:`, err);
+      loadingThemes.innerHTML += `<br><span style="color:rgba(232,80,80,.6)">⚠ ${theme.label} : non disponible</span>`;
+    }
+  }
+
+  if (allCards.length === 0) {
+    loadingThemes.innerHTML += '<br><em style="color:rgba(232,80,80,.7)">Aucune carte trouvée. Vérifiez que les fichiers HTML des thèmes sont dans le même dossier.</em>';
+    return;
+  }
+
+  deck = shuffle(allCards);
+  idx = 0;
+
+  // Switch UI
+  document.getElementById('loading-screen').style.display = 'none';
+  document.getElementById('game-ui').style.display = 'block';
+  loadCard();
+}
+
+/* ─── RENDER CARD ─── */
+function loadCard() {
+  if (idx >= deck.length) { showEnd(); return; }
+  const card = deck[idx];
+  flipped = false;
+
+  const wrap = document.getElementById('fc-wrap');
+  wrap.classList.add('no-anim');
+  wrap.classList.remove('flipped');
+
+  const front = document.getElementById('fc-front');
+  front.classList.remove('iris');
+
+  // Theme badge
+  const badge = document.getElementById('prog-theme');
+  badge.textContent = card._themeLabel;
+  badge.className = 'prog-theme-badge ' + card._themeColor;
+
+  // Progress
+  const pct = Math.round((idx / deck.length) * 100);
+  document.getElementById('prog-fill').style.width = pct + '%';
+  document.getElementById('prog-count').textContent = `Carte ${idx + 1} / ${deck.length}`;
+
+  if (card._type === 'image') {
+    // HISTOIRE: image front
+    document.getElementById('fc-img-wrap').style.display = '';
+    document.getElementById('fc-img-title').style.display = '';
+    document.getElementById('fc-q-wrap').style.display = 'none';
+    document.getElementById('fc-diff').style.display = 'none';
+
+    document.getElementById('fc-img').src = (card._imgBase || '') + card.front_img;
+    document.getElementById('fc-img-title').textContent = card.front_title;
+
+    document.getElementById('fc-era').textContent = card.back_era;
+    document.getElementById('fc-date').textContent = card.back_date;
+    document.getElementById('fc-answer').textContent = card.back_answer;
+    document.getElementById('fc-desc').textContent = card.back_desc;
+
+  } else {
+    // QA format
+    document.getElementById('fc-img-wrap').style.display = 'none';
+    document.getElementById('fc-img-title').style.display = 'none';
+    document.getElementById('fc-q-wrap').style.display = '';
+
+    document.getElementById('fc-cat').textContent = card.front_cat;
+    document.getElementById('fc-question').textContent = card.front_q;
+
+    const hintWrap = document.getElementById('fc-hint-wrap');
+    if (card.front_hint) {
+      hintWrap.style.display = '';
+      document.getElementById('fc-hint').textContent = '💡 ' + card.front_hint;
+    } else {
+      hintWrap.style.display = 'none';
+    }
+
+    const diffEl = document.getElementById('fc-diff');
+    if (card.diff) {
+      diffEl.style.display = '';
+      diffEl.className = 'diff-badge diff-' + card.diff;
+      diffEl.textContent = ['', 'Facile', 'Moyen', 'Difficile'][card.diff] || '';
+    } else {
+      diffEl.style.display = 'none';
+    }
+
+    document.getElementById('fc-era').textContent = card.front_cat;
+    document.getElementById('fc-date').textContent = '';
+    document.getElementById('fc-answer').textContent = card.back_answer;
+    document.getElementById('fc-desc').textContent = card.back_desc;
+  }
+
+  // Re-enable transition after DOM update
+  requestAnimationFrame(() => {
+    requestAnimationFrame(() => {
+      wrap.classList.remove('no-anim');
+    });
+  });
+}
+
+/* ─── FLIP ─── */
+document.getElementById('fc-scene').addEventListener('click', () => {
+  if (idx >= deck.length) return;
+  const wrap = document.getElementById('fc-wrap');
+  flipped = !flipped;
+  wrap.classList.toggle('flipped', flipped);
+});
+
+/* ─── VOTE ─── */
+function vote(known) {
+  // If not yet reviewed, optionally put "to review" back in deck
+  if (!known) {
+    // Insert a copy later in the deck (random position in remaining cards)
+    const card = deck[idx];
+    const insertAt = idx + 1 + Math.floor(Math.random() * Math.min(10, deck.length - idx - 1));
+    deck.splice(Math.min(insertAt, deck.length), 0, { ...card });
+    document.getElementById('prog-count').textContent = `Carte ${idx + 1} / ${deck.length}`;
+  }
+  nextCard();
+}
+
+function nextCard() {
+  animateTransition(() => {
+    idx++;
+    loadCard();
+  });
+}
+
+function prevCard() {
+  if (idx === 0) return;
+  animateTransition(() => {
+    idx--;
+    loadCard();
+  });
+}
+
+function animateTransition(cb) {
+  const overlay = document.getElementById('overlay');
+  overlay.style.opacity = '1';
+  setTimeout(() => {
+    cb();
+    overlay.style.opacity = '0';
+    document.getElementById('fc-front').classList.add('iris');
+  }, 220);
+}
+
+function shuffleDeck() {
+  shuffle(deck);
+  idx = 0;
+  loadCard();
+}
+
+function resetDeck() {
+  deck = shuffle([...deck]);
+  // Remove duplicates (from "à revoir") by keeping only unique original entries
+  // Actually just reload fresh
+  idx = 0;
+  document.getElementById('end-screen').style.display = 'none';
+  document.getElementById('game-ui').style.display = 'block';
+  loadCard();
+}
+
+function showEnd() {
+  document.getElementById('game-ui').style.display = 'none';
+  const endScreen = document.getElementById('end-screen');
+  endScreen.style.display = 'flex';
+  document.getElementById('end-score').textContent =
+    `${deck.length} cartes traversées · tous les thèmes confondus`;
+}
+
+/* ─── KEYBOARD ─── */
+document.addEventListener('keydown', e => {
+  if (e.key === 'ArrowRight' || e.key === ' ') {
+    if (!flipped) document.getElementById('fc-scene').click();
+    else vote(true);
+    e.preventDefault();
+  }
+  if (e.key === 'ArrowLeft') prevCard();
+  if (e.key === 'r' || e.key === 'R') if (flipped) vote(false);
+});
+
+/* ─── BOOT ─── */
+loadAll();
+</script>
+</body>
+</html>

@@ -1,0 +1,1898 @@
+{
+  "CN": {
+    "name": "Chine",
+    "flag": "🇨🇳",
+    "capitale": "Pékin (Beijing)",
+    "continent": "Asie",
+    "population": "1,408 milliard (2023)",
+    "superficie": "9 596 960 km²",
+    "langues": ["Mandarin (putonghua, officiel)", "Cantonais, ouïghour, tibétain (régionaux)"],
+    "monnaie": "Yuan renminbi (RMB / CNY)",
+
+    "histoire": {
+      "independance": "1er octobre 1949 (proclamation de la République populaire de Chine par Mao Zedong)",
+      "evenements_majeurs": [
+        "Civilisation multimillénaire : dynasties Qin, Han, Tang, Ming, Qing",
+        "Guerres de l'Opium (1839-1842, 1856-1860) : humiliation nationale face aux puissances occidentales",
+        "République de Chine proclamée en 1912 (fin de l'empire)",
+        "Guerre civile (1927-1949) entre nationalistes et communistes",
+        "Grande Famine (1959-1961) : 15 à 45 millions de morts (bilan debattu)",
+        "Révolution culturelle (1966-1976) : chaos politique et social",
+        "Réformes d'ouverture économique sous Deng Xiaoping (depuis 1978)",
+        "Massacre de la place Tiananmen (4 juin 1989)",
+        "Adhésion à l'OMC (2001)",
+        "Jeux Olympiques de Pékin (2008) : vitrine mondiale",
+        "Covid-19 : origine à Wuhan, impact planétaire (2019-2020)"
+      ],
+      "role_historique": "Berceau d'une civilisation de 5 000 ans, inventrice du papier, de l'imprimerie, de la boussole et de la poudre. Empire du Milieu dominant l'Asie orientale pendant des siècles. Puissance humiliée au XIXe siècle par les puissances coloniales, redevenue superpuissance au XXIe siècle."
+    },
+
+    "politique": {
+      "regime": "République populaire à parti unique (Parti communiste chinois, PCC). Régime autoritaire centralisé.",
+      "chef_etat": "Xi Jinping (Secrétaire général du PCC et Président depuis 2013, reconduit pour un 3e mandat en 2023 sans limitation de durée)",
+      "stabilite": "Stable institutionnellement mais fragile politiquement en cas de ralentissement économique. Contrôle social très fort (surveillance numérique, censure).",
+      "alliances": [
+        "OCS (Organisation de Coopération de Shanghai)",
+        "BRICS+ (co-fondatrice, avec Russie, Inde, Brésil, Afrique du Sud + nouveaux membres 2024)",
+        "Partenariat stratégique informel avec la Russie",
+        "Initiatives : Route de la Soie (BRI), Banque Asiatique d'Infrastructure (BAII)",
+        "Membre permanent du Conseil de sécurité de l'ONU"
+      ]
+    },
+
+    "economie": {
+      "pib": "17 700 milliards $ (2023, 2e mondial en nominal)",
+      "pib_hab": "12 720 $ (2023) — mais 23 000 $ en parité pouvoir d'achat (PPA)",
+      "ressources": [
+        "Terres rares (monopole mondial : 60 % de la production, 85 % du raffinage)",
+        "Charbon (1er producteur et consommateur mondial)",
+        "Acier (56 % de la production mondiale)",
+        "Lithium (3e producteur, 1er raffineur)",
+        "Tungstène, antimoine, gallium, germanium"
+      ],
+      "secteurs": [
+        "Industrie manufacturière (« usine du monde ») : électronique, textile, acier, chimie",
+        "Technologies de pointe : IA, semiconducteurs, véhicules électriques, batteries",
+        "Construction et immobilier (secteur en crise depuis 2021)",
+        "Agriculture (1er producteur de riz, blé, légumes)",
+        "Services et commerce en ligne (Alibaba, Tencent, JD.com)"
+      ],
+      "grandes_villes": [
+        "Shanghai (centre financier et commercial, 26 M hab.)",
+        "Shenzhen (Silicon Valley chinoise, hub tech)",
+        "Guangzhou (manufacture et export)",
+        "Pékin (capitale politique et culturelle)",
+        "Chongqing (plus grande ville administrative du monde)"
+      ],
+      "places_economiques": [
+        "Bourse de Shanghai (SSE) et Bourse de Shenzhen (SZSE)",
+        "Hong Kong (place financière internationale, sous souveraineté chinoise)",
+        "Zone économique spéciale de Shenzhen (modèle mondial)",
+        "Port de Shanghai (1er port mondial en volume de conteneurs)"
+      ],
+      "voies_communication": [
+        "1er réseau ferroviaire à grande vitesse mondial (42 000 km de LGV en 2023)",
+        "Routes de la Soie : réseau d'infrastructures en Asie centrale, Afrique, Europe",
+        "Port de Shanghai (1er mondial), Ningbo, Shenzhen (top 5 mondial)",
+        "Aéroports de Pékin (Capital + Daxing) et Shanghai (Pudong + Hongqiao)"
+      ]
+    },
+
+    "societe": {
+      "demographie": "Population en légère déclin depuis 2022 (1er recul depuis 1961). Vieillissement accéléré dû à la politique de l'enfant unique (1980-2015). Ratio hommes/femmes déséquilibré.",
+      "idh": "0,788 (rang 75/191 en 2022, catégorie « élevé »)",
+      "education": "Taux d'alphabétisation > 97 %. Compétition scolaire extrême (Gaokao). Universités en montée rapide dans les classements mondiaux (Tsinghua, Peking University). 1er pays en publications scientifiques.",
+      "sante": "Espérance de vie 77,5 ans (2023). Système de santé public inégal (urbain vs rural). Couverture médicale universelle en développement. Pollution atmosphérique : problème de santé publique majeur.",
+      "inegalites": "Indice de Gini ~0,38 (inégalités modérées à élevées). Fracture urbain/rural prononcée. Classe moyenne urbaine en expansion (400-500 millions de personnes).",
+      "urbanisation": "65,2 % (2023). Objectif gouvernemental : 70 % d'ici 2035. Exode rural historique : la plus grande migration interne de l'histoire (280 millions de migrants internes)."
+    },
+
+    "environnement": {
+      "pollution": "1er émetteur mondial de CO₂ (≈30 % des émissions mondiales en 2023). Pollution atmosphérique sévère dans les grandes villes. Pollution des sols et des eaux par l'industrie. Stress hydrique majeur dans le nord du pays.",
+      "dev_durable": "Paradoxe : 1er émetteur ET 1er investisseur mondial en énergies renouvelables. 1er producteur mondial d'énergie solaire et éolienne. Objectif carbone-neutralité en 2060. Leader mondial des véhicules électriques (60 % des ventes mondiales de VE).",
+      "recherche": "2e investisseur mondial en R&D (~560 Mds $). 1er déposant mondial de brevets. Forces : IA, biotechnologie, technologies spatiales, quantique. Ambition lunaire et martienne affichée.",
+      "militaire": "2e budget militaire mondial (~225 Mds $ en 2023). Armée de Libération du Peuple (APL) : 2,035 millions d'actifs (la plus grande). Puissance nucléaire (~500 ogives estimées en 2023). Modernisation rapide de la marine (3e flotte mondiale).",
+      "defis": [
+        "Vieillissement démographique et déclin de la population active",
+        "Crise immobilière (Evergrande, Country Garden)",
+        "Dépendance aux importations alimentaires et énergétiques",
+        "Tensions avec l'Occident sur Taiwan et la technologie",
+        "Stress hydrique dans le nord (Huang He en danger)",
+        "Chômage des jeunes élevé (>20 % en 2023)"
+      ]
+    },
+
+    "importance": {
+      "historique": "Civilisation millénaire ayant façonné l'Asie orientale. Humiliée aux XIXe-XXe s., sa résurgence est un des faits majeurs du XXIe siècle.",
+      "economique": "2e économie mondiale, 1er exportateur, 1er partenaire commercial de 120+ pays. Atelier du monde et futur leader technologique.",
+      "geopolitique": "Membre permanent du CS de l'ONU. Rival systémique des États-Unis. Puissance nucléaire. Contrôle des chaînes d'approvisionnement mondiales (terres rares, batteries, médicaments).",
+      "atouts": [
+        "Marché intérieur de 1,4 milliard de consommateurs",
+        "Maîtrise des terres rares (arme stratégique)",
+        "Investissements massifs en IA et technologies de demain",
+        "Réseau diplomatique mondial via la Route de la Soie",
+        "Réserves de change les plus importantes au monde (~3 100 Mds $)"
+      ],
+      "fragilites": [
+        "Dépendance aux semi-conducteurs taïwanais et coréens",
+        "Vieillissement démographique irréversible à court terme",
+        "Régime autoritaire limitant l'innovation sociale",
+        "Économie vulnérable aux sanctions occidentales",
+        "Crise immobilière pesant sur la croissance"
+      ]
+    }
+  },
+
+  "US": {
+    "name": "États-Unis",
+    "flag": "🇺🇸",
+    "capitale": "Washington D.C.",
+    "continent": "Amérique du Nord",
+    "population": "340 millions (2024)",
+    "superficie": "9 833 520 km²",
+    "langues": ["Anglais (de facto, 50 États)", "Espagnol (50 millions de locuteurs)"],
+    "monnaie": "Dollar américain (USD)",
+
+    "histoire": {
+      "independance": "4 juillet 1776 (Déclaration d'Indépendance des 13 colonies britanniques)",
+      "evenements_majeurs": [
+        "Constitution fédérale adoptée en 1787 : modèle démocratique mondial",
+        "Guerre civile (1861-1865) : abolition de l'esclavage, 620 000 morts",
+        "Première Guerre Mondiale : intervention décisive en 1917-1918",
+        "Grande Dépression (1929) : crise mondiale déclenchée à Wall Street",
+        "Seconde Guerre Mondiale : Pearl Harbor (1941), D-Day, bombes atomiques sur Hiroshima et Nagasaki (1945)",
+        "Guerre Froide (1947-1991) : bras de fer avec l'URSS, course aux armements, programme Apollo",
+        "Guerre du Vietnam (1964-1975) : traumatisme national",
+        "Chute du Mur de Berlin (1989), dissolution de l'URSS (1991) : victoire de l'Ouest",
+        "Attentats du 11 septembre 2001 : pivot sécuritaire mondial",
+        "Crise financière de 2008 (subprimes) : récession mondiale",
+        "Élection de Barack Obama (2008) : premier président afro-américain",
+        "Pandémie Covid-19 (2020) : 1 million de morts américains",
+        "Retour de Donald Trump à la présidence (janvier 2025)"
+      ],
+      "role_historique": "Fondée sur des idéaux démocratiques révolutionnaires, puissance industrielle au XIXe s., arbitre mondial des deux conflits mondiaux. Seule hyperpuissance depuis 1991. Modèle culturel planétaire (soft power) et garant de l'ordre libéral international."
+    },
+
+    "politique": {
+      "regime": "République fédérale présidentielle. Système bipartite (Démocrates / Républicains). Séparation stricte des pouvoirs (exécutif, législatif, judiciaire).",
+      "chef_etat": "Donald Trump (47e président, depuis le 20 janvier 2025 — républicain). Vice-président : JD Vance.",
+      "stabilite": "Démocratie solide institutionnellement mais polarisation politique extrême. Doutes sur la solidité des institutions après le 6 janvier 2021. Défis : désinformation, partisanisme, inégalités croissantes.",
+      "alliances": [
+        "OTAN (fondateur, article 5 : garantie de défense collective)",
+        "Alliance AUKUS (Australie, Royaume-Uni, États-Unis — sous-marins nucléaires)",
+        "Quad (États-Unis, Japon, Inde, Australie — Indo-Pacifique)",
+        "Five Eyes (renseignement : USA, UK, Canada, Australie, NZ)",
+        "Membre permanent du Conseil de sécurité de l'ONU",
+        "Alliances bilatérales : Japon, Corée du Sud, Israël, Arabie Saoudite, UE"
+      ]
+    },
+
+    "economie": {
+      "pib": "27 360 milliards $ (2023, 1er mondial)",
+      "pib_hab": "80 400 $ (2023, parmi les plus élevés du G7)",
+      "ressources": [
+        "Pétrole et gaz naturel (1er producteur mondial depuis 2018 — révolution du schiste)",
+        "Charbon (2e réserves mondiales)",
+        "Agriculture : maïs, soja, blé (grenier du monde avec le Canada)",
+        "Ressources minérales variées : cuivre, or, lithium (Nevada/Carolina)",
+        "Eau douce abondante (Grands Lacs)"
+      ],
+      "secteurs": [
+        "Finance et services (Wall Street, Fed, dollarisation mondiale)",
+        "Technologies (Silicon Valley : Apple, Google, Microsoft, Amazon, Meta, Nvidia)",
+        "Défense et industrie aérospatiale (Lockheed, Boeing, Raytheon)",
+        "Pharmacie et biotechnologie (Pfizer, Moderna, Johnson & Johnson)",
+        "Agriculture et agroalimentaire",
+        "Pétrole et gaz (Texas, Alaska, Dakota du Nord)"
+      ],
+      "grandes_villes": [
+        "New York (capital financier mondial, ONU, 8,3 M hab.)",
+        "Los Angeles (entertainment, tech, commerce Pacifique)",
+        "Chicago (hub logistique, finance, agro-industrie)",
+        "Houston (pétrole et gaz, commerce avec Amérique latine)",
+        "San Francisco / Bay Area (Silicon Valley, innovation technologique)"
+      ],
+      "places_economiques": [
+        "New York Stock Exchange (NYSE) : 1ère bourse mondiale (~25 000 Mds $ de capitalisation)",
+        "NASDAQ : bourse tech, 2e mondiale",
+        "Réserve fédérale (Fed) : banque centrale la plus influente du monde",
+        "Chicago Mercantile Exchange (CME) : marchés à terme mondiaux"
+      ],
+      "voies_communication": [
+        "Réseau d'autoroutes interstates (Interstate Highway System, 77 000 km)",
+        "Ports : Los Angeles/Long Beach (1er sur la côte Pacifique), New York/New Jersey",
+        "15 000 aéroports (dont Atlanta, Dallas, Chicago O'Hare — parmi les plus fréquentés du monde)",
+        "Mississippi et réseau fluvial intérieur (commerce agricole)"
+      ]
+    },
+
+    "societe": {
+      "demographie": "Croissance modérée (~0,5 %/an), soutenue par l'immigration. 13 % de la population née à l'étranger. Vieillissement en cours (baby-boomers). Population hispanique : 19 % et en hausse.",
+      "idh": "0,927 (rang 20/191 en 2022, catégorie « très élevé »)",
+      "education": "Meilleurs universités mondiales (Harvard, MIT, Stanford, Yale). Endettement étudiant massif (>1 700 Mds $). Système scolaire public inégal selon les États. Taux d'alphabétisation ~99 %.",
+      "sante": "Espérance de vie 76,4 ans (2021, en baisse post-Covid). Système privé très coûteux : dépenses de santé les plus élevées au monde (18 % du PIB). 25-30 millions sans assurance maladie. Crise des opioïdes : 80 000+ overdoses/an.",
+      "inegalites": "Indice de Gini ~0,49 (parmi les plus inégalitaires des pays développés). 1 % des plus riches possèdent 38 % de la richesse nationale. Fractures raciales profondes. Pauvreté : ~11 % de la population.",
+      "urbanisation": "82,9 % (2023). Métropolisation avancée. Suburbanisation caractéristique. Villes « rust belt » en déclin (Detroit, Pittsburgh)."
+    },
+
+    "environnement": {
+      "pollution": "2e émetteur mondial de CO₂ (≈14 % des émissions mondiales). Forte empreinte carbone par habitant (~14 t CO₂/an). Pollution des eaux (agricole, industrielle). Problèmes de gestion des déchets plastiques.",
+      "dev_durable": "Inflation Reduction Act (2022) : 369 Mds $ pour la transition énergétique. 1er producteur de pétrole mais aussi investisseur majeur en solaire et éolien. Retrait de l'Accord de Paris sous Trump (2017, 2025). Contradictions profondes entre États.",
+      "recherche": "1er investisseur mondial en R&D absolu (~650 Mds $/an). Dominance en IA (OpenAI, Google DeepMind), biotechnologie, aérospatiale (SpaceX, NASA), quantique. 40 % des brevets technologiques mondiaux.",
+      "militaire": "1er budget militaire mondial : ~916 Mds $ en 2023 (38 % des dépenses mondiales). 800+ bases militaires dans le monde. 11 groupes aéroporteurs (sur 20 dans le monde). Puissance nucléaire (5 550 ogives estimées). NSA, CIA, espionnage global.",
+      "defis": [
+        "Polarisation politique paralysant les réformes structurelles",
+        "Infrastructure vieillissante (ponts, routes, réseaux électriques)",
+        "Dette fédérale astronomique (>33 000 Mds $)",
+        "Inégalités sociales et raciales persistantes",
+        "Dépendance aux semi-conducteurs taïwanais (TSMC)",
+        "Changement climatique : ouragans, sécheresses (Ouest), inondations"
+      ]
+    },
+
+    "importance": {
+      "historique": "Modèle démocratique inspirateur depuis 1776. Arbitre des deux guerres mondiales. Concepteur de l'ordre mondial post-1945 (ONU, FMI, Banque mondiale, OTAN, GATT/OMC).",
+      "economique": "1ère économie mondiale. Dollar : monnaie de réserve internationale (60 % des réserves mondiales). Wall Street : centre nerveux de la finance planétaire. Silicon Valley : moteur mondial de l'innovation.",
+      "geopolitique": "Seule hyperpuissance (bien que disputée par la Chine). Garant (ou perturbateur selon les périodes) de l'ordre international libéral. 1ère puissance militaire, nucléaire, spatiale, cyber.",
+      "atouts": [
+        "Dollar : hégémonie monétaire mondiale irremplaçable à court terme",
+        "Domination technologique : IA, cloud, semiconducteurs de pointe",
+        "Puissance militaire incomparable (bases mondiales, projection de force)",
+        "Attractivité des talents mondiaux (immigration qualifiée)",
+        "Marché intérieur immense et dynamique",
+        "Abondance énergétique (pétrole + renouvelables)"
+      ],
+      "fragilites": [
+        "Polarisation politique rendant toute réforme difficile",
+        "Dépendance aux chaînes d'approvisionnement chinoises et taïwanaises",
+        "Inégalités déstabilisant la cohésion sociale",
+        "Infrastructure sous-investie",
+        "Poids de la dette fédérale"
+      ]
+    }
+  },
+
+  "RU": {
+    "name": "Russie",
+    "flag": "🇷🇺",
+    "capitale": "Moscou",
+    "continent": "Europe / Asie (Eurasie)",
+    "population": "144 millions (2023, en déclin)",
+    "superficie": "17 098 242 km² (le plus grand pays du monde — 11 fuseaux horaires)",
+    "langues": ["Russe (officiel)", "Tatare, bachkir, tchétchène, bouriate (régionaux, >100 langues)"],
+    "monnaie": "Rouble russe (RUB)",
+
+    "histoire": {
+      "independance": "Fédération de Russie proclamée le 25 décembre 1991 (dissolution de l'URSS). La Russie se considère héritière de l'Empire russe (fondé au IXe s.) et de l'URSS.",
+      "evenements_majeurs": [
+        "Principauté de Kiev (IXe s.) : berceau de la Russie, Ukraine et Biélorussie",
+        "Invasion mongole (XIIIe s.) : traumatisme fondateur",
+        "Ivan le Terrible : 1er tsar (1547), expansion vers l'est",
+        "Pierre le Grand (début XVIIIe s.) : modernisation et ouverture à l'Europe",
+        "Guerres napoléoniennes (1812) : victoire russe, incendie de Moscou",
+        "Révolution d'octobre 1917 : naissance de l'URSS, lénisme-stalinisme",
+        "Seconde Guerre Mondiale (Grande Guerre Patriotique) : 27 millions de morts soviétiques, victoire sur le nazisme",
+        "Guerre Froide (1947-1991) : superpuissance nucléaire face aux USA",
+        "Dissolution de l'URSS (1991) : traumatisme national, chaos des années 1990",
+        "Arrivée de Vladimir Poutine au pouvoir (1999-2000)",
+        "Guerre en Géorgie (2008)",
+        "Annexion de la Crimée (2014)",
+        "Invasion à grande échelle de l'Ukraine (24 février 2022)"
+      ],
+      "role_historique": "Empire eurasiatique millénaire, pivot entre Europe et Asie. Vainqueur de Napoléon et d'Hitler. Co-fondatrice de l'ONU. Superpuissance nucléaire de la Guerre Froide. Sa résurgence autoritaire sous Poutine déstabilise l'ordre européen."
+    },
+
+    "politique": {
+      "regime": "République fédérale semi-présidentielle de jure, régime autoritaire (hyperprésidentialisme) de facto. Multipartisme de façade, opposition réprimée.",
+      "chef_etat": "Vladimir Poutine (Président depuis 2000, sauf 2008-2012). Réélu en mars 2024 avec 87 % des voix dans un scrutin non compétitif. Constitutionnellement au pouvoir jusqu'en 2036.",
+      "stabilite": "Stable à court terme grâce au contrôle des institutions, des médias et de la répression. Fragilité structurelle : économie de guerre, isolement diplomatique, pertes humaines en Ukraine, tensions internes latentes (tentative de mutinerie Wagner, juin 2023).",
+      "alliances": [
+        "OCS (Organisation de Coopération de Shanghai, avec Chine)",
+        "BRICS+ (cofondatrice)",
+        "OTSC (Organisation du Traité de Sécurité Collective : Arménie, Biélorussie, Kazakhstan, Kirghizstan, Tadjikistan)",
+        "CEI (Communauté des États Indépendants)",
+        "Membre permanent du Conseil de sécurité de l'ONU (droit de veto)",
+        "Partenariats de guerre : Iran (drones Shahed), Corée du Nord (munitions), Chine (double usage)"
+      ]
+    },
+
+    "economie": {
+      "pib": "2 240 milliards $ (2023, ~11e mondial en nominal, mais sanctionné)",
+      "pib_hab": "15 600 $ (2023)",
+      "ressources": [
+        "Gaz naturel (1ères réserves mondiales prouvées : 37 600 Mds m³)",
+        "Pétrole (2e exportateur mondial, après l'Arabie Saoudite)",
+        "Charbon (2e réserves mondiales)",
+        "Blé (1er ou 2e exportateur mondial selon les années)",
+        "Métaux : nickel, palladium (1er mondial), titane, aluminium, platine",
+        "Forêts : 20 % des forêts mondiales (Sibérie)",
+        "Diamants (1er producteur mondial — Alrosa)"
+      ],
+      "secteurs": [
+        "Hydrocarbures et ressources naturelles (60 % des revenus d'exportation)",
+        "Industrie de défense (2e exportateur d'armes jusqu'en 2022)",
+        "Agriculture (blé, tournesol, orge)",
+        "Métallurgie et sidérurgie",
+        "Spatial et nucléaire civil (Rosatom : 1er constructeur de centrales nucléaires à l'export)"
+      ],
+      "grandes_villes": [
+        "Moscou (capitale, 12,5 M, centre financier et politique)",
+        "Saint-Pétersbourg (2e ville, culture, industrie navale)",
+        "Ekaterinbourg (Oural, industrie)",
+        "Novosibirsk (Sibérie occidentale)",
+        "Vladivostok (Extrême-Orient, façade Pacifique)"
+      ],
+      "places_economiques": [
+        "Bourse de Moscou (MOEX, très perturbée par les sanctions 2022)",
+        "Rouble déprecié : transactions en monnaies alternatives (yuan, roupie)",
+        "Gazprom, Lukoil, Rosneft : géants energétiques d'État"
+      ],
+      "voies_communication": [
+        "Transsibérien (9 288 km, Moscou–Vladivostok) : axe ferroviaire Eurasie",
+        "Route maritime du Nord (Arctique) : nouvel axe stratégique en dégel",
+        "Gazoducs TurkStream, Power of Siberia (vers Chine), NordStream (sabotés/abandonnés)",
+        "Ports : Novorossiysk (Mer Noire), Mourmansk (Arctique), Vladivostok (Pacifique)"
+      ]
+    },
+
+    "societe": {
+      "demographie": "Déclin démographique structurel : mort naturelle négative (plus de décès que de naissances) depuis les années 1990. Pertes humaines en Ukraine (estimées à 100 000+ soldats morts à fin 2024). Émigration des élites qualifiées depuis 2022 (200 000–500 000 personnes).",
+      "idh": "0,821 (rang 52/191 en 2022, catégorie « très élevé »)",
+      "education": "Système éducatif solide hérité de l'URSS. Mathématiques, sciences : excellence traditionnelle. Fuite des cerveaux massive depuis 2022. Universités : Lomonossov (Moscou), Polytechnique de Saint-Pétersbourg.",
+      "sante": "Espérance de vie 73,4 ans (2022 — parmi les plus basses des pays développés). Alcoolisme chronique. Crise hospitalière dans les zones rurales. Mortalité masculine très élevée (67 ans en moyenne pour les hommes).",
+      "inegalites": "Oligarchie : 104 milliardaires contrôlent une part majeure de l'économie. Gini ~0,41. Inégalités régionales extrêmes (Moscou vs Sibérie rurale).",
+      "urbanisation": "74,9 % (2023). Forte concentration sur Moscou et Saint-Pétersbourg. Villes moyennes en déclin."
+    },
+
+    "environnement": {
+      "pollution": "4e émetteur mondial de CO₂ (~1,7 Mds de tonnes/an). Catastrophes industrielles historiques (Tchernobyl 1986, Norilsk). Pollution industrielle sévère en Sibérie. Fonte du permafrost (Sibérie) : risque majeur.",
+      "dev_durable": "Peu d'engagements climatiques crédibles. Économie fossile structurelle. Fonte de l'Arctique perçue comme une opportunité (nouvelles routes maritimes, ressources). Pas de transition énergétique en vue.",
+      "recherche": "Tradition scientifique et mathématique solide (nombreux prix Nobel). Mais sous-financement chronique et fuite des cerveaux. Spatial : Roscosmos en déclin face à SpaceX. Nucléaire : Rosatom, leader mondial.",
+      "militaire": "3e budget militaire mondial (~86 Mds $ officiels, mais réel plus élevé). 1 million de soldats actifs. 5 889 ogives nucléaires (1er arsenal mondial). Flotte maritime, aérienne et spatiale. Usé par la guerre en Ukraine.",
+      "defis": [
+        "Guerre en Ukraine : coûts humains, économiques et diplomatiques considérables",
+        "Sanctions occidentales limitant l'accès aux technologies",
+        "Déclin démographique structurel irréversible",
+        "Dépendance extrême aux hydrocarbures (vulnérabilité aux prix)",
+        "Vieillissement des infrastructures industrielles",
+        "Isolement diplomatique croissant"
+      ]
+    },
+
+    "importance": {
+      "historique": "Empire multimillénaire, pilier anti-nazi. Co-fondatrice de l'ONU. Pivot de la Guerre Froide. Son destin conditionne la stabilité de l'Eurasie.",
+      "economique": "Essentielle pour l'énergie mondiale (gaz, pétrole), les céréales (blé, tournesol), et certains métaux critiques (palladium, nickel, titane).",
+      "geopolitique": "Puissance nucléaire de premier rang (veto à l'ONU). Perturbatrice de l'ordre européen. Pivot de l'axe alternatif non-occidental (avec Chine, Iran). Contrôle de vastes espaces stratégiques (Arctique, Eurasie centrale).",
+      "atouts": [
+        "Arsenal nucléaire le plus important au monde",
+        "Ressources naturelles immenses et diversifiées",
+        "Droit de veto au Conseil de Sécurité de l'ONU",
+        "Profondeur stratégique territoriale",
+        "Capacités cyber et renseignement (GRU, FSB, SVR)"
+      ],
+      "fragilites": [
+        "Économie mono-ressource (hydrocarbures) très vulnérable",
+        "Déclin démographique accéléré par les pertes de guerre",
+        "Sanctions technologiques coupant du progrès industriel",
+        "Dépendance croissante à la Chine",
+        "Isolement diplomatique grandissant"
+      ]
+    }
+  },
+
+  "IN": {
+    "name": "Inde",
+    "flag": "🇮🇳",
+    "capitale": "New Delhi",
+    "continent": "Asie",
+    "population": "1,441 milliard (2023 — 1ère mondiale depuis avril 2023)",
+    "superficie": "3 287 263 km²",
+    "langues": ["Hindi (langue nationale)", "Anglais (co-officiel)", "22 langues officielles reconnues (bengali, télougou, marathi, tamoul…)", ">1600 dialectes"],
+    "monnaie": "Roupie indienne (INR)",
+
+    "histoire": {
+      "independance": "15 août 1947 (indépendance du Royaume-Uni, Partition avec le Pakistan)",
+      "evenements_majeurs": [
+        "Civilisation de l'Indus (3000 av. J.-C.) : une des plus anciennes civilisations",
+        "Empire Maurya (Ashoka, IIIe s. av. J.-C.) : premier empire unifié",
+        "Empire moghol (XVIe-XVIIIe s.) : apogée islamique en Inde",
+        "Colonisation britannique (Raj britannique, 1858-1947)",
+        "Mouvement d'indépendance non-violent de Gandhi (1915-1947)",
+        "Partition avec le Pakistan (1947) : 15 millions de déplacés, 200 000-2 millions de morts",
+        "Guerres indo-pakistanaises (1947, 1965, 1971 — création du Bangladesh)",
+        "Guerre sino-indienne (1962)",
+        "Tests nucléaires (1974, 1998) : puissance nucléaire déclarée",
+        "Libéralisation économique (1991) : tournant vers l'économie de marché",
+        "Montée de Narendra Modi et du BJP (depuis 2014)"
+      ],
+      "role_historique": "Berceau du bouddhisme, de l'hindouisme et de mathématiques fondamentales (zéro, décimales). Leader du mouvement des non-alignés pendant la Guerre Froide. Aujourd'hui « plus grande démocratie du monde » et puissance émergente incontournable."
+    },
+
+    "politique": {
+      "regime": "République fédérale parlementaire démocratique (Westminster adapté). 28 États + 8 territoires de l'Union. Pluripartisme réel.",
+      "chef_etat": "Droupadi Murmu (Présidente depuis juillet 2022 — fonction honorifique). Narendra Modi (Premier ministre, depuis mai 2014, réélu en 2019 et 2024 — BJP).",
+      "stabilite": "Démocratie fonctionnelle mais sous tension : recul des libertés civiles, nationalisme hindou (hindutva), minorités musulmanes marginalisées, presse moins libre. Institutions solides mais polarisation croissante.",
+      "alliances": [
+        "Non-alignement historique (fondatrice du mouvement de Bandung, 1955)",
+        "Quad (avec USA, Japon, Australie — containment de la Chine)",
+        "BRICS+ (membre fondatrice, équilibre entre blocs)",
+        "OCS (membre depuis 2017, en parallèle avec le Quad)",
+        "Partenariat stratégique avec la Russie (armes), la France (Rafale, espace), les USA",
+        "Commonwealth des Nations"
+      ]
+    },
+
+    "economie": {
+      "pib": "3 730 milliards $ (2023, 5e mondial — 3e en PPA)",
+      "pib_hab": "2 590 $ (2023) — mais 9 200 $ en PPA",
+      "ressources": [
+        "Charbon (4e réserves mondiales)",
+        "Minerai de fer et manganèse",
+        "Agriculture : thé (2e producteur), coton, canne à sucre, céréales",
+        "Diamants (Golconde historiquement, production actuelle limitée)",
+        "Énergie solaire (potentiel immense, croissance rapide)"
+      ],
+      "secteurs": [
+        "Services informatiques et numérique (Bangalore, Hyderabad — hub mondial IT)",
+        "Pharmacie générique (1er fournisseur mondial, 'pharmacie du monde')",
+        "Agriculture (15 % du PIB, 42 % de l'emploi)",
+        "Industrie textile",
+        "Sidérurgie et construction",
+        "Spatial (ISRO : atterrissage sur la Lune en 2023 — Chandrayaan-3)"
+      ],
+      "grandes_villes": [
+        "Mumbai (centre financier, Bollywood, 20,7 M)",
+        "Delhi (capitale, 32 M — 2e agglomération mondiale)",
+        "Bangalore (Silicon Valley indienne, tech, startups)",
+        "Chennai (industrie automobile, IT)",
+        "Kolkata (port historique, commerce avec l'Asie du SE)",
+        "Hyderabad (pharmacie, tech)"
+      ],
+      "places_economiques": [
+        "Bombay Stock Exchange (BSE) : 5e mondiale par capitalisation",
+        "National Stock Exchange (NSE)",
+        "Mumbai : hub financier (Dalal Street)",
+        "Zone économique spéciale de GIFT City (Gujarat)"
+      ],
+      "voies_communication": [
+        "4e réseau ferroviaire mondial (Indian Railways : 68 000 km)",
+        "Réseau routier en développement rapide (corridors économiques nord-sud, est-ouest)",
+        "Ports : Jawaharlal Nehru (Mumbai), Chennai, Kandla",
+        "Aéroports : Delhi (IGI), Mumbai (CSIA) — trafic en forte croissance"
+      ]
+    },
+
+    "societe": {
+      "demographie": "1ère population mondiale depuis 2023. Croissance : ~1 %/an. Population jeune : âge médian 28 ans. 'Dividende démographique' : atout pour les prochaines décennies. Mais aussi pression sur l'emploi : 10 millions de jeunes entrent sur le marché chaque année.",
+      "idh": "0,644 (rang 132/191 en 2022, catégorie « moyen »)",
+      "education": "Taux d'alphabétisation 77 % (progrès significatifs, mais encore insuffisant). IIT (Indian Institutes of Technology) : élites mondiales en ingénierie. 40 % des ingénieurs de la Silicon Valley d'origine indienne. Éducation primaire inégale (urbain/rural, genre).",
+      "sante": "Espérance de vie 70,2 ans (2023). Système de santé fortement sous-financé (1,8 % du PIB public). Malnutrition infantile : 35 % des enfants souffrent de retard de croissance. Leader mondial des génériques pharmaceutiques. Covid-19 : crise sanitaire majeure (2021).",
+      "inegalites": "Indice de Gini ~0,36 (modéré en apparence, mais caste et genre créent des fractures profondes). Système des castes persistant malgré l'interdiction légale de la discrimination. 370 millions de personnes sous le seuil de pauvreté (2 $/jour).",
+      "urbanisation": "37,2 % (2023) — faible mais en forte hausse. Mégapoles surchargées. 65 % de la population encore rurale. Exode rural massif en cours."
+    },
+
+    "environnement": {
+      "pollution": "3e émetteur mondial de CO₂ (~3,3 Mds de tonnes). 14 des 20 villes les plus polluées du monde sont indiennes. Stress hydrique critique : Ganges, Yamuna pollués. Déforestation.",
+      "dev_durable": "Ambition solaire majeure : objectif 500 GW d'énergie renouvelable d'ici 2030. Co-fondatrice de l'Alliance Solaire Internationale. Charbon encore dominant (70 % de l'électricité). Objectif neutralité carbone 2070.",
+      "recherche": "10e investisseur en R&D (~50 Mds $/an). Agence spatiale ISRO de classe mondiale. Forces en mathématiques, informatique, pharmacologie. Écosystème startup en plein essor (3e mondial par nombre de licornes).",
+      "militaire": "4e budget militaire mondial (~83 Mds $ en 2023). 1,45 million de soldats actifs. Puissance nucléaire (~164 ogives). Marine en expansion (porte-avions INS Vikrant, sous-marins nucléaires). Enjeux frontaliers avec Pakistan et Chine.",
+      "defis": [
+        "Stress hydrique catastrophique (nappes phréatiques en baisse rapide)",
+        "Chaleur extrême (régions à >50°C en été, zones inhabitables d'ici 2050)",
+        "Chômage des jeunes malgré dividende démographique",
+        "Infrastructures insuffisantes face à l'urbanisation",
+        "Pollution atmosphérique : crise de santé publique",
+        "Tensions religieuses (hindous vs musulmans)"
+      ]
+    },
+
+    "importance": {
+      "historique": "Berceau de civilisations, de religions mondiales et de mathématiques fondamentales. Leader du mouvement anti-colonial non-violent. Sa démocratie milliardaire est un modèle (et un test) pour l'humanité.",
+      "economique": "5e économie mondiale, en route vers la 3e d'ici 2030-2035. Hub mondial des services numériques et pharmaceutiques. 1er marché de croissance mondial pour la prochaine décennie.",
+      "geopolitique": "Pivot entre l'Occident et le Sud global. Équilibre entre USA (Quad), Russie (armements), Chine (commerce/rivalité) et BRICS. Sa position de non-aligné moderne lui confère une influence unique.",
+      "atouts": [
+        "Plus grande démocratie du monde (légitimité internationale)",
+        "Population jeune : dividende démographique massif",
+        "Diaspora mondiale influente (diaspora indienne aux USA, UK, Golfe)",
+        "Hub tech et pharma incontournable",
+        "Puissance nucléaire avec vecteurs variés (terre, air, mer)"
+      ],
+      "fragilites": [
+        "Infrastructures insuffisantes (eau, électricité, transports)",
+        "Stress hydrique et chaleur extrême menaçant l'agriculture",
+        "Tensions religieuses internes",
+        "Dépendance aux importations énergétiques (Golfe, Russie)",
+        "IDH et niveau de vie encore très bas pour la majorité"
+      ]
+    }
+  },
+
+  "BR": {
+    "name": "Brésil",
+    "flag": "🇧🇷",
+    "capitale": "Brasília",
+    "continent": "Amérique du Sud",
+    "population": "215 millions (2023)",
+    "superficie": "8 515 767 km² (5e mondial)",
+    "langues": ["Portugais (officiel et universel)", "Langues amérindiennes (180+ langues indigènes)"],
+    "monnaie": "Real brésilien (BRL)",
+
+    "histoire": {
+      "independance": "7 septembre 1822 (Indépendance du Portugal, par Dom Pedro Ier). République proclamée le 15 novembre 1889.",
+      "evenements_majeurs": [
+        "Colonisation portugaise depuis 1500 (Pedro Álvares Cabral)",
+        "Commerce transatlantique d'esclaves : 4,9 millions d'Africains déportés au Brésil (plus grand pays esclavagiste de l'histoire)",
+        "Abolition de l'esclavage en 1888 (dernière abolition d'Amérique)",
+        "Ère Vargas (1930-1954) : industrialisation et populisme",
+        "Transfert de la capitale de Rio à Brasília (1960)",
+        "Dictature militaire (1964-1985)",
+        "Redémocratisation et Constitution de 1988",
+        "Présidence de Lula (2003-2010) : réduction de la pauvreté, essor des BRICS",
+        "Destitution de Dilma Rousseff (2016), présidence Bolsonaro (2019-2022)",
+        "Retour de Lula (2023)"
+      ],
+      "role_historique": "Empire colonial portugais, plus grande nation lusophone. Fusion de cultures européenne, africaine et amérindienne. Puissance régionale incontournable en Amérique du Sud et poumon vert de la planète."
+    },
+
+    "politique": {
+      "regime": "République fédérale présidentielle. 26 États + 1 district fédéral. Multipartisme très fragmenté (30+ partis représentés au Congrès).",
+      "chef_etat": "Luiz Inácio Lula da Silva (Président depuis le 1er janvier 2023, 3e mandat — Parti des Travailleurs, PT).",
+      "stabilite": "Démocratie résiliente malgré la tentative de coup d'État du 8 janvier 2023 (partisans de Bolsonaro). Institutions tenues, mais polarisation extrême droite/gauche profonde.",
+      "alliances": [
+        "BRICS+ (cofondatrice, avec forte influence sous Lula)",
+        "Mercosur (marché commun avec Argentine, Paraguay, Uruguay)",
+        "UNASUR / CELAC (intégration sud-américaine)",
+        "OEA (Organisation des États Américains)",
+        "Partenariats stratégiques : USA, Chine (1er partenaire commercial), UE",
+        "Alliance pour l'Amazonie (multilateral)"
+      ]
+    },
+
+    "economie": {
+      "pib": "2 080 milliards $ (2023, 9e mondial)",
+      "pib_hab": "9 670 $ (2023)",
+      "ressources": [
+        "Agriculture : 1er exportateur mondial de soja, café, sucre, jus d'orange, bœuf",
+        "Minerai de fer (2e producteur mondial — Vale, Rio de Janeiro)",
+        "Pétrole (pré-salt : réserves offshore majeures — Petrobras)",
+        "Lithium (triangle du lithium avec Argentine et Chili)",
+        "Eau douce (12 % des réserves mondiales)",
+        "Biomasse et éthanol (pionniers mondiaux des biocarburants)",
+        "Amazonie : biodiversité inestimable"
+      ],
+      "secteurs": [
+        "Agriculture et agro-industrie (soja, bœuf, sucre, café — 1er mondial dans plusieurs catégories)",
+        "Pétrole et gaz (Petrobras — offshore deep water)",
+        "Industrie manufacturière (São Paulo : hub automobile, chimie, aéronautique)",
+        "Aéronautique (Embraer : 3e constructeur mondial d'avions commerciaux)",
+        "Services et finance",
+        "Tourisme (Amazonie, Nordeste, Rio)"
+      ],
+      "grandes_villes": [
+        "São Paulo (21,6 M, hub financier, industriel, culturel — 1ère ville d'Amérique du Sud)",
+        "Rio de Janeiro (carioca, tourisme, pétrole offshore, culture)",
+        "Manaus (porte de l'Amazonie, zone franche industrielle)",
+        "Curitiba (modèle d'urbanisme durable)",
+        "Porto Alegre (agriculture, industrie du Sud)"
+      ],
+      "places_economiques": [
+        "B3 (Bolsa Brasil Balcão) : 1ère bourse d'Amérique latine",
+        "São Paulo : centre financier continental",
+        "Feijoada Street de Santos : 1er port exportateur d'Amérique latine"
+      ],
+      "voies_communication": [
+        "Réseau routier dominant (infrastructure ferroviaire insuffisante)",
+        "Amazon River (Fleuve Amazone) : axe de transport intérieur",
+        "Ports : Santos (1er d'Amérique latine), Paranaguá, Itajaí",
+        "Aéroports : São Paulo Guarulhos, Rio de Janeiro Galeão"
+      ]
+    },
+
+    "societe": {
+      "demographie": "Croissance démographique en ralentissement (~0,7 %/an). Société très métissée : héritage européen (48 %), afro-brésilien (43 %), amérindien, asiatique. Pays le plus peuplé d'Amérique latine. Âge médian : 33 ans.",
+      "idh": "0,760 (rang 87/191 en 2022, catégorie « élevé »)",
+      "education": "Taux d'alphabétisation 93 %. Inégalités éducatives extrêmes (privé vs public). Universités fédérales gratuites (USP, UNICAMP, UFRJ). Résultats PISA en dessous de la moyenne OCDE. Bolsas Família : programme social majeur.",
+      "sante": "Espérance de vie 75,5 ans. SUS (Système Unique de Santé) : couverture universelle de droit, mais surencombré. Inégalités d'accès selon les régions. Épidémies : dengue récurrente (7,3 millions de cas en 2024).",
+      "inegalites": "Parmi les pays les plus inégalitaires au monde (Gini ~0,52). 1 % des plus riches possèdent 49 % de la richesse nationale. Favelas : 13 millions d'habitants. Inégalités raciales persistantes.",
+      "urbanisation": "87,3 % (2023). Très urbanisé mais avec de vastes zones rurales et amazoniennes. Problèmes d'infrastructures urbaines (assainissement, logement, transport)."
+    },
+
+    "environnement": {
+      "pollution": "6e émetteur mondial de CO₂ (mais émissions principalement dues à la déforestation, pas à l'industrie). Déforestation amazonienne : 11 568 km² déforestés en 2022 (record sous Bolsonaro, en baisse sous Lula). Pesticides : 1er consommateur mondial.",
+      "dev_durable": "Potentiel renouvelable immense : 90 % de l'électricité d'origine renouvelable (hydraulique, éolien, solaire). Pionniers de l'éthanol (canne à sucre). Amazonie : enjeu mondial n°1 pour le carbone. Lula : promesse de déforestation zéro en 2030.",
+      "recherche": "Embraer : excellence aéronautique. EMBRAPA : recherche agronomique tropicale de pointe (révolution du soja au Cerrado). Science spatiale (INPE, surveillance satellitaire de l'Amazonie). 14e investisseur en R&D.",
+      "militaire": "12e budget militaire (~4,8 Mds $). 334 000 soldats actifs. Pas de puissance nucléaire militaire (traité de Tlatelolco). Marine et armée de l'air en développement. Surveillance de l'Amazonie (SIPAM).",
+      "defis": [
+        "Déforestation de l'Amazonie (enjeu climatique mondial)",
+        "Inégalités sociales extrêmes et violence urbaine",
+        "Corruption systémique (Operation Lava Jato)",
+        "Dépendance aux engrais importés (Russie, Chine, Maroc)",
+        "Événements climatiques extrêmes (sécheresses Nordeste, inondations Sud)",
+        "Instabilité politique cyclique"
+      ]
+    },
+
+    "importance": {
+      "historique": "Première nation lusophone du monde. Syncrétisme culturel unique (européen, africain, amérindien). Puissance régionale depuis son indépendance.",
+      "economique": "Grenier alimentaire mondial (soja, bœuf, café, sucre). Réserves pétrolières offshore majeures. 1ère économie d'Amérique latine. Hub industriel continental (São Paulo).",
+      "geopolitique": "Pivot du Sud global (BRICS, Mercosur). Gardien de 60 % de l'Amazonie (capital écologique planétaire). Interlocuteur incontournable pour tout accord climatique mondial.",
+      "atouts": [
+        "Amazonie : 1er poumon vert et réservoir de biodiversité de la planète",
+        "Autosuffisance alimentaire et exportateur majeur",
+        "Mix énergétique renouvelable exemplaire",
+        "Lithium, fer et ressources stratégiques abondants",
+        "Superficie et positionnement stratégique en Atlantique Sud"
+      ],
+      "fragilites": [
+        "Inégalités sociales parmi les plus fortes au monde",
+        "Corruption endémique",
+        "Dépendance aux engrais importés fragilisant l'agriculture",
+        "Instabilité politique cyclique",
+        "Infrastructures insuffisantes malgré la taille du pays"
+      ]
+    }
+  },
+
+  "DE": {
+    "name": "Allemagne",
+    "flag": "🇩🇪",
+    "capitale": "Berlin",
+    "continent": "Europe",
+    "population": "84,4 millions (2023)",
+    "superficie": "357 114 km²",
+    "langues": ["Allemand (officiel)", "Turc, arabe (minorités significatives : 20 % nés à l'étranger)"],
+    "monnaie": "Euro (EUR)",
+
+    "histoire": {
+      "independance": "Réunification allemande le 3 octobre 1990 (RDA + RFA). Le Premier Reich date de 962 (Saint-Empire romain germanique), le IIe Reich de 1871, la République de Weimar de 1919, le IIIe Reich de 1933-1945, la RFA de 1949.",
+      "evenements_majeurs": [
+        "Saint-Empire Romain Germanique (962-1806) : cœur de l'Europe médiévale",
+        "Réforme protestante de Martin Luther (1517) : révolution religieuse mondiale",
+        "Unification allemande sous Bismarck (1871)",
+        "Première Guerre Mondiale (1914-1918) : défaite, Traité de Versailles humiliant",
+        "République de Weimar (1919-1933) : instabilité, hyperinflation",
+        "Prise de pouvoir d'Adolf Hitler (1933), IIIe Reich",
+        "Seconde Guerre Mondiale (1939-1945) : Shoah (6 millions de Juifs assassinés), 8 millions de morts allemands",
+        "Partition Allemagne de l'Ouest (RFA) / Est (RDA, sous URSS) — 1949",
+        "Miracle économique allemand (Wirtschaftswunder, 1950-1970)",
+        "Chute du Mur de Berlin (9 novembre 1989)",
+        "Réunification (3 octobre 1990)",
+        "Chancellerie Merkel (2005-2021) : 16 ans de stabilité",
+        "Crise énergétique post-invasion Ukraine (2022) : fin de la dépendance au gaz russe"
+      ],
+      "role_historique": "Cœur de l'Europe intellectuelle (Goethe, Kant, Einstein, Beethoven, Bach). Unificatrice européenne par sa puissance industrielle et intellectuelle. Responsable des deux guerres mondiales, elle a accompli un travail de mémoire exemplaire (Erinnerungskultur). Pilier de la construction européenne."
+    },
+
+    "politique": {
+      "regime": "République fédérale parlementaire. 16 Länder (États fédérés) à forte autonomie. Parlement bicaméral (Bundestag + Bundesrat). Système électoral proportionnel mixte.",
+      "chef_etat": "Frank-Walter Steinmeier (Président fédéral, depuis 2017 — fonction honorifique). Friedrich Merz (Chancelier depuis mars 2025, CDU/CSU, après les élections fédérales de février 2025 où l'AfD est arrivée 2e).",
+      "stabilite": "Démocratie très solide. Montée de l'AfD (extrême droite, 20 %+ aux élections 2025) : signal d'alerte. Institutions robustes. Transition post-Merkel difficile économiquement.",
+      "alliances": [
+        "Union Européenne (co-fondatrice, moteur franco-allemand)",
+        "OTAN (membre fondateur)",
+        "G7 / G20",
+        "Zone euro (co-architecte avec la France)",
+        "Membre permanent de facto du Conseil de Sécurité (candidature pour réforme)",
+        "Partenariats bilatéraux : France (Traité d'Aix-la-Chapelle 2019), USA, Japon"
+      ]
+    },
+
+    "economie": {
+      "pib": "4 460 milliards $ (2023, 4e mondial, 1er en Europe)",
+      "pib_hab": "52 800 $ (2023)",
+      "ressources": [
+        "Charbon (lignite — en déclin programmé)",
+        "Potasse et sel",
+        "Forêts : 31 % du territoire",
+        "Eau (ressources adéquates mais sécheresses estivales croissantes)"
+      ],
+      "secteurs": [
+        "Automobile (Volkswagen, BMW, Mercedes-Benz, Porsche — Mittelstand automobile)",
+        "Industrie chimique (BASF — 1er mondial)",
+        "Machines-outils et ingénierie mécanique (Mittelstand : 1 500 champions mondiaux cachés)",
+        "Pharmacie (Bayer, Merck)",
+        "Électronique industrielle et numérique (Siemens, SAP)",
+        "Énergies renouvelables (Energiewende : transition vers le renouvelable)",
+        "Finance et assurance (Deutsche Bank, Allianz, Munich Re)"
+      ],
+      "grandes_villes": [
+        "Berlin (capitale politique, culture, startups, 3,8 M)",
+        "Hambourg (2e port d'Europe du Nord, logistique)",
+        "Munich (BMW, assurances, luxe, high-tech)",
+        "Francfort (BCE, Deutsche Bank, bourse, hub aérien européen)",
+        "Stuttgart (Mercedes, Bosch, industrie automobile)"
+      ],
+      "places_economiques": [
+        "Deutsche Börse (Francfort) : 1ère bourse d'Europe continentale",
+        "Banque Centrale Européenne (BCE) à Francfort",
+        "Foire de Hanovre : plus grande foire industrielle au monde",
+        "Port de Hambourg : 2e d'Europe (derrière Rotterdam)"
+      ],
+      "voies_communication": [
+        "Autobahn : réseau autoroutier sans limitation généralisée (13 200 km)",
+        "Réseau ferroviaire dense (Deutsche Bahn, 33 400 km)",
+        "Rhin : voie fluviale la plus active d'Europe (Rotterdam-Bâle)",
+        "Aéroport de Francfort (FRA) : hub continental européen, 3e d'Europe",
+        "Port de Hambourg (2e d'Europe du Nord)"
+      ]
+    },
+
+    "societe": {
+      "demographie": "Population stable grâce à l'immigration (1,5 million de réfugiés ukrainiens en 2022-23). Vieillissement accéléré : âge médian 46 ans (parmi les plus vieux d'Europe). 20 % de la population née à l'étranger.",
+      "idh": "0,950 (rang 7/191 en 2022, catégorie « très élevé »)",
+      "education": "Double système éducatif valorisant l'apprentissage professionnel (Berufsausbildung) et l'université. Universités techniques excellentes (TU Munich, RWTH Aachen). Gratuité de l'enseignement supérieur. Taux d'alphabétisation ~100 %.",
+      "sante": "Espérance de vie 81,1 ans. Système de santé universel (assurance maladie obligatoire). L'un des meilleurs systèmes au monde. Dépenses de santé : 12,8 % du PIB. Vieillissement = pression sur le système de retraites.",
+      "inegalites": "Gini ~0,29 (relativement faible). État providence solide (Sozialstaat). Mais fracture Est-Ouest persistante 30 ans après la réunification. Précarité croissante.",
+      "urbanisation": "77,5 % (2023). Décentralisation : pas de mégapole unique, réseau de villes moyennes dynamiques (Mittelstand territorial)."
+    },
+
+    "environnement": {
+      "pollution": "7e émetteur mondial de CO₂ (~636 Mt/an). Industrie lourde (acier, chimie, automobile) : émissions significatives. Transition en cours : fermeture des centrales nucléaires achevée en 2023 (controversée).",
+      "dev_durable": "Energiewende (transition énergétique) : objectif 80 % renouvelables en 2030. 65 % de l'électricité renouvelable en 2023. Leader en éolien (offshore et terrestre). Mais charbons encore nécessaires post-nucléaire et post-gaz russe. Objectif neutralité carbone 2045.",
+      "recherche": "5e investisseur mondial en R&D (~115 Mds €/an). Excellence en physique, chimie, ingénierie, pharma. Max Planck, Fraunhofer : instituts de recherche de rang mondial. SAP : leader mondial ERP. Pôle IA à Berlin et Munich.",
+      "militaire": "Budget en hausse rapide : 66 Mds € (2023, 2e de l'OTAN en Europe). Objectif 2 % du PIB atteint en 2024 (après décennies sous-financement). Bundeswehr : 183 000 actifs. Puissance conventionnelle mais sans nucléaire propre (sous parapluie nucléaire US).",
+      "defis": [
+        "Transition énergétique : fin du nucléaire + fin du gaz russe = coûts élevés",
+        "Désindustrialisation (automobile en crise face aux VE chinois)",
+        "Vieillissement démographique et financement des retraites",
+        "Compétitivité face à la Chine et aux USA (subventions massives)",
+        "Montée de l'extrême droite (AfD)",
+        "Infrastructure numérique en retard (internet fixe, administration digitale)"
+      ]
+    },
+
+    "importance": {
+      "historique": "Coeur culturel et intellectuel de l'Europe. Responsable des deux guerres mondiales, elle a accompli un travail de mémoire unique qui est un modèle mondial. Co-architecte de l'Union Européenne et de la réconciliation franco-allemande.",
+      "economique": "1ère économie européenne, 4e mondiale. 'Mittelstand' : modèle de PME championnes mondiales. Puissance exportatrice (automobiles, machines, chimie). Siège de la BCE.",
+      "geopolitique": "Pilier de l'Union Européenne et de l'OTAN. Puissance diplomatique douce (Soft Power). Interlocuteur central entre USA, Russie et Chine en Europe. Réarmement en cours post-Ukraine.",
+      "atouts": [
+        "Industrie manufacturière diversifiée et de haute qualité",
+        "Ingénierie et excellence technique reconnues mondialement",
+        "Stabilité institutionnelle et état de droit solide",
+        "Réseau d'alliances européennes et atlantiques dense",
+        "Position géographique centrale en Europe (hub logistique)"
+      ],
+      "fragilites": [
+        "Dépendance énergétique (post-gaz russe, cherche GNL et renouvelables)",
+        "Automobile en crise face aux VE chinois",
+        "Vieillissement et manque de main d'oeuvre qualifiée",
+        "Retard numérique et administratif",
+        "Montée des populismes (AfD)"
+      ]
+    }
+  },
+
+  "FR": {
+    "name": "France",
+    "flag": "🇫🇷",
+    "capitale": "Paris",
+    "continent": "Europe",
+    "population": "68,4 millions (2024)",
+    "superficie": "549 087 km² (métropole) — 672 051 km² avec les territoires d'outre-mer",
+    "langues": ["Français (officiel et universel)", "Langues régionales : alsacien, breton, occitan, basque, créoles (DOM-TOM)"],
+    "monnaie": "Euro (EUR)",
+
+    "histoire": {
+      "independance": "Monarchie capétienne depuis 987. République proclamée le 21 septembre 1792. Ve République fondée le 4 octobre 1958 par de Gaulle.",
+      "evenements_majeurs": [
+        "Gaule romaine (Ier s. av. J.-C.) : romanisation fondatrice",
+        "Clovis : baptême du roi des Francs (496) — naissance de la France chrétienne",
+        "Jeanne d'Arc (1429) : symbole national",
+        "Renaissance et apogée de la monarchie absolue (Louis XIV, Versailles)",
+        "Révolution française (1789) : Déclaration des droits de l'homme, modèle mondial",
+        "Napoléon Bonaparte : empire, Code civil (1804), influence sur le droit mondial",
+        "Commune de Paris (1871)",
+        "Première Guerre Mondiale (1914-1918) : 1,4 million de morts",
+        "Seconde Guerre Mondiale : défaite (1940), Résistance, Libération (1944)",
+        "Décolonisation : Indochine (1954), Algérie (1962), Afrique",
+        "Construction européenne (traités de Rome 1957, Maastricht 1992)",
+        "Attentats du 13 novembre 2015 (Paris, 130 morts)",
+        "Mouvement des Gilets jaunes (2018-2019)",
+        "Jeux Olympiques de Paris (2024)"
+      ],
+      "role_historique": "Berceau des droits de l'homme et de la démocratie moderne (1789). Empire colonial mondial (2e empire). Langue de la diplomatie jusqu'au XXe s. Modèle culturel universel (Lumières, philosophie, art). Cofondatrice de l'UE et puissance nucléaire indépendante."
+    },
+
+    "politique": {
+      "regime": "République semi-présidentielle (Ve République). Président fort + Premier ministre + Parlement bicaméral (Assemblée nationale + Sénat). Décentralisation partielle (régions, départements).",
+      "chef_etat": "Emmanuel Macron (Président depuis mai 2017, réélu en avril 2022 — Renaissance). François Bayrou (Premier ministre depuis janvier 2025 — MoDem).",
+      "stabilite": "Tensions politiques importantes : fragmentation de l'Assemblée nationale depuis 2022 (pas de majorité absolue), montée du Rassemblement National (RN, Marine Le Pen), instabilité gouvernementale (5 PM depuis 2022). Mouvements sociaux récurrents.",
+      "alliances": [
+        "Union Européenne (cofondatrice — traités de Rome 1957)",
+        "OTAN (membre fondateur, retour dans le commandement intégré en 2009)",
+        "Membre permanent du Conseil de sécurité de l'ONU",
+        "G7 / G20",
+        "Francophonie (OIF : 93 États membres ou observateurs)",
+        "Traité d'Aix-la-Chapelle (2019) avec l'Allemagne",
+        "Alliance AUKUS (non-membre mais partenaire transatlantique)"
+      ]
+    },
+
+    "economie": {
+      "pib": "3 015 milliards $ (2023, 7e mondial)",
+      "pib_hab": "44 400 $ (2023)",
+      "ressources": [
+        "Agriculture (1ère puissance agricole européenne : blé, betterave sucrière, vin, lait)",
+        "Énergie nucléaire (57 réacteurs : 70 % de l'électricité française en 2022)",
+        "Tourisme (1er destination mondiale : 100 millions de touristes en 2023)",
+        "Luxe (LVMH, Hermès, Chanel, L'Oréal : 1ère industrie du luxe mondiale)"
+      ],
+      "secteurs": [
+        "Luxe et cosmétiques (LVMH 1er groupe mondial du luxe, L'Oréal 1er cosmétiques)",
+        "Aéronautique et défense (Airbus co-siège, Thales, Safran, Dassault)",
+        "Énergie nucléaire (EDF, Framatome — exportateur de technologie)",
+        "Agroalimentaire et vins (1er exportateur mondial de vins et spiritueux)",
+        "Tourisme (1ère destination mondiale)",
+        "Finance et assurance (BNP Paribas, AXA, Société Générale)",
+        "Pharmacie et biotechnologie (Sanofi)"
+      ],
+      "grandes_villes": [
+        "Paris (capitale mondiale du tourisme, luxe, culture, finance, 12 M métropole)",
+        "Lyon (gastronomie, chimie, biotechnologie, 2e ville économique)",
+        "Marseille (1er port de Méditerranée, hub Afrique-Europe)",
+        "Toulouse (Airbus, aéronautique spatiale — capitale européenne de l'aéro)",
+        "Bordeaux (vins, aéronautique, numérique)"
+      ],
+      "places_economiques": [
+        "Euronext Paris (1ère bourse de la zone euro par capitalisation)",
+        "La Défense : 1er quartier d'affaires d'Europe continentale",
+        "Station F : plus grand incubateur de startups au monde (Paris)",
+        "Roissy CDG : 2e aéroport européen, hub intercontinental majeur"
+      ],
+      "voies_communication": [
+        "TGV (réseau LGV 2 800 km) : pionnier mondial de la grande vitesse ferroviaire",
+        "Autoroutes : 11 900 km de réseau à péage",
+        "Port de Marseille-Fos : 1er port français, 1er de Méditerranée",
+        "Aéroport Paris CDG : 2e européen (66 M passagers en 2023)",
+        "Canal de Suez (intérêt stratégique lié à la ZEE française en mer Rouge)"
+      ]
+    },
+
+    "societe": {
+      "demographie": "Croissance démographique parmi les plus fortes d'Europe de l'Ouest (~0,3 %/an). Natalité relative (1,8 enfants/femme — modèle familial soutenu). Vieillissement en cours. Immigration importante : 10 % nés à l'étranger.",
+      "idh": "0,910 (rang 26/191 en 2022, catégorie « très élevé »)",
+      "education": "École laïque et gratuite universelle. Classes préparatoires et Grandes Écoles (Polytechnique, HEC, ENA/INSP) : système d'élites reconnu. Universités solides (Sorbonne). 21 Prix Nobel depuis 2000.",
+      "sante": "Espérance de vie 82,3 ans (2023). Système de santé universel (Sécurité Sociale) : régulièrement classé parmi les meilleurs mondiaux. Déserts médicaux croissants en zones rurales. Dépenses santé : 11,7 % du PIB.",
+      "inegalites": "Gini ~0,33 (modéré). Système de redistribution parmi les plus forts du monde. Mais inégalités en hausse depuis 30 ans. 15 % de la population sous le seuil de pauvreté. Fractures banlieues/centre-villes.",
+      "urbanisation": "81 % (2023). Primauté parisienne très marquée (métropolisation excessive). Désertification des zones rurales et petites villes."
+    },
+
+    "environnement": {
+      "pollution": "Émissions CO₂ : ~330 Mt/an (relativement faibles pour une grande économie — grâce au nucléaire). Pollution de l'air dans les agglomérations. Pesticides : agriculture intensive problématique.",
+      "dev_durable": "Nucléaire : 70 % de l'électricité = empreinte carbone électrique parmi les plus basses d'Europe. Objectif 50 % nucléaire + 50 % renouvelables en 2035. Plan France 2030 : 30 Mds € pour l'industrie verte. Loi Climat (2021).",
+      "recherche": "5e budget R&D mondial. CNRS (1er organisme de recherche mondial par publications). CEA (nucléaire et quantique). Inria (IA). Airbus, Thales (défense, espace). Pôle spatial (Kourou, Guyane) avec Ariane.",
+      "militaire": "6e budget militaire mondial (~54 Mds $ en 2023). 203 000 actifs. Seule puissance nucléaire de l'UE (290 ogives). Dissuasion nucléaire autonome. Présence militaire en Afrique (en retrait depuis 2022-2024). Ventes d'armes : 5e mondial (Rafale, Caesar, SCALP).",
+      "defis": [
+        "Instabilité politique (fragmentation, montée du RN)",
+        "Dette publique élevée (112 % du PIB)",
+        "Désindustrialisation et manque de compétitivité",
+        "Réforme des retraites contestée (2023)",
+        "Fractures sociales et violence dans certaines banlieues",
+        "Canicules et sécheresses (été 2022 : 20 000 km² de forêts brûlées)"
+      ]
+    },
+
+    "importance": {
+      "historique": "Inventrice des droits de l'homme (1789). Modèle républicain mondial. Empire colonial majeur (2e au XIXe s.). Langue et culture rayonnant sur 5 continents (Francophonie).",
+      "economique": "7e économie mondiale. Leader mondial du luxe, du tourisme, de l'aéronautique. Puissance agroalimentaire. Modèle social (Sécurité Sociale) influençant l'Europe.",
+      "geopolitique": "Membre permanent du CS de l'ONU avec droit de veto. Seule puissance nucléaire de l'UE. Pilier franco-allemand de l'Europe. Présence diplomatique et militaire mondiale. Francophonie : réseau de 300 millions de locuteurs.",
+      "atouts": [
+        "Siège permanent au Conseil de Sécurité de l'ONU",
+        "Dissuasion nucléaire indépendante",
+        "Francophonie (réseau diplomatique et culturel mondial)",
+        "Excellence en luxe, aéronautique, nucléaire, agroalimentaire",
+        "ZEE : 2e plus grande du monde (11,7 M km²)"
+      ],
+      "fragilites": [
+        "Instabilité politique croissante",
+        "Dette publique élevée limitant les investissements",
+        "Compétitivité industrielle insuffisante",
+        "Intégration insuffisante de certaines populations issues de l'immigration",
+        "Dépendance au nucléaire vieillissant"
+      ]
+    }
+  },
+
+  "GB": {
+    "name": "Royaume-Uni",
+    "flag": "🇬🇧",
+    "capitale": "Londres",
+    "continent": "Europe",
+    "population": "67,9 millions (2023)",
+    "superficie": "243 610 km²",
+    "langues": ["Anglais (universel)", "Gallois (Pays de Galles), gaélique écossais, irlandais (minoritaires officiels)"],
+    "monnaie": "Livre sterling (GBP)",
+
+    "histoire": {
+      "independance": "Royaume très ancien (Angleterre unifiée sous Alfred le Grand au IXe s.). Acte d'Union (1707 : Angleterre + Écosse = Grande-Bretagne). Acte d'Union (1801 : Irlande incluse).",
+      "evenements_majeurs": [
+        "Magna Carta (1215) : fondement des libertés civiles modernes",
+        "Révolution Glorieuse (1688) : monarchie constitutionnelle, premier parlement souverain",
+        "Empire britannique (XVIIe-XXe s.) : 'le soleil ne se couche jamais'",
+        "Révolution industrielle (1760-1840) : première au monde, modèle planétaire",
+        "Abolition de la traite des esclaves (1807), de l'esclavage (1833)",
+        "Première et Deuxième Guerres Mondiales : résistance clé (Churchill, bataille d'Angleterre)",
+        "Création du NHS (National Health Service) en 1948 : santé universelle",
+        "Décolonisation (1947-1980) : perte de l'Empire, Commonwealth",
+        "Adhésion à la CEE (1973), Brexit (référendum 2016, effectif 2020)"
+      ],
+      "role_historique": "Berceau de la démocratie moderne et de la révolution industrielle. Premier empire mondial (24 % des terres émergées). Gardien de l'Atlantique dans les guerres mondiales. Inventeur du parlement et du common law. Résistant solitaire au nazisme (1940-41)."
+    },
+
+    "politique": {
+      "regime": "Monarchie constitutionnelle parlementaire. Parlement bicaméral (Chambre des communes + Chambre des lords). Pas de constitution écrite. Bipartisme (conservateurs/travaillistes).",
+      "chef_etat": "Roi Charles III (depuis septembre 2022, après la mort de la reine Élisabeth II). Keir Starmer (Premier ministre depuis juillet 2024, Parti Travailliste — victoire historique).",
+      "stabilite": "Instabilité politique post-Brexit (4 PM conservateurs en 6 ans avant Starmer). Renouveau travailliste. Menaces d'intégrité territoriale : indépendantisme écossais (SNP), question irlandaise.",
+      "alliances": [
+        "OTAN (membre fondateur — article 5)",
+        "Five Eyes (renseignement : USA, UK, Canada, Australie, NZ)",
+        "AUKUS (sous-marins nucléaires avec USA et Australie)",
+        "Commonwealth des Nations (56 États membres)",
+        "Membre permanent du Conseil de sécurité de l'ONU",
+        "G7 / G20",
+        "Partenariat Windsor (avec l'UE post-Brexit, 2023)"
+      ]
+    },
+
+    "economie": {
+      "pib": "3 080 milliards $ (2023, 6e mondial)",
+      "pib_hab": "45 300 $ (2023)",
+      "ressources": [
+        "Pétrole et gaz de la Mer du Nord (en déclin)",
+        "Agriculture (blé, orge — autosuffisance partielle)",
+        "Services financiers (City of London)",
+        "Industrie pharmaceutique et biotechnologie"
+      ],
+      "secteurs": [
+        "Services financiers (City of London : 2e place financière mondiale après New York)",
+        "Pharmacie et biotechnologie (AstraZeneca, GSK)",
+        "Défense et aérospatiale (BAE Systems, Rolls-Royce, Airbus UK)",
+        "Économie créative (musique, mode, médias, jeux vidéo, pubs)",
+        "Éducation (universités d'excellence payantes — Oxford, Cambridge, Imperial, LSE)",
+        "Tourisme"
+      ],
+      "grandes_villes": [
+        "Londres (11 M métropole, hub financier, culturel, touristique mondial)",
+        "Manchester (industrie créative, tech, université)",
+        "Birmingham (2e ville, industrie, services)",
+        "Edinburgh (finance, tourisme, siège du Parlement écossais)",
+        "Glasgow (culture, industrie écossaise)"
+      ],
+      "places_economiques": [
+        "London Stock Exchange (LSE) : 3e bourse mondiale",
+        "City of London : 2e centre financier mondial (forex, assurances, Lloyd's)",
+        "Canary Wharf : hub bancaire (HSBC, Barclays, Citigroup)",
+        "Port de Felixstowe : 1er port à conteneurs du UK"
+      ],
+      "voies_communication": [
+        "Eurotunnel (Channel Tunnel) : lien ferroviaire avec l'Europe continentale",
+        "Aéroport de Londres Heathrow (LHR) : 1er d'Europe, hub intercontinental",
+        "Réseau ferroviaire dense (mais vétuste — HS2 en construction partielle)",
+        "Port de Douvres : 1er port européen de passagers"
+      ]
+    },
+
+    "societe": {
+      "demographie": "Population croissante (+0,6 %/an), soutenue par l'immigration (post-Brexit : +700 000 en 2022). Multiculturel : 14 % non-blancs. Vieillissement modéré.",
+      "idh": "0,940 (rang 15/191 en 2022)",
+      "education": "Oxford et Cambridge : 2 des 5 meilleures universités mondiales. Système scolaire primaire solide. Mais frais universitaires (9 250 £/an) créent des inégalités d'accès.",
+      "sante": "NHS (National Health Service) : modèle universel financé par l'impôt. Sous pression financière et manque de personnels post-Brexit. Espérance de vie 81,1 ans.",
+      "inegalites": "Gini ~0,36. Fractures nord-sud (Londres vs rest of England). Inégalités de patrimoine marquées. Pauvreté relative en hausse depuis 2010 (politiques d'austérité).",
+      "urbanisation": "84,4 % (2023). Hyper-concentration sur Londres (sur-métropolisation)."
+    },
+
+    "environnement": {
+      "pollution": "Émissions CO₂ : ~340 Mt/an (en baisse — désindustrialisation et renouvelables). Pionnier de la sortie du charbon (dernière centrale fermée en 2024).",
+      "dev_durable": "Objectif neutralité carbone 2050. Éolien offshore : 1er producteur mondial (13,9 GW installés). COP26 à Glasgow (2021) : rôle de leader climatique. Mais contradiction avec nouvelles licences pétrolières en Mer du Nord (Rosebank, 2023).",
+      "recherche": "Centres d'excellence mondiaux (DeepMind/Google, Oxford, Cambridge). Leader en IA, biotechnologie, physique des particules (CERN contributeur). Budget R&D : ~66 Mds $/an.",
+      "militaire": "5e budget militaire mondial (~68 Mds $). 153 000 actifs. Puissance nucléaire (225 ogives — Trident). Marine : porte-avions HMS Queen Elizabeth et HMS Prince of Wales.",
+      "defis": [
+        "Brexit : impacts économiques durables (commerce, talents, normes)",
+        "Intégrité territoriale : indépendantisme écossais",
+        "NHS en crise (délais, personnel)",
+        "Inflation et coût de la vie élevés",
+        "Inégalités régionales nord-sud",
+        "Réindustrialisation post-Brexit"
+      ]
+    },
+
+    "importance": {
+      "historique": "Inventeur de la démocratie parlementaire, du droit commun (common law) et de la révolution industrielle. Empire qui a façonné le monde : cartes, frontières, langues, institutions.",
+      "economique": "2e place financière mondiale. Hub de services mondialise. Oxford/Cambridge : pépinières de Nobel et d'innovations scientifiques.",
+      "geopolitique": "Puissance nucléaire. Membre permanent ONU. Five Eyes. Bridge entre USA et Europe post-Brexit (contesté). Commonwealth : réseau de 56 nations.",
+      "atouts": [
+        "Anglais : lingua franca mondiale (atout irremplaçable)",
+        "City of London : hub financier mondial",
+        "Universités d'excellence (soft power académique)",
+        "Puissance nucléaire et militaire projetable",
+        "Commonwealth : réseau diplomatique unique"
+      ],
+      "fragilites": [
+        "Brexit : isolement commercial de l'UE et perte d'influence en Europe",
+        "NHS sous pression",
+        "Risque de dislocation territoriale (Écosse, Irlande du Nord)",
+        "Dépendance aux services financiers (vulnérabilité économique)",
+        "Perte d'influence diplomatique relative"
+      ]
+    }
+  },
+
+  "JP": {
+    "name": "Japon",
+    "flag": "🇯🇵",
+    "capitale": "Tokyo",
+    "continent": "Asie",
+    "population": "124 millions (2024, en déclin)",
+    "superficie": "377 975 km² (archipel de 6 852 îles)",
+    "langues": ["Japonais (officiel et universel)"],
+    "monnaie": "Yen japonais (JPY)",
+
+    "histoire": {
+      "independance": "Monarchie impériale ininterrompue depuis au moins le VIe siècle (tradition : 660 av. J.-C.). L'Empire du Japon n'a jamais été colonisé.",
+      "evenements_majeurs": [
+        "Époque féodale des samouraïs et shoguns (XIIe-XIXe s.)",
+        "Fermeture au monde (sakoku, 1633-1853)",
+        "Arrivée du commodore Perry (1853) : ouverture forcée aux USA",
+        "Ère Meiji (1868-1912) : modernisation éclair, industrialisation, puissance militaire",
+        "Victoire sur la Chine (1895) et la Russie (1905) : première puissance asiatique",
+        "Conquêtes en Asie (1930s) : Mandchourie, Chine, Asie du Sud-Est",
+        "Seconde Guerre Mondiale : Pearl Harbor (1941), Hiroshima et Nagasaki (6 et 9 août 1945 — seul pays victime de bombes atomiques)",
+        "Constitution pacifiste de 1947 (Article 9 : renonciation à la guerre)",
+        "Miracle économique japonais (1950-1990) : 3e puis 2e économie mondiale",
+        "Bulle économique et 'décennie perdue' (1990s)",
+        "Tsunami et catastrophe nucléaire de Fukushima (2011)",
+        "JO de Tokyo (2020/2021)"
+      ],
+      "role_historique": "Seul pays non-occidental à avoir industrialisé et modernisé de manière endogène (Meiji). Seul pays victime des bombes atomiques (symbole de la non-prolifération). Modèle asiatique de développement (suivi par Corée, Taiwan, Singapour). Inventeur de la qualité industrielle (Toyota, Kaizen)."
+    },
+
+    "politique": {
+      "regime": "Monarchie constitutionnelle parlementaire. L'Empereur est un symbole. Parlement bicaméral (Diète : Chambre des représentants + Chambre des conseillers). Système dominé par le Parti Libéral Démocrate (PLD) depuis 1955.",
+      "chef_etat": "Empereur Naruhito (depuis mai 2019). Shigeru Ishiba (Premier ministre depuis octobre 2024, PLD).",
+      "stabilite": "Stable politiquement malgré rotation fréquente des PM. Démocratie solide. Société très ordonnée. Enjeux : vieillissement, montée des dépenses militaires, pression de la Chine et de la Corée du Nord.",
+      "alliances": [
+        "Alliance de sécurité avec les États-Unis (Traité de San Francisco 1951, révisé 1960)",
+        "Quad (USA, Japon, Inde, Australie)",
+        "G7 (unique membre asiatique)",
+        "APEC, ASEAN+3",
+        "Partenariat économique global régional (RCEP)",
+        "Accord de partenariat économique UE-Japon (2019)"
+      ]
+    },
+
+    "economie": {
+      "pib": "4 210 milliards $ (2023, 4e mondial — dépassé par l'Allemagne)",
+      "pib_hab": "33 900 $ (2023)",
+      "ressources": [
+        "Très pauvre en ressources naturelles (importe 90 %+ de son énergie)",
+        "Pêche (2e flotte mondiale)",
+        "Forêts (68 % du territoire — mais peu exploitées)",
+        "Gisements sous-marins de terres rares (nodules polymétalliques — R&D)"
+      ],
+      "secteurs": [
+        "Automobile (Toyota : 1er constructeur mondial en 2023; Honda, Nissan, Mazda)",
+        "Électronique grand public et composants (Sony, Panasonic, Toshiba, Sharp)",
+        "Semi-conducteurs et matériaux de pointe (Shin-Etsu Chemical — 1er mondial silicium)",
+        "Robotique (Fanuc, Yaskawa — leaders mondiaux)",
+        "Finance et assurance (Mitsubishi UFJ Financial, Softbank)",
+        "Pharmacie et biotechnologie"
+      ],
+      "grandes_villes": [
+        "Tokyo-Yokohama (37,4 M — 1ère agglomération mondiale, capital financier, tech, culture)",
+        "Osaka-Kobe (15 M, commerce, gastronomie, chimie)",
+        "Nagoya (4,2 M, hub automobile Toyota)",
+        "Hiroshima (histoire, mémoire, industrie navale)",
+        "Sapporo (nord, agriculture, tourisme hivernal)"
+      ],
+      "places_economiques": [
+        "Tokyo Stock Exchange (TSE) : 3e bourse mondiale",
+        "Banque du Japon (BoJ) : l'une des banques centrales les plus influentes",
+        "Keiretsu : conglomérats industriels (Toyota, Mitsubishi, Sumitomo, Mitsui)",
+        "Osaka Exchange (derivatives)"
+      ],
+      "voies_communication": [
+        "Shinkansen (réseau TGV depuis 1964 — 3 300 km) : ponctualité légendaire",
+        "Autoroutes à péage denses",
+        "Port de Nagoya (1er japonais en volume commercial), Osaka, Tokyo",
+        "Aéroport de Tokyo Narita et Haneda (hubs intercontinentaux majeurs)"
+      ]
+    },
+
+    "societe": {
+      "demographie": "Déclin démographique sévère : -0,5 %/an. Vieillissement le plus prononcé au monde : 30 % de personnes âgées de 65+ ans. Très fermé à l'immigration (taux parmi les plus bas des pays développés). Âge médian : 49 ans.",
+      "idh": "0,920 (rang 24/191 en 2022, catégorie « très élevé »)",
+      "education": "Très haut niveau : PISA parmi les meilleurs mondiaux (sciences, maths). Universités de Tokyo et Kyoto dans le top 30 mondial. Culture de l'apprentissage et de la discipline. Mais pression sociale extrême (karoshi : mort par excès de travail).",
+      "sante": "Espérance de vie la plus élevée au monde : 84,3 ans (femmes 87, hommes 81). Santé universelle (assurance maladie obligatoire). Alimentation traditionnelle (régime japonais = modèle de santé). Suicide : problème de santé publique (suicide 3e cause de mortalité des 20-40 ans).",
+      "inegalites": "Gini ~0,33 (inégalités relativement faibles pour un pays riche). Société homogène culturellement. Mais discrimination femmes (taux d'emploi féminin qualifié faible). Inégalités ville/campagne.",
+      "urbanisation": "92,7 % (2023) — l'une des plus fortes au monde."
+    },
+
+    "environnement": {
+      "pollution": "5e émetteur de CO₂ (~1,1 Mds de tonnes). Catastrophe nucléaire de Fukushima (2011) : choc psychologique et pivot énergétique. Pollution marine et surpêche.",
+      "dev_durable": "Objectif neutralité carbone 2050. Restarting de certains réacteurs nucléaires depuis 2022 (pour compenser la dépendance au GNL). Leader mondial des piles à hydrogène (Toyota Mirai). Expert en efficacité énergétique.",
+      "recherche": "3e investisseur en R&D (~172 Mds $/an). Leaders en robotique, matériaux avancés, batteries solides. 29 Prix Nobel depuis 2000 (physique, chimie, médecine). JAXA (agence spatiale) avec partenariats USA.",
+      "militaire": "Forces d'auto-défense (JSDF) : 247 000 actifs. Budget historiquement limité à 1 % du PIB (Article 9) mais en forte hausse (objectif 2 % d'ici 2027 — réarmement historique sous Kishida/Ishiba). Dépendance aux USA pour la défense nucléaire (parapluie américain).",
+      "defis": [
+        "Déclin démographique irréversible (désert grisonnant)",
+        "Dépendance énergétique quasi-totale (importe 90 % de l'énergie)",
+        "Menaces : missiles nord-coréens, pression militaire chinoise (mer de Chine Est, Senkaku)",
+        "Catastrophes naturelles : séismes, tsunamis, typhons (pays le plus exposé)",
+        "Rétention de l'immigration freinant le renouveau démographique",
+        "Dette publique colossale (260 % du PIB)"
+      ]
+    },
+
+    "importance": {
+      "historique": "Seul pays non-occidental à s'être industrialisé de manière endogène (XIXe s.). Seule victime des bombes atomiques : symbole universel de paix et de non-prolifération. Modèle économique asiatique.",
+      "economique": "4e économie mondiale. 1er constructeur automobile mondial (Toyota). Leader en robotique, semi-conducteurs de pointe (matériaux de base), électronique. Hub financier asiatique.",
+      "geopolitique": "Pivot de l'alliance américaine en Asie-Pacifique. Face à la Chine et à la Corée du Nord. Réarmement en cours — pivot majeur pour la sécurité régionale.",
+      "atouts": [
+        "Excellence technologique et industrielle (automobile, robotique, matériaux)",
+        "Alliance stratégique avec les USA (bouclier nucléaire)",
+        "Capital humain très qualifié",
+        "Crédit diplomatique (pays pacifiste symbolique)",
+        "Réserves de change considérables (1 200 Mds $)"
+      ],
+      "fragilites": [
+        "Déclin démographique sans solution à court terme",
+        "Dépendance énergétique totale",
+        "Dette publique la plus élevée des pays développés",
+        "Vulnérabilité aux catastrophes naturelles",
+        "Dépendance sécuritaire aux USA (tension stratégique)"
+      ]
+    }
+  },
+
+  "SA": {
+    "name": "Arabie Saoudite",
+    "flag": "🇸🇦",
+    "capitale": "Riyad",
+    "continent": "Asie (Moyen-Orient)",
+    "population": "36,4 millions (2023, dont ~40 % d'expatriés)",
+    "superficie": "2 149 690 km²",
+    "langues": ["Arabe (officiel et universel)"],
+    "monnaie": "Riyal saoudien (SAR, indexé sur le dollar)",
+
+    "histoire": {
+      "independance": "Fondation du Royaume d'Arabie Saoudite le 23 septembre 1932 par Abdelaziz ibn Saoud (unification des sultanats de la péninsule arabique).",
+      "evenements_majeurs": [
+        "Naissance de l'islam à La Mecque et Médine (610 ap. J.-C.) : lieux les plus sacrés de l'islam",
+        "Pacte entre ibn Saoud et ibn Abd al-Wahhab (1744) : alliance politique-religieuse fondatrice",
+        "Découverte du pétrole (1938) par Aramco (co-américaine à l'origine)",
+        "Fondation de l'OPEP (1960, avec Vénézuela, Irak, Iran, Koweït)",
+        "Embargo pétrolier de 1973 contre l'Occident (quadruplement des prix)",
+        "Prise de la Grande Mosquée de La Mecque (1979) : choc islamiste",
+        "Guerre du Golfe (1990-1991) : accueil des troupes américaines sur sol saoudien",
+        "Attentats du 11 septembre 2001 (15 des 19 pirates étaient saoudiens)",
+        "Accession de Mohammed ben Salmane (MBS) à la direction réelle (2017)",
+        "Vision 2030 : plan de diversification économique",
+        "Accords d'Abraham (normalisations dans la région, pression de paix avec Israël)"
+      ],
+      "role_historique": "Gardienne des deux lieux saints de l'Islam (La Mecque, Médine). Puissance pétrolière mondiale depuis 1938. Influence islamique mondiale via le wahhabisme et le financement de mosquées. Pivot du Moyen-Orient et de l'OPEP."
+    },
+
+    "politique": {
+      "regime": "Monarchie absolue théocratique. Le Coran est la constitution. Pas d'élections nationales. Conseil des ministres nommé par le Roi. Rôle croissant du Crown Prince MBS.",
+      "chef_etat": "Roi Salmane ben Abdelaziz Al Saoud (depuis janvier 2015). Prince héritier et Premier ministre de facto : Mohammed ben Salmane (MBS, depuis 2017-2022).",
+      "stabilite": "Stable à court terme : contrôle absolu du pouvoir par la famille royale (Al Saoud). Réformes sociales (cinémas, concerts, conduite des femmes) sous MBS. Mais répression des dissidences (affaire Khashoggi 2018). Menace iranienne persistante.",
+      "alliances": [
+        "Conseil de coopération du Golfe (CCG : Arabie Saoudite, EAU, Koweït, Qatar, Bahreïn, Oman)",
+        "Ligue Arabe (siège à Riyad)",
+        "OPEP+ (avec la Russie depuis 2016)",
+        "Partenariat stratégique avec les USA (sécurité militaire vs pétrole depuis 1945)",
+        "Rapprochement avec la Chine (pétrole, investissements)",
+        "Accord de Pékin avec l'Iran (2023) — normalisation diplomatique surprenante"
+      ]
+    },
+
+    "economie": {
+      "pib": "1 061 milliards $ (2023, 18e mondial)",
+      "pib_hab": "29 200 $ (2023)",
+      "ressources": [
+        "Pétrole : 2e réserves prouvées mondiales (267 Mds de barils — 17 % des réserves mondiales)",
+        "Gaz naturel (6e réserves mondiales)",
+        "Phosphates, or, cuivre, bauxite (en développement)"
+      ],
+      "secteurs": [
+        "Hydrocarbures : Aramco (plus grande entreprise pétrolière du monde, valeur 2 000 Mds $)",
+        "Tourisme (développement accéléré : NEOM, Red Sea Project — Vision 2030)",
+        "Construction et immobilier (méga-projets : The Line, Diriyah)",
+        "Finance islamique (Riyad : hub mondial de la finance charia)",
+        "Pétrochimie (SABIC : 4e producteur mondial)"
+      ],
+      "grandes_villes": [
+        "Riyad (capitale, 7,2 M, centre politique et économique)",
+        "Djedda (hub commercial, port sur la Mer Rouge, 4,7 M)",
+        "La Mecque (1,5 M permanents + 3-4 M de pèlerins lors du Hajj)",
+        "Médine (lieux saints, croissance démographique forte)",
+        "Dhahran/Al-Khobar (est pétrolier, siège d'Aramco)"
+      ],
+      "places_economiques": [
+        "Bourse Tadawul (Riyad) : 1ère bourse du Moyen-Orient",
+        "Aramco (IPO 2019 : plus grande introduction en bourse de l'histoire)",
+        "Fonds souverain PIF (Public Investment Fund) : 776 Mds $ d'actifs, investi mondialement (Newcastle United, Softbank, Uber, LIV Golf)"
+      ],
+      "voies_communication": [
+        "Port de Djedda (Mer Rouge) : hub pour le commerce Europe-Asie via Suez",
+        "Port de Jubail et Ras Tanura (Golfe Persique, pétrole)",
+        "Haramain High Speed Railway (La Mecque-Médine : 450 km, TGV espagnol)",
+        "Aéroport de Riyad (King Khalid) et Djedda (King Abdulaziz)"
+      ]
+    },
+
+    "societe": {
+      "demographie": "Population jeune (âge médian 30 ans). Croissance ~1,5 %/an. 40 % d'expatriés (travailleurs asiatiques, occidentaux). Natalité en baisse (modernisation). Urbanisation très rapide.",
+      "idh": "0,875 (rang 40/191 en 2022, catégorie « très élevé »)",
+      "education": "Amélioration forte depuis 30 ans. Universités financées par le gouvernement. King Abdullah University (KAUST) : recherche internationale. Forte proportion de jeunes à l'étranger (bourses gouvernementales). Alphabétisation ~97 %.",
+      "sante": "Espérance de vie 77 ans. Système de santé public de qualité (financé par la rente pétrolière). Obésité : problème croissant (36 % de la population adulte).",
+      "inegalites": "Concentration des richesses dans la famille royale et les élites. Travailleurs immigrés (keffala) souvent exploités. Inégalités hommes/femmes en réduction (réformes MBS : conduite, travail, divertissement).",
+      "urbanisation": "84,4 % (2023). Très urbanisé. Riyad : méga-ville en expansion rapide."
+    },
+
+    "environnement": {
+      "pollution": "Émissions CO₂ élevées par habitant (17 t CO₂/personne/an). Désertification. Stress hydrique extrême : désalinisation = 70 % de l'eau douce. Chaleur extrême (50°C+).",
+      "dev_durable": "Objectif neutralité carbone 2060. 50 % d'électricité renouvelable d'ici 2030. NEOM : ville verte zéro carbone... mais financée par Aramco. Paradoxe pétrole/transition.",
+      "recherche": "Investissements massifs dans les universités et la R&D (KAUST, KACST). Ambitions spatiales (astronautes saoudiens dans l'ISS, 2023). IA et tech (investissements via PIF dans Nvidia, OpenAI).",
+      "militaire": "5e budget militaire mondial (~75 Mds $ en 2022). 227 000 soldats actifs. Équipements américains, français, britanniques (F-15, Typhoon, AWACS). Guerre au Yémen (2015-présent) : bilan humanitaire catastrophique.",
+      "defis": [
+        "Diversification économique urgente (100 % dépendant au pétrole)",
+        "Stress hydrique absolu (désalinisation énergivore)",
+        "Instabilité régionale (Yémen, Iran, Irak)",
+        "Chômage des jeunes saoudiens (Vision 2030 pour y remédier)",
+        "Transition post-pétrolière à horizon 2050-2070",
+        "Chaleur extrême : certaines zones potentiellement inhabitables"
+      ]
+    },
+
+    "importance": {
+      "historique": "Gardienne des lieux saints de l'Islam (La Mecque, Médine). Berceau du wahhabisme, doctrine influençant 1,8 milliard de musulmans mondiaux. Co-fondatrice de l'OPEP.",
+      "economique": "2e réserves pétrolières mondiales. Aramco : plus grande entreprise du monde. PIF : fonds souverain parmi les plus puissants du monde, investissant globalement.",
+      "geopolitique": "Pivot du Moyen-Orient. Axe du système pétrodollar (pétrole vendu en dollars = soutien à l'hégémonie américaine). Équilibre entre USA et Chine. Modérateur (relatif) de l'OPEP+.",
+      "atouts": [
+        "Réserves pétrolières parmi les premières mondiales",
+        "Aramco et PIF : puissance financière mondiale",
+        "Gardienne de lieux saints islamiques (soft power islamique)",
+        "Modernisation accélérée (Vision 2030)",
+        "Position géographique stratégique (Golfe + Mer Rouge)"
+      ],
+      "fragilites": [
+        "Dépendance totale aux hydrocarbures",
+        "Stress hydrique absolu",
+        "Instabilité régionale chronique (Iran, Yemen, Irak)",
+        "Déficit de légitimité démocratique",
+        "Transition post-pétrolière non assurée"
+      ]
+    }
+  },
+
+  "NG": {
+    "name": "Nigeria",
+    "flag": "🇳🇬",
+    "capitale": "Abuja",
+    "continent": "Afrique",
+    "population": "223 millions (2023 — 1ère d'Afrique, 6e mondiale)",
+    "superficie": "923 768 km²",
+    "langues": ["Anglais (officiel)", "Haoussa (~50 M locuteurs)", "Yoruba (~45 M)", "Igbo (~30 M)", ">500 langues ethniques"],
+    "monnaie": "Naira nigérian (NGN)",
+
+    "histoire": {
+      "independance": "1er octobre 1960 (indépendance du Royaume-Uni). République proclamée le 1er octobre 1963.",
+      "evenements_majeurs": [
+        "Royaumes historiques florissants : Yoruba (Oyo), Haoussa, Empire du Bénin",
+        "Traite des esclaves : le Nigeria a fourni le plus grand nombre d'esclaves vers les Amériques",
+        "Colonisation britannique (amalgame de 1914 sous Lord Lugard)",
+        "Indépendance (1960)",
+        "Guerre du Biafra (1967-1970) : sécession igbo, 1-3 millions de morts, famine",
+        "Dictatures militaires successives (1966-1999)",
+        "Retour à la démocratie (1999)",
+        "Boom pétrolier et 'dutch disease' (malédiction des ressources)",
+        "Insurrection Boko Haram (depuis 2009) dans le Nord-Est",
+        "Terrorisme ISWAP (depuis 2016)"
+      ],
+      "role_historique": "Coeur démographique et culturel de l'Afrique subsaharienne. Nollywood (cinéma) : 2e industrie cinématographique mondiale après Bollywood. Afrobeats : révolution musicale mondiale. 'Géant de l'Afrique' par sa population et son pétrole."
+    },
+
+    "politique": {
+      "regime": "République fédérale présidentielle. 36 États + Territoire fédéral (Abuja). Alternance démocratique réelle depuis 1999.",
+      "chef_etat": "Bola Tinubu (Président depuis le 29 mai 2023, APC — All Progressives Congress).",
+      "stabilite": "Démocratie fragile. Insécurité massive : Boko Haram (Nord-Est), ISWAP, bandits dans le Nord-Ouest, tensions au Delta du Niger (pétrole). Corruption systémique. Gouvernance déficitaire.",
+      "alliances": [
+        "Union Africaine (UA)",
+        "CEDEAO (ECOWAS) — puissance dominante",
+        "Commonwealth des Nations",
+        "G77",
+        "OCI (Organisation de Coopération Islamique)",
+        "OPEP (depuis 1971)"
+      ]
+    },
+
+    "economie": {
+      "pib": "477 milliards $ (2023, 1ère Afrique en nominal)",
+      "pib_hab": "2 140 $ (2023)",
+      "ressources": [
+        "Pétrole (10e réserves mondiales, 1,5 M barils/jour — mais production en déclin)",
+        "Gaz naturel (9e réserves mondiales — sous-exploité)",
+        "Cacao (4e producteur mondial)",
+        "Caoutchouc naturel",
+        "Terres agricoles (plus de 70 M d'hectares cultivables — sous-exploitées)"
+      ],
+      "secteurs": [
+        "Pétrole et gaz (40 % des revenus de l'État, 85 % des exportations)",
+        "Télécommunications (croissance rapide : MTN, Airtel Nigeria)",
+        "Agriculture (30 % du PIB, emploie 70 % de la population active)",
+        "Cinéma — Nollywood (2e industrie cinématographique mondiale par nombre de films)",
+        "Musique et divertissement (Afrobeats : phénomène mondial — Burna Boy, Wizkid, Davido)",
+        "Fintech (Lagos : hub fintech africain — Flutterwave, Paystack)"
+      ],
+      "grandes_villes": [
+        "Lagos (15-25 M selon périmètre — 1ère ville d'Afrique, hub économique et culturel)",
+        "Abuja (capitale, moderne, 3 M)",
+        "Kano (nord, commerce, industrie textile, 4 M)",
+        "Ibadan (3,5 M, université, agriculture)",
+        "Port Harcourt (hub pétrolier du Delta du Niger)"
+      ],
+      "places_economiques": [
+        "Nigerian Stock Exchange (NGX, Lagos)",
+        "Lagos : capital financier de l'Afrique subsaharienne occidentale",
+        "Dangote Group (Aliko Dangote — homme le plus riche d'Afrique) : ciment, raffinerie"
+      ],
+      "voies_communication": [
+        "Port de Lagos (Apapa) : 1er port d'Afrique de l'Ouest",
+        "Réseau ferroviaire en réhabilitation (Lagos-Ibadan, Abuja-Kaduna)",
+        "Réseau routier très dégradé (infrastructure insuffisante)",
+        "Aéroport Murtala Muhammed (Lagos) : 1er d'Afrique de l'Ouest"
+      ]
+    },
+
+    "societe": {
+      "demographie": "Croissance démographique parmi les plus rapides du monde : +2,5 %/an. Âge médian : 18 ans. Projection : 400 millions en 2050 (3e ou 4e mondiale). Société très jeune et dynamique.",
+      "idh": "0,535 (rang 161/191 en 2022, catégorie « faible »)",
+      "education": "Taux d'alphabétisation ~62 %. Universités nombreuses mais sous-financées. Grèves académiques chroniques (ASUU). Fuite des cerveaux massive (médecins, ingénieurs vers UK, USA, Canada).",
+      "sante": "Espérance de vie 55 ans (2022 — parmi les plus basses). Paludisme : endémique (27 % des cas mondiaux). Mortalité maternelle élevée. Système hospitalier très insuffisant. Dépenses santé < 4 % du PIB.",
+      "inegalites": "Gini ~0,43. 40 % de la population sous le seuil de pauvreté (<2 $/jour). Extrêmes : Lagos riche vs hinterland pauvre. Nord/Sud : développement très inégal.",
+      "urbanisation": "53,3 % (2023) — urbanisation en forte hausse. Bidonvilles massifs (Makoko à Lagos)."
+    },
+
+    "environnement": {
+      "pollution": "Pollution massive dans le Delta du Niger (fuites pétrolières depuis 60 ans — déforestation des mangroves). Pollution de l'air à Lagos (brûlage de biomasse, transports vétustes). Déforestation.",
+      "dev_durable": "Potentiel solaire immense (non exploité). Déficit électrique chronique (moins de 4 000 MW pour 220 M de personnes — la France en a 140 000 MW pour 68 M). Transition énergétique balbutiante.",
+      "recherche": "Universités actives mais sous-financées. Hub fintech et tech naissant (Lagos). NSTDA. Diaspora scientifique nombreuse.",
+      "militaire": "Budget militaire ~530 M $ (insuffisant pour les défis sécuritaires). 135 000 actifs. Engagé dans les opérations de maintien de la paix de l'UA et de la CEDEAO (dont intervention au Niger en 2023, avortée).",
+      "defis": [
+        "Insécurité massive (Boko Haram, ISWAP, bandits, séparatistes IPOB au Sud-Est)",
+        "Corruption systémique et gouvernance défaillante",
+        "Malédiction des ressources (pétrole = Dutch disease)",
+        "Démographie explosive sans croissance économique suffisante",
+        "Crise électrique chronique (less de 5 000 MW pour 220 M d'habitants)",
+        "Fractures religieuses (Nord musulman/Sud chrétien) et ethniques"
+      ]
+    },
+
+    "importance": {
+      "historique": "Berceau des civilisations yoruba, igbo et haoussa. Coeur démographique de l'Afrique subsaharienne. Nollywood et Afrobeats : révolution culturelle mondiale depuis l'Afrique.",
+      "economique": "1ère économie d'Afrique. Réserves de pétrole et de gaz majeures. Hub fintech en plein essor. Marché de consommation futur de 400+ millions d'habitants.",
+      "geopolitique": "Puissance régionale hégémonique en Afrique de l'Ouest (CEDEAO). Pivot de la sécurité sahélienne. Voix du Sud global dans les instances internationales.",
+      "atouts": [
+        "1ère démographie africaine (marché et main d'oeuvre futurs)",
+        "Diaspora qualifiée très influente (médecins, ingénieurs, entrepreneurs au monde entier)",
+        "Créativité culturelle (Nollywood, Afrobeats) — soft power africain en expansion",
+        "Pétrole et gaz : réserves significatives",
+        "Hub fintech et numérique africain émergent"
+      ],
+      "fragilites": [
+        "Insécurité chronique sur une grande partie du territoire",
+        "Corruption systémique et état défaillant",
+        "Infrastructure électrique catastrophique",
+        "Fractures ethniques, régionales et religieuses profondes",
+        "Malédiction des ressources et dépendance au pétrole"
+      ]
+    }
+  },
+
+  "EG": {
+    "name": "Égypte",
+    "flag": "🇪🇬",
+    "capitale": "Le Caire",
+    "continent": "Afrique (et Moyen-Orient)",
+    "population": "105 millions (2023 — 2e d'Afrique)",
+    "superficie": "1 001 450 km²",
+    "langues": ["Arabe (officiel — dialecte égyptien le plus compris du monde arabe)"],
+    "monnaie": "Livre égyptienne (EGP)",
+
+    "histoire": {
+      "independance": "28 février 1922 (indépendance nominale du Royaume-Uni). République proclamée le 18 juin 1953.",
+      "evenements_majeurs": [
+        "Civilisation pharaonique (3100 av. J.-C. – 30 av. J.-C.) : l'une des plus grandes de l'humanité",
+        "Conquête d'Alexandre le Grand (332 av. J.-C.), puis romaine et byzantine",
+        "Conquête arabe et islamisation (642 ap. J.-C.)",
+        "Dynasties mameloukes et ottomanes (XVIe-XIXe s.)",
+        "Expédition de Napoléon (1798) : réveil de l'Égypte moderne",
+        "Ouverture du Canal de Suez (1869) — événement mondial majeur",
+        "Occupation britannique (1882-1922)",
+        "Révolution des Officiers Libres et Nasser (1952) : nationalisme arabe",
+        "Nationalisation du Canal de Suez (1956), Crise de Suez",
+        "Guerre des Six-Jours (1967) : défaite face à Israël, perte du Sinaï",
+        "Guerre du Kippour (1973) : reconquête partielle, Accords de Camp David (1979)",
+        "Assassinat de Sadate (1981), ère Moubarak (1981-2011)",
+        "Révolution du Printemps arabe (2011), Frères Musulmans, coup d'État Al-Sissi (2013)"
+      ],
+      "role_historique": "Berceau de l'une des civilisations les plus influentes de l'histoire. Cœur du monde arabe culturellement et linguistiquement. Gardienne du Canal de Suez (artère du commerce mondial). Pivot du Moyen-Orient."
+    },
+
+    "politique": {
+      "regime": "République présidentielle autoritaire. Pouvoir concentré dans les mains du président et des militaires depuis 2013.",
+      "chef_etat": "Abdel Fattah al-Sissi (Président depuis juin 2014, réélu en 2018 et décembre 2023 — 89 % des voix, scrutin non compétitif).",
+      "stabilite": "Stable autoritairement mais fragile économiquement. Opposition muselée. Armée omniprésente dans l'économie (20-30 % du PIB). Crise économique grave (dette, dévaluation). Tensions avec l'Éthiopie (barrage du Grand Nil).",
+      "alliances": [
+        "Ligue Arabe (siège au Caire historiquement)",
+        "Union Africaine",
+        "Partenariats avec USA (2 Mds $/an d'aide militaire), Arabie Saoudite, EAU, Israël (normalisation)",
+        "BRICS+ (candidature acceptée en 2024)",
+        "OCI"
+      ]
+    },
+
+    "economie": {
+      "pib": "396 milliards $ (2023, ~2e ou 3e en Afrique)",
+      "pib_hab": "3 790 $ (2023)",
+      "ressources": [
+        "Canal de Suez (8-9 Mds $ de revenus annuels — 12-15 % du commerce maritime mondial)",
+        "Pétrole et gaz (découvertes offshore majeures : Zohr, 2015 — 1ère réserve de Méditerranée)",
+        "Tourisme (sites pharaoniques, Mer Rouge — 13,6 M de touristes en 2022)",
+        "Agriculture (coton longue soie, riz — mais Nil sous pression)",
+        "Phosphates et minerais"
+      ],
+      "secteurs": [
+        "Canal de Suez (2e source de devises)",
+        "Tourisme",
+        "Pétrole et gaz (en développement)",
+        "Envois de fonds de la diaspora (1ère source de devises : ~32 Mds $/an)",
+        "Agriculture et agroalimentaire",
+        "Construction (nouvelle capitale administrative en cours)"
+      ],
+      "grandes_villes": [
+        "Le Caire (22 M — 1ère ville d'Afrique et du monde arabe)",
+        "Alexandrie (5,2 M, port méditerranéen, hub commercial)",
+        "Gizeh (banlieue du Caire, Pyramides)",
+        "Louxor et Assouan (tourisme pharaonique, Nil)",
+        "Nouvelle Capitale Administrative (en construction — déménagement gouvernemental en cours)"
+      ],
+      "places_economiques": [
+        "Bourse du Caire (EGX)",
+        "Canal de Suez (Autorité du Canal) : artère du commerce mondial",
+        "Zone économique spéciale du Canal de Suez"
+      ],
+      "voies_communication": [
+        "Canal de Suez (193 km) : 12-15 % du commerce maritime mondial (route Europe-Asie)",
+        "Port de Port-Saïd et Port-Tewfik (entrées du Canal)",
+        "Aéroport du Caire (CAI) : hub régional africain et arabe"
+      ]
+    },
+
+    "societe": {
+      "demographie": "Croissance rapide (~2 %/an) mettant sous pression les ressources. 40 % de la population a moins de 25 ans. Pression sur le Nil : ressource en eau limitée (+Barrage éthiopien).",
+      "idh": "0,731 (rang 104/191 en 2022)",
+      "education": "Alphabétisation ~73 %. Université Al-Azhar (Le Caire) : plus ancienne et plus influente université islamique mondiale. Université du Caire. Mais qualité du système public insuffisante.",
+      "sante": "Espérance de vie 72 ans. Système de santé sous pression. Hépatite C éradiquée grâce à un programme national exemplaire. Surpoids et diabète : problèmes de santé publique croissants.",
+      "inegalites": "Gini ~0,33. Mais pauvreté absolue : 30 % sous le seuil national. Crise économique (2022-2023) : dévaluation de 60 %, inflation >40 %.",
+      "urbanisation": "43,1 % (2023). Concentration massive au Caire. Delta du Nil densément peuplé (95 % de la population sur 5 % du territoire)."
+    },
+
+    "environnement": {
+      "pollution": "Désertification (96 % du territoire est désert). Pollution de l'air au Caire (l'une des pires au monde). Pression sur les ressources en eau du Nil.",
+      "dev_durable": "Projet de Benban : une des plus grandes centrales solaires au monde (1,8 GW). Objectif 42 % d'énergies renouvelables d'ici 2035. Barrage Renaissance éthiopien : menace existentielle pour l'eau du Nil.",
+      "recherche": "Universités actives. Hub émergent en IA et technologie (programme gouvernemental). Centre nucléaire civil de Dabaa (avec aide russe — Rosatom).",
+      "militaire": "Budget ~4,6 Mds $. 440 000 actifs (l'une des plus grandes armées d'Afrique). Armée très impliquée dans l'économie (construction, tourisme, agroalimentaire). Equipements américains, russes, français.",
+      "defis": [
+        "Ressources en eau du Nil menacées par le barrage éthiopien Grand Renaissance",
+        "Croissance démographique incontrôlée sur territoire habitable réduit",
+        "Crise économique : dette, dévaluation, inflation",
+        "Islamisme politique (MB) et instabilité sécuritaire (Sinaï)",
+        "Chômage des jeunes (26 % chez les 15-24 ans)",
+        "Désertification et changement climatique"
+      ]
+    },
+
+    "importance": {
+      "historique": "Civilisation pharaonique : fondatrice de la pensée humaine (écriture, mathématiques, architecture). Cœur du monde arabe. Al-Azhar : institution islamique la plus influente au monde.",
+      "economique": "Canal de Suez : artère du commerce mondial (8 Mds $ de revenus/an). Tourisme mondial. Gaz offshore Zohr. Hub régional.",
+      "geopolitique": "Pivot du Moyen-Orient et de l'Afrique du Nord. Gardienne du Canal de Suez. Acteur incontournable dans tout règlement de paix israélo-palestinien. 2e armée arabe.",
+      "atouts": [
+        "Canal de Suez (levier géopolitique et économique irremplaçable)",
+        "Position stratégique (Afrique, Asie, Méditerranée, Mer Rouge)",
+        "Civilisation et soft power culturel (arabe et pharaonique)",
+        "Population nombreuse et jeune (marché)",
+        "Gaz naturel offshore (Zohr — autosuffisance énergétique)"
+      ],
+      "fragilites": [
+        "Ressources en eau du Nil sous pression critique",
+        "Croissance démographique supérieure à la croissance économique",
+        "Crise économique chronique (dette, FMI)",
+        "Régime autoritaire limitant l'innovation et la liberté",
+        "Instabilité régionale (Gaza, Libye, Sinaï)"
+      ]
+    }
+  },
+
+  "ZA": {
+    "name": "Afrique du Sud",
+    "flag": "🇿🇦",
+    "capitale": "Pretoria (exécutive) / Le Cap (législative) / Bloemfontein (judiciaire)",
+    "continent": "Afrique",
+    "population": "62 millions (2023)",
+    "superficie": "1 219 090 km²",
+    "langues": ["11 langues officielles : zoulou, xhosa, afrikaans, anglais, sepedi, sotho, tswana, tsonga, swati, venda, ndébélé"],
+    "monnaie": "Rand sud-africain (ZAR)",
+
+    "histoire": {
+      "independance": "31 mai 1910 (Union d'Afrique du Sud sous la Couronne britannique). 31 mai 1961 (République indépendante). 27 avril 1994 (1ères élections multiraciales — fin de l'apartheid).",
+      "evenements_majeurs": [
+        "Peuples San et Khoïkhoï : premiers habitants",
+        "Arrivée des Hollandais (1652, Jan van Riebeeck) : fondation du Cap",
+        "Colonisation britannique (XIXe s.)",
+        "Guerres des Boers (1880-1881, 1899-1902) : Afrikaner vs Britanniques",
+        "Union d'Afrique du Sud (1910)",
+        "Apartheid institutionnalisé (1948-1994) : ségrégation raciale légale",
+        "Massacre de Sharpeville (1960)",
+        "Emprisonnement de Nelson Mandela (1964-1990)",
+        "Sanctions économiques internationales (1980s)",
+        "Libération de Mandela et négociations (1990-1994)",
+        "Premières élections démocratiques (1994) : Mandela président",
+        "Coupe du Monde de Football (2010) — 1ère en Afrique"
+      ],
+      "role_historique": "Symbole mondial de la lutte contre le racisme institutionnel et de la réconciliation (arc-en-ciel de Mandela). Puissance industrielle et minière dominante d'Afrique australe. Nation la plus développée et la plus inégalitaire d'Afrique."
+    },
+
+    "politique": {
+      "regime": "République présidentielle démocratique. Parlement unicaméral (Assemblée nationale) + Conseil national des provinces. Multipartisme réel.",
+      "chef_etat": "Cyril Ramaphosa (Président depuis février 2018, réélu mai 2024 — ANC, gouvernement d'union nationale après perte de majorité absolue de l'ANC pour la 1ère fois depuis 1994).",
+      "stabilite": "Démocratie fonctionnelle mais sous pression : ANC affaibli, corruption (State Capture), criminalité. Coalition gouvernementale complexe (ANC + DA + IFP).",
+      "alliances": [
+        "Union Africaine (UA) — membre fondateur",
+        "BRICS (membre fondateur, acronyme de Sudafrica)",
+        "SADC (Communauté de développement d'Afrique australe)",
+        "Commonwealth des Nations",
+        "G20 (seul pays africain)",
+        "Procès devant la CIJ contre Israël (génocide à Gaza — janvier 2024)"
+      ]
+    },
+
+    "economie": {
+      "pib": "399 milliards $ (2023, ~2e ou 3e en Afrique)",
+      "pib_hab": "6 480 $ (2023)",
+      "ressources": [
+        "Or (1er producteur historique, en déclin — 2e mondial)",
+        "Platine et métaux du groupe platine (PGM) : 1er mondial (72 % des réserves mondiales)",
+        "Charbon (7e réserves mondiales)",
+        "Diamants (5e producteur mondial)",
+        "Manganèse (3e réserves mondiales)",
+        "Chrome (1er réserves mondiales)",
+        "Uranium"
+      ],
+      "secteurs": [
+        "Mines et métallurgie (or, platine, charbon, diamants)",
+        "Industrie manufacturière (automobile, chimie, agroalimentaire)",
+        "Finance et services (Johannesburg : capital financier de l'Afrique)",
+        "Tourisme (safari, Le Cap — 10,2 M de touristes en 2019)",
+        "Agriculture (vin, fruits, maïs)"
+      ],
+      "grandes_villes": [
+        "Johannesburg (5,8 M, hub financier, industriel, commercial)",
+        "Le Cap (4,6 M, tourisme, parlement, vins)",
+        "Durban (eThekwini : 3,9 M, 1er port d'Afrique australe)",
+        "Pretoria (capital administrative, 2,9 M)",
+        "Port Elizabeth/Gqeberha (industrie automobile)"
+      ],
+      "places_economiques": [
+        "Johannesburg Stock Exchange (JSE) : 1ère bourse d'Afrique",
+        "Sandton (Johannesburg) : CBD africain, sièges d'entreprises continentales",
+        "Port de Durban : 1er port d'Afrique australe"
+      ],
+      "voies_communication": [
+        "Port de Durban (1er d'Afrique australe, hub Asie-Afrique)",
+        "Aéroport O.R. Tambo (Johannesburg) : hub continental",
+        "Réseau ferroviaire : Transnet (minerais), Prasa (passagers — défaillant)",
+        "Réseau routier dense (le mieux développé d'Afrique subsaharienne)"
+      ]
+    },
+
+    "societe": {
+      "demographie": "Croissance ~1,4 %/an. Population jeune (âge médian 28 ans). Société extrêmement diverse : noirs (~80 %), métis (9 %), blancs (7,8 %), asiatiques (2,5 %). 4 M de réfugiés africains (Zimbabwe, Mozambique).",
+      "idh": "0,713 (rang 110/191 en 2022)",
+      "education": "Taux d'alphabétisation ~95 %. Universités : UCT (1ère d'Afrique), Wits. Système scolaire inégal (private vs township schools). Fuite des cerveaux significative.",
+      "sante": "Espérance de vie 63,9 ans. Épidémie VIH/SIDA : 7,5 millions de séropositifs (1ère mondiale en nombre). Couverture ARV : excellente. Tuberculose endémique. Réforme en cours vers assurance maladie universelle (NHI).",
+      "inegalites": "Pays le plus inégalitaire au monde (Gini 0,63). Apartheid économique persistant malgré apartheid politique aboli. 55 % de la population sous le seuil de pauvreté. Chômage officiel : 33 % (le plus élevé au monde parmi grandes économies).",
+      "urbanisation": "68,8 % (2023). Townships encore très présents (Soweto à Johannesburg)."
+    },
+
+    "environnement": {
+      "pollution": "Pollution intense par l'industrie charbonnière (Eskom). Parmi les 15 plus grands émetteurs mondiaux de CO₂ par habitant. Pollution de l'air dans les townships (charbon domestique).",
+      "dev_durable": "Transition difficile : dépendance au charbon (85 % de l'électricité). Délestages chroniques (load-shedding) : Eskom en crise. Potentiel solaire et éolien immense. Objectif 200 GW renouvelables d'ici 2050.",
+      "recherche": "SKA (Square Kilometre Array) : plus grand radiotélescope du monde, co-hébergé en Afrique du Sud (Karoo). CSIR. Recherche médicale de pointe (HIV, TB). Hub tech émergent (Le Cap — Silicon Cape).",
+      "militaire": "Budget ~2,4 Mds $ (en déclin relatif). 80 000 actifs. Capacités conventionnelles régionales. Participation aux opérations de paix de l'UA. Programme nucléaire civil. (Seul pays ayant développé et démantelé une bombe atomique — 1989).",
+      "defis": [
+        "Chômage massif (33 % officiel, 43 % élargi) — bombe sociale",
+        "Inégalités raciales et économiques héritées de l'apartheid",
+        "Crise d'Eskom : délestages quotidiens paralysant l'économie",
+        "Criminalité parmi les plus élevées au monde",
+        "Fuite des cerveaux (émigration des qualifiés blancs et noirs)",
+        "Corruption (state capture sous Zuma)"
+      ]
+    },
+
+    "importance": {
+      "historique": "Symbole mondial de la lutte anti-apartheid et de la réconciliation (Mandela). Modèle (et contre-modèle) de transition démocratique post-raciste.",
+      "economique": "Économie la plus industrialisée et diversifiée d'Afrique. 1ère bourse africaine. Réserves en métaux critiques (platine, chrome, manganèse) essentiels à la transition énergétique mondiale.",
+      "geopolitique": "Seul pays africain du G20. Voix du Sud global. BRICS fondatrice. Procès contre Israël à la CIJ : impact diplomatique mondial. Hub d'affaires et de diplomatie pour l'Afrique australe.",
+      "atouts": [
+        "Métaux critiques (platine, palladium, chrome, manganèse) — essentiels à la transition verte",
+        "Infrastructure la plus développée d'Afrique subsaharienne",
+        "Système judiciaire et institutions relativement robustes",
+        "Hub financier continental (JSE, Johannesburg)",
+        "SKA — leadership en astronomie mondiale"
+      ],
+      "fragilites": [
+        "Inégalités extrêmes héritées de l'apartheid",
+        "Chômage le plus élevé des grandes économies mondiales",
+        "Crise énergétique (Eskom et délestages)",
+        "Criminalité très élevée",
+        "Corruption persistante (ANC en difficulté)"
+      ]
+    }
+  },
+
+  "MX": {
+    "name": "Mexique",
+    "flag": "🇲🇽",
+    "capitale": "Mexico (Ciudad de México — CDMX)",
+    "continent": "Amérique du Nord",
+    "population": "130 millions (2023)",
+    "superficie": "1 964 375 km²",
+    "langues": ["Espagnol (de facto, 97 % locuteurs)", "68 langues indigènes reconnues (nahuatl, maya, zapotèque…)"],
+    "monnaie": "Peso mexicain (MXN)",
+
+    "histoire": {
+      "independance": "Déclaration : 16 septembre 1810 (Miguel Hidalgo). Effectif : 27 septembre 1821. République depuis 1824.",
+      "evenements_majeurs": [
+        "Civilisations précolombiennes : Olmèques, Mayas, Aztèques (Tenochtitlán = Mexico)",
+        "Conquête espagnole (Hernán Cortés, 1519-1521) : destruction de l'Empire aztèque",
+        "Vice-royauté de Nouvelle-Espagne (300 ans de colonisation)",
+        "Indépendance (1821), premiers décennies chaotiques",
+        "Guerre américano-mexicaine (1846-1848) : perte de 55 % du territoire (Texas, Californie, Arizona)",
+        "Intervention française et Second Empire mexicain (Maximilien Ier, 1864-1867)",
+        "Révolution mexicaine (1910-1920) : Pancho Villa, Zapata — 1 million de morts",
+        "Parti Révolutionnaire Institutionnel (PRI) : hégémonie de 71 ans (1929-2000)",
+        "Adhésion à l'ALENA avec USA et Canada (1994)",
+        "Insurrection zapatiste (Chiapas, 1er jan 1994)",
+        "Alternance démocratique (Vicente Fox, PAN, 2000)",
+        "Guerre contre les cartels de la drogue (2006-présent : 450 000 meurtres liés)",
+        "Élection d'Andrés Manuel López Obrador (AMLO, 2018)",
+        "Élection de Claudia Sheinbaum (1ère présidente, 2024)"
+      ],
+      "role_historique": "Carrefour entre l'Amérique du Nord et l'Amérique latine. Héritier des grandes civilisations mésoaméricaines. Révolution mexicaine : modèle de référence pour l'Amérique latine. Hub industriel et commercial entre les USA et le Sud global."
+    },
+
+    "politique": {
+      "regime": "République fédérale présidentielle. 31 États + 1 capitale fédérale (CDMX). Transition démocratique en cours (après 71 ans de PRI).",
+      "chef_etat": "Claudia Sheinbaum (Présidente depuis le 1er octobre 2024 — Morena, successeure d'AMLO). 1ère femme présidente du Mexique.",
+      "stabilite": "Démocratie fonctionnelle mais fragilisée : emprise des cartels sur l'État dans certaines régions, violences électorales, corruption. Réforme judiciaire controversée (2024).",
+      "alliances": [
+        "USMCA (accord commercial USA-Mexique-Canada, remplaçant l'ALENA en 2020)",
+        "OEA (Organisation des États Américains)",
+        "CELAC (Communauté des États d'Amérique latine et des Caraïbes)",
+        "G20",
+        "Alliance du Pacifique (avec Chili, Colombie, Pérou)",
+        "OCDE (membre depuis 1994)"
+      ]
+    },
+
+    "economie": {
+      "pib": "1 322 milliards $ (2023, 15e mondial)",
+      "pib_hab": "10 200 $ (2023)",
+      "ressources": [
+        "Pétrole (Pemex — 1ère entreprise mexicaine, production en déclin)",
+        "Gaz naturel",
+        "Argent (1er producteur mondial)",
+        "Cuivre, zinc, or",
+        "Agriculture : avocats (1er mondial), tomates, maïs, piments"
+      ],
+      "secteurs": [
+        "Industrie manufacturière d'exportation (maquiladoras : automobile, électronique, textile)",
+        "Pétrole et énergie (Pemex, CFE)",
+        "Agriculture et agroalimentaire",
+        "Tourisme (Cancún, Riviera Maya, Mexico — 42 M touristes)",
+        "Nearshoring (délocalisation d'entreprises US fuyant la Chine — boom depuis 2022)"
+      ],
+      "grandes_villes": [
+        "Mexico (CDMX : 22 M métropole — 1ère ville hispanophone du monde)",
+        "Monterrey (hub industriel et business, 2e économique)",
+        "Guadalajara (Silicon Valley mexicaine, tequila)",
+        "Tijuana (maquiladoras, frontière USA)",
+        "Cancún (tourisme de masse)"
+      ],
+      "places_economiques": [
+        "Bolsa Mexicana de Valores (BMV)",
+        "Monterrey : hub business et industriel",
+        "Port de Manzanillo (Pacifique) et Veracruz (Atlantique) : hubs logistiques",
+        "Zone industrielle de Monterrey-Saltillo (nearshoring automobile)"
+      ],
+      "voies_communication": [
+        "Frontière USA-Mexique (3 145 km) : 1ère frontière terrestre commerciale du monde (700 Mds $/an d'échanges)",
+        "Ports : Manzanillo (Pacifique), Veracruz (Atlantique), Altamira, Lázaro Cárdenas",
+        "Réseau autoroutier fédéral (50 000 km)",
+        "Aéroport international Felipe Ángeles (AIFA, nouveau) + Benito Juárez (Mexico)"
+      ]
+    },
+
+    "societe": {
+      "demographie": "Croissance démographique en ralentissement (~1 %/an). Société jeune (âge médian 30 ans). Émigration massive vers les USA (12 M de Mexicains aux USA, 40 M de hispanophones d'origine mexicaine). Envois de fonds : 63 Mds $ en 2023 (1ère source de devises, dépassant le pétrole).",
+      "idh": "0,781 (rang 77/191 en 2022, catégorie « élevé »)",
+      "education": "Alphabétisation ~95 %. UNAM (Mexico) : plus grande université hispanophone du monde. Inégalités entre système public (insuffisant) et privé. Taux de scolarisation en hausse.",
+      "sante": "Espérance de vie 75 ans. Seguro Popular → IMSS-Bienestar (couverture universelle en développement). Obésité : 1er mondial (75 % de surpoids adulte). Diabète : épidémie nationale.",
+      "inegalites": "Gini ~0,45. Très inégalitaire. Les 10 % les plus riches captent 58 % des revenus. Population indigène (13 M) : marginalisation persistante. Pauvreté : 36 % de la population.",
+      "urbanisation": "80,7 % (2023). CDMX : méga-ville avec pollution, embouteillages, inégalités spatiales extrêmes."
+    },
+
+    "environnement": {
+      "pollution": "Pollution de l'air sévère à Mexico (bassin atmosphérique fermé). Déforestation. Pollution pétrolière au Golfe (Pemex). Plastiques dans les côtes.",
+      "dev_durable": "Potentiel solaire et éolien immense (Oaxaca, Sonora). Mais gouvernement AMLO/Morena a favorisé Pemex et charbon. CFE (électricité) : retard sur le renouvelable. Objectif 35 % renouvelables 2024.",
+      "recherche": "UNAM : 1ère université d'Amérique latine (classements mondiaux). CONACYT (recherche nationale). Potentiel en biotechnologie agricole. Hub tech naissant (Guadalajara, Mexico).",
+      "militaire": "Budget ~11,7 Mds $. 277 000 actifs (+ Garde Nationale : 110 000). Engagé principalement contre les cartels (guerre intérieure). Sans projection extérieure.",
+      "defis": [
+        "Violence des cartels (427 000+ homicides depuis 2006)",
+        "Corruption systémique à tous les niveaux de gouvernement",
+        "Inégalités sociales et régionales extrêmes",
+        "Dépendance aux envois de fonds et aux exportations vers les USA",
+        "Crise de l'eau dans le Nord (Monterrey en état d'urgence)",
+        "Nearshoring : opportunité mais risque de dépendance excessive aux USA"
+      ]
+    },
+
+    "importance": {
+      "historique": "Berceau des civilisations mésoaméricaines (Aztèques, Mayas). Révolution mexicaine : modèle pour l'Amérique latine. 1ère nation hispanophone en taille et influence économique.",
+      "economique": "15e économie mondiale. Hub de nearshoring entre USA et reste du monde. 1er producteur mondial d'argent. Avocats, tomates : puissance agroalimentaire.",
+      "geopolitique": "Frontière avec les USA : la plus importante du monde en échanges commerciaux. Pivot entre Amérique du Nord et Amérique latine. Hub migratoire vers les USA. Influence au sein du bloc hispanophone.",
+      "atouts": [
+        "Accès préférentiel au marché américain (USMCA)",
+        "Position de nearshoring ideal (fuseau horaire, proximité USA)",
+        "Ressources naturelles diversifiées",
+        "Tourisme de masse (plages, patrimoine précolombien)",
+        "Diaspora puissante aux USA (40 M de mexicains-américains)"
+      ],
+      "fragilites": [
+        "Cartels : Estado paralelo dans certaines régions",
+        "Dépendance excessive aux USA (80 % des exportations)",
+        "Corruption endémique",
+        "Inégalités et pauvreté persistantes",
+        "Crise de l'eau dans le Nord"
+      ]
+    }
+  },
+
+  "AU": {
+    "name": "Australie",
+    "flag": "🇦🇺",
+    "capitale": "Canberra",
+    "continent": "Océanie",
+    "population": "26,5 millions (2024)",
+    "superficie": "7 692 024 km² (6e mondial)",
+    "langues": ["Anglais (de facto, 98 % locuteurs)", "250+ langues aborigènes (patrimoine menacé)", "Mandarin, arabe, cantonais (communautés immigrées)"],
+    "monnaie": "Dollar australien (AUD)",
+
+    "histoire": {
+      "independance": "1er janvier 1901 (Fédération des colonies britanniques — Commonwealth d'Australie). Statut de Westminster en 1931 (pleine autonomie). Loi sur l'Australie en 1986 (indépendance législative complète).",
+      "evenements_majeurs": [
+        "Peuplement des Peuples Premiers (Aboriginal et Torres Strait Islanders) depuis 65 000 ans — la plus longue civilisation continue",
+        "Arrivée du capitaine Cook (1770) et colonisation britannique",
+        "Établissement de la colonie pénitentiaire de Sydney (1788)",
+        "Génocide et dépossession des Peuples Premiers (XIXe s.)",
+        "Ruée vers l'or (1850s) : boom économique et immigration",
+        "Fédération (1901)",
+        "Deux guerres mondiales : Gallipoli (1915) — mythe fondateur",
+        "Politique de l'Australie Blanche (immigration restrictive, 1901-1973)",
+        "Rapprochement avec les USA (alliance ANZUS) et l'Asie (depuis 1970s)",
+        "Excuses officielles aux Peuples Premiers (Kevin Rudd, 2008)",
+        "Accord AUKUS (2021) : sous-marins nucléaires avec USA et UK",
+        "Référendum sur la Voix des Peuples Premiers (rejeté, octobre 2023)"
+      ],
+      "role_historique": "Démocratie libérale stable aux antipodes. Modèle d'immigration multiculturelle (depuis 1973). Gardienne du Pacifique Sud. Puissance minière mondiale. Partenaire clé de l'alliance indo-pacifique contre l'influence chinoise."
+    },
+
+    "politique": {
+      "regime": "Monarchie constitutionnelle fédérale parlementaire. Roi Charles III représenté par le Gouverneur général. Parlement bicaméral (Sénat + Chambre des Représentants). 6 États + 2 territoires.",
+      "chef_etat": "Roi Charles III (représenté par la Gouverneure générale Sam Mostyn depuis 2024). Anthony Albanese (Premier ministre depuis mai 2022, Parti Travailliste).",
+      "stabilite": "Démocratie très stable. Vote obligatoire. Alternance régulière. Pression croissante sur les questions climatiques, indigènes, et sur le positionnement face à la Chine.",
+      "alliances": [
+        "Five Eyes (renseignement avec USA, UK, Canada, NZ)",
+        "AUKUS (sous-marins nucléaires — accord stratégique majeur)",
+        "Quad (avec USA, Japon, Inde)",
+        "Commonwealth des Nations",
+        "ANZUS (Australie, NZ, USA)",
+        "APEC, ASEAN dialogue partner"
+      ]
+    },
+
+    "economie": {
+      "pib": "1 707 milliards $ (2023, 12e mondial)",
+      "pib_hab": "64 800 $ (2023)",
+      "ressources": [
+        "Minerai de fer (1er exportateur mondial — Pilbara)",
+        "Charbon (2e exportateur mondial)",
+        "Gaz naturel liquéfié (GNL) : 2e exportateur mondial",
+        "Or (2e producteur mondial)",
+        "Lithium (1er producteur mondial depuis 2022)",
+        "Uranium (2e réserves mondiales)",
+        "Blé (5e exportateur mondial)",
+        "Bœuf (3e exportateur mondial)"
+      ],
+      "secteurs": [
+        "Mines et ressources naturelles (pilier de l'économie)",
+        "Agriculture et élevage (laine, bœuf, blé, vin)",
+        "Services financiers (Sydney : hub financier du Pacifique)",
+        "Éducation internationale (3e destination mondiale — 750 000 étudiants étrangers)",
+        "Tourisme (Grande Barrière de Corail, Uluru, villes côtières)"
+      ],
+      "grandes_villes": [
+        "Sydney (5,3 M, hub financier, touristique, culturel)",
+        "Melbourne (5,1 M, culture, gastronomie, sport, finance)",
+        "Brisbane (2,6 M, JO 2032)",
+        "Perth (2,1 M, gateway vers l'Asie, mines d'or et de fer)",
+        "Canberra (500 000, capitale politique et scientifique)"
+      ],
+      "places_economiques": [
+        "Australian Securities Exchange (ASX, Sydney) : hub Pacifique",
+        "Reserve Bank of Australia (RBA)",
+        "Port de Dampier et Port Hedland (fer — 2e port mondial en tonnage)"
+      ],
+      "voies_communication": [
+        "Ports : Port Hedland (minerai de fer — 2e mondial en tonnage), Gladstone (charbon), Brisbane",
+        "Aéroport de Sydney (SYD) et Melbourne (MEL) : hubs intercontinentaux",
+        "Indian Pacific et The Ghan (trains transcontinentaux légendaires)",
+        "Réseau routier : 1e en km² par habitant"
+      ]
+    },
+
+    "societe": {
+      "demographie": "Croissance démographique soutenue par l'immigration (+2 %/an). Immigration très sélective et compétitive. Société multiculturelle : 30 % nés à l'étranger. Peuples Premiers : 3,8 % de la population.",
+      "idh": "0,946 (rang 10/191 en 2022, catégorie « très élevé »)",
+      "education": "Système scolaire de haute qualité. 8 universités dans le top 100 mondial (ANU, Université de Melbourne, UNSW…). 3e destination mondiale pour les étudiants étrangers. Enseignement public et privé de bon niveau.",
+      "sante": "Espérance de vie 84 ans (parmi les plus élevées au monde). Medicare : système de santé universel. Système de santé très performant. Problèmes : accès dans les zones rurales, santé mentale.",
+      "inegalites": "Gini ~0,34 (inégalités modérées). Mais écarts croissants immobiliers (Sydney : parmi les marchés les moins abordables au monde). Inégalités persistantes pour les Peuples Premiers (espérance de vie 8-10 ans inférieure).",
+      "urbanisation": "86,4 % (2023). Très concentré sur les côtes (95 % de la population). Intérieur quasi-inhabité."
+    },
+
+    "environnement": {
+      "pollution": "Émissions CO₂ élevées par habitant (14-15 t CO₂/an — très élevé, dépendance au charbon). Grands incendies de brousse (Black Summer 2019-20 : 18 millions d'hectares brûlés).",
+      "dev_durable": "Transition vers les renouvelables en accélération (objectif 82 % d'électricité renouvelable en 2030). Leader mondial du lithium (essentiel aux batteries VE). Grande Barrière de Corail en danger (blanchissement corallien lié au réchauffement). Tension entre intérêts miniers (charbon) et urgence climatique.",
+      "recherche": "9e investisseur en R&D. CSIRO : institution de recherche de rang mondial (Wi-Fi inventé en Australie !). Excellence en science marine, agro-science, biomédical. ANSTO (nucléaire civil).",
+      "militaire": "Budget ~32 Mds $ (en forte hausse). 60 000 actifs. AUKUS : acquisition de sous-marins nucléaires (révolution stratégique). Forces projetables dans l'Indo-Pacifique. Participation aux coalitions USA.",
+      "defis": [
+        "Changement climatique : incendies, cyclones, sécheresses, blanchissement des coraux",
+        "Dépendance économique à la Chine (35 % des exportations) et tension géopolitique simultanée",
+        "Accès à l'eau dans l'intérieur (sécheresses)",
+        "Réconciliation avec les Peuples Premiers",
+        "Crise du logement (marchés immobiliers hors de prix)"
+      ]
+    },
+
+    "importance": {
+      "historique": "Gardienne du Pacifique Sud. Modèle de démocratie libérale multiculturelle. Expérience de colonisation et de réconciliation indigène (leçons pour le monde).",
+      "economique": "1er exportateur mondial de lithium, minerai de fer et GNL. 12e économie mondiale. Hub éducatif et financier de l'Océanie.",
+      "geopolitique": "Pivot de l'alliance indo-pacifique (AUKUS, Quad). Contrepoids à l'influence chinoise dans le Pacifique. Five Eyes : renseignement Pacifique. Maillon entre Occident et Asie.",
+      "atouts": [
+        "Ressources minières critiques (lithium, fer, GNL, uranium) — atouts de la transition énergétique",
+        "Stabilité démocratique irréprochable",
+        "Alliance stratégique avec les USA (AUKUS, Five Eyes)",
+        "Population qualifiée et multiculturelle",
+        "Espace stratégique immense dans l'Indo-Pacifique"
+      ],
+      "fragilites": [
+        "Dépendance économique à la Chine (client principal) alors que géopolitiquement adversaire",
+        "Vulnérabilité au changement climatique (incendies, coraux)",
+        "Population trop petite pour son territoire immense",
+        "Dépendance aux ressources extractives (charbon, fer)",
+        "Éloignement géographique des centres du pouvoir mondial"
+      ]
+    }
+  }
+}

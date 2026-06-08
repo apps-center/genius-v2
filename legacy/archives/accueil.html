@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>L'Encyclopédie des Explorateurs</title>
+<link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;700;900&family=Crimson+Pro:ital,wght@0,300;0,400;0,600;1,300&display=swap" rel="stylesheet">
+<style>
+@font-face{font-family:'Cinzel';font-display:swap;}
+@font-face{font-family:'Crimson Pro';font-display:swap;}
+:root{--bg:#060a14;--star:#e8dfc4;--gold:#d4a843;--line:rgba(200,180,120,.18);--card-bg:rgba(10,18,36,.92);}
+*{box-sizing:border-box;margin:0;padding:0;}
+html{scroll-behavior:smooth;}
+body{background:var(--bg);color:var(--star);font-family:'Crimson Pro',Georgia,serif;min-height:100vh;overflow-x:hidden;}
+#stars{position:fixed;inset:0;z-index:0;pointer-events:none;}
+header{position:relative;z-index:10;text-align:center;padding:72px 20px 52px;}
+.over-title{font-size:.72rem;letter-spacing:.42em;text-transform:uppercase;color:rgba(212,168,67,.6);margin-bottom:18px;font-family:'Cinzel',serif;}
+h1{font-family:'Cinzel',serif;font-size:clamp(2rem,6vw,4rem);font-weight:900;line-height:1.08;background:linear-gradient(135deg,#f5e6a3,#d4a843 38%,#f0c060 65%,#fff8e0);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;-webkit-backface-visibility:hidden;backface-visibility:hidden;}
+.tagline{margin-top:16px;font-size:1.05rem;color:rgba(232,223,196,.48);font-style:italic;letter-spacing:.02em;}
+.header-deco{display:flex;align-items:center;justify-content:center;gap:18px;margin-top:28px;}
+.header-deco::before,.header-deco::after{content:'';flex:1;max-width:220px;height:1px;background:linear-gradient(to right,transparent,rgba(212,168,67,.35),transparent);}
+.header-deco span{font-family:'Cinzel',serif;font-size:.6rem;letter-spacing:.3em;color:rgba(212,168,67,.4);text-transform:uppercase;}
+.grid-section{position:relative;z-index:10;max-width:1100px;margin:0 auto;padding:12px 28px 100px;}
+.section-label{font-family:'Cinzel',serif;font-size:.62rem;letter-spacing:.34em;text-transform:uppercase;color:rgba(212,168,67,.38);margin-bottom:28px;text-align:center;}
+.grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(300px,1fr));gap:24px;}
+.card{position:relative;background:var(--card-bg);border:1px solid rgba(200,180,120,.14);border-radius:6px;padding:32px 28px 28px;cursor:pointer;text-decoration:none;color:inherit;display:flex;flex-direction:column;gap:14px;overflow:hidden;transition:transform .28s cubic-bezier(.22,1,.36,1),border-color .25s,box-shadow .28s;opacity:0;transform:translateY(22px);will-change:transform,opacity;}
+.card.vis{opacity:1;transform:none;}
+.card:hover{transform:translateY(-4px) scale(1.012);border-color:rgba(200,180,120,.38);box-shadow:0 0 40px rgba(200,160,60,.1),0 8px 32px rgba(0,0,0,.5);}
+.card.coming{cursor:default;opacity:.55;}
+.card.coming:hover{transform:none;box-shadow:none;border-color:rgba(200,180,120,.14);}
+.card::before{content:'';position:absolute;inset:0;opacity:.06;border-radius:6px;background:var(--accent-grad);pointer-events:none;transition:opacity .3s;}
+.card:hover::before{opacity:.11;}
+.card.coming::before{opacity:.04;}
+.card-icon{width:52px;height:52px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:1.6rem;background:rgba(0,0,0,.3);border:1px solid rgba(200,180,120,.15);flex-shrink:0;position:relative;z-index:1;}
+.badge{position:absolute;top:20px;right:20px;font-family:'Cinzel',serif;font-size:.52rem;letter-spacing:.2em;text-transform:uppercase;padding:4px 10px;border-radius:3px;background:rgba(212,168,67,.12);border:1px solid rgba(212,168,67,.3);color:var(--gold);}
+.badge.coming-badge{background:rgba(180,180,200,.08);border-color:rgba(200,180,120,.18);color:rgba(232,223,196,.3);}
+.card-title{font-family:'Cinzel',serif;font-size:1.12rem;font-weight:700;letter-spacing:.06em;color:var(--star);position:relative;z-index:1;-webkit-backface-visibility:hidden;backface-visibility:hidden;}
+.card-desc{font-size:.9rem;line-height:1.55;color:rgba(232,223,196,.52);position:relative;z-index:1;flex:1;}
+.card-tags{display:flex;flex-wrap:wrap;gap:6px;position:relative;z-index:1;}
+.tag{font-size:.58rem;letter-spacing:.14em;text-transform:uppercase;padding:3px 9px;border-radius:2px;border:1px solid rgba(200,180,120,.18);color:rgba(232,223,196,.4);}
+.card-arrow{position:absolute;bottom:22px;right:24px;font-size:.85rem;color:rgba(212,168,67,.35);transition:transform .22s,color .22s;z-index:1;}
+.card:hover .card-arrow{transform:translateX(4px);color:rgba(212,168,67,.8);}
+.card.coming .card-arrow{display:none;}
+/* FLASHCARDS BANNER */
+.flashcards-banner{display:flex;flex-direction:row;align-items:center;justify-content:space-between;gap:20px;margin-bottom:40px;padding:24px 28px;}
+.flashcards-banner-inner{display:flex;align-items:center;gap:18px;flex:1;}
+.flashcards-banner .card-icon{width:52px;height:52px;font-size:1.8rem;}
+.flashcards-banner .card-arrow{position:static;font-size:1.2rem;flex-shrink:0;}
+.flashcards-banner:hover .card-arrow{transform:translateX(4px);color:rgba(212,168,67,.8);}
+@media(max-width:600px){.flashcards-banner{flex-direction:column;align-items:flex-start;}.flashcards-banner .card-arrow{align-self:flex-end;}}
+footer{position:relative;z-index:10;text-align:center;padding:32px 20px 48px;border-top:1px solid var(--line);}
+footer p{font-size:.72rem;letter-spacing:.15em;text-transform:uppercase;color:rgba(232,223,196,.2);}
+</style>
+</head>
+<body>
+<canvas id="stars"></canvas>
+<header>
+  <div class="over-title">Portail des savoirs</div>
+  <h1>L'Encyclopédie<br>des Explorateurs</h1>
+  <p class="tagline">Voyage à travers l'histoire, la géographie et les sciences</p>
+  <div class="header-deco"><span>✦</span></div>
+</header>
+<section class="grid-section">
+  <!-- FLASHCARDS BANNER -->
+  <div class="section-label">Entraînement</div>
+  <a class="card flashcards-banner" href="flashcards/index.html" style="--accent-grad:linear-gradient(135deg,#6b1a1a,#4a3a0a)">
+    <div class="badge">Disponible</div>
+    <div class="flashcards-banner-inner">
+      <div class="card-icon">🃏</div>
+      <div>
+        <div class="card-title">Flashcards — Teste tes connaissances</div>
+        <div class="card-desc" style="margin-top:6px;">Histoire, géographie, maths, sciences — cartes à retourner, score, mode <strong style="color:var(--gold);font-style:normal;">⚡ Genius</strong> pour tout mélanger.</div>
+        <div class="card-tags" style="margin-top:10px;"><span class="tag">Histoire</span><span class="tag">Géographie</span><span class="tag">Maths</span><span class="tag">Sciences</span><span class="tag">⚡ Genius</span></div>
+      </div>
+    </div>
+    <span class="card-arrow">→</span>
+  </a>
+
+  <!-- MODULES -->
+  <div class="section-label">Modules interactifs</div>
+  <div class="grid">
+    <a class="card" href="chronologie_historique.html" style="--accent-grad:linear-gradient(135deg,#b8860b,#8b4513)">
+      <div class="badge">Disponible</div>
+      <div class="card-icon">📜</div>
+      <div class="card-title">Chronologie Historique</div>
+      <div class="card-desc">Remonte le temps des grandes civilisations jusqu'à l'époque contemporaine. Empires, révolutions, découvertes&nbsp;— toute l'histoire du monde sur une frise interactive.</div>
+      <div class="card-tags"><span class="tag">Antiquité</span><span class="tag">Moyen Âge</span><span class="tag">Moderne</span><span class="tag">Contemporain</span></div>
+      <span class="card-arrow">→</span>
+    </a>
+    <a class="card" href="atlas_geopolitique.html" style="--accent-grad:linear-gradient(135deg,#1a6b4a,#0d4a6b)">
+      <div class="badge">Disponible</div>
+      <div class="card-icon">🌍</div>
+      <div class="card-title">Atlas Géopolitique</div>
+      <div class="card-desc">Explore les nations, les continents et les grandes dynamiques économiques mondiales. Superficie, population, PIB, richesses naturelles&nbsp;— la Terre comme tu ne l'as jamais vue.</div>
+      <div class="card-tags"><span class="tag">Géographie</span><span class="tag">Économie</span><span class="tag">Capitales</span><span class="tag">Continents</span></div>
+      <span class="card-arrow">→</span>
+    </a>
+    <div class="card coming" style="--accent-grad:linear-gradient(135deg,#4a1a6b,#1a2b6b)">
+      <div class="badge coming-badge">À venir</div>
+      <div class="card-icon">🔢</div>
+      <div class="card-title">Mathématiques</div>
+      <div class="card-desc">Nombres, géométrie, algèbre, probabilités&nbsp;— apprends les maths à travers des exercices interactifs et des visualisations animées.</div>
+      <div class="card-tags"><span class="tag">Calcul</span><span class="tag">Géométrie</span><span class="tag">Logique</span></div>
+    </div>
+    <div class="card coming" style="--accent-grad:linear-gradient(135deg,#1a4a2a,#3a2a0a)">
+      <div class="badge coming-badge">À venir</div>
+      <div class="card-icon">🔬</div>
+      <div class="card-title">Sciences & Nature</div>
+      <div class="card-desc">SVT, physique, chimie&nbsp;— le vivant, la matière et l'énergie décryptés. Du noyau atomique aux écosystèmes, de la cellule à la galaxie.</div>
+      <div class="card-tags"><span class="tag">SVT</span><span class="tag">Physique</span><span class="tag">Chimie</span></div>
+    </div>
+  </div>
+</section>
+<footer>
+  <p>L'Encyclopédie des Explorateurs &nbsp;·&nbsp; Culture générale interactive</p>
+</footer>
+<script>
+(function(){
+  const c=document.getElementById('stars'),ctx=c.getContext('2d');
+  let W,H,stars=[];
+  function resize(){W=c.width=innerWidth;H=c.height=innerHeight;}
+  function init(){stars=[];for(let i=0;i<220;i++)stars.push({x:Math.random()*W,y:Math.random()*H,r:Math.random()*1.1+.2,a:Math.random()*.7+.15,sp:Math.random()*.4+.1,ph:Math.random()*Math.PI*2});}
+  function draw(t){ctx.clearRect(0,0,W,H);stars.forEach(s=>{const a=s.a*(0.6+0.4*Math.sin(t*.001*s.sp+s.ph));ctx.beginPath();ctx.arc(s.x,s.y,s.r,0,Math.PI*2);ctx.fillStyle=`rgba(240,230,190,${a})`;ctx.fill();});requestAnimationFrame(draw);}
+  window.addEventListener('resize',()=>{resize();init();});
+  resize();init();requestAnimationFrame(draw);
+})();
+const io=new IntersectionObserver(entries=>{
+  entries.forEach((e,i)=>{if(e.isIntersecting){setTimeout(()=>e.target.classList.add('vis'),i*90);io.unobserve(e.target);}});
+},{threshold:.12});
+document.querySelectorAll('.card').forEach(c=>io.observe(c));
+</script>
+</body>
+</html>

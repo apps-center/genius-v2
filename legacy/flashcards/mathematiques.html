@@ -1,0 +1,716 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Flashcards Mathématiques — L'Encyclopédie des Explorateurs</title>
+<link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;700;900&family=Crimson+Pro:ital,wght@0,300;0,400;1,300&display=swap" rel="stylesheet">
+<style>
+:root {
+  --bg: #060a14; --gold: #d4a843; --gold-dim: rgba(200,180,120,0.18);
+  --text: #e8dfc4; --text-dim: rgba(232,223,196,0.48);
+  --card-bg: rgba(8,13,26,0.94); --border: rgba(200,180,120,0.18);
+  --blue: #4a9edd; --blue-dim: rgba(74,158,221,0.15);
+}
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+body { background: var(--bg); color: var(--text); font-family: 'Crimson Pro', Georgia, serif; min-height: 100vh; overflow-x: hidden; user-select: none; }
+#stars-canvas { position: fixed; inset: 0; z-index: 0; pointer-events: none; }
+.content { position: relative; z-index: 1; }
+
+/* BACK */
+.back{position:fixed;top:22px;left:24px;z-index:100;font-family:'Cinzel',serif;font-size:.6rem;letter-spacing:.25em;text-transform:uppercase;color:rgba(212,168,67,.5);text-decoration:none;display:flex;align-items:center;gap:8px;transition:color .2s;}
+.back:hover{color:#d4a843;}
+
+/* HEADER */
+header { text-align: center; padding: 52px 20px 28px; }
+.enc-label { font-size: .72rem; letter-spacing: .38em; text-transform: uppercase; color: var(--text-dim); margin-bottom: 14px; }
+h1 { font-family: 'Cinzel', serif; font-weight: 900; font-size: clamp(1.7rem, 4.5vw, 3.2rem); background: linear-gradient(135deg, #a8d8f0, #4a9edd 38%, #7bc4f0 68%, #e0f4ff); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; line-height: 1.1; }
+.tagline { margin-top: 10px; font-size: .95rem; color: var(--text-dim); font-style: italic; }
+.divider { height: 1px; background: var(--gold-dim); max-width: 300px; margin: 20px auto; }
+
+/* FILTRE THÈME */
+.filter-bar { display: flex; gap: 8px; justify-content: center; flex-wrap: wrap; padding: 0 20px 20px; max-width: 700px; margin: 0 auto; }
+.filter-btn { font-family: 'Cinzel', serif; font-size: .55rem; letter-spacing: .16em; text-transform: uppercase; padding: 6px 14px; border-radius: 3px; border: 1px solid var(--border); background: rgba(6,10,20,.9); color: var(--text-dim); cursor: pointer; transition: all .2s; }
+.filter-btn:hover, .filter-btn.active { border-color: rgba(74,158,221,.6); color: var(--blue); background: rgba(74,158,221,.08); }
+.filter-btn.active { box-shadow: 0 0 12px rgba(74,158,221,.15); }
+
+/* LEVEL FILTER */
+.level-bar { display: flex; flex-wrap: wrap; justify-content: center; gap: 8px; max-width: 680px; margin: 8px auto 0; padding: 0 20px; }
+.filter-bar-wrap { max-width: 680px; margin: 0 auto; padding: 0 20px; }
+.filter-bar-label { font-family: 'Cinzel', serif; font-size: .52rem; letter-spacing: .28em; text-transform: uppercase; color: rgba(212,168,67,.35); text-align: center; margin-bottom: 8px; }
+.filter-bar-label + .filter-bar { justify-content: center; flex-wrap: wrap; gap: 7px; display: flex; margin: 0 0 6px; }
+.lv-btn { font-family: 'Cinzel', serif; font-size: .58rem; letter-spacing: .16em; text-transform: uppercase; padding: 7px 16px; border-radius: 20px; border: 1px solid rgba(212,168,67,.2); background: rgba(6,10,20,.9); color: rgba(212,168,67,.45); cursor: pointer; transition: all .22s; white-space: nowrap; }
+.lv-btn:hover { border-color: rgba(212,168,67,.55); color: rgba(212,168,67,.85); background: rgba(212,168,67,.07); }
+.lv-btn.active { border-color: rgba(212,168,67,.8); color: var(--gold); background: rgba(212,168,67,.13); box-shadow: 0 0 14px rgba(212,168,67,.18); }
+.level-count { text-align: center; font-size: .68rem; color: rgba(232,223,196,.28); font-style: italic; margin: 6px 0 14px; }
+.filter-sep { width: 100%; max-width: 300px; margin: 8px auto 10px; height: 1px; background: linear-gradient(to right, transparent, rgba(200,180,120,.15), transparent); }
+
+/* PROGRESS */
+.progress-wrap { max-width: 520px; margin: 0 auto 28px; text-align: center; }
+.progress-text { font-family: 'Cinzel', serif; font-size: .72rem; letter-spacing: .2em; text-transform: uppercase; color: var(--text-dim); margin-bottom: 10px; }
+.progress-bar { height: 2px; background: var(--gold-dim); border-radius: 2px; overflow: hidden; }
+.progress-fill { height: 100%; background: var(--blue); transition: width .4s ease; border-radius: 2px; }
+
+/* FLASHCARD */
+.stage { display: flex; justify-content: center; align-items: center; perspective: 1200px; padding: 8px 0 20px; }
+.fc-wrap {
+  width: 420px; max-width: 88vw; height: 480px;
+  position: relative; transform-style: preserve-3d;
+  transition: transform .6s cubic-bezier(0.34, 1.4, 0.64, 1);
+  cursor: pointer;
+  will-change: transform;
+}
+.fc-wrap.flipped { transform: rotateY(180deg); }
+.fc-wrap.no-anim { transition: none !important; }
+
+.face {
+  position: absolute; inset: 0; border-radius: 14px;
+  backface-visibility: hidden; -webkit-backface-visibility: hidden;
+  border: 1px solid var(--border);
+  box-shadow: 0 20px 60px rgba(0,0,0,.7), 0 0 0 1px rgba(200,180,120,.06);
+  overflow: hidden;
+  transform: translateZ(0);
+}
+
+/* RECTO — question */
+.face-front {
+  background: var(--card-bg);
+  display: flex; flex-direction: column;
+  align-items: center; justify-content: center;
+  text-align: center; padding: 40px 36px 24px;
+}
+.face-front::before { content: ''; position: absolute; inset: 0; border-radius: 14px; background: radial-gradient(ellipse at 50% 0%, rgba(74,158,221,.06) 0%, transparent 65%); pointer-events: none; }
+
+/* figure géométrique SVG */
+.face-front.has-svg { padding: 0; justify-content: flex-start; }
+.svg-zone { width: 100%; height: 220px; display: flex; align-items: center; justify-content: center; background: rgba(4,10,24,.7); border-bottom: 1px solid var(--border); flex-shrink:0; }
+.svg-zone svg { max-height: 200px; max-width: 90%; }
+.face-front.has-svg .q-inner { padding: 18px 28px 60px; display:flex; flex-direction:column; align-items:center; gap:12px; }
+.face-front:not(.has-svg) .q-inner { display:flex; flex-direction:column; align-items:center; gap:16px; padding-bottom:60px; }
+.q-category { font-size: .6rem; letter-spacing: .24em; text-transform: uppercase; color: var(--blue); border: 1px solid rgba(74,158,221,.35); padding: 4px 14px; border-radius: 3px; margin-bottom: 28px; opacity: .9; }
+.q-text { font-family: 'Cinzel', serif; font-size: 1.05rem; font-weight: 700; color: var(--text); line-height: 1.55; }
+.q-sub { font-size: .88rem; color: var(--text-dim); font-style: italic; margin-top: 12px; font-family: 'Crimson Pro', serif; }
+.front-footer { position: absolute; bottom: 0; left: 0; right: 0; display: flex; align-items: center; justify-content: center; gap: 10px; padding: 12px 20px; border-top: 1px solid var(--border); background: rgba(6,10,20,.6); }
+.flip-hint { font-size: .7rem; letter-spacing: .2em; text-transform: uppercase; color: var(--text-dim); }
+.flip-arrow { color: var(--gold); opacity: .7; font-size: 1rem; }
+
+/* VERSO — réponse */
+.face-back {
+  transform: rotateY(180deg);
+  background: linear-gradient(145deg, #0a1220 0%, #0d1f38 50%, #0a1628 100%);
+  display: flex; flex-direction: column; align-items: center; justify-content: center;
+  text-align: center; padding: 44px 36px; border-color: rgba(74,158,221,.3);
+}
+.face-back::before { content: ''; position: absolute; inset: 0; border-radius: 14px; background: radial-gradient(ellipse at 50% 20%, rgba(74,158,221,.07) 0%, transparent 65%); pointer-events: none; }
+.b-category { font-size: .6rem; letter-spacing: .22em; text-transform: uppercase; color: var(--blue); border: 1px solid rgba(74,158,221,.4); padding: 4px 16px; border-radius: 3px; margin-bottom: 24px; opacity: .9; }
+.b-answer { font-family: 'Cinzel', serif; font-size: 1.6rem; font-weight: 900; background: linear-gradient(135deg, #a8d8f0, #4a9edd); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; margin-bottom: 18px; line-height: 1.3; }
+.b-question { font-family: 'Cinzel', serif; font-size: .88rem; font-weight: 700; color: rgba(232,223,196,.55); line-height: 1.4; margin-bottom: 18px; }
+.b-explain { font-size: .92rem; line-height: 1.75; color: rgba(232,223,196,.58); font-style: italic; max-width: 300px; }
+
+/* OVERLAY — used only for card change (not for flip) */
+.overlay { position: absolute; inset: 0; border-radius: 14px; background: rgba(6,10,20,.95); z-index: 30; opacity: 0; pointer-events: none; transition: opacity 0.18s ease; }
+.overlay.dark { opacity: 1; }
+@keyframes iris {
+  from { clip-path: inset(50% 50% 50% 50% round 8px); opacity: 0; }
+  to   { clip-path: inset(0% 0% 0% 0% round 14px); opacity: 1; }
+}
+.face-front.iris { animation: iris 0.4s cubic-bezier(0.34, 1.2, 0.64, 1) forwards; }
+
+/* BUTTONS */
+.controls { display: flex; justify-content: center; gap: 12px; margin-top: 20px; flex-wrap: wrap; }
+.btn { font-family: 'Cinzel', serif; font-size: .72rem; letter-spacing: .18em; text-transform: uppercase; padding: 11px 26px; border-radius: 4px; border: 1px solid var(--border); background: rgba(6,10,20,.9); color: var(--text-dim); cursor: pointer; transition: all .2s; }
+.btn:hover { border-color: rgba(200,180,120,.5); color: var(--text); background: rgba(200,180,120,.07); }
+.btn-gold { border-color: rgba(212,168,67,.6); color: var(--gold); background: rgba(212,168,67,.07); }
+.btn-gold:hover { background: rgba(212,168,67,.16); box-shadow: 0 0 18px rgba(212,168,67,.2); }
+.btn-green { border-color: rgba(94,196,138,.5); color: #5ec48a; }
+.btn-green:hover { background: rgba(94,196,138,.1); }
+.btn-red { border-color: rgba(232,80,80,.5); color: #e84848; }
+.btn-red:hover { background: rgba(232,80,80,.1); }
+.review-row { display: flex; justify-content: center; gap: 12px; margin-top: 12px; flex-wrap: wrap; }
+.review-label { text-align: center; margin-top: 16px; font-size: .65rem; letter-spacing: .18em; text-transform: uppercase; color: var(--text-dim); }
+
+/* COUNTERS */
+.known-bar { max-width: 520px; margin: 20px auto 0; display: flex; gap: 20px; justify-content: center; }
+.known-stat { font-family: 'Cinzel', serif; font-size: .68rem; letter-spacing: .14em; text-transform: uppercase; color: var(--text-dim); }
+.known-stat span { color: var(--text); font-weight: 700; }
+
+/* STRIP */
+.strip { display: flex; gap: 8px; overflow-x: auto; padding: 12px 20px; scrollbar-width: none; }
+.strip::-webkit-scrollbar { display: none; }
+.thumb-text { width: 52px; height: 38px; border-radius: 4px; border: 1px solid var(--border); flex-shrink: 0; opacity: .45; transition: opacity .2s; cursor: pointer; background: rgba(74,158,221,.1); display:flex; align-items:center; justify-content:center; font-size:.55rem; font-family:'Cinzel',serif; color:rgba(74,158,221,.7); text-align:center; padding:2px; }
+.thumb-text:hover { opacity: .7; }
+.thumb-text.cur { opacity: 1; border-color: var(--blue); }
+
+@media (max-width: 600px) {
+  .fc-wrap { height: 440px; }
+  .b-answer { font-size: 1.25rem; }
+}
+</style>
+</head>
+<body>
+<canvas id="stars-canvas"></canvas>
+<a class="back" href="/flashcards/index.html">← Flashcards</a>
+<div class="content">
+
+  <header>
+    <div class="enc-label">L'Encyclopédie des Explorateurs</div>
+    <h1>Flashcards Mathématiques</h1>
+    <div class="tagline">Définitions, formules, méthodes — maîtrise les bases</div>
+  </header>
+
+  <!-- FILTRE PAR NIVEAU -->
+  <div style="max-width:680px;margin:0 auto;padding:0 20px;">
+    <div class="filter-bar-label">Filtrer par niveau</div>
+    <div class="level-bar">
+      <button class="lv-btn active" onclick="setLevel('all')"       id="lv-all">⭐ Tous niveaux</button>
+      <button class="lv-btn"        onclick="setLevel('6e')"        id="lv-6e">📚 Primaire & 6ème</button>
+      <button class="lv-btn"        onclick="setLevel('5e')"        id="lv-5e">🟢 5ème</button>
+      <button class="lv-btn"        onclick="setLevel('4e')"        id="lv-4e">🟡 4ème</button>
+      <button class="lv-btn"        onclick="setLevel('3e')"        id="lv-3e">🔴 3ème</button>
+    </div>
+    <div class="level-count" id="level-count">132 cartes — tous niveaux</div>
+  </div>
+
+  <div class="filter-sep"></div>
+
+  <!-- FILTRE PAR CATÉGORIE -->
+  <div class="filter-bar" id="filter-bar">
+    <button class="filter-btn active" onclick="filterBy('all')">Tout</button>
+    <button class="filter-btn" onclick="filterBy('Fractions')">Fractions</button>
+    <button class="filter-btn" onclick="filterBy('Arithmétique')">Arithmétique</button>
+    <button class="filter-btn" onclick="filterBy('Nombres relatifs')">Relatifs</button>
+    <button class="filter-btn" onclick="filterBy('Proportionnalité')">Proportionnalité</button>
+    <button class="filter-btn" onclick="filterBy('Algèbre')">Algèbre</button>
+    <button class="filter-btn" onclick="filterBy('Géométrie')">Géométrie</button>
+    <button class="filter-btn" onclick="filterBy('Grandeurs')">Grandeurs</button>
+    <button class="filter-btn" onclick="filterBy('Numération')">Numération</button>
+    <button class="filter-btn" onclick="filterBy('Statistiques')">Statistiques</button>
+    <button class="filter-btn" onclick="filterBy('Probabilités')">Probabilités</button>
+    <button class="filter-btn" onclick="filterBy('Fonctions')">Fonctions</button>
+    <button class="filter-btn" onclick="filterBy('Puissances')">Puissances</button>
+  </div>
+
+  <div style="padding: 0 20px 80px;">
+
+    <div class="progress-wrap">
+      <div class="progress-text" id="p-text">Carte 1 / 101</div>
+      <div class="progress-bar"><div class="progress-fill" id="p-fill" style="width:0%"></div></div>
+    </div>
+
+    <div class="stage">
+      <div class="fc-wrap" id="fc" onclick="flipCard()">
+        <div class="overlay" id="overlay"></div>
+        <div class="face face-front" id="front">
+          <div class="svg-zone" id="fc-svg" style="display:none"></div>
+          <div class="q-inner">
+            <div class="q-category" id="fc-cat"></div>
+            <div class="q-text" id="fc-q"></div>
+            <div class="q-sub" id="fc-sub"></div>
+          </div>
+          <div class="front-footer">
+            <span class="flip-arrow">↩</span>
+            <span class="flip-hint">Cliquez pour révéler</span>
+          </div>
+        </div>
+        <div class="face face-back">
+          <div class="b-category" id="fc-cat2"></div>
+          <div class="b-question" id="fc-q2"></div>
+          <div class="b-answer" id="fc-ans"></div>
+          <div class="b-explain" id="fc-exp"></div>
+        </div>
+      </div>
+    </div>
+
+    <div class="controls">
+      <button class="btn" onclick="prevCard()">← Précédente</button>
+      <button class="btn btn-gold" onclick="nextCard()">Suivante →</button>
+      <button class="btn" onclick="shuffleCards()">🔀 Mélanger</button>
+    </div>
+
+    <div class="review-label">Après avoir révélé la carte :</div>
+    <div class="review-row">
+      <button class="btn btn-green" onclick="markKnown()">✓ Je savais</button>
+      <button class="btn btn-red" onclick="markReview()">↩ À revoir</button>
+    </div>
+
+    <div class="known-bar">
+      <div class="known-stat">Connues : <span id="k-count">0</span></div>
+      <div class="known-stat">À revoir : <span id="r-count">0</span></div>
+      <div class="known-stat">Restantes : <span id="rem-count">100</span></div>
+    </div>
+
+    <div class="divider"></div>
+    <div class="strip" id="strip"></div>
+  </div>
+
+</div>
+<script>
+const ALL_CARDS = [
+  // ── FRACTIONS (15 cartes) ──────────────────────────────────────────────
+  { id:1,  cat:"Fractions", q:"Qu'est-ce qu'une fraction irréductible ?", ans:"Une fraction dont numérateur et dénominateur n'ont aucun diviseur commun autre que 1.", exp:"Ex : 3/4 est irréductible. 6/8 ne l'est pas car on peut simplifier par 2." , lv:"6e"},
+  { id:2,  cat:"Fractions", q:"Comment simplifier 18/24 ?", ans:"3/4", exp:"On divise numérateur et dénominateur par leur PGCD = 6. 18÷6 = 3, 24÷6 = 4." , lv:"6e"},
+  { id:3,  cat:"Fractions", q:"Comment comparer 3/4 et 5/8 ?", ans:"3/4 > 5/8", exp:"On réduit au même dénominateur : 3/4 = 6/8. Comme 6/8 > 5/8, alors 3/4 > 5/8." , lv:"5e"},
+  { id:4,  cat:"Fractions", q:"Calculer 2/5 de 30.", ans:"12", exp:"2/5 × 30 = 60/5 = 12." , lv:"6e"},
+  { id:5,  cat:"Fractions", q:"Additionner 1/3 + 1/4.", ans:"7/12", exp:"Dénominateur commun = 12. 4/12 + 3/12 = 7/12." , lv:"5e"},
+  { id:6,  cat:"Fractions", q:"Multiplier 2/3 × 3/5.", ans:"6/15 = 2/5", exp:"On multiplie numérateurs entre eux et dénominateurs entre eux : (2×3)/(3×5) = 6/15 = 2/5." , lv:"5e"},
+  { id:7,  cat:"Fractions", q:"Écriture décimale de 7/10 ?", ans:"0,7", exp:"7 divisé par 10 = 0,7." , lv:"6e"},
+  { id:8,  cat:"Fractions", q:"Peut-on faire 1/2 + 1/3 = 2/5 ?", ans:"Non !", exp:"On ne peut pas additionner les numérateurs et dénominateurs séparément. Résultat correct : 5/6." , lv:"6e"},
+  { id:9,  cat:"Fractions", q:"Quelle fraction est égale à 0,25 ?", ans:"1/4", exp:"0,25 = 25/100 = 1/4 après simplification par 25." , lv:"6e"},
+  { id:10, cat:"Fractions", q:"Calculer 3/4 − 1/3.", ans:"5/12", exp:"Dénominateur commun = 12. 9/12 − 4/12 = 5/12." , lv:"5e"},
+  { id:11, cat:"Fractions", q:"Diviser 3/4 ÷ 2.", ans:"3/8", exp:"Diviser par 2 = multiplier par 1/2. 3/4 × 1/2 = 3/8." , lv:"5e"},
+  { id:12, cat:"Fractions", q:"Simplifier 21/28.", ans:"3/4", exp:"PGCD de 21 et 28 = 7. 21÷7 = 3, 28÷7 = 4." , lv:"5e"},
+  { id:13, cat:"Fractions", q:"Quelle fraction de 60 vaut 20 ?", ans:"1/3", exp:"20/60 = 1/3." , lv:"6e"},
+  { id:14, cat:"Fractions", q:"Écrire 0,6 sous forme de fraction irréductible.", ans:"3/5", exp:"0,6 = 6/10 = 3/5 en divisant par 2." , lv:"6e"},
+  { id:15, cat:"Fractions", q:"Comparer 2/3 et 3/5.", ans:"2/3 > 3/5", exp:"Dénominateur commun = 15 : 10/15 > 9/15." , lv:"5e"},
+
+  // ── ARITHMÉTIQUE (12 cartes) ───────────────────────────────────────────
+  { id:16, cat:"Arithmétique", q:"Critère de divisibilité par 3 ?", ans:"La somme des chiffres est divisible par 3.", exp:"Ex : 123 → 1+2+3 = 6, divisible par 3. Donc 123 est divisible par 3." , lv:"6e"},
+  { id:17, cat:"Arithmétique", q:"Critère de divisibilité par 9 ?", ans:"La somme des chiffres est divisible par 9.", exp:"Ex : 729 → 7+2+9 = 18, divisible par 9." , lv:"5e"},
+  { id:18, cat:"Arithmétique", q:"Critère de divisibilité par 2 ?", ans:"Le dernier chiffre est pair (0, 2, 4, 6, 8).", exp:"Ex : 348 est divisible par 2 car il finit par 8." , lv:"6e"},
+  { id:19, cat:"Arithmétique", q:"29 est-il un nombre premier ?", ans:"Oui.", exp:"29 n'a aucun diviseur entre 2 et 5 (√29 ≈ 5,4). Il est donc premier." , lv:"6e"},
+  { id:20, cat:"Arithmétique", q:"Qu'est-ce qu'un nombre premier ?", ans:"Un entier > 1 qui n'a que 1 et lui-même comme diviseurs.", exp:"Exemples : 2, 3, 5, 7, 11, 13, 17, 19, 23..." , lv:"6e"},
+  { id:21, cat:"Arithmétique", q:"Que vaut 10³ ?", ans:"1 000", exp:"10³ = 10 × 10 × 10 = 1 000." , lv:"5e"},
+  { id:22, cat:"Arithmétique", q:"Décomposer 60 en facteurs premiers.", ans:"60 = 2² × 3 × 5", exp:"60 ÷ 2 = 30 ÷ 2 = 15 ÷ 3 = 5. Donc 2² × 3 × 5." , lv:"5e"},
+  { id:23, cat:"Arithmétique", q:"Qu'est-ce qu'un multiple de 7 ?", ans:"Un nombre obtenu en multipliant 7 par un entier.", exp:"Multiples de 7 : 7, 14, 21, 28, 35..." , lv:"6e"},
+  { id:24, cat:"Arithmétique", q:"PGCD de 12 et 18 ?", ans:"6", exp:"Diviseurs de 12 : 1,2,3,4,6,12. Diviseurs de 18 : 1,2,3,6,9,18. Le plus grand commun est 6." , lv:"4e"},
+  { id:25, cat:"Arithmétique", q:"Critère de divisibilité par 5 ?", ans:"Le dernier chiffre est 0 ou 5.", exp:"Ex : 235 et 420 sont divisibles par 5." , lv:"6e"},
+  { id:26, cat:"Arithmétique", q:"Que vaut 2⁵ ?", ans:"32", exp:"2⁵ = 2×2×2×2×2 = 32." , lv:"4e"},
+  { id:27, cat:"Arithmétique", q:"Que signifie a⁰ pour tout a ≠ 0 ?", ans:"a⁰ = 1", exp:"Toute base non nulle élevée à la puissance 0 vaut 1." , lv:"4e"},
+
+  // ── NOMBRES RELATIFS (13 cartes) ──────────────────────────────────────
+  { id:28, cat:"Nombres relatifs", q:"Quel est l'opposé de −8 ?", ans:"+8", exp:"L'opposé d'un nombre change son signe." , lv:"5e"},
+  { id:29, cat:"Nombres relatifs", q:"Lequel est plus grand : −3 ou −7 ?", ans:"−3", exp:"Sur une droite graduée, −3 est plus à droite que −7." , lv:"5e"},
+  { id:30, cat:"Nombres relatifs", q:"Calculer (−4) + (+9).", ans:"+5", exp:"On soustrait 4 à 9 : 9 − 4 = 5, et on garde le signe du plus grand en valeur absolue." , lv:"5e"},
+  { id:31, cat:"Nombres relatifs", q:"Calculer (−6) − (+2).", ans:"−8", exp:"Soustraire +2, c'est ajouter −2 : −6 + (−2) = −8." , lv:"5e"},
+  { id:32, cat:"Nombres relatifs", q:"Signe de (−3) × (−5) ?", ans:"Positif (+15)", exp:"Moins × Moins = Plus. Règle des signes pour la multiplication." , lv:"5e"},
+  { id:33, cat:"Nombres relatifs", q:"Calculer (−7) × (+2).", ans:"−14", exp:"Moins × Plus = Moins." , lv:"5e"},
+  { id:34, cat:"Nombres relatifs", q:"Distance à zéro de −12 ?", ans:"12", exp:"La distance à zéro est la valeur absolue : |−12| = 12." , lv:"5e"},
+  { id:35, cat:"Nombres relatifs", q:"Calculer (−18) ÷ (−3).", ans:"+6", exp:"Moins ÷ Moins = Plus. 18 ÷ 3 = 6." , lv:"5e"},
+  { id:36, cat:"Nombres relatifs", q:"Calculer (+5) − (−3).", ans:"+8", exp:"Soustraire −3, c'est ajouter +3 : 5 + 3 = 8." , lv:"5e"},
+  { id:37, cat:"Nombres relatifs", q:"Ranger dans l'ordre croissant : −5 ; +2 ; −1 ; 0.", ans:"−5 < −1 < 0 < +2", exp:"On lit de gauche à droite sur la droite graduée." , lv:"5e"},
+  { id:38, cat:"Nombres relatifs", q:"Calculer −3 + (−4) + 7.", ans:"0", exp:"−3 − 4 + 7 = −7 + 7 = 0." , lv:"5e"},
+  { id:39, cat:"Nombres relatifs", q:"Que vaut (−1)⁴ ?", ans:"+1", exp:"Exposant pair → résultat positif. (−1)⁴ = 1." , lv:"5e"},
+  { id:40, cat:"Nombres relatifs", q:"Que vaut (−2)³ ?", ans:"−8", exp:"Exposant impair → résultat négatif. −2 × −2 × −2 = −8." , lv:"5e"},
+
+  // ── PROPORTIONNALITÉ (12 cartes) ──────────────────────────────────────
+  { id:41, cat:"Proportionnalité", q:"Comment reconnaître un tableau de proportionnalité ?", ans:"On passe d'une ligne à l'autre en multipliant toujours par le même nombre.", exp:"Ce nombre s'appelle le coefficient de proportionnalité." , lv:"6e"},
+  { id:42, cat:"Proportionnalité", q:"Si 1 cahier coûte 2 €, combien coûtent 7 cahiers ?", ans:"14 €", exp:"7 × 2 = 14. Situation directement proportionnelle." , lv:"6e"},
+  { id:43, cat:"Proportionnalité", q:"Calculer 25 % de 80.", ans:"20", exp:"25 % = 1/4. 80 ÷ 4 = 20." , lv:"5e"},
+  { id:44, cat:"Proportionnalité", q:"Calculer 10 % de 350.", ans:"35", exp:"10 % = 1/10. 350 ÷ 10 = 35." , lv:"5e"},
+  { id:45, cat:"Proportionnalité", q:"Augmenter 60 de 20 %.", ans:"72", exp:"20 % de 60 = 12. 60 + 12 = 72. (ou 60 × 1,2 = 72)" , lv:"5e"},
+  { id:46, cat:"Proportionnalité", q:"Réduire 50 de 10 %.", ans:"45", exp:"10 % de 50 = 5. 50 − 5 = 45. (ou 50 × 0,9 = 45)" , lv:"5e"},
+  { id:47, cat:"Proportionnalité", q:"À l'échelle 1:100, 3 cm représentent combien en réalité ?", ans:"3 m", exp:"3 cm × 100 = 300 cm = 3 m." , lv:"5e"},
+  { id:48, cat:"Proportionnalité", q:"Vitesse pour 150 km en 3 h ?", ans:"50 km/h", exp:"v = d/t = 150/3 = 50 km/h." , lv:"5e"},
+  { id:49, cat:"Proportionnalité", q:"Quelle est la formule v = d/t en mots ?", ans:"Vitesse = Distance ÷ Temps", exp:"On peut aussi écrire d = v × t et t = d/v." , lv:"5e"},
+  { id:50, cat:"Proportionnalité", q:"Quel multiplicateur correspond à +15 % ?", ans:"× 1,15", exp:"Pour augmenter de 15 %, on multiplie par 1 + 0,15 = 1,15." , lv:"4e"},
+  { id:51, cat:"Proportionnalité", q:"Quel multiplicateur correspond à −30 % ?", ans:"× 0,70", exp:"Pour réduire de 30 %, on multiplie par 1 − 0,30 = 0,70." , lv:"4e"},
+  { id:52, cat:"Proportionnalité", q:"5 stylos coûtent 7,50 €. Combien coûte 1 stylo ?", ans:"1,50 €", exp:"7,50 ÷ 5 = 1,50. Passage par l'unité." , lv:"6e"},
+
+  // ── ALGÈBRE (13 cartes) ───────────────────────────────────────────────
+  { id:53, cat:"Algèbre", q:"Traduire 'le double de x augmenté de 3'.", ans:"2x + 3", exp:"Double = × 2, augmenté de 3 = + 3." , lv:"4e"},
+  { id:54, cat:"Algèbre", q:"Calculer 3x + 2 pour x = 4.", ans:"14", exp:"3 × 4 + 2 = 12 + 2 = 14." , lv:"4e"},
+  { id:55, cat:"Algèbre", q:"Réduire 3x + 5x.", ans:"8x", exp:"On additionne les termes semblables : (3+5)x = 8x." , lv:"4e"},
+  { id:56, cat:"Algèbre", q:"Développer 4(x + 2).", ans:"4x + 8", exp:"On distribue : 4 × x + 4 × 2 = 4x + 8." , lv:"4e"},
+  { id:57, cat:"Algèbre", q:"Factoriser 5x + 10.", ans:"5(x + 2)", exp:"On met 5 en facteur : 5 × x + 5 × 2 = 5(x + 2)." , lv:"4e"},
+  { id:58, cat:"Algèbre", q:"Résoudre x + 7 = 12.", ans:"x = 5", exp:"On soustrait 7 des deux membres : x = 12 − 7 = 5." , lv:"4e"},
+  { id:59, cat:"Algèbre", q:"Résoudre 3x = 18.", ans:"x = 6", exp:"On divise les deux membres par 3 : x = 18 ÷ 3 = 6." , lv:"4e"},
+  { id:60, cat:"Algèbre", q:"Résoudre x/4 = 5.", ans:"x = 20", exp:"On multiplie les deux membres par 4 : x = 5 × 4 = 20." , lv:"4e"},
+  { id:61, cat:"Algèbre", q:"Réduire 5a + 3b − 2a + b.", ans:"3a + 4b", exp:"On regroupe les termes en a et en b : (5−2)a + (3+1)b." , lv:"4e"},
+  { id:62, cat:"Algèbre", q:"Développer 3(2x − 1).", ans:"6x − 3", exp:"3 × 2x − 3 × 1 = 6x − 3." , lv:"4e"},
+  { id:63, cat:"Algèbre", q:"Résoudre 2x − 3 = 7.", ans:"x = 5", exp:"2x = 7 + 3 = 10, puis x = 10 ÷ 2 = 5." , lv:"4e"},
+  { id:64, cat:"Algèbre", q:"Que signifie 'factoriser' ?", ans:"Écrire une expression comme un produit de facteurs.", exp:"Ex : 6x + 9 = 3(2x + 3). On met le facteur commun en évidence." , lv:"4e"},
+  { id:65, cat:"Algèbre", q:"Résoudre 4x + 1 = 2x + 9.", ans:"x = 4", exp:"4x − 2x = 9 − 1 → 2x = 8 → x = 4." , lv:"3e"},
+
+  // ── GÉOMÉTRIE (20 cartes avec SVG) ──────────────────────────────────────
+  { id:66, cat:"Géométrie", q:"Somme des angles d'un triangle ?", ans:"180°", exp:"Toujours, quel que soit le triangle.", svg:'<svg viewBox="0 0 200 150" xmlns="http://www.w3.org/2000/svg"><polygon points="100,12 185,138 15,138" fill="rgba(74,158,221,.13)" stroke="#4a9edd" stroke-width="2"/><text x="100" y="10" text-anchor="middle" fill="#d4a843" font-size="12" font-family="serif">α</text><text x="12" y="152" fill="#d4a843" font-size="12" font-family="serif">β</text><text x="178" y="152" fill="#d4a843" font-size="12" font-family="serif">γ</text></svg>' , lv:"6e"},
+  { id:67, cat:"Géométrie", q:"Deux angles complémentaires font combien ?", ans:"90°", exp:"Complémentaires = leur somme vaut 90°.", svg:'<svg viewBox="0 0 200 150" xmlns="http://www.w3.org/2000/svg"><line x1="30" y1="120" x2="170" y2="120" stroke="#4a9edd" stroke-width="2"/><line x1="30" y1="120" x2="30" y2="20" stroke="#4a9edd" stroke-width="2"/><line x1="30" y1="120" x2="130" y2="30" stroke="#e8dfc4" stroke-width="2" stroke-dasharray="4,3"/><rect x="30" y="110" width="10" height="10" fill="none" stroke="#d4a843" stroke-width="1.5"/><path d="M 60,120 A 30,30 0 0,0 44,98" fill="rgba(74,158,221,.2)" stroke="#4a9edd" stroke-width="1.5"/><path d="M 30,90 A 30,30 0 0,1 44,98" fill="rgba(212,168,67,.2)" stroke="#d4a843" stroke-width="1.5"/><text x="66" y="112" fill="#4a9edd" font-size="13" font-family="serif">α</text><text x="38" y="88" fill="#d4a843" font-size="13" font-family="serif">β</text></svg>' , lv:"6e"},
+  { id:68, cat:"Géométrie", q:"Deux angles supplémentaires font combien ?", ans:"180°", exp:"Supplémentaires = leur somme vaut 180°.", svg:'<svg viewBox="0 0 200 150" xmlns="http://www.w3.org/2000/svg"><line x1="15" y1="95" x2="185" y2="95" stroke="#4a9edd" stroke-width="2"/><line x1="100" y1="95" x2="60" y2="20" stroke="#e8dfc4" stroke-width="2"/><path d="M 130,95 A 32,32 0 0,0 76,67" fill="rgba(74,158,221,.18)" stroke="#4a9edd" stroke-width="1.5"/><path d="M 76,67 A 32,32 0 0,0 70,95" fill="rgba(212,168,67,.18)" stroke="#d4a843" stroke-width="1.5"/><text x="118" y="86" fill="#4a9edd" font-size="13" font-family="serif">α</text><text x="60" y="85" fill="#d4a843" font-size="13" font-family="serif">β</text></svg>' , lv:"6e"},
+  { id:69, cat:"Géométrie", q:"Propriété des angles opposés par le sommet ?", ans:"Ils sont égaux.", exp:"Quand deux droites se croisent, les angles en face sont égaux.", svg:'<svg viewBox="0 0 200 150" xmlns="http://www.w3.org/2000/svg"><line x1="20" y1="25" x2="180" y2="125" stroke="#4a9edd" stroke-width="2"/><line x1="20" y1="125" x2="180" y2="25" stroke="#4a9edd" stroke-width="2"/><path d="M 122,75 A 26,26 0 0,1 100,51" fill="rgba(74,158,221,.22)" stroke="#4a9edd" stroke-width="1.5"/><path d="M 78,75 A 26,26 0 0,1 100,99" fill="rgba(74,158,221,.22)" stroke="#4a9edd" stroke-width="1.5"/><text x="120" y="68" fill="#4a9edd" font-size="13" font-family="serif">α</text><text x="72" y="106" fill="#4a9edd" font-size="13" font-family="serif">α</text></svg>' , lv:"6e"},
+  { id:70, cat:"Géométrie", q:"Dans des droites parallèles, les angles alternes-internes sont…", ans:"Égaux.", exp:"Propriété fondamentale des droites parallèles.", svg:'<svg viewBox="0 0 200 150" xmlns="http://www.w3.org/2000/svg"><line x1="15" y1="48" x2="185" y2="48" stroke="#4a9edd" stroke-width="2"/><line x1="15" y1="102" x2="185" y2="102" stroke="#4a9edd" stroke-width="2"/><text x="20" y="44" fill="#4a9edd" font-size="9" font-family="serif">Δ₁</text><text x="20" y="98" fill="#4a9edd" font-size="9" font-family="serif">Δ₂</text><line x1="60" y1="18" x2="140" y2="132" stroke="#e8dfc4" stroke-width="2"/><path d="M 96,48 A 18,18 0 0,0 80,60" fill="rgba(212,168,67,.25)" stroke="#d4a843" stroke-width="1.5"/><path d="M 104,102 A 18,18 0 0,0 120,90" fill="rgba(212,168,67,.25)" stroke="#d4a843" stroke-width="1.5"/><text x="72" y="46" fill="#d4a843" font-size="12" font-family="serif">α</text><text x="108" y="118" fill="#d4a843" font-size="12" font-family="serif">??</text></svg>' , lv:"6e"},
+  { id:71, cat:"Géométrie", q:"Caractéristique d'un triangle équilatéral ?", ans:"3 côtés égaux, 3 angles de 60°", exp:"Equi-latéral = côtés égaux.", svg:'<svg viewBox="0 0 200 150" xmlns="http://www.w3.org/2000/svg"><polygon points="100,12 185,142 15,142" fill="rgba(74,158,221,.13)" stroke="#4a9edd" stroke-width="2"/><text x="55" y="82" fill="rgba(232,223,196,.5)" font-size="10" font-family="serif">a</text><text x="136" y="82" fill="rgba(232,223,196,.5)" font-size="10" font-family="serif">a</text><text x="96" y="155" fill="rgba(232,223,196,.5)" font-size="10" font-family="serif">a</text></svg>' , lv:"6e"},
+  { id:72, cat:"Géométrie", q:"Dans un triangle rectangle, comment s'appelle le côté opposé à l'angle droit ?", ans:"L'hypoténuse.", exp:"C'est toujours le plus long côté.", svg:'<svg viewBox="0 0 200 150" xmlns="http://www.w3.org/2000/svg"><polygon points="30,130 30,25 170,130" fill="rgba(74,158,221,.13)" stroke="#4a9edd" stroke-width="2"/><rect x="30" y="118" width="12" height="12" fill="none" stroke="#d4a843" stroke-width="2"/><line x1="96" y1="73" x2="116" y2="91" stroke="#e84848" stroke-width="2.5"/><text x="10" y="82" fill="rgba(232,223,196,.6)" font-size="10" font-family="serif">a</text><text x="95" y="148" fill="rgba(232,223,196,.6)" font-size="10" font-family="serif">b</text></svg>' , lv:"5e"},
+  { id:73, cat:"Géométrie", q:"Formule du périmètre d'un rectangle ?", ans:"P = 2 × (L + l)", exp:"Ex : 5 cm × 3 cm → P = 2×8 = 16 cm.", svg:'<svg viewBox="0 0 200 150" xmlns="http://www.w3.org/2000/svg"><rect x="20" y="35" width="160" height="80" fill="rgba(74,158,221,.1)" stroke="#4a9edd" stroke-width="2"/><text x="100" y="28" text-anchor="middle" fill="#e8dfc4" font-size="12" font-family="serif">L</text><text x="188" y="80" fill="#e8dfc4" font-size="12" font-family="serif">l</text></svg>' , lv:"6e"},
+  { id:74, cat:"Géométrie", q:"Formule de l'aire d'un rectangle ?", ans:"A = L × l", exp:"Ex : 5 cm × 3 cm = 15 cm².", svg:'<svg viewBox="0 0 200 150" xmlns="http://www.w3.org/2000/svg"><rect x="20" y="30" width="160" height="85" fill="rgba(74,158,221,.2)" stroke="#4a9edd" stroke-width="2"/><line x1="20" y1="30" x2="180" y2="115" stroke="rgba(74,158,221,.3)" stroke-width="1"/><line x1="180" y1="30" x2="20" y2="115" stroke="rgba(74,158,221,.3)" stroke-width="1"/><text x="100" y="23" text-anchor="middle" fill="#e8dfc4" font-size="12" font-family="serif">L</text><text x="188" y="78" fill="#e8dfc4" font-size="12" font-family="serif">l</text></svg>' , lv:"6e"},
+  { id:75, cat:"Géométrie", q:"Formule de l'aire d'un triangle ?", ans:"A = (base × hauteur) ÷ 2", exp:"La hauteur est perpendiculaire à la base.", svg:'<svg viewBox="0 0 200 150" xmlns="http://www.w3.org/2000/svg"><polygon points="60,15 175,130 25,130" fill="rgba(74,158,221,.15)" stroke="#4a9edd" stroke-width="2"/><line x1="60" y1="15" x2="60" y2="130" stroke="#d4a843" stroke-width="1.5" stroke-dasharray="4,3"/><rect x="60" y="120" width="10" height="10" fill="none" stroke="#d4a843" stroke-width="1.5"/><text x="38" y="78" fill="#d4a843" font-size="11" font-family="serif">h</text><text x="100" y="148" text-anchor="middle" fill="#e8dfc4" font-size="10" font-family="serif">base</text></svg>' , lv:"6e"},
+  { id:76, cat:"Géométrie", q:"Formule du périmètre d'un cercle ?", ans:"P = 2πr", exp:"r = rayon, π ≈ 3,14.", svg:'<svg viewBox="0 0 200 150" xmlns="http://www.w3.org/2000/svg"><circle cx="100" cy="72" r="58" fill="rgba(74,158,221,.1)" stroke="#4a9edd" stroke-width="2"/><line x1="100" y1="72" x2="158" y2="72" stroke="#d4a843" stroke-width="2"/><circle cx="100" cy="72" r="3" fill="#e8dfc4"/><text x="128" y="64" fill="#d4a843" font-size="12" font-family="serif">r</text></svg>' , lv:"5e"},
+  { id:77, cat:"Géométrie", q:"Formule de l'aire d'un disque ?", ans:"A = πr²", exp:"Ex : r = 3 cm → A ≈ 28,3 cm².", svg:'<svg viewBox="0 0 200 150" xmlns="http://www.w3.org/2000/svg"><circle cx="100" cy="70" r="58" fill="rgba(74,158,221,.22)" stroke="#4a9edd" stroke-width="2"/><line x1="100" y1="70" x2="158" y2="70" stroke="#d4a843" stroke-width="2"/><circle cx="100" cy="70" r="3" fill="#e8dfc4"/><text x="128" y="62" fill="#d4a843" font-size="12" font-family="serif">r</text></svg>' , lv:"5e"},
+  { id:78, cat:"Géométrie", q:"Relation entre rayon et diamètre ?", ans:"d = 2r", exp:"Ou encore r = d/2.", svg:'<svg viewBox="0 0 200 150" xmlns="http://www.w3.org/2000/svg"><circle cx="100" cy="70" r="55" fill="rgba(74,158,221,.1)" stroke="#4a9edd" stroke-width="2"/><line x1="45" y1="70" x2="155" y2="70" stroke="#e84848" stroke-width="2"/><line x1="100" y1="70" x2="155" y2="70" stroke="#d4a843" stroke-width="3"/><circle cx="100" cy="70" r="3" fill="#e8dfc4"/><text x="126" y="62" fill="#d4a843" font-size="12" font-family="serif">r</text><text x="65" y="62" fill="#e84848" font-size="11" font-family="serif">d</text></svg>' , lv:"6e"},
+  { id:79, cat:"Géométrie", q:"Définition d'un parallélogramme ?", ans:"Côtés opposés parallèles et égaux.", exp:"Rectangle, losange, carré en sont des cas particuliers.", svg:'<svg viewBox="0 0 200 150" xmlns="http://www.w3.org/2000/svg"><polygon points="50,25 175,25 150,125 25,125" fill="rgba(74,158,221,.12)" stroke="#4a9edd" stroke-width="2"/><line x1="50" y1="25" x2="25" y2="125" stroke="rgba(255,255,255,.2)" stroke-width="1" stroke-dasharray="3,2"/><line x1="175" y1="25" x2="150" y2="125" stroke="rgba(255,255,255,.2)" stroke-width="1" stroke-dasharray="3,2"/></svg>' , lv:"6e"},
+  { id:80, cat:"Géométrie", q:"Propriété des diagonales d'un parallélogramme ?", ans:"Elles se coupent en leur milieu.", exp:"Propriété utile pour le reconnaître.", svg:'<svg viewBox="0 0 200 150" xmlns="http://www.w3.org/2000/svg"><polygon points="50,25 175,25 150,120 25,120" fill="rgba(74,158,221,.1)" stroke="#4a9edd" stroke-width="2"/><line x1="50" y1="25" x2="150" y2="120" stroke="#d4a843" stroke-width="1.5"/><line x1="175" y1="25" x2="25" y2="120" stroke="#d4a843" stroke-width="1.5"/><circle cx="100" cy="72" r="5" fill="#e84848"/><text x="106" y="68" fill="#e84848" font-size="11" font-family="serif">M</text></svg>' , lv:"6e"},
+  { id:81, cat:"Géométrie", q:"Un carré est-il à la fois rectangle et losange ?", ans:"Oui.", exp:"4 angles droits + 4 côtés égaux.", svg:'<svg viewBox="0 0 200 150" xmlns="http://www.w3.org/2000/svg"><rect x="50" y="15" width="100" height="100" fill="rgba(74,158,221,.15)" stroke="#4a9edd" stroke-width="2"/><rect x="50" y="15" width="12" height="12" fill="none" stroke="#d4a843" stroke-width="1.5"/><rect x="138" y="15" width="12" height="12" fill="none" stroke="#d4a843" stroke-width="1.5"/><rect x="50" y="103" width="12" height="12" fill="none" stroke="#d4a843" stroke-width="1.5"/><rect x="138" y="103" width="12" height="12" fill="none" stroke="#d4a843" stroke-width="1.5"/></svg>' , lv:"6e"},
+  { id:82, cat:"Géométrie", q:"La symétrie axiale conserve-t-elle les longueurs ?", ans:"Oui.", exp:"La symétrie est une isométrie : distances, aires et angles conservés.", svg:'<svg viewBox="0 0 200 150" xmlns="http://www.w3.org/2000/svg"><line x1="100" y1="5" x2="100" y2="145" stroke="#d4a843" stroke-width="1.5" stroke-dasharray="5,3"/><polygon points="28,35 72,25 78,90 32,100" fill="rgba(74,158,221,.15)" stroke="#4a9edd" stroke-width="2"/><polygon points="172,35 128,25 122,90 168,100" fill="rgba(212,168,67,.12)" stroke="#d4a843" stroke-width="2"/><text x="50" y="125" text-anchor="middle" fill="rgba(74,158,221,.7)" font-size="9" font-family="serif">figure</text><text x="150" y="125" text-anchor="middle" fill="rgba(212,168,67,.7)" font-size="9" font-family="serif">image</text></svg>' , lv:"6e"},
+  { id:83, cat:"Géométrie", q:"Dans A(3 ; −2), quelle est l'abscisse ?", ans:"3", exp:"Dans (x ; y), l'abscisse x est toujours en premier.", svg:'<svg viewBox="0 0 200 150" xmlns="http://www.w3.org/2000/svg"><line x1="15" y1="75" x2="185" y2="75" stroke="#4a9edd" stroke-width="1.5"/><line x1="100" y1="10" x2="100" y2="140" stroke="#4a9edd" stroke-width="1.5"/><text x="178" y="70" fill="#4a9edd" font-size="11" font-family="serif">x</text><text x="104" y="14" fill="#4a9edd" font-size="11" font-family="serif">y</text><circle cx="148" cy="99" r="5" fill="#e84848"/><text x="153" y="97" fill="#e84848" font-size="11" font-family="serif">A</text><line x1="148" y1="75" x2="148" y2="99" stroke="#d4a843" stroke-width="1" stroke-dasharray="3,2"/><line x1="100" y1="99" x2="148" y2="99" stroke="#d4a843" stroke-width="1" stroke-dasharray="3,2"/><text x="148" y="90" fill="#d4a843" font-size="10" font-family="serif">3</text><text x="76" y="102" fill="#d4a843" font-size="10" font-family="serif">−2</text></svg>' , lv:"6e"},
+  { id:84, cat:"Géométrie", q:"Qu'est-ce que le milieu d'un segment ?", ans:"Point à égale distance des deux extrémités.", exp:"xM = (xA + xB)/2 et yM = (yA + yB)/2.", svg:'<svg viewBox="0 0 200 150" xmlns="http://www.w3.org/2000/svg"><line x1="25" y1="75" x2="175" y2="75" stroke="#4a9edd" stroke-width="2"/><circle cx="25" cy="75" r="5" fill="#4a9edd"/><circle cx="175" cy="75" r="5" fill="#4a9edd"/><circle cx="100" cy="75" r="7" fill="#e84848"/><text x="18" y="96" fill="#4a9edd" font-size="12" font-family="serif">A</text><text x="170" y="96" fill="#4a9edd" font-size="12" font-family="serif">B</text><text x="93" y="96" fill="#e84848" font-size="12" font-family="serif">M</text><line x1="25" y1="62" x2="100" y2="62" stroke="#d4a843" stroke-width="1"/><line x1="100" y1="62" x2="175" y2="62" stroke="#d4a843" stroke-width="1"/><text x="57" y="55" text-anchor="middle" fill="#d4a843" font-size="10">AM</text><text x="137" y="55" text-anchor="middle" fill="#d4a843" font-size="10">MB</text></svg>' , lv:"6e"},
+  { id:85, cat:"Géométrie", q:"Aire d'un parallélogramme ?", ans:"A = base × hauteur", exp:"La hauteur est perpendiculaire à la base (pas le côté oblique).", svg:'<svg viewBox="0 0 200 150" xmlns="http://www.w3.org/2000/svg"><polygon points="50,30 175,30 150,120 25,120" fill="rgba(74,158,221,.15)" stroke="#4a9edd" stroke-width="2"/><line x1="50" y1="30" x2="50" y2="120" stroke="#d4a843" stroke-width="1.5" stroke-dasharray="4,3"/><rect x="50" y="110" width="10" height="10" fill="none" stroke="#d4a843" stroke-width="1.5"/><text x="30" y="80" fill="#d4a843" font-size="11" font-family="serif">h</text><text x="100" y="145" text-anchor="middle" fill="#e8dfc4" font-size="10" font-family="serif">base</text></svg>' , lv:"6e"},
+  { id:101, cat:"Géométrie", q:"Théorème de Pythagore — complète la formule.", ans:"c² = a² + b²", exp:"Dans un triangle rectangle, le carré de l'hypoténuse est égal à la somme des carrés des deux autres côtés.", svg:'<svg viewBox="0 0 220 200" xmlns="http://www.w3.org/2000/svg"><!-- Triangle rectangle --><polygon points="70,150 70,60 150,150" fill="rgba(74,158,221,.18)" stroke="#4a9edd" stroke-width="2"/><rect x="70" y="140" width="10" height="10" fill="none" stroke="#d4a843" stroke-width="1.5"/><!-- Carré sur a (côté vertical, gauche) --><polygon points="70,60 40,60 40,150 70,150" fill="rgba(212,168,67,.15)" stroke="#d4a843" stroke-width="1.5"/><!-- Carré sur b (côté horizontal, bas) --><polygon points="70,150 70,180 150,180 150,150" fill="rgba(94,196,138,.15)" stroke="#5ec48a" stroke-width="1.5"/><!-- Carré sur c (hypoténuse) --><polygon points="70,60 150,150 194,106 114,16" fill="rgba(232,80,80,.13)" stroke="#e84848" stroke-width="1.5"/><!-- Labels côtés --><text x="52" y="112" fill="#d4a843" font-size="14" font-family="serif" font-weight="bold">a</text><text x="104" y="175" fill="#5ec48a" font-size="14" font-family="serif" font-weight="bold">b</text><text x="152" y="95" fill="#e84848" font-size="14" font-family="serif" font-weight="bold">c</text><!-- Labels carrés --><text x="45" y="112" fill="rgba(212,168,67,.0)" font-size="9">.</text><text x="24" y="100" fill="rgba(212,168,67,.6)" font-size="10" font-family="serif">a²</text><text x="97" y="172" fill="rgba(94,196,138,.6)" font-size="10" font-family="serif">b²</text><text x="152" y="68" fill="rgba(232,80,80,.6)" font-size="10" font-family="serif">c²</text></svg>' , lv:"4e"},
+  // ── GRANDEURS & MESURES (15 cartes) ───────────────────────────────────
+  { id:86, cat:"Grandeurs", q:"1 m = combien de cm ?", ans:"100 cm", exp:"Centi = 1/100. Donc 1 m = 100 cm." , lv:"6e"},
+  { id:87, cat:"Grandeurs", q:"1 km = combien de m ?", ans:"1 000 m", exp:"Kilo = 1 000. Donc 1 km = 1 000 m." , lv:"6e"},
+  { id:88, cat:"Grandeurs", q:"1 m² = combien de cm² ?", ans:"10 000 cm²", exp:"1 m = 100 cm, donc 1 m² = 100 × 100 = 10 000 cm²." , lv:"6e"},
+  { id:89, cat:"Grandeurs", q:"1 cm³ = combien de mL ?", ans:"1 mL", exp:"Correspondance directe : 1 cm³ = 1 mL = 1 cc." , lv:"6e"},
+  { id:90, cat:"Grandeurs", q:"1 L = combien de cm³ ?", ans:"1 000 cm³", exp:"1 L = 1 dm³ = 1 000 cm³." , lv:"6e"},
+  { id:91, cat:"Grandeurs", q:"Volume d'un cube d'arête 3 cm ?", ans:"27 cm³", exp:"V = a³ = 3³ = 3 × 3 × 3 = 27 cm³." , lv:"6e"},
+  { id:92, cat:"Grandeurs", q:"Volume d'un pavé droit (formule) ?", ans:"V = longueur × largeur × hauteur", exp:"Ex : 4 cm × 3 cm × 2 cm = 24 cm³." , lv:"6e"},
+  { id:93, cat:"Grandeurs", q:"1 heure = combien de secondes ?", ans:"3 600 secondes", exp:"1 h = 60 min × 60 s = 3 600 s." , lv:"6e"},
+  { id:94, cat:"Grandeurs", q:"1 kg = combien de g ?", ans:"1 000 g", exp:"Kilo = 1 000. Donc 1 kg = 1 000 g." , lv:"6e"},
+  { id:95, cat:"Grandeurs", q:"Convertir 2,5 km en m.", ans:"2 500 m", exp:"2,5 × 1 000 = 2 500 m." , lv:"6e"},
+  { id:96, cat:"Grandeurs", q:"Convertir 3h 45min en minutes.", ans:"225 minutes", exp:"3 × 60 + 45 = 180 + 45 = 225 min." , lv:"6e"},
+  { id:97, cat:"Grandeurs", q:"Aire d'un triangle de base 8 cm et hauteur 5 cm ?", ans:"20 cm²", exp:"A = (8 × 5) ÷ 2 = 40 ÷ 2 = 20 cm²." , lv:"6e"},
+  { id:98, cat:"Grandeurs", q:"Périmètre d'un carré de côté 6 cm ?", ans:"24 cm", exp:"P = 4 × 6 = 24 cm." , lv:"6e"},
+  { id:99, cat:"Grandeurs", q:"1 dm = combien de mm ?", ans:"100 mm", exp:"1 dm = 10 cm = 100 mm." , lv:"6e"},
+  { id:100,cat:"Grandeurs", q:"Convertir 450 min en heures et minutes.", ans:"7 h 30 min", exp:"450 ÷ 60 = 7 h et reste 30 min." , lv:"all"},
+
+  // ── ANGLES (reconnaissance schéma) ───────────────────────────────
+  { id:102, cat:"Géométrie", q:"Quel type d'angle est représenté ici ?", ans:"Angle droit — exactement 90°", exp:"Un angle droit forme un coin parfait. On le repère grâce au petit carré dessiné au sommet.", svg:'<svg viewBox="0 0 200 160" xmlns="http://www.w3.org/2000/svg"><line x1="40" y1="120" x2="160" y2="120" stroke="#4a9edd" stroke-width="2.5"/><line x1="40" y1="120" x2="40" y2="20" stroke="#4a9edd" stroke-width="2.5"/><rect x="40" y="100" width="20" height="20" fill="none" stroke="#d4a843" stroke-width="2"/><text x="100" y="150" text-anchor="middle" fill="rgba(232,223,196,.5)" font-size="11" font-family="serif">90°</text></svg>' , lv:"6e"},
+  { id:103, cat:"Géométrie", q:"Quel type d'angle est représenté ici ?", ans:"Angle aigu — inférieur à 90°", exp:"Un angle aigu est plus petit qu'un angle droit. Il est 'pointu'.", svg:'<svg viewBox="0 0 200 160" xmlns="http://www.w3.org/2000/svg"><line x1="30" y1="130" x2="170" y2="130" stroke="#4a9edd" stroke-width="2.5"/><line x1="30" y1="130" x2="110" y2="30" stroke="#4a9edd" stroke-width="2.5"/><path d="M 60,130 A 30,30 0 0,1 46,104" fill="none" stroke="#d4a843" stroke-width="2"/><text x="70" y="118" fill="#d4a843" font-size="11" font-family="serif">~45°</text></svg>' , lv:"6e"},
+  { id:104, cat:"Géométrie", q:"Quel type d'angle est représenté ici ?", ans:"Angle obtus — entre 90° et 180°", exp:"Un angle obtus est plus grand qu'un angle droit mais plus petit qu'un angle plat.", svg:'<svg viewBox="0 0 200 160" xmlns="http://www.w3.org/2000/svg"><line x1="20" y1="120" x2="180" y2="120" stroke="#4a9edd" stroke-width="2.5"/><line x1="20" y1="120" x2="150" y2="40" stroke="#4a9edd" stroke-width="2.5"/><path d="M 70,120 A 50,50 0 0,1 38,92" fill="none" stroke="#d4a843" stroke-width="2"/><text x="55" y="108" fill="#d4a843" font-size="11" font-family="serif">~120°</text></svg>' , lv:"6e"},
+  { id:105, cat:"Géométrie", q:"Quel type d'angle est représenté ici ?", ans:"Angle plat — exactement 180°", exp:"Un angle plat est une ligne droite. Les deux côtés forment une droite complète.", svg:'<svg viewBox="0 0 200 160" xmlns="http://www.w3.org/2000/svg"><line x1="20" y1="90" x2="180" y2="90" stroke="#4a9edd" stroke-width="2.5"/><circle cx="100" cy="90" r="4" fill="#d4a843"/><path d="M 130,90 A 30,30 0 0,1 70,90" fill="rgba(212,168,67,.12)" stroke="#d4a843" stroke-width="2"/><text x="100" y="72" text-anchor="middle" fill="#d4a843" font-size="11" font-family="serif">180°</text></svg>' , lv:"6e"},
+  { id:106, cat:"Géométrie", q:"Range ces angles du plus petit au plus grand : obtus, droit, aigu, plat.", ans:"Aigu < Droit < Obtus < Plat", exp:"Aigu : < 90° / Droit : = 90° / Obtus : entre 90° et 180° / Plat : = 180°" , lv:"6e"},
+
+  // ── TABLES DE MULTIPLICATION ───────────────────────────────────
+  { id:107, cat:"Calcul", q:"4 × 8 = ?", ans:"32", exp:"4 × 8 = 32. Astuce : 4 × 8 = 4 × 4 × 2 = 16 × 2 = 32." , lv:"6e"},
+  { id:108, cat:"Calcul", q:"6 × 7 = ?", ans:"42", exp:"6 × 7 = 42. Moyen mnémotechnique : 5, 6, 7, 8 → 56 = 7 × 8 et 42 = 6 × 7." , lv:"6e"},
+  { id:109, cat:"Calcul", q:"8 × 9 = ?", ans:"72", exp:"8 × 9 = 72. Astuce : 9 × n — les doigts à gauche du nième = dizaines, à droite = unités." , lv:"6e"},
+  { id:110, cat:"Calcul", q:"6 × 9 = ?", ans:"54", exp:"6 × 9 = 54. Vérification : 5 + 4 = 9 ✓. Toutes les multiples de 9 ont leurs chiffres dont la somme vaut 9." , lv:"6e"},
+  { id:111, cat:"Calcul", q:"3 × 9 = ?", ans:"27", exp:"3 × 9 = 27. Vérification : 2 + 7 = 9 ✓." , lv:"6e"},
+  { id:112, cat:"Calcul", q:"7 × 8 = ?", ans:"56", exp:"7 × 8 = 56. Moyen mnémotechnique : 5, 6, 7, 8 — 56 = 7 × 8." , lv:"6e"},
+  { id:113, cat:"Calcul", q:"9 × 9 = ?", ans:"81", exp:"9 × 9 = 81. Vérification : 8 + 1 = 9 ✓." , lv:"6e"},
+  { id:114, cat:"Calcul", q:"7 × 6 = ?", ans:"42", exp:"7 × 6 = 42. La multiplication est commutative : 7 × 6 = 6 × 7." , lv:"6e"},
+  { id:115, cat:"Calcul", q:"8 × 7 = ?", ans:"56", exp:"8 × 7 = 56. Même résultat que 7 × 8 (commutativité)." , lv:"6e"},
+  { id:116, cat:"Calcul", q:"9 × 6 = ?", ans:"54", exp:"9 × 6 = 54. Vérification : 5 + 4 = 9 ✓." , lv:"6e"},
+  { id:117, cat:"Calcul", q:"8 × 4 = ?", ans:"32", exp:"8 × 4 = 32. Même que 4 × 8 par commutativité." , lv:"6e"},
+  { id:118, cat:"Calcul", q:"7 × 9 = ?", ans:"63", exp:"7 × 9 = 63. Vérification : 6 + 3 = 9 ✓." , lv:"6e"},
+  { id:119, cat:"Calcul", q:"6 × 8 = ?", ans:"48", exp:"6 × 8 = 48. Astuce : 6 × 8 = 6 × 4 × 2 = 24 × 2 = 48." , lv:"6e"},
+  { id:120, cat:"Calcul", q:"9 × 4 = ?", ans:"36", exp:"9 × 4 = 36. Vérification : 3 + 6 = 9 ✓." , lv:"6e"},
+  { id:121, cat:"Calcul", q:"7 × 7 = ?", ans:"49", exp:"7 × 7 = 49. Le carré de 7. Pense à 50 − 1 = 49." , lv:"6e"},
+
+  // ── AIRE D'UN RECTANGLE ────────────────────────────────────────
+  { id:122, cat:"Grandeurs", q:"Quelle est la formule de l'aire d'un rectangle ?", ans:"Aire = longueur × largeur", exp:"L'aire s'exprime en unités carrées (cm², m²…). Exemple : 5 cm × 3 cm = 15 cm².", svg:'<svg viewBox="0 0 200 160" xmlns="http://www.w3.org/2000/svg"><rect x="30" y="40" width="140" height="80" fill="rgba(74,158,221,.15)" stroke="#4a9edd" stroke-width="2"/><text x="100" y="85" text-anchor="middle" fill="#4a9edd" font-size="12" font-family="serif">A = L × l</text><text x="100" y="30" text-anchor="middle" fill="#d4a843" font-size="11" font-family="serif">L (longueur)</text><text x="12" y="85" fill="#d4a843" font-size="10" font-family="serif">l</text><text x="100" y="145" text-anchor="middle" fill="rgba(232,223,196,.4)" font-size="10">unité : cm², m²…</text></svg>' , lv:"6e"},
+  { id:123, cat:"Grandeurs", q:"Aire d'un rectangle de 7 cm × 4 cm ?", ans:"28 cm²", exp:"A = 7 × 4 = 28 cm².", svg:'<svg viewBox="0 0 200 160" xmlns="http://www.w3.org/2000/svg"><rect x="20" y="50" width="160" height="70" fill="rgba(74,158,221,.15)" stroke="#4a9edd" stroke-width="2"/><text x="100" y="90" text-anchor="middle" fill="#4a9edd" font-size="13" font-family="serif">7 × 4 = 28 cm²</text><text x="100" y="40" text-anchor="middle" fill="#d4a843" font-size="11" font-family="serif">7 cm</text><text x="6" y="90" fill="#d4a843" font-size="11" font-family="serif">4 cm</text></svg>' , lv:"6e"},
+  { id:124, cat:"Grandeurs", q:"Aire d'un rectangle de 12 m × 5 m ?", ans:"60 m²", exp:"A = 12 × 5 = 60 m²." , lv:"6e"},
+  { id:125, cat:"Grandeurs", q:"Un rectangle a une aire de 48 cm² et une largeur de 6 cm. Quelle est sa longueur ?", ans:"8 cm", exp:"L = Aire ÷ largeur = 48 ÷ 6 = 8 cm." , lv:"6e"},
+
+  // ── VOLUMES ────────────────────────────────────────────────────
+  { id:126, cat:"Grandeurs", q:"Formule du volume d'un cube d'arête a ?", ans:"V = a³  (a × a × a)", exp:"Exemple : cube d'arête 4 cm → V = 4³ = 64 cm³.", svg:'<svg viewBox="0 0 200 160" xmlns="http://www.w3.org/2000/svg"><polygon points="60,120 60,50 120,50 120,120" fill="rgba(74,158,221,.12)" stroke="#4a9edd" stroke-width="2"/><polygon points="60,50 90,20 150,20 120,50" fill="rgba(74,158,221,.2)" stroke="#4a9edd" stroke-width="2"/><polygon points="120,50 150,20 150,90 120,120" fill="rgba(74,158,221,.08)" stroke="#4a9edd" stroke-width="2"/><text x="85" y="90" fill="#d4a843" font-size="11" font-family="serif">a</text><text x="140" y="60" fill="#d4a843" font-size="11" font-family="serif">a</text><text x="90" y="148" text-anchor="middle" fill="#d4a843" font-size="12" font-family="serif">V = a³</text></svg>' , lv:"6e"},
+  { id:127, cat:"Grandeurs", q:"Volume d'un cube d'arête 5 cm ?", ans:"125 cm³", exp:"V = 5³ = 5 × 5 × 5 = 125 cm³." , lv:"6e"},
+  { id:128, cat:"Grandeurs", q:"Formule du volume d'un pavé droit ?", ans:"V = longueur × largeur × hauteur", exp:"Exemple : 6 cm × 4 cm × 3 cm = 72 cm³.", svg:'<svg viewBox="0 0 200 160" xmlns="http://www.w3.org/2000/svg"><polygon points="30,130 30,70 110,70 110,130" fill="rgba(94,196,138,.12)" stroke="#5ec48a" stroke-width="2"/><polygon points="30,70 55,45 135,45 110,70" fill="rgba(94,196,138,.2)" stroke="#5ec48a" stroke-width="2"/><polygon points="110,70 135,45 135,105 110,130" fill="rgba(94,196,138,.08)" stroke="#5ec48a" stroke-width="2"/><text x="65" y="106" fill="#d4a843" font-size="9" font-family="serif">L</text><text x="120" y="85" fill="#d4a843" font-size="9" font-family="serif">h</text><text x="82" y="58" fill="#d4a843" font-size="9" font-family="serif">l</text><text x="85" y="152" text-anchor="middle" fill="#d4a843" font-size="11" font-family="serif">V = L × l × h</text></svg>' , lv:"6e"},
+  { id:129, cat:"Grandeurs", q:"Volume d'un pavé droit de 8 cm × 3 cm × 5 cm ?", ans:"120 cm³", exp:"V = 8 × 3 × 5 = 120 cm³." , lv:"6e"},
+  { id:130, cat:"Grandeurs", q:"Formule du volume d'un cylindre ?", ans:"V = π × r² × h", exp:"r = rayon de la base, h = hauteur. Exemple : r = 3 cm, h = 10 cm → V = π × 9 × 10 ≈ 282,7 cm³.", svg:'<svg viewBox="0 0 200 160" xmlns="http://www.w3.org/2000/svg"><ellipse cx="100" cy="45" rx="55" ry="18" fill="rgba(212,168,67,.15)" stroke="#d4a843" stroke-width="2"/><ellipse cx="100" cy="125" rx="55" ry="18" fill="rgba(212,168,67,.08)" stroke="#d4a843" stroke-width="2"/><line x1="45" y1="45" x2="45" y2="125" stroke="#d4a843" stroke-width="2"/><line x1="155" y1="45" x2="155" y2="125" stroke="#d4a843" stroke-width="2"/><line x1="100" y1="45" x2="155" y2="45" stroke="#e84848" stroke-width="1.5" stroke-dasharray="4,3"/><text x="128" y="40" fill="#e84848" font-size="11" font-family="serif">r</text><line x1="160" y1="45" x2="160" y2="125" stroke="#5ec48a" stroke-width="1.5"/><text x="165" y="88" fill="#5ec48a" font-size="11" font-family="serif">h</text><text x="100" y="152" text-anchor="middle" fill="#d4a843" font-size="11" font-family="serif">V = π × r² × h</text></svg>' , lv:"5e"},
+  { id:131, cat:"Grandeurs", q:"Volume d'un cylindre de rayon 2 cm et hauteur 6 cm ? (π ≈ 3,14)", ans:"≈ 75,4 cm³", exp:"V = π × 2² × 6 = π × 4 × 6 = 24π ≈ 75,4 cm³." , lv:"5e"},
+  { id:132, cat:"Grandeurs", q:"Un cylindre a un rayon de 5 cm et une hauteur de 10 cm. Quel est son volume ? (π ≈ 3,14)", ans:"≈ 785 cm³", exp:"V = π × 5² × 10 = π × 25 × 10 = 250π ≈ 785 cm³." , lv:"5e"},
+
+  // ── PRIMAIRE : Numération & Calcul ──────────────────────────────────────────
+  { id:133, cat:"Numération", q:"Quelle est la valeur du chiffre 7 dans 3 724 ?", ans:"700 (7 centaines)", exp:"Dans 3 724 : 3 milliers, 7 centaines, 2 dizaines, 4 unités. Le 7 vaut 7 × 100 = 700.", lv:"6e" },
+  { id:134, cat:"Numération", q:"Comment s'écrit 'quatre virgule cinq' en chiffres ?", ans:"4,5", exp:"La virgule sépare la partie entière (4) des dixièmes (5). 4,5 = 4 + 5/10.", lv:"6e" },
+  { id:135, cat:"Numération", q:"Ranger dans l'ordre croissant : 3,7 ; 3,07 ; 3,70 ; 3,007.", ans:"3,007 < 3,07 < 3,7 = 3,70", exp:"On compare chiffre par chiffre après la virgule. 3,70 = 3,7. Attention : 3,07 < 3,7 car 0 dixième < 7 dixièmes.", lv:"6e" },
+  { id:136, cat:"Numération", q:"Arrondir 4,67 à l'unité.", ans:"5", exp:"Le chiffre des dixièmes est 6 ≥ 5, donc on arrondit à l'unité supérieure : 5.", lv:"6e" },
+  { id:137, cat:"Numération", q:"Arrondir 12,34 au dixième.", ans:"12,3", exp:"Le chiffre des centièmes est 4 < 5, donc on garde le dixième tel quel : 12,3.", lv:"6e" },
+  { id:138, cat:"Calcul",    q:"Quelle est la priorité des opérations ?", ans:"× et ÷ avant + et −, parenthèses en premier.", exp:"Dans 3 + 4 × 2, on calcule d'abord 4 × 2 = 8, puis 3 + 8 = 11. Avec parenthèses : (3+4) × 2 = 14.", lv:"6e" },
+  { id:139, cat:"Calcul",    q:"Calculer 15 − 7 + 3.", ans:"11", exp:"On calcule de gauche à droite : 15 − 7 = 8, puis 8 + 3 = 11.", lv:"6e" },
+  { id:140, cat:"Fractions", q:"Quelle fraction représente la moitié ?", ans:"1/2", exp:"Partager en 2 parts égales et en prendre 1 = 1/2. De même, 1/4 = un quart, 3/4 = trois quarts.", lv:"6e" },
+  { id:141, cat:"Fractions", q:"3/4 de 20, c'est combien ?", ans:"15", exp:"1/4 de 20 = 5. Donc 3/4 = 3 × 5 = 15.", lv:"6e" },
+  { id:142, cat:"Géométrie", q:"Comment tracer une droite perpendiculaire à une autre ?", ans:"Utiliser une équerre — l'angle doit être de 90°.", exp:"Les droites perpendiculaires forment un angle droit (90°). On note l'angle droit avec un petit carré.", lv:"6e" },
+  { id:143, cat:"Géométrie", q:"Comment reconnaître deux droites parallèles ?", ans:"Elles ne se croisent jamais et sont à égale distance l'une de l'autre.", exp:"On utilise une règle + équerre pour vérifier que la distance entre elles reste constante. On les note d ∥ d'.", lv:"6e" },
+  { id:144, cat:"Géométrie", q:"Qu'est-ce qu'un triangle isocèle ?", ans:"Un triangle qui a exactement deux côtés égaux.", exp:"Les deux angles à la base (opposés aux côtés égaux) sont aussi égaux. À ne pas confondre avec équilatéral (3 côtés égaux).", lv:"6e" },
+
+  // ── 6e : chapitres manquants ─────────────────────────────────────────────────
+  { id:145, cat:"Fractions", q:"Additionner 3/7 + 2/7.", ans:"5/7", exp:"Même dénominateur → on additionne juste les numérateurs : 3 + 2 = 5. Le dénominateur reste 7.", lv:"6e" },
+  { id:146, cat:"Fractions", q:"Calculer 5/8 − 1/8.", ans:"4/8 = 1/2", exp:"Même dénominateur : 5 − 1 = 4. On obtient 4/8 que l'on simplifie par 4 : = 1/2.", lv:"6e" },
+  { id:147, cat:"Arithmétique", q:"Critère de divisibilité par 4 ?", ans:"Les deux derniers chiffres forment un nombre divisible par 4.", exp:"Ex : 312 → les deux derniers chiffres = 12. 12 ÷ 4 = 3 → 312 est divisible par 4.", lv:"6e" },
+  { id:148, cat:"Arithmétique", q:"Critère de divisibilité par 6 ?", ans:"Divisible par 2 ET par 3 en même temps.", exp:"Ex : 42 → pair (div. par 2) ET 4+2=6 (div. par 3) → 42 est divisible par 6.", lv:"6e" },
+  { id:149, cat:"Arithmétique", q:"Critère de divisibilité par 10 ?", ans:"Le nombre se termine par 0.", exp:"Ex : 340, 1 500, 70 sont divisibles par 10. 341 ne l'est pas.", lv:"6e" },
+  { id:150, cat:"Arithmétique", q:"Qu'est-ce que le PPCM de deux nombres ?", ans:"Le Plus Petit Multiple Commun.", exp:"PPCM(4, 6) = 12 car 12 est le plus petit nombre divisible à la fois par 4 et par 6. Utile pour réduire au même dénominateur.", lv:"6e" },
+  { id:151, cat:"Arithmétique", q:"Calculer le PPCM de 3 et 4.", ans:"12", exp:"Multiples de 3 : 3, 6, 9, 12... Multiples de 4 : 4, 8, 12... Le premier en commun est 12.", lv:"6e" },
+  { id:152, cat:"Proportionnalité", q:"Trouver la 4e proportionnelle : 3/5 = x/20.", ans:"x = 12", exp:"Dans un tableau proportionnel, 3 × 20 = 5 × x → 60 = 5x → x = 12. Vérification : 3/5 = 12/20 = 0,6.", lv:"6e" },
+  { id:153, cat:"Géométrie", q:"Qu'est-ce qu'un triangle isocèle ?", ans:"Un triangle avec exactement deux côtés égaux.", exp:"Les angles à la base (en face des côtés égaux) sont égaux. Ex : triangle avec côtés 5 cm, 5 cm et 3 cm.", lv:"6e" },
+  { id:154, cat:"Géométrie", q:"Aire d'un losange de diagonales 8 cm et 6 cm ?", ans:"24 cm²", exp:"Aire losange = (d₁ × d₂) ÷ 2 = (8 × 6) ÷ 2 = 48 ÷ 2 = 24 cm².", lv:"6e" },
+  { id:155, cat:"Grandeurs", q:"1 m² = combien de dm² ?", ans:"100 dm²", exp:"1 m = 10 dm → 1 m² = 10 × 10 = 100 dm². Chaque changement d'unité de longueur × ou ÷ par 10, donc pour les aires × ou ÷ par 100.", lv:"6e" },
+  { id:156, cat:"Grandeurs", q:"1 dm² = combien de cm² ?", ans:"100 cm²", exp:"1 dm = 10 cm → 1 dm² = 10 × 10 = 100 cm². Pour passer de m² à cm², on multiplie par 10 000.", lv:"6e" },
+  { id:157, cat:"Statistiques", q:"Comment calculer la moyenne d'une série de nombres ?", ans:"Somme des valeurs ÷ nombre de valeurs.", exp:"Ex : notes 12, 14, 10, 16 → somme = 52 → moyenne = 52 ÷ 4 = 13.", lv:"6e" },
+  { id:158, cat:"Statistiques", q:"Moyenne de : 8, 12, 15, 9, 11.", ans:"11", exp:"Somme = 8+12+15+9+11 = 55. Nombre de valeurs = 5. Moyenne = 55 ÷ 5 = 11.", lv:"6e" },
+  { id:159, cat:"Statistiques", q:"Qu'est-ce qu'un diagramme en bâtons ?", ans:"Un graphique où chaque valeur est représentée par une barre verticale dont la hauteur correspond à l'effectif.", exp:"Adapté aux données discrètes (ex : notes d'une classe). L'axe horizontal = valeurs, l'axe vertical = fréquence ou effectif.", lv:"6e" },
+  { id:160, cat:"Statistiques", q:"Qu'est-ce qu'un diagramme circulaire (camembert) ?", ans:"Un cercle découpé en secteurs dont l'angle est proportionnel à la fréquence.", exp:"Si 25% des élèves ont eu A, le secteur A fait 25% × 360° = 90°. La somme de tous les secteurs = 360°.", lv:"6e" },
+
+  // ── 5e : chapitres manquants ─────────────────────────────────────────────────
+  { id:161, cat:"Fractions", q:"Calculer 3/4 ÷ 3/8.", ans:"2", exp:"Diviser par une fraction = multiplier par son inverse : 3/4 × 8/3 = 24/12 = 2.", lv:"5e" },
+  { id:162, cat:"Fractions", q:"Quelle est la règle pour diviser par une fraction ?", ans:"Multiplier par l'inverse (retourner la fraction du diviseur).", exp:"a/b ÷ c/d = a/b × d/c. Ex : 2/3 ÷ 4/5 = 2/3 × 5/4 = 10/12 = 5/6.", lv:"5e" },
+  { id:163, cat:"Proportionnalité", q:"Qu'est-ce qu'un taux d'évolution ?", ans:"Le pourcentage d'augmentation ou de diminution par rapport à la valeur initiale.", exp:"Taux = (valeur finale − valeur initiale) ÷ valeur initiale × 100. Ex : 80 → 100 : taux = (100−80)/80 × 100 = 25%.", lv:"5e" },
+  { id:164, cat:"Géométrie", q:"Réciproque du théorème de Pythagore — comment l'utiliser ?", ans:"Si c² = a² + b², alors le triangle est rectangle.", exp:"On mesure les 3 côtés, on calcule le carré du plus grand. Si égal à la somme des carrés des deux autres → angle droit. Ex : 3² + 4² = 9 + 16 = 25 = 5² → triangle rectangle.", lv:"5e" },
+  { id:165, cat:"Géométrie", q:"Qu'est-ce que la symétrie centrale ?", ans:"Une transformation qui fait correspondre à chaque point A un point A' tel que le centre O soit le milieu de [AA'].", exp:"Contrairement à la symétrie axiale (miroir), la symétrie centrale tourne la figure de 180° autour du point O.", lv:"5e" },
+  { id:166, cat:"Géométrie", q:"Qu'est-ce qu'une translation ?", ans:"Un déplacement qui fait glisser une figure sans la tourner ni la retourner.", exp:"Chaque point se déplace de la même distance dans la même direction. On parle de vecteur de translation. La figure image est identique à l'original.", lv:"5e" },
+  { id:167, cat:"Géométrie", q:"Qu'est-ce qu'un agrandissement/réduction ?", ans:"Une transformation qui multiplie toutes les longueurs par un même coefficient k.", exp:"Si k > 1 : agrandissement. Si 0 < k < 1 : réduction. Les angles sont conservés, les aires sont multipliées par k².", lv:"5e" },
+  { id:168, cat:"Grandeurs", q:"Volume d'un prisme droit (formule) ?", ans:"V = Aire de la base × hauteur", exp:"Un prisme droit a deux bases identiques et des faces latérales rectangulaires. Ex : prisme triangulaire de base 10 cm² et hauteur 5 cm → V = 10 × 5 = 50 cm³.", lv:"5e" },
+  { id:169, cat:"Grandeurs", q:"1 m³ = combien de dm³ = combien de L ?", ans:"1 m³ = 1 000 dm³ = 1 000 L", exp:"1 m = 10 dm → 1 m³ = 10 × 10 × 10 = 1 000 dm³. Et 1 dm³ = 1 L (litre). Donc 1 m³ = 1 000 litres.", lv:"5e" },
+  { id:170, cat:"Statistiques", q:"Qu'est-ce que l'étendue d'une série statistique ?", ans:"La différence entre la valeur maximale et la valeur minimale.", exp:"Ex : notes 8, 12, 15, 9, 11 → étendue = 15 − 8 = 7. L'étendue mesure la dispersion de la série.", lv:"5e" },
+  { id:171, cat:"Statistiques", q:"Comment lire un graphique en courbes ?", ans:"L'axe horizontal représente la variable (ex : temps), l'axe vertical la valeur mesurée. Chaque point = une mesure.", exp:"On lit les valeurs aux intersections. La pente de la courbe indique si la valeur augmente, diminue ou reste stable.", lv:"5e" },
+  { id:172, cat:"Probabilités", q:"Qu'est-ce qu'une expérience aléatoire ?", ans:"Une expérience dont on ne peut pas prévoir le résultat à l'avance.", exp:"Ex : lancer un dé, tirer une carte. L'ensemble des résultats possibles s'appelle l'univers. Chaque résultat possible est une issue.", lv:"5e" },
+  { id:173, cat:"Probabilités", q:"Probabilité d'obtenir 6 en lançant un dé équilibré ?", ans:"1/6 ≈ 0,17 ≈ 17%", exp:"Il y a 6 issues possibles, toutes équiprobables. L'événement 'obtenir 6' contient 1 issue. P(6) = 1/6.", lv:"5e" },
+  { id:174, cat:"Probabilités", q:"La somme de toutes les probabilités d'un univers vaut toujours…", ans:"1 (soit 100%)", exp:"Si l'univers = {pile, face}, P(pile) + P(face) = 1. Si P(pile) = 0,6 alors P(face) = 0,4. P(A) + P(non-A) = 1.", lv:"5e" },
+
+  // ── 4e : chapitres manquants ─────────────────────────────────────────────────
+  { id:175, cat:"Algèbre", q:"Développer (a + b)².", ans:"a² + 2ab + b²", exp:"C'est une identité remarquable à mémoriser. Ex : (x+3)² = x² + 6x + 9. On développe : (a+b)(a+b) = a²+ab+ab+b².", lv:"4e" },
+  { id:176, cat:"Algèbre", q:"Développer (a − b)².", ans:"a² − 2ab + b²", exp:"Ex : (x−4)² = x² − 8x + 16. Attention au signe : −2ab et non +2ab.", lv:"4e" },
+  { id:177, cat:"Algèbre", q:"Développer (a + b)(a − b).", ans:"a² − b²", exp:"C'est la 3e identité remarquable. Ex : (x+5)(x−5) = x² − 25. Très utile pour factoriser rapidement.", lv:"4e" },
+  { id:178, cat:"Algèbre", q:"Résoudre x/3 + 1 = 4.", ans:"x = 9", exp:"On isole x : x/3 = 4 − 1 = 3. Puis x = 3 × 3 = 9. Vérification : 9/3 + 1 = 3 + 1 = 4 ✓", lv:"4e" },
+  { id:179, cat:"Puissances", q:"Que vaut 10⁻³ ?", ans:"0,001 = 1/1000", exp:"Les puissances négatives de 10 donnent des décimaux : 10⁻¹=0,1 ; 10⁻²=0,01 ; 10⁻³=0,001. La règle : 10⁻ⁿ = 1/10ⁿ.", lv:"4e" },
+  { id:180, cat:"Puissances", q:"Écrire 3 400 000 en notation scientifique.", ans:"3,4 × 10⁶", exp:"On déplace la virgule pour avoir un chiffre entre 1 et 10, puis on note la puissance de 10. 6 déplacements vers la gauche → 10⁶.", lv:"4e" },
+  { id:181, cat:"Puissances", q:"Écrire 0,000 52 en notation scientifique.", ans:"5,2 × 10⁻⁴", exp:"On déplace la virgule 4 fois vers la droite pour obtenir 5,2 → puissance négative 10⁻⁴.", lv:"4e" },
+  { id:182, cat:"Puissances", q:"Calculer aⁿ × aᵐ.", ans:"aⁿ⁺ᵐ (on additionne les exposants)", exp:"Ex : 2³ × 2⁴ = 2⁷ = 128. De même : aⁿ ÷ aᵐ = aⁿ⁻ᵐ. Et (aⁿ)ᵐ = aⁿˣᵐ.", lv:"4e" },
+  { id:183, cat:"Géométrie", q:"Dans un triangle rectangle, cos(angle) = ?", ans:"côté adjacent ÷ hypoténuse", exp:"SOH-CAH-TOA : Sin = Opp/Hyp, Cos = Adj/Hyp, Tan = Opp/Adj. Ex : cos(30°) = côté adjacent / hypoténuse.", lv:"4e" },
+  { id:184, cat:"Géométrie", q:"Dans un triangle rectangle, sin(angle) = ?", ans:"côté opposé ÷ hypoténuse", exp:"Ex : si l'hypoténuse = 10 et le côté opposé = 5, alors sin(α) = 5/10 = 0,5 → α = 30°.", lv:"4e" },
+  { id:185, cat:"Géométrie", q:"Dans un triangle rectangle, tan(angle) = ?", ans:"côté opposé ÷ côté adjacent", exp:"Ex : tan(45°) = 1 car les deux côtés de l'angle droit sont égaux. tan(α) > 1 si l'angle > 45°.", lv:"4e" },
+  { id:186, cat:"Géométrie", q:"Théorème de Thalès — énoncé.", ans:"Si deux droites coupent deux parallèles, les longueurs sont proportionnelles.", exp:"Si (DE) ∥ (BC) dans un triangle ABC, alors AD/AB = AE/AC = DE/BC. Les triangles ADE et ABC sont semblables.", lv:"4e" },
+  { id:187, cat:"Fonctions", q:"Qu'est-ce qu'une fonction ?", ans:"Une règle qui associe à chaque valeur d'entrée (x) une valeur de sortie unique (y = f(x)).", exp:"Ex : f(x) = 2x+1. Pour x=3, f(3) = 7. L'ensemble des x est le domaine de définition. On note y = f(x).", lv:"4e" },
+  { id:188, cat:"Fonctions", q:"Qu'est-ce qu'un tableau de valeurs d'une fonction ?", ans:"Un tableau qui liste des valeurs de x et les valeurs de f(x) correspondantes.", exp:"Ex pour f(x) = x² : x=-2,-1,0,1,2 → f(x)=4,1,0,1,4. Permet de tracer la courbe point par point.", lv:"4e" },
+  { id:189, cat:"Fonctions", q:"Comment tracer la courbe représentative d'une fonction ?", ans:"Calculer des points (x ; f(x)), les placer dans un repère, les relier par une courbe.", exp:"Plus on calcule de points, plus la courbe est précise. Pour une droite (fonction affine), 2 points suffisent.", lv:"4e" },
+  { id:190, cat:"Probabilités", q:"Comment calculer une probabilité théorique ?", ans:"P(événement) = nombre d'issues favorables ÷ nombre total d'issues équiprobables.", exp:"Ex : probabilité de tirer un as dans un jeu de 52 cartes = 4/52 = 1/13 ≈ 7,7%.", lv:"4e" },
+  { id:191, cat:"Probabilités", q:"Probabilité d'obtenir pile ET face en lançant 2 pièces (dans cet ordre) ?", ans:"1/4", exp:"Univers : {(P,P), (P,F), (F,P), (F,F)} — 4 issues équiprobables. P(pile puis face) = 1/4.", lv:"4e" },
+  { id:192, cat:"Statistiques", q:"Comment trouver la médiane d'une série ?", ans:"La valeur du milieu quand les données sont rangées dans l'ordre.", exp:"Série : 3, 5, 7, 8, 12 → médiane = 7. Si nombre pair de valeurs : moyenne des deux centrales. Ex : 3,5,7,8 → médiane = (5+7)/2 = 6.", lv:"4e" },
+  { id:193, cat:"Statistiques", q:"Quelle est la différence entre moyenne et médiane ?", ans:"La moyenne est sensible aux valeurs extrêmes, pas la médiane.", exp:"Ex : salaires 1000, 1000, 1000, 1000, 10000 → moyenne = 2800 (faussée), médiane = 1000 (plus représentative).", lv:"4e" },
+
+  // ── 3e : chapitres manquants ─────────────────────────────────────────────────
+  { id:194, cat:"Fonctions", q:"Qu'est-ce qu'une fonction linéaire ?", ans:"f(x) = ax — une droite passant par l'origine.", exp:"Ex : f(x) = 3x. Le graphique est une droite passant par O(0,0). Le coefficient a est le coefficient directeur (pente).", lv:"3e" },
+  { id:195, cat:"Fonctions", q:"Qu'est-ce qu'une fonction affine ?", ans:"f(x) = ax + b — une droite (pas forcément par l'origine).", exp:"a = coefficient directeur (pente), b = ordonnée à l'origine (valeur quand x=0). Ex : f(x) = 2x + 3 coupe l'axe y en (0, 3).", lv:"3e" },
+  { id:196, cat:"Fonctions", q:"Quel est le coefficient directeur de y = 3x − 5 ?", ans:"a = 3", exp:"Dans f(x) = ax + b, a est le coefficient directeur. Ici a = 3 : quand x augmente de 1, y augmente de 3.", lv:"3e" },
+  { id:197, cat:"Fonctions", q:"Comment lire l'image de 4 par f(x) = 2x + 1 ?", ans:"f(4) = 2×4+1 = 9", exp:"On remplace x par 4 dans la formule. Sur un graphique : on part de x=4, on monte jusqu'à la courbe, on lit y = 9.", lv:"3e" },
+  { id:198, cat:"Fonctions", q:"Qu'est-ce que le taux de variation entre a et b ?", ans:"(f(b) − f(a)) ÷ (b − a)", exp:"Ex : f(x) = x². Entre 1 et 3 : (9−1)/(3−1) = 8/2 = 4. Pour une fonction affine, le taux de variation est constant et égal à a.", lv:"3e" },
+  { id:199, cat:"Algèbre", q:"Résoudre le système : x + y = 5 et x − y = 1.", ans:"x = 3, y = 2", exp:"Par addition des deux équations : 2x = 6 → x = 3. Puis y = 5 − 3 = 2. Méthodes possibles : addition, substitution.", lv:"3e" },
+  { id:200, cat:"Algèbre", q:"Résoudre l'inéquation 2x − 3 > 7.", ans:"x > 5", exp:"2x > 7 + 3 → 2x > 10 → x > 5. Solution : l'intervalle ]5 ; +∞[.", lv:"3e" },
+  { id:201, cat:"Algèbre", q:"Que se passe-t-il quand on multiplie une inégalité par −1 ?", ans:"Le sens de l'inégalité s'inverse : < devient >.", exp:"Ex : −x > 3 → en multipliant par −1 : x < −3. Règle fondamentale des inéquations.", lv:"3e" },
+  { id:202, cat:"Géométrie", q:"Thalès — calculer BC si AD=3, AB=5, DE=4 avec (DE)∥(BC).", ans:"BC = DE × AB/AD = 4 × 5/3 ≈ 6,67 cm", exp:"Si (DE)∥(BC), alors AD/AB = DE/BC → BC = DE × AB/AD. Vérifier l'ordre des sommets dans les rapports.", lv:"3e" },
+  { id:203, cat:"Géométrie", q:"sin(30°) = ? cos(60°) = ?", ans:"sin(30°) = 0,5 et cos(60°) = 0,5", exp:"Valeurs à connaître : sin(30°)=0,5 ; cos(30°)≈0,87 ; sin(45°)=cos(45°)≈0,71 ; sin(60°)≈0,87 ; cos(60°)=0,5.", lv:"3e" },
+  { id:204, cat:"Géométrie", q:"Comment calculer un angle avec la trigonométrie ?", ans:"On utilise arcsin, arccos ou arctan sur la calculatrice (touche sin⁻¹).", exp:"Ex : sin(α) = 0,6 → α = arcsin(0,6) ≈ 37°. Sur calculatrice : touche sin⁻¹ ou 2nd+sin.", lv:"3e" },
+  { id:205, cat:"Puissances", q:"Que vaut 2⁻³ ?", ans:"1/8 = 0,125", exp:"a⁻ⁿ = 1/aⁿ. Donc 2⁻³ = 1/2³ = 1/8. De même : 10⁻⁶ = 0,000001.", lv:"3e" },
+  { id:206, cat:"Puissances", q:"Simplifier (2³)⁴.", ans:"2¹² = 4096", exp:"(aⁿ)ᵐ = aⁿˣᵐ. (2³)⁴ = 2^(3×4) = 2¹². Autre règle : aⁿ ÷ aᵐ = aⁿ⁻ᵐ.", lv:"3e" },
+  { id:207, cat:"Probabilités", q:"Comment lire un arbre de probabilités ?", ans:"On multiplie les probabilités le long d'une branche, on additionne les branches favorables.", exp:"Pour P(A et B) : multiplier P(A) × P(B|A). La somme de toutes les branches finales = 1.", lv:"3e" },
+  { id:208, cat:"Probabilités", q:"Probabilité de tirer 2 boules rouges sans remise (4 rouges, 6 bleues) ?", ans:"P = 4/10 × 3/9 = 2/15", exp:"1er tirage : 4 rouges sur 10. Après 1 rouge retiré : 3 rouges sur 9. P = 4/10 × 3/9 = 12/90 = 2/15.", lv:"3e" },
+  { id:209, cat:"Statistiques", q:"Comment calculer une moyenne pondérée ?", ans:"Somme(valeur × coefficient) ÷ Somme(coefficients).", exp:"Ex : note 12 (coef 2) et 16 (coef 3) → moyenne = (12×2 + 16×3)/(2+3) = 72/5 = 14,4.", lv:"3e" },
+  { id:210, cat:"Statistiques", q:"Qu'est-ce qu'un histogramme ?", ans:"Un graphique en barres adjacentes pour représenter des données continues.", exp:"Les barres sont collées (pas d'espace). L'aire de chaque barre est proportionnelle à la fréquence. Différent du diagramme en bâtons (données discrètes).", lv:"3e" },
+  { id:211, cat:"Arithmétique", q:"PPCM de 12 et 18 ?", ans:"36", exp:"Décomposer : 12 = 2²×3, 18 = 2×3². PPCM = 2²×3² = 4×9 = 36. Vérification : 36÷12=3 ✓ et 36÷18=2 ✓.", lv:"3e" },
+  { id:212, cat:"Arithmétique", q:"Comment écrire 5/4 sous forme décimale et en fraction mixte ?", ans:"1,25 et 1 + 1/4", exp:"5/4 = 4/4 + 1/4 = 1 + 1/4 = 1,25. Une fraction > 1 peut toujours s'écrire en fraction mixte.", lv:"3e" },
+
+  // ── CALCUL étendu : 5e (calcul posé, priorités, distributivité) ──────────
+  { id:213, cat:"Calcul", q:"Calculer 24 × 25.", ans:"600", exp:"Astuce : 24 × 25 = 24 × 100 ÷ 4 = 2400 ÷ 4 = 600. Ou : 25 × 24 = 25 × 20 + 25 × 4 = 500 + 100.", lv:"5e" },
+  { id:214, cat:"Calcul", q:"Calculer 36 ÷ 0,4.", ans:"90", exp:"Diviser par 0,4 = multiplier par 10 puis diviser par 4. 36 × 10 = 360 ÷ 4 = 90. Ou : 36 ÷ (2/5) = 36 × 5/2 = 90.", lv:"5e" },
+  { id:215, cat:"Calcul", q:"Calculer 3 + 4 × 2 − 1.", ans:"10", exp:"Priorité : d'abord 4 × 2 = 8. Puis : 3 + 8 − 1 = 10. Sans priorité on aurait tort.", lv:"5e" },
+  { id:216, cat:"Calcul", q:"Calculer (3 + 4) × (2 − 1).", ans:"7", exp:"Les parenthèses passent en premier : (3+4) = 7, (2−1) = 1. Puis 7 × 1 = 7.", lv:"5e" },
+  { id:217, cat:"Calcul", q:"Que vaut 0,1 × 0,1 ?", ans:"0,01", exp:"0,1 × 0,1 = 1/10 × 1/10 = 1/100 = 0,01. Règle : le nombre de décimales du résultat = somme des décimales des deux facteurs.", lv:"5e" },
+  { id:218, cat:"Calcul", q:"Calculer 15 % de 60.", ans:"9", exp:"15% = 15/100. 15/100 × 60 = 900/100 = 9. Astuce : 10% de 60 = 6, et 5% = 3, donc 15% = 6+3 = 9.", lv:"5e" },
+
+  // ── CALCUL : 4e (calcul avec relatifs et puissances) ─────────────────────
+  { id:219, cat:"Calcul", q:"Calculer (−3)² + 4².", ans:"9 + 16 = 25", exp:"(−3)² = 9 (le carré est toujours positif). 4² = 16. Total = 25. Attention : −3² = −9 ≠ (−3)² = 9.", lv:"4e" },
+  { id:220, cat:"Calcul", q:"Calculer √144.", ans:"12", exp:"12 × 12 = 144 → √144 = 12. Racines à connaître : √1=1, √4=2, √9=3, √16=4, √25=5, √36=6, √49=7, √64=8, √81=9, √100=10.", lv:"4e" },
+  { id:221, cat:"Calcul", q:"Calculer √2 × √8.", ans:"4", exp:"√2 × √8 = √(2×8) = √16 = 4. Règle : √a × √b = √(a×b) si a,b ≥ 0.", lv:"4e" },
+
+  // ── CALCUL : 3e (calcul littéral, vérification) ──────────────────────────
+  { id:222, cat:"Calcul", q:"Vérifier que x = −2 est solution de 3x + 7 = 1.", ans:"3×(−2)+7 = −6+7 = 1 ✓", exp:"On substitue x par −2 dans l'équation et on vérifie l'égalité. Méthode à appliquer systématiquement après résolution.", lv:"3e" },
+
+  // ── NUMÉRATION : 5e ───────────────────────────────────────────────────────
+  { id:223, cat:"Numération", q:"Écrire 7/4 sous forme décimale.", ans:"1,75", exp:"7 ÷ 4 = 1 reste 3 → 30 ÷ 4 = 7 reste 2 → 20 ÷ 4 = 5. Donc 7/4 = 1,75.", lv:"5e" },
+  { id:224, cat:"Numération", q:"0,(3) signifie quoi ? (0,333...)", ans:"= 1/3", exp:"0,333... est un décimal illimité périodique. 1/3 = 0,3333... La fraction 1/3 ne peut pas s'écrire exactement en décimal fini.", lv:"5e" },
+  { id:225, cat:"Numération", q:"Quelle est la différence entre un décimal fini et un décimal illimité ?", ans:"Fini : s'arrête (ex: 0,25). Illimité : se répète indéfiniment (ex: 1/3 = 0,333...).", exp:"Les fractions irréductibles dont le dénominateur n'a que 2 et 5 comme facteurs premiers donnent des décimaux finis.", lv:"5e" },
+
+  // ── NUMÉRATION : 4e ───────────────────────────────────────────────────────
+  { id:226, cat:"Numération", q:"Qu'est-ce qu'un nombre irrationnel ?", ans:"Un nombre qui ne peut s'écrire ni comme fraction ni comme décimal fini ou périodique.", exp:"Ex : √2 ≈ 1,41421356... et π ≈ 3,14159... sont irrationnels. Ils existent sur la droite des réels mais ne sont pas des fractions.", lv:"4e" },
+  { id:227, cat:"Numération", q:"√2 est-il rationnel ou irrationnel ?", ans:"Irrationnel — on ne peut pas l'écrire sous forme de fraction a/b.", exp:"√2 ≈ 1,4142135... Les décimales ne se répètent jamais. C'est un nombre réel mais pas rationnel.", lv:"4e" },
+
+  // ── NUMÉRATION : 3e ───────────────────────────────────────────────────────
+  { id:228, cat:"Numération", q:"Qu'appelle-t-on l'ensemble des réels ?", ans:"L'ensemble de tous les nombres : entiers, décimaux, fractions, irrationnels — tous les points de la droite numérique.", exp:"Notation ℝ. Contient ℕ (entiers naturels) ⊂ ℤ (relatifs) ⊂ ℚ (rationnels) ⊂ ℝ. Ex : π ∈ ℝ mais π ∉ ℚ.", lv:"3e" },
+
+  // ── ALGÈBRE : 5e (introduction expressions littérales) ───────────────────
+  { id:229, cat:"Algèbre", q:"Qu'est-ce qu'une expression littérale ?", ans:"Une expression mathématique contenant des lettres (variables) qui représentent des nombres inconnus.", exp:"Ex : 3x + 2, ou ab + c². La lettre x peut prendre différentes valeurs. On évalue l'expression en remplaçant la lettre par un nombre.", lv:"5e" },
+  { id:230, cat:"Algèbre", q:"Calculer 2a + 3 pour a = 5.", ans:"13", exp:"On remplace a par 5 : 2×5 + 3 = 10 + 3 = 13.", lv:"5e" },
+  { id:231, cat:"Algèbre", q:"Réduire 4x + 2 + 3x − 5.", ans:"7x − 3", exp:"On regroupe les termes en x : 4x + 3x = 7x. Puis les constantes : 2 − 5 = −3. Résultat : 7x − 3.", lv:"5e" },
+  { id:232, cat:"Algèbre", q:"Développer 2(x + 4).", ans:"2x + 8", exp:"On multiplie chaque terme dans la parenthèse par 2 : 2×x + 2×4 = 2x + 8.", lv:"5e" },
+  { id:233, cat:"Algèbre", q:"Tester si x = 3 est solution de 2x − 1 = 5.", ans:"Oui : 2×3 − 1 = 5 ✓", exp:"On remplace x par 3 : 2×3 − 1 = 6 − 1 = 5. L'égalité est vraie → x=3 est solution.", lv:"5e" },
+
+  // ── FRACTIONS : 4e (fractions et expressions) ─────────────────────────────
+  { id:234, cat:"Fractions", q:"Simplifier (6x)/(9x) avec x ≠ 0.", ans:"2/3", exp:"On simplifie les coefficients : 6/9 = 2/3. Les x au numérateur et dénominateur se simplifient (x/x = 1).", lv:"4e" },
+  { id:235, cat:"Fractions", q:"Additionner 1/x + 2/x (x ≠ 0).", ans:"3/x", exp:"Même dénominateur → on additionne les numérateurs : (1+2)/x = 3/x.", lv:"4e" },
+  { id:236, cat:"Fractions", q:"Résoudre 3/x = 6 (x ≠ 0).", ans:"x = 1/2", exp:"3/x = 6 → 3 = 6x → x = 3/6 = 1/2. Vérification : 3 ÷ (1/2) = 3 × 2 = 6 ✓.", lv:"4e" },
+
+  // ── FRACTIONS : 3e ────────────────────────────────────────────────────────
+  { id:237, cat:"Fractions", q:"Simplifier (x² − 4) / (x − 2) avec x ≠ 2.", ans:"x + 2", exp:"x² − 4 = (x+2)(x−2) — identité remarquable a²−b². On divise par (x−2) : reste (x+2).", lv:"3e" },
+  { id:238, cat:"Fractions", q:"Additionner 1/2 + 1/x (x ≠ 0).", ans:"(x + 2) / (2x)", exp:"Dénominateur commun = 2x. 1/2 = x/(2x). 1/x = 2/(2x). Somme = (x+2)/(2x).", lv:"3e" },
+
+  // ── PROBABILITÉS : 6e (initiation) ───────────────────────────────────────
+  { id:239, cat:"Probabilités", q:"Une pièce de monnaie équilibrée — probabilité de tomber sur pile ?", ans:"1/2 = 0,5 = 50%", exp:"Il y a 2 issues possibles et équiprobables : pile et face. P(pile) = 1/2. C'est la première notion de probabilité.", lv:"6e" },
+  { id:240, cat:"Probabilités", q:"Qu'est-ce que la fréquence d'un événement ?", ans:"Le nombre de fois où l'événement se produit divisé par le nombre total d'essais.", exp:"Ex : si on obtient 38 fois pile sur 100 lancers, la fréquence = 38/100 = 0,38. Plus on répète, plus la fréquence se rapproche de la probabilité.", lv:"6e" },
+  { id:241, cat:"Probabilités", q:"Probabilité d'un événement impossible ?", ans:"0", exp:"Un événement impossible ne peut jamais se produire. Ex : obtenir 7 en lançant un dé à 6 faces → P = 0.", lv:"6e" },
+  { id:242, cat:"Probabilités", q:"Probabilité d'un événement certain ?", ans:"1", exp:"Un événement certain se produit à tous les coups. Ex : obtenir un nombre entre 1 et 6 en lançant un dé → P = 1.", lv:"6e" },
+
+  // ── FONCTIONS : 5e (premières représentations graphiques) ────────────────
+  { id:243, cat:"Fonctions", q:"Comment placer le point A(−2 ; 3) dans un repère ?", ans:"Abscisse = −2 (axe horizontal), ordonnée = 3 (axe vertical).", exp:"On part de l'origine O, on va à −2 sur l'axe x, puis on monte à +3 sur l'axe y. Le repère s'appelle (O ; I ; J).", lv:"5e" },
+  { id:244, cat:"Fonctions", q:"Que représente une droite croissante sur un graphique ?", ans:"Quand x augmente, y augmente aussi.", exp:"Pente positive = droite qui monte de gauche à droite. Pente négative = droite qui descend. Droite horizontale = valeur constante.", lv:"5e" },
+  { id:245, cat:"Fonctions", q:"Comment lire les coordonnées d'un point sur un graphique ?", ans:"On lit l'abscisse (x) sur l'axe horizontal et l'ordonnée (y) sur l'axe vertical.", exp:"Ex : un point situé à 3 cases à droite et 2 cases en bas a les coordonnées (3 ; −2).", lv:"5e" },
+
+  // ── PUISSANCES : 5e (introduction) ───────────────────────────────────────
+  { id:246, cat:"Puissances", q:"Que signifie 5³ ?", ans:"5 × 5 × 5 = 125", exp:"L'exposant indique combien de fois on multiplie la base par elle-même. 5³ = 5×5×5 = 125. On lit 'cinq au cube'.", lv:"5e" },
+  { id:247, cat:"Puissances", q:"Que vaut 2⁴ ?", ans:"16", exp:"2⁴ = 2×2×2×2 = 16. À connaître : 2¹=2, 2²=4, 2³=8, 2⁴=16, 2⁵=32, 2⁶=64, 2⁷=128, 2⁸=256.", lv:"5e" },
+  { id:248, cat:"Puissances", q:"Que vaut 10² ? 10³ ? 10⁶ ?", ans:"100 ; 1 000 ; 1 000 000", exp:"Les puissances de 10 donnent directement les préfixes : 10² = cent, 10³ = mille, 10⁶ = million, 10⁹ = milliard.", lv:"5e" },
+];
+
+/* ── ÉTAT ── */
+let deck=[], idx=0, flipped=false, knownSet=new Set(), reviewSet=new Set();
+/* (currentFilter replaced by currentLevel + currentCat) */
+
+/* ── NIVEAU FILTER ── */
+let currentLevel = 'all';
+let currentCat   = 'all';
+
+const LEVEL_LABELS = {
+  all:      'tous niveaux',
+  '6e':     'Primaire & 6ème',
+  '5e':     '5ème',
+  '4e':     '4ème',
+  '3e':     '3ème',
+};
+
+function getFilteredDeck() {
+  let cards = [...ALL_CARDS];
+  if (currentLevel !== 'all') cards = cards.filter(c => c.lv === currentLevel);
+  if (currentCat   !== 'all') cards = cards.filter(c => c.cat === currentCat);
+  return shuffle(cards);
+}
+
+function setLevel(lv) {
+  currentLevel = lv;
+  document.querySelectorAll('.lv-btn').forEach(b => b.classList.remove('active'));
+  document.getElementById('lv-' + lv).classList.add('active');
+  applyFilters();
+}
+
+function applyFilters() {
+  deck = getFilteredDeck();
+  idx = 0; flipped = false; knownSet.clear(); reviewSet.clear();
+  updateCounters(); buildStrip(); advance();
+  // Update count label
+  const lvLabel  = LEVEL_LABELS[currentLevel];
+  const catLabel = currentCat === 'all' ? 'toutes catégories' : currentCat;
+  const suffix   = currentCat === 'all' ? lvLabel : `${lvLabel} · ${catLabel}`;
+  document.getElementById('level-count').textContent =
+    `${deck.length} carte${deck.length > 1 ? 's' : ''} — ${suffix}`;
+}
+
+/* ── FILTRE CATÉGORIE ── */
+function filterBy(cat){
+  currentCat = cat;
+  document.querySelectorAll('.filter-btn').forEach(b=>b.classList.remove('active'));
+  event.target.classList.add('active');
+  applyFilters();
+}
+
+/* ── LOAD ── */
+function loadContent(){
+  const card=deck[idx];
+  const front=document.getElementById('front');
+  const svgZone=document.getElementById('fc-svg');
+
+  // SVG géométrie
+  if(card.svg){
+    svgZone.style.display='flex';
+    svgZone.innerHTML=card.svg;
+    front.classList.add('has-svg');
+  } else {
+    svgZone.style.display='none';
+    svgZone.innerHTML='';
+    front.classList.remove('has-svg');
+  }
+
+  document.getElementById('fc-cat').textContent  = card.cat;
+  document.getElementById('fc-cat2').textContent = card.cat;
+  document.getElementById('fc-q').textContent    = card.q;
+  document.getElementById('fc-q2').textContent   = card.q;
+  document.getElementById('fc-ans').textContent  = card.ans;
+  document.getElementById('fc-exp').textContent  = card.exp||'';
+  const pct=(idx/deck.length)*100;
+  document.getElementById('p-text').textContent=`Carte ${idx+1} / ${deck.length}`;
+  document.getElementById('p-fill').style.width=pct+'%';
+  document.querySelectorAll('#strip .thumb-text').forEach((el,i)=>el.classList.toggle('cur',i===idx));
+}
+
+/* ── ADVANCE ── */
+function advance(){
+  const ov=document.getElementById('overlay'), fr=document.getElementById('front'), wrap=document.getElementById('fc');
+  ov.classList.add('dark');
+  setTimeout(()=>{
+    wrap.classList.add('no-anim');
+    wrap.classList.remove('flipped');
+    flipped=false;
+    fr.classList.remove('iris');
+    loadContent();
+    requestAnimationFrame(()=>requestAnimationFrame(()=>{
+      wrap.classList.remove('no-anim');
+      ov.classList.remove('dark');
+      fr.classList.add('iris');
+    }));
+  }, 180);
+}
+
+/* ── FLIP ── */
+function flipCard(){
+  const wrap = document.getElementById('fc');
+  if(flipped){
+    // Already revealed — go to next card
+    idx=(idx+1)%deck.length;
+    advance();
+  } else {
+    // Flip reveal — pure CSS 3D, no overlay
+    flipped=true;
+    wrap.classList.add('flipped');
+  }
+}
+
+/* ── NAV ── */
+function nextCard(){ idx=(idx+1)%deck.length; advance(); }
+function prevCard(){ idx=(idx-1+deck.length)%deck.length; advance(); }
+function shuffleCards(){ deck=shuffle([...deck]); idx=0; flipped=false; knownSet.clear(); reviewSet.clear(); updateCounters(); buildStrip(); advance(); }
+function markKnown(){ knownSet.add(deck[idx].id); reviewSet.delete(deck[idx].id); updateCounters(); idx=(idx+1)%deck.length; advance(); }
+function markReview(){ reviewSet.add(deck[idx].id); knownSet.delete(deck[idx].id); const c=deck.splice(idx,1)[0]; deck.splice(Math.min(idx+3,deck.length),0,c); updateCounters(); if(idx>=deck.length)idx=0; advance(); }
+
+/* ── UI ── */
+function updateCounters(){
+  document.getElementById('k-count').textContent=knownSet.size;
+  document.getElementById('r-count').textContent=reviewSet.size;
+  document.getElementById('rem-count').textContent=deck.length-knownSet.size-reviewSet.size;
+}
+function buildStrip(){
+  const strip=document.getElementById('strip'); strip.innerHTML='';
+  deck.forEach((card,i)=>{
+    const d=document.createElement('div');
+    d.className='thumb-text'+(i===0?' cur':'');
+    d.textContent=card.cat.slice(0,4);
+    d.onclick=()=>{idx=i;advance();};
+    d.title=card.q;
+    strip.appendChild(d);
+  });
+}
+
+/* ── UTILS ── */
+function shuffle(arr){for(let i=arr.length-1;i>0;i--){const j=Math.floor(Math.random()*(i+1));[arr[i],arr[j]]=[arr[j],arr[i]];}return arr;}
+
+/* ── CLAVIER ── */
+document.addEventListener('keydown',e=>{
+  if(e.key==='ArrowRight'||e.key===' '){e.preventDefault();nextCard();}
+  if(e.key==='ArrowLeft'){e.preventDefault();prevCard();}
+  if(e.key==='Enter'){e.preventDefault();flipCard();}
+  if(e.key==='k'||e.key==='K')markKnown();
+  if(e.key==='r'||e.key==='R')markReview();
+});
+
+/* ── STARS ── */
+(function(){
+  const c=document.getElementById('stars-canvas'),ctx=c.getContext('2d');let stars=[];
+  function resize(){c.width=innerWidth;c.height=innerHeight;}
+  function init(){resize();stars=Array.from({length:180},()=>({x:Math.random(),y:Math.random(),r:Math.random()*1.2+.15,a:Math.random()*.5+.08,speed:Math.random()*.0004+.00015,phase:Math.random()*Math.PI*2}));}
+  let t=0;function draw(){t++;ctx.clearRect(0,0,c.width,c.height);for(const s of stars){const f=s.a*(.65+.35*Math.sin(t*s.speed*80+s.phase));ctx.beginPath();ctx.arc(s.x*c.width,s.y*c.height,s.r,0,Math.PI*2);ctx.fillStyle=`rgba(200,225,255,${f})`;ctx.fill();}requestAnimationFrame(draw);}
+  addEventListener('resize',init);init();draw();
+})();
+
+/* ── BOOT ── */
+deck=shuffle([...ALL_CARDS]);
+buildStrip();
+loadContent();
+</script>
+</body>
+</html>

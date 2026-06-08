@@ -1,0 +1,772 @@
+[
+  {
+    "id": "alexandre",
+    "label": "Alexandre le Grand",
+    "emoji": "⚔️",
+    "annee": "–323 av. J.-C.",
+    "couleur": "#c8a020",
+    "description": "En 13 ans, Alexandre conquiert un empire de la Grèce à l'Inde. Le plus grand empire créé par un seul homme.",
+    "anecdote": "Son cheval Bucéphale ne pouvait être monté que par lui. Il mourut à 32 ans, sans avoir perdu une seule bataille.",
+    "pays": [
+      "GR",
+      "MK",
+      "AL",
+      "BG",
+      "TR",
+      "SY",
+      "LB",
+      "IL",
+      "PS",
+      "JO",
+      "EG",
+      "IQ",
+      "IR",
+      "KW",
+      "AF",
+      "PK",
+      "IN",
+      "TM",
+      "UZ",
+      "TJ",
+      "KG",
+      "KZ",
+      "AZ",
+      "AM",
+      "GE",
+      "CY"
+    ],
+    "points": [
+      {
+        "nom": "Alexandrie (Égypte)",
+        "lon": 29.9,
+        "lat": 31.2,
+        "desc": "Fondée en –331, capitale intellectuelle du monde antique"
+      },
+      {
+        "nom": "Babylone",
+        "lon": 44.4,
+        "lat": 32.5,
+        "desc": "Dernière capitale, où Alexandre mourut en –323"
+      },
+      {
+        "nom": "Pella (capitale)",
+        "lon": 22.5,
+        "lat": 40.8,
+        "desc": "Capitale du royaume de Macédoine"
+      },
+      {
+        "nom": "Persépolis",
+        "lon": 52.9,
+        "lat": 29.9,
+        "desc": "Capitale perse brûlée par Alexandre en –330"
+      },
+      {
+        "nom": "Alexandrie du Caucase",
+        "lon": 69.2,
+        "lat": 34.5,
+        "desc": "Une des nombreuses villes fondées portant son nom"
+      }
+    ]
+  },
+  {
+    "id": "romain",
+    "label": "Empire Romain",
+    "emoji": "🦅",
+    "annee": "117 ap. J.-C.",
+    "couleur": "#c84020",
+    "description": "À son apogée sous Trajan, l'Empire romain s'étend de l'Écosse à la Mésopotamie. 80 000 km de routes, 1 million d'habitants à Rome.",
+    "anecdote": "Les aqueducs romains apportaient 1 million de m³ d'eau par jour à Rome — autant qu'une ville moderne. Les bâtisseurs des pyramides étaient des artisans payés, pas des esclaves.",
+    "pays": [
+      "PT",
+      "ES",
+      "FR",
+      "IT",
+      "CH",
+      "AT",
+      "SI",
+      "HR",
+      "BA",
+      "RS",
+      "ME",
+      "AL",
+      "MK",
+      "GR",
+      "RO",
+      "MD",
+      "BG",
+      "TR",
+      "SY",
+      "LB",
+      "IL",
+      "PS",
+      "JO",
+      "EG",
+      "LY",
+      "TN",
+      "DZ",
+      "MA",
+      "GB",
+      "BE",
+      "NL",
+      "DE",
+      "HU",
+      "SK",
+      "CZ",
+      "PL",
+      "UA",
+      "IQ"
+    ],
+    "points": [
+      {
+        "nom": "Rome",
+        "lon": 12.5,
+        "lat": 41.9,
+        "desc": "Capitale de l'Empire, 1 million d'habitants au Ier siècle"
+      },
+      {
+        "nom": "Mur d'Hadrien",
+        "lon": -2.3,
+        "lat": 55.0,
+        "desc": "Frontière nord en Bretagne, construit en 122 ap. J.-C."
+      },
+      {
+        "nom": "Carthage",
+        "lon": 10.3,
+        "lat": 36.9,
+        "desc": "Ancienne rivale rasée, devenue province prospère"
+      },
+      {
+        "nom": "Alexandrie",
+        "lon": 29.9,
+        "lat": 31.2,
+        "desc": "2e ville de l'Empire, grand centre intellectuel"
+      },
+      {
+        "nom": "Dacia (Roumanie)",
+        "lon": 25.0,
+        "lat": 45.5,
+        "desc": "Dernière grande conquête de Trajan en 106"
+      }
+    ]
+  },
+  {
+    "id": "byzantin",
+    "label": "Empire Byzantin",
+    "emoji": "⚜️",
+    "annee": "550 ap. J.-C.",
+    "couleur": "#6040c0",
+    "description": "Héritier de Rome en Orient, Byzance survécut 1 000 ans après la chute de Rome. Constantinople résista à 23 sièges.",
+    "anecdote": "Le Feu Grégeois brûlait sur l'eau et resta secret pendant des siècles. Les murailles de Théodose ne tombèrent qu'avec la poudre à canon en 1453.",
+    "pays": [
+      "TR",
+      "GR",
+      "BG",
+      "MK",
+      "AL",
+      "RS",
+      "BA",
+      "HR",
+      "IT",
+      "SY",
+      "LB",
+      "IL",
+      "PS",
+      "JO",
+      "EG",
+      "LY",
+      "TN",
+      "CY",
+      "GE",
+      "AM",
+      "AZ",
+      "IQ"
+    ],
+    "points": [
+      {
+        "nom": "Constantinople",
+        "lon": 28.9,
+        "lat": 41.0,
+        "desc": "Capitale fondée par Constantin en 330, inexpugnable pendant 1000 ans"
+      },
+      {
+        "nom": "Ravenne",
+        "lon": 12.2,
+        "lat": 44.4,
+        "desc": "Capitale de l'exarchat d'Italie"
+      },
+      {
+        "nom": "Alexandrie",
+        "lon": 29.9,
+        "lat": 31.2,
+        "desc": "Grand centre religieux et commercial"
+      },
+      {
+        "nom": "Antioche",
+        "lon": 36.2,
+        "lat": 36.2,
+        "desc": "3e ville de l'Empire"
+      }
+    ]
+  },
+  {
+    "id": "omeyyade",
+    "label": "Califat Omeyyade",
+    "emoji": "🌙",
+    "annee": "750 ap. J.-C.",
+    "couleur": "#20a860",
+    "description": "En moins de 80 ans après la mort de Mahomet, l'islam s'étend de l'Espagne à l'Inde. L'expansion la plus rapide de l'histoire.",
+    "anecdote": "À Poitiers en 732, Charles Martel arrête l'avancée arabe en Europe. L'algèbre, les chiffres 0-9 et la trigonométrie nous viennent de cette civilisation.",
+    "pays": [
+      "ES",
+      "PT",
+      "MA",
+      "DZ",
+      "TN",
+      "LY",
+      "EG",
+      "SD",
+      "SA",
+      "YE",
+      "OM",
+      "AE",
+      "QA",
+      "BH",
+      "KW",
+      "IQ",
+      "SY",
+      "LB",
+      "IL",
+      "PS",
+      "JO",
+      "TR",
+      "IR",
+      "AF",
+      "PK",
+      "TM",
+      "UZ",
+      "TJ"
+    ],
+    "points": [
+      {
+        "nom": "Damas (capitale)",
+        "lon": 36.3,
+        "lat": 33.5,
+        "desc": "Capitale du califat omeyyade"
+      },
+      {
+        "nom": "Cordoue",
+        "lon": -4.8,
+        "lat": 37.9,
+        "desc": "Capitale d'Al-Andalus, ville la plus cultivée d'Europe"
+      },
+      {
+        "nom": "Médine",
+        "lon": 39.6,
+        "lat": 24.5,
+        "desc": "Ville sainte, berceau de l'islam"
+      },
+      {
+        "nom": "Samarcande",
+        "lon": 66.9,
+        "lat": 39.7,
+        "desc": "Carrefour de la Route de la Soie"
+      },
+      {
+        "nom": "Bataille de Poitiers",
+        "lon": 0.3,
+        "lat": 46.6,
+        "desc": "732 — Limite nord de l'expansion islamique en Europe"
+      }
+    ]
+  },
+  {
+    "id": "mongol",
+    "label": "Empire Mongol",
+    "emoji": "🏹",
+    "annee": "1279",
+    "couleur": "#a06820",
+    "description": "Le plus grand empire terrestre de l'histoire. Gengis Khan unifia les tribus en 1206 et ses descendants conquirent la Chine, la Perse et frôlèrent l'Europe.",
+    "anecdote": "La cavalerie mongole parcourait 100 km/jour — 4x plus vite que les armées européennes. Environ 0,5% de la population mondiale descend de Gengis Khan.",
+    "pays": [
+      "MN",
+      "CN",
+      "RU",
+      "KZ",
+      "KG",
+      "UZ",
+      "TM",
+      "TJ",
+      "AF",
+      "IR",
+      "IQ",
+      "SY",
+      "TR",
+      "UA",
+      "PL",
+      "HU",
+      "RO",
+      "KR",
+      "KP",
+      "VN"
+    ],
+    "points": [
+      {
+        "nom": "Karakorum",
+        "lon": 102.8,
+        "lat": 47.2,
+        "desc": "Capitale de l'Empire mongol fondée par Gengis Khan"
+      },
+      {
+        "nom": "Pékin (Khanbalik)",
+        "lon": 116.4,
+        "lat": 39.9,
+        "desc": "Capitale de la Chine sous Kubilaï Khan"
+      },
+      {
+        "nom": "Bagdad",
+        "lon": 44.4,
+        "lat": 33.3,
+        "desc": "Détruite en 1258 — la bibliothèque brûlée, le Tigre noir d'encre"
+      },
+      {
+        "nom": "Samarkand",
+        "lon": 66.9,
+        "lat": 39.7,
+        "desc": "Joyau de l'empire, reconstruite par Tamerlan"
+      },
+      {
+        "nom": "Legnica (Pologne)",
+        "lon": 16.2,
+        "lat": 51.2,
+        "desc": "1241 — Les Mongols écrasent les chevaliers européens et s'arrêtent là"
+      }
+    ]
+  },
+  {
+    "id": "ottoman",
+    "label": "Empire Ottoman",
+    "emoji": "🦁",
+    "annee": "1683",
+    "couleur": "#e05018",
+    "description": "600 ans de règne sur 3 continents. À son apogée, l'Empire ottoman contrôle l'Anatolie, les Balkans, le Moyen-Orient et l'Afrique du Nord.",
+    "anecdote": "Le siège de Vienne en 1683 marque le début du déclin. Les croissants et le café que l'Europe découvrit lors de ce siège sont devenus des symboles occidentaux.",
+    "pays": [
+      "TR",
+      "GR",
+      "BG",
+      "MK",
+      "AL",
+      "RS",
+      "BA",
+      "HR",
+      "HU",
+      "RO",
+      "MD",
+      "UA",
+      "SY",
+      "LB",
+      "IL",
+      "PS",
+      "JO",
+      "IQ",
+      "SA",
+      "YE",
+      "EG",
+      "LY",
+      "TN",
+      "DZ",
+      "CY",
+      "GE",
+      "AZ",
+      "AM",
+      "KW"
+    ],
+    "points": [
+      {
+        "nom": "Constantinople/Istanbul",
+        "lon": 28.9,
+        "lat": 41.0,
+        "desc": "Capitale depuis 1453, prise par Mehmed II à 21 ans"
+      },
+      {
+        "nom": "Vienne (1683)",
+        "lon": 16.4,
+        "lat": 48.2,
+        "desc": "Échec du siège — début du déclin ottoman"
+      },
+      {
+        "nom": "La Mecque",
+        "lon": 39.8,
+        "lat": 21.4,
+        "desc": "Ville sainte sous protection ottomane"
+      },
+      {
+        "nom": "Lépante (1571)",
+        "lon": 21.7,
+        "lat": 38.4,
+        "desc": "Bataille navale — fin de l'invincibilité ottomane en Méditerranée"
+      },
+      {
+        "nom": "Belgrade",
+        "lon": 20.5,
+        "lat": 44.8,
+        "desc": "Verrou stratégique des Balkans"
+      }
+    ]
+  },
+  {
+    "id": "charlemagne",
+    "label": "Empire de Charlemagne",
+    "emoji": "👑",
+    "annee": "814",
+    "couleur": "#4060c0",
+    "description": "Couronné Empereur à Rome le 25 décembre 800. Charlemagne unifie l'Europe occidentale, crée les premières écoles et pose les bases de la France et de l'Allemagne.",
+    "anecdote": "Charlemagne avait du mal à écrire et s'exerçait la nuit avec une ardoise sous l'oreiller. Il mesurait ~1,92m et dominait physiquement toute son assemblée.",
+    "pays": [
+      "FR",
+      "DE",
+      "BE",
+      "NL",
+      "LU",
+      "CH",
+      "AT",
+      "IT",
+      "ES",
+      "PT",
+      "DK",
+      "CZ",
+      "SI",
+      "HR",
+      "HU",
+      "PL"
+    ],
+    "points": [
+      {
+        "nom": "Aix-la-Chapelle",
+        "lon": 6.1,
+        "lat": 50.8,
+        "desc": "Capitale de l'Empire, cathédrale encore debout"
+      },
+      {
+        "nom": "Rome",
+        "lon": 12.5,
+        "lat": 41.9,
+        "desc": "Couronnement par le pape Léon III le 25 déc. 800"
+      },
+      {
+        "nom": "Roncevaux",
+        "lon": -1.3,
+        "lat": 43.0,
+        "desc": "778 — Embuscade basque, mort de Roland, Chanson de Roland"
+      },
+      {
+        "nom": "Paderborn",
+        "lon": 8.8,
+        "lat": 51.7,
+        "desc": "Siège du pouvoir en Saxe après la conversion forcée des Saxons"
+      }
+    ]
+  },
+  {
+    "id": "huns",
+    "label": "Attila et les Huns",
+    "emoji": "🐎",
+    "annee": "451",
+    "couleur": "#804000",
+    "description": "Surgis des steppes d'Asie centrale, les Huns ravagèrent l'Europe sous Attila, surnommé 'le Fléau de Dieu'. Leur pression déclencha les Grandes Invasions.",
+    "anecdote": "Attila mourut dans son lit d'une hémorragie nasale la nuit de ses noces. Son tombeau demeure introuvable — ses soldats massacrèrent tous les ouvriers qui l'avaient construit.",
+    "pays": [
+      "HU",
+      "RO",
+      "AT",
+      "DE",
+      "FR",
+      "IT",
+      "RS",
+      "BG",
+      "UA",
+      "PL",
+      "SK",
+      "CZ"
+    ],
+    "points": [
+      {
+        "nom": "Plaine pannonienne",
+        "lon": 18.0,
+        "lat": 47.0,
+        "desc": "Cœur du royaume hun, actuelle Hongrie"
+      },
+      {
+        "nom": "Châlons (451)",
+        "lon": 4.4,
+        "lat": 49.0,
+        "desc": "Bataille des Champs catalauniques — Attila arrêté par Aetius et les Wisigoths"
+      },
+      {
+        "nom": "Milan",
+        "lon": 9.2,
+        "lat": 45.5,
+        "desc": "Pillée en 452 — le pape Léon Ier aurait convaincu Attila d'épargner Rome"
+      },
+      {
+        "nom": "Aquilée",
+        "lon": 13.4,
+        "lat": 45.8,
+        "desc": "Rasée — ses habitants fondèrent Venise en fuyant"
+      }
+    ]
+  },
+  {
+    "id": "aztec_inca",
+    "label": "Aztèques & Incas",
+    "emoji": "☀️",
+    "annee": "1500",
+    "couleur": "#d4a020",
+    "description": "Deux grands empires des Amériques avant la conquête espagnole. Tenochtitlan (200 000 hab.) était plus grande que Madrid. Les Incas bâtirent 40 000 km de routes sans roue.",
+    "anecdote": "Le chocolat vient des Aztèques. Le Machu Picchu fut construit sans ciment — les pierres s'emboîtent si parfaitement qu'une feuille de papier ne passe pas entre elles.",
+    "pays": [
+      "MX",
+      "GT",
+      "BZ",
+      "HN",
+      "SV",
+      "NI",
+      "PE",
+      "BO",
+      "EC",
+      "CL",
+      "CO",
+      "AR"
+    ],
+    "points": [
+      {
+        "nom": "Tenochtitlan (Mexico)",
+        "lon": -99.1,
+        "lat": 19.4,
+        "desc": "Capitale aztèque sur un lac — 200 000 habitants en 1500"
+      },
+      {
+        "nom": "Cuzco",
+        "lon": -71.9,
+        "lat": -13.5,
+        "desc": "Capitale inca — 'nombril du monde' en quechua"
+      },
+      {
+        "nom": "Machu Picchu",
+        "lon": -72.5,
+        "lat": -13.2,
+        "desc": "Cité inca perchée à 2 430m, redécouverte en 1911"
+      },
+      {
+        "nom": "Chichen Itza",
+        "lon": -88.6,
+        "lat": 20.7,
+        "desc": "Grande cité maya au Yucatán"
+      },
+      {
+        "nom": "Teotihuacan",
+        "lon": -98.8,
+        "lat": 19.7,
+        "desc": "Ville des pyramides du Soleil et de la Lune"
+      }
+    ]
+  },
+  {
+    "id": "britannique",
+    "label": "Empire Britannique",
+    "emoji": "🇬🇧",
+    "annee": "1920",
+    "couleur": "#c03060",
+    "description": "À son apogée en 1920, l'Empire britannique couvre 24% des terres émergées et 23% de la population mondiale. 'Le soleil ne se couche jamais sur l'Empire britannique.'",
+    "anecdote": "L'Empire britannique fut le plus grand de l'histoire par sa superficie. Ses frontières tracées sans égard aux peuples locaux créent encore aujourd'hui des conflits.",
+    "pays": [
+      "GB",
+      "IE",
+      "CA",
+      "AU",
+      "NZ",
+      "ZA",
+      "IN",
+      "PK",
+      "BD",
+      "MM",
+      "MY",
+      "SG",
+      "NG",
+      "GH",
+      "KE",
+      "TZ",
+      "UG",
+      "ZW",
+      "ZM",
+      "MW",
+      "BW",
+      "LS",
+      "SZ",
+      "SL",
+      "GM",
+      "MU",
+      "SC",
+      "CY",
+      "MT",
+      "JM",
+      "TT",
+      "GY",
+      "FJ",
+      "PG",
+      "BN",
+      "MV",
+      "LK"
+    ],
+    "points": [
+      {
+        "nom": "Londres",
+        "lon": -0.1,
+        "lat": 51.5,
+        "desc": "Capitale de l'Empire, plus grande ville du monde en 1900"
+      },
+      {
+        "nom": "Calcutta",
+        "lon": 88.4,
+        "lat": 22.6,
+        "desc": "Capitale des Indes britanniques jusqu'en 1911"
+      },
+      {
+        "nom": "Le Cap",
+        "lon": 18.4,
+        "lat": -33.9,
+        "desc": "Verrou stratégique de la route des Indes"
+      },
+      {
+        "nom": "Suez",
+        "lon": 32.5,
+        "lat": 30.0,
+        "desc": "Canal acheté en 1875 — artère vitale de l'Empire"
+      },
+      {
+        "nom": "Hong Kong",
+        "lon": 114.2,
+        "lat": 22.3,
+        "desc": "Cédé par la Chine en 1842, rétrocédé en 1997"
+      }
+    ]
+  },
+  {
+    "id": "napoleon",
+    "label": "Empire Napoléonien",
+    "emoji": "🥐",
+    "annee": "1812",
+    "couleur": "#2040a0",
+    "description": "À son apogée en 1812, Napoléon contrôle directement ou indirectement la majeure partie de l'Europe. Code civil, Légion d'honneur, lycées — son héritage dure encore.",
+    "anecdote": "Napoléon mesurait ~1,68m — la taille française moyenne. La confusion vient d'une erreur de conversion entre pouces français et anglais. Lors de son sacre, il prit la couronne des mains du pape et se couronna lui-même.",
+    "pays": [
+      "FR",
+      "ES",
+      "PT",
+      "IT",
+      "DE",
+      "PL",
+      "NL",
+      "BE",
+      "LU",
+      "CH",
+      "AT",
+      "SI",
+      "HR",
+      "HR",
+      "DK",
+      "LT",
+      "LV",
+      "EE",
+      "RO",
+      "HR",
+      "GR",
+      "TR"
+    ],
+    "points": [
+      {
+        "nom": "Paris",
+        "lon": 2.3,
+        "lat": 48.9,
+        "desc": "Capitale de l'Empire, Napoléon la transforme profondément"
+      },
+      {
+        "nom": "Austerlitz (1805)",
+        "lon": 16.8,
+        "lat": 49.2,
+        "desc": "'La plus belle de mes batailles' — victoire décisive sur Autriche et Russie"
+      },
+      {
+        "nom": "Waterloo (1815)",
+        "lon": 4.4,
+        "lat": 50.7,
+        "desc": "Défaite finale contre la coalition européenne"
+      },
+      {
+        "nom": "Moscou (1812)",
+        "lon": 37.6,
+        "lat": 55.8,
+        "desc": "Pyrrhique — Napoléon entre dans une ville vide et en flammes"
+      },
+      {
+        "nom": "Sainte-Hélène",
+        "lon": -5.7,
+        "lat": -15.9,
+        "desc": "Île d'exil où il mourut en 1821"
+      }
+    ]
+  },
+  {
+    "id": "ming",
+    "label": "Empire Ming / Qing",
+    "emoji": "🐉",
+    "annee": "1644",
+    "couleur": "#e83030",
+    "description": "La Chine des Ming (1368-1644) puis des Qing (1644-1912) représente la plus longue civilisation continue de l'histoire. Zheng He explora l'Afrique 87 ans avant Vasco de Gama.",
+    "anecdote": "Zheng He commandait des navires de 130m — les plus grands bateaux en bois jamais construits. La Grande Muraille n'est pas visible de la Lune — c'est un mythe.",
+    "pays": [
+      "CN",
+      "MN",
+      "VN",
+      "LA",
+      "KH",
+      "MM",
+      "NP",
+      "BT",
+      "KR",
+      "KP"
+    ],
+    "points": [
+      {
+        "nom": "Pékin (Cité Interdite)",
+        "lon": 116.4,
+        "lat": 39.9,
+        "desc": "Cœur de l'Empire, 9 999 pièces selon la tradition"
+      },
+      {
+        "nom": "Nanjing",
+        "lon": 118.8,
+        "lat": 32.1,
+        "desc": "Première capitale des Ming"
+      },
+      {
+        "nom": "Grande Muraille",
+        "lon": 116.6,
+        "lat": 40.4,
+        "desc": "Reconstruite en briques sous les Ming — 21 000 km au total"
+      },
+      {
+        "nom": "Hormuz (expédition Zheng He)",
+        "lon": 56.5,
+        "lat": 26.5,
+        "desc": "1414 — Zheng He atteint le Golfe Persique avec 317 navires"
+      },
+      {
+        "nom": "Malindi (Kenya)",
+        "lon": 40.1,
+        "lat": -3.2,
+        "desc": "1418 — Zheng He atteint l'Afrique de l'Est"
+      }
+    ]
+  }
+]

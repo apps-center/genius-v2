@@ -1,0 +1,221 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Flashcards — L'Encyclopédie des Explorateurs</title>
+<link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;700;900&family=Crimson+Pro:ital,wght@0,300;0,400;0,600;1,300&display=swap" rel="stylesheet">
+<style>
+:root{--bg:#060a14;--star:#e8dfc4;--gold:#d4a843;--line:rgba(200,180,120,.18);--card-bg:rgba(10,18,36,.92);}
+*{box-sizing:border-box;margin:0;padding:0;}
+html{scroll-behavior:smooth;}
+body{background:var(--bg);color:var(--star);font-family:'Crimson Pro',Georgia,serif;min-height:100vh;overflow-x:hidden;}
+#stars{position:fixed;inset:0;z-index:0;pointer-events:none;}
+
+/* BACK LINK */
+.back{position:fixed;top:22px;left:24px;z-index:100;font-family:'Cinzel',serif;font-size:.6rem;letter-spacing:.25em;text-transform:uppercase;color:rgba(212,168,67,.5);text-decoration:none;display:flex;align-items:center;gap:8px;transition:color .2s;}
+.back:hover{color:var(--gold);}
+
+/* HEADER */
+header{position:relative;z-index:10;text-align:center;padding:72px 20px 40px;}
+.over-title{font-size:.68rem;letter-spacing:.4em;text-transform:uppercase;color:rgba(212,168,67,.5);margin-bottom:14px;font-family:'Cinzel',serif;}
+h1{font-family:'Cinzel',serif;font-size:clamp(1.8rem,5vw,3.4rem);font-weight:900;line-height:1.1;background:linear-gradient(135deg,#f5e6a3,#d4a843 38%,#f0c060 65%,#fff8e0);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;}
+.tagline{margin-top:12px;font-size:.95rem;color:rgba(232,223,196,.44);font-style:italic;}
+.header-deco{display:flex;align-items:center;justify-content:center;gap:18px;margin-top:24px;}
+.header-deco::before,.header-deco::after{content:'';flex:1;max-width:180px;height:1px;background:linear-gradient(to right,transparent,rgba(212,168,67,.3),transparent);}
+.header-deco span{font-family:'Cinzel',serif;font-size:.6rem;letter-spacing:.3em;color:rgba(212,168,67,.35);text-transform:uppercase;}
+
+/* STATS BAR */
+.stats-bar{position:relative;z-index:10;display:flex;justify-content:center;gap:40px;margin:0 auto 44px;max-width:600px;padding:18px 28px;border:1px solid rgba(200,180,120,.12);border-radius:6px;background:rgba(10,18,36,.6);}
+.stat{text-align:center;}
+.stat-num{font-family:'Cinzel',serif;font-size:1.5rem;font-weight:900;color:var(--gold);}
+.stat-label{font-size:.6rem;letter-spacing:.2em;text-transform:uppercase;color:rgba(232,223,196,.35);margin-top:3px;}
+
+/* GENIUS BANNER */
+.genius-wrap{position:relative;z-index:10;max-width:860px;margin:0 auto 36px;padding:0 24px;}
+.genius-card{position:relative;display:flex;align-items:center;justify-content:space-between;gap:24px;background:rgba(10,18,36,.75);border:1px solid rgba(212,168,67,.3);border-radius:8px;padding:28px 36px;cursor:pointer;text-decoration:none;color:inherit;overflow:hidden;transition:border-color .25s,box-shadow .25s;opacity:0;transform:translateY(18px);}
+.genius-card.vis{opacity:1;transform:none;transition:opacity .5s ease,transform .5s ease,border-color .25s,box-shadow .25s;}
+.genius-card:hover{border-color:rgba(212,168,67,.7);box-shadow:0 0 0 1px rgba(212,168,67,.18);}
+.genius-left{display:flex;align-items:center;gap:22px;}
+.genius-icon{font-size:2.4rem;line-height:1;flex-shrink:0;}
+.genius-title{font-family:'Cinzel',serif;font-size:1.4rem;font-weight:900;background:linear-gradient(135deg,#f5e6a3,#d4a843);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;margin-bottom:6px;}
+.genius-desc{font-size:.9rem;color:rgba(232,223,196,.55);font-style:italic;max-width:420px;line-height:1.5;}
+.genius-badge{flex-shrink:0;font-family:'Cinzel',serif;font-size:.58rem;letter-spacing:.2em;text-transform:uppercase;padding:8px 20px;border-radius:4px;background:rgba(212,168,67,.12);border:1px solid rgba(212,168,67,.4);color:var(--gold);white-space:nowrap;transition:border-color .25s;}
+.genius-card:hover .genius-badge{border-color:rgba(212,168,67,.7);}
+
+/* THEME GRID */
+.grid-section{position:relative;z-index:10;max-width:860px;margin:0 auto;padding:0 24px 100px;}
+.section-label{font-family:'Cinzel',serif;font-size:.6rem;letter-spacing:.32em;text-transform:uppercase;color:rgba(212,168,67,.35);margin-bottom:20px;text-align:center;}
+.grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(280px,1fr));gap:18px;}
+
+.card{position:relative;background:var(--card-bg);border:1px solid rgba(200,180,120,.14);border-radius:6px;padding:28px 24px 24px;cursor:pointer;text-decoration:none;color:inherit;display:flex;flex-direction:column;gap:12px;overflow:hidden;transition:border-color .25s,box-shadow .25s;opacity:0;transform:translateY(22px);}
+.card.vis{opacity:1;transform:none;transition:opacity .5s ease,transform .5s ease,border-color .25s,box-shadow .25s;}
+.card:hover{border-color:rgba(200,180,120,.34);box-shadow:0 4px 24px rgba(0,0,0,.35);}
+.card.coming{cursor:default;opacity:.45;}
+.card.coming:hover{box-shadow:none;border-color:rgba(200,180,120,.14);}
+.card::before{content:'';position:absolute;inset:0;opacity:.06;border-radius:6px;background:var(--accent-grad);pointer-events:none;transition:opacity .25s;}
+.card:hover::before{opacity:.11;}
+.card.coming::before{opacity:.03;}
+
+.card-top{display:flex;align-items:flex-start;justify-content:space-between;gap:12px;}
+.card-icon{font-size:1.8rem;line-height:1;flex-shrink:0;}
+.badge{font-family:'Cinzel',serif;font-size:.5rem;letter-spacing:.18em;text-transform:uppercase;padding:3px 9px;border-radius:3px;background:rgba(212,168,67,.1);border:1px solid rgba(212,168,67,.28);color:var(--gold);}
+.badge.soon{background:rgba(180,180,200,.06);border-color:rgba(200,180,120,.14);color:rgba(232,223,196,.28);}
+
+.card-title{font-family:'Cinzel',serif;font-size:1.05rem;font-weight:700;color:var(--star);}
+.card-count{font-size:.78rem;color:rgba(212,168,67,.6);font-style:italic;}
+.card-desc{font-size:.85rem;line-height:1.55;color:rgba(232,223,196,.48);flex:1;}
+.card-tags{display:flex;flex-wrap:wrap;gap:5px;}
+.tag{font-size:.55rem;letter-spacing:.13em;text-transform:uppercase;padding:3px 8px;border-radius:2px;border:1px solid rgba(200,180,120,.16);color:rgba(232,223,196,.38);}
+.card-arrow{position:absolute;bottom:20px;right:20px;font-size:.85rem;color:rgba(212,168,67,.3);transition:color .25s;}
+.card:hover .card-arrow{color:rgba(212,168,67,.65);}
+.card.coming .card-arrow{display:none;}
+
+footer{position:relative;z-index:10;text-align:center;padding:28px 20px 40px;border-top:1px solid var(--line);}
+footer p{font-size:.68rem;letter-spacing:.14em;text-transform:uppercase;color:rgba(232,223,196,.18);}
+
+@media(max-width:600px){
+  .stats-bar{gap:24px;padding:14px 16px;}
+  .genius-card{flex-direction:column;align-items:flex-start;padding:22px 22px;}
+  .genius-badge{align-self:flex-start;}
+}
+</style>
+</head>
+<body>
+<canvas id="stars"></canvas>
+
+<a class="back" href="/accueil.html">← Accueil</a>
+
+<header>
+  <div class="over-title">L'Encyclopédie des Explorateurs</div>
+  <h1>Flashcards</h1>
+  <p class="tagline">Retourne les cartes, mémorise, progresse</p>
+  <div class="header-deco"><span>🃏</span></div>
+</header>
+
+<div class="stats-bar" id="stats-bar">
+  <div class="stat"><div class="stat-num" id="total-cards">424</div><div class="stat-label">Cartes disponibles</div></div>
+  <div class="stat"><div class="stat-num" id="total-themes">6</div><div class="stat-label">Thèmes actifs</div></div>
+  <div class="stat"><div class="stat-num" id="total-coming">0</div><div class="stat-label">Thèmes à venir</div></div>
+</div>
+
+<!-- GENIUS MODE -->
+<div class="genius-wrap">
+  <a class="genius-card" href="genius.html" id="genius-card">
+    <div class="genius-left">
+      <div class="genius-icon">⚡</div>
+      <div>
+        <div class="genius-title">Mode Genius</div>
+        <div class="genius-desc">Toutes les cartes mélangées, tous les thèmes confondus. Le vrai test de culture générale — pour ceux qui n'ont peur de rien.</div>
+      </div>
+    </div>
+    <div class="genius-badge">Lancer le défi →</div>
+  </a>
+</div>
+
+<!-- THEMATIC GRID -->
+<div class="grid-section">
+  <div class="section-label">Choisir un thème</div>
+  <div class="grid">
+
+    <a class="card" href="histoire.html" style="--accent-grad:linear-gradient(135deg,#b8860b,#8b4513)">
+      <div class="card-top">
+        <div class="card-icon">🏛️</div>
+        <span class="badge">Disponible</span>
+      </div>
+      <div class="card-title">Histoire</div>
+      <div class="card-count">109 cartes</div>
+      <div class="card-desc">Des grandes civilisations à l'époque contemporaine — Empires, révolutions, batailles et figures historiques.</div>
+      <div class="card-tags"><span class="tag">Antiquité</span><span class="tag">Moyen Âge</span><span class="tag">Révolutions</span><span class="tag">XXe siècle</span></div>
+      <span class="card-arrow">→</span>
+    </a>
+
+    <a class="card" href="geographie.html" style="--accent-grad:linear-gradient(135deg,#1a6b4a,#0d4a6b)">
+      <div class="card-top">
+        <div class="card-icon">🌍</div>
+        <span class="badge">Disponible</span>
+      </div>
+      <div class="card-title">Géographie</div>
+      <div class="card-count">155 cartes</div>
+      <div class="card-desc">Capitales, pays, reliefs, fleuves et grandes dynamiques géopolitiques du monde entier.</div>
+      <div class="card-tags"><span class="tag">Capitales</span><span class="tag">Continents</span><span class="tag">Reliefs</span></div>
+      <span class="card-arrow">→</span>
+    </a>
+
+    <a class="card" href="mathematiques.html" style="--accent-grad:linear-gradient(135deg,#1a3a6b,#0d2a5a)">
+      <div class="card-top">
+        <div class="card-icon">🔢</div>
+        <span class="badge">Disponible</span>
+      </div>
+      <div class="card-title">Mathématiques</div>
+      <div class="card-count">100 cartes</div>
+      <div class="card-desc">Fractions, relatifs, proportionnalité, algèbre, géométrie — les bases du collège maîtrisées.</div>
+      <div class="card-tags"><span class="tag">Fractions</span><span class="tag">Algèbre</span><span class="tag">Géométrie</span><span class="tag">Relatifs</span></div>
+      <span class="card-arrow">→</span>
+    </a>
+
+    <a class="card" href="sciences.html" style="--accent-grad:linear-gradient(135deg,#1a4a2a,#3a2a0a)">
+      <div class="card-top">
+        <div class="card-icon">🔬</div>
+        <span class="badge">Disponible</span>
+      </div>
+      <div class="card-title">Sciences & Nature</div>
+      <div class="card-count">155 cartes</div>
+      <div class="card-desc">SVT, physique, chimie — du noyau atomique aux écosystèmes, de la cellule à la galaxie.</div>
+      <div class="card-tags"><span class="tag">SVT</span><span class="tag">Physique</span><span class="tag">Chimie</span></div>
+      <span class="card-arrow">→</span>
+    </a>
+
+    <a class="card" href="art.html" style="--accent-grad:linear-gradient(135deg,#6b1a4a,#4a0a3a)">
+      <div class="card-top">
+        <div class="card-icon">🎨</div>
+        <span class="badge">Disponible</span>
+      </div>
+      <div class="card-title">Arts & Culture</div>
+      <div class="card-count">30 cartes</div>
+      <div class="card-desc">Peinture, musique, littérature, théâtre, cinéma — les grandes œuvres et leurs auteurs.</div>
+      <div class="card-tags"><span class="tag">Peinture</span><span class="tag">Musique</span><span class="tag">Littérature</span><span class="tag">Théâtre</span></div>
+      <span class="card-arrow">→</span>
+    </a>
+
+    <a class="card" href="logique.html" style="--accent-grad:linear-gradient(135deg,#2a1a6b,#1a0a4a)">
+      <div class="card-top">
+        <div class="card-icon">🧠</div>
+        <span class="badge">Disponible</span>
+      </div>
+      <div class="card-title">Logique</div>
+      <div class="card-count">30 cartes</div>
+      <div class="card-desc">Suites, déduction, probabilités, énigmes — raisonnement type concours et entretien.</div>
+      <div class="card-tags"><span class="tag">Suites</span><span class="tag">Déduction</span><span class="tag">Énigmes</span><span class="tag">⭐⭐⭐</span></div>
+      <span class="card-arrow">→</span>
+    </a>
+
+  </div>
+</div>
+
+<footer>
+  <p>L'Encyclopédie des Explorateurs &nbsp;·&nbsp; Flashcards</p>
+</footer>
+
+<script>
+/* STARS */
+(function(){
+  const c=document.getElementById('stars'),ctx=c.getContext('2d');
+  let W,H,stars=[];
+  function resize(){W=c.width=innerWidth;H=c.height=innerHeight;}
+  function init(){stars=[];for(let i=0;i<200;i++)stars.push({x:Math.random()*W,y:Math.random()*H,r:Math.random()*1.1+.2,a:Math.random()*.6+.1,sp:Math.random()*.4+.1,ph:Math.random()*Math.PI*2});}
+  function draw(t){ctx.clearRect(0,0,W,H);stars.forEach(s=>{const a=s.a*(0.6+0.4*Math.sin(t*.001*s.sp+s.ph));ctx.beginPath();ctx.arc(s.x,s.y,s.r,0,Math.PI*2);ctx.fillStyle=`rgba(240,230,190,${a})`;ctx.fill();});requestAnimationFrame(draw);}
+  window.addEventListener('resize',()=>{resize();init();});
+  resize();init();requestAnimationFrame(draw);
+})();
+
+/* INTERSECTION OBSERVER — apparition des cartes */
+const io=new IntersectionObserver(entries=>{
+  entries.forEach((e,i)=>{if(e.isIntersecting){setTimeout(()=>e.target.classList.add('vis'),i*80);io.unobserve(e.target);}});
+},{threshold:.1});
+document.getElementById('genius-card').style.transitionDelay='0ms';
+io.observe(document.getElementById('genius-card'));
+document.querySelectorAll('.card').forEach((c,i)=>{c.style.transitionDelay=i*60+'ms';io.observe(c);});
+</script>
+</body>
+</html>

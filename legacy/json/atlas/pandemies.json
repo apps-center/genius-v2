@@ -1,0 +1,168 @@
+{
+  "_meta": {
+    "title": "Grandes Pandémies",
+    "emoji": "🦠"
+  },
+  "episodes": [
+    {
+      "id": "peste_noire",
+      "label": "Peste Noire (1347-1351)",
+      "couleur": "#602080",
+      "emoji": "💀",
+      "morts": "25-50 millions (1/3 de l'Europe)",
+      "description": "La peste bubonique venue d'Asie centrale via les routes mongoles. Tue un tiers de la population européenne en 4 ans.",
+      "anecdote": "Les survivants héritèrent des terres des morts. La Peste accéléra paradoxalement la fin du servage.",
+      "pays_touches": [
+        "IT",
+        "FR",
+        "ES",
+        "PT",
+        "GB",
+        "DE",
+        "PL",
+        "RO",
+        "GR",
+        "TR",
+        "EG",
+        "SY",
+        "IQ",
+        "MA",
+        "TN"
+      ],
+      "route": [
+        {
+          "lon": 116.4,
+          "lat": 39.9,
+          "nom": "Mongolie/Chine",
+          "desc": "Origine probable"
+        },
+        {
+          "lon": 44.4,
+          "lat": 33.3,
+          "nom": "Bagdad",
+          "desc": "1347"
+        },
+        {
+          "lon": 33.4,
+          "lat": 37.0,
+          "nom": "Caffa (Crimée)",
+          "desc": "1346 — siège mongol, cadavres pesteux catapultés"
+        },
+        {
+          "lon": 12.3,
+          "lat": 45.4,
+          "nom": "Venise",
+          "desc": "1347 — Invention de la quarantaine (40 jours)"
+        },
+        {
+          "lon": 2.3,
+          "lat": 48.9,
+          "nom": "Paris",
+          "desc": "1348"
+        },
+        {
+          "lon": -0.1,
+          "lat": 51.5,
+          "nom": "Londres",
+          "desc": "1349"
+        }
+      ]
+    },
+    {
+      "id": "grippe_espagnole",
+      "label": "Grippe Espagnole (1918-1920)",
+      "couleur": "#a02020",
+      "emoji": "🤧",
+      "morts": "50-100 millions dans le monde",
+      "description": "La pandémie la plus meurtrière de l'histoire moderne. Tua plus de personnes que la Première Guerre Mondiale.",
+      "anecdote": "Appelée 'espagnole' car l'Espagne, non censurée par la guerre, fut la première à en parler. Elle débuta probablement au Kansas, USA.",
+      "pays_touches": [
+        "US",
+        "GB",
+        "FR",
+        "DE",
+        "IT",
+        "ES",
+        "RU",
+        "IN",
+        "CN",
+        "AU",
+        "ZA",
+        "BR",
+        "JP",
+        "CA"
+      ],
+      "points": [
+        {
+          "lon": -97.0,
+          "lat": 39.0,
+          "nom": "Kansas, USA",
+          "desc": "Probable foyer initial, mars 1918"
+        },
+        {
+          "lon": 2.3,
+          "lat": 48.9,
+          "nom": "Paris",
+          "desc": "Toucha massivement les soldats alliés"
+        },
+        {
+          "lon": 77.2,
+          "lat": 28.6,
+          "nom": "Inde britannique",
+          "desc": "17 millions de morts en Inde"
+        }
+      ]
+    },
+    {
+      "id": "covid",
+      "label": "COVID-19 (2020-2022)",
+      "couleur": "#2080c0",
+      "emoji": "🦠",
+      "morts": "7+ millions officiels, 15-20M estimés",
+      "description": "Pandémie mondiale déclenchée en 2019. Première pandémie de l'ère de la mondialisation et des réseaux sociaux.",
+      "anecdote": "En 3 mois, le virus se propagea dans 114 pays. Les vaccins furent développés en temps record grâce à la technologie ARNm.",
+      "pays_touches": [
+        "CN",
+        "US",
+        "BR",
+        "IN",
+        "FR",
+        "DE",
+        "GB",
+        "IT",
+        "ES",
+        "RU",
+        "MX",
+        "AR",
+        "CO",
+        "PE",
+        "PL",
+        "TR",
+        "ZA",
+        "ID",
+        "PH",
+        "JP"
+      ],
+      "points": [
+        {
+          "lon": 114.3,
+          "lat": 30.6,
+          "nom": "Wuhan, Chine",
+          "desc": "Premier foyer identifié, décembre 2019"
+        },
+        {
+          "lon": 12.5,
+          "lat": 41.9,
+          "nom": "Lombardie, Italie",
+          "desc": "Premier foyer européen majeur, février 2020"
+        },
+        {
+          "lon": -46.6,
+          "lat": -23.5,
+          "nom": "São Paulo, Brésil",
+          "desc": "Pays le plus touché d'Amérique Latine"
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,1431 @@
+{
+  "UA": {
+    "name": "Ukraine",
+    "flag": "🇺🇦",
+    "capitale": "Kyiv (Kiev)",
+    "continent": "Europe",
+    "population": "37 millions (2024, hors territoires occupés)",
+    "superficie": "603 550 km² (2e d'Europe après la Russie)",
+    "langues": ["Ukrainien (officiel)", "Russe (minorité, surtout à l'est)"],
+    "monnaie": "Hryvnia (UAH)",
+
+    "histoire": {
+      "independance": "24 août 1991 (dissolution de l'URSS). Mais l'Ukraine médiévale (Rus' de Kiev) est l'une des plus anciennes entités slaves (IXe siècle).",
+      "evenements_majeurs": [
+        "Rus' de Kiev (IXe-XIIe s.) : berceau de la civilisation slave orientale",
+        "Holodomor (1932-1933) : famine organisée par Staline, 3 à 7 millions de morts ukrainiens",
+        "URSS (1922-1991) : Ukraine soviétique, deuxième république la plus peuplée",
+        "Catastrophe de Tchernobyl (26 avril 1986) : pire accident nucléaire civil de l'histoire",
+        "Indépendance (24 août 1991) : après le referendum, 92% de Oui",
+        "Révolution Orange (2004) : contestation électorale pro-occidentale",
+        "Euromaïdan / Révolution de la Dignité (2013-2014) : chute du président Ianoukovitch pro-russe",
+        "Annexion de la Crimée par la Russie (mars 2014) : violation du droit international",
+        "Guerre du Donbass (2014-2022) : conflit armé dans l'est du pays",
+        "Invasion russe à grande échelle (24 février 2022) : guerre la plus meurtrière en Europe depuis 1945",
+        "Résistance ukrainienne et soutien occidental massif (OTAN, UE, aide militaire et financière)"
+      ],
+      "role_historique": "Carrefour entre Europe occidentale et monde russe, l'Ukraine est un État-nation dont l'existence même est au cœur de la guerre en cours. Son histoire illustre les tensions entre identités nationales, impérialismes et aspirations démocratiques."
+    },
+
+    "politique": {
+      "regime": "République unitaire semi-présidentielle. Démocratie en guerre — loi martiale en vigueur depuis février 2022. Élections suspendues pendant la guerre.",
+      "chef_etat": "Volodymyr Zelensky (président depuis mai 2019 — ancien comédien devenu symbole de résistance nationale).",
+      "stabilite": "En état de guerre. Forte cohésion nationale face à l'invasion russe. Candidature à l'UE accordée (juin 2022), processus d'adhésion en cours.",
+      "alliances": [
+        "Partenariat renforcé avec l'OTAN (candidature non encore aboutie)",
+        "Accords de sécurité bilatéraux avec UE, USA, UK, France, Allemagne, Japon...",
+        "Mémorandum de Budapest (1994) : Ukraine a renoncé à l'arme nucléaire soviétique en échange de garanties de sécurité (non respectées par la Russie)",
+        "Candidature officielle à l'UE (depuis juin 2022)",
+        "G7 : soutien financier et militaire massif"
+      ]
+    },
+
+    "economie": {
+      "pib": "148 milliards $ (2023, en chute de ~35% depuis l'invasion)",
+      "pib_hab": "4 534 $ (2023)",
+      "ressources": [
+        "Blé et céréales (5e exportateur mondial avant 2022 — corridor céréalier de la mer Noire enjeu stratégique)",
+        "Terres rares et métaux critiques : lithium, titane, tungstène (parmi les plus grandes réserves mondiales)",
+        "Charbon et gaz (Donbass — zones occupées par la Russie)",
+        "Minerai de fer et acier (Kryvyï Rih, ville natale de Zelensky)",
+        "Tournesol : 1er producteur mondial d'huile de tournesol"
+      ],
+      "secteurs": [
+        "Agriculture (30% du PIB avant 2022 — «grenier de l'Europe»)",
+        "Industrie sidérurgique et métallurgie (Marioupol — détruite en 2022)",
+        "Technologies de l'information (secteur IT dynamique malgré la guerre, «Silicon Valley de l'Europe de l'Est»)",
+        "Industrie de défense (production accélérée depuis 2022)",
+        "Énergie nucléaire (4 centrales, 15 réacteurs — 1er parc nucléaire d'Europe)"
+      ],
+      "grandes_villes": [
+        "Kyiv (capitale, 3 M hab., cible de frappes russes)",
+        "Kharkiv (2e ville, à 40 km de la Russie, très bombardée)",
+        "Odessa (port stratégique sur la mer Noire)",
+        "Dnipro (hub industriel et militaire)",
+        "Lviv (à l'ouest, moins touchée, refuge intérieur)"
+      ],
+      "places_economiques": [
+        "Bourse de Kyiv (suspendue depuis l'invasion)",
+        "Banque nationale d'Ukraine (gestion de l'aide internationale)",
+        "Corridor céréalier de la mer Noire (enjeu diplomatique mondial)"
+      ],
+      "voies_communication": [
+        "Réseau ferroviaire dense (soviétique) : clé pour l'évacuation civile et le transit militaire",
+        "Ports d'Odessa et Mykolaïv (exportations agricoles, partiellement bloqués)",
+        "Frontières terrestres avec Pologne, Moldavie, Roumanie (flux de réfugiés : 6-8 millions en Europe)"
+      ]
+    },
+
+    "societe": {
+      "demographie": "Population passée de 45 M (2014) à ~37 M (2024) : 8 millions de réfugiés à l'étranger, morts et déplacés internes. Crise démographique historique.",
+      "idh": "0,773 (rang 78/191 en 2022, catégorie « élevé »)",
+      "education": "Taux d'alphabétisation : 100%. Tradition scientifique et technique soviétique. Universités bien classées (Kyiv, Kharkiv). Secteur IT très développé (50 000+ développeurs formés par an).",
+      "sante": "Système de santé sévèrement touché par les destructions. Avant 2022 : espérance de vie 72 ans. Crise humanitaire en zones de combat.",
+      "inegalites": "Gini ~25 (relativement égalitaire en comparaison européenne). Oligarchie historique puissante, combat contre la corruption (condition d'adhésion à l'UE).",
+      "urbanisation": "69,5 % (2023). Exode vers l'ouest du pays et vers l'Europe."
+    },
+
+    "environnement": {
+      "pollution": "Catastrophe écologique en cours : destruction d'industries, pollution des sols par munitions, destruction du barrage de Kakhovka (juin 2023 — catastrophe écologique sur le Dniepr).",
+      "dev_durable": "1er parc nucléaire d'Europe (avant-guerre). Potentiel éolien et solaire immense (steppe). Reconstruction prévue selon normes vertes européennes.",
+      "recherche": "Tradition scientifique soviétique héritée. Secteur spatial (fusées Zenit). IT en plein essor malgré la guerre.",
+      "militaire": "Forces armées passées de 130 000 à plus de 700 000 soldats depuis 2022. Équipées par l'Occident (chars Leopard, F-16, missiles). Drone warfare : laboratoire de guerre du futur. Budget militaire : ~37 % du PIB en 2023.",
+      "defis": [
+        "Reconstruction post-guerre estimée à 500 milliards $ (Banque mondiale)",
+        "Déminage : 30% du territoire contaminé par des mines",
+        "Retour des réfugiés incertain",
+        "Corruption : obstacle à l'adhésion européenne",
+        "Trauma collectif et santé mentale de la population",
+        "Dépendance à l'aide étrangère (60 Mds $ en 2023)"
+      ]
+    },
+
+    "importance": {
+      "historique": "La guerre d'Ukraine est le plus grand conflit armé en Europe depuis 1945. Elle redéfinit les frontières de l'ordre international, relance l'OTAN et pose la question de la souveraineté des États post-soviétiques.",
+      "economique": "Grenier à blé mondial, réserves en métaux critiques essentielles à la transition énergétique. La reconstruction sera un enjeu économique majeur pour l'Europe.",
+      "geopolitique": "Front de la confrontation OTAN-Russie. Test de la solidarité occidentale. Candidature à l'UE qui redessinera la carte de l'Europe. Enjeu pour la Chine, observatrice de la réaction occidentale (scénario Taiwan).",
+      "atouts": [
+        "Résilience et cohésion nationale remarquables face à l'agression",
+        "Terres agricoles parmi les plus fertiles du monde (tchernozem)",
+        "Réserves en métaux critiques pour la transition énergétique",
+        "Secteur IT dynamique (talent de classe mondiale)",
+        "Soutien occidental massif et durable"
+      ],
+      "fragilites": [
+        "Guerre en cours : destructions massives d'infrastructures",
+        "Crise démographique profonde (réfugiés, morts, émigration)",
+        "Dépendance totale à l'aide militaire et financière occidentale",
+        "Corruption systémique à combattre",
+        "Issue du conflit incertaine"
+      ]
+    }
+  },
+
+  "AE": {
+    "name": "Émirats arabes unis",
+    "flag": "🇦🇪",
+    "capitale": "Abu Dhabi",
+    "continent": "Asie",
+    "population": "9,8 millions (2024) — dont 90% d'expatriés",
+    "superficie": "83 600 km²",
+    "langues": ["Arabe (officiel)", "Anglais (lingua franca des affaires)"],
+    "monnaie": "Dirham des Émirats arabes unis (AED)",
+
+    "histoire": {
+      "independance": "2 décembre 1971 (fédération de 7 émirats indépendants du protectorat britannique)",
+      "evenements_majeurs": [
+        "Côte des Pirates puis Côte de la Trêve : XVIIIe-XIXe s. sous influence britannique",
+        "Découverte du pétrole à Abu Dhabi (1958) : transformation radicale du pays",
+        "Indépendance et création de la fédération (2 décembre 1971) : union de 7 émirats",
+        "Construction de Dubaï comme hub commercial et touristique mondial (années 1990-2000)",
+        "Inauguration du Burj Khalifa (2010) : plus haute tour du monde (828 m)",
+        "Expo 2020 Dubaï (tenue en 2021-2022)",
+        "Accords d'Abraham (2020) : normalisation avec Israël",
+        "Mission Hope : sonde spatiale émiratie en orbite autour de Mars (2021)",
+        "COP28 à Dubaï (décembre 2023)"
+      ],
+      "role_historique": "Transformation fulgurante en 50 ans : de territoires désertiques de pêcheurs et de bédouins à l'un des pays les plus riches et modernisés du monde. Modèle de diversification économique post-pétrole."
+    },
+
+    "politique": {
+      "regime": "Fédération de monarchies absolues. Le président est l'émir d'Abu Dhabi, le Premier ministre l'émir de Dubaï. Pas de parlement élu. Stabilité garantie par la richesse et la sécurité.",
+      "chef_etat": "Sheikh Mohamed bin Zayed Al Nahyan (MBZ) — Président depuis 2022, émir d'Abu Dhabi. Sheikh Mohammed bin Rashid Al Maktoum — Vice-président et PM, émir de Dubaï.",
+      "stabilite": "Très stable : richesse pétrolière, répression des oppositions, aucune liberté de presse. Pays le plus libéral socialement du Golfe (alcool, mixité tolérés).",
+      "alliances": [
+        "Coalition dirigée par l'Arabie Saoudite (Yémen)",
+        "Accords d'Abraham (normalisation avec Israël, 2020)",
+        "Partenariat stratégique avec les États-Unis (base aérienne d'Al-Dhafra)",
+        "Relations économiques étroites avec la Chine et l'Inde",
+        "Ligue arabe",
+        "OPEP+"
+      ]
+    },
+
+    "economie": {
+      "pib": "498 milliards $ (2023, 2e du monde arabe après l'Arabie Saoudite)",
+      "pib_hab": "50 600 $ (pour les citoyens émiratiens : ~100 000 $)",
+      "ressources": [
+        "Pétrole (7e réserves mondiales, quasi-totalité à Abu Dhabi)",
+        "Gaz naturel (7e réserves mondiales)",
+        "Énergie solaire (centrale Noor Abu Dhabi : une des plus grandes au monde)",
+        "Pêche et perles (historique)"
+      ],
+      "secteurs": [
+        "Finance et banque (hub régional : DIFC à Dubaï)",
+        "Tourisme (Dubaï : 17 millions de touristes/an, 4e destination mondiale)",
+        "Commerce et logistique (Port de Jebel Ali : 1er port d'Afrique-Asie, 10e mondial)",
+        "Immobilier et construction",
+        "Aviation (Emirates Airlines : 1ère compagnie mondiale long-courrier)",
+        "Technologies et startups (hub régional croissant)"
+      ],
+      "grandes_villes": [
+        "Dubaï (3,5 M hab. — hub mondial du commerce, tourisme, finance)",
+        "Abu Dhabi (capitale, 1,5 M hab. — hub pétrolier et culturel)",
+        "Sharjah (émirat plus conservateur, industrie)"
+      ],
+      "places_economiques": [
+        "DIFC (Dubai International Financial Centre) : hub financier régional, droit anglais",
+        "Bourse de Dubaï (DFM) et Abu Dhabi Securities Exchange (ADX)",
+        "DP World (opérateur portuaire mondial, siège à Dubaï)",
+        "Masdar City (Abu Dhabi) : ville utopique 100% renouvelable"
+      ],
+      "voies_communication": [
+        "Aéroport international de Dubaï (DXB) : 1er aéroport mondial en trafic passagers internationaux",
+        "Port de Jebel Ali (Dubaï) : plus grand port artificiel du monde",
+        "Réseau autoroutier ultra-moderne",
+        "Dubaï Metro (réseau automatique sans conducteur)"
+      ]
+    },
+
+    "societe": {
+      "demographie": "9,8 M hab. dont seulement ~10% de citoyens émiratiens. Travailleurs migrants d'Inde, Pakistan, Bangladesh, Philippines (conditions souvent précaires, système de kafala critiqué).",
+      "idh": "0,937 (rang 26/191 en 2022, catégorie « très élevé »)",
+      "education": "Éducation gratuite et obligatoire pour les citoyens. Universités étrangères installées (NYU Abu Dhabi, Sorbonne Abu Dhabi). Forte dépendance aux travailleurs qualifiés étrangers.",
+      "sante": "Système de santé parmi les meilleurs du monde arabe. Espérance de vie 78 ans. Médecins majoritairement étrangers.",
+      "inegalites": "Paradoxe : citoyens ultra-privilégiés (allocations, emplois garantis) vs travailleurs migrants vulnérables. Système de kafala (parrainage) : critiqué par les ONG.",
+      "urbanisation": "87 % (2023). Villes ultramodernes surgies du désert en quelques décennies."
+    },
+
+    "environnement": {
+      "pollution": "Empreinte carbone par habitant parmi les plus élevées du monde. Chaleur extrême (>50°C) aggravée par l'urbanisation. Désalinisation massive (95% de l'eau potable est dessalée).",
+      "dev_durable": "Vision UAE Net Zero 2050. Centrale solaire Noor Abu Dhabi. Masdar City. Investissements massifs dans l'hydrogène vert. COP28 à Dubaï (2023).",
+      "recherche": "Investissements croissants en IA (G42, Abu Dhabi). Mission spatiale Hope (Mars, 2021). Mohammed Bin Zayed University of AI (MBZUAI) : 1ère université entièrement dédiée à l'IA.",
+      "militaire": "Armée professionnelle de 65 000 hommes. F-16, Rafale (36 avions commandés à la France). Participation à la coalition au Yémen. Budget militaire ~5% du PIB.",
+      "defis": [
+        "Après-pétrole : la Vision 2030 vise à réduire la dépendance aux hydrocarbures",
+        "Changement climatique : températures extrêmes, montée des eaux (côtes basses)",
+        "Pénurie d'eau chronique (100% de désalinisation)",
+        "Droits des travailleurs migrants (système de kafala)",
+        "Dépendance à une main-d'œuvre étrangère pour tout"
+      ]
+    },
+
+    "importance": {
+      "historique": "Transformation la plus spectaculaire du XXe siècle : du désert à la mégalopole ultramoderne en 50 ans. Modèle étudié mondialement, souvent critiqué pour ses contradictions.",
+      "economique": "Hub logistique entre l'Europe, l'Asie et l'Afrique. Premier aéroport mondial. Réserves pétrolières garantissant revenus pour plusieurs décennies.",
+      "geopolitique": "Médiateur régional pragmatique. Normalisation avec Israël (2020). Relations équilibrées avec l'Occident, la Chine et la Russie. Influence croissante en Afrique via DP World.",
+      "atouts": [
+        "Position géographique stratégique (carrefour mondial)",
+        "Infrastructure de classe mondiale (aéroport, port, finance)",
+        "Réserves pétrolières et fonds souverain (ADIA : ~850 Mds $, 3e mondial)",
+        "Stabilité politique et sécurité",
+        "Image de marque internationale (Dubaï = modernité, luxe, hub)"
+      ],
+      "fragilites": [
+        "Dépendance au pétrole et au gaz pour les revenus publics",
+        "Vulnérabilité climatique (chaleur, montée des eaux)",
+        "Fragilité démographique : 90% d'étrangers, loyauté incertaine",
+        "Absence de démocratie et de libertés civiles",
+        "Insécurité régionale (Yémen, Iran, tensions israélo-palestiniennes)"
+      ]
+    }
+  },
+
+  "KP": {
+    "name": "Corée du Nord",
+    "flag": "🇰🇵",
+    "capitale": "Pyongyang",
+    "continent": "Asie",
+    "population": "26 millions (estimé 2024 — données officielles non fiables)",
+    "superficie": "120 538 km²",
+    "langues": ["Coréen (officiel)"],
+    "monnaie": "Won nord-coréen (KPW) — usage interne uniquement",
+
+    "histoire": {
+      "independance": "9 septembre 1948 (proclamation de la République populaire démocratique de Corée, après la partition de la péninsule coréenne à la fin de la 2e Guerre Mondiale).",
+      "evenements_majeurs": [
+        "Occupation japonaise (1910-1945) : colonisation traumatisante",
+        "Partition de la Corée (1945) : 38e parallèle, zone soviétique au nord / américaine au sud",
+        "Guerre de Corée (1950-1953) : 3 millions de morts, aucun traité de paix signé (armistice seulement)",
+        "Régime de Kim Il-sung (1948-1994) : fondateur du régime, culte de la personnalité",
+        "Grande Famine (1994-1998) : 300 000 à 3 millions de morts selon les estimations",
+        "Kim Jong-il au pouvoir (1994-2011) : poursuite du programme nucléaire",
+        "1er essai nucléaire (2006) : sanctions internationales massives",
+        "Kim Jong-un au pouvoir depuis 2011 : 6 essais nucléaires, missiles balistiques intercontinentaux",
+        "Sommet Kim Jong-un / Trump à Singapour (2018) : première rencontre historique sans résultat durable",
+        "Rapprochement avec la Russie (2023-2024) : livraisons de munitions pour la guerre en Ukraine"
+      ],
+      "role_historique": "Dernier État stalinien de la planète. La Corée du Nord est l'exemple le plus extrême d'État totalitaire au monde, menaçant la paix régionale par son arsenal nucléaire."
+    },
+
+    "politique": {
+      "regime": "République populaire totalitaire à parti unique (Parti des Travailleurs de Corée). Idéologie Juche (autosuffisance). Dictature héréditaire de la famille Kim (3e génération). Culte de la personnalité absolu.",
+      "chef_etat": "Kim Jong-un (Secrétaire général du Parti et Président de la Commission des Affaires d'État depuis 2012). Sa sœur Kim Yo-jong est considérée comme la 2e personnalité la plus puissante.",
+      "stabilite": "Stable par la terreur et l'isolement total. Population sous surveillance permanente. Camps de prisonniers politiques (kwanliso) : 80 000 à 120 000 détenus estimés.",
+      "alliances": [
+        "Alliance historique avec la Chine (traité de 1961) — Pékin seul soutien économique",
+        "Rapprochement avec la Russie (2023-2024 : munitions contre technologie militaire)",
+        "Isolement diplomatique quasi-total du reste du monde",
+        "Sanctions du Conseil de Sécurité de l'ONU (depuis 2006)"
+      ]
+    },
+
+    "economie": {
+      "pib": "~18 milliards $ (estimé — données officielles inexistantes)",
+      "pib_hab": "~650-1800 $ (estimations très variables)",
+      "ressources": [
+        "Charbon, minerai de fer, magnésite (exportations vers la Chine malgré sanctions)",
+        "Ressources hydriques (hydroélectricité)",
+        "Terres rares et métaux (peu exploités)",
+        "Cyberattaques : source de revenus illicites estimée à 1 Md$/an (piratage de cryptomonnaies)"
+      ],
+      "secteurs": [
+        "Industrie militaire (priorité absolue — environ 25% du PIB)",
+        "Agriculture collectivisée (insuffisante — dépendance à l'aide alimentaire)",
+        "Mines (peu productives faute d'investissements)",
+        "Marchés informels (jangmadang) : économie parallèle tolérée depuis la famine"
+      ],
+      "grandes_villes": [
+        "Pyongyang (capitale vitrine, 3 M hab. — réservée aux plus loyaux régime)",
+        "Hamhung (2e ville, industrie chimique)",
+        "Chongjin (port, sidérurgie)"
+      ],
+      "places_economiques": [
+        "Zone économique spéciale de Rason (frontière Chine-Russie, peu développée)",
+        "Kaesong (zone industrielle inter-coréenne — fermée depuis 2016)"
+      ],
+      "voies_communication": [
+        "Réseau ferroviaire soviétique vétuste",
+        "Routes en mauvais état",
+        "Ports de Wonsan et Nampo (commerce limité avec la Chine)"
+      ]
+    },
+
+    "societe": {
+      "demographie": "Société rigidement hiérarchisée selon le songbun (castes héréditaires selon la loyauté au régime). Accès aux ressources entièrement déterminé par la catégorie sociale.",
+      "idh": "Données non disponibles (la Corée du Nord ne publie pas ses statistiques et refuse la plupart des enquêtes internationales).",
+      "education": "Alphabétisation quasi-totale. Éducation = endoctrinement politique dès l'enfance. Enseignement des sciences et mathématiques de bon niveau (vivier de militaires et d'ingénieurs).",
+      "sante": "Système de santé effondré depuis la famine des années 1990. Malnutrition chronique (42% des enfants souffrent de retard de croissance). Espérance de vie ~72 ans (données officielles suspectes).",
+      "inegalites": "Inégalités extrêmes masquées par l'idéologie égalitariste. Élite du Parti à Pyongyang vs population rurale en quasi-survie.",
+      "urbanisation": "62 % (2023). Pyongyang : vitrine du régime, interdite aux non-privilégiés."
+    },
+
+    "environnement": {
+      "pollution": "Déforestation massive depuis la famine (bois de chauffe). Industries polluantes sans contrôle environnemental. Essais nucléaires souterrains (mont Mantapsan).",
+      "dev_durable": "Aucune politique environnementale. Hydroélectricité majoritaire par défaut (manque de pétrole). Pénuries d'énergie chroniques.",
+      "recherche": "Programme spatial (fusées Hwasong). Recherche nucléaire et balistique (4 à 6 bombes/an estimées). Cybercapacités offensives (groupe Lazarus).",
+      "militaire": "1,28 million de soldats actifs (4e armée mondiale en nombre). Puissance nucléaire (40-50 ogives estimées en 2023). Missiles balistiques intercontinentaux (Hwasong-17) capables de toucher les États-Unis. Budget militaire : ~25% du PIB.",
+      "defis": [
+        "Famines récurrentes et malnutrition chronique",
+        "Isolement et sanctions économiques paralysantes",
+        "Dépendance totale à la Chine (80-90% du commerce extérieur)",
+        "Programme nucléaire alimentant les tensions régionales",
+        "Fuite des cerveaux via les défections (10 000+ réfugiés en Corée du Sud)"
+      ]
+    },
+
+    "importance": {
+      "historique": "La Corée du Nord est le dernier régime stalinien en activité. Elle illustre les extrêmes de la Guerre froide encore vivants au XXIe siècle et l'impuissance de la communauté internationale face à la prolifération nucléaire.",
+      "economique": "Économie quasi-inexistante au sens mondial — son importance est avant tout sécuritaire et géopolitique.",
+      "geopolitique": "Puissance nucléaire déstabilisatrice dans une des régions les plus économiquement dynamiques du monde. Arme de chantage contre les États-Unis, le Japon et la Corée du Sud. Tension permanente en Asie du Nord-Est.",
+      "atouts": [
+        "Arsenal nucléaire : bouclier contre une intervention extérieure",
+        "Armée de masse (1,28 million d'actifs)",
+        "Cybercapacités offensives (piratage de banques et cryptomonnaies)",
+        "Position géographique entre Chine, Russie, Japon et Corée du Sud",
+        "Soutien chinois garantissant la survie du régime"
+      ],
+      "fragilites": [
+        "Économie quasi-morte sous les sanctions",
+        "Population malnutrie et sous-développée",
+        "Dépendance absolue à la Chine",
+        "Isolement diplomatique total",
+        "Régime potentiellement fragile en cas de succession chaotique"
+      ]
+    }
+  },
+
+  "VN": {
+    "name": "Vietnam",
+    "flag": "🇻🇳",
+    "capitale": "Hanoï",
+    "continent": "Asie",
+    "population": "97,5 millions (2024)",
+    "superficie": "331 212 km²",
+    "langues": ["Vietnamien (officiel)"],
+    "monnaie": "Đồng vietnamien (VND)",
+
+    "histoire": {
+      "independance": "2 septembre 1945 (proclamation par Hô Chi Minh, mais effectivement en 1975 après l'unification).",
+      "evenements_majeurs": [
+        "Civilisation millénaire : dynasties vietnamiennes depuis le IIIe s. av. J.-C.",
+        "Domination chinoise (111 av. J.-C. – 939 apr. J.-C.) : influence culturelle profonde",
+        "Colonisation française (Indochine française, 1887-1954)",
+        "Bataille de Diên Biên Phu (7 mai 1954) : défaite française, fin de l'Indochine",
+        "Accords de Genève (1954) : partition au 17e parallèle (Nord communiste / Sud pro-américain)",
+        "Guerre du Vietnam (1955-1975) : 3 millions de morts, bombardements massifs, Agent Orange",
+        "Chute de Saïgon (30 avril 1975) : réunification communiste",
+        "Invasion du Cambodge (1978) : renversement des Khmers rouges",
+        "Guerre sino-vietnamienne (1979) : conflit avec la Chine",
+        "Doi Moi (Rénovation, 1986) : réformes économiques — ouverture au marché",
+        "Normalisation avec les États-Unis (1995) : fin de l'embargo",
+        "Adhésion à l'OMC (2007) : intégration dans l'économie mondiale"
+      ],
+      "role_historique": "Le Vietnam a résisté à toutes les grandes puissances qui ont tenté de le contrôler : Chine, France, États-Unis. Son histoire est un symbole de résistance nationale. Depuis le Doi Moi, il est un modèle de transition économique réussie."
+    },
+
+    "politique": {
+      "regime": "République socialiste à parti unique (Parti communiste du Vietnam). Économie de marché sous contrôle politique — modèle proche de la Chine. «Capitalisme à direction communiste».",
+      "chef_etat": "To Lam (Secrétaire général du Parti depuis août 2024). Luong Cuong (Président depuis octobre 2024).",
+      "stabilite": "Politiquement stable. Croissance économique forte maintenant la légitimité du régime. Lutte anti-corruption active (campagne «blazing furnace» depuis 2022).",
+      "alliances": [
+        "ASEAN (Association des Nations d'Asie du Sud-Est)",
+        "Partenariat stratégique global avec les États-Unis (2023 — malgré l'histoire de guerre)",
+        "Relations complexes avec la Chine (partenaire commercial mais rival en mer de Chine du Sud)",
+        "Partenariats avec Japon, Corée du Sud, UE, Australie",
+        "Politique étrangère de «Bambou» : flexibilité, non-alignement"
+      ]
+    },
+
+    "economie": {
+      "pib": "430 milliards $ (2023, 35e mondiale)",
+      "pib_hab": "4 284 $ (2023) — multiplié par 10 depuis 1990",
+      "ressources": [
+        "Pétrole et gaz offshore (mer de Chine du Sud)",
+        "Charbon (3e producteur d'Asie du Sud-Est)",
+        "Bauxite (2e réserves mondiales)",
+        "Riz (3e exportateur mondial)",
+        "Café (2e exportateur mondial, 1er de robusta)",
+        "Terres rares (2e réserves mondiales après la Chine)"
+      ],
+      "secteurs": [
+        "Électronique et semi-conducteurs (Samsung : 1er employeur, 25% des exports vietnamiens)",
+        "Textile et chaussures (3e exportateur mondial de chaussures)",
+        "Agriculture (riz, café, crevettes, poivre)",
+        "Tourisme (14 millions de touristes/an avant Covid)",
+        "Industrie manufacturière (bénéficiaire du «China+1» : délocalisation depuis la Chine)"
+      ],
+      "grandes_villes": [
+        "Hô Chi Minh-Ville / Saïgon (10 M hab. — capitale économique)",
+        "Hanoï (8 M hab. — capitale politique et culturelle)",
+        "Da Nang (hub touristique et technologique)",
+        "Haïphong (port industriel)"
+      ],
+      "places_economiques": [
+        "Bourse de Hô Chi Minh-Ville (HOSE)",
+        "Zone industrielle de Binh Duong (hub manufacturing près de Saïgon)",
+        "Port de Cat Lai (Hô Chi Minh-Ville) : 1er port du Vietnam"
+      ],
+      "voies_communication": [
+        "Aéroport international Tan Son Nhat (Hô Chi Minh-Ville) — 1er du Vietnam",
+        "Ligne ferroviaire côtière Hanoï-Saïgon (Réunification Express, 1726 km)",
+        "Route maritime côtière (mer de Chine du Sud)",
+        "Réseau fluvial du Mékong (agriculture et commerce)"
+      ]
+    },
+
+    "societe": {
+      "demographie": "Population jeune (âge médian 31 ans). Forte diaspora (Viêt Kiều) aux États-Unis, France, Australie. Société confucéenne : respect de l'éducation et de la famille.",
+      "idh": "0,726 (rang 107/191 en 2022, catégorie « élevé »)",
+      "education": "Taux d'alphabétisation 95%. Performances scolaires remarquables pour un pays de ce niveau de revenus (PISA 2015 : scores comparables à la Finlande). Priorité nationale absolue.",
+      "sante": "Espérance de vie 73,7 ans. Système de santé en développement. Gestion exemplaire du Covid-19 (moins de 50 morts avant 2021).",
+      "inegalites": "Gini ~35 — inégalités en hausse avec la croissance. Fracture ville/campagne. Minorités ethniques (Montagnards) marginalisées.",
+      "urbanisation": "38 % (2023) — mais en forte hausse. Urbanisation rapide et désordonnée."
+    },
+
+    "environnement": {
+      "pollution": "Pollution atmosphérique sévère à Hanoï et Saïgon. Delta du Mékong menacé par la montée des eaux et les barrages chinois en amont. Déforestation historique.",
+      "dev_durable": "Ambition carbone-neutre en 2050. Croissance rapide des énergies renouvelables (solaire et éolien). Mais charbon encore dominant (45% de l'électricité).",
+      "recherche": "Secteur IT en fort développement (FPT Software, VNG). Investissements étrangers en R&D (Samsung, Intel).",
+      "militaire": "Armée populaire du Vietnam : 480 000 actifs. Budget militaire ~2,3% du PIB. Conflit latent avec la Chine en mer de Chine du Sud (îles Spratleys et Paracels).",
+      "defis": [
+        "Montée des eaux : delta du Mékong (12 millions d'hab.) menacé d'inondation",
+        "Dépendance économique à la Chine malgré les tensions",
+        "Transition énergétique depuis le charbon",
+        "Droits de l'homme : liberté de presse quasi-inexistante",
+        "Corruption endémique",
+        "Vieillissement démographique à venir"
+      ]
+    },
+
+    "importance": {
+      "historique": "Le Vietnam a infligé des défaites militaires à la France (Diên Biên Phu) et aux États-Unis (la guerre la plus médiatisée du XXe s.). Sa résistance a changé l'histoire mondiale. Son rebond économique est tout aussi impressionnant.",
+      "economique": "Nouvelle usine du monde — bénéficiaire majeur de la démondialisation / réorientation des chaînes depuis la Chine. Croissance parmi les plus rapides d'Asie (~6-7% par an).",
+      "geopolitique": "Pivot de l'Asie du Sud-Est. Entre Chine et États-Unis, le Vietnam joue une diplomatie du «bambou» (flexible mais ancré). Clé dans les tensions de la mer de Chine du Sud.",
+      "atouts": [
+        "Main-d'œuvre jeune, qualifiée et bon marché",
+        "Stabilité politique favorable aux investissements étrangers",
+        "Position géographique (littoral, proximité des routes maritimes mondiales)",
+        "2es réserves de terres rares mondiales",
+        "Diaspora dynamique (envois de fonds : 18 Mds$/an)"
+      ],
+      "fragilites": [
+        "Dépendance aux exportations (85% du PIB)",
+        "Vulnérabilité climatique extrême (delta du Mékong, côtes basses)",
+        "Régime autoritaire : frein à l'innovation et aux libertés",
+        "Dépendance commerciale à la Chine (tout en étant en conflit territorial)",
+        "Infrastructures encore insuffisantes"
+      ]
+    }
+  },
+
+  "GR": {
+    "name": "Grèce",
+    "flag": "🇬🇷",
+    "capitale": "Athènes",
+    "continent": "Europe",
+    "population": "10,7 millions (2024)",
+    "superficie": "131 957 km²",
+    "langues": ["Grec (officiel)"],
+    "monnaie": "Euro (EUR) — depuis 2001",
+
+    "histoire": {
+      "independance": "3 février 1830 (indépendance de l'Empire ottoman, reconnue par les puissances européennes). Mais la Grèce antique est le berceau de la civilisation occidentale.",
+      "evenements_majeurs": [
+        "Grèce antique (Ve-IVe s. av. J.-C.) : invention de la démocratie (Athènes), philosophie (Socrate, Platon, Aristote), science, théâtre",
+        "Alexandre le Grand (336-323 av. J.-C.) : empire de la Macédoine à l'Inde, hellénisation du monde",
+        "Grèce byzantine (330-1453) : Empire romain d'Orient, christianisme orthodoxe",
+        "Domination ottomane (1453-1821) : quatre siècles de Tanzimat et résistance grecque",
+        "Guerre d'Indépendance (1821-1829) : soutenue par la France, l'Angleterre et la Russie",
+        "Catastrophe d'Asie Mineure (1922) : 1,5 million de Grecs expulsés de Turquie",
+        "Occupation nazie (1941-1944) : famine de 1941-1942 (100 000 morts)",
+        "Guerre civile (1946-1949) : communistes vs monarchistes — première guerre froide",
+        "Junte des Colonels (1967-1974) : dictature militaire",
+        "Chute de la junte et restauration démocratique (1974)",
+        "Adhésion à l'UE (1981) et à l'euro (2001)",
+        "Crise de la dette souveraine (2010-2018) : plans d'austérité, mémorandums, effondrement économique"
+      ],
+      "role_historique": "La Grèce est le berceau de la démocratie, de la philosophie et de la science occidentales. Son legs culturel, politique et artistique irrigue toute la civilisation européenne depuis 2 500 ans."
+    },
+
+    "politique": {
+      "regime": "République parlementaire. Démocratie représentative. Parlement unicaméral (300 sièges).",
+      "chef_etat": "Katerina Sakellaropoulou (Présidente de la République depuis 2020 — première femme à ce poste). Kyriakos Mitsotakis (Premier ministre depuis 2019, réélu 2023 — Nouvelle Démocratie, centre-droit).",
+      "stabilite": "Démocratie consolidée depuis 1974. Pays fragilisé par la crise économique et les flux migratoires. Tensions avec la Turquie (Chypre, Égée, espace aérien).",
+      "alliances": [
+        "UE (depuis 1981) — membre de la zone euro",
+        "OTAN (depuis 1952)",
+        "Relations tendues avec la Turquie (alliée OTAN) sur Chypre, espace aérien égéen, gaz en Méditerranée orientale",
+        "Partenariats énergétiques avec Israël et Chypre (gaz)"
+      ]
+    },
+
+    "economie": {
+      "pib": "239 milliards $ (2023 — enfin revenu au niveau pré-crise)",
+      "pib_hab": "22 650 $ (2023)",
+      "ressources": [
+        "Oliviers (4e producteur mondial d'huile d'olive)",
+        "Marbre (Pentélique — utilisé pour le Parthénon)",
+        "Bauxite et nickel",
+        "Gaz naturel offshore (Méditerranée orientale — en cours d'exploration)",
+        "Énergie solaire et éolienne (fort potentiel)"
+      ],
+      "secteurs": [
+        "Tourisme (1er secteur : 18% du PIB, 32 millions de touristes en 2023)",
+        "Marine marchande (1ère flotte mondiale : 20% du tonnage mondial, familles Onassis, Latsis...)",
+        "Agriculture et agroalimentaire (olives, vins, feta)",
+        "Industrie pharmaceutique et chimique",
+        "Services financiers (en reconstruction)"
+      ],
+      "grandes_villes": [
+        "Athènes (4 M hab. — agglomération, capitale culturelle et économique)",
+        "Thessalonique (2e ville, hub des Balkans)",
+        "Patras (3e ville, port vers l'Italie)",
+        "Héraklion (Crète — tourisme)"
+      ],
+      "places_economiques": [
+        "Bourse d'Athènes (ATHEX)",
+        "Port du Pirée (1er port de Méditerranée orientale, géré par COSCO depuis 2016)",
+        "Athènes (hub régional des Balkans)"
+      ],
+      "voies_communication": [
+        "Port du Pirée (11e mondial, hub méditerranéen géré par la Chine/COSCO)",
+        "Aéroport international d'Athènes (Eleftherios Venizelos)",
+        "Réseau d'îles (6 000 îles, dont 227 habitées) — ferries essentiels",
+        "Autoroutes Egnatia (est-ouest) et Pathe (nord-sud)"
+      ]
+    },
+
+    "societe": {
+      "demographie": "Population vieillissante et en déclin. Émigration des jeunes diplômés (brain drain) vers l'Allemagne, le Royaume-Uni... pendant la crise. Pays de transit pour les migrants (frontière UE avec Turquie).",
+      "idh": "0,887 (rang 33/191 en 2022, catégorie « très élevé »)",
+      "education": "Tradition universitaire ancienne. Brain drain massif pendant la crise (150 000+ diplômés émigrés 2010-2018). Universités publiques gratuites.",
+      "sante": "Espérance de vie 82,2 ans (une des plus élevées d'Europe). Alimentation méditerranéenne. Système de santé public dégradé par l'austérité.",
+      "inegalites": "Gini ~32. Chômage des jeunes encore élevé (~22% en 2023 malgré la reprise). Classes moyennes appauvries par la crise.",
+      "urbanisation": "81 % (2023). Athènes concentre 40% de la population nationale."
+    },
+
+    "environnement": {
+      "pollution": "Incendies de forêt de plus en plus fréquents et violents (2021 : Attique, Eubée). Pollution plastique des îles touristiques. Athènes : pollution atmosphérique (néfos).",
+      "dev_durable": "Excellent potentiel solaire et éolien (leader européen potentiel). Transition énergétique accélérée. Objectif 80% d'électricité renouvelable en 2030.",
+      "recherche": "Héritage scientifique antique. Fuite des cerveaux pendant la crise. Diaspora active (universités américaines, MIT, Harvard).",
+      "militaire": "Forces armées de 140 000 actifs. Budget militaire ~2,5% du PIB (un des plus élevés de l'OTAN). Tensions permanentes avec la Turquie.",
+      "defis": [
+        "Crise migratoire : frontière UE la plus pressurisée (mer Égée)",
+        "Dépendance excessive au tourisme (vulnérabilité aux crises mondiales)",
+        "Brain drain : récupérer les talents émigrés",
+        "Reconstruction après la crise : dette encore à 160% du PIB",
+        "Incendies de forêt amplifiés par le changement climatique"
+      ]
+    },
+
+    "importance": {
+      "historique": "Sans la Grèce antique, pas de démocratie, pas de philosophie rationnelle, pas de sciences au sens moderne. Le legs grec est le fondement de toute la civilisation occidentale.",
+      "economique": "Puissance maritime mondiale (1ère flotte marchande). Carrefour touristique méditerranéen. Sa crise de 2010 a failli faire exploser la zone euro.",
+      "geopolitique": "Frontière UE avec la Turquie et les Balkans. Gardien des portes de la Méditerranée orientale. Tensions avec Ankara sur le gaz, Chypre et l'immigration.",
+      "atouts": [
+        "Patrimoine culturel inégalé (berceau de la démocratie et de la philosophie)",
+        "1ère flotte marchande mondiale (actif stratégique méconnu)",
+        "Tourisme : 32 millions de visiteurs, ressource renouvelable",
+        "Position géographique stratégique (Méditerranée orientale, Balkans)",
+        "Membre UE et OTAN (filet de sécurité institutionnel)"
+      ],
+      "fragilites": [
+        "Dette publique : 160% du PIB (2e plus haute de l'UE après l'Italie)",
+        "Brain drain non encore résorbé",
+        "Tensions avec la Turquie (alliée OTAN mais rivale géographique)",
+        "Économie trop concentrée sur le tourisme",
+        "Pression migratoire à la frontière de l'UE"
+      ]
+    }
+  },
+
+  "SG": {
+    "name": "Singapour",
+    "flag": "🇸🇬",
+    "capitale": "Singapour (cité-État)",
+    "continent": "Asie",
+    "population": "6 millions (2024)",
+    "superficie": "735 km² (plus petit pays d'Asie du Sud-Est — à peu près la taille de Paris intra-muros)",
+    "langues": ["Anglais (affaires et administration)", "Mandarin", "Malais (langue nationale)", "Tamoul"],
+    "monnaie": "Dollar de Singapour (SGD)",
+
+    "histoire": {
+      "independance": "9 août 1965 (expulsion de la fédération malaisienne — indépendance non voulue au départ).",
+      "evenements_majeurs": [
+        "Fondation comme comptoir britannique par Stamford Raffles (1819)",
+        "Hub commercial majeur de l'Asie du Sud-Est sous domination britannique",
+        "Occupation japonaise (1942-1945) : chute de Singapour = plus grande défaite britannique de l'histoire",
+        "Autodétermination (1959) : Lee Kuan Yew devient Premier ministre",
+        "Fusion avec la Malaisie (1963-1965) : expérience avortée",
+        "Indépendance forcée (9 août 1965) : Lee Kuan Yew pleure à la télévision",
+        "Miracle économique : de pays du tiers monde à pays développé en une génération (1965-1990)",
+        "Crise asiatique (1997-1998) : Singapour résiste mieux que ses voisins",
+        "Covid-19 : gestion exemplaire",
+        "Succession : Lee Kuan Yew décède en 2015, Lawrence Wong devient PM en 2024"
+      ],
+      "role_historique": "Singapour est le modèle de développement le plus impressionnant du XXe siècle. Sans ressources naturelles, sans arrière-pays, sans eau douce, cette île a construit l'un des pays les plus riches et les mieux gouvernés du monde en 60 ans."
+    },
+
+    "politique": {
+      "regime": "République parlementaire. Démocratie formelle mais dominée par un parti unique (PAP — Parti d'Action du Peuple) depuis 1959. Gouvernance pragmatique et technocratique, lois très strictes.",
+      "chef_etat": "Tharman Shanmugaratnam (Président depuis 2023). Lawrence Wong (Premier ministre depuis mai 2024 — 4e PM depuis l'indépendance).",
+      "stabilite": "Extrêmement stable. Corruption quasi-inexistante (5e pays le moins corrompu au monde — Transparency International). Lois sévères (vente de chewing-gum interdite, peines corporelles).",
+      "alliances": [
+        "ASEAN (co-fondateur, 1967)",
+        "Membre du Commonwealth",
+        "Partenariat stratégique avec les États-Unis (base navale et aérienne)",
+        "Relations complexes et équilibrées avec la Chine",
+        "Five Power Defence Arrangements (FPDA) avec UK, Australie, Malaisie, NZ"
+      ]
+    },
+
+    "economie": {
+      "pib": "501 milliards $ (2023, 36e mondial pour un micro-État de 6 millions d'hab.)",
+      "pib_hab": "82 800 $ (2023, 5e mondial)",
+      "ressources": [
+        "Aucune ressource naturelle (pas de pétrole, pas d'eau douce, pas de minerai)",
+        "Capital humain ultra-qualifié",
+        "Position géographique (détroit de Malacca : 25% du commerce mondial passe là)"
+      ],
+      "secteurs": [
+        "Finance et banque (4e centre financier mondial après New York, Londres, Hong Kong)",
+        "Commerce et logistique (2e port mondial en tonnage)",
+        "Pétrochimie et raffinage (3e centre mondial de raffinage, sans une goutte de pétrole propre)",
+        "Électronique et semi-conducteurs (hub de fabrication mondiale)",
+        "Tourisme et MICE (congrès, conventions internationales)",
+        "Biotechnologies et pharmaceutique (Biopolis)"
+      ],
+      "grandes_villes": [
+        "Singapour (cité unique — tout le pays est une ville)"
+      ],
+      "places_economiques": [
+        "Bourse de Singapour (SGX)",
+        "MAS (Monetary Authority of Singapore) : banque centrale et régulateur financier modèle",
+        "Changi Airport : meilleur aéroport du monde (11 ans de suite selon Skytrax)",
+        "Port de Singapour (PSA) : 2e port mondial"
+      ],
+      "voies_communication": [
+        "Aéroport de Changi : hub régional, 68 millions de passagers/an",
+        "Port de Singapour : 2e mondial (37 millions d'EVP)",
+        "MRT (Mass Rapid Transit) : métro ultra-efficace couvrant toute l'île",
+        "Pont de Johor Bahru (lien avec la Malaisie)"
+      ]
+    },
+
+    "societe": {
+      "demographie": "Société multiraciale : 74% Chinois, 13% Malais, 9% Indiens. Politique de quotas dans les HDB (logements publics) pour maintenir la mixité. Faible natalité (1,1 enfant/femme).",
+      "idh": "0,939 (rang 9/191 en 2022, catégorie « très élevé »)",
+      "education": "Système éducatif régulièrement 1er mondial (PISA). Très compétitif et exigeant. Bilinguisme obligatoire. NUS et NTU dans le top 15 mondial.",
+      "sante": "Espérance de vie 84 ans (parmi les plus élevées du monde). Système de santé mixte public/privé très performant. Medisave : épargne santé obligatoire.",
+      "inegalites": "Gini ~40 — inégalités réelles malgré la richesse. 80% de la population vit dans des HDB (logements publics de très bonne qualité).",
+      "urbanisation": "100% (cité-État = tout est urbain)"
+    },
+
+    "environnement": {
+      "pollution": "Pollution transfrontalière par les incendies indonésiens (haze). Contrainte absolue : 100% de l'eau potable vient de la pluie récupérée, de la désalinisation et de la Malaisie.",
+      "dev_durable": "Ambition «City in a Garden». Toits verts et jardins verticaux. 100% des déchets traités (incinération + valorisation). Cible carbone-neutre en 2050.",
+      "recherche": "Hub mondial de R&D (Biopolis, Fusionopolis). Investissements massifs en IA, biotech, quantum computing. Universités NUS/NTU classées dans le top 20 mondial.",
+      "militaire": "Forces armées de 72 000 actifs (service militaire obligatoire pour les hommes). Budget ~3,2% du PIB. Équipées parmi les mieux du monde (F-35, sous-marins).",
+      "defis": [
+        "Montée des eaux : île basse, investissement de 100 Mds$ pour protéger les côtes",
+        "Dépendance à l'eau (traité avec la Malaisie expirant en 2061)",
+        "Faible natalité : recours massif à l'immigration qualifiée",
+        "Compétition avec Hong Kong affaibli et Dubaï montant",
+        "Dépendance commerciale à la Chine ET aux États-Unis simultanément"
+      ]
+    },
+
+    "importance": {
+      "historique": "Singapour est la preuve vivante qu'un pays sans ressources peut devenir riche par la seule excellence de sa gouvernance et de son capital humain. Modèle étudié dans le monde entier.",
+      "economique": "4e centre financier mondial. 2e port mondial. Hub régional incontournable pour l'Asie du Sud-Est. Quartier général d'innombrables multinationales.",
+      "geopolitique": "Maître du jeu dans le détroit de Malacca (25% du commerce mondial). Diplomatie d'équilibre entre USA et Chine. Siège de négociations historiques (sommet Trump-Kim, 2018).",
+      "atouts": [
+        "Gouvernance exemplaire : 5e pays le moins corrompu du monde",
+        "Position géographique unique (détroit de Malacca)",
+        "Capital humain ultra-qualifié et multilingue",
+        "Infrastructure de classe mondiale (Changi, port, MRT)",
+        "Régime fiscal attractif (flat tax 17%, nombreuses exemptions)"
+      ],
+      "fragilites": [
+        "Vulnérabilité géographique extrême (île de 735 km², pas de profondeur stratégique)",
+        "Dépendance à la Malaisie pour l'eau",
+        "Économie très ouverte : vulnérable aux chocs commerciaux mondiaux",
+        "Faible natalité et vieillissement de la population locale",
+        "Libertés civiles limitées (presse, expression, rassemblement)"
+      ]
+    }
+  },
+
+  "CU": {
+    "name": "Cuba",
+    "flag": "🇨🇺",
+    "capitale": "La Havane",
+    "continent": "Amérique",
+    "population": "11,2 millions (2024)",
+    "superficie": "109 884 km²",
+    "langues": ["Espagnol (officiel)"],
+    "monnaie": "Peso cubain (CUP)",
+
+    "histoire": {
+      "independance": "20 mai 1902 (indépendance formelle de l'Espagne via les États-Unis, après la guerre hispano-américaine de 1898).",
+      "evenements_majeurs": [
+        "Colonisation espagnole (1492) : extermination des Taïnos, introduction de l'esclavage",
+        "Guerres d'indépendance (1868-1878, 1895-1898) : José Martí, figure nationale",
+        "Guerre hispano-américaine (1898) : Cuba passe sous tutelle américaine",
+        "Dictature de Batista (1952-1959) : régime pro-américain corrompu",
+        "Révolution cubaine (1959) : Fidel Castro et Che Guevara renversent Batista",
+        "Débarquement de la Baie des Cochons (1961) : tentative d'invasion américaine — échec humiliant",
+        "Crise des missiles de Cuba (octobre 1962) : le monde au bord de la guerre nucléaire",
+        "Embargo américain (blocus) depuis 1962 : impact économique majeur",
+        "Internationalisme cubain : troupes envoyées en Afrique (Angola, Éthiopie)",
+        "Effondrement de l'URSS (1991) : «Période spéciale» — crise économique sévère",
+        "Raúl Castro remplace Fidel (2008). Mort de Fidel (2016).",
+        "Dégel Obama-Cuba (2015-2016) puis refroidissement sous Trump",
+        "Manifestations du 11 juillet 2021 : premières grandes contestations populaires depuis 1959"
+      ],
+      "role_historique": "Cuba est le symbole mondial de la révolution anticoloniale et du défi aux États-Unis. Sa résistance à 60 ans d'embargo en fait une référence pour les mouvements de gauche mondiaux. Paradoxe : pays pauvre avec des indicateurs sociaux (santé, éducation) dignes d'un pays riche."
+    },
+
+    "politique": {
+      "regime": "République socialiste à parti unique (Parti communiste cubain). Régime autoritaire. Liberté de presse et d'expression quasi-inexistantes.",
+      "chef_etat": "Miguel Díaz-Canel (Président depuis 2018 — premier non-Castro au pouvoir depuis 1959).",
+      "stabilite": "Stable par le contrôle politique mais fragilisé par la crise économique grave depuis 2020. Manifestations de 2021 : signal d'épuisement populaire.",
+      "alliances": [
+        "Venezuela (pétrole contre médecins)",
+        "Nicaragua, Bolivie (axe bolivarien)",
+        "Russie (liens historiques réactivés)",
+        "Chine (investissements et prêts)",
+        "ALBA (Alliance Bolivarienne)"
+      ]
+    },
+
+    "economie": {
+      "pib": "~107 milliards $ (PPP estimé — données officielles peu fiables)",
+      "pib_hab": "~9 500 $ (PPP) — mais économie en crise profonde",
+      "ressources": [
+        "Nickel et cobalt (8e réserves mondiales)",
+        "Tabac (cigares cubains : réputation mondiale)",
+        "Sucre de canne (historiquement, en déclin)",
+        "Rhum (Havana Club)",
+        "Tourisme (2,7 millions avant Covid)"
+      ],
+      "secteurs": [
+        "Tourisme (1ère source de devises)",
+        "Exportation de services médicaux (30 000 médecins dans 66 pays — source majeure de revenus)",
+        "Nickel et mines",
+        "Agriculture (insuffisante — Cuba importe 60-80% de sa nourriture)",
+        "Biotechnologies (vaccins : Abdala, Soberana)"
+      ],
+      "grandes_villes": [
+        "La Havane (2,1 M hab. — capitale architecturale coloniale, patrimoine UNESCO)",
+        "Santiago de Cuba (2e ville, culture afro-cubaine)",
+        "Camagüey, Holguin, Santa Clara"
+      ],
+      "places_economiques": [
+        "Zone économique spéciale de Mariel (port développé avec la Russie puis le Brésil)",
+        "La Havane (hub touristique)"
+      ],
+      "voies_communication": [
+        "Aéroport José Martí (La Havane) — liaisons réduites sous embargo",
+        "Port de La Havane et Mariel",
+        "Réseau ferroviaire vétuste (rénové partiellement avec aide chinoise)"
+      ]
+    },
+
+    "societe": {
+      "demographie": "Population en déclin (émigration massive). 1,5 million de Cubains ont émigré depuis 2020. Diaspora aux États-Unis (Miami — «Petit La Havane») : 2 millions.",
+      "idh": "0,764 (rang 83/191 en 2022 — remarquable pour un pays sous embargo)",
+      "education": "Alphabétisation 99,8% (une des plus hautes du monde). Éducation gratuite jusqu'au doctorat. 90 000 médecins formés (1 pour 125 habitants — ratio parmi les meilleurs mondiaux).",
+      "sante": "Espérance de vie 78 ans malgré la pauvreté. Système de santé universel gratuit. Médecine préventive de famille. Cuba a développé ses propres vaccins contre le Covid-19 (Abdala).",
+      "inegalites": "Officiellement égalitaire mais économie bimonetaire créant des inégalités : ceux qui reçoivent des dollars de la diaspora vs le reste.",
+      "urbanisation": "77 % (2023). La Havane concentre 20% de la population."
+    },
+
+    "environnement": {
+      "pollution": "Pollution limitée par la faiblesse de l'industrie. Agriculture biologique par nécessité (manque d'intrants chimiques depuis la chute de l'URSS — modèle mondial involontaire). Vulnérabilité aux ouragans.",
+      "dev_durable": "Agroécologie développée par nécessité (Période Spéciale). Objectif 24% d'énergie renouvelable (en cours). Reforestation active.",
+      "recherche": "Centre de génie génétique et de biotechnologie (CIGB) de La Havane : vaccins, médicaments exportés. Innovation pharmaceutique remarquable dans le contexte de l'embargo.",
+      "militaire": "Forces armées de 49 000 actifs. Capacités conventionnelles limitées. Influence géopolitique via l'exportation de personnel médical et militaire.",
+      "defis": [
+        "Crise économique grave : pénuries alimentaires, électrique, médicaments",
+        "Embargo américain : frein économique majeur depuis 60 ans",
+        "Émigration massive des jeunes et des qualifiés",
+        "Transition post-révolution : maintien du modèle après Castro?",
+        "Dépendance au Venezuela (pétrole) et à la Chine (prêts)"
+      ]
+    },
+
+    "importance": {
+      "historique": "Cuba a osé défier les États-Unis à 90 miles de leurs côtes pendant 60 ans. La crise de 1962 est le moment le plus proche d'une guerre nucléaire dans l'histoire. Son modèle social (santé + éducation malgré la pauvreté) est étudié mondialement.",
+      "economique": "Modeste mais pionnier de l'agro-écologie et de la médecine préventive. L'exportation de services médicaux est une innovation géopolitique unique.",
+      "geopolitique": "Symbole mondial de la résistance antiimpérialiste. Frontière permanente de confrontation USA-monde communiste. Aujourd'hui : enjeu dans le retour d'influence russe et chinoise en Amérique latine.",
+      "atouts": [
+        "Capital humain exceptionnel (médecins, scientifiques, musiciens)",
+        "Santé et éducation de qualité malgré la pauvreté",
+        "Cohésion nationale et identité culturelle forte",
+        "Réserves de nickel et cobalt (métaux de la transition énergétique)",
+        "Tourisme potentiel (si levée de l'embargo)"
+      ],
+      "fragilites": [
+        "Embargo américain paralysant l'économie depuis 60 ans",
+        "Système économique planifié peu adapté aux défis contemporains",
+        "Fuite des cerveaux accélérée (médecins, ingénieurs)",
+        "Vieillissement de la population (émigration des jeunes)",
+        "Dépendance à des alliés fragiles (Venezuela)"
+      ]
+    }
+  },
+
+  "SE": {
+    "name": "Suède",
+    "flag": "🇸🇪",
+    "capitale": "Stockholm",
+    "continent": "Europe",
+    "population": "10,6 millions (2024)",
+    "superficie": "450 295 km²",
+    "langues": ["Suédois (officiel)", "Langues des minorités : sami, finnois, romani"],
+    "monnaie": "Couronne suédoise (SEK) — a refusé l'euro par référendum (2003)",
+
+    "histoire": {
+      "independance": "6 juin 1523 (Gustave Vasa libère la Suède de l'Union de Kalmar danoise — fête nationale).",
+      "evenements_majeurs": [
+        "Âge des Vikings (IXe-XIe s.) : exploration, commerce, raids jusqu'en Amérique du Nord et Constantinople",
+        "Empire suédois (XVIIe s.) : puissance dominante de la Baltique (Stormaktstiden)",
+        "Grande Guerre du Nord (1700-1721) : défaite face à Pierre le Grand, fin de l'empire",
+        "Neutralité depuis 1814 : 200 ans sans guerre (jusqu'en 2024)",
+        "Industrialisation rapide (XIXe s.) : Volvo, IKEA, Ericsson, Nobel...",
+        "Modèle social-démocrate (1932-1976) : «modèle suédois» — État providence avancé",
+        "Assassinat du Premier ministre Olof Palme (1986) : choc national non résolu",
+        "Adhésion à l'UE (1995) — mais refus de l'euro et de l'OTAN jusqu'en 2024",
+        "Accueil massif de réfugiés (2015 : 163 000 demandes d'asile)",
+        "Greta Thunberg (2018) : lycéenne suédoise déclenchant le mouvement Fridays for Future",
+        "Adhésion à l'OTAN (mars 2024) — fin de 200 ans de neutralité militaire"
+      ],
+      "role_historique": "La Suède a construit le modèle social-démocrate le plus abouti du monde : welfare state, égalité hommes/femmes, liberté de la presse. Son abandon de la neutralité en 2024 marque un tournant historique majeur."
+    },
+
+    "politique": {
+      "regime": "Monarchie constitutionnelle parlementaire. Le roi n'a qu'un rôle symbolique. Parlement unicaméral (Riksdag, 349 sièges).",
+      "chef_etat": "Roi Carl XVI Gustaf (depuis 1973). Ulf Kristersson (Premier ministre depuis 2022 — coalition de droite avec soutien de l'extrême-droite SD).",
+      "stabilite": "Démocratie exemplaire (1ère au monde pour la liberté de presse — Reporters Sans Frontières). Montée des partis populistes (SD — Démocrates de Suède). Crise de la criminalité organisée (gangs).",
+      "alliances": [
+        "OTAN depuis mars 2024 (32e membre — adhésion historique après l'invasion de l'Ukraine)",
+        "UE depuis 1995 (mais hors zone euro)",
+        "Nordique+ (coopération avec Finlande, Danemark, Norvège, Islande)",
+        "Pays très actif à l'ONU (contributions au maintien de la paix)"
+      ]
+    },
+
+    "economie": {
+      "pib": "593 milliards $ (2023, 23e mondiale)",
+      "pib_hab": "57 000 $ (2023)",
+      "ressources": [
+        "Minerai de fer (LKAB — mines de Laponie : plus grande mine de fer d'Europe)",
+        "Forêts (60% du territoire — industrie du bois et papier)",
+        "Hydroélectricité (45% de l'électricité suédoise)",
+        "Poisson (Baltique et côtes atlantiques)"
+      ],
+      "secteurs": [
+        "Industries technologiques (Ericsson, Spotify, Klarna, King, Mojang/Minecraft)",
+        "Automobile (Volvo Cars, Volvo Trucks, Scania)",
+        "Pharmaceutique et biotech (AstraZeneca fondée à Londres mais suédoise d'origine)",
+        "Industries forestières et papetières",
+        "Armement (Saab — Gripen, systèmes de défense)"
+      ],
+      "grandes_villes": [
+        "Stockholm (1 M hab. intra-muros, 2,3 M agglomération — capitale et hub tech nordique)",
+        "Göteborg (industrie automobile, port)",
+        "Malmö (pont vers le Danemark, diversité)"
+      ],
+      "places_economiques": [
+        "Bourse Nasdaq Stockholm",
+        "Stockholm : hub des startups (2e ville au monde en licornes par habitant après Silicon Valley)",
+        "Port de Göteborg (1er de Scandinavie)"
+      ],
+      "voies_communication": [
+        "Öresundsbron (pont Malmö-Copenhague) : lien physique avec le continent",
+        "Aéroport d'Arlanda (Stockholm) — hub nordique",
+        "Réseau ferroviaire efficace (en discussion : LGV Stockholm-Göteborg)",
+        "Ports de Göteborg et Stockholm (Baltique)"
+      ]
+    },
+
+    "societe": {
+      "demographie": "Société vieillissante compensée par l'immigration. 20% de la population née à l'étranger. Intégration difficile des réfugiés (source de tensions politiques).",
+      "idh": "0,952 (rang 7/191 en 2022, catégorie « très élevé »)",
+      "education": "Éducation publique gratuite jusqu'à l'université. École très égalitaire mais scores PISA en baisse depuis 2010 (débat national). Universités de Lund, Uppsala, KTH (top mondiales).",
+      "sante": "Espérance de vie 83,1 ans. Système de santé universel. Congé parental : 480 jours partageable entre les deux parents.",
+      "inegalites": "Gini ~29 (parmi les plus faibles du monde). Mais inégalités croissantes et fracture entre Suédois d'origine et immigrés.",
+      "urbanisation": "88 % (2023)."
+    },
+
+    "environnement": {
+      "pollution": "Émissions par habitant parmi les plus basses des pays industrialisés. 75% d'électricité décarbonée (nucléaire + hydroélectricité). Leader mondial du recyclage.",
+      "dev_durable": "Objectif neutralité carbone 2045 (5 ans avant l'UE). SSAB : acier vert sans carbone. Northvolt : géant européen des batteries. Greta Thunberg : symbole mondial du militantisme climatique.",
+      "recherche": "Prix Nobel : la Suède les accueille chaque année à Stockholm (fondateur Alfred Nobel était suédois). Karolinska Institutet (médecine). Investissement R&D : 3,5% du PIB.",
+      "militaire": "Forces armées de 50 000 actifs. Rejoindre l'OTAN en 2024 marque la fin de 200 ans de neutralité. Industrie d'armement (Saab Gripen — chasseur exporté mondialement). Réintroduction du service militaire (2018).",
+      "defis": [
+        "Criminalité organisée et violences de gangs (lié à l'intégration ratée de certains quartiers)",
+        "Adhésion à l'OTAN : maintenir la relation avec la Russie et gérer la menace",
+        "Intégration des immigrants et cohésion sociale",
+        "Financement du modèle social face au vieillissement",
+        "Compétitivité industrielle face à l'Asie"
+      ]
+    },
+
+    "importance": {
+      "historique": "Le «modèle suédois» (social-démocratie, État providence, égalité) a influencé les politiques sociales du monde entier. L'adhésion à l'OTAN en 2024 symbolise le retour de la guerre froide en Europe.",
+      "economique": "Économie très innovante (2e hub mondial de startups après Silicon Valley). Volvo, IKEA, H&M, Spotify, Minecraft : marques mondialement connues issues d'un pays de 10 millions d'habitants.",
+      "geopolitique": "Nouveau membre OTAN stratégique (contrôle de la Baltique avec la Finlande). Modèle de démocratie et de droits de l'homme.",
+      "atouts": [
+        "Modèle social enviable : qualité de vie exceptionnelle",
+        "Économie d'innovation (startups, tech, cleantech)",
+        "Gouvernance exemplaire et absence de corruption",
+        "Réserves de fer et de forêts",
+        "Forte image internationale (neutralité historique, Nobel, design)"
+      ],
+      "fragilites": [
+        "Crise de la criminalité organisée (image internationale ternie)",
+        "Intégration des immigrants en difficulté",
+        "Montée des populismes (SD au gouvernement de facto)",
+        "Vieillissement démographique",
+        "Coût du modèle social (pression fiscale très élevée)"
+      ]
+    }
+  },
+
+  "KE": {
+    "name": "Kenya",
+    "flag": "🇰🇪",
+    "capitale": "Nairobi",
+    "continent": "Afrique",
+    "population": "56 millions (2024)",
+    "superficie": "580 367 km²",
+    "langues": ["Swahili (officiel)", "Anglais (officiel)", "42 langues ethniques"],
+    "monnaie": "Shilling kényan (KES)",
+
+    "histoire": {
+      "independance": "12 décembre 1963 (indépendance du Royaume-Uni — Jomo Kenyatta, 1er président).",
+      "evenements_majeurs": [
+        "Civilisations de la côte swahilie (Xe-XVe s.) : commerce avec l'Arabie et l'Inde",
+        "Arrivée des Portugais (XVe s.) puis domination omanaise (côte)",
+        "«Scramble for Africa» (1885) : Kenya colonisé par l'Empire britannique (Afrique orientale britannique)",
+        "Chemin de fer Mombasa-Kampala (1896-1901) : «Lunatic Line», structure coloniale durable",
+        "Rébellion Mau Mau (1952-1960) : soulèvement des Kikuyu contre la colonisation, répression brutale",
+        "Indépendance (12 décembre 1963) : Jomo Kenyatta president",
+        "Régime de Daniel arap Moi (1978-2002) : autoritarisme et corruption",
+        "Violences post-électorales (2007-2008) : 1 500 morts — crise politique grave",
+        "Attaque terroriste du Westgate Mall (2013) et Garissa (2015) par Al-Shabaab",
+        "Hub technologique continental : Silicon Savannah (M-Pesa, startups tech)"
+      ],
+      "role_historique": "Carrefour de l'Afrique orientale, le Kenya est un modèle de relative stabilité dans une région turbulente. Il est le hub économique et logistique d'Afrique de l'Est et un pionnier des technologies mobiles."
+    },
+
+    "politique": {
+      "regime": "République présidentielle. Multipartisme. Démocratie fragile mais fonctionnelle. Constitution de 2010 progressiste (droits économiques et sociaux).",
+      "chef_etat": "William Ruto (Président depuis septembre 2022 — ex-vice-président de Kenyatta).",
+      "stabilite": "Instabilité politique cyclique (élections toujours contestées). Tensions ethniques (Kikuyu, Luo, Kalenjin). Corruption endémique. Menace terroriste d'Al-Shabaab (Somalie).",
+      "alliances": [
+        "Union africaine",
+        "Communauté d'Afrique de l'Est (EAC — leader régional)",
+        "Commonwealth",
+        "Partenariats avec USA, UE, Chine, Inde",
+        "Mission de maintien de la paix en Haïti (2024 — led par le Kenya)"
+      ]
+    },
+
+    "economie": {
+      "pib": "113 milliards $ (2023, 4e d'Afrique subsaharienne)",
+      "pib_hab": "2 100 $ (2023)",
+      "ressources": [
+        "Thé (3e exportateur mondial)",
+        "Café (arabica de qualité)",
+        "Fleurs coupées (1er exportateur africain, 2e mondial)",
+        "Géothermie (10e pays producteur mondial — Rift Valley)",
+        "Tourisme (savanes, Kilimandjaro, côte)"
+      ],
+      "secteurs": [
+        "Services financiers et technologies (M-Pesa : révolution mondiale du paiement mobile)",
+        "Tourisme (Masai Mara, Amboseli, côte de Mombasa)",
+        "Agriculture (thé, café, horticulture)",
+        "Transport et logistique (hub régional, port de Mombasa)",
+        "Startups tech (Nairobi = «Silicon Savannah»)"
+      ],
+      "grandes_villes": [
+        "Nairobi (5 M hab. — hub économique, tech et diplomatique régional)",
+        "Mombasa (port historique, tourisme balnéaire)",
+        "Kisumu (lac Victoria, 3e ville)",
+        "Nakuru (Great Rift Valley)"
+      ],
+      "places_economiques": [
+        "Bourse de Nairobi (NSE)",
+        "M-Pesa (Safaricom) : paiement mobile révolutionnaire utilisé par 50 M de Kényans",
+        "Port de Mombasa : principal port d'Afrique de l'Est (dessert l'Ouganda, Rwanda, RDC, Éthiopie)",
+        "ILRI, ICRAF (centres de recherche agricole internationale basés à Nairobi)"
+      ],
+      "voies_communication": [
+        "Standard Gauge Railway Mombasa-Nairobi (SGR) : financée et construite par la Chine (2017)",
+        "Port de Mombasa : hub régional pour 6 pays landlockés",
+        "Aéroport international Jomo Kenyatta (JKIA) : hub africain",
+        "Route Northern Corridor (Mombasa → Kampala → Kigali)"
+      ]
+    },
+
+    "societe": {
+      "demographie": "Population très jeune (âge médian 19 ans). Croissance démographique rapide (~2,3%/an). 42 groupes ethniques (Kikuyu, Luo, Luhya, Kalenjin...).",
+      "idh": "0,601 (rang 152/191 en 2022, catégorie « moyen »)",
+      "education": "École primaire gratuite et obligatoire (depuis 2003). Université de Nairobi (référence régionale). Fort taux d'alphabétisation (~82%). Système en amélioration.",
+      "sante": "Espérance de vie 69 ans. Progrès contre le VIH/SIDA (prévalence réduite de 14% à 4%). Pénurie de médecins dans les zones rurales.",
+      "inegalites": "Gini ~41 — inégalités fortes. Bidonville de Kibera (Nairobi) : l'un des plus grands d'Afrique (250 000-1 000 000 hab. selon les estimations).",
+      "urbanisation": "29 % (2023) — mais urbanisation rapide."
+    },
+
+    "environnement": {
+      "pollution": "Déforestation (forêt de Mau menacée). Pollution de Nairobi. Braconnage (éléphants, rhinocéros).",
+      "dev_durable": "Leader africain des énergies renouvelables (géothermie 50% de l'électricité, éolien). Centrale éolienne du lac Turkana (310 MW — plus grande d'Afrique). Interdiction des sacs plastiques (2017).",
+      "recherche": "Centre de recherche agricole internationale (ILRI, CIMMYT) à Nairobi. M-Pesa : innovation mondiale majeure. Hub de startups africaines.",
+      "militaire": "Forces armées de 24 000 actifs. Présence en Somalie (AMISOM contre Al-Shabaab). Direction de la mission en Haïti (2024 — première pour le Kenya).",
+      "defis": [
+        "Corruption systémique (frein majeur au développement)",
+        "Menace terroriste d'Al-Shabaab (Somalie)",
+        "Inégalités : croissance profite peu aux plus pauvres",
+        "Changement climatique : sécheresses, inondations (Kenya très vulnérable)",
+        "Dette extérieure croissante (notamment envers la Chine — SGR)"
+      ]
+    },
+
+    "importance": {
+      "historique": "Hub de l'Afrique orientale depuis des siècles. La rébellion Mau Mau est un symbole de la lutte anticoloniale africaine. Le Kenya incarne les espoirs et les défis du continent africain au XXIe siècle.",
+      "economique": "4e économie d'Afrique subsaharienne. Hub logistique régional. Pionnier mondial du paiement mobile (M-Pesa). Silicon Savannah en développement.",
+      "geopolitique": "Puissance régionale en Afrique de l'Est. Siège du PNUE (Programme des Nations Unies pour l'Environnement) et de nombreuses agences ONU à Nairobi.",
+      "atouts": [
+        "Hub régional : port, aéroport, finance, services pour 250 millions d'habitants régionaux",
+        "Innovation technologique (M-Pesa, startups)",
+        "Géothermie : énergie propre et abondante",
+        "Biodiversité et tourisme de faune (devises durables)",
+        "Jeunesse dynamique et anglophone"
+      ],
+      "fragilites": [
+        "Corruption endémique freinant le développement",
+        "Tensions ethniques persistantes (récurrence des violences électorales)",
+        "Vulnérabilité climatique (sécheresses, El Niño)",
+        "Dépendance aux pluies pour l'agriculture (80% des emplois)",
+        "Dette envers la Chine et risque de dépendance"
+      ]
+    }
+  },
+
+  "AF": {
+    "name": "Afghanistan",
+    "flag": "🇦🇫",
+    "capitale": "Kaboul",
+    "continent": "Asie",
+    "population": "43 millions (2024)",
+    "superficie": "652 230 km²",
+    "langues": ["Dari / persan (officiel)", "Pachto (officiel)", "Ouzbek, turkmène (régionaux)"],
+    "monnaie": "Afghani (AFN)",
+
+    "histoire": {
+      "independance": "19 août 1919 (indépendance du Royaume-Uni — traité de Rawalpindi).",
+      "evenements_majeurs": [
+        "Carrefour des empires antiques : Alexandre le Grand, empire Perse, Kouchan, Timourides",
+        "«Tombeau des empires» : résistance aux conquérants successifs depuis des siècles",
+        "3 guerres anglo-afghanes (1839-1919) : résistance à la colonisation britannique",
+        "Coup communiste (1978) et invasion soviétique (1979-1989) : 1 million de morts, 5 millions de réfugiés",
+        "Guerre civile (1989-1996) : chaos entre factions",
+        "1er régime taliban (1996-2001) : loi islamique ultra-rigoriste, destructions des Bouddhas de Bâmiyân",
+        "Invasion américaine post-11 septembre (2001) : chute rapide des talibans",
+        "20 ans d'occupation internationale (2001-2021) : 3 400 soldats de l'OTAN tués, 100 000+ civils",
+        "Retrait américain chaotique et retour des talibans (août 2021)",
+        "Régime taliban 2.0 : interdiction d'éducation pour les filles (depuis 2021)"
+      ],
+      "role_historique": "L'Afghanistan incarne la résistance aux empires envahisseurs et la tragédie des guerres par procuration de la Guerre froide. Aucune puissance étrangère n'a jamais durablement contrôlé ce territoire."
+    },
+
+    "politique": {
+      "regime": "Émirat islamique (depuis août 2021). Régime taliban ultra-rigoriste. Aucune reconnaissance internationale. Gouvernement uniquement pachtoune-taliban.",
+      "chef_etat": "Hibatullah Akhundzada (Chef suprême des talibans depuis 2016 — ne se montre quasi jamais en public). Mohammad Hassan Akhund (Premier ministre de facto).",
+      "stabilite": "Stable par la force et la terreur. Mais insurrection de l'État islamique-Khorasan (IS-K) — rival djihadiste des talibans. Effondrement économique total.",
+      "alliances": [
+        "Pakistanais (soutien historique aux talibans mais relation complexe)",
+        "Chine (reconnaissance de facto, intérêts miniers)",
+        "Russie et Iran (pragmatisme)",
+        "Aucune reconnaissance officielle internationale"
+      ]
+    },
+
+    "economie": {
+      "pib": "~14 milliards $ (2023 — effondrement depuis 2021)",
+      "pib_hab": "~350 $ (parmi les 5 plus pauvres du monde)",
+      "ressources": [
+        "Opium / héroïne (60-90% de la production mondiale avant interdiction taliban 2022)",
+        "Lithium, cuivre, fer, or (réserves estimées à 1 000 milliards $ — peu exploitées)",
+        "Lapis-lazuli (pierres semi-précieuses)",
+        "Gaz naturel (nord du pays)"
+      ],
+      "secteurs": [
+        "Agriculture (opium historiquement, céréales, fruits secs)",
+        "Aide internationale humanitaire (80% du budget avant 2021)",
+        "Artisanat (tapis afghans réputés mondialement)",
+        "Mines (cuivre de Mes Aynak — concédé à la Chine)"
+      ],
+      "grandes_villes": [
+        "Kaboul (4,5 M hab. — capitale)",
+        "Kandahar (berceau des talibans, 600 000 hab.)",
+        "Herat (ville historique, influence iranienne)",
+        "Mazar-e Charif (nord, minorités tadjikes et ouzbèkes)"
+      ],
+      "places_economiques": [
+        "Marché noir et économie informelle dominants",
+        "Concession minière de Mes Aynak (cuivre, Chine — non exploitée)"
+      ],
+      "voies_communication": [
+        "Aéroport de Kaboul (opérationnel sous contrôle taliban)",
+        "Route de la Soie historique (passage vers l'Asie centrale)",
+        "Réseau routier endommagé par 40 ans de guerre"
+      ]
+    },
+
+    "societe": {
+      "demographie": "Population très jeune (âge médian 18 ans) et en forte croissance malgré la misère. Société tribale et clanique. 6 millions de réfugiés à l'étranger (Iran, Pakistan).",
+      "idh": "0,462 (rang 182/191 en 2022 — avant-dernier)",
+      "education": "Depuis 2021 : interdiction aux filles d'aller à l'école au-delà du primaire, puis aux universités. Taux d'alphabétisation des femmes : ~17%. Catastrophe éducative en cours.",
+      "sante": "Espérance de vie 65 ans. Mortalité infantile parmi les plus élevées du monde. Système de santé quasi-effondré depuis le retrait de l'aide internationale.",
+      "inegalites": "Misère quasi-universelle. 97% de la population sous le seuil de pauvreté en 2022 selon le PNUD.",
+      "urbanisation": "26 % (2023)."
+    },
+
+    "environnement": {
+      "pollution": "Déforestation massive. Désertification. Pollution des eaux (Kaboul). Sécheresses aggravées par le changement climatique.",
+      "dev_durable": "Aucune politique environnementale. Catastrophe humanitaire écrasant tout autre enjeu.",
+      "recherche": "Néant sous les talibans. Fuite des cerveaux massive depuis 2021.",
+      "militaire": "Forces talibanes : ~80 000 combattants équipés du matériel américain abandonné en 2021 (150 000 véhicules, 600 000 fusils, 75 avions). Menace IS-K permanente.",
+      "defis": [
+        "Crise humanitaire : 28 millions de personnes en besoin d'aide alimentaire",
+        "Effacement des droits des femmes (retour au Moyen Âge selon les ONG)",
+        "Absence de reconnaissance internationale = économie paralysée",
+        "Menace terroriste interne (IS-K contre les talibans eux-mêmes)",
+        "Sécheresses et changement climatique"
+      ]
+    },
+
+    "importance": {
+      "historique": "L'Afghanistan illustre l'échec de 20 ans d'intervention militaire occidentale et les limites de l'exportation de la démocratie par la force. «Tombeau des empires» depuis Alexandre jusqu'aux États-Unis.",
+      "economique": "Pays extrêmement pauvre mais avec des réserves de métaux critiques (lithium) potentiellement parmi les plus importantes du monde.",
+      "geopolitique": "Carrefour stratégique entre l'Asie centrale, l'Asie du Sud et le Moyen-Orient. Sanctuaire potentiel du terrorisme international. Test de la politique étrangère de chaque grande puissance.",
+      "atouts": [
+        "Réserves estimées à 1 000 Mds$ en métaux critiques (lithium, cuivre, cobalt)",
+        "Position géographique : carrefour entre régions stratégiques",
+        "Résistance historique : aucune puissance n'a jamais définitivement conquis l'Afghanistan"
+      ],
+      "fragilites": [
+        "État faillit : aucune institution fonctionnelle",
+        "Régime paria : aucune reconnaissance internationale",
+        "Catastrophe humanitaire en cours (une des pires du monde)",
+        "40 ans de guerre continue ayant détruit toute infrastructure",
+        "Violences de genre institutionnalisées — appauvrissement du capital humain"
+      ]
+    }
+  },
+
+  "CH": {
+    "name": "Suisse",
+    "flag": "🇨🇭",
+    "capitale": "Berne (capitale fédérale) — Genève (capitale diplomatique mondiale)",
+    "continent": "Europe",
+    "population": "8,8 millions (2024)",
+    "superficie": "41 285 km²",
+    "langues": ["Allemand (63%, officiel)", "Français (23%, officiel)", "Italien (8%, officiel)", "Romanche (0,5%, officiel)"],
+    "monnaie": "Franc suisse (CHF) — l'une des monnaies les plus stables du monde",
+
+    "histoire": {
+      "independance": "1er août 1291 (Pacte de la confédération des trois cantons primitifs — fête nationale). Pleinement souveraine depuis 1648 (Traité de Westphalie).",
+      "evenements_majeurs": [
+        "Confédération helvétique médiévale (1291) : alliance de cantons contre les Habsbourg",
+        "Guerres de Bourgogne (1474-1477) : victoires suisses contre Charles le Téméraire",
+        "Réforme protestante (Calvin à Genève, Zwingli à Zurich — XVIe s.)",
+        "Traité de Westphalie (1648) : neutralité reconnue internationalement",
+        "Révolution helvétique (1798-1803) : occupation napoléonienne, résistance",
+        "Constitution fédérale (1848) : démocratie directe, État fédéral moderne",
+        "Neutralité préservée pendant les deux Guerres mondiales (rôle ambigu)",
+        "Fondation du CICR (Croix-Rouge) à Genève (1863) par Henry Dunant",
+        "Referendum pour rejoindre l'ONU (2002 — seulement! Dernier État à intégrer l'ONU)",
+        "Referendum sur l'UE (refus en 1992, bilatérales depuis) — hors UE et OTAN",
+        "Sanctions contre la Russie (2022) — rupture partielle avec la neutralité traditionnelle"
+      ],
+      "role_historique": "La Suisse a inventé la démocratie directe, la neutralité permanente et l'humanitaire international. Elle incarne la coexistence réussie de quatre cultures dans un espace réduit."
+    },
+
+    "politique": {
+      "regime": "Confédération fédérale. Démocratie directe unique au monde : referendums populaires fréquents sur tout sujet (jusqu'à 4 fois par an). Conseil fédéral de 7 membres — pas de président fort.",
+      "chef_etat": "Conseil fédéral (7 membres, présidence tournante annuelle). Karin Keller-Sutter (présidente pour 2025).",
+      "stabilite": "Extrêmement stable. Une des démocraties les plus anciennes et solides du monde. Consensus comme mode de gouvernement.",
+      "alliances": [
+        "Neutralité permanente (depuis 1815, reconnue par le Congrès de Vienne)",
+        "Hors UE et OTAN (accords bilatéraux avec l'UE)",
+        "Siège de nombreuses organisations internationales (ONU Genève, CICR, OMS, OMC, CERN)",
+        "Sanctions contre la Russie adoptées depuis 2022 (nuance de la neutralité)"
+      ]
+    },
+
+    "economie": {
+      "pib": "905 milliards $ (2023, 20e mondiale pour 8,8 millions d'habitants)",
+      "pib_hab": "99 000 $ (2023, 3e mondial)",
+      "ressources": [
+        "Capital humain ultra-qualifié (main-d'œuvre la plus productive d'Europe)",
+        "Eau (réservoir d'eau de l'Europe — Alpes)",
+        "Hydroélectricité (57% de l'électricité)",
+        "Tourisme alpin"
+      ],
+      "secteurs": [
+        "Finance et banque (UBS, Credit Suisse/UBS, banques privées — gestion de 25% de la fortune privée mondiale)",
+        "Pharmaceutique et biotech (Nestlé, Novartis, Roche, Lonza — 1er secteur exportateur)",
+        "Horlogerie de luxe (Rolex, Omega, Swatch — 95% des montres mécaniques de luxe)",
+        "Industrie de précision (ABB, Georg Fischer)",
+        "Tourisme alpin et MICE (congrès mondiaux à Genève, Davos)"
+      ],
+      "grandes_villes": [
+        "Zurich (440 000 hab. — 1ère ville financière d'Europe continentale, qualité de vie mondiale)",
+        "Genève (200 000 hab. — capitale diplomatique mondiale, ONU, CICR, OMS)",
+        "Berne (140 000 hab. — capitale fédérale)",
+        "Bâle (200 000 hab. — pharmaceutique, art, frontière France-Allemagne)"
+      ],
+      "places_economiques": [
+        "SIX Swiss Exchange (Zurich) — 4e bourse européenne",
+        "Zurich : hub financier mondial (gestion de fortune, assurances)",
+        "Genève : hub des matières premières (Vitol, Glencore, Trafigura — capitales mondiales du négoce)",
+        "Davos : Forum Économique Mondial annuel (WEF)"
+      ],
+      "voies_communication": [
+        "Tunnels alpins : Gotthard (le plus long tunnel ferroviaire du monde — 57 km)",
+        "Aéroport de Zurich (Kloten) — hub européen",
+        "Réseau ferroviaire le plus dense du monde (130 km de voies pour 1000 km²)",
+        "Autoroutes alpines (liaison Nord-Sud Europe)"
+      ]
+    },
+
+    "societe": {
+      "demographie": "25% d'étrangers résidents (une des proportions les plus élevées d'Europe). Société quadrilingue. Vieillissement modéré compensé par l'immigration de qualité.",
+      "idh": "0,962 (rang 3/191 en 2022, catégorie « très élevé »)",
+      "education": "2e pays en dépenses d'éducation par habitant. EPFL et ETH Zurich (top 15 mondial). Double système : academic / apprentissage professionnel (modèle mondial).",
+      "sante": "Espérance de vie 84 ans (parmi les plus élevées du monde). Système de santé privé obligatoire (coûteux mais excellent). 1 médecin pour 230 habitants.",
+      "inegalites": "Gini ~32 — inégalités modérées malgré les très hauts salaires. Coût de la vie extrêmement élevé.",
+      "urbanisation": "74 % (2023). Réseau de villes moyennes équilibré."
+    },
+
+    "environnement": {
+      "pollution": "Émissions faibles (hydroélectricité + nucléaire). Recyclage parmi les meilleurs au monde (52% des déchets recyclés). Alpes : baromètre du changement climatique mondial.",
+      "dev_durable": "75% d'électricité décarbonée. Votation sur la sortie du nucléaire (2017, acceptée — transition en cours). Fonte des glaciers alpins : -50% en volume depuis 1900.",
+      "recherche": "CERN (Genève) : plus grand laboratoire de physique du monde. ETH Zurich : top 10 mondial. Leader mondial en brevets par habitant. Investissement R&D : 3,5% du PIB.",
+      "militaire": "Armée de milice (200 000 réservistes). Service militaire obligatoire. Budget ~1% du PIB. Neutralité armée (bunkers, abris anti-nucléaires pour toute la population).",
+      "defis": [
+        "Fonte des glaciers : menace pour l'eau douce et le tourisme alpin",
+        "Relation avec l'UE (accords bilatéraux à renégocier)",
+        "Coût de la vie : un des plus élevés du monde",
+        "Pression sur le secret bancaire (érosion progressive)",
+        "Neutralité sous tension (guerre en Ukraine)"
+      ]
+    },
+
+    "importance": {
+      "historique": "La Suisse a inventé la démocratie directe et l'humanitaire international. Sa neutralité séculaire en a fait le lieu de toutes les négociations mondiales.",
+      "economique": "Hub financier mondial (25% de la gestion de fortune privée internationale). Leader pharmaceutique (Novartis, Roche). Horlogerie de luxe inégalée.",
+      "geopolitique": "Capitale diplomatique mondiale (Genève). Siège de l'ONU Genève, OMS, OMC, CICR. Lieu de négociations historiques (accords de Genève, SALT, Iran nucléaire...).",
+      "atouts": [
+        "Neutralité : avantage diplomatique unique et lieu de médiation universel",
+        "Capital humain exceptionnel (formation duale, multilinguisme)",
+        "Franc suisse : valeur refuge mondiale",
+        "Secret bancaire historique (érodé mais toujours attractif)",
+        "Qualité de vie n°1 mondial (Zurich et Genève régulièrement 1ères)"
+      ],
+      "fragilites": [
+        "Dépendance à la relation avec l'UE (son marché naturel)",
+        "Vulnérabilité climatique (glaciers, risques alpins)",
+        "Neutralité de plus en plus difficile à maintenir (pression des alliés)",
+        "Coût de la vie limitant la compétitivité dans certains secteurs",
+        "Secteur bancaire sous pression réglementaire internationale"
+      ]
+    }
+  },
+
+  "NL": {
+    "name": "Pays-Bas",
+    "flag": "🇳🇱",
+    "capitale": "Amsterdam (officielle) — La Haye (siège du gouvernement et de la justice internationale)",
+    "continent": "Europe",
+    "population": "17,9 millions (2024)",
+    "superficie": "41 543 km² (dont 26% sous le niveau de la mer)",
+    "langues": ["Néerlandais (officiel)", "Frison (officiel en Frise)"],
+    "monnaie": "Euro (EUR) — depuis 2002",
+
+    "histoire": {
+      "independance": "26 juillet 1581 (Acte d'Abjuration — indépendance de l'Espagne, première déclaration d'indépendance moderne de l'histoire).",
+      "evenements_majeurs": [
+        "Âge d'or hollandais (XVIIe s.) : 1ère puissance commerciale et maritime mondiale, Amsterdam = 1ère bourse moderne",
+        "VOC (Compagnie des Indes orientales, 1602) : 1ère multinationale de l'histoire",
+        "Empire colonial : Indonésie, Suriname, Antilles, Afrique du Sud (fondation)",
+        "Traité de Westphalie (1648) : indépendance reconnue",
+        "Invasion napoléonienne (1795-1813) : République Batave",
+        "Colonialisme en Indonésie : exploitation du système de culture, famine",
+        "Occupation nazie (1940-1945) : 75% des Juifs néerlandais assassinés (proportion la plus haute d'Europe occidentale) — Journal d'Anne Frank",
+        "Décolonisation de l'Indonésie (1949 — après guerre coloniale)",
+        "Fondateur de l'Union européenne (Traité de Rome, 1957)",
+        "Pays précurseur : légalisation du cannabis (1976), euthanasie (2001), mariage homosexuel (2001 — premier pays au monde)"
+      ],
+      "role_historique": "Petits par la taille, immenses par l'histoire : les Pays-Bas ont été la 1ère puissance commerciale mondiale au XVIIe s. et ont inventé plusieurs concepts fondateurs du monde moderne (bourse, multinationale, déclaration d'indépendance)."
+    },
+
+    "politique": {
+      "regime": "Monarchie constitutionnelle parlementaire. Démocratie représentative. Coalition gouvernementale (le pays a souvent des gouvernements de 3-4 partis).",
+      "chef_etat": "Roi Willem-Alexander (depuis 2013). Dick Schoof (Premier ministre depuis juillet 2024 — gouvernement de droite mené par le PVV de Geert Wilders).",
+      "stabilite": "Démocratie solide. Montée des partis populistes (PVV de Geert Wilders — 1er parti aux législatives de 2023). Polarisation sur immigration, agriculture et climat.",
+      "alliances": [
+        "UE (co-fondateur, 1957) — membre de la zone euro",
+        "OTAN (co-fondateur, 1949)",
+        "Benelux (Belgique, Pays-Bas, Luxembourg)",
+        "Siège de la CPI (Cour Pénale Internationale) et CIJ (Cour Internationale de Justice) à La Haye"
+      ]
+    },
+
+    "economie": {
+      "pib": "1 118 milliards $ (2023, 17e mondiale)",
+      "pib_hab": "62 000 $ (2023)",
+      "ressources": [
+        "Gaz naturel (champ de Groningue — en fermeture pour causes sismiques)",
+        "Agriculture ultra-intensive : 2e exportateur agricole mondial après les États-Unis",
+        "Eau : expertise mondiale de la gestion de l'eau (Delta Works)",
+        "Port de Rotterdam : 1er port d'Europe"
+      ],
+      "secteurs": [
+        "Logistique et commerce (Rotterdam — porte d'entrée de l'Europe)",
+        "Agriculture et agroalimentaire (serres, fleurs, lait — BASF, Unilever, FrieslandCampina)",
+        "Énergie (Shell, SBM Offshore)",
+        "Finance (ING, ABN AMRO, Aegon)",
+        "Technologies (ASML : monopole mondial des machines à lithographie EUV pour semi-conducteurs)",
+        "Chimie (Rotterdam est le 1er complexe pétrochimique d'Europe)"
+      ],
+      "grandes_villes": [
+        "Amsterdam (900 000 hab. — capitale, finance, culture, tourisme)",
+        "Rotterdam (650 000 hab. — 1er port européen, architecture contemporaine)",
+        "La Haye (550 000 hab. — siège du gouvernement, CPI, CIJ)",
+        "Utrecht (hub ferroviaire central)"
+      ],
+      "places_economiques": [
+        "Euronext Amsterdam (4e bourse européenne)",
+        "Port de Rotterdam (1er port d'Europe, 11e mondial)",
+        "ASML (Veldhoven) : entreprise la plus stratégique au monde pour les semi-conducteurs",
+        "Schiphol (Amsterdam) : 4e aéroport européen, hub KLM"
+      ],
+      "voies_communication": [
+        "Port de Rotterdam : 400 millions de tonnes de marchandises/an",
+        "Aéroport de Schiphol : 71 millions de passagers/an",
+        "Réseau ferroviaire dense (1er pays pour le vélo : 23 000 km de pistes cyclables)",
+        "Réseau de canaux (Amsterdam : 165 canaux, patrimoine UNESCO)"
+      ]
+    },
+
+    "societe": {
+      "demographie": "Pays parmi les plus densément peuplés d'Europe (520 hab/km²). Société très multiculturelle (Maroc, Turquie, Suriname, Antilles). Débat sur l'intégration.",
+      "idh": "0,946 (rang 10/191 en 2022, catégorie « très élevé »)",
+      "education": "Système éducatif parmi les meilleurs d'Europe. Universités de Leiden, Delft (technique), Amsterdam (UvA) — toutes dans le top 100 mondial. Taux d'anglophonie : 95% (1er non-anglophone du monde).",
+      "sante": "Espérance de vie 82,3 ans. Système de santé universel (assurance obligatoire). Pays précurseur sur l'euthanasie et les soins palliatifs.",
+      "inegalites": "Gini ~28 — l'un des plus faibles d'Europe. Welfare state développé.",
+      "urbanisation": "93 % (2023) — une des plus élevées d'Europe."
+    },
+
+    "environnement": {
+      "pollution": "Agriculture intensive : pollution des sols et des nappes phréatiques à l'azote (crise agricole, contentieux avec l'UE). Port de Rotterdam : 1er complexe pétrochimique d'Europe.",
+      "dev_durable": "Delta Works : système de protection contre les inondations (7e merveille du monde moderne). Objectif neutralité carbone 2050. Leader mondial de l'hydraulique et de la gestion de l'eau. Éolien offshore en fort développement.",
+      "recherche": "ASML : monopole mondial absolu sur les machines EUV sans lesquelles aucun semi-conducteur avancé (iPhone, IA...) ne peut être produit. Wageningen University : 1ère mondiale en agriculture.",
+      "militaire": "Forces armées de 45 000 actifs. Membre OTAN actif. Budget ~1,8% du PIB (en hausse). Siège de la CPI et CIJ (soft power juridique).",
+      "defis": [
+        "Montée des eaux : 26% du territoire sous le niveau de la mer (existentiel)",
+        "Crise agricole : réduction forcée du bétail pour respecter les normes azote de l'UE",
+        "Immigration : intégration et montée des partis populistes",
+        "Dépendance au gaz (transition post-Groningue)",
+        "Pression foncière : densité extrême dans un petit territoire"
+      ]
+    },
+
+    "importance": {
+      "historique": "Les Pays-Bas ont inventé la bourse moderne, la première multinationale, et rédigé la première déclaration d'indépendance moderne. Leur Âge d'Or a posé les bases du capitalisme mondial.",
+      "economique": "2e exportateur agricole mondial. 1er port d'Europe. ASML : entreprise la plus stratégique du monde pour la technologie des semi-conducteurs (iPhone, IA, tout dépend de leurs machines).",
+      "geopolitique": "Porte d'entrée de l'Europe (Rotterdam). Siège de la justice internationale (La Haye). Co-fondateur de l'UE et de l'OTAN.",
+      "atouts": [
+        "ASML : monopole stratégique absolu sur les semi-conducteurs (arme géopolitique)",
+        "Port de Rotterdam : hub logistique de l'Europe",
+        "Agriculture ultra-efficace (2e exportateur mondial sur 41 000 km²)",
+        "Expertise mondiale de la gestion de l'eau (exportée dans le monde entier)",
+        "Taux d'anglophonie exceptionnel facilitant les affaires internationales"
+      ],
+      "fragilites": [
+        "Vulnérabilité existentielle à la montée des eaux (26% du territoire sous le niveau de la mer)",
+        "Crise agricole profonde (tension UE sur l'azote)",
+        "Dépendance aux exportations (80% du PIB)",
+        "Montée des populismes (Geert Wilders au gouvernement)",
+        "Pression foncière extrême dans un territoire très petit"
+      ]
+    }
+  }
+}

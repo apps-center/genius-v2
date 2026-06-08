@@ -1,0 +1,827 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Logique & Raisonnement — L'Encyclopédie des Explorateurs</title>
+<link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;700;900&family=Crimson+Pro:ital,wght@0,300;0,400;0,600;1,300&display=swap" rel="stylesheet">
+<style>
+:root{
+  --bg:#060a14; --gold:#d4a843; --gold-dim:rgba(200,180,120,.18);
+  --text:#e8dfc4; --text-dim:rgba(232,223,196,.48);
+  --card-bg:rgba(8,13,26,.94); --border:rgba(200,180,120,.18);
+  --purple:#a87be8; --purple-dim:rgba(168,123,232,.15);
+  --green:#5ec48a; --red:#e84848;
+}
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0;}
+html{scroll-behavior:smooth;}
+body{background:var(--bg);color:var(--text);font-family:'Crimson Pro',Georgia,serif;min-height:100vh;overflow-x:hidden;}
+#stars{position:fixed;inset:0;z-index:0;pointer-events:none;}
+.content{position:relative;z-index:1;}
+.back{position:fixed;top:22px;left:24px;z-index:100;font-family:'Cinzel',serif;font-size:.6rem;letter-spacing:.25em;text-transform:uppercase;color:rgba(212,168,67,.5);text-decoration:none;display:flex;align-items:center;gap:8px;transition:color .2s;}
+.back:hover{color:var(--gold);}
+
+/* HEADER */
+header{text-align:center;padding:60px 20px 32px;}
+.enc-label{font-size:.68rem;letter-spacing:.38em;text-transform:uppercase;color:var(--text-dim);margin-bottom:12px;}
+h1{font-family:'Cinzel',serif;font-weight:900;font-size:clamp(1.8rem,5vw,3.4rem);background:linear-gradient(135deg,#d0b8f5,#a87be8 38%,#c0a0f0 68%,#f0e8ff);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;line-height:1.1;}
+.tagline{margin-top:10px;font-size:.95rem;color:var(--text-dim);font-style:italic;}
+
+/* SCORE GLOBAL */
+.score-bar{display:flex;justify-content:center;gap:36px;padding:24px 20px;max-width:600px;margin:20px auto;border:1px solid rgba(200,180,120,.1);border-radius:8px;background:rgba(10,18,36,.6);}
+.score-item{text-align:center;}
+.score-num{font-family:'Cinzel',serif;font-size:1.6rem;font-weight:900;color:var(--purple);}
+.score-label{font-size:.58rem;letter-spacing:.18em;text-transform:uppercase;color:var(--text-dim);margin-top:3px;}
+
+/* CHAPITRES */
+.chapitres{display:flex;gap:12px;justify-content:center;flex-wrap:wrap;padding:0 20px 32px;max-width:900px;margin:0 auto;}
+.chap-btn{font-family:'Cinzel',serif;font-size:.6rem;letter-spacing:.16em;text-transform:uppercase;padding:12px 20px;border-radius:4px;border:1px solid var(--border);background:rgba(6,10,20,.9);color:var(--text-dim);cursor:pointer;transition:all .25s;position:relative;}
+.chap-btn:hover{border-color:rgba(168,123,232,.4);color:var(--purple);}
+.chap-btn.active{border-color:var(--purple);color:var(--purple);background:rgba(168,123,232,.08);}
+.chap-btn.completed{border-color:rgba(94,196,138,.5);color:var(--green);}
+.chap-btn .chap-progress{position:absolute;bottom:-6px;left:50%;transform:translateX(-50%);font-size:.5rem;white-space:nowrap;color:var(--text-dim);}
+
+/* ZONE EXERCICE */
+.exo-zone{max-width:720px;margin:0 auto;padding:0 20px 100px;}
+
+.exo-header{display:flex;align-items:center;justify-content:space-between;margin-bottom:28px;flex-wrap:wrap;gap:12px;}
+.exo-titre{font-family:'Cinzel',serif;font-size:1rem;color:var(--text);font-weight:700;}
+.exo-counter{font-size:.7rem;letter-spacing:.18em;text-transform:uppercase;color:var(--text-dim);}
+.diff-dot{display:inline-block;width:8px;height:8px;border-radius:50%;margin-right:3px;}
+.diff-dot.easy{background:var(--green);}
+.diff-dot.medium{background:var(--gold);}
+.diff-dot.hard{background:var(--red);}
+
+/* CARTE EXERCICE */
+.exo-card{background:var(--card-bg);border:1px solid rgba(200,180,120,.14);border-radius:12px;overflow:hidden;transition:border-color .25s;}
+.exo-card.correct{border-color:rgba(94,196,138,.4);}
+.exo-card.wrong{border-color:rgba(232,80,80,.35);}
+
+.exo-enonce{padding:32px 32px 24px;}
+.exo-enonce-label{font-size:.58rem;letter-spacing:.2em;text-transform:uppercase;color:var(--purple);margin-bottom:16px;display:flex;align-items:center;gap:10px;}
+.exo-question{font-size:1.1rem;line-height:1.75;color:var(--text);white-space:pre-line;}
+.exo-question code{font-family:'Courier New',monospace;background:rgba(168,123,232,.1);padding:2px 8px;border-radius:3px;color:var(--purple);font-size:.95em;}
+
+/* CHOIX */
+.choix-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(180px,1fr));gap:10px;padding:0 32px 24px;}
+.choix-btn{font-family:'Crimson Pro',serif;font-size:1rem;padding:14px 18px;border-radius:6px;border:1px solid rgba(168,123,232,.2);background:rgba(168,123,232,.05);color:var(--text-dim);cursor:pointer;transition:all .2s;text-align:left;line-height:1.4;}
+.choix-btn:hover:not(:disabled){border-color:rgba(168,123,232,.5);color:var(--text);background:rgba(168,123,232,.1);}
+.choix-btn.selected{border-color:var(--purple);color:var(--purple);background:rgba(168,123,232,.12);}
+.choix-btn.correct-choice{border-color:var(--green)!important;color:var(--green)!important;background:rgba(94,196,138,.1)!important;}
+.choix-btn.wrong-choice{border-color:var(--red)!important;color:var(--red)!important;background:rgba(232,80,80,.08)!important;}
+.choix-btn:disabled{cursor:default;opacity:.8;}
+
+/* SAISIE LIBRE */
+.saisie-zone{padding:0 32px 24px;display:flex;gap:12px;}
+.saisie-input{flex:1;font-family:'Cinzel',serif;font-size:.9rem;padding:14px 18px;border-radius:6px;border:1px solid rgba(168,123,232,.25);background:rgba(6,10,20,.9);color:var(--text);outline:none;transition:border-color .2s;}
+.saisie-input:focus{border-color:var(--purple);}
+.saisie-input.correct-input{border-color:var(--green);color:var(--green);}
+.saisie-input.wrong-input{border-color:var(--red);color:var(--red);}
+.valider-btn{font-family:'Cinzel',serif;font-size:.68rem;letter-spacing:.18em;text-transform:uppercase;padding:14px 24px;border-radius:6px;border:1px solid rgba(168,123,232,.5);background:rgba(168,123,232,.1);color:var(--purple);cursor:pointer;transition:all .2s;white-space:nowrap;}
+.valider-btn:hover:not(:disabled){background:rgba(168,123,232,.2);box-shadow:0 0 16px rgba(168,123,232,.2);}
+.valider-btn:disabled{opacity:.4;cursor:default;}
+
+/* INDICE */
+.indice-btn{display:flex;align-items:center;gap:8px;margin:0 32px 16px;font-size:.75rem;color:var(--text-dim);cursor:pointer;border:none;background:none;transition:color .2s;padding:0;}
+.indice-btn:hover{color:var(--gold);}
+.indice-box{margin:0 32px 20px;padding:14px 18px;border-radius:6px;border:1px solid rgba(212,168,67,.25);background:rgba(212,168,67,.06);font-size:.9rem;font-style:italic;color:rgba(232,223,196,.65);display:none;line-height:1.65;}
+.indice-box.visible{display:block;}
+
+/* CORRECTION */
+.correction-zone{padding:0 32px 32px;display:none;}
+.correction-zone.visible{display:block;}
+.correction-header{display:flex;align-items:center;gap:12px;margin-bottom:20px;}
+.correction-icon{font-size:1.5rem;}
+.correction-titre{font-family:'Cinzel',serif;font-size:.9rem;font-weight:700;}
+.correction-titre.ok{color:var(--green);}
+.correction-titre.ko{color:var(--red);}
+.correction-reponse{font-family:'Cinzel',serif;font-size:1.2rem;font-weight:900;color:var(--purple);margin-bottom:18px;}
+.etapes{display:flex;flex-direction:column;gap:10px;}
+.etape{display:flex;gap:14px;align-items:flex-start;padding:14px 18px;border-radius:6px;background:rgba(168,123,232,.05);border:1px solid rgba(168,123,232,.12);opacity:0;transform:translateY(8px);transition:opacity .3s,transform .3s;}
+.etape.visible{opacity:1;transform:none;}
+.etape-num{width:24px;height:24px;border-radius:50%;background:rgba(168,123,232,.2);border:1px solid rgba(168,123,232,.4);display:flex;align-items:center;justify-content:center;font-family:'Cinzel',serif;font-size:.65rem;color:var(--purple);flex-shrink:0;margin-top:1px;}
+.etape-texte{font-size:.92rem;line-height:1.65;color:rgba(232,223,196,.75);}
+.etape-texte strong{color:var(--purple);}
+
+/* NAVIGATION EXERCICE */
+.exo-nav{display:flex;justify-content:space-between;align-items:center;margin-top:24px;flex-wrap:wrap;gap:12px;}
+.nav-btn{font-family:'Cinzel',serif;font-size:.65rem;letter-spacing:.18em;text-transform:uppercase;padding:12px 24px;border-radius:4px;border:1px solid var(--border);background:rgba(6,10,20,.9);color:var(--text-dim);cursor:pointer;transition:all .2s;}
+.nav-btn:hover:not(:disabled){border-color:rgba(168,123,232,.4);color:var(--purple);}
+.nav-btn:disabled{opacity:.3;cursor:default;}
+.nav-btn.primary{border-color:rgba(168,123,232,.6);color:var(--purple);background:rgba(168,123,232,.08);}
+.nav-btn.primary:hover{background:rgba(168,123,232,.16);box-shadow:0 0 16px rgba(168,123,232,.15);}
+
+/* PROGRESS BAR CHAPITRE */
+.chap-progress-bar{height:3px;background:rgba(168,123,232,.15);border-radius:2px;margin:0 0 28px;overflow:hidden;}
+.chap-progress-fill{height:100%;background:var(--purple);transition:width .4s ease;border-radius:2px;}
+
+/* SUCCESS STATE */
+.chap-complete{text-align:center;padding:48px 20px;display:none;}
+.chap-complete.visible{display:block;}
+.chap-complete-icon{font-size:3rem;margin-bottom:16px;}
+.chap-complete-titre{font-family:'Cinzel',serif;font-size:1.3rem;font-weight:900;background:linear-gradient(135deg,#d0b8f5,#a87be8);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;margin-bottom:12px;}
+.chap-complete-desc{font-size:.95rem;color:var(--text-dim);font-style:italic;}
+</style>
+</head>
+<body>
+<canvas id="stars"></canvas>
+<a class="back" href="accueil.html">← Accueil</a>
+
+<div class="content">
+<header>
+  <div class="enc-label">L'Encyclopédie des Explorateurs</div>
+  <h1>Logique & Raisonnement</h1>
+  <p class="tagline">5 chapitres · 25 exercices progressifs · Correction étape par étape</p>
+</header>
+
+<div class="score-bar">
+  <div class="score-item"><div class="score-num" id="score-total">0</div><div class="score-label">Score total</div></div>
+  <div class="score-item"><div class="score-num" id="score-ok">0</div><div class="score-label">Réussies</div></div>
+  <div class="score-item"><div class="score-num" id="score-pct">0%</div><div class="score-label">Taux réussite</div></div>
+</div>
+
+<div class="chapitres" id="chapitres"></div>
+
+<div class="exo-zone" id="exo-zone" style="display:none">
+  <div class="exo-header">
+    <div class="exo-titre" id="exo-chap-titre"></div>
+    <div class="exo-counter" id="exo-counter"></div>
+  </div>
+  <div class="chap-progress-bar"><div class="chap-progress-fill" id="chap-bar"></div></div>
+
+  <div class="exo-card" id="exo-card">
+    <div class="exo-enonce">
+      <div class="exo-enonce-label" id="exo-label"></div>
+      <div class="exo-question" id="exo-question"></div>
+    </div>
+
+    <div id="choix-container"></div>
+
+    <button class="indice-btn" id="indice-btn" onclick="toggleIndice()">💡 Afficher un indice</button>
+    <div class="indice-box" id="indice-box"></div>
+
+    <div class="correction-zone" id="correction-zone">
+      <div class="correction-header">
+        <div class="correction-icon" id="corr-icon"></div>
+        <div class="correction-titre" id="corr-titre"></div>
+      </div>
+      <div class="correction-reponse" id="corr-reponse"></div>
+      <div class="etapes" id="corr-etapes"></div>
+    </div>
+  </div>
+
+  <div class="chap-complete" id="chap-complete">
+    <div class="chap-complete-icon">⚡</div>
+    <div class="chap-complete-titre" id="complete-titre"></div>
+    <div class="chap-complete-desc" id="complete-desc"></div>
+  </div>
+
+  <div class="exo-nav">
+    <button class="nav-btn" id="btn-prev" onclick="prevExo()" disabled>← Précédent</button>
+    <button class="nav-btn" id="btn-indice-skip" onclick="revealCorrection()" style="display:none">Voir la correction</button>
+    <button class="nav-btn primary" id="btn-next" onclick="nextExo()" disabled>Suivant →</button>
+  </div>
+</div>
+
+</div><!-- /content -->
+
+<script>
+/* ══════════════════════════════════════════════
+   DONNÉES — 5 chapitres × 5 exercices
+══════════════════════════════════════════════ */
+const CHAPITRES = [
+{
+  id:'suites', titre:'Suites & Séquences', icone:'🔢',
+  desc:'Trouver le terme manquant dans des suites numériques ou alphabétiques.',
+  exercices:[
+    {
+      type:'choix', diff:1,
+      label:'Suite numérique',
+      question:'Quel est le terme suivant de la suite ?\n\n<code>2 — 4 — 8 — 16 — ?</code>',
+      choix:['24','30','32','36'],
+      reponse:'32',
+      indice:'Observe le rapport entre chaque terme et le suivant.',
+      etapes:[
+        "On observe les rapports : 4÷2 = <strong>2</strong>, 8÷4 = <strong>2</strong>, 16÷8 = <strong>2</strong>.",
+        "Le rapport est constant : on <strong>multiplie par 2</strong> à chaque étape.",
+        "C'est une suite géométrique de raison 2.",
+        "Terme suivant : 16 × 2 = <strong>32</strong> ✓"
+      ]
+    },
+    {
+      type:'choix', diff:1,
+      label:'Suite de Fibonacci',
+      question:'Quel est le terme manquant ?\n\n<code>1 — 1 — 2 — 3 — 5 — 8 — ?</code>',
+      choix:['11','12','13','14'],
+      reponse:'13',
+      indice:'Regarde la relation entre chaque terme et les deux qui le précèdent.',
+      etapes:[
+        "Calculons les différences : 1+1=2, 1+2=3, 2+3=5, 3+5=8...",
+        "Règle : chaque terme est la <strong>somme des deux précédents</strong>.",
+        "C'est la célèbre suite de Fibonacci (1, 1, 2, 3, 5, 8, 13, 21...)",
+        "Terme suivant : 5 + 8 = <strong>13</strong> ✓"
+      ]
+    },
+    {
+      type:'saisie', diff:2,
+      label:'Suite de différences',
+      question:'Trouvez le terme suivant :\n\n<code>3 — 6 — 11 — 18 — 27 — ?</code>',
+      reponse:'38',
+      indice:'Calcule les différences successives entre les termes.',
+      etapes:[
+        "Différences : 6-3=<strong>3</strong>, 11-6=<strong>5</strong>, 18-11=<strong>7</strong>, 27-18=<strong>9</strong>.",
+        "Les différences sont : 3, 5, 7, 9... → elles <strong>augmentent de 2</strong> à chaque fois.",
+        "La différence suivante sera donc 9 + 2 = <strong>11</strong>.",
+        "Terme suivant : 27 + 11 = <strong>38</strong> ✓"
+      ]
+    },
+    {
+      type:'choix', diff:2,
+      label:'Suite des carrés',
+      question:'Quel est le terme suivant ?\n\n<code>1 — 4 — 9 — 16 — 25 — ?</code>',
+      choix:['30','34','36','40'],
+      reponse:'36',
+      indice:'Ces nombres ont une propriété géométrique particulière.',
+      etapes:[
+        "1 = 1², 4 = 2², 9 = 3², 16 = 4², 25 = 5²...",
+        "Ce sont les <strong>carrés parfaits</strong> des entiers naturels.",
+        "Le terme suivant correspond à 6².",
+        "6² = 6 × 6 = <strong>36</strong> ✓"
+      ]
+    },
+    {
+      type:'saisie', diff:3,
+      label:'Suite alphabétique',
+      question:'Quelle lettre vient ensuite ?\n\n<code>A — C — F — J — O — ?</code>',
+      reponse:'U',
+      indice:'Calcule la position de chaque lettre dans l\'alphabet (A=1, B=2...)',
+      etapes:[
+        "Positions : A=1, C=3, F=6, J=10, O=15...",
+        "Différences : 3-1=<strong>2</strong>, 6-3=<strong>3</strong>, 10-6=<strong>4</strong>, 15-10=<strong>5</strong>.",
+        "Les écarts augmentent de 1 à chaque fois : 2, 3, 4, 5, <strong>6</strong>.",
+        "Position suivante : 15 + 6 = 21 → la 21e lettre est <strong>U</strong> ✓"
+      ]
+    },
+  ]
+},
+{
+  id:'deduction', titre:'Déduction & Syllogismes', icone:'🧠',
+  desc:'Tirer des conclusions logiques à partir d\'énoncés.',
+  exercices:[
+    {
+      type:'choix', diff:1,
+      label:'Syllogisme',
+      question:'Tous les chats sont des mammifères.\nFélix est un chat.\n\nQue peut-on conclure ?',
+      choix:['Félix est un mammifère','Tous les mammifères sont des chats','Félix n\'est pas un mammifère','On ne peut rien conclure'],
+      reponse:'Félix est un mammifère',
+      indice:'Un syllogisme a deux prémisses et une conclusion obligatoire.',
+      etapes:[
+        "Prémisse 1 : <strong>Tous les A sont B</strong> (tous les chats sont des mammifères).",
+        "Prémisse 2 : <strong>X est A</strong> (Félix est un chat).",
+        "Conclusion : si tous les A sont B, et X est A, alors X est forcément B.",
+        "Donc : Félix est un <strong>mammifère</strong> ✓ — conclusion nécessaire."
+      ]
+    },
+    {
+      type:'choix', diff:1,
+      label:'Ordre et comparaison',
+      question:'Marie est plus grande que Sophie.\nSophie est plus grande que Julie.\n\nQui est la plus petite ?',
+      choix:['Marie','Sophie','Julie','On ne peut pas savoir'],
+      reponse:'Julie',
+      indice:'Établis une chaîne d\'ordre entre les trois personnes.',
+      etapes:[
+        "Relation 1 : Marie > Sophie.",
+        "Relation 2 : Sophie > Julie.",
+        "Par <strong>transitivité</strong> : si A>B et B>C, alors A>C.",
+        "Donc Marie > Sophie > Julie → <strong>Julie</strong> est la plus petite ✓"
+      ]
+    },
+    {
+      type:'choix', diff:2,
+      label:'Âge et équation',
+      question:'Un père a 30 ans de plus que son fils.\nDans 5 ans, il aura 3 fois l\'âge de son fils.\n\nQuel âge a le fils aujourd\'hui ?',
+      choix:['5 ans','8 ans','10 ans','12 ans'],
+      reponse:'10 ans',
+      indice:'Pose une équation. Appelle l\'âge du fils x.',
+      etapes:[
+        "Soit <strong>x</strong> l'âge du fils. Père = x + 30.",
+        "Dans 5 ans : fils aura x+5, père aura x+35.",
+        "Condition : x+35 = 3×(x+5).",
+        "x+35 = 3x+15 → 35-15 = 3x-x → <strong>20 = 2x → x = 10</strong> ✓"
+      ]
+    },
+    {
+      type:'choix', diff:2,
+      label:'Vrai ou faux',
+      question:'Tous les oiseaux volent.\nLe pingouin est un oiseau.\n\nLe pingouin vole — vrai ou faux ?',
+      choix:['Vrai, logiquement','Faux, logiquement','La prémisse 1 est incorrecte','Le syllogisme est invalide'],
+      reponse:'La prémisse 1 est incorrecte',
+      indice:'Attention : la validité d\'un argument et la vérité de ses prémisses sont deux choses différentes.',
+      etapes:[
+        "Le syllogisme est <strong>formellement valide</strong> : si tous les A sont B et X est A, alors X est B.",
+        "Mais la <strong>prémisse 1 est fausse</strong> : tous les oiseaux ne volent pas.",
+        "Autruche, kiwi, pingouin sont des oiseaux qui ne volent pas.",
+        "Un argument peut être logiquement valide mais faux si une prémisse est incorrecte ✓"
+      ]
+    },
+    {
+      type:'saisie', diff:3,
+      label:'Les boîtes mal étiquetées',
+      question:'3 boîtes : étiquettes "Pommes", "Oranges", "Mixte".\nToutes les étiquettes sont fausses.\nVous tirez 1 fruit de la boîte "Mixte".\n\nSi c\'est une pomme, quel est le contenu de la boîte "Oranges" ?',
+      reponse:'Mixte',
+      indice:'Si toutes les étiquettes sont fausses, la boîte "Mixte" contient soit que des pommes soit que des oranges.',
+      etapes:[
+        "Toutes les étiquettes sont fausses → \"Mixte\" contient soit <strong>que des pommes</strong> soit que des oranges.",
+        "Vous tirez une pomme de \"Mixte\" → la boîte \"Mixte\" contient <strong>que des pommes</strong>.",
+        "La boîte \"Pommes\" (fausse étiquette) ne peut pas contenir des pommes → elle contient des oranges ou le mixte.",
+        "La boîte \"Oranges\" ne peut pas contenir des oranges → elle contient le <strong>mélange (Mixte)</strong> ✓"
+      ]
+    },
+  ]
+},
+{
+  id:'probas', titre:'Probabilités', icone:'🎲',
+  desc:'Calculer des probabilités simples et comprendre les paradoxes.',
+  exercices:[
+    {
+      type:'choix', diff:1,
+      label:'Probabilité simple',
+      question:'Je lance un dé à 6 faces équilibré.\n\nQuelle est la probabilité d\'obtenir un 6 ?',
+      choix:['1/3','1/4','1/6','1/12'],
+      reponse:'1/6',
+      indice:'La probabilité = cas favorables / cas possibles.',
+      etapes:[
+        "Cas possibles : 6 faces (1, 2, 3, 4, 5, 6) — toutes équiprobables.",
+        "Cas favorables : 1 seul (le 6).",
+        "Probabilité = <strong>1/6 ≈ 16,7%</strong>.",
+        "À chaque lancer, le dé n'a pas de mémoire — toujours 1/6 ✓"
+      ]
+    },
+    {
+      type:'choix', diff:1,
+      label:'Tirage de carte',
+      question:'Je tire une carte dans un jeu de 52 cartes.\n\nQuelle est la probabilité de tirer un as ?',
+      choix:['1/4','1/13','1/26','4/26'],
+      reponse:'1/13',
+      indice:'Combien y a-t-il d\'as dans un jeu standard ?',
+      etapes:[
+        "Il y a <strong>4 as</strong> dans un jeu de 52 cartes (cœur, carreau, trèfle, pique).",
+        "Probabilité = 4/52.",
+        "Simplification : 4/52 = <strong>1/13 ≈ 7,7%</strong>.",
+        "Vérification : 1/13 × 52 = 4 as — cohérent ✓"
+      ]
+    },
+    {
+      type:'choix', diff:2,
+      label:'Double lancer',
+      question:'Je lance 2 pièces de monnaie équilibrées.\n\nQuelle est la probabilité d\'obtenir 2 faces ?',
+      choix:['1/2','1/3','1/4','2/3'],
+      reponse:'1/4',
+      indice:'Liste tous les résultats possibles.',
+      etapes:[
+        "Résultats possibles : FF, FP, PF, PP — soit <strong>4 combinaisons</strong> équiprobables.",
+        "Résultats favorables (2 faces) : 1 seul (FF).",
+        "Probabilité = <strong>1/4 = 25%</strong>.",
+        "Vérification : les deux lancers sont indépendants, donc P = 1/2 × 1/2 = 1/4 ✓"
+      ]
+    },
+    {
+      type:'choix', diff:2,
+      label:'Probabilité conditionnelle',
+      question:'Un sac contient 3 billes rouges et 2 billes bleues.\nJe tire une bille sans la remettre, puis une deuxième.\n\nQuelle est la probabilité que les 2 soient rouges ?',
+      choix:['9/25','6/25','3/10','6/20'],
+      reponse:'3/10',
+      indice:'La probabilité change après le 1er tirage car la bille n\'est pas remise.',
+      etapes:[
+        "Proba 1re bille rouge : <strong>3/5</strong> (3 rouges sur 5 billes).",
+        "Si 1re bille rouge, il reste 2 rouges sur 4 billes.",
+        "Proba 2e bille rouge sachant 1re rouge : <strong>2/4 = 1/2</strong>.",
+        "Proba totale : 3/5 × 1/2 = 3/10 = <strong>30%</strong> ✓"
+      ]
+    },
+    {
+      type:'choix', diff:3,
+      label:'Paradoxe de Monty Hall',
+      question:'Vous choisissez une porte sur 3. L\'animateur ouvre une porte perdante.\nDoit-on changer de porte ?',
+      choix:['Non, 50/50 maintenant','Oui, 2/3 de chances en changeant','Oui, 3/4 de chances en changeant','Non, la 1ère porte garde ses chances'],
+      reponse:'Oui, 2/3 de chances en changeant',
+      indice:'L\'animateur qui sait où est le prix apporte une information cruciale.',
+      etapes:[
+        "Au départ : probabilité de bien choisir = <strong>1/3</strong>, de mal choisir = 2/3.",
+        "L'animateur ouvre TOUJOURS une porte perdante (il sait où est le prix).",
+        "Si vous aviez tort (2/3 des cas), changer vous fait <strong>toujours gagner</strong>.",
+        "Si vous aviez raison (1/3 des cas), changer vous fait perdre.",
+        "Bilan : changer → 2/3 de chances. Garder → 1/3. <strong>Il faut changer !</strong> ✓"
+      ]
+    },
+  ]
+},
+{
+  id:'calcul', titre:'Calcul Mental Rapide', icone:'⚡',
+  desc:'Techniques de calcul rapide et raisonnement quantitatif.',
+  exercices:[
+    {
+      type:'saisie', diff:1,
+      label:'Multiplication',
+      question:'Calculez rapidement :\n\n<code>17 × 13 = ?</code>',
+      reponse:'221',
+      indice:'Astuce : (15+2)(15-2) = 15² - 2² = 225 - 4',
+      etapes:[
+        "Méthode 1 : 17×13 = 17×10 + 17×3 = 170 + 51 = <strong>221</strong>.",
+        "Méthode 2 (astuce) : (15+2)(15-2) = 15² − 4 = 225 − 4 = <strong>221</strong>.",
+        "La méthode 2 utilise l'identité remarquable <strong>(a+b)(a-b) = a²-b²</strong>.",
+        "Résultat : <strong>221</strong> ✓"
+      ]
+    },
+    {
+      type:'saisie', diff:1,
+      label:'Pourcentage',
+      question:'Un article coûte 80 €.\nAprès une réduction de 25%, combien coûte-t-il ?',
+      reponse:'60',
+      indice:'25% = 1/4. Calculer 1/4 de 80 est plus simple.',
+      etapes:[
+        "25% = 1/4. Réduction = 80 ÷ 4 = <strong>20 €</strong>.",
+        "Prix final = 80 − 20 = <strong>60 €</strong>.",
+        "Méthode directe : 80 × 0,75 = 60 € (multiplier par 1 − 0,25).",
+        "Résultat : <strong>60 €</strong> ✓"
+      ]
+    },
+    {
+      type:'choix', diff:2,
+      label:'Vitesse et distance',
+      question:'Un train de 200 m roule à 60 km/h.\nCombien de temps met-il pour traverser un tunnel de 1 000 m ?',
+      choix:['60 secondes','72 secondes','80 secondes','90 secondes'],
+      reponse:'72 secondes',
+      indice:'Le train doit parcourir sa propre longueur + celle du tunnel.',
+      etapes:[
+        "Distance totale = longueur du train + longueur du tunnel = 200 + 1000 = <strong>1 200 m</strong>.",
+        "Vitesse = 60 km/h = 60 000 m / 3 600 s = <strong>16,67 m/s</strong>.",
+        "Temps = 1 200 / 16,67 ≈ <strong>72 secondes</strong>.",
+        "Vérification : 16,67 × 72 = 1 200 m ✓"
+      ]
+    },
+    {
+      type:'choix', diff:2,
+      label:'Progression exponentielle',
+      question:'1 centime le 1er jour, 2 centimes le 2e, 4 le 3e...\n\nCombien au 10e jour ?',
+      choix:['256 centimes','512 centimes','1 024 centimes','2 048 centimes'],
+      reponse:'512 centimes',
+      indice:'La somme double chaque jour. Quel est le montant au jour n ?',
+      etapes:[
+        "Jour 1 : 1 = 2⁰ centime. Jour 2 : 2 = 2¹. Jour 3 : 4 = 2²...",
+        "Jour n : <strong>2^(n-1)</strong> centimes.",
+        "Jour 10 : 2^(10-1) = 2⁹ = <strong>512 centimes</strong>.",
+        "512 centimes = 5,12 € — et au jour 30 ce serait 5 millions € ! ✓"
+      ]
+    },
+    {
+      type:'saisie', diff:3,
+      label:'Zéros de factorielle',
+      question:'Combien de zéros y a-t-il à la fin de 20! ?\n(20! = 20 × 19 × 18 × ... × 1)',
+      reponse:'4',
+      indice:'Un zéro final vient d\'un facteur 10 = 2 × 5. Compte les facteurs 5.',
+      etapes:[
+        "Chaque zéro final vient d'un facteur <strong>10 = 2 × 5</strong>.",
+        "Les facteurs 2 sont toujours plus nombreux que les 5, donc on compte les <strong>facteurs 5</strong>.",
+        "Dans 20! : les multiples de 5 sont 5, 10, 15, 20 → <strong>4 facteurs de 5</strong>.",
+        "(Aucun multiple de 25 dans les 20 premiers). Donc : <strong>4 zéros</strong> ✓"
+      ]
+    },
+  ]
+},
+{
+  id:'enigmes', titre:'Énigmes & Paradoxes', icone:'🔮',
+  desc:'Problèmes classiques qui mettent à l\'épreuve le raisonnement.',
+  exercices:[
+    {
+      type:'choix', diff:1,
+      label:'Énigme classique',
+      question:'Un homme pousse sa voiture jusqu\'à un hôtel et déclare qu\'il est en faillite.\n\nPourquoi ?',
+      choix:['Il joue au Monopoly','Il n\'a plus d\'essence','Sa voiture est en panne','L\'hôtel refuse sa carte bancaire'],
+      reponse:'Il joue au Monopoly',
+      indice:'Ce n\'est pas une situation réelle — pensez à un jeu de société.',
+      etapes:[
+        "Contexte : au Monopoly, les joueurs poussent des voitures miniatures sur le plateau.",
+        "L'<strong>hôtel</strong> est une propriété appartenant à un adversaire.",
+        "Tomber sur un hôtel avec peu d'argent = loyer très élevé = <strong>faillite</strong>.",
+        "L'énigme joue sur l'ambiguïté entre situation réelle et jeu ✓"
+      ]
+    },
+    {
+      type:'saisie', diff:1,
+      label:'Énigme du fermier',
+      question:'Un fermier possède 17 moutons.\nTous sauf 9 meurent.\n\nCombien lui en reste-t-il ?',
+      reponse:'9',
+      indice:'Lis très attentivement la phrase "tous sauf 9".',
+      etapes:[
+        "Piège : on pense instinctivement à calculer 17 − 9 = 8.",
+        "Mais relisons : <strong>«tous sauf 9 meurent»</strong>.",
+        "«Tous sauf 9» = à l'exception de 9 → <strong>9 moutons survivent</strong>.",
+        "Il en reste donc <strong>9</strong>, pas 8 ✓"
+      ]
+    },
+    {
+      type:'choix', diff:2,
+      label:'Les 3 interrupteurs',
+      question:'3 interrupteurs, 1 allume une ampoule dans la pièce d\'à côté.\nVous ne pouvez y aller qu\'une seule fois.\n\nComment identifier le bon interrupteur ?',
+      choix:['Impossible avec une seule visite','Allumer le 1er longtemps, éteindre, allumer le 2e, entrer','Allumer les 3, entrer et observer','Demander à quelqu\'un d\'autre'],
+      reponse:'Allumer le 1er longtemps, éteindre, allumer le 2e, entrer',
+      indice:'Une ampoule incandescente a une propriété utile même éteinte.',
+      etapes:[
+        "Allumez l'interrupteur 1 pendant <strong>5 minutes</strong>, puis éteignez-le.",
+        "Allumez l'interrupteur 2. Entrez dans la pièce.",
+        "Ampoule allumée → <strong>interrupteur 2</strong>.",
+        "Ampoule éteinte mais <strong>chaude</strong> → interrupteur 1.",
+        "Ampoule éteinte et <strong>froide</strong> → interrupteur 3 ✓"
+      ]
+    },
+    {
+      type:'choix', diff:2,
+      label:'La rivière',
+      question:'Un loup, une chèvre et un chou.\nVous devez les traverser en barque (1 à la fois).\nSeul, le loup mange la chèvre et la chèvre mange le chou.\n\nQuelle est la 1ère traversée gagnante ?',
+      choix:['Traverser le loup d\'abord','Traverser le chou d\'abord','Traverser la chèvre d\'abord','Traverser d\'abord le loup et revenir chercher la chèvre'],
+      reponse:'Traverser la chèvre d\'abord',
+      indice:'Quel élément ne peut jamais être laissé seul avec un autre ?',
+      etapes:[
+        "Problème : la chèvre est dangereuse à la fois avec le loup ET avec le chou.",
+        "Le loup et le chou peuvent rester seuls ensemble sans problème.",
+        "Solution : traverser <strong>la chèvre</strong> en premier.",
+        "Puis traverser le loup (ou le chou), et ramener la chèvre en revenant.",
+        "Traverser ce qui reste, puis revenir chercher la chèvre ✓"
+      ]
+    },
+    {
+      type:'choix', diff:3,
+      label:'Paradoxe de l\'anniversaire',
+      question:'Dans un groupe de 23 personnes, quelle est la probabilité qu\'au moins 2 partagent la même date d\'anniversaire ?',
+      choix:['Environ 10%','Environ 25%','Environ 50%','Environ 75%'],
+      reponse:'Environ 50%',
+      indice:'Ce résultat est très contre-intuitif. L\'espace des possibles est plus grand qu\'on ne croit.',
+      etapes:[
+        "Il est plus simple de calculer la <strong>probabilité qu'aucun ne partage</strong> la même date.",
+        "P(aucun commun) = 365/365 × 364/365 × 363/365 × ... × 343/365.",
+        "Ce produit de 23 termes vaut environ <strong>0,493</strong>.",
+        "Donc P(au moins un commun) = 1 − 0,493 ≈ <strong>50,7%</strong>.",
+        "À 70 personnes : P > 99,9% ! Un résultat très contre-intuitif ✓"
+      ]
+    },
+  ]
+},
+];
+
+/* ══ STATE ══ */
+let chapitreActuel=0, exoActuel=0;
+const progression={};
+CHAPITRES.forEach(c=>{progression[c.id]={reponses:new Array(c.exercices.length).fill(null)};});
+let scoreTotal=0, scoreOk=0;
+
+/* ══ INIT ══ */
+function buildChapitres(){
+  const cont=document.getElementById('chapitres');
+  cont.innerHTML='';
+  CHAPITRES.forEach((c,i)=>{
+    const btn=document.createElement('button');
+    btn.className='chap-btn'+(i===0?' active':'');
+    btn.id='chap-btn-'+i;
+    const done=progression[c.id].reponses.filter(r=>r!==null).length;
+    const ok=progression[c.id].reponses.filter(r=>r===true).length;
+    btn.innerHTML=`${c.icone} ${c.titre}<span class="chap-progress">${done}/5 · ${ok} ✓</span>`;
+    btn.onclick=()=>selectChapitre(i);
+    cont.appendChild(btn);
+  });
+}
+
+function selectChapitre(i){
+  chapitreActuel=i; exoActuel=0;
+  document.querySelectorAll('.chap-btn').forEach((b,j)=>{
+    b.classList.toggle('active',j===i);
+    const done=progression[CHAPITRES[j].id].reponses.filter(r=>r!==null).length;
+    if(done===5) b.classList.add('completed'); else b.classList.remove('completed');
+  });
+  document.getElementById('exo-zone').style.display='block';
+  document.getElementById('chap-complete').classList.remove('visible');
+  renderExo();
+  document.getElementById('exo-zone').scrollIntoView({behavior:'smooth',block:'start'});
+}
+
+function renderExo(){
+  const chap=CHAPITRES[chapitreActuel];
+  const exo=chap.exercices[exoActuel];
+  const prog=progression[chap.id];
+
+  document.getElementById('exo-chap-titre').textContent=chap.icone+' '+chap.titre;
+  document.getElementById('exo-counter').innerHTML=`Exercice ${exoActuel+1} / ${chap.exercices.length} &nbsp;|&nbsp; `+
+    ['<span class="diff-dot easy"></span>','<span class="diff-dot medium"></span>','<span class="diff-dot hard"></span>'][exo.diff-1]+
+    ['Facile','Moyen','Difficile'][exo.diff-1];
+  document.getElementById('chap-bar').style.width=((exoActuel/chap.exercices.length)*100)+'%';
+
+  document.getElementById('exo-label').innerHTML='<span style="color:var(--purple)">▶</span> '+exo.label;
+  document.getElementById('exo-question').innerHTML=exo.question.replace(/<code>/g,'<code>').replace(/<\/code>/g,'</code>');
+
+  // Reset card state
+  const card=document.getElementById('exo-card');
+  card.className='exo-card';
+  document.getElementById('indice-box').classList.remove('visible');
+  document.getElementById('indice-box').textContent=exo.indice||'';
+  document.getElementById('correction-zone').classList.remove('visible');
+  document.getElementById('btn-next').disabled=true;
+  document.getElementById('btn-indice-skip').style.display='none';
+  document.getElementById('chap-complete').classList.remove('visible');
+
+  // Build input
+  const cont=document.getElementById('choix-container');
+  cont.innerHTML='';
+
+  if(exo.type==='choix'){
+    const grid=document.createElement('div');
+    grid.className='choix-grid';
+    exo.choix.forEach(c=>{
+      const btn=document.createElement('button');
+      btn.className='choix-btn';
+      btn.textContent=c;
+      btn.onclick=()=>validerChoix(c,btn,exo);
+      grid.appendChild(btn);
+    });
+    cont.appendChild(grid);
+    document.getElementById('indice-btn').style.display='flex';
+    document.getElementById('btn-indice-skip').style.display='block';
+  } else {
+    const zone=document.createElement('div');
+    zone.className='saisie-zone';
+    const inp=document.createElement('input');
+    inp.className='saisie-input';
+    inp.placeholder='Votre réponse...';
+    inp.id='saisie-input';
+    inp.addEventListener('keydown',e=>{if(e.key==='Enter')validerSaisie(exo);});
+    const btn=document.createElement('button');
+    btn.className='valider-btn';
+    btn.textContent='Valider';
+    btn.id='valider-btn';
+    btn.onclick=()=>validerSaisie(exo);
+    zone.appendChild(inp); zone.appendChild(btn);
+    cont.appendChild(zone);
+    document.getElementById('indice-btn').style.display='flex';
+    document.getElementById('btn-indice-skip').style.display='block';
+    setTimeout(()=>inp.focus(),100);
+  }
+
+  // Nav
+  document.getElementById('btn-prev').disabled=(exoActuel===0);
+
+  // Si déjà répondu
+  if(prog.reponses[exoActuel]!==null){
+    showCorrectionDirect(exo, prog.reponses[exoActuel]);
+  }
+}
+
+function validerChoix(choix, btn, exo){
+  if(document.querySelector('.choix-btn:disabled')) return;
+  const ok=(choix===exo.reponse);
+  document.querySelectorAll('.choix-btn').forEach(b=>{
+    b.disabled=true;
+    if(b.textContent===exo.reponse) b.classList.add('correct-choice');
+    if(b===btn && !ok) b.classList.add('wrong-choice');
+  });
+  enregistrer(ok,exo);
+  showCorrection(ok,exo);
+}
+
+function validerSaisie(exo){
+  const inp=document.getElementById('saisie-input');
+  const val=inp.value.trim().toLowerCase();
+  const rep=exo.reponse.toString().toLowerCase();
+  if(!val) return;
+  const ok=(val===rep || val===rep.replace(/\s/g,''));
+  inp.disabled=true;
+  document.getElementById('valider-btn').disabled=true;
+  inp.classList.add(ok?'correct-input':'wrong-input');
+  enregistrer(ok,exo);
+  showCorrection(ok,exo);
+}
+
+function enregistrer(ok,exo){
+  const chap=CHAPITRES[chapitreActuel];
+  const prog=progression[chap.id];
+  if(prog.reponses[exoActuel]===null){
+    prog.reponses[exoActuel]=ok;
+    if(ok) scoreOk++;
+    scoreTotal++;
+    updateScore();
+  }
+}
+
+function showCorrection(ok,exo){
+  const card=document.getElementById('exo-card');
+  card.className='exo-card '+(ok?'correct':'wrong');
+  document.getElementById('corr-icon').textContent=ok?'✅':'❌';
+  document.getElementById('corr-titre').textContent=ok?'Bonne réponse !':'Pas tout à fait...';
+  document.getElementById('corr-titre').className='correction-titre '+(ok?'ok':'ko');
+  document.getElementById('corr-reponse').textContent='Réponse : '+exo.reponse;
+  const corr=document.getElementById('correction-zone');
+  corr.classList.add('visible');
+  const etapesEl=document.getElementById('corr-etapes');
+  etapesEl.innerHTML='';
+  exo.etapes.forEach((e,i)=>{
+    const div=document.createElement('div');
+    div.className='etape';
+    div.innerHTML=`<div class="etape-num">${i+1}</div><div class="etape-texte">${e}</div>`;
+    etapesEl.appendChild(div);
+    setTimeout(()=>div.classList.add('visible'),(i+1)*180);
+  });
+  document.getElementById('btn-indice-skip').style.display='none';
+  document.getElementById('btn-next').disabled=false;
+  if(exoActuel===CHAPITRES[chapitreActuel].exercices.length-1){
+    document.getElementById('btn-next').textContent='Terminer le chapitre →';
+  } else {
+    document.getElementById('btn-next').textContent='Suivant →';
+  }
+}
+
+function showCorrectionDirect(exo, ok){
+  const card=document.getElementById('exo-card');
+  card.className='exo-card '+(ok?'correct':'wrong');
+  document.getElementById('corr-icon').textContent=ok?'✅':'❌';
+  document.getElementById('corr-titre').textContent=ok?'Bonne réponse !':'Pas tout à fait...';
+  document.getElementById('corr-titre').className='correction-titre '+(ok?'ok':'ko');
+  document.getElementById('corr-reponse').textContent='Réponse : '+exo.reponse;
+  document.getElementById('correction-zone').classList.add('visible');
+  const etapesEl=document.getElementById('corr-etapes');
+  etapesEl.innerHTML='';
+  exo.etapes.forEach((e,i)=>{
+    const div=document.createElement('div');
+    div.className='etape visible';
+    div.innerHTML=`<div class="etape-num">${i+1}</div><div class="etape-texte">${e}</div>`;
+    etapesEl.appendChild(div);
+  });
+  document.querySelectorAll('.choix-btn').forEach(b=>{
+    b.disabled=true;
+    if(b.textContent===exo.reponse) b.classList.add('correct-choice');
+  });
+  document.getElementById('btn-indice-skip').style.display='none';
+  document.getElementById('btn-next').disabled=false;
+}
+
+function revealCorrection(){
+  const exo=CHAPITRES[chapitreActuel].exercices[exoActuel];
+  document.querySelectorAll('.choix-btn').forEach(b=>{b.disabled=true;if(b.textContent===exo.reponse)b.classList.add('correct-choice');});
+  const inp=document.getElementById('saisie-input');
+  if(inp){inp.disabled=true;document.getElementById('valider-btn').disabled=true;}
+  enregistrer(false,exo);
+  showCorrection(false,exo);
+}
+
+function nextExo(){
+  const chap=CHAPITRES[chapitreActuel];
+  if(exoActuel<chap.exercices.length-1){
+    exoActuel++;
+    renderExo();
+  } else {
+    showComplete();
+  }
+}
+function prevExo(){
+  if(exoActuel>0){exoActuel--;renderExo();}
+}
+function toggleIndice(){
+  document.getElementById('indice-box').classList.toggle('visible');
+}
+function showComplete(){
+  const chap=CHAPITRES[chapitreActuel];
+  const ok=progression[chap.id].reponses.filter(r=>r===true).length;
+  document.getElementById('exo-card').style.display='none';
+  document.querySelector('.exo-nav').style.display='none';
+  const comp=document.getElementById('chap-complete');
+  comp.classList.add('visible');
+  document.getElementById('complete-titre').textContent=`Chapitre terminé ! ${ok}/5 bonnes réponses`;
+  document.getElementById('complete-desc').textContent=ok>=4?'Excellent travail — maîtrise confirmée !':ok>=3?'Bon niveau, quelques points à revoir.':'Pas de panique, relisez les corrections et réessayez !';
+  buildChapitres();
+
+  // bouton pour passer au chapitre suivant
+  const nav=document.querySelector('.exo-nav');
+  nav.style.display='flex';
+  nav.innerHTML='<button class="nav-btn" onclick="document.getElementById(\'exo-card\').style.display=\'\';document.querySelector(\'.exo-nav\').style.display=\'\';exoActuel=0;renderExo();">↩ Recommencer</button>'
+    +(chapitreActuel<CHAPITRES.length-1?`<button class="nav-btn primary" onclick="selectChapitre(${chapitreActuel+1})">Chapitre suivant →</button>`:'');
+}
+
+function updateScore(){
+  document.getElementById('score-total').textContent=scoreTotal;
+  document.getElementById('score-ok').textContent=scoreOk;
+  document.getElementById('score-pct').textContent=scoreTotal?Math.round(scoreOk/scoreTotal*100)+'%':'0%';
+  buildChapitres();
+}
+
+/* ══ STARS ══ */
+(function(){
+  const c=document.getElementById('stars'),ctx=c.getContext('2d');let W,H,stars=[];
+  function resize(){W=c.width=innerWidth;H=c.height=innerHeight;}
+  function init(){stars=[];for(let i=0;i<180;i++)stars.push({x:Math.random()*W,y:Math.random()*H,r:Math.random()*1.1+.2,a:Math.random()*.6+.1,sp:Math.random()*.4+.1,ph:Math.random()*Math.PI*2});}
+  function draw(t){ctx.clearRect(0,0,W,H);stars.forEach(s=>{const a=s.a*(0.6+0.4*Math.sin(t*.001*s.sp+s.ph));ctx.beginPath();ctx.arc(s.x,s.y,s.r,0,Math.PI*2);ctx.fillStyle=`rgba(210,190,255,${a})`;ctx.fill();});requestAnimationFrame(draw);}
+  window.addEventListener('resize',()=>{resize();init();});
+  resize();init();requestAnimationFrame(draw);
+})();
+
+/* ══ BOOT ══ */
+buildChapitres();
+</script>
+</body>
+</html>

@@ -1,0 +1,121 @@
+{
+  "_meta": {
+    "title": "Puissances Militaires & Nucléaires",
+    "emoji": "💥",
+    "source": "SIPRI 2024"
+  },
+  "nucleaire_officiel": {
+    "pays": [
+      "US",
+      "RU",
+      "CN",
+      "FR",
+      "GB"
+    ],
+    "couleur": "#e03030",
+    "label": "Puissances nucléaires officielles (TNP)",
+    "details": {
+      "US": {
+        "ogives": 5550,
+        "label": "États-Unis"
+      },
+      "RU": {
+        "ogives": 6257,
+        "label": "Russie"
+      },
+      "CN": {
+        "ogives": 350,
+        "label": "Chine"
+      },
+      "FR": {
+        "ogives": 290,
+        "label": "France"
+      },
+      "GB": {
+        "ogives": 225,
+        "label": "Royaume-Uni"
+      }
+    }
+  },
+  "nucleaire_non_tnp": {
+    "pays": [
+      "IN",
+      "PK",
+      "IL",
+      "KP"
+    ],
+    "couleur": "#e08030",
+    "label": "Puissances nucléaires hors TNP",
+    "details": {
+      "IN": {
+        "ogives": 160,
+        "label": "Inde"
+      },
+      "PK": {
+        "ogives": 165,
+        "label": "Pakistan"
+      },
+      "IL": {
+        "ogives": 90,
+        "label": "Israël (non confirmé)"
+      },
+      "KP": {
+        "ogives": 40,
+        "label": "Corée du Nord (estimé)"
+      }
+    }
+  },
+  "budget_defense_top": {
+    "pays": [
+      "US",
+      "CN",
+      "IN",
+      "GB",
+      "SA",
+      "RU",
+      "FR",
+      "DE",
+      "JP",
+      "KR",
+      "AU",
+      "BR",
+      "IT",
+      "CA",
+      "IL"
+    ],
+    "couleur": "#8030a0",
+    "label": "Top 15 budgets militaires mondiaux"
+  },
+  "bases_us": [
+    {
+      "nom": "Ramstein (DE)",
+      "lon": 7.6,
+      "lat": 49.4,
+      "desc": "Principal hub militaire US en Europe"
+    },
+    {
+      "nom": "Yokosuka (JP)",
+      "lon": 139.7,
+      "lat": 35.3,
+      "desc": "Siège de la 7e Flotte US"
+    },
+    {
+      "nom": "Camp Humphreys (KR)",
+      "lon": 127.0,
+      "lat": 37.0,
+      "desc": "Plus grande base US à l'étranger"
+    },
+    {
+      "nom": "Diego Garcia",
+      "lon": 72.4,
+      "lat": -7.3,
+      "desc": "Base stratégique Océan Indien"
+    },
+    {
+      "nom": "Al Udeid (Qatar)",
+      "lon": 51.3,
+      "lat": 25.1,
+      "desc": "Plus grande base US au Moyen-Orient"
+    }
+  ]
+}

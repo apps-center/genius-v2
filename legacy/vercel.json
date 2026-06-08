@@ -1,0 +1,8 @@
+{
+  "rewrites": [
+    {"source": "/", "destination": "/accueil.html"},
+    {"source": "/flashcards", "destination": "/flashcards/index.html"},
+    {"source": "/flashcards/", "destination": "/flashcards/index.html"},
+    {"source": "/flashcards/:page", "destination": "/flashcards/:page.html"}
+  ]
+}
