@@ -1,4 +1,4 @@
-import { Link, useParams } from 'react-router-dom';
+import { Link, Navigate, useParams } from 'react-router-dom';
 import {
   entreeParId,
   modeParId,
@@ -21,6 +21,19 @@ export function Activite() {
   const { entryId = '' } = useParams();
   const entree = entreeParId(entryId);
   if (!entree) return <Introuvable cible={entryId} />;
+
+  // Entree a lancement direct (module) : on saute l'ecran de niveau 2 et on monte la brique.
+  if (entree.lancement) {
+    const l = entree.lancement;
+    return (
+      <Navigate
+        replace
+        to={`/play/${l.brickId}?sujet=${encodeURIComponent(l.sujet)}&titre=${encodeURIComponent(
+          l.titre,
+        )}`}
+      />
+    );
+  }
 
   const aModes = !!entree.modes && entree.modes.length > 0;
   return (

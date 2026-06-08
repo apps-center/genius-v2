@@ -1,0 +1,1469 @@
+{
+  "contentKind": "chronologie",
+  "sujet": "histoire",
+  "titre": "Antiquité",
+  "periodes": [
+    {
+      "era": "⬛ HAUTE ANTIQUITÉ",
+      "cls": "antique",
+      "events": []
+    },
+    {
+      "era": "✦ Premières Civilisations - -3500 à -2000",
+      "cls": "antique",
+      "events": [
+        {
+          "title": "Les Premières Cités-États - Uruk & Ur",
+          "date": "-3 500 av. J.-C.",
+          "tag": "Civilisation",
+          "icon": "🏙️",
+          "desc": "Entre le Tigre et l'Euphrate (actuel Irak), naît quelque chose d'entièrement nouveau : la ville. Uruk dépasse 50 000 habitants - une densité humaine sans précédent. Pour gérer des milliers de jarres de grain et des troupeaux entiers, les administrateurs inventent les premiers signes gravés sur argile. L'écriture vient de naître - non pas pour raconter des histoires, mais pour faire de la comptabilité.",
+          "kind": "histoire",
+          "img": "/img/chronologie/croissant-fertile.webp",
+          "anecdotes": [
+            {
+              "t": "<b>L'écriture a été inventée par un comptable, pas un poète.</b> La plus ancienne tablette connue (Uruk, -3 200 av. J.-C.) est un reçu : «&nbsp;29 mesures de grain versées à l'entrepôt.&nbsp;» La comptabilité précède la poésie de mille ans.",
+              "e": "📜"
+            },
+            {
+              "t": "<b>Uruk était la plus grande ville du monde.</b> Avec ses 50 000 habitants entourés de 9 km de remparts, Uruk est sans équivalent en -3 500 av. J.-C. Sa démesure inspire le mythe de la Tour de Babel selon certains historiens.",
+              "e": "🏙️"
+            }
+          ]
+        },
+        {
+          "title": "L'Invention de l'Écriture - Cunéiforme & Hiéroglyphes",
+          "date": "-3 500 av. J.-C.",
+          "tag": "Invention",
+          "icon": "✍️",
+          "desc": "En Mésopotamie, les marchands d'Uruk inventent les premiers signes d'écriture pour comptabiliser les récoltes et les troupeaux. Ce cunéiforme tracé sur argile est la première mémoire de l'humanité. Simultanément, en Égypte, les hiéroglyphes apparaissent. L'écriture transforme radicalement les sociétés : elle permet les lois, les contrats, les archives, les récits.",
+          "kind": "histoire",
+          "img": "/img/chronologie/main-dun-scribe-sur-tablette-dargile.webp",
+          "anecdotes": [
+            {
+              "t": "Les premiers textes écrits connus ne sont pas de la poésie ou des lois - ce sont des reçus de bière et de céréales. La comptabilité précède la littérature de mille ans.",
+              "e": "📜"
+            },
+            {
+              "t": "<b>L'écriture a été inventée indépendamment au moins 4 fois dans l'histoire.</b> En Mésopotamie (~-3 200), en Égypte (~-3 100), en Chine (~-1 200) et chez les Mayas (~-300 av. J.-C.). Ces systèmes sont si différents qu'ils ne peuvent pas avoir eu une origine commune. L'écriture n'est pas une invention unique : c'est une solution que l'intelligence humaine a trouvée plusieurs fois, indépendamment, quand la société devient assez complexe pour en avoir besoin.",
+              "e": "🌍"
+            },
+            {
+              "t": "<b>Les hiéroglyphes égyptiens ont été déchiffrés grâce à la Pierre de Rosette.</b> Découverte en 1799 par les soldats de Napoléon à Rosette (Égypte), cette stèle porte le même texte en trois écritures : hiéroglyphes, démotique et grec. Le français Champollion comprit en 1822 que les hiéroglyphes n'étaient pas uniquement symboliques mais aussi phonétiques - un même signe peut représenter un son. Il déchiffra tout le système en quelques mois. 3 500 ans de silence brisés d'un coup.",
+              "e": "📚"
+            }
+          ]
+        },
+        {
+          "title": "Stonehenge - Le Monument le Plus Mystérieux du Monde",
+          "date": "-3 100 à -1 500 av. J.-C.",
+          "tag": "Monument",
+          "icon": "🪨",
+          "desc": "Sur la plaine de Salisbury, en Angleterre, des générations de bâtisseurs érigent pendant 1 600 ans un cercle de pierres colossales. La phase principale commence vers -2 500 av. J.-C. : 80 blocs de grès bleuté (les « bluestones »), pesant jusqu'à 4 tonnes, sont acheminés depuis le Pays de Galles - à 240 km. Puis les immenses sarsen stones (25 tonnes chacune) arrivent de 30 km. Le tout s'aligne exactement sur le coucher de soleil du solstice d'hiver et le lever du solstice d'été. Sans roue. Sans métal. Sans écriture.",
+          "kind": "histoire",
+          "img": "/img/chronologie/levee-du-ciel-a-stonehenge.webp",
+          "anecdotes": [
+            {
+              "t": "<b>Les bluestones ont été transportées 240 km - en partie par voie maritime.</b> Les archéologues ont reconstitué le trajet : les pierres descendent des collines de Preseli (Pays de Galles) sur des traîneaux, sont chargées sur des radeaux longeant la côte galloise, remontées le long de la Severn, puis tirées à travers les plaines d'Angleterre. Des communautés entières consacrèrent des générations à ce chantier. Pourquoi ces pierres-là, et pas d'autres plus proches ? On ne sait toujours pas.",
+              "e": "🚢"
+            },
+            {
+              "t": "<b>Stonehenge est un calendrier solaire d'une précision remarquable.</b> Le 21 juin au lever du soleil, les premiers rayons s'alignent exactement dans l'axe du monument, traversant le grand trilithon central. Le 21 décembre au coucher, même phénomène. Pour des agriculteurs sans écriture, connaître la date exacte du solstice - pour semer, récolter, célébrer - était une question de survie. Stonehenge était leur almanach de pierre.",
+              "e": "☀️"
+            },
+            {
+              "t": "<b>On ne sait toujours pas pourquoi Stonehenge a été construit.</b> Les théories sérieuses sont nombreuses : sanctuaire de guérison (des squelettes aux os brisés guéris viennent de loin), lieu de culte des ancêtres, observatoire astronomique, marqueur territorial. Les plus récentes fouilles ADN révèlent que les bâtisseurs de la phase principale étaient des fermiers immigrés d'Anatolie - les mêmes qui avaient apporté l'agriculture en Europe. Stonehenge pourrait être leur cathédrale.",
+              "e": "❓"
+            }
+          ]
+        },
+        {
+          "title": "Unification de l'Égypte - Ménès & la Double Couronne",
+          "date": "-3 100 av. J.-C.",
+          "tag": "Événement",
+          "icon": "🏺",
+          "desc": "Le pharaon Ménès (ou Narmer) unifie la Haute et la Basse-Égypte sous une seule couronne vers -3 100 av. J.-C. C'est la naissance de l'un des plus longs États de l'histoire : la civilisation pharaonique durera 3 000 ans sans interruption majeure. La palette de Narmer, retrouvée à Hiérakonpolis, commémore cet acte fondateur - on y voit le roi coiffé alternativement de la couronne blanche du Sud et de la couronne rouge du Nord. La double couronne ainsi créée, symbole de cette union, sera portée par tous les pharaons pendant trente siècles.",
+          "kind": "histoire",
+          "img": "/img/chronologie/pharaon-menes-et-lunification-de-legypte.webp",
+          "anecdotes": [
+            {
+              "t": "La double couronne rouge et blanche que portent les pharaons symbolise cette union du Nord et du Sud. Elle sera portée pendant 3 000 ans - l'un des symboles politiques les plus durables de l'histoire humaine.",
+              "e": "👑"
+            },
+            {
+              "t": "<b>La double couronne rouge et blanche que portent les pharaons symbolise cette union.</b> La couronne blanche (Hedjet) représentait la Haute-Égypte au sud, la couronne rouge (Deshret) la Basse-Égypte au nord. Réunies en Pschent, elles symbolisaient le pouvoir sur les deux terres pendant 3 000 ans - l'un des symboles politiques les plus durables de l'histoire humaine.",
+              "e": "🏺"
+            },
+            {
+              "t": "<b>L'unité de l'Égypte tient à un miracle géographique.</b> Le Nil, fleuve prévisible qui inonde régulièrement ses rives au même moment chaque année, irrigue une bande de terre fertile longue de 1 000 km dans un désert hostile. Cette géographie unique - une route naturelle fermée par le désert des deux côtés - rendait l'unification non seulement possible mais presque inévitable. L'Égypte est 'un don du Nil', disait Hérodote.",
+              "e": "📐"
+            }
+          ]
+        },
+        {
+          "title": "Les Pyramides de Gizeh - L'Impossible Réalisé",
+          "date": "-2 560 av. J.-C.",
+          "tag": "Monument",
+          "icon": "🔺",
+          "desc": "Sous le règne de Khéops, 20 000 ouvriers - pas des esclaves, des artisans organisés en équipes - érigent la Grande Pyramide en 20 ans. 2,3 millions de blocs de calcaire, chacun pesant en moyenne 2,5 tonnes. Pendant 3 800 ans, la pyramide de Khéops est le plus grand bâtiment du monde. Son alignement avec le nord géographique est précis à 0,05 degrés. On ne sait toujours pas exactement comment.",
+          "kind": "histoire",
+          "img": "/img/chronologie/la-construction-de-la-pyramide.webp",
+          "anecdotes": [
+            {
+              "t": "<b>Les ouvriers étaient payés, logés, soignés - et en grève.</b> Des papyrus retrouvés montrent la première grève ouvrière connue de l'histoire, sous Ramsès III (-1 170). Les artisans du tombeau royal cessèrent le travail : «&nbsp;Nous avons faim et soif&nbsp;; nous n'avons pas de vêtements&nbsp;; nous n'avons pas de poisson&nbsp;; nous n'avons pas de légumes.&nbsp;»",
+              "e": "👷"
+            },
+            {
+              "t": "<b>L'alignement de la Grande Pyramide est stupéfiant.</b> Ses quatre faces pointent vers le nord, le sud, l'est et l'ouest avec une précision de 0,05 degré - mieux que la plupart des bâtiments modernes. Comment ? Probablement par observation des étoiles circumpolaires.",
+              "e": "🧭"
+            },
+            {
+              "t": "<b>Les pyramides étaient déjà vieilles de 2 000 ans quand les premiers pharaons les visitèrent comme touristes.</b> Thoutmosis IV (-1 400) fit déjà restaurer le Sphinx, jugé antique et mystérieux de son époque.",
+              "e": "⏳"
+            }
+          ]
+        },
+        {
+          "title": "L'Âge du Bronze - La Révolution des Métaux",
+          "date": "-2 000 av. J.-C.",
+          "tag": "Invention",
+          "icon": "⚔️",
+          "desc": "L'alliage du cuivre et de l'étain donne le bronze, métal plus dur et plus tranchant que tout ce qui existait. Il révolutionne l'armement, l'agriculture et le commerce. Les routes du bronze relient l'Europe à l'Asie Mineure. Les civilisations qui maîtrisent le bronze dominent leurs voisins pendant mille ans. En Europe, l'Âge du Bronze transforme des sociétés pastorales en civilisations guerrières organisées.",
+          "kind": "histoire",
+          "img": "/img/chronologie/rassemblement-de-guerriers-et-marchands-du-bronze.webp",
+          "anecdotes": [
+            {
+              "t": "L'étain nécessaire à la fabrication du bronze devait souvent voyager des milliers de kilomètres - depuis les mines de Cornouailles en Angleterre ou d'Afghanistan. Le commerce du bronze crée les premières routes commerciales intercontinentales.",
+              "e": "⚙️"
+            },
+            {
+              "t": "<b>Le commerce du bronze a créé les premières routes commerciales intercontinentales.</b> L'étain nécessaire au bronze devait voyager des milliers de kilomètres : depuis les mines de Cornouailles en Angleterre, d'Afghanistan ou d'Anatolie. Des marchands et des marins traversaient l'Europe entière pour acheminer ce métal précieux. Ces routes du bronze sont les ancêtres des routes de la soie.",
+              "e": "🗺️"
+            },
+            {
+              "t": "<b>La fin de l'Âge du Bronze reste l'un des grands mystères de l'histoire.</b> Vers -1 200 av. J.-C., en l'espace de quelques décennies, presque toutes les grandes civilisations de la Méditerranée orientale s'effondrent : les Mycéniens, les Hittites, Ougarit, les cités chypriotes. Les causes restent débattues : invasion des Peuples de la Mer, sécheresse, séismes, révoltes internes - probablement une combinaison catastrophique. C'est l'une des plus grandes crises de l'Antiquité.",
+              "e": "⚔️"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "era": "✦ Égypte, Mésopotamie & Récits Fondateurs - -2000 à -1200",
+      "cls": "antique",
+      "events": [
+        {
+          "title": "Babylone & Hammurabi - Le Premier Code de Lois",
+          "date": "-1 800 av. J.-C.",
+          "tag": "Empire",
+          "icon": "🏛️",
+          "desc": "Babylone devient la plus grande ville du monde connu. Sous Hammurabi, elle unifie toute la Mésopotamie et grave sur une stèle de basalte de 2,25 mètres le premier grand code de lois de l'histoire : 282 articles applicables à tous. En même temps, les Babyloniens inventent les mathématiques avancées, prédisent les éclipses, et dessinent la première carte du monde.",
+          "kind": "histoire",
+          "img": "/img/chronologie/babylone-vers-1800.webp",
+          "anecdotes": [
+            {
+              "t": "<b>Le Code d'Hammurabi est encore lisible aujourd'hui - au Louvre.</b> Gravé vers -1 754 sur une stèle de basalte de 2,25 m, il prévoit la présomption d'innocence, la protection des veuves et des orphelins, et des salaires minimums. Il inspire encore les juristes aujourd'hui.",
+              "e": "⚖️"
+            },
+            {
+              "t": "<b>Les Babyloniens ont inventé notre façon de mesurer le temps.</b> Pourquoi une heure fait 60 minutes ? Pourquoi un cercle fait 360 degrés ? Les Babyloniens de cette époque utilisaient un système de calcul en base 60 (sexagésimal) hérité des Sumériens. Nous l'utilisons encore 4 000 ans plus tard.",
+              "e": "⏰"
+            }
+          ]
+        },
+        {
+          "title": "La Naissance du Judaïsme - Le Premier Monothéisme",
+          "date": "-1 800 à -1 200 av. J.-C.",
+          "tag": "Religion",
+          "icon": "✡️",
+          "desc": "Selon la tradition biblique, Abraham quitte Ur en Chaldée et conclut une alliance (berith) avec un Dieu unique et universel - idée révolutionnaire dans un monde polythéiste. Cette figure fondatrice est commune aux trois monothéismes : judaïsme, christianisme et islam. L'historicité d'Abraham fait débat : aucune source extrabiblique ne le mentionne, mais la tradition orale qu'il représente correspond à des migrations de peuples sémites réelles vers -1 800.",
+          "kind": "histoire",
+          "img": "/img/chronologie/le-sacrifice-disaac-arrete-par-lange.webp",
+          "anecdotes": [
+            {
+              "t": "<b>Le monothéisme est une révolution philosophique sans précédent.</b> Toutes les civilisations antiques adoraient des panthéons de dieux liés à des territoires. L'idée qu'il n'existe qu'un seul Dieu, universel et invisible, est une rupture radicale - qui bouleversera l'histoire du monde pendant 3 000 ans.",
+              "e": "✡️"
+            },
+            {
+              "t": "<b>Abraham est la figure commune des trois grands monothéismes.</b> Pour les juifs, il est l'ancêtre du peuple élu. Pour les chrétiens, le père de la foi. Pour les musulmans, Ibrahim est un prophète et le constructeur de la Kaaba à La Mecque. Trois religions, une racine commune.",
+              "e": "📜"
+            },
+            {
+              "t": "<b>Le 'bouc émissaire' vient d'un rituel hébreu décrit dans le Lévitique.</b> Une fois par an, le Grand Prêtre posait les mains sur un bouc en confessant publiquement tous les péchés du peuple - les lui 'transférant' symboliquement. Le bouc était ensuite chassé vivant dans le désert, emportant les fautes collectives. Ce rituel de Yom Kippour (le Grand Pardon) donnera l'expression que nous utilisons encore aujourd'hui pour désigner celui sur qui on fait retomber la faute des autres.",
+              "e": "🐐"
+            }
+          ]
+        },
+        {
+          "title": "Akhenaton - Le Pharaon Hérétique",
+          "date": "-1 372 à -1 336 av. J.-C.",
+          "tag": "Pharaon",
+          "icon": "☀️",
+          "desc": "Amenhotep IV prend le nom d'Akhenaton ('celui qui est utile à Aton') et impose le monothéisme en Égypte : un seul dieu, Aton, le disque solaire. Il ferme les temples des autres dieux, confisque leurs richesses, et déplace la capitale à Amarna, une ville entièrement neuve bâtie en dix ans dans le désert. Sa femme Néfertiti, dont le buste au musée de Berlin est l'une des œuvres d'art les plus célèbres du monde, semble avoir joué un rôle politique majeur. À la mort d'Akhenaton, ses successeurs s'empressent d'effacer toute trace de sa révolution religieuse - son nom est martelé sur les monuments. Akhenaton sera oublié pendant 3 000 ans, jusqu'à ce que les archéologues redécouvrent Amarna au XIXe siècle.",
+          "kind": "histoire",
+          "img": "/img/chronologie/la-destruction-des-anciens-dieux-a-amarna.webp",
+          "anecdotes": [
+            {
+              "t": "Certains historiens voient dans le monothéisme d'Akhenaton une possible source d'inspiration pour le monothéisme hébraïque. Son grand hymne à Aton ressemble étrangement au Psaume 104 de la Bible.",
+              "e": "☀️"
+            },
+            {
+              "t": "Son épouse Néfertiti est l'une des femmes les plus représentées de l'Antiquité. Son buste au musée de Berlin est l'une des œuvres d'art les plus célèbres au monde.",
+              "e": "🏺"
+            }
+          ]
+        },
+        {
+          "title": "Toutankhamon - Le Pharaon Enfant",
+          "date": "-1 354 à -1 327 av. J.-C.",
+          "tag": "Pharaon",
+          "icon": "👑",
+          "desc": "Toutankhamon monte sur le trône à 9 ans et meurt à 18 ou 19 ans - probablement de complications liées à une fracture de la jambe, selon les analyses ADN récentes. Fils ou gendre d'Akhenaton, il restaure l'ancienne religion égyptienne, reprend le nom divin Amon, et abandonne Amarna pour retourner à Thèbes. Pendant 3 000 ans, sa tombe sommeille dans la Vallée des Rois, oubliée. En 1922, l'archéologue Howard Carter perce un mur et découvre, incrédule, une chambre étincelante : 5 000 objets d'or, d'ivoire et de faïence. Le masque funéraire en or massif de Toutankhamon, pesant 10 kg, est aujourd'hui le visage le plus reconnu de l'Égypte ancienne.",
+          "kind": "histoire",
+          "img": "/img/chronologie/le-jeune-pharaon-et-ses-tresors.webp",
+          "anecdotes": [
+            {
+              "t": "La 'malédiction du pharaon' : plusieurs membres de l'équipe de fouille meurent dans les années suivantes. En réalité, des bactéries et des moisissures piégées 3 000 ans dans la tombe sont la cause la plus probable.",
+              "e": "💀"
+            },
+            {
+              "t": "<b>Les analyses ADN ont résolu des mystères vieux de 3 000 ans.</b> En 2010, les chercheurs ont analysé l'ADN de Toutankhamon et de onze autres momies royales. Résultat : son père était très probablement Akhenaton, et sa mère une sœur de ce dernier - un mariage consanguin qui expliquerait ses nombreuses pathologies (pied bot, malaria, fractures multiples). Le 'pharaon enfant mystérieux' avait une histoire familiale complexe et douloureuse.",
+              "e": "🧬"
+            },
+            {
+              "t": "<b>La tombe de Toutankhamon contenait 5 398 objets.</b> Chars de guerre démontés, trônes en or, statuettes, boomerangs, lit de chasse, sandales en or, instruments de musique, vêtements, jeux de société - et même des mèches de cheveux de sa grand-mère. Il fallut dix ans à Howard Carter pour tout inventorier. Toutankhamon était un roi mineur : on imagine ce que devaient contenir les tombes des grands pharaons, toutes pillées dans l'Antiquité.",
+              "e": "💎"
+            }
+          ]
+        },
+        {
+          "title": "Ramsès II - Le Pharaon Bâtisseur",
+          "date": "-1 279 à -1 213 av. J.-C.",
+          "tag": "Pharaon",
+          "icon": "☀️",
+          "desc": "Ramsès II règne 66 ans - le plus long règne de l'histoire égyptienne. Il fait ériger Abu Simbel, Karnak, le Ramesseum. Il mène la bataille de Qadesh contre les Hittites - la première bataille de l'histoire documentée en détail - et conclut le premier traité de paix international connu. Il eut probablement plus de 100 enfants.",
+          "kind": "histoire",
+          "img": "/img/chronologie/ramses-ii-devant-ses-temples-majestueux.webp",
+          "anecdotes": [
+            {
+              "t": "<b>Les deux temples d'Abu Simbel ont été entièrement déplacés en 1968</b> pour les sauver de la montée des eaux du barrage d'Assouan. 50 nations financèrent l'opération UNESCO : les quatre colosses de 20 mètres furent découpés en 1 036 blocs de 20 tonnes et remontés 65 mètres plus haut. Un exploit du XXe siècle pour sauver un monument du XIIIe siècle av. J.-C.",
+              "e": "🪨"
+            },
+            {
+              "t": "<b>Le traité de Qadesh (-1 259 av. J.-C.) est le plus ancien traité de paix connu.</b> Signé entre Ramsès II et le roi hittite Hattusili III après des années de guerre, il prévoyait une aide mutuelle en cas d'attaque extérieure et le renvoi des réfugiés politiques. Une copie en argile est conservée au musée d'Istanbul ; une autre est accrochée au siège de l'ONU à New York.",
+              "e": "📜"
+            },
+            {
+              "t": "<b>La momie de Ramsès II a un passeport français.</b> En 1974, la momie dut voyager à Paris pour être traitée contre un champignon. Les autorités françaises lui délivrèrent un passeport officiel - avec pour profession : « Roi (décédé) ». À l'aéroport du Caire, il fut accueilli avec les honneurs militaires réservés aux chefs d'État.",
+              "e": "🧬"
+            }
+          ]
+        },
+        {
+          "title": "Moïse & l'Exode - La Libération d'Égypte",
+          "date": "-1 250 av. J.-C.",
+          "tag": "Tradition biblique",
+          "icon": "🌊",
+          "desc": "Selon la Bible, le peuple hébreu est réduit en esclavage en Égypte. Moïse, hébreu élevé à la cour du Pharaon, reçoit de Dieu une mission au buisson ardent : libérer son peuple. Les dix plaies d'Égypte, la traversée de la mer Rouge, les Tables de la Loi reçues au Sinaï - ces récits fondent l'identité juive. <em>Note : aucun document égyptien ne mentionne cet Exode, et l'archéologie du Sinaï n'a pas retrouvé de traces d'un campement de masse. L'événement est historiquement non confirmé mais theólogiquement fondateur.</em>",
+          "kind": "histoire",
+          "img": "/img/chronologie/moise-et-le-buisson-ardent.webp",
+          "anecdotes": [
+            {
+              "t": "<b>L'archéologie n'a pas retrouvé de trace d'un Exode massif.</b> Aucun document égyptien ne mentionne une fuite hébraïque ni une série de plaies. Le désert du Sinaï, fouillé intensivement, n'a livré aucun artefact d'un campement de 600 000 personnes pendant 40 ans. Cela ne signifie pas que l'événement n'a pas eu lieu - mais son ampleur biblique est probablement symbolique.",
+              "e": "🌊"
+            },
+            {
+              "t": "<b>La Pâque juive (Pessah) commémore l'Exode chaque année depuis 3 000 ans.</b> Le repas du Seder - pain sans levain, herbes amères, agneau - reconstitue rituellement la nuit de la fuite. C'est l'une des célébrations religieuses les plus anciennes encore pratiquées dans le monde.",
+              "e": "🕯️"
+            }
+          ]
+        },
+        {
+          "title": "La Guerre de Troie",
+          "date": "-1 250 av. J.-C.",
+          "tag": "Mythe épique",
+          "icon": "🐴",
+          "desc": "Selon la tradition épique grecque, le prince troyen Pâris enlève Hélène, épouse du roi de Sparte Ménélas. Une coalition grecque assiège Troie pendant dix ans. La ruse du cheval de bois permet aux Grecs de s'infiltrer et d'incendier la ville. L'historicité de cet événement est débattue : des fouilles à Hisarlik (Turquie) révèlent bien une cité détruite vers -1 200, mais rien ne confirme le récit d'Homère.",
+          "kind": "histoire",
+          "img": "/img/chronologie/le-cheval-de-troie-dans-la-cite.webp",
+          "anecdotes": [
+            {
+              "t": "<b>Mythe ou histoire ?</b> L'Iliade d'Homère - composée vers -800, soit 450 ans après les faits supposés - ne se présente pas comme un récit historique mais comme une épopée héroïque. Le cheval de Troie n'y apparaît même pas : c'est l'Odyssée qui le mentionne. Les archéologues ont trouvé à Hisarlik des traces de destructions violentes vers -1 200, mais aucun cheval.",
+              "e": "📖"
+            },
+            {
+              "t": "<b>Homère écrit 450 ans après les faits qu'il décrit.</b> C'est comme si un auteur d'aujourd'hui racontait la Guerre de Cent Ans (1337-1453) sans aucune source écrite - uniquement à partir de chansons orales transmises de génération en génération.",
+              "e": "🏺"
+            }
+          ]
+        },
+        {
+          "title": "L'Âge du Fer - La Démocratisation de l'Armement",
+          "date": "-1 200 av. J.-C.",
+          "tag": "Invention",
+          "icon": "⚔️",
+          "desc": "Vers -1 200 av. J.-C., le fer remplace le bronze comme métal dominant. Plus abondant et plus dur, il révolutionne l'armement et l'agriculture. N'importe quelle tribu peut désormais équiper ses guerriers - la guerre change d'échelle. Les outils agricoles en fer augmentent les rendements et transforment durablement les sociétés méditerranéennes.",
+          "kind": "histoire",
+          "img": "/img/chronologie/marche-de-lage-du-fer.webp",
+          "anecdotes": [
+            {
+              "t": "<b>Le fer était connu depuis longtemps - mais trop rare et trop fragile.</b> Les premières traces de fer travaillé remontent à -3 000 av. J.-C., dans des météorites. Maîtriser la fonte du fer terrestre - qui nécessite des températures bien plus élevées que le cuivre - fut une révolution technique. Une fois maîtrisé, le fer était abondant partout, beaucoup moins cher que le bronze, et plus dur.",
+              "e": "⚙️"
+            },
+            {
+              "t": "<b>Le fer a transformé l'agriculture autant que la guerre.</b> La charrue en fer permettait de labourer des sols plus durs, auparavant impossibles à cultiver. Les rendements agricoles augmentèrent, les populations purent croître, et des régions jusqu'alors marginales devinrent fertiles. La maîtrise du fer est une des causes directes de l'essor des civilisations grecque et romaine.",
+              "e": "🌾"
+            }
+          ]
+        },
+        {
+          "title": "Les Phéniciens - Marchands",
+          "date": "-1 200 à -146 av. J.-C.",
+          "tag": "Civilisation",
+          "icon": "⚓",
+          "desc": "Peuple de marins et de commerçants établis sur les côtes de l'actuel Liban (Tyr, Sidon, Byblos), les Phéniciens sont les grands explorateurs de la Méditerranée antique. Leurs vaisseaux atteignent l'Espagne, l'Afrique de l'Ouest et peut-être les îles britanniques. Mais leur legs le plus durable est invisible : l'alphabet consonantique de 22 lettres qu'ils diffusent partout où ils commercent. Les Grecs l'adoptent et ajoutent les voyelles - donnant naissance à l'alphabet que le monde entier utilise encore aujourd'hui.",
+          "kind": "histoire",
+          "img": "/img/chronologie/scene-de-commerce-phenicien-au-port.webp",
+          "anecdotes": [
+            {
+              "t": "<b>Le mot 'Bible' vient de Byblos - une ville phénicienne.</b> Les Grecs importaient le papyrus égyptien via le port de Byblos, si bien qu'ils appelèrent 'byblos' tout support d'écriture, puis 'biblia' leurs livres. La ville phénicienne a donné son nom à la Bible.",
+              "e": "🏺"
+            },
+            {
+              "t": "<b>Les Phéniciens ont peut-être circumnavigué l'Afrique 2 000 ans avant Vasco de Gama.</b> Hérodote rapporte qu'une expédition phénicienne commanditée par le pharaon Néchao II (-600) aurait fait le tour du continent africain en 3 ans - en voyant le soleil au nord, preuve qu'ils avaient franchi l'équateur.",
+              "e": "⛵"
+            }
+          ]
+        },
+        {
+          "title": "L'Alphabet Phénicien - La Révolution de l'Écriture",
+          "date": "-1 100 av. J.-C.",
+          "tag": "Invention",
+          "icon": "🔤",
+          "desc": "L'écriture existe depuis 5 000 ans - née en Mésopotamie et en Égypte sous forme de dessins. Mais c'est il y a 3 500 ans que des peuples sémites d'Égypte conçoivent le premier véritable alphabet. Les Phéniciens, grands navigateurs depuis Tyr (Liban actuel), l'adoptent et le diffusent dans toute la Méditerranée. Cet alphabet de 22 consonnes - sans voyelles - est l'ancêtre direct du grec, du latin, de l'arabe et de l'hébreu. L'écriture, réservée à une élite, se démocratise enfin.",
+          "kind": "histoire",
+          "img": "/img/chronologie/alphabet-grec.webp",
+          "anecdotes": [
+            {
+              "t": "<b>Nos lettres A, B, C ont 3 200 ans.</b> Le A vient de aleph (tête de bœuf en phénicien). Le B de beth (maison). Le C de gimel (chameau). Les deux premières lettres grecques - alpha et bêta - donnent le mot « alphabet ». La forme de nos majuscules est encore reconnaissable dans les signes phéniciens originaux.",
+              "e": "🔡"
+            },
+            {
+              "t": "<b>L'alphabet phénicien a engendré presque tous les alphabets du monde.</b> De lui dérivent l'alphabet grec (qui ajouta les voyelles), puis le latin, mais aussi l'hébreu, l'arabe, le cyrillique et même les alphabets de l'Inde. Quand tu écris en français, en arabe ou en hindi, tu utilises des lettres dont l'ancêtre est ce système phénicien.",
+              "e": "🌍"
+            },
+            {
+              "t": "<b>Les Phéniciens ont diffusé l'alphabet grâce à leur génie commercial.</b> Depuis leur port de Tyr, ces grands navigateurs sillonnaient toute la Méditerranée pour commercer. L'alphabet simplifié facilitait leurs échanges. Les Grecs l'adoptèrent et y ajoutèrent les voyelles - donnant naissance à l'écriture telle qu'on la connaît. Hérodote raconte : « Les Phéniciens introduisirent en Grèce des lettres qui étaient inconnues auparavant. »",
+              "e": "⛵"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "era": "⬛ ANTIQUITÉ MOYENNE",
+      "cls": "antique",
+      "events": []
+    },
+    {
+      "era": "✦ Proche-Orient & Méditerranée - -1200 à -600",
+      "cls": "antique",
+      "events": [
+        {
+          "title": "David & Goliath - Le Berger contre le Géant",
+          "date": "~-1 020 av. J.-C.",
+          "tag": "Récit biblique",
+          "icon": "🪨",
+          "desc": "Selon la Bible (1er livre de Samuel), les Israélites affrontent les Philistins dans la vallée d'Éla. Goliath, guerrier philistin de plus de deux mètres, défie en combat singulier le camp adverse. Aucun soldat n'ose répondre - jusqu'à David, jeune berger sans armure. Il tue Goliath d'un seul projectile lancé à la fronde, tranchant ensuite la tête du géant avec sa propre épée. David deviendra roi et fondera la dynastie qui règnera sur Israël et Juda pendant quatre siècles.",
+          "kind": "histoire",
+          "img": "/img/chronologie/david-et-goliath-sur-le-champ-de-bataille.webp",
+          "anecdotes": [
+            {
+              "t": "<b>La fronde n'est pas un jouet d'enfant.</b> Entre les mains d'un expert, elle propulse un projectile de pierre à plus de 100 km/h - aussi puissant qu'une balle de pistolet. Les armées antiques comptaient des bataillons de frondeurs professionnels. David, berger habitué à chasser les loups, était probablement un tireur d'élite.",
+              "e": "🎯"
+            },
+            {
+              "t": "<b>Goliath souffrait peut-être d'acromégalie.</b> Cette maladie hormonale (excès d'hormone de croissance) provoque une croissance anormale ET une vue très déficiente - ce qui expliquerait qu'il ait besoin d'un écuyer pour guider ses pas et qu'il n'ait pas vu le projectile venir. Le géant avait peut-être un talon d'Achille médical.",
+              "e": "🧬"
+            },
+            {
+              "t": "<b>L'historicité de David est attestée extrabibliquement.</b> La 'stèle de Tel Dan' (-835), découverte en 1993, mentionne la 'Maison de David' - première référence non biblique à ce personnage. David n'est donc pas qu'un personnage légendaire : il a bien existé et régnait sur une entité politique reconnue.",
+              "e": "📜"
+            }
+          ]
+        },
+        {
+          "title": "Jérusalem - La Ville aux Trois Religions",
+          "date": "-1 000 à aujourd'hui",
+          "tag": "Ville sacrée",
+          "icon": "🕌",
+          "desc": "David conquiert Jérusalem vers -1000 av. J.-C. et en fait la capitale du royaume d'Israël. Son fils Salomon y bâtit le Premier Temple. En trois mille ans, la ville sera conquise, détruite et reconstruite plus de vingt fois : par Babylone (-586), Alexandre (-332), Rome (-63 puis 70 ap. J.-C.), les Croisés (1099), Saladin (1187), les Ottomans (1517). Chaque conquête laisse ses pierres et ses prières. Aujourd'hui encore, juifs, chrétiens et musulmans se disputent ce kilomètre carré de la Vieille Ville.",
+          "kind": "histoire",
+          "img": "/img/chronologie/jerusalem-ancienne-sous-la-lumiere-doree.webp",
+          "anecdotes": [
+            {
+              "t": "<b>Jérusalem est la ville la plus conquise de l'histoire.</b> Elle a changé de mains au moins 44 fois en 4 000 ans - assiégée 23 fois, capturée et reprise 44 fois, détruite deux fois entièrement. Aucune autre ville au monde n'a concentré autant de violence sacrée sur si peu d'espace.",
+              "e": "🕍"
+            },
+            {
+              "t": "<b>Le Mur des Lamentations, l'Église du Saint-Sépulcre et le Dôme du Rocher sont distants de 500 mètres.</b> Dans ce rayon, les trois plus grandes religions monothéistes ont leur site le plus sacré : le lieu de la résurrection du Christ, le mur de l'ancien Temple juif, et le rocher d'où le prophète Mahomet serait monté au ciel.",
+              "e": "🗿"
+            }
+          ]
+        },
+        {
+          "title": "Le Temple de Salomon - La Maison de Dieu",
+          "date": "-970 à -586 av. J.-C.",
+          "tag": "Monument",
+          "icon": "🕍",
+          "desc": "Le roi Salomon, fils de David, fait construire à Jérusalem le Premier Temple vers -970 av. J.-C. - demeure de Dieu et écrin de l'Arche d'Alliance selon la Bible. Sa construction aurait duré 7 ans. En -586, Nabuchodonosor II rase le Temple et déporte les élites juives à Babylone : c'est la destruction du Premier Temple, catastrophe fondatrice du judaïsme. <em>Note : aucune preuve archéologique directe du Temple de Salomon n'a été retrouvée à ce jour.</em>",
+          "kind": "histoire",
+          "img": "/img/chronologie/temple-de-salomon-et-larche-sainte.webp",
+          "anecdotes": [
+            {
+              "t": "<b>L'Arche d'Alliance contenait les Tables de la Loi reçues par Moïse.</b> Selon la Bible, c'était une boîte en bois d'acacia plaquée d'or, surmontée de deux chérubins. Elle disparaît de l'histoire lors de la destruction du Temple en -586. Son sort reste l'un des plus grands mystères de l'Antiquité.",
+              "e": "📦"
+            },
+            {
+              "t": "<b>Salomon était réputé pour sa sagesse - et pour ses 700 femmes.</b> La Bible lui attribue un harem de 700 épouses royales et 300 concubines. Ses alliances matrimoniales avec les filles des rois voisins reflètent la diplomatie de l'époque : on scelle les traités par des mariages.",
+              "e": "👑"
+            },
+            {
+              "t": "<b>Le 'bouc émissaire' vient d'un rituel hébreu décrit dans le Lévitique.</b> Une fois par an, le Grand Prêtre posait les mains sur un bouc en confessant publiquement tous les péchés du peuple - les lui 'transférant' symboliquement. Le bouc était ensuite chassé vivant dans le désert, emportant les fautes collectives. Ce rituel de Yom Kippour (le Grand Pardon) donnera l'expression que nous utilisons encore aujourd'hui pour désigner celui sur qui on fait retomber la faute des autres.",
+              "e": "🐐"
+            }
+          ]
+        },
+        {
+          "title": "Création de Carthage - La Rivale de Rome",
+          "date": "-814 av. J.-C.",
+          "tag": "Fondation",
+          "icon": "⚓",
+          "desc": "La reine phénicienne Didon fonde Carthage ('Qart Hadasht' - la nouvelle ville) vers -814 av. J.-C. sur les côtes de l'actuelle Tunisie. Selon la légende, elle obtint des terres locales aussi grandes qu'une peau de bœuf pouvait en couvrir - et fit découper la peau en lanières si fines qu'elles délimitèrent toute une colline. En quelques siècles, Carthage devient la plus grande cité du monde méditerranéen occidental, avec 500 000 habitants, une marine redoutable et un empire commercial s'étendant de l'Espagne au Maroc. Sa rivalité avec Rome donnera naissance aux guerres Puniques - et au plus grand chef militaire de l'Antiquité : Hannibal.",
+          "kind": "histoire",
+          "img": "/img/chronologie/la-fondation-de-carthage-par-didon.webp",
+          "anecdotes": [
+            {
+              "t": "'Carthago delenda est' - Carthage doit être détruite. Caton l'Ancien terminait chacun de ses discours au Sénat par cette phrase, quel que soit le sujet traité. En 146 av. J.-C., Rome rase la ville et, selon la légende, sème son sol de sel pour qu'elle ne repousse jamais.",
+              "e": "🔥"
+            },
+            {
+              "t": "<b>Carthage contrôlait toute la Méditerranée occidentale.</b> Ses flottes de guerre et de commerce dominaient les routes entre l'Afrique, l'Espagne, la Sicile et la Sardaigne. Elle possédait des comptoirs jusqu'au Maroc et peut-être jusqu'aux Canaries. Avant Rome, Carthage était la puissance navale incontestée de l'Ouest méditerranéen - ce qui rendait inévitable le choc avec Rome qui voulait la même chose.",
+              "e": "🌊"
+            },
+            {
+              "t": "<b>'Carthago delenda est' - Carthage doit être détruite.</b> Le sénateur romain Caton l'Ancien terminait chacun de ses discours par cette phrase, quel qu'en soit le sujet. En -146, Rome rasa la ville, tua ou réduisit en esclavage ses 500 000 habitants, et - selon la légende - sema son sol de sel pour qu'il ne repousse jamais. La rivale la plus dangereuse de Rome était effacée pour toujours.",
+              "e": "🧂"
+            }
+          ]
+        },
+        {
+          "title": "L'Exil Babylonien & Cyrus le Grand",
+          "date": "-586 à -538 av. J.-C.",
+          "tag": "Événement fondateur",
+          "icon": "🏙️",
+          "desc": "En -586, Nabuchodonosor II rase le Temple de Salomon et déporte les élites juives à Babylone. C'est la plus grande catastrophe de l'histoire hébraïque. Mais dans l'adversité, les exilés inventent une religion nouvelle : sans Temple ni sacrifices, la prière collective à la synagogue, le Sabbat hebdomadaire et la mise par écrit de la Torah permettent à la foi de survivre sans lieu fixe. En -538, Cyrus le Grand, roi de Perse, conquiert Babylone et libère tous les peuples déportés. Son édit de tolérance - le premier de l'histoire - autorise les Juifs à rentrer et à reconstruire leur Temple.",
+          "kind": "histoire",
+          "img": "/img/chronologie/cyrus-libere-les-captifs-juifs.webp",
+          "anecdotes": [
+            {
+              "t": "<b>« Au bord des fleuves de Babylone, nous pleurions en nous souvenant de Sion. »</b> Le Psaume 137, composé pendant l'exil, est l'un des textes de nostalgie les plus puissants de l'histoire humaine. Il a inspiré des siècles de musique - de la polyphonie de la Renaissance aux Rastafaris jamaïcains qui se voyaient dans les Hébreux exilés. En 1978, Boney M en fit un tube mondial. Un psaume de -580 av. J.-C. en tête des hit-parades.",
+              "e": "🎵"
+            },
+            {
+              "t": "<b>Cyrus le Grand est le seul non-Juif appelé 'messie' (oint de Dieu) dans la Bible.</b> Le prophète Isaïe le nomme ainsi parce qu'il libère le peuple hébreu - sans pourtant être juif ni croire au Dieu d'Israël. Son Édit de Cyrus (-538 av. J.-C.), gravé sur un cylindre d'argile retrouvé à Babylone, est le premier décret connu de liberté religieuse de l'histoire. Une copie est exposée à l'ONU comme symbole des droits de l'homme.",
+              "e": "👑"
+            },
+            {
+              "t": "<b>L'exil babylonien a transformé une religion de Temple en religion de Livre.</b> Avant -586, le judaïsme était centré sur les sacrifices au Temple de Jérusalem - impossible à pratiquer loin de Jérusalem. En 50 ans d'exil, les rabbins inventent la synagogue (lieu de prière sans sacrifice), codifient la Torah par écrit, et développent le Sabbat. Cette religion 'portable' permettra au judaïsme de survivre à 2 500 ans de diaspora - là où d'autres religions liées à un territoire ont disparu.",
+              "e": "🕍"
+            }
+          ]
+        },
+        {
+          "title": "La Rédaction de la Bible Hébraïque",
+          "date": "-600 à -200 av. J.-C.",
+          "tag": "Histoire des textes",
+          "icon": "📜",
+          "desc": "Les textes qui formeront la Bible hébraïque (Tanakh) ne sont pas écrits par Moïse mais compilés et mis par écrit principalement lors de l'exil à Babylone (-586) et dans les siècles qui suivent. La Torah (les cinq premiers livres), les Prophètes et les Écrits sont progressivement rassemblés, débattus et canonisés. C'est moins un événement qu'un long processus de mémoire collective mise en mots.",
+          "kind": "histoire",
+          "img": "/img/chronologie/moise-et-les-prophetes-sous-lorage.webp",
+          "anecdotes": [
+            {
+              "t": "<b>La Bible est une bibliothèque, pas un livre.</b> Le mot 'Bible' vient du grec 'biblia' - les livres. Elle rassemble 73 textes (pour les catholiques) rédigés sur plus de 1 000 ans, par des dizaines d'auteurs, en trois langues (hébreu, araméen, grec), dans des genres très différents : loi, poésie, histoire, prophétie, sagesse, épopée.",
+              "e": "📚"
+            },
+            {
+              "t": "<b>Les manuscrits de la mer Morte (1947) ont révolutionné notre compréhension.</b> Découverts dans des grottes près de Qumrân, ces textes datant de -200 à 70 ap. J.-C. sont les plus vieux manuscrits bibliques connus. Ils confirment que le texte a été remarquablement bien préservé à travers les siècles.",
+              "e": "📜"
+            }
+          ]
+        },
+        {
+          "title": "Pétra & les Routes Caravanières",
+          "date": "-400 à -100 av. J.-C.",
+          "tag": "Commerce",
+          "icon": "🐪",
+          "desc": "Au cœur du désert jordanien, le peuple nabatéen taille dans la roche rose une ville extraordinaire : Pétra. Carrefour entre l'Arabie, l'Égypte et la Méditerranée, elle contrôle le commerce des épices, de l'encens, de la soie et de l'or. Ses ingénieurs maîtrisent l'eau dans le désert grâce à un réseau de citernes et de canaux invisible depuis l'extérieur. Au premier siècle avant J.-C., Pétra est l'une des villes les plus riches du monde.",
+          "kind": "histoire",
+          "img": "/img/chronologie/la-caravane-vers-le-tresor-de-petra.webp",
+          "anecdotes": [
+            {
+              "t": "<b>Le Trésor (Al-Khazneh) n'est pas un trésor.</b> Cette façade taillée dans le roc de 43 mètres de haut était en réalité un mausolée royal. Les Bédouins pensaient qu'une urne au sommet contenait des trésors - ils la criblèrent de balles pour la faire s'ouvrir. Elle est en pierre solide.",
+              "e": "🏛️"
+            },
+            {
+              "t": "<b>Les Nabatéens ont vaincu le désert par l'ingénierie.</b> Leurs canaux et citernes collectaient chaque goutte de pluie et de rosée. Pétra pouvait alimenter 30 000 habitants dans un désert aride - une prouesse d'ingénierie hydraulique sans équivalent dans l'Antiquité.",
+              "e": "💧"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "era": "✦ Grèce Antique & Monde Hellénistique - -800 à -300",
+      "cls": "antique",
+      "events": [
+        {
+          "title": "Homère - L'Iliade & l'Odyssée",
+          "date": "-800 av. J.-C.",
+          "tag": "Littérature",
+          "icon": "📖",
+          "desc": "Vers -800 av. J.-C., un poète grec nommé Homère - peut-être aveugle, peut-être plusieurs personnes - compose les deux épopées fondatrices de toute la littérature occidentale. L'Iliade raconte les dernières semaines de la guerre de Troie : la colère d'Achille, les combats d'Hector, la mort de Patrocle. L'Odyssée suit le retour d'Ulysse pendant 10 ans après la chute de Troie. Ces deux récits transmis d'abord oralement ont été appris par cœur par des générations de Grecs - puis de Romains, puis d'Européens.",
+          "kind": "histoire",
+          "img": "/img/chronologie/lodyssee-dulysse-et-les-creatures-mythologiques.webp",
+          "anecdotes": [
+            {
+              "t": "<b>La guerre de Troie a probablement eu lieu.</b> Les fouilles de Heinrich Schliemann à Hisarlik (Turquie, 1871) ont révélé plusieurs strates de Troie successives - dont une détruite par un incendie vers -1 200 av. J.-C., contemporaine de la date traditionnelle de la guerre. L'épopée homérique n'est pas pure fiction : elle conserve le souvenir déformé d'un conflit réel.",
+              "e": "🏛️"
+            },
+            {
+              "t": "<b>L'Iliade commence par le mot 'colère'.</b> « Mênis » - la colère divine d'Achille contre Agamemnon - est le premier mot du premier grand texte littéraire occidental. Alexandre le Grand dormait avec l'Iliade annotée par Aristote sous son oreiller. Napoléon la lisait en campagne. Ce poème de -800 av. J.-C. est encore au programme des lycées aujourd'hui.",
+              "e": "⚡"
+            },
+            {
+              "t": "<b>Homère était peut-être aveugle - et peut-être plusieurs personnes.</b> Les Anciens débattaient déjà de la 'question homérique' : un seul auteur ou une tradition collective ? Les linguistes modernes ont identifié des formules répétitives caractéristiques de la poésie orale - Homère composait en chantant, de mémoire, devant un public, en improvisant sur des structures fixes.",
+              "e": "👁️"
+            }
+          ]
+        },
+        {
+          "title": "Les Jeux Olympiques - La Trêve Sacrée",
+          "date": "-776 av. J.-C.",
+          "tag": "Événement",
+          "icon": "🏛️",
+          "desc": "Les premiers Jeux Olympiques sont célébrés à Olympie en l'honneur de Zeus. Pendant les jeux, toutes les guerres s'arrêtent - la 'trêve olympique' est sacrée. Athlètes nus, piste de stade, courses, lutte, disque, javelot. Les vainqueurs reçoivent une simple couronne d'olivier sauvage - mais leur gloire est immortelle. Les jeux se dérouleront sans interruption pendant 1 200 ans.",
+          "kind": "histoire",
+          "img": "/img/chronologie/les-jeux-olympiques-antiques-a-olympie.webp",
+          "anecdotes": [
+            {
+              "t": "Les athlètes concouraient entièrement nus - le mot 'gymnase' vient du grec 'gymnos' (nu). Les femmes n'avaient pas le droit d'assister aux Jeux sous peine de mort. Ils seront supprimés en 393 ap. J.-C. par l'empereur chrétien Théodose comme 'festivité païenne'.",
+              "e": "🫒"
+            },
+            {
+              "t": "<b>Les Jeux durèrent 1 168 ans sans interruption.</b> De -776 av. J.-C. à 393 ap. J.-C., les Jeux Olympiques se tinrent toutes les quatre années. C'est l'empereur chrétien Théodose qui les supprima comme 'fête païenne'. Ils ne reprirent qu'en 1896 à Athènes, sur l'initiative du Français Pierre de Coubertin - après 1 503 ans d'interruption. Aucune autre institution humaine n'a duré aussi longtemps de façon continue.",
+              "e": "🏟️"
+            },
+            {
+              "t": "<b>Les athlètes concouraient entièrement nus.</b> Le mot 'gymnase' vient du grec 'gymnos' (nu). Les femmes n'avaient pas le droit d'assister aux Jeux sous peine de mort - sauf les prêtresses de Déméter, seules autorisées à regarder. Il existait des Jeux féminins séparés, les Jeux Héréens en l'honneur d'Héra, mais beaucoup moins prestigieux. Les vainqueurs, coiffés d'une simple couronne d'olivier, recevaient pourtant la gloire éternelle : des poètes comme Pindare leur composaient des odes qui traversèrent les siècles.",
+              "e": "🫒"
+            }
+          ]
+        },
+        {
+          "title": "Fondation de Rome - Romulus & Remus",
+          "date": "-753 av. J.-C.",
+          "tag": "Fondation",
+          "icon": "🐺",
+          "desc": "Selon la tradition romaine, Romulus et Remus - jumeaux fils de Mars et de la vestale Rhéa Silvia - sont abandonnés sur le Tibre et allaités par une louve. Romulus fonde Rome sur le Palatin le 21 avril 753 av. J.-C. Il tue son frère lors d'une dispute sur les frontières sacrées. Cette date mythique marque l'an 1 du calendrier romain.",
+          "kind": "histoire",
+          "img": "/img/chronologie/fondation-de-rome.webp",
+          "anecdotes": [
+            {
+              "t": "La louve du Capitole, bronze célèbre du musée de Rome, représente cette scène fondatrice. Les fouilles archéologiques confirment une installation humaine sur les collines romaines vers 800-750 av. J.-C. - la légende n'est pas totalement sans fondement.",
+              "e": "🐺"
+            },
+            {
+              "t": "<b>L'archéologie a retrouvé des traces d'occupation sur les collines romaines dès -900 av. J.-C.</b> La légende de Romulus n'est pas pure invention : des hameaux de bergers existaient bien sur le Palatin et l'Aventin à cette époque. Ils fusionnèrent progressivement avec les communautés voisines pour former ce qui deviendra Rome. La date de -753 av. J.-C. était calculée par les Romains eux-mêmes des siècles plus tard - elle est symbolique mais pas absurde.",
+              "e": "🏛️"
+            },
+            {
+              "t": "<b>La louve du Capitole, bronze célèbre du musée de Rome, pose un problème.</b> Longtemps datée du Ve siècle av. J.-C., des analyses récentes suggèrent qu'elle daterait plutôt du Moyen Âge - environ 1000 ap. J.-C. Les petits jumeaux Romulus et Remus qui lui sont attachés ont, eux, clairement été ajoutés au XVe siècle par le sculpteur Antonio Pollaiolo. Le symbole fondateur de Rome serait donc une œuvre médiévale. L'histoire des origines est souvent plus récente qu'on ne le croit.",
+              "e": "🐺"
+            }
+          ]
+        },
+        {
+          "title": "Fondation de Massalia - La Plus Vieille Ville de France",
+          "date": "-600 av. J.-C.",
+          "tag": "Fondation",
+          "icon": "⚓",
+          "desc": "Des marins phocéens (Grecs d'Asie Mineure) fondent Massalia sur une calanque naturelle du littoral méditerranéen. C'est l'actuelle Marseille - la plus ancienne ville de France, 2 600 ans avant d'être le théâtre de l'hymne national. Cette colonie grecque introduit la vigne, l'olivier et l'écriture alphabétique en Gaule.",
+          "kind": "histoire",
+          "img": "/img/chronologie/masalia-vue-sur-la-cite-antique-au-coucher-du-soleil.webp",
+          "anecdotes": [
+            {
+              "t": "<b>C'est par Marseille que la vigne est arrivée en France.</b> Les Grecs apportèrent les premiers ceps il y a 2 600 ans. Aujourd'hui, la France produit 7 milliards de bouteilles de vin par an - tout commence avec quelques boutures débarquées d'un navire phocéen dans le Vieux-Port.",
+              "e": "🍷"
+            },
+            {
+              "t": "<b>Massalia était si puissante</b> qu'elle battait sa propre monnaie et possédait des comptoirs jusqu'en Espagne et en Bretagne. Alliée de Rome contre Carthage, elle bénéficia de la protection romaine pendant 400 ans, bien avant la conquête de la Gaule.",
+              "e": "🌊"
+            },
+            {
+              "t": "<b>Pythéas, navigateur massaliote du IVe siècle av. J.-C.</b>, fut le premier à contourner la Bretagne et atteindre les îles Britanniques - peut-être même la Scandinavie. Il décrivit la mystérieuse « Thulé » du Grand Nord. Ses récits jugés invraisemblables par ses contemporains furent prouvés exacts par l'archéologie moderne.",
+              "e": "🧭"
+            }
+          ]
+        },
+        {
+          "title": "Thalès, Pythagore, Ptolémée - Les Savants Grecs",
+          "date": "-625 à -100 av. J.-C.",
+          "tag": "Sciences",
+          "icon": "📐",
+          "desc": "En deux siècles, la Grèce accomplit une révolution intellectuelle sans précédent : elle invente la démonstration mathématique, la philosophie, l'astronomie scientifique et la géographie rationnelle. Thalès de Milet (-624) prédit une éclipse solaire et mesure la hauteur des pyramides par les ombres. Pythagore (-570) lie mathématiques et musique. Euclide codifie la géométrie. Ptolémée (IIe siècle ap. J.-C.) construit un modèle du cosmos utilisé pendant 1 400 ans.",
+          "kind": "histoire",
+          "img": "/img/chronologie/les-savants-grecs-en-pleine-etude.webp",
+          "anecdotes": [
+            {
+              "t": "<b>Thalès calcula la hauteur de la pyramide de Khéops sans la gravir.</b> Il attendit le moment de la journée où son ombre égalait sa taille, puis mesura l'ombre de la pyramide. Sa méthode - les triangles semblables - est encore enseignée au collège 2 600 ans plus tard. C'est le premier exemple connu de raisonnement mathématique appliqué à un problème réel.",
+              "e": "📐"
+            },
+            {
+              "t": "<b>Pythagore découvrit que la musique obéit aux mathématiques.</b> En pinçant une corde tendue à la moitié, on obtient une note une octave plus haute - exactement. Les rapports 1/2, 2/3, 3/4 produisent des harmonies parfaites. Cette découverte le convainquit que l'univers entier était régi par des nombres. Il fonda une secte secrète dont les membres ne mangeaient pas de fèves - raison inconnue.",
+              "e": "🎵"
+            },
+            {
+              "t": "<b>Ptolémée (IIe siècle ap. J.-C.) dressa la première carte du monde avec coordonnées.</b> Sa Géographie listait 8 000 lieux avec latitude et longitude - une prouesse intellectuelle copiée pendant 1 400 ans. Son modèle géocentrique (Terre au centre de l'univers) fut enseigné comme vérité absolue jusqu'à Copernic en 1543. Se tromper pendant 14 siècles tout en structurant la pensée occidentale : c'est l'ambivalence du génie.",
+              "e": "🌍"
+            }
+          ]
+        },
+        {
+          "title": "La Démocratie Athénienne - Clisthène & Périclès",
+          "date": "-508 à -322 av. J.-C.",
+          "tag": "Politique",
+          "icon": "🏛️",
+          "desc": "Clisthène réforme Athènes en 508 av. J.-C. et invente la démocratie directe : chaque citoyen vote en assemblée. Périclès porte ce système à son apogée (461-429 av. J.-C.) et fait construire le Parthénon. Mais cette démocratie exclut femmes, esclaves et étrangers - soit 80% de la population. Socrate sera condamné par cette même démocratie.",
+          "kind": "histoire",
+          "img": "/img/chronologie/rassemblement-philosophique-a-athenes.webp",
+          "anecdotes": [
+            {
+              "t": "<b>La démocratie athénienne excluait femmes, esclaves et étrangers</b> - soit 80 à 90 % de la population. Les 30 000 à 40 000 citoyens qui votaient à l'Assemblée représentaient une élite masculine. Mais l'idée que les lois devaient être décidées collectivement, et non imposées par un roi, était une révolution absolue dont nous vivons encore l'héritage.",
+              "e": "🗳️"
+            },
+            {
+              "t": "<b>Socrate n'a jamais rien écrit.</b> Tout ce qu'on sait de lui vient de son élève Platon - qui inventa peut-être une partie de sa pensée. Condamné à mort par ses concitoyens en -399 pour « corrompre la jeunesse et nier les dieux », il accepta de boire la ciguë plutôt que de s'exiler. La démocratie athénienne tua son plus grand philosophe.",
+              "e": "🍷"
+            },
+            {
+              "t": "<b>Le théâtre grec a inventé tous les genres que nous connaissons encore.</b> Tragédie, comédie, satire - et les émotions qu'ils provoquent : Aristote appelait cela la catharsis, la purification par les émotions. Les Grecs comprirent que regarder des acteurs souffrir sur scène faisait du bien au public. Hollywood n'a rien inventé.",
+              "e": "🏟️"
+            }
+          ]
+        },
+        {
+          "title": "Les Guerres Médiques - Marathon, Thermopyles, Salamine",
+          "date": "-490 à -479 av. J.-C.",
+          "tag": "Guerres",
+          "icon": "🏃",
+          "desc": "L'Empire perse de Darios puis de Xerxès, le plus grand empire du monde connu, tente deux fois d'envahir la Grèce. Deux fois, les cités grecques repoussent l'envahisseur - contre toute attente. Ces guerres produisent trois moments légendaires : Marathon (-490), où un soldat court 42 km pour annoncer la victoire avant de mourir ; les Thermopyles (-480), où 300 Spartiates retardent l'armée perse pendant trois jours ; Salamine (-480), où la flotte athénienne détruit la flotte perse dans un détroit étroit.",
+          "kind": "histoire",
+          "img": "/img/chronologie/batailles-iconiques-des-guerres-greco-perses.webp",
+          "anecdotes": [
+            {
+              "t": "<b>Le marathonien n'a probablement pas couru 42 km.</b> Le récit de Philippidès courant de Marathon à Athènes pour annoncer la victoire avant de mourir vient d'une source tardive (Lucien, IIe siècle ap. J.-C.) - 600 ans après la bataille. La version antique parle d'un coureur envoyé à Sparte demander des renforts (240 km !). La distance de 42,195 km du marathon moderne fut fixée aux Jeux de 1908 à Londres pour que la course arrive devant la loge royale.",
+              "e": "🏃"
+            },
+            {
+              "t": "<b>Aux Thermopyles, il n'y avait pas que 300 Spartiates.</b> Léonidas commandait en réalité environ 7 000 soldats grecs. Les 300 Spartiates et leurs 700 Thespiens alliés restèrent seuls le dernier jour, après que les autres furent renvoyés ou s'enfuirent. Mais ce sont les 300 que l'histoire retient - et Hérodote, et Zack Snyder.",
+              "e": "🛡️"
+            },
+            {
+              "t": "<b>Salamine fut décidée par la ruse de Thémistocle.</b> L'amiral athénien fit croire à Xerxès que les Grecs allaient fuir - poussant la flotte perse à entrer dans le détroit étroit de Salamine où sa supériorité numérique devenait un désavantage. Xerxès, assis sur un trône d'or sur la côte, regarda sa flotte se faire massacrer. Si les Perses avaient gagné, la démocratie athénienne n'aurait jamais eu le temps de se développer - et toute l'histoire occidentale aurait été différente.",
+              "e": "🚢"
+            }
+          ]
+        },
+        {
+          "title": "Socrate, Platon - La Philosophie Occidentale",
+          "date": "-470 à -347 av. J.-C.",
+          "tag": "Philosophie",
+          "icon": "🧠",
+          "desc": "Socrate n'écrit rien - il questionne. Sa méthode (la maïeutique) consiste à faire accoucher les esprits de leurs propres vérités. En 399 av. J.-C., Athènes le condamne à mort pour 'impiété' et 'corruption de la jeunesse'. Il boit la ciguë. Son disciple Platon fonde l'Académie et couche par écrit les dialogues socratiques qui fondent la philosophie occidentale.",
+          "kind": "histoire",
+          "img": "/img/chronologie/socrates-face-a-la-fatalite.webp",
+          "anecdotes": [
+            {
+              "t": "'Je sais que je ne sais rien' - phrase attribuée à Socrate, qui ne l'a jamais écrite. Ce paradoxe illustre sa méthode : la conscience de sa propre ignorance est le début de la sagesse. Platon consacrera toute sa vie à honorer la mémoire de son maître condamné injustement.",
+              "e": "⚰️"
+            },
+            {
+              "t": "<b>Platon a inventé la notion d'Académie.</b> L'école qu'il fonda vers -387 av. J.-C. dans un jardin aux portes d'Athènes dédié au héros Académos donnera son nom à toutes les académies du monde. Elle fonctionnera pendant 916 ans - jusqu'à sa fermeture par l'empereur Justinien en 529 ap. J.-C. comme 'institution païenne'. Aristote y enseigna pendant 20 ans avant de fonder sa propre école, le Lycée. Ces deux institutions sont les ancêtres de toutes les universités.",
+              "e": "🏛️"
+            },
+            {
+              "t": "<b>Socrate considérait l'écriture comme dangereuse pour la pensée.</b> C'est son paradoxe ultime : il n'a rien écrit, estimant que l'écriture endort la mémoire et donne l'illusion de la connaissance sans la vraie compréhension. Tout ce qu'on sait de lui vient de Platon - qui a peut-être largement réinterprété, voire inventé, la pensée de son maître. Socrate, le philosophe de la vérité, nous est connu uniquement à travers les écrits d'un autre. Ironie parfaite.",
+              "e": "💬"
+            }
+          ]
+        },
+        {
+          "title": "Aristote - Le Fondateur de la Science",
+          "date": "-384 à -322 av. J.-C.",
+          "tag": "Philosophie",
+          "icon": "🧠",
+          "desc": "Élève de Platon à 17 ans, précepteur d'Alexandre le Grand à 42 ans, Aristote est le seul penseur de l'Antiquité à avoir fondé simultanément la logique, la biologie, la physique, la politique, la poétique et l'éthique. Il invente la méthode de classification des animaux, décrit 500 espèces, théorise la tragédie, définit la politique. Ses œuvres, perdues en Occident pendant des siècles, furent conservées par les savants arabes et restituées à l'Europe au XIIe siècle - déclenchant la révolution scolastique.",
+          "kind": "histoire",
+          "img": "/img/chronologie/aristote-le-philosophe-et-ses-disciples-aux-etoiles.webp",
+          "anecdotes": [
+            {
+              "t": "<b>Aristote est le père de la biologie.</b> Il décrit 500 espèces animales avec une précision qui ne sera pas égalée avant le XVIIe siècle. Il observe que les dauphins allaitent leurs petits et respirent de l'air - et les classe donc séparément des poissons. Ce détail, moqué pendant des siècles, fut reconnu exact 2 000 ans plus tard. Sur la biologie marine, il était souvent plus précis que ses successeurs médiévaux.",
+              "e": "🐟"
+            },
+            {
+              "t": "<b>Aristote a aussi dit des choses fausses pendant 1 500 ans.</b> Il enseignait que la Terre était au centre de l'univers, que les femmes avaient moins de dents que les hommes (sans jamais vérifier), et que les objets lourds tombent plus vite que les légers. Ces erreurs, enseignées comme vérités dans toutes les universités médiévales, ne furent corrigées qu'à la Renaissance - par Copernic, Galilée et Harvey. Le génie et l'erreur peuvent coexister.",
+              "e": "⚠️"
+            },
+            {
+              "t": "<b>L'Europe médiévale appelait Aristote simplement 'Le Philosophe'.</b> Comme s'il n'en existait qu'un. Ses textes, traduits en arabe par Al-Kindi et Averroès, furent retraduits en latin au XIIe siècle et bouleversèrent toute la pensée chrétienne. Thomas d'Aquin passa sa vie à réconcilier Aristote avec la Bible. Sans la civilisation islamique qui conserva ses textes, Aristote - et avec lui toute la philosophie grecque - aurait été perdu.",
+              "e": "📚"
+            }
+          ]
+        },
+        {
+          "title": "Alexandre le Grand - Le Plus Grand Conquérant",
+          "date": "-336 à -323 av. J.-C.",
+          "tag": "Conquérant",
+          "icon": "🌍",
+          "desc": "En 13 ans, Alexandre de Macédoine conquiert un empire s'étendant de la Grèce à l'Inde - sans jamais perdre une bataille. Élève d'Aristote à 13 ans, roi à 20 ans, il renverse l'Empire perse, libère l'Égypte, franchit l'Hindou Kouch, atteint l'Indus. Il meurt à Babylone à 32 ans, d'une cause encore débattue. Son empire se fracture immédiatement - mais la culture grecque, elle, se répand dans tout le monde connu.",
+          "kind": "histoire",
+          "img": "/img/chronologie/alexandre-le-grand-le-general-au-coucher-du-soleil.webp",
+          "anecdotes": [
+            {
+              "t": "<b>Alexandre dormait avec L'Iliade et un poignard sous l'oreiller.</b> Son maître Aristote lui avait offert un exemplaire annoté de sa main. Il se considérait comme un nouvel Achille - et tenta toute sa vie de vivre à la hauteur de ce héros homérique. La littérature influença directement la conquête du monde antique.",
+              "e": "📚"
+            },
+            {
+              "t": "<b>Son cheval Bucéphale refusait de se laisser monter par quiconque.</b> Alexandre, à 16 ans, remarqua que le cheval avait peur de son ombre - et le positionna face au soleil. Il le dompte en quelques minutes sous les yeux de son père Philippe II, stupéfait. À la mort de Bucéphale en Inde, Alexandre fonda une ville à son nom : Bucéphalie.",
+              "e": "🐎"
+            },
+            {
+              "t": "<b>Alexandre ne conquit pas pour détruire, mais pour fusionner.</b> Il épousa une princesse perse, adopta les costumes orientaux, intégra les soldats perses dans son armée. Ses généraux le trouvèrent trop orientalisé. Son vrai héritage n'est pas militaire - c'est l'hellénisation du monde : la langue grecque devient la lingua franca de l'Antiquité, et reste celle du Nouveau Testament 300 ans plus tard.",
+              "e": "🌐"
+            }
+          ]
+        },
+        {
+          "title": "Diogène - Le Philosophe dans son Tonneau",
+          "date": "-412 à -323 av. J.-C.",
+          "tag": "Philosophie",
+          "icon": "🛢️",
+          "desc": "Diogène de Sinope est le philosophe le plus provocateur de l'Antiquité. Fondateur du cynisme, il vit dans une jarre en terre cuite sur l'agora d'Athènes, ne possède rien, mendie sa nourriture et insulte les puissants. Sa philosophie tient en un mot : <em>autarcie</em> - se suffire à soi-même. Il promène une lanterne en plein jour en déclarant chercher un homme honnête. Quand Alexandre le Grand, maître du monde connu, vient lui rendre visite et lui propose d'exaucer n'importe quel vœu, Diogène répond : «&nbsp;Ôte-toi de mon soleil.&nbsp;» Alexandre s'éloigne en disant : «&nbsp;Si je n'étais pas Alexandre, je voudrais être Diogène.&nbsp;»",
+          "kind": "histoire",
+          "img": "/img/chronologie/diogene-et-lagora-dathenes.webp",
+          "anecdotes": [
+            {
+              "t": "<b>La réplique la plus célèbre de l'Antiquité.</b> Alexandre le Grand - qui venait de conquérir la Perse et régnait sur un empire de 5 millions de km² - se déplace en personne pour rencontrer le philosophe dans sa jarre. Il lui offre tout ce qu'il désire. Diogène, sans se lever, lui demande juste de ne plus lui faire de l'ombre. Ses généraux se moquèrent. Alexandre, lui, fut sincèrement admiratif.",
+              "e": "☀️"
+            },
+            {
+              "t": "<b>On l'appelait 'le Chien' - et il s'en flattait.</b> Le mot 'cynique' vient du grec <em>kynikos</em> (chien). Diogène mangeait en public, dormait dehors, faisait ses besoins sans se cacher - comme un chien. Pour lui, la honte sociale n'était qu'une convention arbitraire inventée par les lâches. Platon le définissait comme 'Socrate devenu fou'.",
+              "e": "🐕"
+            },
+            {
+              "t": "<b>Il cherchait un homme honnête en plein jour avec une lanterne.</b> Interrogé sur son manège, il répondait : 'Je cherche un homme.' Sous-entendu : un être véritablement humain, c'est-à-dire rationnel et vertueux - et il n'en trouvait pas. Cette image de la lanterne de Diogène est restée dans la culture occidentale comme symbole de la quête inutile de l'idéal.",
+              "e": "🏮"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "era": "⬛ BASSE ANTIQUITÉ",
+      "cls": "antique",
+      "events": []
+    },
+    {
+      "era": "✦ Rome - République & Conquêtes - -300 à -27",
+      "cls": "antique",
+      "events": [
+        {
+          "title": "Les 7 Merveilles du Monde Antique",
+          "date": "-280 à -140 av. J.-C.",
+          "tag": "Patrimoine",
+          "icon": "🏛️",
+          "desc": "La liste des 7 Merveilles est établie par des auteurs grecs - notamment Antipater de Sidon (~-140 av. J.-C.) - pour désigner les constructions humaines les plus spectaculaires du monde connu. Les 7 : les Pyramides de Gizeh (Égypte), les Jardins suspendus de Babylone (Mésopotamie), la Statue de Zeus à Olympie (Grèce), le Temple d'Artémis à Éphèse (Turquie), le Mausolée d'Halicarnasse (Turquie), le Colosse de Rhodes (Grèce), le Phare d'Alexandrie (Égypte). Une seule est encore debout.",
+          "kind": "histoire",
+          "img": "/img/chronologie/les-sept-merveilles-du-monde-antique.webp",
+          "anecdotes": [
+            {
+              "t": "<b>Les Pyramides de Gizeh sont la seule merveille encore intacte.</b> Les 6 autres ont été détruites par des tremblements de terre, des incendies ou des pillages entre le IIIe et le XVe siècle. Le Phare d'Alexandrie (135 m de haut, visible à 50 km en mer) s'effondra dans des séismes entre le XIe et le XIVe siècle. Le Colosse de Rhodes (statue de bronze de 33 m) dura à peine 54 ans avant d'être renversé par un tremblement de terre en -226.",
+              "e": "🔺"
+            },
+            {
+              "t": "<b>Les Jardins suspendus de Babylone n'ont peut-être jamais existé.</b> Aucune source babylonienne ne les mentionne - seuls des auteurs grecs en parlent, sans les avoir vus. La théorie actuelle la plus sérieuse : les jardins existaient bien, mais à Ninive (Assyrie), pas à Babylone. Nabuchodonosor les aurait fait construire pour sa femme médique qui s'ennuyait des montagnes de son pays natal.",
+              "e": "🌿"
+            },
+            {
+              "t": "<b>Le Temple d'Artémis à Éphèse fut brûlé par un homme qui voulait devenir célèbre.</b> Érostrate incendia en -356 le plus grand temple du monde grec - uniquement pour que son nom soit retenu. Les Éphésiens décidèrent de punir cet acte en interdisant de prononcer son nom. Leur loi fut si efficacement violée que nous connaissons encore son nom 2 400 ans plus tard. L'érostratisme - devenir célèbre par un acte destructeur - porte encore son nom.",
+              "e": "🏟️"
+            }
+          ]
+        },
+        {
+          "title": "Les Étrusques & la République Romaine",
+          "date": "-800 à -509 av. J.-C.",
+          "tag": "Civilisation",
+          "icon": "🏛️",
+          "desc": "Avant Rome, les Étrusques dominent l'Italie centrale. Ce peuple mystérieux - dont la langue reste partiellement indéchiffrée - transmet à Rome l'architecture en voûte, les jeux du cirque, la divination et les symboles du pouvoir (la toge, les faisceaux). En 509 av. J.-C., les Romains chassent leur dernier roi étrusque et proclament la République.",
+          "kind": "histoire",
+          "img": "/img/chronologie/transition-historique-entre-etrusques-et-romains.webp",
+          "anecdotes": [
+            {
+              "t": "<b>Tu écris avec l'alphabet étrusque.</b> Les Étrusques adaptèrent l'alphabet grec pour leur propre langue, et les Romains l'adaptèrent à leur tour pour le latin. Notre alphabet - A, B, C, D… - est un héritage étrusque transmis via Rome. Une civilisation dont on ne comprend plus la langue a façonné l'écriture de la moitié du monde.",
+              "e": "🔤"
+            },
+            {
+              "t": "<b>Les Étrusques lisaient l'avenir dans les foies des animaux sacrifiés.</b> Des modèles de foies en bronze ont été retrouvés, divisés en régions correspondant aux dieux. Cette pratique - l'haruspicine - fut adoptée par les Romains et pratiquée officiellement jusqu'au IVe siècle ap. J.-C. Les généraux romains consultaient les entrailles avant toute bataille importante.",
+              "e": "🔮"
+            },
+            {
+              "t": "<b>On ne sait toujours pas d'où viennent les Étrusques.</b> Leur langue, non indo-européenne, n'est apparentée à aucune autre connue. Les anciens eux-mêmes débattaient : Hérodote disait qu'ils venaient d'Anatolie, Denys d'Halicarnasse qu'ils étaient autochtones. L'ADN ancien suggère aujourd'hui une origine anatolienne - Hérodote avait peut-être raison.",
+              "e": "❓"
+            }
+          ]
+        },
+        {
+          "title": "Les Guerres Puniques - Carthage & Hannibal",
+          "date": "-264 à -146 av. J.-C.",
+          "tag": "Guerres",
+          "icon": "🐘",
+          "desc": "Trois guerres entre Rome et Carthage (actuelle Tunisie) pour la domination de la Méditerranée. La deuxième (-218 à -201) est la plus célèbre : le général carthaginois Hannibal traverse l'Espagne, franchit les Pyrénées et les Alpes avec 37 éléphants de guerre en plein hiver, descend en Italie et remporte des victoires stupéfiantes - avant d'être finalement repoussé. En -146, Rome rase Carthage et sème le sol de sel.",
+          "kind": "histoire",
+          "img": "/img/chronologie/hannibal-traversant-les-alpes-enneigees.webp",
+          "anecdotes": [
+            {
+              "t": "<b>Hannibal traversa les Alpes avec 37 éléphants de guerre en novembre.</b> Sur les 90 000 hommes partis d'Espagne, moins de 30 000 atteignirent l'Italie - décimés par le froid, la neige et les embuscades gauloises. Pourtant, à Cannes (-216), Hannibal anéantit une armée romaine de 80 000 hommes avec 50 000 hommes - la manœuvre d'encerclement parfaite, encore étudiée dans les académies militaires.",
+              "e": "🐘"
+            },
+            {
+              "t": "<b>« Carthage doit être détruite. »</b> Le sénateur Caton terminait chacun de ses discours par cette phrase - quel qu'en soit le sujet. En -146, Rome rasa la ville pierre par pierre et, selon la légende, sema le sol de sel pour qu'rien n'y pousse jamais. La rivale commerciale de Rome était effacée de la carte. L'expression « semer le sel » pour désigner une destruction totale vient de là.",
+              "e": "🧂"
+            },
+            {
+              "t": "<b>Hannibal ne prit jamais Rome - et pourtant il avait gagné.</b> Après Cannes, rien ne s'opposait à lui militairement. Mais il attendit des renforts qui ne vinrent pas, espérant que les alliés de Rome se retourneraient contre elle. Ils ne le firent pas. La leçon que les généraux en tirèrent : une victoire tactique écrasante ne suffit pas - il faut la volonté politique de frapper le coup de grâce.",
+              "e": "🧠"
+            }
+          ]
+        },
+        {
+          "title": "Jules César - Le Dictateur Éternel",
+          "date": "-100 à -44 av. J.-C.",
+          "tag": "Politique",
+          "icon": "⚔️",
+          "desc": "Général brillant, orateur redoutable, écrivain, César conquiert la Gaule (58-52 av. J.-C.), franchit le Rubicon ('alea jacta est'), devient dictateur perpétuel. Il réforme le calendrier (calendrier julien), amnistie ses ennemis, planifie la reconstruction de Carthage. Le 15 mars 44 av. J.-C., 23 coups de poignard mettent fin à sa vie - et déclenchent 13 ans de guerres civiles.",
+          "kind": "histoire",
+          "img": "/img/chronologie/jules-cesar-de-general-a-empereur.webp",
+          "anecdotes": [
+            {
+              "t": "'Et tu, Brute ?' - Shakespeare invente cette phrase. Selon Suétone, César voit Brutus parmi les assassins et se couvre le visage de sa toge. 23 coups de couteau, mais seul le deuxième était mortel selon l'autopsie - les autres assassins se sont blessés entre eux dans la confusion.",
+              "e": "🗡️"
+            },
+            {
+              "t": "<b>César a réformé notre calendrier.</b> Le calendrier romain était devenu un désastre - il avait trois mois de décalage avec les saisons. César fit appel à l'astronome alexandrin Sosigène et imposa le calendrier julien : 365 jours et une année bissextile tous les 4 ans. Ce calendrier, avec une légère correction en 1582 par le pape Grégoire XIII (le calendrier grégorien que nous utilisons), est encore le nôtre aujourd'hui. César a structuré notre temps.",
+              "e": "📅"
+            },
+            {
+              "t": "<b>César était aussi l'un des meilleurs écrivains de son temps.</b> Ses Commentaires sur la Guerre des Gaules, rédigés en campagne pour informer Rome de ses victoires, sont considérés comme un modèle de prose latine - clairs, directs, efficaces. Cicéron lui-même les admirait. César écrivait à la troisième personne ('César fit ceci', 'César ordonna cela') - pour paraître objectif tout en se glorifiant. Le premier spin doctor de l'histoire.",
+              "e": "✍️"
+            }
+          ]
+        },
+        {
+          "title": "La Gaule Conquise - César & Vercingétorix",
+          "date": "-58 à -52 av. J.-C.",
+          "tag": "Guerre",
+          "icon": "⚔️",
+          "desc": "En 8 campagnes, Jules César soumet 300 tribus gauloises et tue ou réduit en esclavage un million de personnes. Vercingétorix unifie les tribus gauloises en une dernière coalition. Il défait César à Gergovie - mais échoue à Alésia. Encerclé dans la ville fortifiée, il capitule et se livre à César. Il sera emprisonné 6 ans à Rome puis étranglé lors du triomphe de César.",
+          "kind": "histoire",
+          "img": "/img/chronologie/la-gaule-et-ses-peuples-anciens.webp",
+          "anecdotes": [
+            {
+              "t": "<b>« La Gaule est divisée en trois parties. »</b> (Gallia est omnis divisa in partes tres) - première phrase des Commentaires de César, le livre le plus étudié en latin pendant des siècles. César était autant génie militaire que génie de communication : il envoyait ses rapports de victoire à Rome en temps réel pour nourrir sa gloire politique.",
+              "e": "📖"
+            },
+            {
+              "t": "<b>La Guerre des Gaules fut un génocide selon les critères modernes.</b> César revendique lui-même un million de morts et un million d'esclaves. Certaines tribus furent entièrement exterminées. Plutarque, à Rome, jugeait ces chiffres scandaleux - même dans l'Antiquité, l'ampleur du massacre choquait.",
+              "e": "💀"
+            },
+            {
+              "t": "<b>César utilisa la Gaule pour financer sa prise du pouvoir à Rome.</b> Le butin - or, esclaves, rançons - fut colossal. Avec cet argent, il paya ses légions, corrompit les sénateurs et prépara le coup d'État qui le mena à la dictature perpétuelle - et finalement à son assassinat aux ides de mars -44.",
+              "e": "🏆"
+            }
+          ]
+        },
+        {
+          "title": "Alésia - La Gaule Devient Romaine",
+          "date": "-52 av. J.-C.",
+          "tag": "Événement",
+          "icon": "🛡️",
+          "desc": "Vercingétorix unifie les peuples gaulois dans un dernier sursaut de résistance. Assiégé dans l'oppidum d'Alésia (Bourgogne), il fait face à César qui construit une double enceinte de 40 km - pour assiéger la ville tout en repoussant une armée de secours de 250 000 hommes. Après 6 semaines, Vercingétorix se rend. La Gaule devient province romaine.",
+          "kind": "histoire",
+          "img": "/img/chronologie/le-siege-romain-dalesia-enflamme.webp",
+          "anecdotes": [
+            {
+              "t": "<b>On ne connaît Vercingétorix qu'à travers César, son ennemi.</b> Il n'existe aucune source gauloise - les druides transmettaient oralement, sans écriture. L'histoire de la Gaule a été entièrement écrite par ceux qui l'ont conquise. C'est toujours le vainqueur qui écrit l'histoire.",
+              "e": "📖"
+            },
+            {
+              "t": "<b>Les fouilles archéologiques ont confirmé chaque détail de César</b> : fossés, palissades, tours de guet - tout retrouvé à Alise-Sainte-Reine. La bataille décrite au millimètre par César est réelle. Alésia est l'un des chantiers archéologiques les plus importants de France.",
+              "e": "⛏️"
+            },
+            {
+              "t": "<b>La romanisation fut fulgurante.</b> En moins d'un siècle, les élites gauloises parlent latin, portent la toge, bâtissent des temples romains. La France parle encore ce latin transformé 2 000 ans plus tard - chaque mot français est un vestige direct de la conquête d'Alésia.",
+              "e": "🍷"
+            }
+          ]
+        },
+        {
+          "title": "Cléopâtre & la Fin de l'Égypte Pharaonique",
+          "date": "-51 à -30 av. J.-C.",
+          "tag": "Reine",
+          "icon": "🐍",
+          "desc": "Cléopâtre VII n'est pas égyptienne de sang - elle est grecque, de la dynastie ptolémaïque fondée par un général d'Alexandre. Elle est la première de sa lignée à parler égyptien. Elle s'allie à César puis à Marc Antoine pour résister à Rome. Vaincue, elle se suicide avec un aspic. Son suicide met fin à 3 000 ans de civilisation pharaonique.",
+          "kind": "histoire",
+          "img": "/img/chronologie/cleopatre-surplombant-alexandrie-au-crepuscule.webp",
+          "anecdotes": [
+            {
+              "t": "<b>Cléopâtre parlait 9 langues</b> selon les sources antiques : égyptien, grec, latin, hébreu, araméen, arabe, éthiopien, perse et peut-être une autre. Elle était doctorante en philosophie et mathématiques. Le cliché de la séductrice efface la réalité : c'était avant tout une cheffe d'État redoutablement intelligente dans un monde d'hommes.",
+              "e": "🧠"
+            },
+            {
+              "t": "<b>Elle ne s'est probablement pas suicidée avec un serpent.</b> Les historiens modernes penchent pour un poison ingéré - l'aspic dans la corbeille de figues est une invention littéraire romantique. Mais la mort par morsure de cobra rend Cléopâtre associée à Rê, dieu soleil - un ultime acte de communication politique même dans la mort.",
+              "e": "🐍"
+            },
+            {
+              "t": "<b>Sa mort en -30 av. J.-C. marque la fin de l'Antiquité orientale indépendante.</b> L'Égypte devient une province romaine - la plus riche de l'Empire. Son blé nourrit Rome. Sans l'Égypte de Cléopâtre, l'Empire romain n'aurait peut-être pas pu se maintenir assez longtemps pour christianiser l'Europe.",
+              "e": "🌍"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "era": "✦ Empire Romain & Naissance du Christianisme - -27 à 200",
+      "cls": "antique",
+      "events": [
+        {
+          "title": "Auguste - Le Premier Empereur",
+          "date": "-27 à 14 ap. J.-C.",
+          "tag": "Empereur",
+          "icon": "🏛️",
+          "desc": "Octave, petit-neveu et héritier de César, n'a que 18 ans quand il apprend l'assassinat de son grand-oncle. Il forge des alliances, brise ses alliés, et écrase ses rivaux Marc Antoine et Cléopâtre à la bataille d'Actium en -31. En -27, le Sénat lui accorde le titre d'Augustus - 'le vénérable'. Il règne 44 ans, le plus long règne de l'histoire romaine, en gardant soigneusement les formes républicaines tout en concentrant tous les pouvoirs. Sous lui naît la Pax Romana - 200 ans de paix relative qui permettront à l'Empire de prospérer. 'J'ai trouvé Rome en briques, je la laisse en marbre.' Sous son règne naît, en Judée romaine, un certain Jésus de Nazareth.",
+          "kind": "histoire",
+          "img": "/img/chronologie/auguste.webp",
+          "anecdotes": [
+            {
+              "t": "Auguste réforme le calendrier de César et donne son nom au mois d'août (Augustus). Son prédécesseur César avait déjà donné son nom à juillet (Julius). Les deux mois d'été portent encore les noms de ces deux dictateurs.",
+              "e": "📅"
+            },
+            {
+              "t": "<b>Auguste a inventé la propagande architecturale à grande échelle.</b> 'J'ai trouvé Rome en briques, je la laisse en marbre.' Il fit construire ou restaurer 82 temples, le Forum d'Auguste, le Mausolée d'Auguste, la Ara Pacis (autel de la Paix), et transforme le Champ de Mars en quartier monumental. Cette politique architecturale était délibérée : chaque bâtiment glorifiait sa famille et légitimait son pouvoir. Trois siècles avant Constantin, Auguste avait compris que la pierre dure plus longtemps que les discours.",
+              "e": "🏛️"
+            },
+            {
+              "t": "<b>Auguste a rédigé lui-même le bilan de son règne, gravé sur bronze après sa mort.</b> Les 'Res Gestae Divi Augusti' ('Les choses accomplies par le divin Auguste') listaient ses exploits : guerres gagnées, temples construits, distributions de blé, spectacles organisés. Ce document, retrouvé gravé sur les murs d'un temple en Turquie, est la première autobiographie politique connue - et un modèle pour tous les communicants politiques qui suivirent.",
+              "e": "📜"
+            }
+          ]
+        },
+        {
+          "title": "Lugdunum (Lyon) - Capitale des Gaules",
+          "date": "-15 av. J.-C.",
+          "tag": "Fondation",
+          "icon": "🏙️",
+          "desc": "L'empereur Auguste fait de Lugdunum (Lyon) la capitale administrative des Trois Gaules. Deuxième ville de l'Empire après Rome, avec 50 000 à 80 000 habitants. Deux empereurs romains y naîtront : Claude et Caracalla. C'est par Lyon que le christianisme entre en Gaule - et que naît le réseau routier en étoile de toute la France.",
+          "kind": "histoire",
+          "img": "/img/chronologie/lugdunum-a-son-apogee.webp",
+          "anecdotes": [
+            {
+              "t": "<b>Toutes les routes gauloises partaient de Lyon.</b> Agrippa fit construire 4 grandes voies rayonnant vers l'Atlantique, la Manche, le Rhin et la Méditerranée. Ces routes romaines sont encore visibles sous certaines nationales françaises - l'autoroute A6 suit en partie la Via Agrippa vieille de 2 000 ans.",
+              "e": "🛣️"
+            },
+            {
+              "t": "<b>Claude, né à Lyon en -10 av. J.-C., devint empereur de Rome.</b> Dans un discours gravé sur bronze (retrouvé à Lyon), il plaida pour que les notables gaulois accèdent au Sénat romain - une révolution dans la conception de la citoyenneté. Ce texte est encore visible au musée de la Civilisation gallo-romaine de Lyon.",
+              "e": "👑"
+            },
+            {
+              "t": "<b>En 177 ap. J.-C., le massacre de 48 chrétiens à Lyon</b> est le premier grand martyre attesté en Gaule. Blandine, une esclave, fut livrée aux lions dans l'amphithéâtre. Sa sérénité frappa tellement les témoins que sa mémoire traversa les siècles. L'amphithéâtre des Trois-Gaules est encore visible à Lyon.",
+              "e": "🩸"
+            }
+          ]
+        },
+        {
+          "title": "Le Pont du Gard - Le Génie Romain",
+          "date": "-19 av. J.-C.",
+          "tag": "Architecture",
+          "icon": "🏗️",
+          "desc": "Construit sous Auguste près de Nîmes, le Pont du Gard est l'aqueduc le plus haut du monde romain : 49 mètres, 3 niveaux d'arcades, 50 km de canal pour acheminer 40 000 m³ d'eau par jour vers Nîmes. Aucun mortier - uniquement des blocs de pierre ajustés au millimètre, certains pesant 6 tonnes. Il a traversé 2 000 ans pratiquement intact.",
+          "kind": "histoire",
+          "img": "/img/chronologie/pont-du-gard.webp",
+          "anecdotes": [
+            {
+              "t": "<b>La pente du canal est de 34 cm sur 50 km</b> - soit 0,07 % d'inclinaison constante dans un relief accidenté, sans instruments modernes. Cette précision géodésique représente un exploit que peu de civilisations auraient pu reproduire avant le XIXe siècle.",
+              "e": "📐"
+            },
+            {
+              "t": "<b>Nîmes recevait 400 litres d'eau par habitant par jour</b> - davantage que la plupart des villes européennes au XIXe siècle. Les Romains avaient fontaines publiques, thermes, toilettes à chasse d'eau et égouts. Après la chute de Rome, l'Europe attendit 1 500 ans pour retrouver ce niveau de confort sanitaire.",
+              "e": "💧"
+            },
+            {
+              "t": "<b>Les blocs ont été taillés à sec, sans mortier.</b> Les bâtisseurs gravèrent des repères sur chaque pierre pour le montage - certains de ces signes de tailleur sont encore visibles aujourd'hui. En 2 siècles d'utilisation, 5 cm de calcaire se déposèrent sur les parois, préservant encore le canal.",
+              "e": "🏗️"
+            }
+          ]
+        },
+        {
+          "title": "Naissance de Jésus - Le Tournant du Calendrier",
+          "date": "0 ap. J.-C.",
+          "tag": "Religion",
+          "icon": "⭐",
+          "desc": "La naissance de Jésus de Nazareth divise l'histoire en deux - avant et après Jésus-Christ. Né en Judée romaine, fils d'un charpentier, il prêche l'amour du prochain et le Royaume de Dieu pendant trois ans. Condamné par le gouverneur romain Ponce Pilate sous pression des autorités juives, il est crucifié vers 33 ap. J.-C. Ses disciples proclament sa résurrection. Le christianisme naît.",
+          "kind": "histoire",
+          "img": "/img/chronologie/la-nativite-sous-letoile-brillante.webp",
+          "anecdotes": [
+            {
+              "t": "Paradoxe : Jésus n'est probablement pas né en l'an 0. Le moine Denys le Petit, qui inventa notre calendrier au VIe siècle, fit une erreur de calcul. Selon les Évangiles et les données historiques (mort d'Hérode), Jésus serait né entre -6 et -4 av. J.-C. - donc 'avant Jésus-Christ'.",
+              "e": "📅"
+            },
+            {
+              "t": "<b>Les Rois Mages ne sont probablement pas 3, et ne sont pas des rois.</b> L'Évangile de Matthieu parle de 'mages venus d'Orient' - des astrologues ou savants, sans préciser leur nombre. Le chiffre 3 vient du nombre de cadeaux (or, encens, myrrhe). Leurs noms - Melchior, Gaspard et Balthazar - n'apparaissent dans aucun texte avant le VIe siècle. Leurs reliques sont vénérées à Cologne depuis 1164. Trois personnages construits au fil des siècles à partir d'une seule phrase d'Évangile.",
+              "e": "⭐"
+            },
+            {
+              "t": "<b>L'an 0 n'existe pas dans notre calendrier.</b> On passe directement du 1 av. J.-C. au 1 ap. J.-C. Le moine Denys le Petit, qui calcula la date de naissance de Jésus au VIe siècle pour fixer notre ère chrétienne, fit une erreur. Selon les données de l'Évangile (mort d'Hérode, étoile de Bethléem), Jésus serait né entre -6 et -4 av. J.-C. - donc 'avant Jésus-Christ'. Une petite absurdité mathématique au cœur de notre calendrier universel.",
+              "e": "📅"
+            }
+          ]
+        },
+        {
+          "title": "Néron - L'Incendie de Rome & les Persécutions",
+          "date": "54 à 68 ap. J.-C.",
+          "tag": "Empereur",
+          "icon": "🔥",
+          "desc": "Néron monte sur le trône à 17 ans. Son règne commence bien - il est conseillé par le philosophe Sénèque - puis déraille dans la tyrannie, les meurtres de proches (dont sa propre mère Agrippine) et la mégalomanie. En 64, un incendie ravage les deux tiers de Rome. Il accuse les chrétiens, les fait crucifier et brûler comme torches vivantes. Il est le premier persécuteur institutionnel du christianisme.",
+          "kind": "histoire",
+          "img": "/img/chronologie/neron-contemple-la-ville-en-flammes.webp",
+          "anecdotes": [
+            {
+              "t": "<b>Néron ne jouait pas du violon pendant l'incendie de Rome</b> - le violon n'existait pas encore. La légende dit qu'il jouait de la cithare depuis sa terrasse en récitant ses propres poèmes sur la destruction de Troie. Mais les sources antiques contredisent les unes les autres. Ce qu'on sait : il profita de l'incendie pour construire sa Domus Aurea - un palais de 300 pièces avec un lac artificiel.",
+              "e": "🎻"
+            },
+            {
+              "t": "<b>Néron fit assassiner sa propre mère Agrippine.</b> Après plusieurs tentatives ratées (dont un bateau conçu pour couler), il envoya des soldats chez elle. Elle présenta sa poitrine au centurion : « Frappe ici, là d'où est sorti un tel fils. » Cette scène, rapportée par Tacite, est l'une des plus dramatiques de l'Antiquité - et illustre jusqu'où le pouvoir absolu peut mener.",
+              "e": "👩"
+            },
+            {
+              "t": "<b>Dans l'Apocalypse de Jean, la « Bête » dont le nombre est 666 désigne probablement Néron.</b> En hébreu, les lettres de « Néron César » donnent la valeur numérique 666. Pour les chrétiens du Ier siècle, persécutés par Néron, ce chiffre était un code pour le désigner sans le nommer - une façon de critiquer l'Empire sans risquer la mort.",
+              "e": "😈"
+            }
+          ]
+        },
+        {
+          "title": "Les Persécutions des Chrétiens - Le Sang des Martyrs",
+          "date": "64 à 313 ap. J.-C.",
+          "tag": "Persécutions",
+          "icon": "✝️",
+          "desc": "Pendant deux siècles et demi, le christianisme est une religion illégale dans l'Empire romain. Les chrétiens refusent de sacrifier aux dieux de Rome et de vénérer l'empereur comme dieu - actes perçus comme trahison politique autant que religieuse. Dix grandes vagues de persécutions se succèdent, de Néron (64 ap. J.-C.) à Dioclétien (303-313 ap. J.-C.). Des milliers de fidèles sont jetés aux fauves dans les arènes, crucifiés, brûlés vifs ou décapités. Pourtant, loin d'éteindre la foi, ces persécutions la propagent : « Le sang des martyrs est semence de chrétiens », écrit Tertullien.",
+          "kind": "histoire",
+          "img": "/img/chronologie/persecution-des-chretiens-dans-larene.webp",
+          "anecdotes": [
+            {
+              "t": "<b>Blandine, esclave de 17 ans, affronta les lions à Lyon en 177 ap. J.-C.</b> Ses bourreaux s'étonnèrent qu'une si frêle jeune femme résiste si longtemps aux tortures - fouet, chaise de fer chauffée à blanc, exposition aux fauves. Elle mourut enveloppée dans un filet, livrée à un taureau qui la projeta en l'air plusieurs fois. Les témoins présents dans l'arène rapportèrent sa sérénité absolue. Elle fut canonisée et reste l'une des saintes les plus vénérées de France.",
+              "e": "🦁"
+            },
+            {
+              "t": "<b>Néron fit des chrétiens des torches humaines dans ses jardins.</b> Après l'incendie de Rome en 64, il les accusa d'en être responsables. Selon Tacite, il les fit enduire de poix et brûler vifs pour éclairer ses fêtes nocturnes. D'autres furent cousus dans des peaux de bêtes et livrés aux chiens. Cette première persécution officielle fut si violente qu'elle choqua même des Romains non chrétiens.",
+              "e": "🔥"
+            },
+            {
+              "t": "<b>Perpétua, 22 ans, noble carthaginoise, refusa de renier sa foi pour sauver sa vie - et celle de son nourrisson.</b> En 203 ap. J.-C. à Carthage, elle fut jetée dans l'arène avec une vache sauvage. Blessée, elle se releva, replaça son épingle dans ses cheveux défaits pour ne pas paraître en deuil, et guida elle-même la main du gladiateur hésitant vers sa gorge. Son journal de prison, rédigé avant sa mort, est le plus ancien texte chrétien connu écrit par une femme.",
+              "e": "👧"
+            },
+            {
+              "t": "<b>La persécution de Dioclétien (303-313) fut la plus systématique.</b> Il ordonna la destruction de toutes les églises, la confiscation des textes sacrés, l'interdiction des assemblées, et l'exécution de tout chrétien refusant de sacrifier aux dieux. Des milliers moururent en quelques années. Ironie de l'histoire : dix ans plus tard, Constantin légalisait le christianisme par l'Édit de Milan - et un siècle après, il devenait la religion officielle de l'Empire que Dioclétien avait voulu défendre.",
+              "e": "📜"
+            }
+          ]
+        },
+        {
+          "title": "Titus Détruit le Temple - La Diaspora Juive",
+          "date": "70 ap. J.-C.",
+          "tag": "Catastrophe",
+          "icon": "🔥",
+          "desc": "En l'an 70, le général romain Titus écrase la grande révolte juive et rase Jérusalem. Le Second Temple - reconstruit par Hérode le Grand à partir de -20 av. J.-C. - est incendié et détruit. C'est la deuxième destruction du Temple, la plus traumatisante de l'histoire juive. Plus d'un million de Juifs périssent selon Josèphe. Des centaines de milliers sont déportés ou réduits en esclavage. Commence la grande Diaspora : les Juifs, sans terre ni Temple, deviendront le 'peuple du Livre', dispersé dans tout l'Empire.",
+          "kind": "histoire",
+          "img": "/img/chronologie/la-chute-de-jerusalem-sous-siege.webp",
+          "anecdotes": [
+            {
+              "t": "<b>Le Mur des Lamentations est le seul vestige du Second Temple.</b> Ce mur de soutènement - pas un mur du Temple lui-même, mais la plateforme sur laquelle il était bâti - est depuis 2 000 ans le lieu de prière le plus sacré du judaïsme. On y glisse encore des billets de prières dans les fissures entre les pierres.",
+              "e": "🕍"
+            },
+            {
+              "t": "<b>La destruction du Temple a transformé le judaïsme en profondeur.</b> Sans Temple, sans sacrifices, sans prêtres - comment pratiquer ? Les rabbins inventent alors une nouvelle forme de judaïsme centré sur la prière, l'étude de la Torah et la synagogue. C'est ce judaïsme rabbinique qui survit jusqu'à aujourd'hui.",
+              "e": "🕎"
+            },
+            {
+              "t": "<b>L'Arc de Titus à Rome célèbre encore cette victoire.</b> Érigé en 81 ap. J.-C., il représente le défilé triomphal avec la Menorah (le chandelier à 7 branches) et les trésors du Temple. Pendant des siècles, les Juifs de Rome refusaient de passer sous cet arc par respect pour les victimes.",
+              "e": "🏛️"
+            }
+          ]
+        },
+        {
+          "title": "Le Nouveau Testament - La Naissance du Christianisme",
+          "date": "30 à 100 ap. J.-C.",
+          "tag": "Texte fondateur",
+          "icon": "✝️",
+          "desc": "Jésus de Nazareth prêche en Galilée et Judée vers 27-30 ap. J.-C., est crucifié sous Ponce Pilate, et ses disciples annoncent sa résurrection. Paul de Tarse (lui-même ancien persécuteur des chrétiens) diffuse cette nouvelle foi dans tout le bassin méditerranéen. Les 27 textes du Nouveau Testament - Évangiles, Actes, Épîtres, Apocalypse - sont rédigés entre ~50 et 100 ap. J.-C. en grec, dans l'Empire romain. En moins de 300 ans, cette religion minoritaire et persécutée devient la religion officielle de l'Empire.",
+          "kind": "histoire",
+          "img": "/img/chronologie/lexpansion-du-christianisme-au-ier-siecle.webp",
+          "anecdotes": [
+            {
+              "t": "<b>Jésus est probablement né en -4 av. J.-C. - et non l'an 0.</b> Le moine Denys le Petit, qui fixa notre calendrier au VIe siècle, se trompa dans ses calculs. L'an 0 n'existe d'ailleurs pas : on passe directement de -1 à 1 ap. J.-C. Hérode le Grand, qui selon l'Évangile de Matthieu fit massacrer les Innocents, mourut en -4 - ce qui place la naissance de Jésus avant cette date.",
+              "e": "📅"
+            },
+            {
+              "t": "<b>Paul n'a jamais rencontré Jésus - et a pourtant écrit la moitié du Nouveau Testament.</b> Ses épîtres (vers 50-60 ap. J.-C.) sont les textes chrétiens les plus anciens connus, antérieurs aux Évangiles. Pharisien cultivé et citoyen romain, Paul transforme un mouvement juif local en religion universelle, ouverte aux non-Juifs. Sans lui, le christianisme serait peut-être resté une secte juive de Palestine.",
+              "e": "✉️"
+            },
+            {
+              "t": "<b>Les 4 Évangiles ont des dates de rédaction très différentes.</b> Marc (~70 ap. J.-C.) est le plus ancien. Matthieu et Luc (~80-90) s'en inspirent en ajoutant d'autres sources. Jean (~95-100) est le plus tardif et le plus théologique. Entre la mort de Jésus (~30) et la rédaction du premier Évangile (~70), 40 ans de transmission orale. La question de l'historicité de certains récits reste un débat vivant entre historiens et théologiens.",
+              "e": "📖"
+            }
+          ]
+        },
+        {
+          "title": "Pompéi - La Ville Engloutie",
+          "date": "79 ap. J.-C.",
+          "tag": "Catastrophe",
+          "icon": "🌋",
+          "desc": "Le 24 août 79 ap. J.-C., le Vésuve entre en éruption et ensevelit Pompéi sous 6 mètres de cendres en quelques heures. 2 000 personnes périssent. La ville est oubliée pendant 1 700 ans. Redécouverte en 1748, elle révèle un instantané parfait de la vie romaine : fresques, graffitis, pain dans les fours, corps figés dans la lave.",
+          "kind": "histoire",
+          "img": "/img/chronologie/leruption-de-pompei-en-79-apres-j-c.webp",
+          "anecdotes": [
+            {
+              "t": "Le jeune Pline le Jeune, présent à Misène le jour de l'éruption, rédige la première description scientifique d'une éruption volcanique. On appelle encore aujourd'hui une éruption à panache de cendres 'éruption plinienne' en son honneur.",
+              "e": "📜"
+            },
+            {
+              "t": "<b>Pompéi révèle une vie romaine saisissante de modernité.</b> Les fouilles ont mis au jour des bars à restauration rapide (thermopolia) avec leurs comptoirs en marbre, des graffitis électoraux sur les murs ('Votez Aulus Marcus !'), des pubs d'esclaves, une maison close avec des fresques explicites, et des jeux pour enfants tracés dans la pierre. Pompéi n'est pas un musée - c'était une ville vivante, bruyante, colorée, au IVe étage socialement très divers.",
+              "e": "🏙️"
+            },
+            {
+              "t": "<b>Les corps ne sont pas des corps - ce sont des moulages.</b> Les victimes ont été recouvertes de cendres qui se sont solidifiées en conservant leur forme exacte. Les corps ont ensuite pourri, laissant des cavités. En 1863, l'archéologue Giuseppe Fiorelli eut l'idée d'injecter du plâtre dans ces cavités - et fit ressurgir les habitants figés dans leur dernier instant : une femme protégeant un enfant, un homme se couvrant le visage, un chien enchaîné qui n'a pas pu fuir.",
+              "e": "🔬"
+            }
+          ]
+        },
+        {
+          "title": "Le Colisée - La Violence comme Spectacle",
+          "date": "72 à 80 ap. J.-C.",
+          "tag": "Monument",
+          "icon": "🏟️",
+          "desc": "L'amphithéâtre Flavien - le Colisée - est inauguré par l'empereur Titus en 80 ap. J.-C. avec 100 jours de jeux consécutifs. 50 000 spectateurs, des combats de gladiateurs, des chasses d'animaux exotiques, des exécutions publiques. En 8 ans de construction, 100 000 tonnes de travertin. C'est le plus grand amphithéâtre jamais construit - et le symbole de l'utilisation politique du spectacle de masse.",
+          "kind": "histoire",
+          "img": "/img/chronologie/construction-du-colisee-a-rome.webp",
+          "anecdotes": [
+            {
+              "t": "<b>Le pouce levé ne signifiait pas « épargne-le ».</b> C'est l'inverse dans les sources antiques : le pouce levé (vers la poitrine, comme un coup d'épée) signifiait « tue-le », et le pouce baissé (caché dans le poing, comme une épée rengainée) signifiait « grâce ». Hollywood a inversé les symboles - et la confusion dure depuis des décennies.",
+              "e": "👍"
+            },
+            {
+              "t": "<b>Les Romains importèrent des milliers d'animaux sauvages pour les jeux.</b> Lions, tigres, éléphants, rhinocéros, girafes, hippopotames - tous amenés d'Afrique et d'Asie à grands frais. Certains historiens estiment qu'en 400 ans de jeux, le Colisée contribua à l'extinction locale du lion d'Afrique du Nord et à la disparition de l'éléphant d'Afrique du Nord. Le divertissement romain changea la faune d'un continent.",
+              "e": "🐅"
+            },
+            {
+              "t": "<b>Le Colisée avait un velarium - une tente géante.</b> Plusieurs centaines de marins de la flotte de Rome manœuvraient des cordes et des mâts pour déployer une toile de lin sur les gradins les jours de soleil. Le Colisée avait aussi un sous-sol labyrinthique d'ascenseurs et de trappes pour faire surgir gladiateurs et animaux au milieu de l'arène - la machinerie d'un théâtre géant.",
+              "e": "🏗️"
+            }
+          ]
+        },
+        {
+          "title": "L'Apogée de l'Empire Romain - Sous Trajan",
+          "date": "117 ap. J.-C.",
+          "tag": "Apogée",
+          "icon": "🦅",
+          "desc": "Sous l'empereur Trajan (98-117 ap. J.-C.), l'Empire romain atteint sa plus grande extension : 5 millions de km², 70 millions d'habitants, de l'Écosse à la Mésopotamie, du Sahara au Rhin. C'est le moment de la Pax Romana à son zénith : routes pavées, aqueducs, villes prospères, commerce florissant de l'Inde à la Bretagne. Son successeur Hadrien comprend qu'un tel empire ne peut plus s'étendre - il consolide les frontières et commence à les fortifier.",
+          "kind": "histoire",
+          "img": "/img/chronologie/lempire-trajan.webp",
+          "anecdotes": [
+            {
+              "t": "<b>L'Empire romain couvrait 5 millions de km² - soit 9 fois la France actuelle.</b> De l'Écosse à l'Irak, de la Roumanie au Maroc. Plus de 400 000 km de routes reliaient cet ensemble - dont 80 000 km de routes pavées. La célèbre expression 'tous les chemins mènent à Rome' reflète une réalité géographique absolue.",
+              "e": "🗺️"
+            },
+            {
+              "t": "<b>Rome comptait plus d'un million d'habitants - une taille que Paris n'atteindra qu'au XIXe siècle.</b> La ville était nourrie par des importations massives de blé d'Égypte et d'Afrique du Nord. Des immeubles de 6 étages (insulae) logeaient des centaines de milliers de locataires dans des conditions souvent précaires.",
+              "e": "🏙️"
+            },
+            {
+              "t": "<b>La citoyenneté romaine sera accordée à tous les hommes libres de l'Empire en 212 ap. J.-C.</b> L'édit de Caracalla unifie juridiquement un empire multiethnique : Gaulois, Espagnols, Africains, Syriens deviennent tous 'Romains'. Une idée d'universalité civique qui influencera encore la Révolution française.",
+              "e": "⚖️"
+            }
+          ]
+        },
+        {
+          "title": "Le Mur d'Hadrien - La Frontière du Monde Romain",
+          "date": "122 à 142 ap. J.-C.",
+          "tag": "Monument",
+          "icon": "🧱",
+          "desc": "En 122 ap. J.-C., l'empereur Hadrien ordonne la construction d'un mur traversant l'île de Bretagne (actuelle Angleterre) d'est en ouest sur 118 km - pour marquer et défendre la frontière nord de l'Empire contre les Pictes d'Écosse. 15 000 légionnaires construisent en 6 ans une muraille de 4 à 6 mètres de haut avec forts, fossés et tours de guet tous les 1 500 mètres. En 142, son successeur Antonin fait bâtir un second mur 160 km plus au nord - mais il est abandonné en 20 ans, et l'Empire revient au mur d'Hadrien.",
+          "kind": "histoire",
+          "img": "/img/chronologie/mur-dhadrien.webp",
+          "anecdotes": [
+            {
+              "t": "<b>Le Mur d'Hadrien représentait la fin du monde connu.</b> Au-delà : les Pictes, les brumes, l'inconnu. Des soldats de tout l'Empire y furent stationnés - des inscriptions en syriaque, en grec, en berbère ont été retrouvées sur les forts. Ce mur était la frontière physique entre la civilisation romaine et ce que les Romains appelaient la 'barbarie'. Il est inscrit au patrimoine mondial de l'UNESCO.",
+              "e": "🗺️"
+            },
+            {
+              "t": "<b>Le mur d'Antonin, construit en 142 ap. J.-C., fut abandonné en 20 ans.</b> Érigé en tourbe (pas en pierre) 160 km plus au nord, sur seulement 60 km, il s'avéra intenable : trop long à défendre, trop exposé. L'Empire recula sur le mur d'Hadrien - acceptant implicitement qu'il existait des limites à sa capacité d'expansion. Hadrien fut le premier empereur à clairement renoncer à la conquête au profit de la consolidation.",
+              "e": "🏗️"
+            },
+            {
+              "t": "<b>Hadrien était l'un des empereurs les plus cultivés de Rome.</b> Architecte lui-même, il dessina le Panthéon de Rome (encore debout, la plus grande coupole non armée du monde pendant 1 300 ans), une villa colossale à Tivoli, et réorganisa l'administration de l'Empire. Son règne (117-138) est souvent cité comme l'apogée de la civilisation romaine - Gibbon parlait du IIe siècle comme du 'siècle le plus heureux de l'humanité'.",
+              "e": "🎭"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "era": "✦ Gaule Romaine & Déclin de l'Empire - 200 à 476",
+      "cls": "antique",
+      "events": [
+        {
+          "title": "La Vie dans une Villa Romaine - Art de Vivre à la Romaine",
+          "date": "Ier-IIe siècle ap. J.-C.",
+          "tag": "Société",
+          "icon": "🏛️",
+          "desc": "La villa romaine est bien plus qu'une maison : c'est une institution. Autour de l'atrium (cour centrale avec bassin), se déploient triclinium (salle à manger), tablinum (bureau du pater familias), jardins à colonnades et bains privés. Les sols de mosaïque, les fresques aux murs, les sculptures dans les jardins témoignent d'un raffinement qui ne sera retrouvé en Europe qu'à la Renaissance. En Gaule, ce modèle se diffuse massivement au Ier siècle : les aristocrates gaulois adoptent le mode de vie romain tout en conservant leurs langues et traditions.",
+          "kind": "histoire",
+          "img": "/img/chronologie/vie-quotidienne-dans-une-villa-romaine.webp",
+          "anecdotes": [
+            {
+              "t": "<b>Le repas romain était une performance sociale.</b> Au triclinium, on mangeait allongé sur des lits inclinés (les lectii). L'ordre des places reflétait la hiérarchie sociale. Un repas d'apparat (convivium) pouvait durer 4 à 6 heures, entrecoupé de musique, de poésie et de débats philosophiques.",
+              "e": "🍷"
+            },
+            {
+              "t": "<b>Les Romains se lavaient tous les jours - chose rare dans l'Antiquité.</b> Les thermes publics (accessibles pour une somme modique) étaient des centres sociaux : on s'y baignait dans des bassins à différentes températures (frigidarium, tepidarium, caldarium), mais aussi on y discutait affaires, politique et philosophie.",
+              "e": "🚿"
+            }
+          ]
+        },
+        {
+          "title": "La Faucille & la Moissonneuse Gauloise",
+          "date": "Ier siècle ap. J.-C.",
+          "tag": "Invention",
+          "icon": "⚙️",
+          "desc": "Les Gaulois romanisés perfectionnent la vallus - une moissonneuse tirée par un bœuf qui coupe les épis directement dans le champ. Décrite par Pline l'Ancien, cette machine précède la moissonneuse industrielle de 1 800 ans et témoigne du génie gallo-romain : la fusion du savoir-faire gaulois et de l'organisation romaine produit des innovations que l'Europe n'atteindra pas à nouveau avant le XIXe siècle.",
+          "kind": "histoire",
+          "img": "/img/chronologie/moissonneuse-gauloise.webp",
+          "anecdotes": [
+            {
+              "t": "<b>La vallus gauloise fut décrite par Pline l'Ancien - puis complètement oubliée.</b> Elle ne fut réinventée qu'au XIXe siècle par des ingénieurs qui ignoraient recréer quelque chose d'existant 1 800 ans plus tôt. Une invention perdue pendant un millénaire et demi.",
+              "e": "🌾"
+            },
+            {
+              "t": "<b>Les Gaulois romanisés étaient d'excellents ingénieurs.</b> Ils inventèrent aussi le tonneau en bois (remplaçant les amphores), le savon, la chaîne de transmission et le recuit de l'acier - innovations que Rome adopta et diffusa dans tout l'Empire.",
+              "e": "⚙️"
+            }
+          ]
+        },
+        {
+          "title": "La Gaule Romaine - Villes, Routes & Romanisation",
+          "date": "Ier-IIe siècle ap. J.-C.",
+          "tag": "Époque",
+          "icon": "🏟️",
+          "desc": "Pendant deux siècles, la Gaule est l'une des provinces les plus riches de l'Empire. De Lugdunum à Lutetia, des dizaines de villes romaines naissent avec leurs forums, amphithéâtres, thermes et aqueducs. La langue gauloise disparaît au profit du latin vulgaire - qui deviendra le français.",
+          "kind": "histoire",
+          "img": "/img/chronologie/bains-romains-sous-les-voutes-majestueuses.webp",
+          "anecdotes": [
+            {
+              "t": "<b>La France doit son réseau routier aux Romains.</b> 30 000 km de routes pavées reliaient les villes gauloises à Rome. Ces routes, construites pour les légions, furent utilisées pendant 1 500 ans après la chute de Rome - et certaines nationales françaises les suivent encore.",
+              "e": "🗺️"
+            },
+            {
+              "t": "<b>Les Arènes de Nîmes et le théâtre d'Orange</b> sont parmi les mieux conservés du monde romain - plus intacts que beaucoup de monuments à Rome même. La Maison Carrée de Nîmes inspira Thomas Jefferson pour le Capitole de Virginie : la Gaule romaine a influencé l'architecture de la démocratie américaine.",
+              "e": "🏛️"
+            },
+            {
+              "t": "<b>Le français est du latin mal prononcé par des Gaulois.</b> « Cheval » vient de caballus (cheval de travail). « Tête » vient de testa (pot de terre - l'argot gaulois). « Maison » de mansionem. Parler français aujourd'hui, c'est parler la langue des légionnaires de César transformée par 2 000 ans d'usage.",
+              "e": "🗣️"
+            }
+          ]
+        },
+        {
+          "title": "Les Thermes de Caracalla - Le Palace du Peuple Romain",
+          "date": "216 apr. J.-C.",
+          "tag": "Époque",
+          "icon": "🛁",
+          "desc": "En 216, l'empereur Caracalla inaugure à Rome les plus grands thermes du monde antique : 22 hectares, 1 600 baigneurs simultanés, 80 000 litres d'eau chaude par citerne. Caldarium, tepidarium, frigidarium, natatio, palestres, bibliothèques et jardins - ouverts à tous pour quelques sesterces.",
+          "kind": "histoire",
+          "img": "/img/chronologie/thermes-caracalla.webp",
+          "anecdotes": [
+            {
+              "t": "<b>L'hypocauste : le chauffage par le sol inventé par les Romains.</b> Sous les dalles, un espace vide permettait à l'air chaud du praefurnium de circuler et de chauffer les pièces par le bas. Les murs creux prolongeaient la chaleur. Un système qui ne sera réinventé qu'au XXe siècle sous le nom de chauffage par le sol.",
+              "e": "🔥"
+            },
+            {
+              "t": "<b>80 000 litres d'eau par citerne, acheminés par aqueduc.</b> L'eau parcourait des dizaines de kilomètres avant d'arriver aux thermes. Sur place, des citernes gigantesques stockaient l'eau froide. Puits et égouts évacuaient les eaux usées - une infrastructure sanitaire que l'Europe ne retrouvera qu'au XIXe siècle.",
+              "e": "💧"
+            },
+            {
+              "t": "<b>Pas de savon - de l'huile et un strigile.</b> Les Romains s'enduisaient le corps d'huile d'olive avant l'exercice à la palestre, puis se raclaient avec un strigile (lame recourbée) pour éliminer l'huile mêlée de sueur et de saleté. Hommes et femmes se baignaient à des heures différentes.",
+              "e": "🫒"
+            }
+          ]
+        },
+        {
+          "title": "La Crise du IIIe Siècle - Les Premières Invasions Barbares",
+          "date": "235 à 284 ap. J.-C.",
+          "tag": "Crise",
+          "icon": "⚔️",
+          "desc": "En 50 ans, Rome connaît 50 empereurs - dont la plupart meurent assassinés. L'Empire s'effondre en trois tronçons. C'est le début des grandes invasions : vers 260 ap. J.-C., les Francs franchissent le Rhin pour la première fois et ravagent la Gaule du Nord. Les Wisigoths pillent les Balkans. Les Burgondes s'installent sur le Rhin. Rome tient - mais l'Empire n'est plus jamais vraiment stable.",
+          "kind": "histoire",
+          "img": "/img/chronologie/premieres-invasion-barbare-sur-l-empire-romain.webp",
+          "anecdotes": [
+            {
+              "t": "<b>Entre 235 et 284, Rome eut 50 empereurs en 50 ans.</b> La plupart durèrent quelques mois avant d'être assassinés par leurs propres soldats. L'armée était devenue une machine à fabriquer et défaire des empereurs selon les soldes versées. Ce chaos interne explique autant que les invasions extérieures pourquoi l'Empire finit par céder.",
+              "e": "👑"
+            },
+            {
+              "t": "<b>Les Francs qui envahirent la Gaule vers 260 ap. J.-C.</b> sont les ancêtres directs des Français. Leur nom viendrait du germanique frank - « libre » ou « courageux ». Deux siècles plus tard, leur roi Clovis fondera le royaume de France. Les « barbares » qui ravagèrent la Gaule romaine devinrent les bâtisseurs de la France médiévale.",
+              "e": "🌊"
+            },
+            {
+              "t": "<b>L'Empire gallo-romain (260-274 ap. J.-C.)</b> est une anecdote fascinante : pendant 14 ans, la Gaule, la Bretagne et l'Espagne se séparèrent de Rome pour former leur propre empire indépendant, avec leur propre succession d'empereurs. Rome était trop occupée à survivre pour les reconquérir. Cet « empire » fut finalement réabsorbé pacifiquement par Aurélien.",
+              "e": "🔱"
+            }
+          ]
+        },
+        {
+          "title": "L'Édit de Milan - La Victoire du Christianisme",
+          "date": "313 ap. J.-C.",
+          "tag": "Événement",
+          "icon": "🌅",
+          "desc": "L'empereur Constantin proclame la liberté de culte dans tout l'Empire. Le christianisme, religion des persécutés depuis trois siècles, devient légal - puis bientôt officielle. En moins d'une génération, les temples gaulois ferment, les basiliques s'élèvent. L'Europe médiévale vient de naître.",
+          "kind": "histoire",
+          "img": "/img/chronologie/lediction-de-ledit-de-milan.webp",
+          "anecdotes": [
+            {
+              "t": "<b>La veille de la bataille du pont Milvius (312),</b> Constantin aurait vu une croix dans le ciel : « In hoc signo vinces » (Par ce signe tu vaincras). Il fit peindre la croix sur les boucliers - et remporta la victoire. Vision mystique ou calcul politique ? Les historiens débattent encore.",
+              "e": "⚔️"
+            },
+            {
+              "t": "<b>Constantin ne se fit baptiser que sur son lit de mort</b> en 337. Il avait passé sa vie à présider des conciles chrétiens tout en maintenant le culte solaire et en faisant assassiner son fils et sa femme. Le premier « empereur chrétien » est l'un des personnages les plus ambigus de l'Antiquité.",
+              "e": "🏛️"
+            },
+            {
+              "t": "<b>Constantin imposa le dimanche comme jour de repos</b> (dies Solis - le jour du Soleil). La semaine de 7 jours avec repos dominical, héritée de Rome et du christianisme, structure encore nos vies 1 700 ans plus tard. Chaque week-end est un héritage de Constantin.",
+              "e": "📅"
+            }
+          ]
+        },
+        {
+          "title": "Théodose - La Division de l'Empire Romain",
+          "date": "395 ap. J.-C.",
+          "tag": "Événement",
+          "icon": "🗺️",
+          "desc": "Le 17 janvier 395, l'empereur Théodose Ier meurt à Milan et divise l'Empire entre ses deux fils : Arcadius reçoit l'Orient (Constantinople), Honorius l'Occident (Rome). Cette séparation, pensée comme temporaire, sera définitive. En 380, Théodose avait déjà fait du christianisme la religion officielle de l'Empire - parachevant le travail de Constantin. L'Empire romain d'Occident survivra à peine 80 ans.",
+          "kind": "histoire",
+          "img": "/img/chronologie/les-deux-souverains-face-a-face.webp",
+          "anecdotes": [
+            {
+              "t": "<b>Théodose ferma tous les temples païens de l'Empire en 391.</b> Les Jeux Olympiques, célébrés sans interruption depuis -776, furent supprimés comme « fête païenne ». 12 siècles d'une tradition sportive unique effacés par décret. Les Jeux ne furent rétablis qu'en 1896 par Pierre de Coubertin - après 1 503 ans d'interruption.",
+              "e": "✝️"
+            },
+            {
+              "t": "<b>La division de 395 n'était pas censée être permanente.</b> C'était une pratique courante de partager l'Empire entre héritiers pour le gérer. Mais Arcadius et Honorius étaient trop faibles pour réunifier. L'Empire d'Occident s'effondra en 476. L'Empire d'Orient (Byzance) survécut encore 977 ans - jusqu'à la chute de Constantinople en 1453.",
+              "e": "💔"
+            },
+            {
+              "t": "<b>En faisant du christianisme la religion d'État, Théodose créa le modèle de l'État confessionnel</b> qui régit l'Europe pendant 1 400 ans. Toute dissidence religieuse devenait crime politique. Les hérétiques, les juifs et les derniers paiens furent persécutés par l'État. La séparation de l'Église et de l'État - que nous considérons normale - est une invention révolutionnaire des XVIIe-XVIIIe siècles.",
+              "e": "🕌"
+            }
+          ]
+        },
+        {
+          "title": "Sainte Geneviève - La Bergère qui Sauva Paris",
+          "date": "451 ap. J.-C.",
+          "tag": "Sainte",
+          "icon": "🕯️",
+          "desc": "En 451, la nouvelle se répand comme une traînée de poudre : Attila et ses Huns déferlent vers Paris. La population panique et s'apprête à fuir. Une jeune bergère de 27 ans, Geneviève de Nanterre, harangue les habitants et les femmes de la ville : elle leur ordonne de rester, de prier et de ne pas céder à la peur. Sa conviction est absolue - Dieu protégera Paris. Contre toute attente, les Huns dévient leur route et épargnent la ville. Geneviève devient la patronne de Paris, dont elle porte encore aujourd'hui le nom sur la montagne Sainte-Geneviève.",
+          "kind": "histoire",
+          "img": "/img/chronologie/sainte-genevieve-defendant-paris-en-451.webp",
+          "anecdotes": [
+            {
+              "t": "<b>Le Panthéon de Paris est construit à l'emplacement de sa tombe.</b> Louis XV, guéri d'une grave maladie, fait vœu d'édifier une grande église en l'honneur de sainte Geneviève. La Révolution en fait le Panthéon des grands hommes - mais la sainte reste présente dans les fresques de Puvis de Chavannes qui ornent encore ses murs.",
+              "e": "⛪"
+            },
+            {
+              "t": "<b>Geneviève était bergère à Nanterre quand l'évêque Germain d'Auxerre la repéra, vers 429, et lui prédit une grande destinée.</b> Elle avait 7 ans. À 15 ans, elle prend le voile et consacre sa vie à Dieu. Elle mourra vers 502 à près de 90 ans - ayant vécu assez longtemps pour voir Clovis, roi des Francs, entrer dans Paris.",
+              "e": "🐑"
+            },
+            {
+              "t": "<b>La légende du 'cierge de Geneviève' est célèbre.</b> Le diable soufflait sa bougie pendant qu'elle priait la nuit - elle la rallumait sans cesse. Ce motif iconographique - une jeune femme avec un cierge et un diable souffleur - est l'un des plus reconnaissables de l'art chrétien médiéval français.",
+              "e": "🕯️"
+            }
+          ]
+        },
+        {
+          "title": "Attila & les Huns aux Portes de Paris",
+          "date": "451 ap. J.-C.",
+          "tag": "Invasion",
+          "icon": "🏹",
+          "desc": "Attila, 'le fléau de Dieu', mène ses cavaliers huns à travers l'Europe. En 451, il menace Paris. Selon la tradition, la prière de la jeune Geneviève - future patronne de Paris - détourne les Huns. Attila est finalement stoppé aux Champs Catalauniques par une coalition romano-barbare. Il meurt en 453, probablement d'une hémorragie nasale lors de sa nuit de noces.",
+          "kind": "histoire",
+          "img": "/img/chronologie/atila.webp",
+          "anecdotes": [
+            {
+              "t": "À la mort d'Attila, ses guerriers se lacèrent le visage pour qu'un grand guerrier soit pleuré avec du sang et non des larmes de femme. Il est enterré dans trois cercueils emboîtés - or, argent, fer. Ses funérailles avaient lieu la nuit. Tous ceux qui avaient assisté aux funérailles furent tués pour que personne ne puisse révéler l'emplacement de sa tombe.",
+              "e": "💀"
+            },
+            {
+              "t": "<b>Attila fut arrêté aux Champs Catalauniques en 451 - pas seulement par la prière.</b> La vraie victoire fut celle d'une coalition improbable : le général romain Aetius, son ancien otage chez les Huns, s'allia avec le roi wisigoth Théodoric (qui mourut dans la bataille) pour stopper l'armée d'Attila près de Châlons-en-Champagne. C'est l'une des dernières grandes victoires de Rome - et Aetius, le 'dernier des Romains', sera assassiné par l'empereur qu'il venait de sauver.",
+              "e": "⚔️"
+            },
+            {
+              "t": "<b>Attila mourut d'une hémorragie nasale lors de sa nuit de noces avec Ildico en 453.</b> À ses funérailles nocturnes, ses guerriers se lacérèrent le visage pour qu'un grand guerrier soit pleuré avec du sang et non des larmes de femme. Il fut enterré dans trois cercueils emboîtés - or, argent, fer. Tous ceux présents à l'enterrement furent tués pour que personne ne révèle l'emplacement de sa tombe. Elle n'a jamais été retrouvée.",
+              "e": "💀"
+            }
+          ]
+        },
+        {
+          "title": "Chute de l'Empire Romain d'Occident",
+          "date": "476 ap. J.-C.",
+          "tag": "Événement",
+          "icon": "🏛️",
+          "desc": "Le 4 septembre 476, le chef barbare Odoacre destitue Romulus Augustule, dernier empereur romain d'Occident. Ce n'est pas une chute dramatique - Rome se vide depuis des décennies. Mais cette date marque symboliquement la fin de l'Antiquité et le début du Moyen Âge. L'Empire romain d'Orient (Byzance) survivra lui jusqu'en 1453.",
+          "kind": "histoire",
+          "img": "/img/chronologie/la-chute-de-rome-476-apres-j-c.webp",
+          "anecdotes": [
+            {
+              "t": "'Personne ne remarqua la chute de Rome' - l'historien Bryan Ward-Perkins. En réalité, pour les habitants de l'époque, la transition fut graduelle. C'est seulement des siècles plus tard que les historiens fixeront 476 comme la date symbolique de la fin du monde antique.",
+              "e": "🏛️"
+            },
+            {
+              "t": "<b>'Personne ne remarqua la chute de Rome.'</b> L'historien Bryan Ward-Perkins résume une réalité troublante : pour les contemporains, la destitution de Romulus Augustule en 476 ne fut pas un événement majeur. L'Empire se fragmentait depuis des décennies, des rois barbares gouvernaient déjà des provinces entières. Ce sont des historiens des siècles suivants qui fixèrent 476 comme date symbolique de la 'fin du monde antique'. Les grandes ruptures historiques sont souvent invisibles à ceux qui les vivent.",
+              "e": "📚"
+            },
+            {
+              "t": "<b>L'Empire romain d'Orient, lui, survécut jusqu'en 1453.</b> Constantinople - la 'Nouvelle Rome' fondée par Constantin en 330 - résista 977 ans de plus. Cet Empire byzantin parlait grec, était chrétien, et se considérait comme la continuation directe de Rome. Quand il tomba sous les canons ottomans de Mehmed II le 29 mai 1453, des érudits byzantins s'enfuirent en Italie avec leurs manuscrits grecs - déclenchant la Renaissance. La chute de Byzance nourrit la naissance de l'Europe moderne.",
+              "e": "🏛️"
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

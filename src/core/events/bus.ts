@@ -12,6 +12,8 @@ export interface DomainEvents {
   'answer.wrong': { brick: string; sujet: string; itemId: string };
   'card.reviewed': { brick: string; sujet: string; itemId: string };
   'streak.advance': { brick: string; valeur: number };
+  // Frise : un evenement a ete consulte (anecdotes depliees).
+  'timeline.viewed': { brick: string; sujet: string; eventId: string };
 }
 
 export type DomainEventName = keyof DomainEvents;

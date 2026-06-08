@@ -17,6 +17,16 @@ import type { ContentKind } from '../core/content/load';
 export type EtatEntree = 'disponible' | 'a-venir';
 export type SectionAccueil = 'entrainement' | 'modules';
 
+// Lancement direct d'une brique depuis l'accueil (cas des modules : on va droit a la
+// brique, sans ecran d'entree intermediaire, conformement a l'audit). Identifie le pack
+// a jouer (sujet + titre) que la brique chargera via ctx.content.
+export interface LancementDirect {
+  brickId: string;
+  contentKind: ContentKind;
+  sujet: string;
+  titre: string;
+}
+
 // Un mode au sein d'une activite (ex. les 3 modes du Quiz : Questions / Dates / Images).
 export interface ModeEntree {
   id: string;
@@ -45,6 +55,8 @@ export interface NavEntry {
   etat: EtatEntree;
   // Present quand l'ecran de niveau 2 propose des modes (sinon : simple placeholder).
   modes?: readonly ModeEntree[];
+  // Present quand l'entree lance directement une brique (modules : pas d'ecran de modes).
+  lancement?: LancementDirect;
 }
 
 export const ENTRIES: readonly NavEntry[] = [
@@ -115,7 +127,14 @@ export const ENTRIES: readonly NavEntry[] = [
     description:
       "Remonte le temps des grandes civilisations jusqu'a l'epoque contemporaine. Empires, revolutions, decouvertes - toute l'histoire du monde sur une frise interactive.",
     tags: ['Antiquite', 'Moyen Age', 'Moderne', 'Contemporain'],
-    etat: 'a-venir',
+    etat: 'disponible',
+    // Migration pilote : seule la branche Antiquite est encore migree.
+    lancement: {
+      brickId: 'chronologie',
+      contentKind: 'chronologie',
+      sujet: 'histoire',
+      titre: 'Antiquité',
+    },
   },
   {
     id: 'atlas',

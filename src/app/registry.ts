@@ -1,6 +1,8 @@
 import type { ContentEntry } from '../core/content/client';
 import type { ContentKind } from '../core/content/load';
+import type { AppContext } from '../core/context';
 import * as quizBrick from '../bricks/quiz/brick';
+import * as chronologieBrick from '../bricks/chronologie/brick';
 
 /*
   REGISTRE - source unique de verite : briques + packs de contenu + entrees de nav.
@@ -13,16 +15,29 @@ import * as quizBrick from '../bricks/quiz/brick';
 // garder le registre comme facade unique de la navigation generee.
 export * from './entries';
 
+// Frontiere commune des manifests de brique (forme structurelle, tous contentKinds).
+export interface BrickManifest {
+  id: string;
+  name: string;
+  version: string;
+  route: string;
+  icon: string;
+  description: string;
+  contentKinds: readonly string[];
+  niveaux: readonly string[];
+}
+
 // Une brique declaree : son manifest + sa frontiere mount/unmount.
 export interface BrickModule {
-  manifest: typeof quizBrick.manifest;
-  mount: typeof quizBrick.mount;
-  unmount: typeof quizBrick.unmount;
+  manifest: BrickManifest;
+  mount: (container: HTMLElement, ctx: AppContext) => void;
+  unmount: () => void;
 }
 
 export const BRICKS: readonly BrickModule[] = [
   quizBrick,
-  // <- ajouter ici flashcards, timeline, logique... (1 ligne par activite)
+  chronologieBrick,
+  // <- ajouter ici flashcards, logique... (1 ligne par activite)
 ];
 
 // Packs de contenu. Le .json est valide par Zod au chargement (jamais en dur dans le JSX).
@@ -55,6 +70,9 @@ export const CONTENT: readonly ContentEntry[] = [
   { sujet: 'histoire', contentKind: 'qcm', titre: 'Histoire du monde', load: () => import('../content/histoire/histoire-du-monde-qcm.json') },
   // { sujet: 'mathematiques', contentKind: 'qcm', titre: 'Theoreme de Pythagore',
   //   load: () => import('../content/mathematiques/pythagore-qcm.json') },
+
+  // Chronologie (frise) : une branche = un pack. Migration pilote = Antiquite.
+  { sujet: 'histoire', contentKind: 'chronologie', titre: 'Antiquité', load: () => import('../content/chronologie/antiquite.json') },
 ];
 
 // Apparie chaque pack avec les briques capables de le jouer (par contentKind).

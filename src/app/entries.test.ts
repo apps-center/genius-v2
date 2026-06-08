@@ -33,8 +33,22 @@ describe('registre de navigation (entries)', () => {
     ]);
   });
 
-  it('seul le Quiz est disponible ; tout le reste est a venir', () => {
-    expect(ENTRIES.filter((e) => e.etat === 'disponible').map((e) => e.id)).toEqual(['quiz']);
+  it('entrees disponibles : Quiz et Chronologie Historique ; le reste a venir', () => {
+    const dispo = ENTRIES.filter((e) => e.etat === 'disponible')
+      .map((e) => e.id)
+      .sort();
+    expect(dispo).toEqual(['chronologie', 'quiz']);
+  });
+
+  it('la Chronologie lance directement la brique chronologie sur la branche Antiquite', () => {
+    const chrono = entreeParId('chronologie');
+    expect(chrono?.etat).toBe('disponible');
+    expect(chrono?.lancement).toEqual({
+      brickId: 'chronologie',
+      contentKind: 'chronologie',
+      sujet: 'histoire',
+      titre: 'Antiquité',
+    });
   });
 
   it('le Quiz propose 3 modes, seul Quiz Questions est jouable', () => {

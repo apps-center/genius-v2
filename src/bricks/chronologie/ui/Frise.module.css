@@ -1,0 +1,308 @@
+.wrap {
+  max-width: 1000px;
+  margin: 0 auto;
+  padding: var(--space-4) var(--space-4) var(--space-8);
+}
+
+/* --- Etats de chargement / erreur --- */
+.state {
+  text-align: center;
+  color: var(--color-text-muted);
+  padding: var(--space-7);
+}
+
+.error {
+  max-width: 560px;
+  margin: var(--space-7) auto;
+  background: var(--color-card-bg);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-lg);
+}
+
+.errorTitle {
+  font-family: var(--font-display);
+  font-weight: var(--weight-bold);
+  letter-spacing: var(--tracking);
+  text-transform: uppercase;
+  color: var(--color-danger);
+  font-size: var(--font-sm);
+}
+
+.errorMsg {
+  color: var(--color-text-muted);
+  font-size: var(--font-sm);
+  margin-top: var(--space-3);
+  word-break: break-word;
+}
+
+/* --- En-tete --- */
+.head {
+  text-align: center;
+  padding: var(--space-4) 0 var(--space-6);
+}
+
+.kicker {
+  font-family: var(--font-display);
+  font-size: var(--font-xs);
+  letter-spacing: var(--tracking-wide);
+  text-transform: uppercase;
+  color: var(--color-text-muted);
+}
+
+.titre {
+  font-size: var(--font-2xl);
+  text-transform: uppercase;
+  letter-spacing: var(--tracking-tight);
+  background: var(--gradient-gold);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+  margin: var(--space-2) 0;
+}
+
+.sous {
+  font-style: italic;
+  color: var(--color-text-muted);
+}
+
+/* --- Frise verticale --- */
+.timeline {
+  position: relative;
+}
+
+/* Ligne verticale : a gauche en mobile, recentree en desktop. */
+.timeline::before {
+  content: '';
+  position: absolute;
+  inset-block: 0;
+  left: 7px;
+  width: 2px;
+  background: var(--color-line);
+}
+
+/* Entete de section (periode sans evenement) : bandeau centre couvrant la ligne. */
+.entete {
+  position: relative;
+  z-index: 1;
+  margin: var(--space-6) 0 var(--space-5);
+  padding: var(--space-3) var(--space-4);
+  text-align: center;
+  font-family: var(--font-display);
+  font-weight: var(--weight-bold);
+  font-size: var(--font-md);
+  text-transform: uppercase;
+  letter-spacing: var(--tracking);
+  color: var(--color-gold);
+  background: var(--color-surface-2);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius);
+}
+
+.periode {
+  position: relative;
+  margin-bottom: var(--space-6);
+}
+
+/* Etiquette de sous-periode : petite pastille centree au-dessus de la ligne. */
+.era {
+  position: relative;
+  z-index: 1;
+  display: inline-block;
+  margin: var(--space-5) 0 var(--space-5);
+  padding: var(--space-2) var(--space-4);
+  font-family: var(--font-display);
+  font-size: var(--font-sm);
+  text-transform: uppercase;
+  letter-spacing: var(--tracking-tight);
+  color: var(--color-text);
+  background: var(--color-surface);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-pill);
+}
+
+.events {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-5);
+}
+
+/* --- Carte d'evenement --- */
+.card {
+  position: relative;
+  margin-left: var(--space-6);
+  background: var(--color-card-bg);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-lg);
+  box-shadow: var(--shadow-card);
+  overflow: hidden;
+  transition: border-color var(--transition), box-shadow var(--transition);
+}
+
+.card:hover {
+  border-color: var(--color-gold);
+  box-shadow: var(--shadow-glow);
+}
+
+/* Pastille posee sur la ligne (alignee sur le trait a 8px en mobile). */
+.point {
+  position: absolute;
+  top: var(--space-5);
+  left: calc(-1 * var(--space-6) + 1px);
+  width: 14px;
+  height: 14px;
+  border-radius: var(--radius-pill);
+  background: var(--color-gold);
+  box-shadow: var(--shadow-glow);
+}
+
+.image {
+  display: block;
+  width: 100%;
+  max-height: 240px;
+  object-fit: cover;
+  border-bottom: 1px solid var(--color-border);
+}
+
+.cardBody {
+  padding: var(--space-5);
+}
+
+.cardHead {
+  display: flex;
+  align-items: center;
+  gap: var(--space-3);
+  margin-bottom: var(--space-2);
+}
+
+.icon {
+  font-size: var(--font-lg);
+  line-height: 1;
+}
+
+.tag {
+  font-family: var(--font-display);
+  font-size: var(--font-xs);
+  letter-spacing: var(--tracking);
+  text-transform: uppercase;
+  color: var(--color-gold);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-sm);
+  padding: var(--space-1) var(--space-2);
+}
+
+.date {
+  font-family: var(--font-display);
+  font-size: var(--font-sm);
+  letter-spacing: var(--tracking);
+  text-transform: uppercase;
+  color: var(--color-gold-2);
+}
+
+.cardTitle {
+  font-family: var(--font-display);
+  font-weight: var(--weight-bold);
+  font-size: var(--font-lg);
+  margin: var(--space-2) 0 var(--space-3);
+  line-height: 1.2;
+}
+
+.desc {
+  color: var(--color-text);
+  font-size: var(--font-md);
+  line-height: 1.6;
+}
+
+/* --- Anecdotes depliables --- */
+.toggle {
+  display: inline-flex;
+  align-items: center;
+  min-height: var(--tap-min);
+  margin-top: var(--space-4);
+  padding: 0 var(--space-4);
+  background: transparent;
+  border: 1px solid var(--color-gold);
+  border-radius: var(--radius);
+  color: var(--color-gold);
+  font-family: var(--font-display);
+  font-size: var(--font-xs);
+  letter-spacing: var(--tracking);
+  text-transform: uppercase;
+  cursor: pointer;
+  transition: background var(--transition), color var(--transition);
+}
+
+.toggle:hover {
+  background: var(--color-gold);
+  color: var(--color-bg);
+}
+
+.anecdotes {
+  list-style: none;
+  margin: var(--space-4) 0 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-3);
+}
+
+.anecdote {
+  display: flex;
+  gap: var(--space-3);
+  padding: var(--space-4);
+  background: var(--color-surface);
+  border: 1px solid var(--color-line);
+  border-radius: var(--radius);
+}
+
+.anecdoteEmoji {
+  font-size: var(--font-lg);
+  line-height: 1.4;
+  flex-shrink: 0;
+}
+
+.anecdoteText {
+  color: var(--color-text-muted);
+  font-size: var(--font-sm);
+  line-height: 1.6;
+}
+
+.anecdoteText b {
+  color: var(--color-text);
+}
+
+/* --- Bureau : frise a deux colonnes alternees --- */
+@media (min-width: 768px) {
+  .timeline::before {
+    left: 50%;
+    transform: translateX(-50%);
+  }
+
+  .era {
+    display: block;
+    width: max-content;
+    margin-inline: auto;
+  }
+
+  .card {
+    width: calc(50% - var(--space-6));
+    margin-left: 0;
+  }
+
+  .gauche {
+    margin-right: auto;
+  }
+
+  .droite {
+    margin-left: auto;
+  }
+
+  .gauche .point {
+    left: auto;
+    right: calc(-1 * var(--space-6) - 7px);
+  }
+
+  .droite .point {
+    left: calc(-1 * var(--space-6) - 7px);
+    right: auto;
+  }
+}
