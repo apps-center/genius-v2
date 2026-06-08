@@ -72,9 +72,15 @@ export function Hub() {
 
 function EntryCard({ entree }: { entree: NavEntry }) {
   const aVenir = entree.etat === 'a-venir';
+  // Un module a lancement direct va droit a la brique ; sinon, ecran d'entree de niveau 2.
+  const cible = entree.lancement
+    ? `/play/${entree.lancement.brickId}?sujet=${encodeURIComponent(
+        entree.lancement.sujet,
+      )}&titre=${encodeURIComponent(entree.lancement.titre)}`
+    : `/activite/${entree.id}`;
   return (
     <Link
-      to={`/activite/${entree.id}`}
+      to={cible}
       className={`${styles.cardLink} ${aVenir ? styles.cardComing : ''}`}
     >
       <article className={styles.card}>

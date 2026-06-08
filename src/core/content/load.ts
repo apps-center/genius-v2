@@ -1,5 +1,6 @@
 import { z } from 'zod';
 import { QcmPack } from './qcm.schema';
+import { ChronologiePack } from './chronologie.schema';
 
 /*
   Chargement + validation des packs. ZERO React.
@@ -27,6 +28,7 @@ function formatIssues(error: z.ZodError): string {
 // Map contentKind -> schema. Ajouter un contentKind = ajouter une entree ici.
 const SCHEMAS = {
   qcm: QcmPack,
+  chronologie: ChronologiePack,
 } as const;
 
 export type ContentKind = keyof typeof SCHEMAS;
@@ -43,16 +45,13 @@ export function parseQcmPack(raw: unknown): QcmPack {
 }
 
 // Generique : valide selon le contentKind attendu.
-export function parsePack<K extends ContentKind>(
-  kind: K,
-  raw: unknown,
-): z.infer<(typeof SCHEMAS)[K]> {
-  const schema = SCHEMAS[kind];
+// Le schema est indexe par une cle generique : on le traite en ZodTypeAny pour le
+// safeParse, puis on retypage le resultat vers le pack attendu (PackByKind[K]).
+export function parsePack<K extends ContentKind>(kind: K, raw: unknown): PackByKind[K] {
+  const schema = SCHEMAS[kind] as z.ZodTypeAny;
   const res = schema.safeParse(raw);
   if (!res.success) {
-    throw new ContentError(
-      `Pack "${kind}" invalide : ${formatIssues(res.error)}`,
-    );
+    throw new ContentError(`Pack "${kind}" invalide : ${formatIssues(res.error)}`);
   }
-  return res.data as z.infer<(typeof SCHEMAS)[K]>;
+  return res.data as PackByKind[K];
 }
