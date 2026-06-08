@@ -1,92 +1,119 @@
 {
   "contentKind": "qcm",
   "sujet": "histoire",
-  "titre": "Antiquite",
+  "titre": "Antiquité",
   "items": [
     {
-      "id": "ant-01",
-      "question": "Quelle cite grecque est consideree comme le berceau de la democratie ?",
-      "choix": ["Sparte", "Athenes", "Thebes", "Corinthe"],
-      "bonneReponse": 1,
-      "explication": "A Athenes, au Ve siecle avant notre ere, les citoyens votaient les lois sur l'agora.",
-      "niveau": "6e"
-    },
-    {
-      "id": "ant-02",
-      "question": "Qui a fonde Rome selon la legende ?",
-      "choix": ["Cesar et Pompee", "Romulus et Remus", "Enee et Didon", "Brutus et Caton"],
-      "bonneReponse": 1,
-      "explication": "La legende raconte que les jumeaux Romulus et Remus, eleves par une louve, fondent Rome en 753 avant notre ere.",
-      "niveau": "6e"
-    },
-    {
-      "id": "ant-03",
-      "question": "Quel fleuve a permis l'essor de la civilisation egyptienne ?",
-      "choix": ["Le Tigre", "L'Euphrate", "Le Nil", "Le Jourdain"],
-      "bonneReponse": 2,
-      "explication": "Les crues du Nil deposaient un limon fertile qui rendait l'agriculture possible dans le desert.",
-      "niveau": "6e"
-    },
-    {
-      "id": "ant-04",
-      "question": "Quel general carthaginois a traverse les Alpes avec des elephants ?",
-      "choix": ["Hannibal", "Scipion", "Vercingetorix", "Spartacus"],
-      "bonneReponse": 0,
-      "explication": "Pendant la deuxieme guerre punique, Hannibal franchit les Alpes pour attaquer Rome par le nord.",
-      "niveau": "5e"
-    },
-    {
-      "id": "ant-05",
-      "question": "Quelle ecriture les Egyptiens utilisaient-ils ?",
-      "choix": ["Le cuneiforme", "Les hieroglyphes", "L'alphabet latin", "Les ideogrammes chinois"],
-      "bonneReponse": 1,
-      "explication": "Les hieroglyphes melaient signes-images et signes-sons ; Champollion les a dechiffres en 1822.",
-      "niveau": "6e"
-    },
-    {
-      "id": "ant-06",
-      "question": "En quelle annee Jules Cesar est-il assassine ?",
-      "choix": ["44 avant notre ere", "476 apres notre ere", "753 avant notre ere", "0"],
-      "bonneReponse": 0,
-      "explication": "Cesar est tue au Senat aux ides de mars, le 15 mars 44 avant notre ere.",
-      "niveau": "5e"
-    },
-    {
-      "id": "ant-07",
-      "question": "Quel monument d'Athenes etait dedie a la deesse Athena ?",
-      "choix": ["Le Colisee", "Le Parthenon", "Le Pantheon", "La Pyramide"],
-      "bonneReponse": 1,
-      "explication": "Le Parthenon, sur l'Acropole, abritait une grande statue d'Athena, protectrice de la cite.",
-      "niveau": "6e"
-    },
-    {
-      "id": "ant-08",
-      "question": "Quel peuple a developpe les premieres cites-Etats en Mesopotamie ?",
-      "choix": ["Les Sumeriens", "Les Vikings", "Les Gaulois", "Les Mayas"],
-      "bonneReponse": 0,
-      "explication": "Des le IVe millenaire, les Sumeriens fondent des cites comme Ur et Uruk entre le Tigre et l'Euphrate.",
-      "niveau": "5e"
-    },
-    {
-      "id": "ant-09",
-      "question": "Comment s'appelait l'immense empire dirige par Alexandre le Grand ?",
-      "choix": ["L'Empire perse", "L'Empire macedonien", "L'Empire ottoman", "L'Empire mongol"],
-      "bonneReponse": 1,
-      "explication": "Parti de Macedoine, Alexandre conquiert un empire qui s'etend jusqu'aux portes de l'Inde.",
-      "niveau": "5e"
-    },
-    {
-      "id": "ant-10",
-      "question": "Quelle date marque traditionnellement la fin de l'Antiquite ?",
+      "id": "antiquite-01",
+      "question": "Où se trouve Uruk, considérée comme la première grande ville du monde ?",
       "choix": [
-        "La chute de l'Empire romain d'Occident en 476",
-        "La prise de Constantinople en 1453",
-        "La decouverte de l'Amerique en 1492",
-        "La Revolution francaise en 1789"
+        "En Irak actuel (Mésopotamie)",
+        "En Égypte",
+        "En Grèce",
+        "En Iran"
       ],
       "bonneReponse": 0,
-      "explication": "La chute de Rome face aux peuples germaniques en 476 ouvre le Moyen Age en Occident.",
-      "niveau": "5e"
+      "explication": "Uruk (Irak actuel) dépasse 50 000 habitants vers -3 200 av. J.-C. - la première métropole de l'histoire, entre le Tigre et l'Euphrate.",
+      "niveau": "6e",
+      "sujet": "Antiquité"
+    },
+    {
+      "id": "antiquite-02",
+      "question": "Qui a unifié la Haute et la Basse-Égypte pour créer le premier État égyptien ?",
+      "choix": [
+        "Ménès (Narmer)",
+        "Ramsès II",
+        "Toutankhamon",
+        "Akhenaton"
+      ],
+      "bonneReponse": 0,
+      "explication": "Ménès (ou Narmer) réunit les deux Égypte vers -3 100 av. J.-C. sous la double couronne blanche et rouge, symbole encore présent dans les hiéroglyphes.",
+      "niveau": "6e",
+      "sujet": "Antiquité"
+    },
+    {
+      "id": "antiquite-03",
+      "question": "Le Code d'Hammurabi, premier grand code de lois, est gravé sur…",
+      "choix": [
+        "Une stèle de basalte noir",
+        "Un papyrus de 3 mètres",
+        "Des tablettes d'argile",
+        "Un mur de temple"
+      ],
+      "bonneReponse": 0,
+      "explication": "Le Code d'Hammurabi est gravé sur une stèle de 2,25 m de basalte noir, aujourd'hui au musée du Louvre. Il contient 282 lois.",
+      "niveau": "6e",
+      "sujet": "Antiquité"
+    },
+    {
+      "id": "antiquite-04",
+      "question": "Quel pharaon est surnommé 'le Pharaon Hérétique' pour avoir imposé le monothéisme en Égypte ?",
+      "choix": [
+        "Akhenaton",
+        "Ramsès II",
+        "Toutankhamon",
+        "Khéops"
+      ],
+      "bonneReponse": 0,
+      "explication": "Amenhotep IV, dit Akhenaton, imposa le culte du seul dieu Aton, révolutionnant la religion égyptienne. À sa mort, son successeur Toutankhamon restaura les anciens dieux.",
+      "niveau": "6e",
+      "sujet": "Antiquité"
+    },
+    {
+      "id": "antiquite-05",
+      "question": "Cyrus le Grand est appelé 'Messie' dans la Bible car il…",
+      "choix": [
+        "Libéra les Juifs déportés à Babylone et autorisa leur retour",
+        "Convertit la Perse au judaïsme",
+        "Construisit le Temple de Jérusalem",
+        "Vainquit Nabuchodonosor"
+      ],
+      "bonneReponse": 0,
+      "explication": "En -538, Cyrus le Grand conquit Babylone et publia l'Édit de Cyrus, permettant à tous les peuples déportés de rentrer chez eux. C'est la première déclaration de liberté religieuse connue.",
+      "niveau": "6e",
+      "sujet": "Antiquité"
+    },
+    {
+      "id": "antiquite-06",
+      "question": "En quelle année Nabuchodonosor détruit-il le Temple de Salomon ?",
+      "choix": [
+        "-586 av. J.-C.",
+        "-400 av. J.-C.",
+        "-722 av. J.-C.",
+        "-63 av. J.-C."
+      ],
+      "bonneReponse": 0,
+      "explication": "En -586, Nabuchodonosor II rase le Premier Temple et déporte les élites juives à Babylone - le traumatisme fondateur de l'histoire juive.",
+      "niveau": "6e",
+      "sujet": "Antiquité"
+    },
+    {
+      "id": "antiquite-07",
+      "question": "Quelle ville est appelée 'la ville aux trois religions' ?",
+      "choix": [
+        "Jérusalem",
+        "Alexandrie",
+        "Carthage",
+        "Antioche"
+      ],
+      "bonneReponse": 0,
+      "explication": "Jérusalem est le lieu saint du judaïsme, du christianisme et de l'islam. Elle fut fondée comme capitale par David vers -1000 av. J.-C.",
+      "niveau": "6e",
+      "sujet": "Antiquité"
+    },
+    {
+      "id": "antiquite-08",
+      "question": "Le peuple phénicien est connu pour quelle invention majeure ?",
+      "choix": [
+        "L'alphabet à consonnes",
+        "La roue",
+        "Les chiffres arabes",
+        "Le papyrus"
+      ],
+      "bonneReponse": 0,
+      "explication": "Les Phéniciens inventèrent l'alphabet consonantique vers -1 200 av. J.-C. - ancêtre de l'alphabet grec, latin et de la quasi-totalité des alphabets modernes.",
+      "niveau": "6e",
+      "sujet": "Antiquité"
     }
   ]
 }

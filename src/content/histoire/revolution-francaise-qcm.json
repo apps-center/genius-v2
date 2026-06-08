@@ -1,0 +1,49 @@
+{
+  "contentKind": "qcm",
+  "sujet": "histoire",
+  "titre": "Révolution française",
+  "items": [
+    {
+      "id": "revolution-francaise-01",
+      "question": "Combien de prisonniers la Bastille comptait-elle lors de sa prise le 14 juillet 1789 ?",
+      "choix": [
+        "7 prisonniers seulement",
+        "300 prisonniers",
+        "Des milliers de condamnés politiques",
+        "Aucun - la prison était vide"
+      ],
+      "bonneReponse": 0,
+      "explication": "La Bastille ne comptait que 7 prisonniers le 14 juillet 1789 (dont 4 faussaires et 2 fous). Sa prise n'avait qu'une valeur symbolique - celle du despotisme royal qu'elle représentait.",
+      "niveau": "4e",
+      "sujet": "Révolution française"
+    },
+    {
+      "id": "revolution-francaise-02",
+      "question": "Quel document fondamental est adopté par l'Assemblée nationale le 26 août 1789 ?",
+      "choix": [
+        "La Déclaration des droits de l'Homme et du Citoyen",
+        "La Constitution de 1791",
+        "Le Code civil napoléonien",
+        "La Déclaration d'indépendance américaine"
+      ],
+      "bonneReponse": 0,
+      "explication": "La Déclaration des droits de l'Homme et du Citoyen (26 août 1789) proclame liberté, égalité, souveraineté nationale et séparation des pouvoirs. Elle reste le texte fondateur de la démocratie française.",
+      "niveau": "4e",
+      "sujet": "Révolution française"
+    },
+    {
+      "id": "revolution-francaise-03",
+      "question": "Robespierre est renversé lors de quelle journée révolutionnaire, mettant fin à la Terreur ?",
+      "choix": [
+        "Le 9 thermidor an II (27 juillet 1794)",
+        "Le 18 brumaire an VIII",
+        "Le 10 août 1792",
+        "Le 21 janvier 1793"
+      ],
+      "bonneReponse": 0,
+      "explication": "Le 9 thermidor (27 juillet 1794), Robespierre est arrêté à la Convention par ses propres alliés qui craignent d'être les prochains guillotinés. Il est exécuté le lendemain. La Terreur prend fin.",
+      "niveau": "4e",
+      "sujet": "Révolution française"
+    }
+  ]
+}

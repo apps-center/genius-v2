@@ -1,0 +1,77 @@
+{
+  "contentKind": "qcm",
+  "sujet": "histoire",
+  "titre": "Égypte et Mésopotamie",
+  "items": [
+    {
+      "id": "egypte-mesopotamie-01",
+      "question": "Combien d'articles contient le Code d'Hammurabi, et où est-il conservé ?",
+      "choix": [
+        "282 articles - au Louvre à Paris",
+        "100 articles - au British Museum",
+        "450 articles - au Musée du Caire",
+        "50 articles - à Istanbul"
+      ],
+      "bonneReponse": 0,
+      "explication": "Le Code d'Hammurabi compte 282 lois gravées sur une stèle de basalte noir de 2,25 m. Elle a été découverte à Suse en 1901 et est aujourd'hui exposée au Louvre.",
+      "niveau": "6e",
+      "sujet": "Égypte & Mésopotamie"
+    },
+    {
+      "id": "egypte-mesopotamie-02",
+      "question": "Quel dieu unique Akhenaton imposa-t-il aux Égyptiens ?",
+      "choix": [
+        "Aton - le disque solaire aux rayons terminés par des mains",
+        "Rê - le dieu-soleil traditionnel",
+        "Osiris - dieu des morts",
+        "Horus - le dieu faucon"
+      ],
+      "bonneReponse": 0,
+      "explication": "Akhenaton imposa le culte d'Aton, disque solaire dont les rayons se terminent en mains humaines symbolisant sa bienveillance. C'est le premier monothéisme d'État connu de l'histoire.",
+      "niveau": "6e",
+      "sujet": "Égypte & Mésopotamie"
+    },
+    {
+      "id": "egypte-mesopotamie-03",
+      "question": "Quel archéologue découvrit la tombe intacte de Toutankhamon en 1922 ?",
+      "choix": [
+        "Howard Carter - financé par Lord Carnarvon",
+        "Heinrich Schliemann - découvreur de Troie",
+        "Jean-François Champollion - déchiffreur des hiéroglyphes",
+        "Arthur Evans - fouilleur de Cnossos"
+      ],
+      "bonneReponse": 0,
+      "explication": "Howard Carter découvre le 4 novembre 1922 l'entrée de la tombe KV62. C'est la seule tombe royale égyptienne retrouvée quasiment intacte, avec ses 5 000 objets funéraires.",
+      "niveau": "6e",
+      "sujet": "Égypte & Mésopotamie"
+    },
+    {
+      "id": "egypte-mesopotamie-04",
+      "question": "Quel est le premier traité de paix international connu, signé par Ramsès II ?",
+      "choix": [
+        "Le traité de Qadesh avec les Hittites (−1 259)",
+        "Le traité d'Alexandrie avec la Perse",
+        "Le traité de Ninive avec les Assyriens",
+        "Le traité d'Amarna avec la Nubie"
+      ],
+      "bonneReponse": 0,
+      "explication": "Le traité de Qadesh (-1 259) entre Ramsès II et le roi hittite Hattusili III est le plus ancien traité de paix connu. Une copie est exposée au siège de l'ONU à New York.",
+      "niveau": "6e",
+      "sujet": "Égypte & Mésopotamie"
+    },
+    {
+      "id": "egypte-mesopotamie-05",
+      "question": "Quelle fête juive commémore chaque année la libération d'Égypte sous Moïse ?",
+      "choix": [
+        "La Pâque (Pessah)",
+        "Yom Kippour",
+        "Roch Hachana",
+        "Souccot"
+      ],
+      "bonneReponse": 0,
+      "explication": "La Pâque (Pessah) est célébrée chaque printemps depuis 3 000 ans. Elle commémore la sortie d'Égypte et se célèbre autour d'un repas rituel, le seder, où l'on raconte l'histoire de la libération.",
+      "niveau": "6e",
+      "sujet": "Égypte & Mésopotamie"
+    }
+  ]
+}

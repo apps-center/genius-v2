@@ -1,0 +1,35 @@
+{
+  "contentKind": "qcm",
+  "sujet": "histoire",
+  "titre": "Guerres de Religion",
+  "items": [
+    {
+      "id": "guerres-de-religion-01",
+      "question": "La Saint-Barthélemy (24 août 1572) est un massacre ordonné par qui ?",
+      "choix": [
+        "Catherine de Médicis et Charles IX",
+        "Henri de Navarre (futur Henri IV)",
+        "Le duc de Guise seul",
+        "Le pape Grégoire XIII"
+      ],
+      "bonneReponse": 0,
+      "explication": "Catherine de Médicis convainc son fils Charles IX d'ordonner l'assassinat des chefs protestants réunis à Paris pour le mariage d'Henri de Navarre. Le massacre fait entre 3 000 et 30 000 morts en France.",
+      "niveau": "4e",
+      "sujet": "Guerres de Religion"
+    },
+    {
+      "id": "guerres-de-religion-02",
+      "question": "L'Édit de Nantes (1598) met fin aux guerres de Religion. Combien d'années ces guerres ont-elles duré ?",
+      "choix": [
+        "36 ans (1562-1598)",
+        "10 ans",
+        "100 ans",
+        "50 ans"
+      ],
+      "bonneReponse": 0,
+      "explication": "Les guerres de Religion (1562-1598) déchirent la France pendant 36 ans en 8 conflits distincts. L'Édit de Nantes d'Henri IV accorde la liberté de culte aux protestants - paix précaire, révoquée en 1685.",
+      "niveau": "4e",
+      "sujet": "Guerres de Religion"
+    }
+  ]
+}

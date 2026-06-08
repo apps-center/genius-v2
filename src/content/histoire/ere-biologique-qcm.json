@@ -1,0 +1,63 @@
+{
+  "contentKind": "qcm",
+  "sujet": "histoire",
+  "titre": "Ère biologique",
+  "items": [
+    {
+      "id": "ere-biologique-01",
+      "question": "Dans quel environnement est probablement apparue la première vie sur Terre ?",
+      "choix": [
+        "Autour de cheminées hydrothermales sous-marines",
+        "Dans les eaux douces d'un lac",
+        "Dans des mares à la surface des continents",
+        "Dans l'atmosphère terrestre"
+      ],
+      "bonneReponse": 0,
+      "explication": "La vie est probablement apparue autour de cheminées hydrothermales à 300°C dans les profondeurs des océans primitifs, il y a 3,8 milliards d'années. Ces environnements fournissent énergie et minéraux.",
+      "niveau": "6e",
+      "sujet": "Ère Biologique"
+    },
+    {
+      "id": "ere-biologique-02",
+      "question": "Quel pourcentage de l'oxygène mondial les algues marines produisent-elles encore aujourd'hui ?",
+      "choix": [
+        "50 % - la moitié",
+        "15 %",
+        "80 %",
+        "5 %"
+      ],
+      "bonneReponse": 0,
+      "explication": "Les algues marines (phytoplancton) produisent environ 50 % de l'oxygène terrestre - plus que toutes les forêts réunies. Sans elles, la vie terrestre serait impossible.",
+      "niveau": "6e",
+      "sujet": "Ère Biologique"
+    },
+    {
+      "id": "ere-biologique-03",
+      "question": "Quelle invention biologique déclencha une 'course aux armements' entre prédateurs et proies au Cambrien ?",
+      "choix": [
+        "L'œil",
+        "La coquille dure",
+        "La mâchoire",
+        "Les membres articulés"
+      ],
+      "bonneReponse": 0,
+      "explication": "L'apparition de l'œil au Cambrien (-538 millions d'années) révolutionna l'évolution : pour la première fois, les proies pouvaient voir les prédateurs arriver - déclenchant une course aux armements évolutive.",
+      "niveau": "6e",
+      "sujet": "Ère Biologique"
+    },
+    {
+      "id": "ere-biologique-04",
+      "question": "Pendant combien de millions d'années les dinosaures ont-ils dominé la Terre ?",
+      "choix": [
+        "165 millions d'années",
+        "65 millions d'années",
+        "300 millions d'années",
+        "10 millions d'années"
+      ],
+      "bonneReponse": 0,
+      "explication": "Les dinosaures ont dominé la Terre pendant 165 millions d'années - soit 40 fois la durée d'existence d'Homo Sapiens. Ils ont disparu il y a 66 millions d'années lors de l'impact de Chicxulub.",
+      "niveau": "6e",
+      "sujet": "Ère Biologique"
+    }
+  ]
+}

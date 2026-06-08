@@ -1,0 +1,91 @@
+{
+  "contentKind": "qcm",
+  "sujet": "histoire",
+  "titre": "Renaissance",
+  "items": [
+    {
+      "id": "renaissance-01",
+      "question": "François Ier attire en France quel génie de la Renaissance italienne ?",
+      "choix": [
+        "Léonard de Vinci",
+        "Michel-Ange",
+        "Raphaël",
+        "Botticelli"
+      ],
+      "bonneReponse": 0,
+      "explication": "Léonard de Vinci arrive en France en 1516, invité par François Ier. Il s'installe au Clos Lucé, près d'Amboise, et y mourra en 1519. La Joconde est ainsi en France depuis lors.",
+      "niveau": "4e",
+      "sujet": "Renaissance"
+    },
+    {
+      "id": "renaissance-02",
+      "question": "L'ordonnance de Villers-Cotterêts (1539) impose quelle langue dans les actes officiels ?",
+      "choix": [
+        "Le français",
+        "Le latin",
+        "L'occitan",
+        "L'italien"
+      ],
+      "bonneReponse": 0,
+      "explication": "François Ier impose le français à la place du latin dans tous les actes officiels et judiciaires. C'est l'acte de naissance de l'État français et du français comme langue nationale.",
+      "niveau": "4e",
+      "sujet": "Renaissance"
+    },
+    {
+      "id": "renaissance-03",
+      "question": "Quelle ordonnance de 1539, signée par François Ier, impose le français dans tous les actes officiels ?",
+      "choix": [
+        "L'ordonnance de Villers-Cotterêts",
+        "L'ordonnance de Blois",
+        "L'édit de Fontainebleau",
+        "La pragmatique sanction de Bourges"
+      ],
+      "bonneReponse": 0,
+      "explication": "L'ordonnance de Villers-Cotterêts (1539) impose le français à la place du latin dans tous les actes judiciaires et officiels. C'est l'acte de naissance de l'État français et du français comme langue nationale.",
+      "niveau": "4e",
+      "sujet": "Renaissance"
+    },
+    {
+      "id": "renaissance-04",
+      "question": "Quel génie de la Renaissance italienne François Ier fait-il venir en France en 1516 ?",
+      "choix": [
+        "Léonard de Vinci",
+        "Michel-Ange",
+        "Raphaël",
+        "Titien"
+      ],
+      "bonneReponse": 0,
+      "explication": "Léonard de Vinci arrive en France en 1516, invité par François Ier, et s'installe au Clos Lucé près d'Amboise. Il y mourra en 1519. La Joconde est ainsi en France depuis lors.",
+      "niveau": "4e",
+      "sujet": "Renaissance"
+    },
+    {
+      "id": "renaissance-05",
+      "question": "Rabelais publie Pantagruel et Gargantua dans les années 1530. Quel courant humaniste ces œuvres incarnent-elles ?",
+      "choix": [
+        "L'humanisme de la Renaissance (curiosité universelle et libre pensée)",
+        "Le romantisme du XIXe siècle",
+        "Le classicisme du XVIIe siècle",
+        "Le naturalisme de Zola"
+      ],
+      "bonneReponse": 0,
+      "explication": "Rabelais mêle érudition humaniste, satire sociale, humour débridé et réflexion philosophique. Il incarne l'idéal rabelaisien : 'Science sans conscience n'est que ruine de l'âme.'",
+      "niveau": "4e",
+      "sujet": "Renaissance"
+    },
+    {
+      "id": "renaissance-06",
+      "question": "Comment Henri II, roi de France, meurt-il accidentellement en 1559 ?",
+      "choix": [
+        "Tué lors d'un tournoi - la lance de Gabriel de Montgomery lui perce l'œil",
+        "Empoisonné par sa femme Catherine de Médicis",
+        "Tué lors du siège de Calais",
+        "Victime d'une chute de cheval à la chasse"
+      ],
+      "bonneReponse": 0,
+      "explication": "Le 30 juin 1559, lors d'un tournoi, la lance de Montgomery brise la visière d'Henri II et lui perce l'œil. Il meurt 10 jours plus tard. Sa mort plonge la France dans l'instabilité - début des guerres de Religion.",
+      "niveau": "4e",
+      "sujet": "Renaissance"
+    }
+  ]
+}

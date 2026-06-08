@@ -1,0 +1,217 @@
+{
+  "contentKind": "qcm",
+  "sujet": "histoire",
+  "titre": "Monarchie absolue",
+  "items": [
+    {
+      "id": "monarchie-absolue-01",
+      "question": "Henri IV signe en 1598 l'Édit de Nantes qui…",
+      "choix": [
+        "Accorde la liberté de culte aux protestants",
+        "Crée la Cour de Versailles",
+        "Annule les dettes royales",
+        "Fonde l'Académie française"
+      ],
+      "bonneReponse": 0,
+      "explication": "L'Édit de Nantes met fin à 36 ans de guerres de Religion en accordant aux protestants la liberté de culte et des places de sûreté. Henri IV sera néanmoins assassiné en 1610.",
+      "niveau": "4e",
+      "sujet": "Monarchie Absolue"
+    },
+    {
+      "id": "monarchie-absolue-02",
+      "question": "Louis XIV révoque l'Édit de Nantes en 1685, forçant combien de protestants à fuir ?",
+      "choix": [
+        "200 000 environ",
+        "20 000 environ",
+        "2 millions",
+        "500 000"
+      ],
+      "bonneReponse": 0,
+      "explication": "La révocation de l'Édit de Nantes provoque l'exode de 200 000 protestants (huguenots) vers la Prusse, les Pays-Bas, l'Angleterre et l'Afrique du Sud - perte économique et humaine considérable.",
+      "niveau": "4e",
+      "sujet": "Monarchie Absolue"
+    },
+    {
+      "id": "monarchie-absolue-03",
+      "question": "Quelle formule célèbre est attribuée à Louis XIV ?",
+      "choix": [
+        "L'État, c'est moi",
+        "Paris vaut bien une messe",
+        "Je pense donc je suis",
+        "Liberté, Égalité, Fraternité"
+      ],
+      "bonneReponse": 0,
+      "explication": "'L'État, c'est moi' résume la doctrine absolutiste de Louis XIV : le roi est l'incarnation de l'État. Il concentre tous les pouvoirs et gouverne sans premier ministre de 1661 à 1715.",
+      "niveau": "4e",
+      "sujet": "Monarchie Absolue"
+    },
+    {
+      "id": "monarchie-absolue-04",
+      "question": "L'Encyclopédie de Diderot et d'Alembert (1751-1772) est subversive car elle affirme que…",
+      "choix": [
+        "Le savoir appartient à tous, pas à l'Église ni au roi",
+        "Dieu n'existe pas",
+        "La révolution est nécessaire",
+        "Le pape doit être élu"
+      ],
+      "bonneReponse": 0,
+      "explication": "L'Encyclopédie, avec ses 72 000 articles et 150 auteurs, affirme que la connaissance appartient à tous - sapant l'autorité de l'Église et de l'Ancien Régime, inspirant directement la Révolution de 1789.",
+      "niveau": "4e",
+      "sujet": "Monarchie Absolue"
+    },
+    {
+      "id": "monarchie-absolue-05",
+      "question": "Rousseau affirme dans Le Contrat Social (1762) que le pouvoir vient…",
+      "choix": [
+        "Du peuple, qui peut reprendre ce pouvoir",
+        "De Dieu, par le roi",
+        "Des nobles et du clergé",
+        "De la raison naturelle seule"
+      ],
+      "bonneReponse": 0,
+      "explication": "Rousseau révolutionne la pensée politique : le pouvoir est délégué par le peuple à un gouvernement. Si ce gouvernement trahit le peuple, celui-ci peut le renverser - théorie qui alimentera la Révolution.",
+      "niveau": "4e",
+      "sujet": "Monarchie Absolue"
+    },
+    {
+      "id": "monarchie-absolue-06",
+      "question": "Richelieu, ministre de Louis XIII, est surnommé l'Éminence rouge. Quelle était sa principale ambition pour la France ?",
+      "choix": [
+        "Centraliser le pouvoir royal et réduire la noblesse",
+        "Convertir les protestants au catholicisme",
+        "Conquérir l'Espagne et l'Angleterre",
+        "Créer un empire colonial en Amérique"
+      ],
+      "bonneReponse": 0,
+      "explication": "Richelieu centralise le pouvoir : il rase les châteaux forts des nobles, interdit les duels, crée l'Académie française (1635) et engage la France dans la Guerre de Trente Ans contre les Habsbourg.",
+      "niveau": "4e",
+      "sujet": "Monarchie Absolue"
+    },
+    {
+      "id": "monarchie-absolue-07",
+      "question": "Le Cid de Corneille (1637) déclenche une querelle littéraire car il transgresse quelle règle classique ?",
+      "choix": [
+        "La règle des trois unités (temps, lieu, action)",
+        "L'interdiction de mêler tragédie et comédie",
+        "L'obligation d'écrire en latin",
+        "L'interdiction des personnages historiques réels"
+      ],
+      "bonneReponse": 0,
+      "explication": "La querelle du Cid porte sur le respect des règles classiques (unité de temps/lieu/action) et la vraisemblance morale. L'Académie française tranche : le Cid est beau mais irrégulier.",
+      "niveau": "4e",
+      "sujet": "Monarchie Absolue"
+    },
+    {
+      "id": "monarchie-absolue-08",
+      "question": "Blaise Pascal est surtout connu pour ses travaux en mathématiques et en physique. Quelle invention pratique lui doit-on ?",
+      "choix": [
+        "La pascaline - première machine à calculer mécanique (1642)",
+        "Le baromètre",
+        "La machine à vapeur",
+        "Le télescope à réflexion"
+      ],
+      "bonneReponse": 0,
+      "explication": "À 19 ans, Pascal invente la pascaline (1642) pour aider son père percepteur des impôts. C'est la première machine à calculer mécanique opérationnelle - ancêtre lointain de l'ordinateur.",
+      "niveau": "4e",
+      "sujet": "Monarchie Absolue"
+    },
+    {
+      "id": "monarchie-absolue-09",
+      "question": "La Fronde (1648-1653) est une révolte contre qui, et comment se termine-t-elle ?",
+      "choix": [
+        "Contre Mazarin et la régente Anne d'Autriche - écrasée, elle rend Louis XIV hostile à Paris pour toujours",
+        "Contre Louis XIV, qui doit fuir Versailles",
+        "Contre Richelieu, assassiné par les nobles",
+        "Contre le pape, qui excommunia la France"
+      ],
+      "bonneReponse": 0,
+      "explication": "La Fronde des princes (1648-1653) oblige le jeune Louis XIV à fuir Paris. Ce traumatisme explique pourquoi il construira Versailles pour éloigner la noblesse de la capitale et mieux la contrôler.",
+      "niveau": "4e",
+      "sujet": "Monarchie Absolue"
+    },
+    {
+      "id": "monarchie-absolue-10",
+      "question": "Molière est mort comment, en 1673, d'une façon particulièrement dramatique ?",
+      "choix": [
+        "Sur scène, lors d'une représentation du Malade imaginaire, pris de convulsions",
+        "Assassiné par un noble qu'il avait satirisé dans ses pièces",
+        "Empoisonné par des rivaux jaloux à la cour de Louis XIV",
+        "Mort de la peste lors d'une tournée en province"
+      ],
+      "bonneReponse": 0,
+      "explication": "Molière, malade, insiste pour jouer malgré sa fièvre. Il est pris de convulsions sur scène lors de la 4e représentation du Malade imaginaire et meurt quelques heures plus tard - ironie tragique.",
+      "niveau": "4e",
+      "sujet": "Monarchie Absolue"
+    },
+    {
+      "id": "monarchie-absolue-11",
+      "question": "Le Château de Versailles, construit par Louis XIV, compte combien de pièces ?",
+      "choix": [
+        "700 pièces",
+        "100 pièces",
+        "2 000 pièces",
+        "250 pièces"
+      ],
+      "bonneReponse": 0,
+      "explication": "Versailles compte 700 pièces, 2 000 fenêtres, 67 escaliers et héberge jusqu'à 20 000 personnes (noblesse, serviteurs, gardes). Louis XIV y installe sa cour en 1682 pour mieux surveiller les grands nobles.",
+      "niveau": "4e",
+      "sujet": "Monarchie Absolue"
+    },
+    {
+      "id": "monarchie-absolue-12",
+      "question": "La 'Guerre de Sept Ans' (1756-1763) est parfois surnommée la première guerre mondiale. Pourquoi ?",
+      "choix": [
+        "Elle se déroule sur 5 continents (Europe, Amériques, Afrique, Inde, Philippines)",
+        "Elle mobilise 7 pays différents en Europe",
+        "Elle dure exactement 7 ans jour pour jour",
+        "Elle est la première guerre avec des sous-marins"
+      ],
+      "bonneReponse": 0,
+      "explication": "La Guerre de Sept Ans oppose la France à l'Angleterre sur 5 continents simultanément. La France perd le Canada, la Louisiane, l'Inde - un désastre colonial qui prépare la Révolution de 1789.",
+      "niveau": "4e",
+      "sujet": "Monarchie Absolue"
+    },
+    {
+      "id": "monarchie-absolue-13",
+      "question": "La Grande Peste de Marseille (1720-1722) tue combien de personnes dans la ville ?",
+      "choix": [
+        "50 000 morts - la moitié de la population",
+        "5 000 morts",
+        "200 000 morts",
+        "1 000 morts"
+      ],
+      "bonneReponse": 0,
+      "explication": "La Grande Peste tue 50 000 des 90 000 habitants de Marseille en deux ans. Un mur de pierre (le 'Mur de la Peste') est construit pour isoler la Provence du reste de la France - encore visible en Vaucluse.",
+      "niveau": "4e",
+      "sujet": "Monarchie Absolue"
+    },
+    {
+      "id": "monarchie-absolue-14",
+      "question": "Le commerce triangulaire implique trois trajets. Dans quel ordre ?",
+      "choix": [
+        "Europe → Afrique (marchandises) → Amériques (esclaves) → Europe (sucre/café/coton)",
+        "Amériques → Europe → Afrique → Amériques",
+        "Afrique → Europe → Amériques → Afrique",
+        "Europe → Amériques → Afrique → Europe"
+      ],
+      "bonneReponse": 0,
+      "explication": "Les navires partent d'Europe avec des marchandises vers l'Afrique, échangées contre des esclaves, puis traversent l'Atlantique vers les Amériques, et reviennent avec sucre, café et coton. La France transporta 1,3 million d'esclaves.",
+      "niveau": "4e",
+      "sujet": "Monarchie Absolue"
+    },
+    {
+      "id": "monarchie-absolue-15",
+      "question": "Voltaire est emprisonné deux fois à la Bastille. Pour quelle raison en 1717 ?",
+      "choix": [
+        "Pour avoir écrit des vers satiriques contre le Régent Philippe d'Orléans",
+        "Pour avoir refusé de se convertir au catholicisme",
+        "Pour avoir insulté un noble anglais en duel",
+        "Pour avoir publié ses Lettres philosophiques sans autorisation"
+      ],
+      "bonneReponse": 0,
+      "explication": "Le jeune François-Marie Arouet (futur Voltaire) est embastillé en 1717 pour des vers satiriques contre la cour. Cette expérience le rend ardent défenseur de la liberté d'expression et ennemi du despotisme.",
+      "niveau": "4e",
+      "sujet": "Monarchie Absolue"
+    }
+  ]
+}

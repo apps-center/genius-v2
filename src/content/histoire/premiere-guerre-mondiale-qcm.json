@@ -1,0 +1,35 @@
+{
+  "contentKind": "qcm",
+  "sujet": "histoire",
+  "titre": "Première Guerre mondiale",
+  "items": [
+    {
+      "id": "premiere-guerre-mondiale-01",
+      "question": "Combien de soldats français sont morts pendant la Première Guerre mondiale (1914-1918) ?",
+      "choix": [
+        "1,4 million",
+        "400 000",
+        "4 millions",
+        "600 000"
+      ],
+      "bonneReponse": 0,
+      "explication": "La France perd 1,4 million de soldats en 4 ans - presque une génération entière. Avec les blessés et mutilés (les 'gueules cassées'), c'est près de 6 millions de victimes françaises au total.",
+      "niveau": "3e",
+      "sujet": "Première Guerre mondiale"
+    },
+    {
+      "id": "premiere-guerre-mondiale-02",
+      "question": "Comment s'appelle la ligne fortifiée construite par la France après 1918 pour se protéger de l'Allemagne ?",
+      "choix": [
+        "La ligne Maginot",
+        "La ligne Siegfried",
+        "Le rideau de fer",
+        "La muraille de l'Est"
+      ],
+      "bonneReponse": 0,
+      "explication": "La ligne Maginot (1929-1936), 700 km de fortifications souterraines du Luxembourg à la Méditerranée, était censée être infranchissable. Les Allemands la contournèrent simplement par la Belgique en 1940.",
+      "niveau": "3e",
+      "sujet": "Première Guerre mondiale"
+    }
+  ]
+}

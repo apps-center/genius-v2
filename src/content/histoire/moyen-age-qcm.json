@@ -1,0 +1,245 @@
+{
+  "contentKind": "qcm",
+  "sujet": "histoire",
+  "titre": "Moyen Âge",
+  "items": [
+    {
+      "id": "moyen-age-01",
+      "question": "Clovis se fait baptiser à Reims vers 496. Quelle est l'importance de cet acte ?",
+      "choix": [
+        "Il crée l'alliance entre la royauté franque et l'Église catholique",
+        "Il fonde le Saint-Empire romain germanique",
+        "Il conquiert Rome",
+        "Il chasse les Wisigoths d'Espagne"
+      ],
+      "bonneReponse": 0,
+      "explication": "En se baptisant, Clovis est le premier roi barbare à adopter le catholicisme. Cette alliance Trône-Autel durera 1 300 ans et fera de la France 'fille aînée de l'Église'.",
+      "niveau": "5e",
+      "sujet": "Moyen Âge"
+    },
+    {
+      "id": "moyen-age-02",
+      "question": "Que désigne l'expression 'maire du palais' sous les Mérovingiens ?",
+      "choix": [
+        "Le chef du gouvernement qui gouverne à la place du roi",
+        "Le responsable des appartements royaux",
+        "Le fils du roi",
+        "Le général en chef des armées"
+      ],
+      "bonneReponse": 0,
+      "explication": "Les maires du palais étaient les grands officiers de la couronne qui exercèrent le vrai pouvoir politique, tandis que les rois mérovingiens (les 'rois fainéants') n'étaient plus que des symboles.",
+      "niveau": "5e",
+      "sujet": "Moyen Âge"
+    },
+    {
+      "id": "moyen-age-03",
+      "question": "Charles Martel arrête l'avancée arabe en Europe lors de quelle bataille ?",
+      "choix": [
+        "Poitiers (732)",
+        "Bouvines (1214)",
+        "Alésia (-52)",
+        "Hastings (1066)"
+      ],
+      "bonneReponse": 0,
+      "explication": "En 732, Charles Martel, maire du palais, arrête l'armée arabe à Poitiers. Ce surnom 'Martel' (le marteau) lui est donné pour cette victoire décisive pour l'avenir de l'Europe chrétienne.",
+      "niveau": "5e",
+      "sujet": "Moyen Âge"
+    },
+    {
+      "id": "moyen-age-04",
+      "question": "Charlemagne est couronné Empereur d'Occident par le pape à Rome le…",
+      "choix": [
+        "25 décembre 800",
+        "1er janvier 768",
+        "14 juillet 789",
+        "1er novembre 843"
+      ],
+      "bonneReponse": 0,
+      "explication": "Le 25 décembre 800, le pape Léon III couronne Charlemagne Empereur d'Occident à Rome, restaurant symboliquement l'Empire romain d'Occident après 324 ans.",
+      "niveau": "5e",
+      "sujet": "Moyen Âge"
+    },
+    {
+      "id": "moyen-age-05",
+      "question": "Le traité de Verdun (843) divise l'empire de Charlemagne entre ses petits-fils. Que reçoit Charles le Chauve ?",
+      "choix": [
+        "La partie ouest - l'ancêtre de la France",
+        "La partie est - l'ancêtre de l'Allemagne",
+        "L'Italie et la Lotharingie",
+        "L'Espagne et la Gaule"
+      ],
+      "bonneReponse": 0,
+      "explication": "Charles le Chauve reçoit la Francia occidentalis (l'Ouest), qui deviendra progressivement le royaume de France. Louis le Germanique reçoit l'Est (future Allemagne).",
+      "niveau": "5e",
+      "sujet": "Moyen Âge"
+    },
+    {
+      "id": "moyen-age-06",
+      "question": "Les Vikings qui s'installent en France en 911 donnent leur nom à quelle région ?",
+      "choix": [
+        "La Normandie (pays des hommes du Nord)",
+        "La Bretagne",
+        "La Picardie",
+        "L'Alsace"
+      ],
+      "bonneReponse": 0,
+      "explication": "Le chef viking Rollon signe le traité de Saint-Clair-sur-Epte en 911. Le roi franc lui cède une région en échange de la paix - la Normandie (Nortmannia = pays des hommes du Nord).",
+      "niveau": "5e",
+      "sujet": "Moyen Âge"
+    },
+    {
+      "id": "moyen-age-07",
+      "question": "Hugues Capet est élu roi en 987. Quel est son territoire de départ ?",
+      "choix": [
+        "Un petit domaine autour de Paris et d'Orléans",
+        "Toute la France actuelle",
+        "La Bourgogne et la Normandie",
+        "La Flandre et l'Artois"
+      ],
+      "bonneReponse": 0,
+      "explication": "Le domaine royal initial d'Hugues Capet ne dépassait pas l'Île-de-France - moins grand qu'un département actuel. Mais sa lignée régnera sans interruption 800 ans sur la France.",
+      "niveau": "5e",
+      "sujet": "Moyen Âge"
+    },
+    {
+      "id": "moyen-age-08",
+      "question": "Guillaume le Conquérant est le duc de quelle région française ?",
+      "choix": [
+        "Normandie",
+        "Bourgogne",
+        "Aquitaine",
+        "Bretagne"
+      ],
+      "bonneReponse": 0,
+      "explication": "Guillaume, duc de Normandie, descendant de Vikings, conquiert l'Angleterre à Hastings en 1066 et devient Guillaume Ier d'Angleterre - preuve que les Vikings intégrés étaient devenus Français.",
+      "niveau": "5e",
+      "sujet": "Moyen Âge"
+    },
+    {
+      "id": "moyen-age-09",
+      "question": "Les Croisades sont lancées en 1095 par le pape Urbain II pour…",
+      "choix": [
+        "Reprendre Jérusalem aux musulmans",
+        "Convertir les Vikings",
+        "Combattre l'hérésie cathare",
+        "Protéger Constantinople"
+      ],
+      "bonneReponse": 0,
+      "explication": "En 1095, Urbain II prêche à Clermont-Ferrand et lance la 1ère Croisade avec le cri 'Dieu le veut !'. Jérusalem est prise en 1099 dans un bain de sang.",
+      "niveau": "5e",
+      "sujet": "Moyen Âge"
+    },
+    {
+      "id": "moyen-age-10",
+      "question": "Quelle reine fut successivement reine de France puis reine d'Angleterre ?",
+      "choix": [
+        "Aliénor d'Aquitaine",
+        "Blanche de Castille",
+        "Isabeau de Bavière",
+        "Marie de Médicis"
+      ],
+      "bonneReponse": 0,
+      "explication": "Aliénor d'Aquitaine épouse Louis VII de France (1137), puis Henri Plantagenêt qui devient Henri II d'Angleterre (1152). Elle vécut jusqu'à 82 ans, une longévité exceptionnelle pour l'époque.",
+      "niveau": "5e",
+      "sujet": "Moyen Âge"
+    },
+    {
+      "id": "moyen-age-11",
+      "question": "La bataille de Bouvines (1214) oppose Philippe Auguste à…",
+      "choix": [
+        "Une coalition anglo-flamande-germanique",
+        "Les Sarrasins",
+        "Les Albigeois",
+        "Les Vikings"
+      ],
+      "bonneReponse": 0,
+      "explication": "À Bouvines, Philippe Auguste bat la coalition formée par Jean sans Terre d'Angleterre, l'Empereur Othon IV et les comtes flamands. C'est la première grande victoire nationale française.",
+      "niveau": "5e",
+      "sujet": "Moyen Âge"
+    },
+    {
+      "id": "moyen-age-12",
+      "question": "Qui fonde les premiers États Généraux en 1302 ?",
+      "choix": [
+        "Philippe le Bel",
+        "Louis IX (Saint Louis)",
+        "Philippe Auguste",
+        "Charles V"
+      ],
+      "bonneReponse": 0,
+      "explication": "Philippe le Bel convoque les États Généraux pour obtenir le soutien du peuple dans son conflit avec le pape. C'est l'ancêtre lointain de notre Assemblée nationale.",
+      "niveau": "5e",
+      "sujet": "Moyen Âge"
+    },
+    {
+      "id": "moyen-age-13",
+      "question": "Quel ordre militaire Philippe le Bel fait-il arrêter en 1307 pour s'emparer de ses richesses ?",
+      "choix": [
+        "Les Templiers",
+        "Les Hospitaliers",
+        "Les Teutoniques",
+        "Les Franciscains"
+      ],
+      "bonneReponse": 0,
+      "explication": "Philippe IV dit 'le Bel', criblé de dettes envers les Templiers, les fait arrêter le vendredi 13 octobre 1307 - vendredi 13 et templiers : origine de cette superstition.",
+      "niveau": "5e",
+      "sujet": "Moyen Âge"
+    },
+    {
+      "id": "moyen-age-14",
+      "question": "La Guerre de Cent Ans oppose la France à…",
+      "choix": [
+        "L'Angleterre",
+        "L'Empire Germanique",
+        "L'Espagne",
+        "L'Italie"
+      ],
+      "bonneReponse": 0,
+      "explication": "La Guerre de Cent Ans (1337-1453) oppose la France aux rois d'Angleterre qui revendiquent le trône de France. Elle durera en réalité 116 ans.",
+      "niveau": "5e",
+      "sujet": "Moyen Âge"
+    },
+    {
+      "id": "moyen-age-15",
+      "question": "Jeanne d'Arc est brûlée à Rouen en quelle année ?",
+      "choix": [
+        "1431",
+        "1415",
+        "1453",
+        "1348"
+      ],
+      "bonneReponse": 0,
+      "explication": "Jeanne d'Arc est brûlée vive le 30 mai 1431, à 19 ans, par un tribunal ecclésiastique contrôlé par les Anglais. Elle sera réhabilitée en 1456 et canonisée en 1920.",
+      "niveau": "5e",
+      "sujet": "Moyen Âge"
+    },
+    {
+      "id": "moyen-age-16",
+      "question": "Quelle maladie tue un tiers de la population européenne entre 1347 et 1351 ?",
+      "choix": [
+        "La Peste Noire (bubonique)",
+        "La variole",
+        "Le typhus",
+        "La lèpre"
+      ],
+      "bonneReponse": 0,
+      "explication": "La Peste Noire, venue d'Asie par les navires génois, tue entre 25 et 50 millions d'Européens en 4 ans. Elle transforme profondément la société médiévale - obsession de la mort, remise en cause de l'Église.",
+      "niveau": "5e",
+      "sujet": "Moyen Âge"
+    },
+    {
+      "id": "moyen-age-17",
+      "question": "L'imprimerie de Gutenberg (vers 1455) révolutionne l'Europe car…",
+      "choix": [
+        "Elle permet de diffuser massivement les idées et le savoir",
+        "Elle remplace les manuscrits monastiques",
+        "Elle permet de produire des cartes géographiques",
+        "Elle est utilisée pour fabriquer la monnaie"
+      ],
+      "bonneReponse": 0,
+      "explication": "Avec les caractères mobiles en plomb, Gutenberg peut imprimer 200 pages par jour contre quelques pages à la main. En 50 ans, 15 millions de livres circulent en Europe - la première 'révolution numérique'.",
+      "niveau": "5e",
+      "sujet": "Moyen Âge"
+    }
+  ]
+}

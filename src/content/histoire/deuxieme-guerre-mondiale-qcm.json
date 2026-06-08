@@ -1,0 +1,35 @@
+{
+  "contentKind": "qcm",
+  "sujet": "histoire",
+  "titre": "Deuxième Guerre mondiale",
+  "items": [
+    {
+      "id": "deuxieme-guerre-mondiale-01",
+      "question": "Quelle opération militaire désigne le débarquement allié en Normandie du 6 juin 1944 ?",
+      "choix": [
+        "Opération Overlord",
+        "Opération Torch",
+        "Opération Market Garden",
+        "Opération Barbarossa"
+      ],
+      "bonneReponse": 0,
+      "explication": "L'opération Overlord est le nom de code du débarquement en Normandie. 156 000 soldats alliés débarquent sur 80 km de côtes en une seule journée. Paris est libéré le 25 août 1944.",
+      "niveau": "3e",
+      "sujet": "Deuxième Guerre mondiale"
+    },
+    {
+      "id": "deuxieme-guerre-mondiale-02",
+      "question": "Quelle date marque la capitulation de l'Allemagne nazie et la fin de la guerre en Europe ?",
+      "choix": [
+        "8 mai 1945",
+        "6 juin 1944",
+        "2 septembre 1945",
+        "11 novembre 1918"
+      ],
+      "bonneReponse": 0,
+      "explication": "Le 8 mai 1945, l'Allemagne capitule sans condition. Cette date est célébrée comme la 'Victoire en Europe' (V-E Day). La guerre dans le Pacifique continuera jusqu'au 2 septembre 1945.",
+      "niveau": "3e",
+      "sujet": "Deuxième Guerre mondiale"
+    }
+  ]
+}

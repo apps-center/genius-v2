@@ -1,0 +1,35 @@
+{
+  "contentKind": "qcm",
+  "sujet": "histoire",
+  "titre": "Carolingiens",
+  "items": [
+    {
+      "id": "carolingiens-01",
+      "question": "Pourquoi les Serments de Strasbourg (842) sont-ils fondamentaux pour la langue française ?",
+      "choix": [
+        "C'est le premier texte écrit en vieux-français",
+        "C'est la première constitution française",
+        "C'est l'acte de fondation de l'Académie française",
+        "C'est le premier texte imprimé en France"
+      ],
+      "bonneReponse": 0,
+      "explication": "Les Serments de Strasbourg (842) sont rédigés en lingua romana rustica - vieux-français. C'est le premier document officiel dans une langue romane, ancêtre direct du français moderne.",
+      "niveau": "5e",
+      "sujet": "Carolingiens"
+    },
+    {
+      "id": "carolingiens-02",
+      "question": "Quel pays futur correspond aux terres que Charles le Chauve reçoit au traité de Verdun en 843 ?",
+      "choix": [
+        "La France (la Francia occidentalis)",
+        "L'Allemagne (la Francia orientalis)",
+        "L'Italie (la Lotharingie)",
+        "La Belgique (les Flandres)"
+      ],
+      "bonneReponse": 0,
+      "explication": "Au traité de Verdun, Charles le Chauve reçoit la Francia occidentalis (l'Ouest), qui deviendra progressivement le royaume de France. Louis le Germanique reçoit l'Est (future Allemagne).",
+      "niveau": "5e",
+      "sujet": "Carolingiens"
+    }
+  ]
+}

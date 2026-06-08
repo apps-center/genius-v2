@@ -1,0 +1,49 @@
+{
+  "contentKind": "qcm",
+  "sujet": "histoire",
+  "titre": "Ère cosmique",
+  "items": [
+    {
+      "id": "ere-cosmique-01",
+      "question": "Il y a combien de milliards d'années le Big Bang a-t-il eu lieu ?",
+      "choix": [
+        "13,8 milliards d'années",
+        "4,5 milliards d'années",
+        "65 millions d'années",
+        "1 milliard d'années"
+      ],
+      "bonneReponse": 0,
+      "explication": "Le Big Bang date d'environ 13,8 milliards d'années. C'est la première date de toute la chronologie universelle. La Terre, bien plus récente, a 4,5 milliards d'années.",
+      "niveau": "6e",
+      "sujet": "Ère Cosmique"
+    },
+    {
+      "id": "ere-cosmique-02",
+      "question": "Quel pourcentage de la masse du système solaire le Soleil représente-t-il ?",
+      "choix": [
+        "99,86 %",
+        "75 %",
+        "50 %",
+        "90 %"
+      ],
+      "bonneReponse": 0,
+      "explication": "Le Soleil représente 99,86 % de la masse totale du système solaire. Toutes les planètes réunies - dont Jupiter, la plus grande - ne font que 0,14 %.",
+      "niveau": "6e",
+      "sujet": "Ère Cosmique"
+    },
+    {
+      "id": "ere-cosmique-03",
+      "question": "De combien de centimètres la Lune s'éloigne-t-elle de la Terre chaque année ?",
+      "choix": [
+        "3,8 cm par an",
+        "10 cm par an",
+        "1 cm par an",
+        "50 cm par an"
+      ],
+      "bonneReponse": 0,
+      "explication": "La Lune s'éloigne de 3,8 cm par an à cause des effets de marée. À sa formation, elle était 15 fois plus proche de la Terre - et la journée terrestre ne durait que 6 heures.",
+      "niveau": "6e",
+      "sujet": "Ère Cosmique"
+    }
+  ]
+}

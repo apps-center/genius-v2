@@ -1,0 +1,49 @@
+{
+  "contentKind": "qcm",
+  "sujet": "histoire",
+  "titre": "XIXe siècle",
+  "items": [
+    {
+      "id": "xixe-siecle-01",
+      "question": "Qui est le baron Haussmann, mandaté par Napoléon III pour transformer Paris ?",
+      "choix": [
+        "Le préfet de la Seine qui perça les grands boulevards et créa les égouts modernes",
+        "L'architecte qui construisit l'Opéra Garnier",
+        "Le ministre qui créa l'école publique gratuite",
+        "L'ingénieur qui construisit la Tour Eiffel"
+      ],
+      "bonneReponse": 0,
+      "explication": "Haussmann (1853-1870) détruit 20 000 immeubles médiévaux, trace 137 km de boulevards, crée 600 km d'égouts et 1 800 ha de parcs. Paris, ville médiévale insalubre, devient une capitale moderne.",
+      "niveau": "4e",
+      "sujet": "XIXe siècle"
+    },
+    {
+      "id": "xixe-siecle-02",
+      "question": "L'impressionnisme tire son nom d'un tableau de quel artiste exposé en 1874 ?",
+      "choix": [
+        "Claude Monet - 'Impression, Soleil Levant'",
+        "Edgar Degas - 'La Classe de danse'",
+        "Pierre-Auguste Renoir - 'Le Bal du Moulin de la Galette'",
+        "Berthe Morisot - 'Le Berceau'"
+      ],
+      "bonneReponse": 0,
+      "explication": "Le critique Louis Leroy raille le tableau de Monet en l'appelant 'impression' avec mépris. Le mot est adopté par les artistes eux-mêmes. Le mouvement révolutionne la peinture en capturant la lumière instantanée.",
+      "niveau": "4e",
+      "sujet": "XIXe siècle"
+    },
+    {
+      "id": "xixe-siecle-03",
+      "question": "L'Affaire Dreyfus divise la France entre 1894 et 1906. Qui écrit 'J'accuse' pour défendre Dreyfus ?",
+      "choix": [
+        "Émile Zola, dans L'Aurore (13 janvier 1898)",
+        "Victor Hugo, dans Le Figaro",
+        "Georges Clemenceau, dans Le Temps",
+        "Anatole France, dans La Revue blanche"
+      ],
+      "bonneReponse": 0,
+      "explication": "Zola publie 'J'accuse…!' en une lettre ouverte au Président de la République. Il y dénonce le complot militaire et risque la prison. L'article provoque une crise politique majeure qui mène à la révision du procès.",
+      "niveau": "4e",
+      "sujet": "XIXe siècle"
+    }
+  ]
+}

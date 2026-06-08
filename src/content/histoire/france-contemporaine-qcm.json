@@ -1,0 +1,49 @@
+{
+  "contentKind": "qcm",
+  "sujet": "histoire",
+  "titre": "France contemporaine",
+  "items": [
+    {
+      "id": "france-contemporaine-01",
+      "question": "Quelle bataille de 1954 marque la défaite française en Indochine et la fin de la guerre ?",
+      "choix": [
+        "Diên Biên Phu",
+        "Hanoï",
+        "Saïgon",
+        "Da Nang"
+      ],
+      "bonneReponse": 0,
+      "explication": "La chute de Diên Biên Phu (7 mai 1954) après 55 jours de siège force la France à négocier. Les accords de Genève (juillet 1954) entérinent la partition du Vietnam et l'indépendance de l'Indochine.",
+      "niveau": "3e",
+      "sujet": "France Contemporaine"
+    },
+    {
+      "id": "france-contemporaine-02",
+      "question": "Quelle crise de mai 1968 paralyse la France avec 10 millions de grévistes ?",
+      "choix": [
+        "Une révolte étudiante à la Sorbonne qui devient une grève générale nationale",
+        "Un coup d'État militaire contre De Gaulle",
+        "Une grève uniquement dans les usines automobiles",
+        "Une révolution manquée des partis de gauche"
+      ],
+      "bonneReponse": 0,
+      "explication": "Mai 68 commence par une révolte étudiante à la Sorbonne, puis s'étend à l'ensemble de la société. 10 millions de grévistes paralysent le pays. De Gaulle dissout l'Assemblée et gagne les élections de juin.",
+      "niveau": "3e",
+      "sujet": "France Contemporaine"
+    },
+    {
+      "id": "france-contemporaine-03",
+      "question": "En quelle année le mur de Berlin tombe-t-il, symbole de la fin de la Guerre Froide ?",
+      "choix": [
+        "1989",
+        "1991",
+        "1985",
+        "1979"
+      ],
+      "bonneReponse": 0,
+      "explication": "Le 9 novembre 1989, les Berlinois de l'Est et de l'Ouest démantèlent le Mur. L'URSS se dissout deux ans plus tard en 1991. La Guerre Froide, qui durait depuis 1947, prend fin.",
+      "niveau": "3e",
+      "sujet": "France Contemporaine"
+    }
+  ]
+}

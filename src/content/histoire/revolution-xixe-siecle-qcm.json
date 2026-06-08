@@ -1,0 +1,91 @@
+{
+  "contentKind": "qcm",
+  "sujet": "histoire",
+  "titre": "Révolution et XIXe siècle",
+  "items": [
+    {
+      "id": "revolution-xixe-siecle-01",
+      "question": "La prise de la Bastille a lieu le…",
+      "choix": [
+        "14 juillet 1789",
+        "4 août 1789",
+        "20 juin 1789",
+        "26 août 1789"
+      ],
+      "bonneReponse": 0,
+      "explication": "Le 14 juillet 1789, les Parisiens prennent d'assaut la Bastille. Cette date devient la fête nationale française. La forteresse ne contenait que 7 prisonniers - mais le symbole était immense.",
+      "niveau": "4e",
+      "sujet": "Révolution & XIXe siècle"
+    },
+    {
+      "id": "revolution-xixe-siecle-02",
+      "question": "Napoléon se fait sacrer Empereur en quelle année, dans quel lieu ?",
+      "choix": [
+        "1804, à Notre-Dame de Paris",
+        "1799, aux Tuileries",
+        "1806, à Versailles",
+        "1804, à Rome"
+      ],
+      "bonneReponse": 0,
+      "explication": "Le 2 décembre 1804, Napoléon se sacre lui-même Empereur à Notre-Dame de Paris, en présence du pape Pie VII qu'il avait fait venir de Rome - geste symbolique d'indépendance vis-à-vis du pouvoir religieux.",
+      "niveau": "4e",
+      "sujet": "Révolution & XIXe siècle"
+    },
+    {
+      "id": "revolution-xixe-siecle-03",
+      "question": "Le Code civil napoléonien (1804) est révolutionnaire car il établit…",
+      "choix": [
+        "L'égalité juridique de tous les citoyens devant la loi",
+        "La séparation de l'Église et de l'État",
+        "Le suffrage universel masculin",
+        "La liberté de la presse"
+      ],
+      "bonneReponse": 0,
+      "explication": "Le Code civil (ou Code Napoléon) établit pour la première fois l'égalité juridique : même loi pour tous, droit de propriété garanti, laïcité du droit. Il est encore en vigueur aujourd'hui dans sa version modifiée.",
+      "niveau": "4e",
+      "sujet": "Révolution & XIXe siècle"
+    },
+    {
+      "id": "revolution-xixe-siecle-04",
+      "question": "Haussmann transforme Paris sous Napoléon III en…",
+      "choix": [
+        "Traçant 137 km de grands boulevards et dotant Paris d'égouts",
+        "Construisant le Louvre et Versailles",
+        "Créant le métro parisien",
+        "Rasant les faubourgs pour créer des parcs"
+      ],
+      "bonneReponse": 0,
+      "explication": "Mandaté par Napoléon III, Haussmann détruit 20 000 immeubles vétustes et crée les grands boulevards, les égouts modernes, les squares. Paris, ville médiévale, devient une capitale moderne.",
+      "niveau": "4e",
+      "sujet": "Révolution & XIXe siècle"
+    },
+    {
+      "id": "revolution-xixe-siecle-05",
+      "question": "L'affaire Dreyfus divise la France autour de quelle question ?",
+      "choix": [
+        "L'antisémitisme et la justice militaire",
+        "La séparation de l'Église et de l'État",
+        "L'extension du droit de vote",
+        "L'indépendance des colonies"
+      ],
+      "bonneReponse": 0,
+      "explication": "Alfred Dreyfus, officier juif injustement condamné pour trahison, est défendu par Zola ('J'accuse !', 1898). L'affaire révèle un antisémitisme profond dans l'armée et la société françaises.",
+      "niveau": "4e",
+      "sujet": "Révolution & XIXe siècle"
+    },
+    {
+      "id": "revolution-xixe-siecle-06",
+      "question": "La Première Guerre mondiale fait combien de morts parmi les soldats français ?",
+      "choix": [
+        "1,4 million",
+        "400 000",
+        "4 millions",
+        "600 000"
+      ],
+      "bonneReponse": 0,
+      "explication": "La France perd 1,4 million de soldats entre 1914 et 1918 - une génération décimée. Avec les blessés et mutilés, c'est près de 6 millions de victimes françaises, militaires et civiles.",
+      "niveau": "4e",
+      "sujet": "Révolution & XIXe siècle"
+    }
+  ]
+}
