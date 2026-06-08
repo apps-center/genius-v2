@@ -1,0 +1,110 @@
+/*
+  tokens.css - SEULE source des valeurs de design (variables CSS).
+  Aucune valeur metier ici. Rethemer = remplacer ce fichier, zero composant touche.
+
+  Valeurs relevees telles quelles depuis l'ancien site Genius (dossier legacy/),
+  reference de lecture seule : palette parchemin/or sur nuit profonde,
+  polices Cinzel + Crimson Pro, standard d'animation flip Genius.
+*/
+
+:root {
+  /* --- Fonds (nuit profonde etoilee) --- */
+  --color-bg: #060a14;
+  --color-bg-deep: #04070f;
+  --color-surface: #0b1120;
+  --color-surface-2: #0d1828;
+  --color-card-bg: rgba(8, 13, 26, 0.94);
+  --color-modal-bg: #0a1220;
+
+  /* --- Lignes et bordures (or tres dilue) --- */
+  --color-border: rgba(200, 180, 120, 0.18);
+  --color-line: rgba(200, 180, 120, 0.14);
+
+  /* --- Texte (parchemin) --- */
+  --color-text: #e8dfc4;
+  --color-text-muted: rgba(232, 223, 196, 0.48);
+  --color-star: #e8dfc4;
+
+  /* --- Or (accent principal) --- */
+  --color-gold: #d4a843;
+  --color-gold-2: #f0c060;
+  --color-gold-soft: #f5e6a3;
+  --color-accent: #c8a060;
+
+  /* --- Accents secondaires (etats / familles) --- */
+  --color-blue: #4a9edd;
+  --color-success: #4edd8a;
+  --color-danger: #e84848;
+  --color-purple: #a87be8;
+  --color-orange: #f0a060;
+  --color-rose: #e87ab0;
+
+  /* Alias semantiques d'etat (consommes par les briques) */
+  --color-correct: var(--color-success);
+  --color-wrong: var(--color-danger);
+
+  /* --- Degrade or signature (titres) --- */
+  --gradient-gold: linear-gradient(
+    135deg,
+    #f5e6a3,
+    #d4a843 38%,
+    #f0c060 65%,
+    #fff8e0
+  );
+
+  /* --- Typographie --- */
+  --font-display: 'Cinzel', Georgia, serif;
+  --font-body: 'Crimson Pro', Georgia, serif;
+  --weight-body: 400;
+  --weight-semibold: 600;
+  --weight-bold: 700;
+  --weight-black: 900;
+
+  /* Tailles */
+  --font-xs: 12px;
+  --font-sm: 14px;
+  --font-md: 17px;
+  --font-lg: 22px;
+  --font-xl: 32px;
+  --font-2xl: 48px;
+  --font-display-xl: clamp(40px, 8vw, 88px);
+
+  /* Interlettrage (labels capitales, signature Genius) */
+  --tracking-tight: 0.08em;
+  --tracking: 0.14em;
+  --tracking-wide: 0.2em;
+
+  /* --- Espacements --- */
+  --space-1: 4px;
+  --space-2: 8px;
+  --space-3: 12px;
+  --space-4: 16px;
+  --space-5: 24px;
+  --space-6: 32px;
+  --space-7: 48px;
+  --space-8: 64px;
+
+  /* --- Rayons (l'ancien site reste anguleux : 3-14px) --- */
+  --radius-sm: 3px;
+  --radius: 6px;
+  --radius-lg: 14px;
+  --radius-pill: 999px;
+
+  /* --- Ombres --- */
+  --shadow-card: 0 8px 50px rgba(0, 0, 0, 0.7);
+  --shadow-soft: 0 4px 24px rgba(0, 0, 0, 0.6);
+  --shadow-glow: 0 0 22px rgba(200, 160, 60, 0.12);
+  --shadow-focus: 0 0 0 2px rgba(212, 168, 67, 0.55);
+
+  /* --- Cible tactile minimale (a11y enfant) --- */
+  --tap-min: 44px;
+
+  /* --- Animation flip : standard Genius (NE PAS modifier) --- */
+  --flip-perspective: 1200px;
+  --flip-ease: cubic-bezier(0.34, 1.4, 0.64, 1);
+  --flip-duration: 0.6s;
+
+  /* Transitions generiques */
+  --ease-out: cubic-bezier(0.22, 1, 0.36, 1);
+  --transition: 0.2s var(--ease-out);
+}

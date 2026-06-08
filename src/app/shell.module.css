@@ -1,0 +1,234 @@
+.shell {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+.topbar {
+  display: flex;
+  align-items: center;
+  min-height: var(--tap-min);
+  padding: var(--space-4) var(--space-5);
+}
+
+.back {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--space-2);
+  min-height: var(--tap-min);
+  font-family: var(--font-display);
+  font-size: var(--font-xs);
+  letter-spacing: var(--tracking-wide);
+  text-transform: uppercase;
+  color: var(--color-text-muted);
+  transition: color var(--transition);
+}
+
+.back:hover {
+  color: var(--color-gold);
+}
+
+.main {
+  flex: 1;
+}
+
+/* --- Hub / page d'accueil --- */
+.hero {
+  text-align: center;
+  padding: var(--space-7) var(--space-4) var(--space-5);
+}
+
+.heroKicker {
+  font-family: var(--font-display);
+  font-size: var(--font-xs);
+  letter-spacing: var(--tracking-wide);
+  text-transform: uppercase;
+  color: var(--color-text-muted);
+}
+
+.heroTitle {
+  font-size: var(--font-display-xl);
+  text-transform: uppercase;
+  letter-spacing: var(--tracking-tight);
+  background: var(--gradient-gold);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+  margin: var(--space-3) 0;
+}
+
+.heroSub {
+  font-style: italic;
+  color: var(--color-text-muted);
+  font-size: var(--font-md);
+}
+
+.rule {
+  width: 200px;
+  height: 1px;
+  margin: var(--space-5) auto 0;
+  background: var(--color-line);
+}
+
+.section {
+  max-width: 980px;
+  margin: 0 auto;
+  padding: var(--space-6) var(--space-4) var(--space-8);
+}
+
+.sectionTitle {
+  text-align: center;
+  font-family: var(--font-display);
+  font-size: var(--font-xs);
+  letter-spacing: var(--tracking-wide);
+  text-transform: uppercase;
+  color: var(--color-text-muted);
+  margin-bottom: var(--space-5);
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+  gap: var(--space-5);
+}
+
+.card {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-3);
+  background: var(--color-card-bg);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-lg);
+  box-shadow: var(--shadow-card);
+  padding: var(--space-5);
+}
+
+.cardHead {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.badge {
+  font-family: var(--font-display);
+  font-size: var(--font-xs);
+  letter-spacing: var(--tracking);
+  text-transform: uppercase;
+  color: var(--color-gold);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-sm);
+  padding: var(--space-1) var(--space-2);
+}
+
+.cardKicker {
+  font-family: var(--font-display);
+  font-size: var(--font-xs);
+  letter-spacing: var(--tracking-wide);
+  text-transform: uppercase;
+  color: var(--color-text-muted);
+}
+
+.cardTitle {
+  font-family: var(--font-display);
+  font-weight: var(--weight-bold);
+  font-size: var(--font-lg);
+  text-transform: uppercase;
+  letter-spacing: var(--tracking-tight);
+}
+
+.cardDesc {
+  font-size: var(--font-sm);
+  color: var(--color-text-muted);
+  line-height: 1.5;
+  flex: 1;
+}
+
+.cardActions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-2);
+  margin-top: var(--space-2);
+}
+
+.play {
+  display: inline-flex;
+  align-items: center;
+  min-height: var(--tap-min);
+  padding: 0 var(--space-4);
+  border: 1px solid var(--color-gold);
+  border-radius: var(--radius);
+  color: var(--color-gold);
+  font-family: var(--font-display);
+  font-size: var(--font-xs);
+  letter-spacing: var(--tracking);
+  text-transform: uppercase;
+  transition: background var(--transition), color var(--transition);
+}
+
+.play:hover {
+  background: var(--color-gold);
+  color: var(--color-bg);
+}
+
+.empty {
+  text-align: center;
+  color: var(--color-text-muted);
+  padding: var(--space-7);
+}
+
+.footer {
+  text-align: center;
+  padding: var(--space-5);
+  border-top: 1px solid var(--color-line);
+  font-family: var(--font-display);
+  font-size: var(--font-xs);
+  letter-spacing: var(--tracking-wide);
+  text-transform: uppercase;
+  color: var(--color-text-muted);
+}
+
+/* --- Hote de brique --- */
+.brickRoot {
+  width: 100%;
+}
+
+/* --- Fallback ErrorBoundary --- */
+.fallback {
+  max-width: 560px;
+  margin: var(--space-8) auto;
+  text-align: center;
+  background: var(--color-card-bg);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-lg);
+  padding: var(--space-6);
+}
+
+.fallbackTitle {
+  font-family: var(--font-display);
+  font-weight: var(--weight-bold);
+  letter-spacing: var(--tracking);
+  text-transform: uppercase;
+  color: var(--color-danger);
+  font-size: var(--font-sm);
+}
+
+.fallbackMsg {
+  color: var(--color-text-muted);
+  font-size: var(--font-sm);
+  margin: var(--space-3) 0 var(--space-5);
+  word-break: break-word;
+}
+
+.fallbackBtn {
+  min-height: var(--tap-min);
+  padding: 0 var(--space-5);
+  background: transparent;
+  border: 1px solid var(--color-gold);
+  border-radius: var(--radius);
+  color: var(--color-gold);
+  font-family: var(--font-display);
+  letter-spacing: var(--tracking);
+  text-transform: uppercase;
+  font-size: var(--font-xs);
+  cursor: pointer;
+}
