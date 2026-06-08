@@ -3,7 +3,15 @@ import type { AppContext } from '../../../core/context';
 import { AppProvider } from '../../../core/context';
 import { ContentError } from '../../../core/content/load';
 import type { QcmPack, QcmItem } from '../../../core/content/qcm.schema';
-import { init, repondre, fini, itemCourant, type QuizState } from '../logic/engine';
+import {
+  init,
+  repondre,
+  fini,
+  itemCourant,
+  melangeChoix,
+  graineChoix,
+  type QuizState,
+} from '../logic/engine';
 import { manifest } from '../manifest';
 import styles from './Quiz.module.css';
 
@@ -12,9 +20,18 @@ import styles from './Quiz.module.css';
   La brique lit son sujet dans l'URL : elle fonctionne identiquement seule ou dans le shell.
 */
 
-function sujetDepuisUrl(): string {
+interface Cible {
+  sujet: string;
+  titre: string | undefined;
+}
+
+function cibleDepuisUrl(): Cible {
   const params = new URLSearchParams(window.location.search);
-  return params.get('sujet') ?? '';
+  return {
+    sujet: params.get('sujet') ?? '',
+    // `titre` desambigue les periodes d'une meme matiere (ex. Prehistoire vs Antiquite).
+    titre: params.get('titre') ?? undefined,
+  };
 }
 
 export function App({ ctx }: { ctx: AppContext }) {
@@ -31,13 +48,13 @@ type Chargement =
   | { statut: 'pret'; pack: QcmPack };
 
 function Quiz({ ctx }: { ctx: AppContext }) {
-  const sujet = useMemo(sujetDepuisUrl, []);
+  const cible = useMemo(cibleDepuisUrl, []);
   const [chargement, setChargement] = useState<Chargement>({ statut: 'chargement' });
 
   useEffect(() => {
     let actif = true;
     ctx.content
-      .loadPack(sujet, 'qcm')
+      .loadPack(cible.sujet, 'qcm', cible.titre)
       .then((pack) => actif && setChargement({ statut: 'pret', pack }))
       .catch((err: unknown) => {
         if (!actif) return;
@@ -45,13 +62,13 @@ function Quiz({ ctx }: { ctx: AppContext }) {
         const message =
           err instanceof ContentError
             ? err.message
-            : `Contenu introuvable pour le sujet "${sujet}".`;
+            : `Contenu introuvable pour le sujet "${cible.sujet}".`;
         setChargement({ statut: 'erreur', message });
       });
     return () => {
       actif = false;
     };
-  }, [ctx, sujet]);
+  }, [ctx, cible]);
 
   if (chargement.statut === 'chargement') {
     return <p className={styles.state}>Chargement du pack...</p>;
@@ -79,29 +96,54 @@ function Partie({ ctx, pack }: { ctx: AppContext; pack: QcmPack }) {
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
-  if (fini(state)) {
-    return <Resultat ctx={ctx} pack={pack} state={state} onRejouer={() => relancer()} />;
+  const idx = itemCourant(state);
+  // undefined quand la partie est finie : l'item courant n'existe plus.
+  const item = items[idx] as QcmItem | undefined;
+
+  // Ordre d'affichage des choix, melange et reproductible pour cette question.
+  // Hook AVANT tout return : l'ordre des hooks doit rester stable d'un rendu a l'autre.
+  const affichage = useMemo(
+    () =>
+      item
+        ? melangeChoix(item.choix.length, item.bonneReponse, graineChoix(state))
+        : { ordre: [] as number[], bonneReponse: -1 },
+    [item, state],
+  );
+
+  function relancer() {
+    setState(init(items));
+    setChoix(null);
   }
 
-  const idx = itemCourant(state);
-  const item = items[idx] as QcmItem;
-  const repondu = choix !== null;
+  if (fini(state) || !item) {
+    return <Resultat ctx={ctx} pack={pack} state={state} onRejouer={relancer} />;
+  }
 
-  function valider(c: number) {
+  // item est ici garanti defini ; on le capture pour les closures (le narrowing
+  // de TS ne traverse pas les fonctions imbriquees).
+  const courant: QcmItem = item;
+  // `choix` = position AFFICHEE selectionnee (apres melange), ou null.
+  const repondu = choix !== null;
+  const estCorrect = repondu ? affichage.ordre[choix] === item.bonneReponse : false;
+
+  function valider(positionAffichee: number) {
     if (repondu) return;
-    setChoix(c);
-    const { correct } = repondre(state, items, c);
-    const itemKey = `${pack.sujet}:${item.id}`;
+    setChoix(positionAffichee);
+    // On repond avec l'index D'ORIGINE du choix (le moteur compare a bonneReponse).
+    const indexOrigine = affichage.ordre[positionAffichee] ?? -1;
+    const { correct } = repondre(state, items, indexOrigine);
+    const itemKey = `${pack.sujet}:${courant.id}`;
     ctx.progress.recordAnswer(itemKey, correct);
     ctx.events.emit(correct ? 'answer.correct' : 'answer.wrong', {
       brick: manifest.id,
       sujet: pack.sujet,
-      itemId: item.id,
+      itemId: courant.id,
     });
   }
 
   function suivant() {
-    const { state: next } = repondre(state, items, choix ?? -1);
+    const indexOrigine = choix !== null ? (affichage.ordre[choix] ?? -1) : -1;
+    const { state: next } = repondre(state, items, indexOrigine);
     setChoix(null);
     setState(next);
     if (fini(next)) {
@@ -114,18 +156,14 @@ function Partie({ ctx, pack }: { ctx: AppContext; pack: QcmPack }) {
     }
   }
 
-  function relancer() {
-    setState(init(items));
-    setChoix(null);
-  }
-
   const numero = state.courant + 1;
   const pct = Math.round((state.courant / state.total) * 100);
+  const theme = item.sujet ?? pack.titre;
 
   return (
     <div className={styles.wrap}>
-      <p className={styles.kicker}>{pack.sujet}</p>
-      <h1 className={styles.titre}>{pack.titre}</h1>
+      <p className={styles.kicker}>{pack.titre}</p>
+      <h1 className={styles.titre}>{manifest.name}</h1>
 
       <div className={styles.progress}>
         <span>
@@ -138,26 +176,28 @@ function Partie({ ctx, pack }: { ctx: AppContext; pack: QcmPack }) {
       </div>
 
       <div className={styles.card}>
+        <p className={styles.badge}>{theme}</p>
         <p className={styles.question}>{item.question}</p>
 
         <div className={styles.choices} role="group" aria-label="Choix de reponse">
-          {item.choix.map((texte, i) => {
-            const estBon = i === item.bonneReponse;
-            const estChoisi = i === choix;
+          {affichage.ordre.map((indexOrigine, position) => {
+            const texte = item.choix[indexOrigine] as string;
+            const estBon = indexOrigine === item.bonneReponse;
+            const estChoisi = position === choix;
             let cls = styles.choice;
             if (repondu && estBon) cls += ` ${styles.choiceCorrect}`;
             else if (repondu && estChoisi) cls += ` ${styles.choiceWrong}`;
             return (
               <button
-                key={i}
+                key={indexOrigine}
                 type="button"
                 className={cls}
                 disabled={repondu}
                 aria-pressed={estChoisi}
-                onClick={() => valider(i)}
+                onClick={() => valider(position)}
               >
                 <span className={styles.puce} aria-hidden="true">
-                  {String.fromCharCode(65 + i)}
+                  {String.fromCharCode(65 + position)}
                 </span>
                 <span>{texte}</span>
               </button>
@@ -169,10 +209,10 @@ function Partie({ ctx, pack }: { ctx: AppContext; pack: QcmPack }) {
           <>
             <p
               className={`${styles.feedback} ${
-                choix === item.bonneReponse ? styles.feedbackOk : styles.feedbackKo
+                estCorrect ? styles.feedbackOk : styles.feedbackKo
               }`}
             >
-              {choix === item.bonneReponse ? 'Bonne reponse' : 'Mauvaise reponse'}
+              {estCorrect ? 'Bonne reponse' : 'Mauvaise reponse'}
             </p>
             {item.explication && <p className={styles.explication}>{item.explication}</p>}
             <div className={styles.actions}>

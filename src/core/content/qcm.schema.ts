@@ -15,6 +15,10 @@ export const QcmItem = z.object({
   bonneReponse: z.number().int().nonnegative(),
   explication: z.string().optional(),
   niveau: Niveau.optional(),
+  // Theme d'origine de la question (l'ancien champ `era` du quiz legacy).
+  // Sert d'etiquette pedagogique ; une question reste rattachee a son theme
+  // meme si un pack en melange plusieurs.
+  sujet: z.string().min(1).optional(),
 })
   // Coherence : l'index de bonne reponse doit exister dans le tableau de choix.
   .refine((it) => it.bonneReponse < it.choix.length, {
