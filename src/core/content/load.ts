@@ -1,6 +1,7 @@
 import { z } from 'zod';
 import { QcmPack } from './qcm.schema';
 import { ChronologiePack } from './chronologie.schema';
+import { FlashcardsPack } from './flashcards.schema';
 
 /*
   Chargement + validation des packs. ZERO React.
@@ -29,6 +30,7 @@ function formatIssues(error: z.ZodError): string {
 const SCHEMAS = {
   qcm: QcmPack,
   chronologie: ChronologiePack,
+  flashcards: FlashcardsPack,
 } as const;
 
 export type ContentKind = keyof typeof SCHEMAS;

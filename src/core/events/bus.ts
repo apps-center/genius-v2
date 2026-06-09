@@ -16,6 +16,10 @@ export interface DomainEvents {
   'timeline.viewed': { brick: string; sujet: string; eventId: string };
   // Frise : la modale d'un evenement (image + anecdotes) a ete ouverte.
   'anecdote.opened': { brick: string; sujet: string; eventId: string };
+  // Flashcards : une carte a ete retournee (recto <-> verso).
+  'card.flipped': { brick: string; sujet: string; cardId: string; face: 'recto' | 'verso' };
+  // Flashcards : la derniere carte du deck a ete atteinte.
+  'deck.completed': { brick: string; sujet: string; total: number };
 }
 
 export type DomainEventName = keyof DomainEvents;

@@ -1,0 +1,277 @@
+{
+  "contentKind": "flashcards",
+  "sujet": "logique",
+  "titre": "Logique",
+  "cartes": [
+    {
+      "type": "qr",
+      "id": "logique-1",
+      "question": "Quel est le terme suivant de la suite ?\n2 - 4 - 8 - 16 - ?",
+      "reponse": "32",
+      "explication": "Chaque terme est multiplié par 2. C'est une suite géométrique de raison 2.",
+      "categorie": "Suites",
+      "difficulte": 1
+    },
+    {
+      "type": "qr",
+      "id": "logique-2",
+      "question": "Quel est le terme suivant ?\n1 - 1 - 2 - 3 - 5 - 8 - ?",
+      "reponse": "13",
+      "explication": "Suite de Fibonacci : chaque terme est la somme des deux précédents. 5+8 = 13. On retrouve cette suite dans la nature (spirales, coquilles...).",
+      "categorie": "Suites",
+      "difficulte": 1
+    },
+    {
+      "type": "qr",
+      "id": "logique-3",
+      "question": "Quel est le terme manquant ?\n3 - 6 - 11 - 18 - 27 - ?",
+      "reponse": "38",
+      "explication": "Les différences successives sont +3, +5, +7, +9, +11. C'est une suite de différences croissantes impaires. 27+11 = 38.",
+      "categorie": "Suites",
+      "difficulte": 2
+    },
+    {
+      "type": "qr",
+      "id": "logique-4",
+      "question": "Trouvez le terme suivant :\n1 - 4 - 9 - 16 - 25 - ?",
+      "reponse": "36",
+      "explication": "Ce sont les carrés des entiers : 1²=1, 2²=4, 3²=9, 4²=16, 5²=25, 6²=36.",
+      "categorie": "Suites",
+      "difficulte": 2
+    },
+    {
+      "type": "qr",
+      "id": "logique-5",
+      "question": "Quel est le terme manquant ?\nA - C - F - J - ?",
+      "reponse": "O",
+      "explication": "Les écarts en positions alphabétiques sont +2, +3, +4, +5. A(1)+2=C(3)+3=F(6)+4=J(10)+5=O(15).",
+      "categorie": "Suites",
+      "difficulte": 2
+    },
+    {
+      "type": "qr",
+      "id": "logique-6",
+      "question": "Trouvez le terme suivant :\n2 - 3 - 5 - 7 - 11 - 13 - ?",
+      "reponse": "17",
+      "explication": "Ce sont les nombres premiers dans l'ordre. Après 13, le prochain nombre premier est 17.",
+      "categorie": "Suites",
+      "difficulte": 3
+    },
+    {
+      "type": "qr",
+      "id": "logique-7",
+      "question": "Quel est le terme manquant ?\n1 - 8 - 27 - 64 - ?",
+      "reponse": "125",
+      "explication": "Ce sont les cubes des entiers : 1³=1, 2³=8, 3³=27, 4³=64, 5³=125.",
+      "categorie": "Suites",
+      "difficulte": 3
+    },
+    {
+      "type": "qr",
+      "id": "logique-8",
+      "question": "Tous les chats sont des mammifères. Félix est un chat. Conclusion ?",
+      "reponse": "Félix est un mammifère.",
+      "explication": "C'est un syllogisme classique. Si tous les A sont B, et X est A, alors X est B. La conclusion est nécessairement vraie.",
+      "categorie": "Déduction",
+      "difficulte": 1
+    },
+    {
+      "type": "qr",
+      "id": "logique-9",
+      "question": "Dans une famille de 4 enfants, il y a au moins 2 filles. Anna est l'aînée. Bastien est plus jeune qu'Anna mais plus vieux que Camille. Camille n'est pas la cadette. Qui est le cadet ?",
+      "reponse": "Le 4e enfant (inconnu).",
+      "explication": "Ordre : Anna > Bastien > Camille > X. Camille n'est pas la cadette donc il existe un enfant plus jeune qu'elle.",
+      "categorie": "Déduction",
+      "difficulte": 2
+    },
+    {
+      "type": "qr",
+      "id": "logique-10",
+      "question": "Si je mens, je dis que je mens. Si je dis la vérité, je dis que je ne mens pas. Je vous dis : 'Je mens.' Que suis-je ?",
+      "reponse": "C'est un paradoxe - la phrase est indécidable.",
+      "explication": "C'est le paradoxe du Crétois de Epiménide. Si je mens en disant 'je mens', alors je dis la vérité, ce qui contredit l'énoncé. Indécidable logiquement.",
+      "categorie": "Déduction",
+      "difficulte": 2
+    },
+    {
+      "type": "qr",
+      "id": "logique-11",
+      "question": "3 boîtes : une contient 2 pommes, une contient 2 oranges, une contient 1 pomme et 1 orange. Toutes les étiquettes sont erronées. Vous tirez 1 fruit de la boîte 'Mixte'. Comment identifier toutes les boîtes ?",
+      "reponse": "Si vous tirez une pomme de 'Mixte' : c'est la boîte Pommes. 'Pommes' (fausse étiquette) contient Oranges. 'Oranges' est la Mixte.",
+      "explication": "Clé : toutes les étiquettes sont fausses. La boîte 'Mixte' est soit Pommes soit Oranges. Un seul fruit suffit pour tout déduire par élimination.",
+      "categorie": "Déduction",
+      "difficulte": 2
+    },
+    {
+      "type": "qr",
+      "id": "logique-12",
+      "question": "Marie est plus grande que Sophie. Sophie est plus grande que Julie. Qui est la plus petite ?",
+      "reponse": "Julie.",
+      "explication": "Relation transitive : Marie > Sophie > Julie. Julie est donc la plus petite des trois.",
+      "categorie": "Déduction",
+      "difficulte": 1
+    },
+    {
+      "type": "qr",
+      "id": "logique-13",
+      "question": "5 maisons de 5 couleurs. 5 nationalités. 5 boissons. 5 animaux. L'Anglais vit dans la maison rouge. Qui boit de l'eau dans l'énigme d'Einstein ?",
+      "reponse": "L'Allemand.",
+      "explication": "L'énigme d'Einstein (ou Zebra puzzle) se résout par élimination. Einstein affirmait que 2% de la population pouvait la résoudre. L'Allemand boit de l'eau et possède le poisson.",
+      "categorie": "Déduction",
+      "difficulte": 3
+    },
+    {
+      "type": "qr",
+      "id": "logique-14",
+      "question": "Un père a 30 ans de plus que son fils. Dans 5 ans, il aura 3 fois l'âge de son fils. Quel âge a le fils aujourd'hui ?",
+      "reponse": "10 ans.",
+      "explication": "Fils = x, Père = x+30. Dans 5 ans : x+30+5 = 3(x+5) → x+35 = 3x+15 → 20 = 2x → x=10.",
+      "categorie": "Déduction",
+      "difficulte": 2
+    },
+    {
+      "type": "qr",
+      "id": "logique-15",
+      "question": "Je lance un dé à 6 faces. Quelle est la probabilité d'obtenir un 6 ?",
+      "reponse": "1/6 ≈ 16,7%",
+      "explication": "Le dé a 6 faces équiprobables. 1 seule face donne 6. P(6) = 1/6.",
+      "categorie": "Probabilités",
+      "difficulte": 1
+    },
+    {
+      "type": "qr",
+      "id": "logique-16",
+      "question": "Je tire une carte dans un jeu de 52 cartes. Quelle est la probabilité de tirer un as ?",
+      "reponse": "4/52 = 1/13 ≈ 7,7%",
+      "explication": "Il y a 4 as dans un jeu de 52 cartes (un par couleur). P(as) = 4/52 = 1/13.",
+      "categorie": "Probabilités",
+      "difficulte": 2
+    },
+    {
+      "type": "qr",
+      "id": "logique-17",
+      "question": "Je lance 2 pièces. Quelle est la probabilité d'obtenir 2 faces ?",
+      "reponse": "1/4 = 25%",
+      "explication": "4 résultats possibles : FF, FP, PF, PP. 1 seul favorable (FF). P = 1/4. Les lancers sont indépendants.",
+      "categorie": "Probabilités",
+      "difficulte": 2
+    },
+    {
+      "type": "qr",
+      "id": "logique-18",
+      "question": "Dans un groupe de 23 personnes, quelle est la probabilité qu'au moins 2 personnes partagent la même date d'anniversaire ?",
+      "reponse": "Plus de 50% !",
+      "explication": "C'est le paradoxe des anniversaires. À 23 personnes : P ≈ 50,7%. À 70 personnes : P ≈ 99,9%. Contre-intuitif mais mathématiquement prouvé.",
+      "categorie": "Probabilités",
+      "difficulte": 3
+    },
+    {
+      "type": "qr",
+      "id": "logique-19",
+      "question": "Le problème de Monty Hall : vous choisissez une porte sur 3. L'animateur ouvre une porte perdante. Faut-il changer de porte ?",
+      "reponse": "Oui ! Changer donne 2/3 de chances de gagner.",
+      "explication": "Si vous gardez votre porte : P = 1/3. Si vous changez : P = 2/3. L'animateur qui sait apporte une information. Vérifiable par simulation.",
+      "categorie": "Probabilités",
+      "difficulte": 3
+    },
+    {
+      "type": "qr",
+      "id": "logique-20",
+      "question": "Combien font 17 × 13 ?",
+      "reponse": "221",
+      "explication": "17 × 13 = 17 × 10 + 17 × 3 = 170 + 51 = 221. Ou (15+2)(15-2) = 15²-4 = 225-4 = 221.",
+      "categorie": "Calcul mental",
+      "difficulte": 1
+    },
+    {
+      "type": "qr",
+      "id": "logique-21",
+      "question": "Un article coûte 80€. Avec -25% de remise, combien coûte-t-il ?",
+      "reponse": "60€",
+      "explication": "25% de 80 = 20. 80 - 20 = 60€. Ou : 80 × 0,75 = 60€.",
+      "categorie": "Calcul mental",
+      "difficulte": 1
+    },
+    {
+      "type": "qr",
+      "id": "logique-22",
+      "question": "Vous gagnez 1 centime le 1er jour, 2 centimes le 2e, 4 le 3e, 8 le 4e... Combien au 30e jour ?",
+      "reponse": "5 368 709,12€ (soit plus de 5 millions !)",
+      "explication": "2^29 centimes = 536 870 912 centimes ≈ 5,4 millions €. C'est la puissance de la croissance exponentielle.",
+      "categorie": "Calcul mental",
+      "difficulte": 2
+    },
+    {
+      "type": "qr",
+      "id": "logique-23",
+      "question": "Un train de 200m roule à 60 km/h. Combien de temps pour traverser un tunnel de 1000m ?",
+      "reponse": "72 secondes.",
+      "explication": "Distance totale = 200+1000 = 1200m. Vitesse = 60km/h = 16,67 m/s. Temps = 1200/16,67 ≈ 72 secondes.",
+      "categorie": "Calcul mental",
+      "difficulte": 2
+    },
+    {
+      "type": "qr",
+      "id": "logique-24",
+      "question": "Combien de zéros y a-t-il à la fin de 100! (100 factorielle) ?",
+      "reponse": "24 zéros.",
+      "explication": "Chaque zéro vient d'un facteur 10 = 2×5. On compte les facteurs 5 : ⌊100/5⌋+⌊100/25⌋ = 20+4 = 24. Les facteurs 2 sont toujours plus nombreux.",
+      "categorie": "Calcul mental",
+      "difficulte": 3
+    },
+    {
+      "type": "qr",
+      "id": "logique-25",
+      "question": "Je parle sans bouche et entends sans oreilles. Je n'ai pas de corps mais je prends vie avec le vent. Qui suis-je ?",
+      "reponse": "L'écho.",
+      "explication": "L'écho est le reflet du son sur une surface. Il 'parle' (répète) sans bouche et semble 'entendre' le vent.",
+      "categorie": "Enigmes",
+      "difficulte": 1
+    },
+    {
+      "type": "qr",
+      "id": "logique-26",
+      "question": "Un homme pousse sa voiture jusqu'à un hôtel et déclare immédiatement qu'il est en faillite. Pourquoi ?",
+      "reponse": "Il joue au Monopoly.",
+      "explication": "Au Monopoly, si vous tombez sur une propriété avec un hôtel appartenant à un autre joueur, vous payez un loyer très élevé - souvent ruineux.",
+      "categorie": "Enigmes",
+      "difficulte": 1
+    },
+    {
+      "type": "qr",
+      "id": "logique-27",
+      "question": "Vous avez 2 cordes qui brûlent chacune exactement en 1 heure, mais de façon irrégulière. Comment mesurer 45 minutes ?",
+      "reponse": "Allumez la corde 1 des 2 côtés + la corde 2 d'un côté. Quand la corde 1 s'éteint (30 min), allumez l'autre bout de la corde 2.",
+      "explication": "Corde 1 par les deux bouts = 30 min. À 30 min, il reste 30 min sur corde 2 → allumer l'autre bout → 15 min de plus. Total : 45 min.",
+      "categorie": "Enigmes",
+      "difficulte": 2
+    },
+    {
+      "type": "qr",
+      "id": "logique-28",
+      "question": "Un fermier a 17 moutons. Tous sauf 9 meurent. Combien lui en reste-t-il ?",
+      "reponse": "9 moutons.",
+      "explication": "'Tous sauf 9' signifie que 9 survivent. C'est un piège de lecture : on tend à calculer 17-9=8, mais la phrase dit explicitement que 9 restent.",
+      "categorie": "Enigmes",
+      "difficulte": 2
+    },
+    {
+      "type": "qr",
+      "id": "logique-29",
+      "question": "Vous êtes dans une pièce avec 3 interrupteurs. L'un allume une ampoule dans la pièce à côté. Vous ne pouvez y aller qu'une fois. Comment trouver lequel ?",
+      "reponse": "Allumez le 1er longtemps, puis éteignez. Allumez le 2e. Allez voir : chaud=1er, allumé=2e, froid éteint=3e.",
+      "explication": "L'astuce : utiliser la chaleur de l'ampoule comme information supplémentaire. Les ampoules à incandescence chauffent quand elles sont allumées.",
+      "categorie": "Enigmes",
+      "difficulte": 3
+    },
+    {
+      "type": "qr",
+      "id": "logique-30",
+      "question": "Trois dieux - Vrai, Faux, Aléatoire - répondent en leur langue (ja/da = oui/non, mais vous ignorez lequel). Que demandez-vous pour identifier chacun en 3 questions ?",
+      "reponse": "'Si je vous demandais si ja signifie oui, diriez-vous ja ?' Neutralise les mensonges.",
+      "explication": "C'est le problème du 'Plus difficile problème de logique du monde' (George Boolos, 1996). La question auto-référentielle force les réponses cohérentes même du menteur.",
+      "categorie": "Enigmes",
+      "difficulte": 3
+    }
+  ]
+}

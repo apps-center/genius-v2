@@ -1,0 +1,439 @@
+{
+  "contentKind": "flashcards",
+  "sujet": "arts",
+  "titre": "Arts et Culture",
+  "cartes": [
+    {
+      "type": "image",
+      "id": "arts-1",
+      "image": "/img/flashcards/arts/joconde.webp",
+      "titre": "La Joconde - Léonard de Vinci",
+      "date": "1503-1519",
+      "epoque": "Renaissance",
+      "description": "Par Léonard de Vinci. La Joconde est le tableau le plus célèbre et le plus visité du monde. Elle représente probablement Lisa Gherardini, épouse d'un marchand florentin, mais son identité reste débattue. Conservé : Musée du Louvre, Paris."
+    },
+    {
+      "type": "image",
+      "id": "arts-2",
+      "image": "/img/flashcards/arts/lecole-dathenes-de-raphael.webp",
+      "titre": "L'École d'Athènes - Raphaël",
+      "date": "1509-1510",
+      "epoque": "Renaissance",
+      "description": "Par Raphaël. Commandée par le pape Jules II pour décorer sa bibliothèque, L'École d'Athènes est le sommet de la peinture de la Haute Renaissance. Elle rassemble les plus grands philosophes de l'Antiquité dans un décor architectural inspiré de Bramante."
+    },
+    {
+      "type": "image",
+      "id": "arts-3",
+      "image": "/img/flashcards/arts/naissance-de-venus.webp",
+      "titre": "La Naissance de Vénus - Botticelli",
+      "date": "1484-1486",
+      "epoque": "Renaissance",
+      "description": "Par Sandro Botticelli. Vénus, née de l'écume de la mer, arrive sur le rivage portée par les vents Zéphyr et Chloris, tandis qu'une Heure lui tend un manteau fleuri. Conservé : Galerie des Offices, Florence."
+    },
+    {
+      "type": "image",
+      "id": "arts-4",
+      "image": "/img/flashcards/arts/don-quichotte.webp",
+      "titre": "Don Quichotte - Miguel de Cervantès",
+      "date": "1605-1615",
+      "epoque": "Baroque",
+      "description": "Par Miguel de Cervantès. Considéré comme le premier roman moderne de la littérature occidentale, Don Quichotte raconte les aventures d'Alonso Quijano, un gentilhomme espagnol qui, ayant trop lu de romans de chevalerie, perd la raison et part sur les routes."
+    },
+    {
+      "type": "image",
+      "id": "arts-5",
+      "image": "/img/flashcards/arts/chapelle-sixtine.webp",
+      "titre": "La Chapelle Sixtine - Michel-Ange",
+      "date": "1508-1512",
+      "epoque": "Renaissance",
+      "description": "Par Michel-Ange. Le plafond de la Chapelle Sixtine est l'une des plus grandes réalisations artistiques de l'humanité. Michel-Ange y représente neuf scènes de la Genèse, dont la célèbre Création d'Adam où les doigts de Dieu et de l'homme se frôlent."
+    },
+    {
+      "type": "image",
+      "id": "arts-6",
+      "image": "/img/flashcards/arts/johann-sebastian-bach.webp",
+      "titre": "Messe de Notre-Dame - Guillaume de Machaut",
+      "date": "vers 1365",
+      "epoque": "Moyen Âge",
+      "description": "Par Guillaume de Machaut. La Messe de Notre-Dame de Machaut est la première mise en musique complète et unifiée de l'Ordinaire de la messe par un seul compositeur. Conservé : Cathédrale de Reims (probable lieu de création)."
+    },
+    {
+      "type": "image",
+      "id": "arts-7",
+      "image": "/img/flashcards/arts/parthenon.webp",
+      "titre": "Le Parthénon - Ictinos & Callicratès",
+      "date": "-447 à -432",
+      "epoque": "Antiquité",
+      "description": "Par Ictinos & Callicratès (architectes), Phidias (décoration). Le Parthénon est le temple dédié à Athéna Parthénos sur l'Acropole d'Athènes, construit sous Périclès. Conservé : Acropole d'Athènes, Grèce."
+    },
+    {
+      "type": "image",
+      "id": "arts-8",
+      "image": "/img/flashcards/arts/sainte-sophie.webp",
+      "titre": "Sainte-Sophie - Anthémios de Tralles",
+      "date": "532-537",
+      "epoque": "Antiquité tardive & Byzance",
+      "description": "Par Anthémios de Tralles & Isidore de Milet. Sainte-Sophie fut la plus grande cathédrale du monde pendant mille ans."
+    },
+    {
+      "type": "image",
+      "id": "arts-9",
+      "image": "/img/flashcards/arts/abbaye-cluny-bourgogne.webp",
+      "titre": "Abbaye de Cluny - Bâtisseurs clunisiens",
+      "date": "1088-1130",
+      "epoque": "Moyen Âge",
+      "description": "Par Bâtisseurs clunisiens (Saint Hugues de Semur). Cluny III était la plus grande église du monde chrétien pendant 500 ans - 187 mètres de long, cinq nefs, deux transepts, cinq clochers. Conservé : Cluny, Bourgogne, France (ruines)."
+    },
+    {
+      "type": "image",
+      "id": "arts-10",
+      "image": "/img/flashcards/arts/notre-dame-paris.webp",
+      "titre": "Cathédrale Notre-Dame de Paris",
+      "date": "1163-1345",
+      "epoque": "Moyen Âge",
+      "description": "Par Maurice de Sully (initiateur), maîtres d'œuvre successifs. Notre-Dame de Paris est le chef-d'œuvre du gothique rayonnant, construite sur deux siècles."
+    },
+    {
+      "type": "image",
+      "id": "arts-11",
+      "image": "/img/flashcards/arts/l-odyssee.webp",
+      "titre": "L'Odyssée - Homère",
+      "date": "vers -800 à -700",
+      "epoque": "Antiquité",
+      "description": "Par Homère. L'Odyssée raconte le retour d'Ulysse à Ithaque après la guerre de Troie - dix ans d'aventures et d'épreuves face aux dieux, aux monstres et aux hommes. Conservé : Épopée de la Grèce antique."
+    },
+    {
+      "type": "image",
+      "id": "arts-12",
+      "image": "/img/flashcards/arts/la-divine-comedie.webp",
+      "titre": "La Divine Comédie - Dante Alighieri",
+      "date": "1308-1321",
+      "epoque": "Moyen Âge",
+      "description": "Par Dante Alighieri. La Divine Comédie est le voyage de Dante à travers l'Enfer, le Purgatoire et le Paradis, guidé d'abord par Virgile puis par Béatrice. Écrite en toscan - et non en latin - c'est l'œuvre fondatrice de la langue italienne."
+    },
+    {
+      "type": "image",
+      "id": "arts-13",
+      "image": "/img/flashcards/arts/la-fille-a-la-perle.webp",
+      "titre": "La Fille à la Perle - Vermeer",
+      "date": "1665",
+      "epoque": "Baroque",
+      "description": "Par Johannes Vermeer. Surnommée 'la Joconde du Nord', cette œuvre représente une jeune fille au regard tourné par-dessus l'épaule, portant un turban bleu et une perle pendante. Conservé : Mauritshuis, La Haye."
+    },
+    {
+      "type": "image",
+      "id": "arts-14",
+      "image": "/img/flashcards/arts/la-ronde-de-nuit.webp",
+      "titre": "La Ronde de Nuit - Rembrandt",
+      "date": "1642",
+      "epoque": "Baroque",
+      "description": "Par Rembrandt van Rijn. Ce tableau monumental représente la milice bourgeoise du capitaine Frans Banninck Cocq partant en ronde. Conservé : Rijksmuseum, Amsterdam."
+    },
+    {
+      "type": "image",
+      "id": "arts-15",
+      "image": "/img/flashcards/arts/vivaldi.webp",
+      "titre": "Les Quatre Saisons - Antonio Vivaldi",
+      "date": "1723",
+      "epoque": "Baroque",
+      "description": "Par Antonio Vivaldi. Les Quatre Saisons sont quatre concertos pour violon composés par Vivaldi à Venise, chacun accompagné d'un sonnet décrivant la saison correspondante. Conservé : Première publication : Amsterdam, 1725."
+    },
+    {
+      "type": "image",
+      "id": "arts-16",
+      "image": "/img/flashcards/arts/hamlet.webp",
+      "titre": "Hamlet - William Shakespeare",
+      "date": "vers 1600-1601",
+      "epoque": "Baroque",
+      "description": "Par William Shakespeare. Hamlet, prince du Danemark, apprend de son père défunt que son oncle Claudius l'a assassiné pour s'emparer du trône et épouser sa mère. Tiraillé entre le devoir de vengeance et le doute philosophique, il feint la folie et hésite."
+    },
+    {
+      "type": "image",
+      "id": "arts-17",
+      "image": "/img/flashcards/arts/claudio-monteverdi.webp",
+      "titre": "L'Orfeo - Claudio Monteverdi",
+      "date": "1607",
+      "epoque": "Baroque",
+      "description": "Par Claudio Monteverdi. L'Orfeo de Monteverdi est considéré comme le premier grand opéra de l'histoire. Basé sur le mythe d'Orphée descendant aux Enfers pour ramener Eurydice, il fusionne musique, poésie, danse et décors spectaculaires."
+    },
+    {
+      "type": "image",
+      "id": "arts-18",
+      "image": "/img/flashcards/arts/le-sacre-de-napoleon.webp",
+      "titre": "Le Sacre de Napoléon - Jacques-Louis David",
+      "date": "1805-1807",
+      "epoque": "Néoclassicisme",
+      "description": "Par Jacques-Louis David. Cette œuvre monumentale immortalise le sacre de Napoléon Ier le 2 décembre 1804 à Notre-Dame de Paris. David, peintre officiel de l'Empire, a représenté le moment où Napoléon couronne Joséphine. Conservé : Musée du Louvre, Paris."
+    },
+    {
+      "type": "image",
+      "id": "arts-19",
+      "image": "/img/flashcards/arts/napoleon-alpes.webp",
+      "titre": "Napoléon traversant les Alpes - David",
+      "date": "1801-1805",
+      "epoque": "Néoclassicisme",
+      "description": "Par Jacques-Louis David. Napoléon, sur un cheval cabré, montre le chemin à ses troupes dans le col du Grand-Saint-Bernard. Le geste héroïque, le manteau rouge battant dans le vent, le regard déterminé - tout est glorification."
+    },
+    {
+      "type": "image",
+      "id": "arts-20",
+      "image": "/img/flashcards/arts/mozart.webp",
+      "titre": "Symphonie n°40 - Wolfgang Amadeus Mozart",
+      "date": "1788",
+      "epoque": "Néoclassicisme",
+      "description": "Par Wolfgang Amadeus Mozart. La Symphonie n°40 en sol mineur est l'une des deux seules symphonies de Mozart en mineur, et la plus connue. Conservé : Manuscrit : Bibliothèque nationale d'Autriche."
+    },
+    {
+      "type": "image",
+      "id": "arts-21",
+      "image": "/img/flashcards/arts/la-liberte-guidant-le-peuple.webp",
+      "titre": "La Liberté Guidant le Peuple - Delacroix",
+      "date": "1830",
+      "epoque": "Romantisme",
+      "description": "Par Eugène Delacroix. Peint dans la foulée des Trois Glorieuses de juillet 1830, ce tableau représente Marianne - figure allégorique de la France - brandissant le drapeau tricolore par-dessus des barricades et des cadavres. Conservé : Musée du Louvre, Paris."
+    },
+    {
+      "type": "image",
+      "id": "arts-22",
+      "image": "/img/flashcards/arts/radeau-de-la-meduse.webp",
+      "titre": "Le Radeau de la Méduse - Géricault",
+      "date": "1818-1819",
+      "epoque": "Romantisme",
+      "description": "Par Théodore Géricault. Ce tableau colossal représente le naufrage de la frégate Méduse en 1816 - scandale d'État car le capitaine incompétent avait été nommé par favoritisme royaliste. Conservé : Musée du Louvre, Paris."
+    },
+    {
+      "type": "image",
+      "id": "arts-23",
+      "image": "/img/flashcards/arts/les-miserables.webp",
+      "titre": "Les Misérables - Victor Hugo",
+      "date": "1862",
+      "epoque": "Romantisme",
+      "description": "Par Victor Hugo. Chef-d'œuvre du romantisme social, Les Misérables suit Jean Valjean, ancien forçat condamné pour avoir volé un pain, qui tente de se racheter dans une France du XIXe siècle marquée par la misère et l'injustice."
+    },
+    {
+      "type": "image",
+      "id": "arts-24",
+      "image": "/img/flashcards/arts/beethoven.webp",
+      "titre": "La Symphonie n°9 - Ludwig van Beethoven",
+      "date": "1824",
+      "epoque": "Romantisme",
+      "description": "Par Ludwig van Beethoven. La Neuvième Symphonie est considérée comme l'une des plus grandes œuvres musicales jamais composées."
+    },
+    {
+      "type": "image",
+      "id": "arts-25",
+      "image": "/img/flashcards/arts/moulin-de-la-galette.webp",
+      "titre": "Bal du Moulin de la Galette - Renoir",
+      "date": "1876",
+      "epoque": "Impressionnisme",
+      "description": "Par Pierre-Auguste Renoir. Cette grande toile festive représente une guinguette de Montmartre où se retrouvait la classe ouvrière parisienne les dimanches. Conservé : Musée d'Orsay, Paris."
+    },
+    {
+      "type": "image",
+      "id": "arts-26",
+      "image": "/img/flashcards/arts/dejeuner-des-canotiers.webp",
+      "titre": "Le Déjeuner des Canotiers - Renoir",
+      "date": "1880-1881",
+      "epoque": "Impressionnisme",
+      "description": "Par Pierre-Auguste Renoir. Cette scène de déjeuner sur la terrasse du Restaurant Fournaise à Chatou montre des amis de Renoir - peintres, acteurs, canotiers - réunis dans la joie d'un repas d'été au bord de la Seine."
+    },
+    {
+      "type": "image",
+      "id": "arts-27",
+      "image": "/img/flashcards/arts/les-nympheas.webp",
+      "titre": "Les Nymphéas - Claude Monet",
+      "date": "1896-1926",
+      "epoque": "Impressionnisme",
+      "description": "Par Claude Monet. Les Nymphéas constituent la grande œuvre tardive de Monet - près de 250 peintures du bassin de son jardin à Giverny, réalisées sur trente ans. Conservé : Musée de l'Orangerie, Paris."
+    },
+    {
+      "type": "image",
+      "id": "arts-28",
+      "image": "/img/flashcards/arts/madame-bovary.webp",
+      "titre": "Madame Bovary - Gustave Flaubert",
+      "date": "1857",
+      "epoque": "Impressionnisme",
+      "description": "Par Gustave Flaubert. Emma Bovary, fille de fermier devenue femme de médecin de province, s'ennuie dans sa vie ordinaire. Nourrie de romans romantiques, elle rêve de passion et d'élégance, prend des amants et accumule des dettes pour fuir la médiocrité."
+    },
+    {
+      "type": "image",
+      "id": "arts-29",
+      "image": "/img/flashcards/arts/les-tournesols.webp",
+      "titre": "Les Tournesols - Vincent van Gogh",
+      "date": "1888",
+      "epoque": "Post-Impressionnisme",
+      "description": "Par Vincent van Gogh. Van Gogh peint plusieurs versions des Tournesols à Arles pour décorer la chambre de son ami Gauguin, attendu en visite. Conservé : National Gallery, Londres (version principale)."
+    },
+    {
+      "type": "image",
+      "id": "arts-30",
+      "image": "/img/flashcards/arts/nuit-etoilee-1.webp",
+      "titre": "La Nuit Étoilée - Vincent van Gogh",
+      "date": "1889",
+      "epoque": "Post-Impressionnisme",
+      "description": "Par Vincent van Gogh. Peinte depuis la fenêtre de sa chambre à l'asile Saint-Paul-de-Mausole à Saint-Rémy-de-Provence, La Nuit Étoilée est le tableau le plus célèbre de Van Gogh. Conservé : Museum of Modern Art (MoMA), New York."
+    },
+    {
+      "type": "image",
+      "id": "arts-31",
+      "image": "/img/flashcards/arts/nuit-etoilee-2.webp",
+      "titre": "Nuit Étoilée sur le Rhône - Vincent van Gogh",
+      "date": "1888",
+      "epoque": "Post-Impressionnisme",
+      "description": "Par Vincent van Gogh. Peinte à Arles quelques mois avant La Nuit Étoilée de Saint-Rémy, cette œuvre montre la Grande Ourse reflétée dans le Rhône, avec les lumières jaunes de la ville sur l'eau. Conservé : Musée d'Orsay, Paris."
+    },
+    {
+      "type": "image",
+      "id": "arts-32",
+      "image": "/img/flashcards/arts/la-terrasse-du-cafe.webp",
+      "titre": "La Terrasse du Café le Soir - Van Gogh",
+      "date": "1888",
+      "epoque": "Post-Impressionnisme",
+      "description": "Par Vincent van Gogh. Ce café de la Place du Forum à Arles brille de jaune dans la nuit bleue - c'est l'une des premières peintures de nuit sans lumière noire. Conservé : Kröller-Müller Museum, Otterlo."
+    },
+    {
+      "type": "image",
+      "id": "arts-33",
+      "image": "/img/flashcards/arts/dorian-grey.webp",
+      "titre": "Le Portrait de Dorian Gray - Oscar Wilde",
+      "date": "1890",
+      "epoque": "Post-Impressionnisme",
+      "description": "Par Oscar Wilde. Dorian Gray, jeune homme d'une beauté exceptionnelle à Londres victorienne, formule le vœu que son portrait vieillisse à sa place. Le vœu s'exauce. Conservé : Lippincott's Monthly Magazine, puis Éditions Ward Lock."
+    },
+    {
+      "type": "image",
+      "id": "arts-34",
+      "image": "/img/flashcards/arts/le-baiser.webp",
+      "titre": "Le Baiser - Gustav Klimt",
+      "date": "1907-1908",
+      "epoque": "Art Nouveau / Symbolisme",
+      "description": "Par Gustav Klimt. Deux amants enlacés, drapés d'un manteau orné de motifs géométriques et floraux en feuilles d'or et d'argent, s'embrassent au bord d'un précipice fleuri. Conservé : Österreichische Galerie Belvedere, Vienne."
+    },
+    {
+      "type": "image",
+      "id": "arts-35",
+      "image": "/img/flashcards/arts/le-cri-2.webp",
+      "titre": "Le Cri - Edvard Munch",
+      "date": "1893",
+      "epoque": "Art Nouveau / Symbolisme",
+      "description": "Par Edvard Munch. Une figure androgyine à la tête de crâne se tord les mains sur un pont tandis que le ciel tourbillonne en rouge et orange. Ce n'est pas le cri d'une personne - c'est le cri de la nature tout entière qui envahit la tête du personnage."
+    },
+    {
+      "type": "image",
+      "id": "arts-36",
+      "image": "/img/flashcards/arts/le-voyage-de-chihiro.webp",
+      "titre": "Le Voyage de Chihiro - Hayao Miyazaki",
+      "date": "2001",
+      "epoque": "Contemporain",
+      "description": "Par Hayao Miyazaki / Studio Ghibli. Chihiro, une fillette de 10 ans, pénètre par accident dans le monde des esprits japonais. Ses parents transformés en cochons, elle doit travailler dans les thermes d'une sorcière pour les sauver."
+    },
+    {
+      "type": "image",
+      "id": "arts-37",
+      "image": "/img/flashcards/arts/debussy.webp",
+      "titre": "Pelléas et Mélisande - Claude Debussy",
+      "date": "1902",
+      "epoque": "Art Nouveau / Symbolisme",
+      "description": "Par Claude Debussy. Unique opéra de Debussy, Pelléas et Mélisande est considéré comme le chef-d'œuvre de l'impressionnisme musical. Basé sur la pièce symboliste de Maeterlinck, il raconte l'amour interdit de deux âmes dans un château médiéval brumeux."
+    },
+    {
+      "type": "image",
+      "id": "arts-38",
+      "image": "/img/flashcards/arts/persistance-de-la-memoire.webp",
+      "titre": "La Persistance de la Mémoire - Salvador Dalí",
+      "date": "1931",
+      "epoque": "Modernisme",
+      "description": "Par Salvador Dalí. Les montres molles qui fondent sur un paysage de Cap Creus en Catalogne sont l'image surréaliste la plus connue au monde. Dalí dit avoir eu l'idée en regardant fondre un camembert. Conservé : Museum of Modern Art (MoMA), New York."
+    },
+    {
+      "type": "image",
+      "id": "arts-39",
+      "image": "/img/flashcards/arts/guernica.webp",
+      "titre": "Guernica - Pablo Picasso",
+      "date": "1937",
+      "epoque": "Modernisme",
+      "description": "Par Pablo Picasso. Guernica est la réponse de Picasso au bombardement de la ville basque de Guernica par l'aviation nazie et franquiste le 26 avril 1937. Conservé : Museo Reina Sofía, Madrid."
+    },
+    {
+      "type": "image",
+      "id": "arts-40",
+      "image": "/img/flashcards/arts/demoiselles-d-avignon.webp",
+      "titre": "Les Demoiselles d'Avignon - Pablo Picasso",
+      "date": "1907",
+      "epoque": "Modernisme",
+      "description": "Par Pablo Picasso. Ce tableau choc marque la naissance du Cubisme et révolutionne toute l'histoire de l'art. Picasso représente cinq femmes nues en fragmentant leurs corps en facettes géométriques, montrant plusieurs angles simultanément."
+    },
+    {
+      "type": "image",
+      "id": "arts-41",
+      "image": "/img/flashcards/arts/la-danse.webp",
+      "titre": "La Danse - Henri Matisse",
+      "date": "1910",
+      "epoque": "Modernisme",
+      "description": "Par Henri Matisse. Cinq figures nues forment une ronde dans un espace réduit à trois aplats de couleurs : le bleu du ciel, le vert de la colline, le rouge-brique des corps. Conservé : Musée de l'Ermitage, Saint-Pétersbourg."
+    },
+    {
+      "type": "image",
+      "id": "arts-42",
+      "image": "/img/flashcards/arts/kandinsky.webp",
+      "titre": "Composition VIII - Wassily Kandinsky",
+      "date": "1923",
+      "epoque": "Modernisme",
+      "description": "Par Wassily Kandinsky. Kandinsky est considéré comme le père de la peinture abstraite. Dans Composition VIII, formes géométriques - cercles, triangles, lignes - s'organisent dans un espace sans référence au monde visible. Conservé : Solomon R."
+    },
+    {
+      "type": "image",
+      "id": "arts-43",
+      "image": "/img/flashcards/arts/metropolis.webp",
+      "titre": "Metropolis - Fritz Lang",
+      "date": "1927",
+      "epoque": "Modernisme",
+      "description": "Par Fritz Lang. Dans une mégapole futuriste du XXIIe siècle, les élites vivent dans des tours lumineuses pendant que les ouvriers s'épuisent dans des souterrains. Conservé : Universum Film AG (UFA), Berlin."
+    },
+    {
+      "type": "image",
+      "id": "arts-44",
+      "image": "/img/flashcards/arts/a-la-recherche-du-temps-perdu.webp",
+      "titre": "À la Recherche du Temps Perdu - Marcel Proust",
+      "date": "1913-1927",
+      "epoque": "Modernisme",
+      "description": "Par Marcel Proust. Le narrateur, Marcel, trempe une madeleine dans du thé et est soudain submergé par le souvenir de son enfance à Combray. Cette involuntary memory déclenche le roman le plus long et le plus ambitieux de la littérature française."
+    },
+    {
+      "type": "image",
+      "id": "arts-45",
+      "image": "/img/flashcards/arts/le-voyage-dans-la-lune.webp",
+      "titre": "Le Voyage dans la Lune - Georges Méliès",
+      "date": "1902",
+      "epoque": "Modernisme",
+      "description": "Par Georges Méliès. Premier film de science-fiction de l'histoire du cinéma, Le Voyage dans la Lune adapte Jules Verne et H.G. Wells. Des savants sont propulsés sur la Lune dans un obus, rencontrent des Sélénites et reviennent sur Terre."
+    },
+    {
+      "type": "image",
+      "id": "arts-46",
+      "image": "/img/flashcards/arts/citizen-kane.webp",
+      "titre": "Citizen Kane - Orson Welles",
+      "date": "1941",
+      "epoque": "Modernisme",
+      "description": "Par Orson Welles. Citizen Kane retrace la vie de Charles Foster Kane, magnat de la presse, à travers les témoignages de ceux qui l'ont connu. Conservé : RKO Radio Pictures, Hollywood."
+    },
+    {
+      "type": "image",
+      "id": "arts-47",
+      "image": "/img/flashcards/arts/a-bout-de-soufle.webp",
+      "titre": "À bout de souffle - Jean-Luc Godard",
+      "date": "1960",
+      "epoque": "Modernisme",
+      "description": "Par Jean-Luc Godard. Michel Poiccard, petit criminel qui se prend pour Humphrey Bogart, tue un policier et fuit à Paris avec une Américaine. Conservé : Les Films Georges de Beauregard, Paris."
+    },
+    {
+      "type": "image",
+      "id": "arts-48",
+      "image": "/img/flashcards/arts/centre-pompidou.webp",
+      "titre": "Centre Pompidou - Piano & Rogers",
+      "date": "1971-1977",
+      "epoque": "Modernisme",
+      "description": "Par Renzo Piano & Richard Rogers. Le Centre Pompidou renversa toutes les conventions architecturales : la structure porteuse, les conduits techniques, les escalators sont à l'extérieur du bâtiment, exposés et colorés selon leur fonction ."
+    }
+  ]
+}

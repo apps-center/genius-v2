@@ -3,6 +3,7 @@ import type { ContentKind } from '../core/content/load';
 import type { AppContext } from '../core/context';
 import * as quizBrick from '../bricks/quiz/brick';
 import * as chronologieBrick from '../bricks/chronologie/brick';
+import * as flashcardsBrick from '../bricks/flashcards/brick';
 
 /*
   REGISTRE - source unique de verite : briques + packs de contenu + entrees de nav.
@@ -37,7 +38,8 @@ export interface BrickModule {
 export const BRICKS: readonly BrickModule[] = [
   quizBrick,
   chronologieBrick,
-  // <- ajouter ici flashcards, logique... (1 ligne par activite)
+  flashcardsBrick,
+  // <- ajouter ici logique... (1 ligne par activite)
 ];
 
 // Packs de contenu. Le .json est valide par Zod au chargement (jamais en dur dans le JSX).
@@ -79,6 +81,12 @@ export const CONTENT: readonly ContentEntry[] = [
   { sujet: 'histoire', contentKind: 'chronologie', titre: 'Temps modernes', load: () => import('../content/chronologie/tempsmodernes.json') },
   { sujet: 'histoire', contentKind: 'chronologie', titre: 'Époque contemporaine', load: () => import('../content/chronologie/contemporaine.json') },
   { sujet: 'histoire', contentKind: 'chronologie', titre: 'Histoire du monde', load: () => import('../content/chronologie/monde.json') },
+
+  // Flashcards : un deck = un pack. Deux pilotes, un par modele de carte :
+  // 'arts' = modele IMAGE (recto image, verso fiche), 'logique' = modele QUESTION-REPONSE.
+  // Jouables directement via /play/flashcards?sujet=...&titre=... (pas encore d'entree d'accueil).
+  { sujet: 'arts', contentKind: 'flashcards', titre: 'Arts et Culture', load: () => import('../content/flashcards/arts.json') },
+  { sujet: 'logique', contentKind: 'flashcards', titre: 'Logique', load: () => import('../content/flashcards/logique.json') },
 ];
 
 // Apparie chaque pack avec les briques capables de le jouer (par contentKind).
