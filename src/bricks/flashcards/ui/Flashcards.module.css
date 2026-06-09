@@ -132,6 +132,12 @@
   transition: none;
 }
 
+/* Changement de carte : la remise au recto se fait sans transition (pas de flip
+   parasite). Le retournement volontaire, lui, conserve l'animation de flip. */
+.instant .flipInner {
+  transition: none;
+}
+
 /* Les deux faces occupent la meme cellule : la carte prend la hauteur de la plus grande,
    sans hauteur figee, donc aucune image n'est rognee. */
 .face {
