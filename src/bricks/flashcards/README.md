@@ -45,7 +45,7 @@ hors perimetre). Pour tester un deck, on monte la brique directement par son URL
 les modules :
 
 ```
-/play/flashcards?sujet=arts&titre=Arts%20et%20Culture
+/play/flashcards?sujet=arts&titre=Arts
 /play/flashcards?sujet=logique&titre=Logique
 ```
 

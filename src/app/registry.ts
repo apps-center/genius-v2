@@ -85,7 +85,7 @@ export const CONTENT: readonly ContentEntry[] = [
   // Flashcards : un deck = un pack. Deux pilotes, un par modele de carte :
   // 'arts' = modele IMAGE (recto image, verso fiche), 'logique' = modele QUESTION-REPONSE.
   // Jouables directement via /play/flashcards?sujet=...&titre=... (pas encore d'entree d'accueil).
-  { sujet: 'arts', contentKind: 'flashcards', titre: 'Arts et Culture', load: () => import('../content/flashcards/arts.json') },
+  { sujet: 'arts', contentKind: 'flashcards', titre: 'Arts', load: () => import('../content/flashcards/arts.json') },
   { sujet: 'logique', contentKind: 'flashcards', titre: 'Logique', load: () => import('../content/flashcards/logique.json') },
 ];
 
