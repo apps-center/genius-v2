@@ -1,0 +1,456 @@
+{
+  "contentKind": "chronologie",
+  "sujet": "histoire",
+  "titre": "Époque contemporaine",
+  "periodes": [
+    {
+      "era": "✦ Révolution, Empires & XIXe siècle",
+      "cls": "revolution",
+      "events": [
+        {
+          "title": "Prise de la Bastille",
+          "date": "14 juillet 1789",
+          "tag": "Événement",
+          "icon": "🏰",
+          "desc": "Le peuple de Paris prend d'assaut la forteresse-prison symbole de l'absolutisme. Date fondatrice de la République.",
+          "kind": "histoire",
+          "img": "/img/chronologie/la-prise-de-la-bastille-en-feu.webp",
+          "anecdotes": [
+            {
+              "t": "<b>La Bastille ne contenait que 7 prisonniers</b> ce jour-là : 4 faussaires, 2 fous et 1 noble. La grande forteresse symbole de la tyrannie était presque vide.",
+              "e": "🔓"
+            }
+          ]
+        },
+        {
+          "title": "La Terreur - Robespierre",
+          "date": "1793 - 1794",
+          "tag": "Événement",
+          "icon": "⚖️",
+          "desc": "Le Comité de Salut Public envoie des milliers à la guillotine. 17 000 exécutions officielles. La Terreur finira par se dévorer elle-même.",
+          "kind": "histoire",
+          "img": "/img/chronologie/execution-a-la-guillotine-pendant-la-revolution.webp",
+          "anecdotes": [
+            {
+              "t": "<b>Danton, qui avait voté la Terreur, fut guillotiné sur ordre de Robespierre.</b> Sur l'échafaud : « Tu me suivras, Robespierre ! » Il avait raison - 3 mois plus tard.",
+              "e": "😱"
+            }
+          ]
+        },
+        {
+          "title": "Napoléon Ier - Empereur des Français",
+          "date": "1804 - 1815",
+          "tag": "Empereur",
+          "icon": "👑",
+          "desc": "Sacré en 1804 à Notre-Dame. Code civil, lycées, Légion d'honneur. Il domine l'Europe avant Waterloo (1815).",
+          "kind": "histoire",
+          "img": "/img/chronologie/napoleon-se-couronnant-a-notre-dame.webp",
+          "anecdotes": [
+            {
+              "t": "<b>Napoléon n'était pas si petit !</b> Il mesurait ~1,68 m - la taille française moyenne. La confusion vient d'une erreur de conversion entre pouces français et anglais.",
+              "e": "📏"
+            },
+            {
+              "t": "<b>Lors de son sacre, il prit la couronne des mains du pape et se couronna lui-même</b> - il ne voulait pas devoir sa couronne à l'Église.",
+              "e": "👑"
+            }
+          ]
+        },
+        {
+          "title": "La Révolution Industrielle Française",
+          "date": "1815 - 1870",
+          "tag": "Événement",
+          "icon": "🏭",
+          "desc": "La France suit l'Angleterre avec une génération de retard. Chemins de fer, machines à vapeur, mines de charbon, sidérurgie. Lille, Saint-Étienne, Le Creusot deviennent des villes ouvrières. Le prolétariat naît - et avec lui les premières luttes sociales.",
+          "kind": "histoire",
+          "img": "/img/chronologie/revolution-industrielle.webp",
+          "anecdotes": [
+            {
+              "t": "<b>La première ligne de chemin de fer française (Saint-Étienne-Lyon, 1827)</b> était tirée par des chevaux. La première locomotive à vapeur française circula en 1832. En 1870, la France comptait 17 000 km de voies ferrées - le territoire était unifié comme jamais.",
+              "e": "🚂"
+            },
+            {
+              "t": "<b>Les enfants travaillaient dans les mines dès 5 ans.</b> La première loi limitant le travail des enfants date de 1841 - elle interdit aux moins de 8 ans de travailler. En dessous de 12 ans, la journée était limitée à 8 heures. Un « progrès » qui laisse rêveur.",
+              "e": "⚒️"
+            }
+          ]
+        },
+        {
+          "title": "Victor Hugo - Les Misérables & Notre-Dame",
+          "date": "1830 - 1885",
+          "icon": "📖",
+          "desc": "Victor Hugo est le monument de la littérature française du XIXe siècle : poète, romancier, dramaturge et homme politique. Les Misérables (1862) est l'un des romans les plus lus du monde.",
+          "kind": "histoire",
+          "img": "/img/chronologie/victor-hugo.webp",
+          "anecdotes": [
+            {
+              "t": "<b>Victor Hugo envoya un télégramme à son éditeur</b> pour savoir comment se vendaient Les Misérables. Il écrivit simplement : « ? ». L'éditeur répondit : « ! ». La plus courte correspondance commerciale de l'histoire.",
+              "e": "📬"
+            },
+            {
+              "t": "<b>Notre-Dame de Paris (1831)</b> fut écrit exprès pour sauver la cathédrale de la démolition. Le roman créa un tel engouement populaire que Victor Hugo força le gouvernement à restaurer l'édifice. Un roman qui sauva un monument.",
+              "e": "🏰"
+            }
+          ]
+        },
+        {
+          "title": "L'Empire Colonial Français",
+          "date": "1830 - 1962",
+          "tag": "Événement",
+          "icon": "🌍",
+          "desc": "La France bâtit le deuxième empire colonial du monde : Algérie (1830), Indochine, Afrique de l'Ouest, Madagascar, Polynésie. À son apogée en 1938, l'empire couvre 12 millions de km² et 110 millions d'habitants. Sa décolonisation, souvent violente, marquera profondément la France.",
+          "kind": "histoire",
+          "img": "/img/chronologie/epoque-coloniale.webp",
+          "anecdotes": [
+            {
+              "t": "<b>La « mission civilisatrice » était l'argument officiel.</b> Jules Ferry défendit la colonisation à la tribune : « Les races supérieures ont le droit de civiliser les races inférieures. » Cette phrase lui fut reprochée jusqu'à sa mort - et au-delà.",
+              "e": "📐"
+            },
+            {
+              "t": "<b>La France consommait le cacao, le caoutchouc, le coton et le riz</b> produits par des millions de travailleurs forcés dans ses colonies. L'économie métropolitaine de la Belle Époque reposait directement sur ce système d'exploitation.",
+              "e": "🍫"
+            }
+          ]
+        },
+        {
+          "title": "Napoléon III - Le Second Empire",
+          "date": "1852 - 1870",
+          "tag": "Empereur",
+          "icon": "🦅",
+          "desc": "Neveu de Napoléon Ier, Louis-Napoléon Bonaparte est élu président puis se fait couronner Empereur par plébiscite. Son règne autoritaire puis libéral modernise la France : industrialisation accélérée, réseaux ferrés, banques, libre-échange. Il finit captif à Sedan en 1870.",
+          "kind": "histoire",
+          "img": "/img/chronologie/napoleon-iii.webp",
+          "anecdotes": [
+            {
+              "t": "<b>Karl Marx appela son coup d'État « une farce ».</b> Louis-Napoléon avait copié son oncle - mais en moins grand. Pourtant, sous son règne, le PIB français doubla et Paris devint la ville la plus moderne du monde.",
+              "e": "🗳️"
+            },
+            {
+              "t": "<b>Sedan (1870) : Napoléon III se rendit en personne à Guillaume Ier de Prusse.</b> L'Empereur des Français, malade, douloureux, capturé - la nouvelle provoqua la révolution à Paris et la fin de l'Empire en 48 heures.",
+              "e": "💔"
+            }
+          ]
+        },
+        {
+          "title": "Haussmann - La Naissance de Paris Moderne",
+          "date": "1853 - 1870",
+          "tag": "Urbanisme",
+          "icon": "🏗️",
+          "desc": "Mandaté par Napoléon III, le baron Haussmann détruit 20 000 immeubles et trace 137 km de grands boulevards. Il dote Paris d'égouts, de gaz, de parcs et de l'eau courante. La capitale médiévale disparaît - Paris moderne naît.",
+          "kind": "histoire",
+          "img": "/img/chronologie/haussman.webp",
+          "anecdotes": [
+            {
+              "t": "<b>350 000 Parisiens furent expulsés de force</b> pour laisser place aux travaux. Les quartiers populaires du centre furent rasés - certains voient dans cette opération le premier grand épisode de gentrification de l'histoire.",
+              "e": "💥"
+            },
+            {
+              "t": "<b>Les grands boulevards avaient aussi une fonction militaire :</b> ils permettaient à l'armée de manœuvrer rapidement et empêchaient les barricades révolutionnaires. Napoléon III ne voulait pas revivre 1848.",
+              "e": "🗡️"
+            }
+          ]
+        },
+        {
+          "title": "3ème République",
+          "date": "1870 - 1940",
+          "tag": "Événement",
+          "icon": "🏛️",
+          "desc": "70 ans de République. Jules Ferry instaure l'école laïque et gratuite (1882). Tour Eiffel (1889). Affaire Dreyfus. Deux guerres mondiales.",
+          "kind": "histoire",
+          "img": "/img/chronologie/3eme-republique.webp",
+          "anecdotes": [
+            {
+              "t": "<b>Jules Ferry :</b> pour la première fois, tous les enfants de France - riches ou pauvres, filles ou garçons - avaient droit à l'éducation publique gratuite.",
+              "e": "📚"
+            },
+            {
+              "t": "<b>La Tour Eiffel devait être démolie après 20 ans.</b> Elle fut sauvée uniquement parce qu'elle servait d'antenne radio.",
+              "e": "🗼"
+            }
+          ]
+        },
+        {
+          "title": "La Belle Époque",
+          "date": "1871 - 1914",
+          "tag": "Époque",
+          "icon": "✨",
+          "desc": "Entre la défaite de 1870 et la Grande Guerre, la France connaît une période de paix, de prospérité et d'innovations folles : électricité, automobile, cinéma, aviation. Paris est la capitale mondiale de la culture, de la mode et des arts.",
+          "kind": "histoire",
+          "img": "/img/chronologie/belle-epoque.webp",
+          "anecdotes": [
+            {
+              "t": "<b>Les frères Lumière projetèrent le premier film de l'histoire à Paris le 28 décembre 1895.</b> Les spectateurs paniquèrent en voyant un train arriver vers eux. Le cinéma était né - et il était français.",
+              "e": "🎬"
+            },
+            {
+              "t": "<b>Le Moulin Rouge (1889), le cancan, Toulouse-Lautrec, les cafés-concerts :</b> Montmartre et Montparnasse attiraient les artistes du monde entier. Picasso, Modigliani, Hemingway - Paris était une fête.",
+              "e": "🥂"
+            }
+          ]
+        },
+        {
+          "title": "Zola - Le Naturalisme",
+          "date": "1871 - 1902",
+          "icon": "📖",
+          "desc": "Émile Zola crée la série des Rougon-Macquart - 20 romans sur une famille sous le Second Empire. Germinal (1885) sur les mineurs reste l'un des grands romans sociaux de la littérature mondiale. En 1898, « J'accuse ! » le propulse au cœur de l'Affaire Dreyfus. Il meurt en 1902 dans des circonstances suspectes.",
+          "kind": "histoire",
+          "img": "/img/chronologie/zola.webp",
+          "anecdotes": [
+            {
+              "t": "<b>« J'accuse ! »</b> - le 13 janvier 1898, Zola publie cette lettre ouverte dans L'Aurore pour défendre Dreyfus, officier juif injustement condamné. Cet acte politique courageux lui valut un procès et l'exil en Angleterre.",
+              "e": "✊"
+            },
+            {
+              "t": "<b>Zola préparait ses romans comme un journaliste-scientifique :</b> il passa des mois dans les mines du Nord pour écrire Germinal, remplissant des carnets de notes sur les conditions de travail réelles.",
+              "e": "🔬"
+            }
+          ]
+        },
+        {
+          "title": "Monet & l'Impressionnisme",
+          "date": "1874",
+          "icon": "🎨",
+          "desc": "Claude Monet expose « Impression, Soleil Levant » - un critique la raille en disant « ce ne sont que des impressions ». Le mot reste et donne son nom au mouvement qui révolutionne la peinture.",
+          "kind": "histoire",
+          "img": "/img/chronologie/impressionnisme.webp",
+          "anecdotes": [
+            {
+              "t": "<b>Monet souffrait d'une cataracte grave</b> à la fin de sa vie. Ses tableaux des Nymphéas, aux couleurs brouillées et aux contours flous, reflètent sa vision dégradée. Opéré en 1923, il dit que les couleurs étaient différentes de ce qu'il avait peint.",
+              "e": "👁️"
+            },
+            {
+              "t": "<b>Le jardin de Giverny</b> que Monet fit construire avec son bassin et ses nymphéas fut son chef-d'œuvre architectural - il le peignit plus de 250 fois sous différentes lumières et saisons.",
+              "e": "🌸"
+            }
+          ]
+        },
+        {
+          "title": "La Tour Eiffel",
+          "date": "1889",
+          "tag": "Monument",
+          "icon": "🗼",
+          "desc": "Gustave Eiffel construit cette tour de 330 m pour l'Exposition universelle de 1889. D'abord raillée comme une « vergue de fer », elle devait être démolie après 20 ans. Sauvée par sa radio-antenne, elle reçoit 7 millions de visiteurs par an.",
+          "kind": "histoire",
+          "img": "/img/chronologie/tour-effeil.webp",
+          "anecdotes": [
+            {
+              "t": "<b>300 artistes signèrent une pétition contre la Tour Eiffel.</b> Maupassant déjeunait dans son restaurant - le seul endroit de Paris d'où on ne la voyait pas.",
+              "e": "😤"
+            },
+            {
+              "t": "<b>La Tour Eiffel fut sauvée par la radio :</b> son antenne émit les premiers signaux TSF en 1903. Pendant la Guerre, elle intercepta des communications ennemies - dont celles qui permirent d'arrêter Mata Hari.",
+              "e": "📡"
+            }
+          ]
+        },
+        {
+          "title": "L'Affaire Dreyfus - La France Déchirée",
+          "date": "1894 - 1906",
+          "tag": "Événement",
+          "icon": "⚖️",
+          "desc": "Le capitaine Alfred Dreyfus, officier juif, est accusé à tort de trahison et déporté à l'île du Diable. L'Affaire divise la France en deux : dreyfusards contre antidreyfusards. Elle révèle l'antisémitisme d'État et accélère la séparation de l'Église et de l'État (1905).",
+          "kind": "histoire",
+          "img": "/img/chronologie/dreyfus.webp",
+          "anecdotes": [
+            {
+              "t": "<b>« J'accuse ! » de Zola (1898)</b> fut imprimé à 300 000 exemplaires. En une journée, la lettre ouverte au Président de la République transforma une affaire militaire en crise nationale - et changea le destin de Dreyfus.",
+              "e": "✍️"
+            },
+            {
+              "t": "<b>Theodor Herzl, journaliste viennois, couvrit le procès de Dreyfus.</b> Le cri de « Mort aux Juifs ! » dans les rues de Paris - la ville des droits de l'homme - lui fit comprendre que l'assimilation était impossible. Il créa le mouvement sioniste l'année suivante.",
+              "e": "🎯"
+            }
+          ]
+        },
+        {
+          "title": "Première Guerre Mondiale",
+          "date": "1914 - 1918",
+          "tag": "Événement",
+          "icon": "🪖",
+          "desc": "18 millions de morts dont 1,4 million de soldats français. La guerre des tranchées traumatise toute une génération.",
+          "kind": "histoire",
+          "img": "/img/chronologie/premiere-guerre.webp",
+          "anecdotes": [
+            {
+              "t": "<b>Le 11 novembre 1918 à 11h,</b> les canons se turent sur tout le front. Des soldats qui s'étaient entre-tués pendant 4 ans se levèrent et se regardèrent en silence.",
+              "e": "✋"
+            }
+          ]
+        },
+        {
+          "title": "Les Années Folles",
+          "date": "1920 - 1929",
+          "tag": "Époque",
+          "icon": "🎷",
+          "desc": "Après l'horreur de la Grande Guerre, la France explose de joie. Paris devient la capitale mondiale du jazz, de la mode, de la littérature d'avant-garde. Joséphine Baker, Coco Chanel, Hemingway, Fitzgerald - tout le monde veut vivre à Paris.",
+          "kind": "histoire",
+          "img": "/img/chronologie/annees-folles.webp",
+          "anecdotes": [
+            {
+              "t": "<b>Joséphine Baker débarqua à Paris en 1925</b> et fit sensation avec sa « danse banane ». La France l'adopta comme sa star - dans un pays qui pratiquait aussi la ségrégation coloniale. Plus tard, elle rejoignit la Résistance et fut faite Commandeure de la Légion d'honneur.",
+              "e": "🎷"
+            },
+            {
+              "t": "<b>Coco Chanel libéra les femmes des corsets</b> et inventa la mode moderne : jersey, tailleur, cheveux courts, cigarettes. Le N°5 (1921) reste le parfum le plus vendu au monde un siècle plus tard.",
+              "e": "👗"
+            }
+          ]
+        },
+        {
+          "title": "La Crise de 1929 - Le Grand Krach",
+          "date": "1929 - 1939",
+          "tag": "Événement",
+          "icon": "📉",
+          "desc": "Le jeudi noir d'octobre 1929 s'étend de Wall Street à l'Europe. En France, la crise frappe plus lentement mais plus longuement. Chômage, instabilité politique, montée des extrêmes : le Front Populaire (1936) et ses acquis sociaux - congés payés, semaine de 40h - naissent directement de cette crise.",
+          "kind": "histoire",
+          "img": "/img/chronologie/crise-1929.webp",
+          "anecdotes": [
+            {
+              "t": "<b>Les premiers congés payés en France datent de 1936,</b> obtenus par le Front Populaire sous la pression des grèves. Des millions de Français prirent leur premier train pour la mer - des photos bouleversantes de familles ouvrières découvrant la plage pour la première fois.",
+              "e": "🏖️"
+            },
+            {
+              "t": "<b>La Bourse de Paris perdit 60 % de sa valeur entre 1929 et 1932.</b> La crise économique alimenta directement la montée du fascisme en Europe - et prépara le terrain de la Seconde Guerre mondiale.",
+              "e": "📊"
+            }
+          ]
+        },
+        {
+          "title": "Deuxième Guerre Mondiale",
+          "date": "1939 - 1945",
+          "tag": "Événement",
+          "icon": "🔥",
+          "desc": "La France est occupée de 1940 à 1944. Résistance, débarquement du 6 juin 1944, Libération. La Shoah fait 6 millions de victimes juives.",
+          "kind": "histoire",
+          "img": "/img/chronologie/occupation.webp",
+          "anecdotes": [
+            {
+              "t": "<b>Le 18 juin 1940, de Gaulle lança son appel depuis Londres :</b> « La France a perdu une bataille, mais la France n'a pas perdu la guerre ! »",
+              "e": "📻"
+            }
+          ]
+        },
+        {
+          "title": "Le Débarquement de Normandie - Jour J",
+          "date": "6 juin 1944",
+          "tag": "Bataille",
+          "icon": "🚢",
+          "desc": "La plus grande opération militaire amphibie de l'histoire. 156 000 soldats alliés débarquent sur 80 km de côtes normandes en une seule journée. Omaha, Utah, Gold, Juno, Sword. Le verrou atlantique de Hitler saute - la libération de la France commence.",
+          "kind": "histoire",
+          "img": "/img/chronologie/debarquement.webp",
+          "anecdotes": [
+            {
+              "t": "<b>Hitler dormait ce matin-là et personne n'osait le réveiller.</b> Les Panzers en réserve auraient pu repousser le débarquement dans les premières heures - mais il fallait l'ordre du Führer. On attendit midi. Le débarquement était déjà consolidé.",
+              "e": "🎯"
+            },
+            {
+              "t": "<b>Sur Omaha Beach, les Américains perdirent 2 000 hommes en quelques heures.</b> Les images de Spielberg dans Il faut sauver le soldat Ryan sont fidèles : les soldats mouraient avant même de toucher le sable. Aucune préparation n'avait neutralisé les bunkers allemands.",
+              "e": "🩸"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "era": "✦ France Contemporaine",
+      "cls": "contemp",
+      "events": [
+        {
+          "title": "La Guerre d'Indochine",
+          "date": "1946 - 1954",
+          "tag": "Guerre",
+          "icon": "🌿",
+          "desc": "La France tente de reprendre le contrôle de son empire colonial en Asie du Sud-Est face au Viêt-minh de Hô Chi Minh. La défaite de Diên Biên Phû (1954) met fin à la présence française en Indochine et annonce la fin de l'ère coloniale.",
+          "kind": "histoire",
+          "img": "/img/chronologie/guerre-d-indochine.webp",
+          "anecdotes": [
+            {
+              "t": "<b>Diên Biên Phû (mars-mai 1954) :</b> le général Giap encercla et écrasa 16 000 soldats français dans une cuvette. Ce fut la première défaite militaire d'une puissance européenne face à un mouvement de libération nationale - un choc mondial.",
+              "e": "🎖️"
+            },
+            {
+              "t": "<b>Les États-Unis prirent le relais de la France en Indochine.</b> Vingt ans plus tard, ils subirent la même humiliation au Vietnam - prouvant que la leçon française n'avait pas été entendue.",
+              "e": "🌏"
+            }
+          ]
+        },
+        {
+          "title": "La Guerre d'Algérie",
+          "date": "1954 - 1962",
+          "tag": "Guerre",
+          "icon": "🇩🇿",
+          "desc": "Huit ans de guerre entre la France et le FLN pour l'indépendance algérienne. 400 000 morts algériens, 30 000 soldats français. La torture, les massacres du 17 octobre 1961 à Paris, et l'exode des pieds-noirs laissent des plaies encore ouvertes.",
+          "kind": "histoire",
+          "img": "/img/chronologie/guerre-d-algerie.webp",
+          "anecdotes": [
+            {
+              "t": "<b>De Gaulle, rappelé au pouvoir pour « garder l'Algérie française »,</b> négocia finalement l'indépendance (accords d'Évian, 1962). Ceux qui l'avaient porté au pouvoir se sentirent trahis - l'OAS tenta de l'assassiner plusieurs fois.",
+              "e": "🕊️"
+            },
+            {
+              "t": "<b>Un million de pieds-noirs - Français nés en Algérie -</b> durent tout abandonner en quelques semaines. Leur intégration difficile en métropole et leur mémoire blessée marquent encore la politique française.",
+              "e": "🌊"
+            }
+          ]
+        },
+        {
+          "title": "5ème République - De Gaulle & Nos Jours",
+          "date": "1958 - aujourd'hui",
+          "tag": "Événement",
+          "icon": "🗳️",
+          "desc": "La Constitution de 1958 instaure un régime semi-présidentiel fort. Mai 1968. Construction européenne. La France reste une grande puissance mondiale.",
+          "kind": "histoire",
+          "img": "/img/chronologie/de-gaulle.webp",
+          "anecdotes": [
+            {
+              "t": "<b>Mai 1968 :</b> des millions de Français en grève. De Gaulle quitta secrètement l'Élysée pour consulter ses généraux. La France fut à deux doigts de la révolution.",
+              "e": "🌸"
+            },
+            {
+              "t": "<b>La France fut l'un des 6 pays fondateurs de l'Europe</b> avec l'Allemagne. La réconciliation franco-allemande est le fondement de l'Union Européenne.",
+              "e": "🌍"
+            }
+          ]
+        },
+        {
+          "title": "Mai 68 - La France Tremble",
+          "date": "Mai 1968",
+          "tag": "Événement",
+          "icon": "✊",
+          "desc": "En quelques jours, une révolte étudiante à la Sorbonne devient une crise nationale. 10 millions de grévistes paralysent le pays. De Gaulle disparaît secrètement. La France est à deux doigts de la révolution - puis recule. Rien ne sera plus jamais tout à fait pareil.",
+          "kind": "histoire",
+          "img": "/img/chronologie/mai-68.webp",
+          "anecdotes": [
+            {
+              "t": "<b>« Sous les pavés, la plage ! »</b> - les étudiants arrachaient les pavés des rues pour les lancer sur les CRS. Ces pavés révélèrent le sable en dessous. Ce slogan devint le symbole d'une génération qui voulait briser l'ordre établi pour trouver la liberté en dessous.",
+              "e": "🧱"
+            },
+            {
+              "t": "<b>De Gaulle s'envola secrètement pour Baden-Baden</b> rencontrer le général Massu - pour s'assurer du soutien de l'armée. Il revint, dissout l'Assemblée, fit un discours de 4 minutes à la radio - et remporta les élections triomphalement un mois plus tard.",
+              "e": "🚗"
+            }
+          ]
+        },
+        {
+          "title": "Le Mur de Berlin - La Guerre Froide en Béton",
+          "date": "1961 - 1989",
+          "tag": "Événement",
+          "icon": "🧱",
+          "desc": "L'URSS fait ériger le mur de Berlin en une nuit, le 13 août 1961. La France, puissance occupante de Berlin-Ouest, est en première ligne de la Guerre Froide. La chute du Mur le 9 novembre 1989 ouvre la voie à la réunification allemande et transforme l'Europe.",
+          "kind": "histoire",
+          "img": "/img/chronologie/mur-de-berlin.webp",
+          "anecdotes": [
+            {
+              "t": "<b>Le 9 novembre 1989, personne n'avait ordonné d'ouvrir le mur.</b> Un porte-parole est-allemand annonça par erreur que les frontières étaient ouvertes « immédiatement ». Des millions de Berlinois se précipitèrent - et le mur tomba sous la pression de la foule.",
+              "e": "🔨"
+            },
+            {
+              "t": "<b>Mitterrand fut l'un des derniers à soutenir la réunification allemande.</b> Il craignait une Allemagne trop puissante. Kohl lui proposa en échange d'accélérer la monnaie unique européenne. C'est ainsi que l'euro naquit du Mur de Berlin.",
+              "e": "🇫🇷"
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

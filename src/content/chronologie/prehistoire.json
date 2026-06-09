@@ -1,0 +1,855 @@
+{
+  "contentKind": "chronologie",
+  "sujet": "histoire",
+  "titre": "Préhistoire",
+  "periodes": [
+    {
+      "era": "✦ Ère Cosmique",
+      "cls": "cosmic",
+      "events": [
+        {
+          "title": "Naissance de l'Univers",
+          "date": "-13,8 milliards d'années",
+          "tag": "Événement",
+          "icon": "💥",
+          "desc": "Avant le Big Bang : rien. Pas le vide - le vide, c'est quelque chose. Rien. Pas d'espace, pas de temps, pas de matière. Puis, en moins d'une fraction de seconde, tout ce qui existe jaillit d'un point plus petit qu'un atome. L'espace lui-même se met à gonfler à une vitesse vertigineuse. En 3 minutes, les premiers atomes se forment. L'univers vient de naître.",
+          "kind": "histoire",
+          "img": "/img/chronologie/naissance-de-lunivers-lumineux.webp",
+          "anecdotes": [
+            {
+              "t": "<b>Une chaleur impossible à imaginer.</b> À sa naissance, l'univers atteignait 10 milliards de milliards de degrés. Pour donner une idée : le cœur du Soleil n'est « que » 15 millions de degrés, et une bombe atomique produit quelques dizaines de millions de degrés. Le Big Bang dépasse tout ça à un point qui n'a pas de nom.",
+              "e": "🌡️"
+            },
+            {
+              "t": "<b>Le temps lui-même est né avec le Big Bang.</b> Poser la question « qu'y avait-il avant ? » n'a aucun sens - il n'y avait pas de « avant », parce qu'il n'y avait pas de temps. C'est comme demander ce qu'il y a au nord du pôle Nord. La question est mal posée.",
+              "e": "🕰️"
+            },
+            {
+              "t": "<b>Le Big Bang ne fait pas « bang » !</b> Il n'y a aucun son, parce qu'il n'y a pas encore d'espace pour propager des ondes sonores. Et il ne se produit pas en un seul endroit - il se produit <i>partout à la fois</i>, l'espace entier se dilatant simultanément. Aujourd'hui encore, l'univers continue de s'étendre dans toutes les directions.",
+              "e": "🔇"
+            }
+          ]
+        },
+        {
+          "title": "Naissance du Système Solaire",
+          "date": "-4,6 milliards d'années",
+          "tag": "Événement",
+          "icon": "☀️",
+          "desc": "Un immense nuage de gaz et de poussières - restes d'étoiles mortes depuis longtemps - commence à s'effondrer sur lui-même sous l'effet de sa propre gravité. Au centre, la pression monte, la température grimpe jusqu'à déclencher la fusion nucléaire : le Soleil s'allume. Autour de lui, les restes du nuage s'agglomèrent en petits cailloux, puis en rochers, puis en planètes. Notre maison vient de se construire.",
+          "kind": "histoire",
+          "img": "/img/chronologie/creation-syst-solaire.webp",
+          "anecdotes": [
+            {
+              "t": "<b>Le Soleil pèse 99,86 % du système solaire.</b> Jupiter, Saturne, toutes les planètes, tous les astéroïdes, toutes les comètes - tout ça ensemble ne représente que 0,14 % de la masse totale. Le Soleil est tellement massif qu'il pourrait contenir 1,3 million de Terres.",
+              "e": "⚖️"
+            },
+            {
+              "t": "<b>Jupiter est notre garde du corps cosmique.</b> Sa gravité colossale attire et dévie les gros astéroïdes qui, autrement, pourraient foncer vers la Terre. Sans Jupiter, notre planète aurait été bombardée des dizaines de fois plus souvent - et la vie telle qu'on la connaît n'aurait peut-être jamais pu s'installer durablement.",
+              "e": "🛡️"
+            },
+            {
+              "t": "<b>Nous sommes faits de poussière d'étoiles mortes.</b> Le carbone de ton corps, le fer dans ton sang, le calcium de tes os - tout ça a été fabriqué dans le cœur d'étoiles qui ont explosé avant la naissance du Soleil. Tu es littéralement un recyclage cosmique.",
+              "e": "✨"
+            }
+          ]
+        },
+        {
+          "title": "Naissance de la Terre",
+          "date": "-4,5 milliards d'années",
+          "tag": "Événement",
+          "icon": "🌍",
+          "desc": "La Terre se forme en agglomérant des millions de rochers en orbite. Mais à peine née, elle reçoit un impact catastrophique : une planète de la taille de Mars, baptisée Théia, la percute de plein fouet. L'explosion est si violente qu'une partie de la Terre et de Théia est projetée dans l'espace. Ces débris s'agglomèrent en orbite et forment la Lune. Pendant des millions d'années encore, des comètes bombardent la Terre - et lui apportent de l'eau.",
+          "kind": "histoire",
+          "img": "/img/chronologie/la-formation-de-la-terre-primordiale.webp",
+          "anecdotes": [
+            {
+              "t": "<b>La Lune rétrécit dans notre ciel depuis 4,5 milliards d'années.</b> Elle s'éloigne de 3,8 cm par an. À sa naissance, elle était 15 fois plus proche - un disque gigantesque qui couvrait 15° du ciel (contre 0,5° aujourd'hui). Les marées qu'elle provoquait étaient des centaines de fois plus puissantes que celles d'aujourd'hui.",
+              "e": "🌕"
+            },
+            {
+              "t": "<b>L'eau de tes robinets vient de l'espace.</b> La Terre primitive était trop chaude pour conserver l'eau liquide. C'est le bombardement de comètes et d'astéroïdes riches en glace, pendant des centaines de millions d'années, qui a rempli les océans. La prochaine fois que tu bois un verre d'eau, pense aux comètes.",
+              "e": "🌊"
+            },
+            {
+              "t": "<b>Sans la Lune, la Terre tanguerait comme une toupie ivre.</b> La Lune stabilise l'inclinaison de l'axe terrestre, ce qui rend notre climat prévisible sur de longues périodes. Sans elle, l'axe pencherait aléatoirement entre 0° et 85° - provoquant des saisons chaotiques qui auraient peut-être empêché l'apparition de la vie complexe.",
+              "e": "🌀"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "era": "✦ Ère Biologique",
+      "cls": "geo",
+      "events": [
+        {
+          "title": "Naissance de la Vie",
+          "date": "-3,8 milliards d'années",
+          "tag": "Événement",
+          "icon": "🧫",
+          "desc": "Dans les océans primitifs brûlants, autour de cheminées hydrothermales crachant des minéraux à 300°C, quelque chose d'extraordinaire se produit : des molécules chimiques commencent à se copier elles-mêmes. Une membrane se forme pour les envelopper. La première cellule vient de naître - et avec elle, la vie. Ce minuscule événement va transformer toute la planète.",
+          "kind": "histoire",
+          "img": "/img/chronologie/vents-hydrothermaux-et-vie-abyssale.webp",
+          "anecdotes": [
+            {
+              "t": "<b>Un champignon, un cactus, un requin et toi partagez le même code ADN.</b> Toute vie sur Terre utilise exactement les mêmes 4 « lettres » chimiques pour écrire ses gènes. Cela prouve que vous descendez tous d'une même ancêtre commune - une bactérie unique apparue il y a 3,8 milliards d'années. Vous êtes tous cousins.",
+              "e": "🔬"
+            },
+            {
+              "t": "<b>Tes cellules abritent des bactéries apprivoisées.</b> Il y a 2 milliards d'années, une cellule en avala une autre sans la digérer. La bactérie ingérée devint une centrale énergétique permanente : la mitochondrie. Chacune de tes 37 000 milliards de cellules contient ces anciennes bactéries, qui ont leur propre ADN, distinct du tien.",
+              "e": "⚡"
+            },
+            {
+              "t": "<b>La vie a transformé l'atmosphère entière.</b> L'air primitif était irrespirable - plein de CO₂, sans oxygène. Ce sont les bactéries photosynthétiques qui ont passé 2 milliards d'années à produire l'oxygène de l'atmosphère, rendant la vie animale possible. Chaque respiration que tu prends est le fruit du travail de micro-organismes disparus depuis longtemps.",
+              "e": "🌍"
+            }
+          ]
+        },
+        {
+          "title": "Premières Algues",
+          "date": "-1,2 milliards d'années",
+          "tag": "Événement",
+          "icon": "🟢",
+          "desc": "Une cellule avale une bactérie photosynthétique - et au lieu de la digérer, elle la garde prisonnière. Cette bactérie devient un chloroplaste, une mini-usine à capter la lumière du Soleil. Née de cet accident extraordinaire, l'algue pluricellulaire est l'ancêtre de toutes les plantes de la planète. Sans cet événement improbable, il n'y aurait ni forêts, ni fleurs, ni fruits - et probablement pas d'humains.",
+          "kind": "histoire",
+          "img": "/img/chronologie/vue-prehistorique-sur-une-mer-dalgues.webp",
+          "anecdotes": [
+            {
+              "t": "<b>Les algues fabriquent la moitié de l'air que tu respires.</b> Pas les forêts - les océans. Le phytoplancton microscopique produit environ 50 % de l'oxygène mondial, silencieusement, en pleine mer. Une forêt amazonique entière produit à peu près autant d'oxygène qu'elle en consomme. Les véritables poumons de la planète sont sous l'eau.",
+              "e": "🌊"
+            },
+            {
+              "t": "<b>L'endosymbiose : quand manger quelqu'un devient une association gagnant-gagnant.</b> Ce « bug » évolutif - avaler sans digérer - s'est produit au moins deux fois dans l'histoire de la vie, créant d'abord les mitochondries, puis les chloroplastes. Ces deux événements accidentels sont à l'origine de presque toute la vie complexe sur Terre.",
+              "e": "🔁"
+            },
+            {
+              "t": "<b>Certaines algues produisent du pétrole.</b> Le pétrole que les humains brûlent aujourd'hui est en grande partie constitué d'algues microscopiques mortes et compressées pendant des millions d'années. En brûlant de l'essence, tu brûles des algues préhistoriques - du soleil stocké depuis 50 à 300 millions d'années.",
+              "e": "🧪"
+            }
+          ]
+        },
+        {
+          "title": "Explosion Cambrienne - Premiers Animaux",
+          "date": "-538,8 millions d'années",
+          "tag": "Événement",
+          "icon": "🐚",
+          "desc": "Pendant des milliards d'années, la vie est restée microscopique et molle. Puis, en quelques millions d'années - un claquement de doigts à l'échelle géologique - une explosion de formes de vie nouvelles envahit les océans. Des yeux, des pinces, des carapaces, des bouches, des nageoires apparaissent. La plupart des grandes familles d'animaux que l'on connaît aujourd'hui inventent leur plan de construction en même temps. Pourquoi ? On ne sait pas encore vraiment.",
+          "kind": "histoire",
+          "img": "/img/chronologie/ecosysteme-prehistorique-sous-marin-du-cambrien.webp",
+          "anecdotes": [
+            {
+              "t": "<b>L'invention de l'œil a déclenché une course aux armements.</b> Avant le Cambrien, personne ne voyait - donc personne ne se cachait. Dès que des prédateurs ont pu voir leurs proies, les proies ont dû évoluer pour se camoufler, fuir plus vite, développer des carapaces. Cette compétition a fait exploser la diversité du vivant en un temps record. L'œil est probablement la plus grande invention de l'évolution.",
+              "e": "👁️"
+            },
+            {
+              "t": "<b>97 % des animaux sont des invertébrés.</b> Les vertébrés - poissons, reptiles, mammifères, oiseaux, toi - ne représentent que 3 % des espèces animales connues. Les insectes seuls comptent plus d'un million d'espèces décrites. Nous, les vertébrés, sommes une toute petite branche dans un arbre du vivant dominé par des créatures sans colonne vertébrale.",
+              "e": "🦀"
+            },
+            {
+              "t": "<b>Certains animaux du Cambrien semblent sortis de la science-fiction.</b> L'Anomalocaris mesurait 1 mètre et avait deux griffes rotatives pour saisir ses proies. L'Hallucigenia marchait sur des épines et avait la tête à la place de la queue (on l'a découvert tardivement). Ces formes expérimentales ont disparu - mais elles montrent que l'évolution a testé des dizaines de « designs » avant d'en garder quelques-uns.",
+              "e": "🦂"
+            }
+          ]
+        },
+        {
+          "title": "Les Plantes Conquièrent la Terre",
+          "date": "-470 millions d'années",
+          "tag": "Événement",
+          "icon": "🌿",
+          "desc": "Pendant des milliards d'années, les continents sont des déserts de roche nue, battus par le vent et les pluies acides. Aucune plante, aucun animal. Puis des algues vertes s'aventurent hors de l'eau et s'y adaptent - progressivement, leurs descendants inventent les racines, les tiges, les feuilles, les graines. En quelques dizaines de millions d'années, les continents se couvrent de vert. La vie terrestre peut enfin commencer.",
+          "kind": "histoire",
+          "img": "/img/chronologie/premiers-pas-de-la-vie-vegetale.webp",
+          "anecdotes": [
+            {
+              "t": "<b>Les plantes ont littéralement fabriqué le sol.</b> Avant elles, il n'y avait que de la roche pulvérisée, sans matière organique. Les racines des premières plantes ont fracturé la roche, les champignons ont décomposé les matières mortes, créant couche par couche la terre dans laquelle pousse aujourd'hui toute notre nourriture. Une forêt met 1 000 ans pour produire 1 cm de sol.",
+              "e": "🪨"
+            },
+            {
+              "t": "<b>Les forêts du Carbonifère ont provoqué une crise d'oxygène.</b> Vers -300 millions d'années, les forêts géantes produisaient tellement d'oxygène (35 % de l'atmosphère, contre 21 % aujourd'hui) que des incendies spontanés embrasaient régulièrement la planète entière. Les insectes géants de cette époque - libellules avec 70 cm d'envergure - pouvaient exister grâce à cet air suroxygéné.",
+              "e": "🌬️"
+            },
+            {
+              "t": "<b>Les plantes ont conquis la terre grâce aux champignons.</b> Les premières plantes terrestres ne pouvaient pas absorber assez d'eau et de minéraux seules. Elles ont formé une alliance avec des champignons : les champignons leur apportaient minéraux et eau, les plantes leur donnaient du sucre. Cette symbiose existe encore aujourd'hui - 90 % des plantes terrestres dépendent de champignons souterrains.",
+              "e": "🍄"
+            }
+          ]
+        },
+        {
+          "title": "Premiers Dinosaures",
+          "date": "-230 millions d'années",
+          "tag": "Événement",
+          "icon": "🦕",
+          "desc": "Après une extinction massive qui a failli effacer toute la vie complexe (la Grande Extinction du Permien, -252 Ma, qui a tué 96 % des espèces marines), la vie repart de zéro. Parmi les survivants qui se disputent la Terre vide, un groupe se distingue : les dinosaures. Petits et discrets au départ, ils vont dominer chaque centimètre de la planète pendant 165 millions d'années - soit 40 fois la durée d'existence de notre espèce.",
+          "kind": "histoire",
+          "img": "/img/chronologie/dinosaures-au-bord-de-leau.webp",
+          "anecdotes": [
+            {
+              "t": "<b>Les dinosaures ne se sont pas éteints - ils sont dans ton jardin.</b> Les oiseaux sont scientifiquement des dinosaures théropodes à plumes. Un moineau est plus proche d'un T-Rex que le T-Rex ne l'est d'un Stégosaure. La prochaine fois que tu vois un pigeon, regarde-le différemment : tu as sous les yeux l'un des derniers dinosaures vivants.",
+              "e": "🐦"
+            },
+            {
+              "t": "<b>À la naissance des dinosaures, tous les continents étaient une seule île.</b> La Pangée rassemblait l'Amérique, l'Europe, l'Afrique, l'Asie et l'Antarctique en un seul bloc. Un dinosaure aurait pu marcher de l'Espagne actuelle jusqu'en Chine sans jamais traverser un océan - et c'est pourquoi on trouve des fossiles de dinosaures similaires sur des continents aujourd'hui séparés par des milliers de kilomètres.",
+              "e": "🌍"
+            },
+            {
+              "t": "<b>Le plus grand animal terrestre de tous les temps est un dinosaure.</b> L'Argentinosaurus mesurait jusqu'à 40 mètres de long et pesait peut-être 80 tonnes - autant que 12 éléphants. Son cœur pesait environ 200 kg. Ses œufs n'étaient pourtant pas plus gros qu'un ballon de foot : un bébé de quelques kilos devenait un monstre de 80 tonnes.",
+              "e": "🦕"
+            }
+          ]
+        },
+        {
+          "title": "Extinction des Dinosaures",
+          "date": "-66 millions d'années",
+          "tag": "Événement",
+          "icon": "☄️",
+          "desc": "Un mardi ordinaire, il y a 66 millions d'années. Un rocher de 10 km de diamètre - gros comme le Mont Blanc - pénètre l'atmosphère à 72 000 km/h. En quelques secondes, il percute le Yucatán (Mexique). L'énergie libérée est un milliard de fois celle de la bombe atomique d'Hiroshima. Les roches fondues retombent comme une pluie de feu. Un hiver de plusieurs années s'installe. 75 % des espèces disparaissent. Mais dans les terriers, de petits mammifères survivent.",
+          "kind": "histoire",
+          "img": "/img/chronologie/chute-dasteroide-et-fuite-des-dinosaures.webp",
+          "anecdotes": [
+            {
+              "t": "<b>L'astéroïde n'agissait pas seul.</b> Au même moment, les trapps du Deccan (Inde actuelle) crachaient des millions de km³ de lave depuis déjà 200 000 ans, empoisonnant lentement l'atmosphère. L'astéroïde a peut-être achevé un monde déjà fragilisé. Deux catastrophes simultanées - le pire moment possible pour être un grand animal.",
+              "e": "🌋"
+            },
+            {
+              "t": "<b>Un seul groupe de dinosaures a survécu : les oiseaux.</b> Leur petite taille, leur capacité à voler, et probablement leur régime à base de graines (qui n'ont pas brûlé) leur ont permis de traverser « l'hiver à impact ». Aujourd'hui, 10 000 espèces d'oiseaux peuplent la planète. Les grands dinosaures non-aviaires ? Zéro.",
+              "e": "🐦"
+            },
+            {
+              "t": "<b>Sans l'astéroïde, tu n'existerais probablement pas.</b> Les mammifères étaient présents depuis 150 millions d'années - mais réduits à de petits animaux nocturnes, incapables de rivaliser avec les dinosaures. En les éliminant, l'astéroïde a libéré toutes les niches écologiques. En 10 millions d'années, les mammifères ont explosé en milliers d'espèces nouvelles - dont les primates, dont nous.",
+              "e": "🐭"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "era": "✦ Préhistoire",
+      "cls": "paleo",
+      "events": [
+        {
+          "title": "Premiers Hominidés",
+          "date": "-7 millions d'années",
+          "tag": "Événement",
+          "icon": "🦴",
+          "desc": "Sahelanthropus tchadensis (Tchad) - le plus ancien fossile de notre lignée, juste après la séparation évolutive avec les chimpanzés. Ce n'est pas encore un bipède à part entière, mais la position de son foramen magnum (le trou où la colonne vertébrale rejoint le crâne) suggère une posture plus verticale que celle des grands singes. La bipédie est un processus graduel, pas un événement unique.",
+          "kind": "histoire",
+          "img": "/img/chronologie/bipedie.webp",
+          "anecdotes": [
+            {
+              "t": "<b>La bipédie s'installe en plusieurs étapes :</b> Sahelanthropus (~7 Ma) est peut-être un bipède facultatif ; Orrorin tugenensis (~6 Ma, Kenya) montre des fémurs adaptés à la marche debout ; Ardipithecus ramidus (~4,4 Ma) est le premier bipède confirmé mais grimpe encore aux arbres ; Australopithecus afarensis (~3,2 Ma, dont la célèbre Lucy) est enfin un bipède habituel, avec un cerveau encore de taille simienne.",
+              "e": "🚶"
+            },
+            {
+              "t": "<b>98,7 % d'ADN commun avec les chimpanzés.</b> Cet infime écart suffit pourtant à tout changer. La bipédie, en libérant les mains, a ouvert la voie aux outils - et les outils ont nourri le développement du cerveau, dans une boucle évolutive de plusieurs millions d'années.",
+              "e": "🧬"
+            },
+            {
+              "t": "<b>La bipédie a probablement émergé dans les savanes africaines</b>, où les forêts se fragmentaient sous l'effet du climat. Marcher debout permettait de voir au-dessus des herbes hautes, de porter nourriture et enfants, et de moins surchauffer sous le soleil équatorial.",
+              "e": "🌍"
+            }
+          ]
+        },
+        {
+          "title": "Le Biface - Premier Chef-d'Œuvre Humain",
+          "date": "-1,7 million d'années",
+          "icon": "🪨",
+          "desc": "Homo erectus ramasse un bloc de silex brut et, à force de coups précis avec un percuteur en pierre, en fait émerger une lame symétrique, pointue, tranchante des deux côtés. Le biface acheuléen est à la fois couteau, hache, grattoir et racloir. Il peut trancher de la viande, briser un os pour en extraire la moelle, racler une peau, creuser la terre. Cet outil universel sera utilisé sur trois continents, quasiment sans modification, pendant 1,5 million d'années.",
+          "kind": "histoire",
+          "img": "/img/chronologie/lartisanat-prehistorique-a-lere-de-la-pierre.webp",
+          "anecdotes": [
+            {
+              "t": "<b>Un biface bien taillé est plus tranchant qu'un scalpel chirurgical.</b> Un bord de silex fraîchement éclaté peut atteindre 1 à 3 nanomètres d'épaisseur - trois fois plus fin qu'une lame en acier inoxydable. Certains chirurgiens modernes utilisent encore des lames d'obsidienne (une roche volcanique) pour des opérations délicates, car elles causent moins de déchirures que l'acier.",
+              "e": "🔪"
+            },
+            {
+              "t": "<b>Fabriquer un biface, c'est presque parler.</b> Les neurosciences ont montré que tailler un biface active les mêmes zones du cerveau que le langage - les régions de la planification, de la séquence et de l'abstraction. Pour faire émerger la forme finale, il faut visualiser mentalement un objet qui n'existe pas encore et enchaîner des dizaines de gestes précis dans le bon ordre. C'est l'une des premières preuves d'une pensée abstraite.",
+              "e": "🧠"
+            },
+            {
+              "t": "<b>1,5 million d'années sans changer de modèle.</b> C'est la plus longue tradition technologique de l'histoire humaine - et de loin. À titre de comparaison, l'écriture existe depuis 5 000 ans, et en 5 000 ans nous sommes passés des tablettes d'argile aux smartphones. Nos ancêtres, eux, ont utilisé le même design pendant 750 fois cette durée. Et curieusement, certains bifaces semblent trop beaux et trop symétriques pour n'être que des outils - peut-être les premiers objets fabriqués pour être admirés.",
+              "e": "⏰"
+            }
+          ]
+        },
+        {
+          "title": "Maîtrise du Feu",
+          "date": "-1 million à -400 000 ans",
+          "tag": "Événement",
+          "icon": "🔥",
+          "desc": "Homo erectus apprivoise le feu - mais à quelle date exacte ? Les sources se contredisent légitimement, car il y a deux seuils distincts. Vers -1 million d'années : premières traces de feu dans une grotte (os brûlés à Wonderwerk, Afrique du Sud), probablement feux récupérés dans la nature. Vers -400 000 à -500 000 ans : foyers intentionnels répétés et maîtrisés, confirmés sur de nombreux sites en Europe et au Proche-Orient. C'est cette seconde date qui marque la vraie domestication du feu.",
+          "kind": "histoire",
+          "img": "/img/chronologie/feu-prehistoire.webp",
+          "anecdotes": [
+            {
+              "t": "<b>Le feu a inventé la soirée.</b> La veillée autour du feu est probablement à l'origine du langage élaboré, des récits, des mythes - et même du sommeil plus court des humains modernes par rapport aux grands singes.",
+              "e": "🌙"
+            },
+            {
+              "t": "<b>La cuisson a transformé notre biologie.</b> La nourriture cuite libère 30 à 50 % de calories en plus et détruit les parasites. En cuisinant, Homo erectus a pu réduire ses intestins et agrandir son cerveau - deux processus liés, car un gros intestin consomme autant d'énergie qu'un gros cerveau.",
+              "e": "🍖"
+            },
+            {
+              "t": "<b>Pourquoi les sources disent -1 Ma ET -500 000 ans ?</b> Parce qu'elles parlent de deux choses différentes. -1 Ma = premiers contacts avec le feu (opportuniste). -400 000 ans = feu maîtrisé, allumé et entretenu volontairement. Les deux sont vrais.",
+              "e": "📅"
+            }
+          ]
+        },
+        {
+          "title": "La Lance en Bois - Première Arme à Distance",
+          "date": "-400 000 ans",
+          "icon": "🌲",
+          "desc": "À Schöningen (Allemagne), huit épieux en bois d'épicéa sont retrouvés intacts, vieux de 400 000 ans. Taillés en pointe, équilibrés comme des javelots modernes, ils sont l'œuvre d'Homo heidelbergensis. C'est la première arme conçue pour tuer à distance - et la preuve que nos ancêtres organisaient déjà des chasses collectives planifiées, et non de simples attaques au corps à corps.",
+          "kind": "histoire",
+          "img": "/img/chronologie/chasseur-prehistorique-pret-a-lancer-sa-lance.webp",
+          "anecdotes": [
+            {
+              "t": "<b>Les lances de Schöningen sont aérodynamiquement parfaites.</b> Leur centre de gravité est placé au premier tiers - exactement comme un javelot olympique moderne. Ce n'est pas un hasard : leurs fabricants comprenaient instinctivement la physique du lancer, 400 000 ans avant Newton.",
+              "e": "🎯"
+            },
+            {
+              "t": "<b>Retrouvées parmi des os de plus de 20 chevaux abattus</b>, ces lances prouvent une chasse collective organisée : rabattage, encerclement, mise à mort coordonnée. Homo heidelbergensis n'est pas un charognard opportuniste - c'est un chasseur stratège capable de planifier une opération à plusieurs individus.",
+              "e": "🐴"
+            },
+            {
+              "t": "<b>Certaines pointes étaient durcies au feu.</b> En chauffant l'extrémité de bois vert à la bonne température (pas trop, sinon elle brûle), on densifie les fibres et on obtient une pointe deux fois plus dure. C'est la première transformation chimique intentionnelle d'un matériau par un être humain.",
+              "e": "🔥"
+            }
+          ]
+        },
+        {
+          "title": "Homo Sapiens - Notre Espèce Apparaît",
+          "date": "-300 000 ans",
+          "tag": "Événement",
+          "icon": "🧠",
+          "desc": "Au Maroc, dans les rochers de Jebel Irhoud, des fossiles vieux de 300 000 ans révèlent les premiers visages reconnaissables comme les nôtres. Homo sapiens n'est pas apparu d'un coup, en un endroit unique : il a émergé progressivement, sur tout le continent africain, à partir de populations d'Homo heidelbergensis qui échangeaient gènes et innovations sur des millénaires. Ce qui nous distingue des autres humains n'est pas tant la taille du cerveau - Néandertal avait un cerveau aussi gros - que la façon dont nous nous en servons : imagination, symboles, réseaux sociaux étendus, et une capacité unique à coopérer avec des inconnus.",
+          "kind": "histoire",
+          "img": "/img/chronologie/premiers-regards-sur-lhorizon-prehistorique.webp",
+          "anecdotes": [
+            {
+              "t": "<b>Tous les humains vivants sont des cousins très proches.</b> La diversité génétique de l'ensemble de l'humanité est inférieure à celle d'un seul groupe de 50 chimpanzés. Nous sommes une espèce étonnamment homogène - probablement parce qu'une catastrophe (peut-être l'éruption du Toba, -74 000 ans) a réduit notre population à quelques milliers d'individus, effaçant une grande partie de notre diversité génétique d'un coup.",
+              "e": "🌍"
+            },
+            {
+              "t": "<b>Nous avons des gènes de trois espèces humaines différentes.</b> Les Européens et Asiatiques portent 1 à 4 % d'ADN néandertalien. Les populations mélanésiennes portent jusqu'à 6 % d'ADN dénisovien (une troisième espèce humaine découverte en 2010). Et des traces d'une quatrième espèce encore inconnue ont été détectées dans l'ADN de certaines populations africaines. Nous ne sommes pas une espèce pure - nous sommes un mélange.",
+              "e": "🧬"
+            },
+            {
+              "t": "<b>Notre vrai super-pouvoir, c'est la coopération avec des inconnus.</b> Un chimpanzé ne coopère qu'avec des individus qu'il connaît personnellement. Sapiens peut coopérer avec des millions d'inconnus grâce à des croyances partagées - lois, religions, monnaies, nations. Une billet de banque n'a de valeur que parce que des millions de gens croient qu'il en a. Cette capacité à construire des « réalités imaginaires » collectives est probablement ce qui nous a permis de conquérir la planète.",
+              "e": "🤝"
+            }
+          ]
+        },
+        {
+          "title": "La Lance à Pointe de Silex - L'Arme de Néandertal",
+          "date": "-250 000 ans",
+          "icon": "🪨",
+          "desc": "Une révolution dans l'armement : on fixe une pointe de silex taillée sur une hampe en bois grâce à de la résine de bouleau chauffée et des ligatures en tendon. Cette technique - l'emmanchement - multiplie la puissance de pénétration et permet de remplacer la pointe seule sans refaire toute l'arme. C'est Homo heidelbergensis puis Néandertal qui perfectionnent ce système, pendant plus de 200 000 ans.",
+          "kind": "histoire",
+          "img": "/img/chronologie/confrontation-prehistorique-dans-la-nuit.webp",
+          "anecdotes": [
+            {
+              "t": "<b>La résine de bouleau est le premier matériau manufacturé de l'histoire.</b> Pour l'obtenir, il faut chauffer l'écorce de bouleau à 340°C en atmosphère pauvre en oxygène - un processus en plusieurs étapes qui exige une connaissance précise de la chimie du feu. Des néandertaliens produisaient ce « goudron naturel » 200 000 ans avant que les humains modernes n'inventent quoi que ce soit de comparable.",
+              "e": "🧪"
+            },
+            {
+              "t": "<b>L'emmanchement prouve une pensée en plusieurs étapes.</b> Fabriquer une lance emmanchée nécessite de trouver le bon bois, tailler le bon silex, récolter l'écorce, produire la résine, ligaturer avec précision - des opérations qui peuvent s'étaler sur plusieurs jours et plusieurs lieux. C'est de la planification différée : Néandertal pense à demain.",
+              "e": "🤝"
+            },
+            {
+              "t": "<b>Cette lance est une arme de contact, pas de distance.</b> Lourde et solide, elle est faite pour frapper fort de près - plonger dans un flanc à bout portant, après s'être approché sous le vent. Chasser un mammouth avec ça demande un courage (ou une inconscience) difficilement imaginable aujourd'hui.",
+              "e": "🦣"
+            }
+          ]
+        },
+        {
+          "title": "Premières Parures & Sépultures",
+          "date": "-100 000 ans",
+          "icon": "🪬",
+          "desc": "À Blombos Cave (Afrique du Sud), des coquillages percés sont enfilés en colliers - les plus anciens bijoux connus. Les morts commencent à être enterrés avec intention, parfois saupoudrés d'ocre rouge. C'est la naissance du symbolisme : l'humain ne vit plus seulement dans le présent, il imagine un passé (les ancêtres) et un futur (une vie après la mort).",
+          "kind": "histoire",
+          "img": "/img/chronologie/mains-prehistoriques-tissant-des-coquillages.webp",
+          "anecdotes": [
+            {
+              "t": "<b>L'ocre rouge est le premier pigment rituel de l'humanité.</b> Utilisé depuis -300 000 ans pour traiter les peaux, il acquiert un sens symbolique : retrouvé en grande quantité dans les sépultures, il évoque peut-être le sang, la vie, ou une croyance en un voyage après la mort.",
+              "e": "🔴"
+            },
+            {
+              "t": "<b>Les coquillages de Blombos ont été transportés à 35 km de la côte</b> - preuve que leur valeur était symbolique, pas alimentaire. Des parures identiques retrouvées en Algérie et au Maroc à la même époque suggèrent un réseau d'échanges culturels à travers tout le continent africain.",
+              "e": "🐚"
+            },
+            {
+              "t": "<b>Néandertal enterrait aussi ses morts.</b> Des sépultures néandertaliennes avec des pigments ont été trouvées à Shanidar (Irak, -60 000 ans). Même si leur interprétation est débattue, elles suggèrent que la conscience de la mort - et peut-être la spiritualité - ne sont pas une exclusivité de Sapiens.",
+              "e": "🧠"
+            }
+          ]
+        },
+        {
+          "title": "Premiers Vêtements en Peaux",
+          "date": "-80 000 ans",
+          "icon": "🧥",
+          "desc": "Des grattoirs spécialisés pour le travail des peaux apparaissent dans les sites préhistoriques d'Afrique et d'Europe. La preuve la plus inattendue vient de la génétique : les poux de corps divergent génétiquement des poux de tête il y a environ 83 000 ans - précisément quand les humains ont commencé à se couvrir de façon permanente.",
+          "kind": "histoire",
+          "img": "/img/chronologie/chasseurs-sur-la-savane-au-lever-du-soleil.webp",
+          "anecdotes": [
+            {
+              "t": "<b>Les poux ont daté nos vêtements.</b> En comparant l'ADN des poux de corps et de tête, les généticiens ont calculé leur séparation à ~83 000 ans. Les poux de corps ne peuvent vivre que dans des tissus : leur existence même prouve que des vêtements existaient à cette date. Un insecte parasite comme chronomètre préhistorique.",
+              "e": "🦟"
+            },
+            {
+              "t": "<b>Sans vêtements en peaux taillées, coloniser l'Eurasie froide était impossible.</b> C'est la maîtrise du travail des peaux - gratter, assouplir, imperméabiliser par fumage - qui a permis à Homo sapiens de survivre aux hivers glaciaires là où même Néandertal, pourtant adapté au froid, ne dépassait guère le 55e parallèle.",
+              "e": "🧊"
+            },
+            {
+              "t": "<b>Tanner une peau prend plusieurs jours de travail collectif.</b> Gratter le gras, assouplir par mastication, fumer pour imperméabiliser. Ces techniques impliquent planification, spécialisation et transmission du savoir - les indices d'une organisation sociale déjà complexe, bien avant les villages.",
+              "e": "⚒️"
+            }
+          ]
+        },
+        {
+          "title": "La Grande Sortie d'Afrique",
+          "date": "-70 000 ans",
+          "icon": "🚶",
+          "desc": "Un petit groupe d'Homo Sapiens - peut-être quelques milliers d'individus - franchit le détroit de Bab-el-Mandeb et quitte l'Afrique. Tous les non-Africains vivant aujourd'hui descendent de ce groupe fondateur.",
+          "kind": "histoire",
+          "img": "/img/chronologie/sortie-afrique.webp",
+          "anecdotes": [
+            {
+              "t": "<b>L'éruption du Toba (-74 000 ans)</b>, la plus grande catastrophe volcanique depuis 2 millions d'années, aurait déclenché un hiver volcanique mondial et réduit l'humanité à quelques milliers d'individus - un goulot d'étranglement génétique dont nous portons encore la trace dans notre ADN.",
+              "e": "🌋"
+            },
+            {
+              "t": "<b>Les Africains subsahariens sont génétiquement plus diversifiés</b> que tout le reste de l'humanité réuni. La diversité génétique mondiale s'est « étirée » à mesure que les migrations s'éloignaient de l'Afrique - chaque nouvelle population emportant un sous-ensemble du répertoire génétique précédent.",
+              "e": "🌍"
+            }
+          ]
+        },
+        {
+          "title": "Peuplement de l'Australie",
+          "date": "-50 000 ans",
+          "icon": "🦘",
+          "desc": "Des Homo Sapiens atteignent l'Australie en traversant au moins 90 km d'océan ouvert depuis l'Asie du Sud-Est - la première grande navigation de l'histoire humaine. Ce sont les ancêtres des Aborigènes d'aujourd'hui.",
+          "kind": "histoire",
+          "img": "/img/chronologie/traversee-en-mer-au-coucher-du-soleil.webp",
+          "anecdotes": [
+            {
+              "t": "<b>À l'époque, le niveau des mers était 60 m plus bas</b> qu'aujourd'hui, mais un bras de mer d'au moins 90 km demeurait infranchissable à pied. Ces hommes ont donc construit des embarcations - radeaux ou pirogues - bien avant d'inventer l'écriture ou la poterie.",
+              "e": "⛵"
+            },
+            {
+              "t": "<b>À leur arrivée, l'Australie abritait une mégafaune extraordinaire :</b> wombats géants de la taille d'un rhinocéros, serpents de 7 mètres, oiseaux de 200 kg. La plupart disparurent dans les millénaires suivant l'arrivée des humains.",
+              "e": "🦣"
+            }
+          ]
+        },
+        {
+          "title": "Disparition des Néandertaliens",
+          "date": "-40 000 ans",
+          "icon": "💀",
+          "desc": "Homo neanderthalensis, qui peuplait l'Europe et le Proche-Orient depuis 400 000 ans, disparaît peu après l'arrivée de Sapiens sur le continent. Compétition, assimilation ou épidémies ? Le débat reste ouvert.",
+          "kind": "histoire",
+          "img": "/img/chronologie/homme-des-neandertals-dans-la-neige.webp",
+          "anecdotes": [
+            {
+              "t": "<b>Les Néandertaliens ne sont pas vraiment disparus :</b> les Européens et Asiatiques portent 1 à 4 % de leur ADN, héritage de croisements anciens. Certains de ces gènes néandertaliens nous aident encore aujourd'hui à combattre certaines infections.",
+              "e": "🧬"
+            },
+            {
+              "t": "<b>Les Néandertaliens fabriquaient des bijoux, enterraient leurs morts et utilisaient des pigments.</b> Des fouilles récentes suggèrent qu'ils peignaient déjà des grottes en Espagne 65 000 ans avant Sapiens - ce seraient donc les premiers artistes de l'histoire.",
+              "e": "🎨"
+            }
+          ]
+        },
+        {
+          "title": "Grotte Chauvet",
+          "date": "-36 000 av. J.-C.",
+          "icon": "🎨",
+          "desc": "Dans l'Ardèche, des Homo Sapiens peignent sur les parois de la grotte Chauvet les premières grandes œuvres d'art de l'humanité : mammouths, rhinocéros laineux, lions des cavernes - avec un sens du mouvement et de la perspective saisissant.",
+          "kind": "histoire",
+          "img": "/img/chronologie/peintures-grotte-chauvet.webp",
+          "anecdotes": [
+            {
+              "t": "<b>Plus de 400 figures animales</b> représentant 14 espèces différentes, dont des espèces aujourd'hui disparues comme le rhinocéros laineux et le mammouth. Les artistes utilisaient déjà l'estompe, les tracés doubles et les reliefs naturels de la roche pour donner l'illusion du mouvement.",
+              "e": "🦁"
+            },
+            {
+              "t": "<b>Les artistes travaillaient à la lueur de torches et de lampes à graisse</b>, dans l'obscurité totale à des centaines de mètres de l'entrée. Chauvet est classée au patrimoine mondial de l'UNESCO depuis 2014.",
+              "e": "🕯️"
+            }
+          ]
+        },
+        {
+          "title": "Le Propulseur & la Sagaie - Un Système Révolutionnaire",
+          "date": "-35 000 av. J.-C.",
+          "icon": "🏹",
+          "desc": "Le propulseur (atlatl) et la sagaie ne sont pas deux inventions séparées : ils forment un système conçu ensemble. Le propulseur est un bras de levier en bois ou en os qui prolonge artificiellement le bras, multipliant par 3 la vitesse et la puissance du lancer. La sagaie est le projectile qui lui correspond : légère, fine, en os ou en ivoire de mammouth - inutile à la main, redoutable lancée. Ensemble, ils permettent de tuer à 80 mètres sans s'approcher du danger.",
+          "kind": "histoire",
+          "img": "/img/chronologie/chasseur-prehistorique-et-troupeau-de-rennes.webp",
+          "anecdotes": [
+            {
+              "t": "<b>La sagaie n'est pas une lance améliorée - c'est un objet entièrement différent.</b> La lance à silex est lourde et solide, faite pour frapper à bout portant. La sagaie est fine, légère, aérodynamique : elle se briserait à l'impact d'un choc direct. Tout son design est optimisé pour voler vite et loin, pas pour résister. Chaque arme a sa logique propre.",
+              "e": "⚙️"
+            },
+            {
+              "t": "<b>Des tests balistiques modernes ont mesuré les performances du système :</b> une sagaie lancée au propulseur atteint 150 km/h et peut transpercer 10 cm de chair à 50 mètres. Cette combinaison égale en puissance une arbalète médiévale - fabriquée uniquement avec de l'os, du bois et de la pierre. Les Aztèques utilisaient encore le propulseur à l'arrivée des Espagnols en 1519.",
+              "e": "🎯"
+            },
+            {
+              "t": "<b>Certains propulseurs sont de véritables chefs-d'œuvre sculptés.</b> Le propulseur au « faon aux oiseaux » de Mas-d'Azil (-13 000 ans, Ariège) représente un jeune cerf se retournant, sculpté dans du bois de renne avec un réalisme saisissant. L'arme de chasse comme objet d'art - preuve que l'esthétique et l'efficacité n'ont jamais été contradictoires pour Homo sapiens.",
+              "e": "🎨"
+            }
+          ]
+        },
+        {
+          "title": "Les Premières Flûtes",
+          "date": "-35 000 av. J.-C.",
+          "icon": "🎵",
+          "desc": "Dans les grottes d'Allemagne du Sud (Hohle Fels, Vogelherd), des artisans taillent des flûtes dans des os d'oiseaux et de l'ivoire de mammouth. Ce sont les plus anciens instruments de musique connus - la musique est aussi vieille que l'art pariétal.",
+          "kind": "histoire",
+          "img": "/img/chronologie/homme-prehistorique-jouant-une-flute-osseuse.webp",
+          "anecdotes": [
+            {
+              "t": "<b>La flûte de Hohle Fels</b> est taillée dans un radius de vautour fauve. Elle possède 5 trous digitaux et peut encore produire des sons aujourd'hui. Sa facture révèle une maîtrise acoustique et artisanale remarquable.",
+              "e": "🦅"
+            },
+            {
+              "t": "<b>La musique est probablement bien plus ancienne</b> que ces flûtes - os creux, peaux tendues, voix humaine - mais les matériaux organiques ne se fossilisent pas. Ces flûtes sont simplement les premières à avoir survécu au temps.",
+              "e": "🎶"
+            }
+          ]
+        },
+        {
+          "title": "La Grande Chasse au Mammouth",
+          "date": "-25 000 av. J.-C.",
+          "icon": "🦣",
+          "desc": "Le mammouth laineux est le pilier de l'économie paléolithique en Europe et en Sibérie. Un seul animal abattu fournit des centaines de kilos de viande, de la graisse pour les lampes et la cuisine, des peaux pour les vêtements et les tentes, des os pour les charpentes, de l'ivoire pour l'art. Ces chasses sont collectives et organisées - pas une simple prédation opportuniste.",
+          "kind": "histoire",
+          "img": "/img/chronologie/chasse-dans-la-tempete-de-neige.webp",
+          "anecdotes": [
+            {
+              "t": "<b>Des huttes construites entièrement en os de mammouths</b> ont été retrouvées en Ukraine (Mezhirich, -15 000 ans). Leurs charpentes utilisent des centaines de mandibules, fémurs et défenses soigneusement assemblés - une architecture sans un seul arbre, dans une steppe sans forêt. Preuve d'une économie du mammouth totale.",
+              "e": "🏕️"
+            },
+            {
+              "t": "<b>Les méthodes incluaient le rabattage collectif.</b> Des groupes encerclaient le troupeau et le poussaient vers des falaises, des marécages ou des zones enneigées où les animaux s'enlisaient. Une chasse réussie pouvait nourrir un groupe de 50 personnes pendant plusieurs semaines.",
+              "e": "🌊"
+            },
+            {
+              "t": "<b>Le mammouth s'est éteint il y a ~4 000 ans</b> - soit 2 000 ans après les pyramides d'Égypte. Une petite population a survécu sur l'île Wrangel (Arctique sibérien) jusqu'en -2 000 av. J.-C. La chasse humaine et le réchauffement post-glaciaire ont conjugué leurs effets pour l'éliminer définitivement.",
+              "e": "❄️"
+            }
+          ]
+        },
+        {
+          "title": "L'Aiguille à Coudre",
+          "date": "-22 000 av. J.-C.",
+          "icon": "🪡",
+          "desc": "Taillée dans un fragment d'os ou de bois de renne, percée d'un chas minuscule avec un burin en silex : l'aiguille à coudre permet d'assembler des pièces de peau avec précision. On passe de la peau enroulée au vêtement taillé, cousu, ajusté au corps. Sans elle, coloniser la Sibérie glaciaire et atteindre les Amériques est impossible.",
+          "kind": "histoire",
+          "img": "/img/chronologie/aiguille-en-os-sur-pierre-eclairee.webp",
+          "anecdotes": [
+            {
+              "t": "<b>Percer un chas de 1 mm dans un os de 2 mm sans le briser</b> exige une maîtrise technique extraordinaire. Les aiguilles préhistoriques retrouvées à Denisova (Sibérie) rivalisent en finesse avec nos aiguilles modernes - preuve d'un geste chirurgical transmis de génération en génération pendant des millénaires.",
+              "e": "🔬"
+            },
+            {
+              "t": "<b>Le fil était fait de tendons de renne, de fibres végétales ou de crin.</b> Des textiles végétaux torsadés (lin sauvage) datant de -30 000 ans ont été retrouvés en Géorgie - des humains filaient et tissaient bien avant l'agriculture. La mode est plus vieille que l'écriture de 25 000 ans.",
+              "e": "🧵"
+            },
+            {
+              "t": "<b>L'aiguille a ouvert l'Arctique à l'humanité.</b> Sans vêtements parfaitement ajustés - couvrant mains, pieds et visage - survivre à -40°C est impossible. C'est l'aiguille, autant que le feu ou l'intelligence, qui a rendu possible le peuplement de la Béringie et des Amériques.",
+              "e": "🌍"
+            }
+          ]
+        },
+        {
+          "title": "Maximum Glaciaire",
+          "date": "-20 000 av. J.-C.",
+          "icon": "❄️",
+          "desc": "Pic de la dernière ère glaciaire : les glaces couvrent l'Europe du Nord, les Alpes et les Pyrénées. Le niveau des mers est 120 mètres plus bas qu'aujourd'hui. Des continents entiers sont reliés à pied. L'humanité se réfugie dans des zones tempérées épargnées par les glaces.",
+          "kind": "histoire",
+          "img": "/img/chronologie/crepuscule-sur-limmensite-glacee.webp",
+          "anecdotes": [
+            {
+              "t": "<b>La carte du monde est méconnaissable :</b> la Manche n'existe pas, la mer du Nord est une vaste plaine herbeuse (le « Doggerland ») parcourue par les mammouths. Les Pays-Bas actuels sont à 500 km de l'océan. C'est dans ces plaines aujourd'hui englouties que vivaient nos ancêtres de Lascaux.",
+              "e": "🗺️"
+            },
+            {
+              "t": "<b>Les ponts terrestres du monde à -20 000 ans :</b> 🌏 <b>Béringie</b> (Sibérie → Alaska) : 1 500 km de large, vaste steppe peuplée de mammouths - les premiers Américains passent là. 🇬🇧 <b>Doggerland</b> (France → Angleterre → Danemark) : la Grande-Bretagne est un cap européen, on pouvait aller à Londres à pied depuis Paris. 🌴 <b>Sundaland</b> (Malaisie → Sumatra, Java, Bornéo) : l'Asie du Sud-Est forme un seul continent, Bali et Java étant reliés à la péninsule malaise. 🦘 <b>Sahul</b> (Australie → Nouvelle-Guinée → Tasmanie) : ces trois terres ne forment qu'un seul continent austral. 🐘 <b>Sri Lanka → Inde</b> : le détroit de Palk est une plaine sèche. 🌾 <b>Îles japonaises</b> : Kyūshū et Hokkaidō sont reliées à la Sibérie et à la Corée par des zones côtières accessibles.",
+              "e": "🌉"
+            },
+            {
+              "t": "<b>La température moyenne en France était 8 à 10°C plus froide</b> qu'aujourd'hui. Paris ressemblait à la Sibérie actuelle. La fonte des glaces (-18 000 à -6 000 ans) fit monter les mers de 120 mètres, engloutissant des terres habitées - des villages entiers sous la mer du Nord - et déclenchant probablement les mythes universels du Déluge présents dans toutes les cultures.",
+              "e": "🌡️"
+            }
+          ]
+        },
+        {
+          "title": "La Poterie",
+          "date": "-17 500 av. J.-C.",
+          "icon": "🏺",
+          "desc": "Les premières poteries connues (Chine, Japon) permettent de cuire, stocker et transporter les aliments. Une révolution silencieuse qui précède l'agriculture de plusieurs millénaires.",
+          "kind": "histoire",
+          "img": "/img/chronologie/modelage-dun-pot-en-argile.webp",
+          "anecdotes": [
+            {
+              "t": "<b>La poterie précède l'agriculture de 5 000 ans.</b> Les chasseurs-cueilleurs utilisaient des pots pour cuire et conserver les aliments bien avant de cultiver.",
+              "e": "🍲"
+            },
+            {
+              "t": "<b>La cuisson des aliments dans l'eau</b> rendue possible par la poterie libère des nutriments inaccessibles autrement. Elle a probablement autant contribué à la santé humaine que la médecine.",
+              "e": "🔥"
+            }
+          ]
+        },
+        {
+          "title": "Grotte de Lascaux",
+          "date": "-17 000 av. J.-C.",
+          "icon": "🦌",
+          "desc": "En Dordogne, des artistes magdaléniens ornent les parois de Lascaux de plus de 600 peintures et 1 500 gravures. Bisons, cerfs, chevaux et aurochs y sont représentés avec une maîtrise stylistique extraordinaire - c'est la « Chapelle Sixtine de la Préhistoire ».",
+          "kind": "histoire",
+          "img": "/img/chronologie/artiste-prehistorique-peignant-un-cheval.webp",
+          "anecdotes": [
+            {
+              "t": "<b>La « Salle des Taureaux »</b>, la plus grande caverne de Lascaux, mesure 17 mètres de long et abrite des aurochs et des cerfs dont certains atteignent 5 mètres de longueur. Les pigments - ocre, manganèse, charbon - ont été soufflés à la bouche ou appliqués avec des tampons de mousse.",
+              "e": "🐎"
+            },
+            {
+              "t": "<b>La grotte originale est fermée au public depuis 1963</b> pour préserver les peintures, menacées par le CO₂ et les moisissures apportés par les visiteurs. Une réplique quasi parfaite, Lascaux IV, accueille aujourd'hui les touristes à quelques centaines de mètres du site original.",
+              "e": "🔒"
+            }
+          ]
+        },
+        {
+          "title": "Domestication du Chien",
+          "date": "-15 000 av. J.-C.",
+          "icon": "🐕",
+          "desc": "Le chien est le premier animal domestiqué par l'homme - bien avant les vaches, moutons ou chevaux. Issu du loup gris, il devient aide à la chasse, gardien et compagnon.",
+          "kind": "histoire",
+          "img": "/img/chronologie/lhomme-prehistorique-et-son-chien.webp",
+          "anecdotes": [
+            {
+              "t": "<b>Le chien s'est peut-être domestiqué lui-même :</b> des loups moins craintifs auraient appris à suivre les camps humains pour se nourrir des restes, développant progressivement une relation symbiotique.",
+              "e": "🐺"
+            },
+            {
+              "t": "<b>Toutes les races de chiens</b> - du chihuahua au saint-bernard - descendent d'une même population de loups domestiqués. La sélection humaine en 15 000 ans a créé une diversité morphologique sans équivalent dans la nature.",
+              "e": "🧬"
+            }
+          ]
+        },
+        {
+          "title": "Peuplement des Amériques",
+          "date": "-13 000 av. J.-C.",
+          "icon": "🌉",
+          "desc": "Des chasseurs sibériens franchissent le pont terrestre de Béringie - une vaste plaine aujourd'hui engloutie sous le détroit de Béring - et s'installent en Amérique du Nord. En quelques millénaires, leurs descendants atteindront la Terre de Feu, à 15 000 km au sud.",
+          "kind": "histoire",
+          "img": "/img/chronologie/peuplement-amerique-traversee-bering.webp",
+          "anecdotes": [
+            {
+              "t": "<b>En moins de 1 000 ans</b>, les premiers Américains ont traversé deux continents et chassé jusqu'à l'extinction la plupart des grands mammifères : mammouths, mastodontes, chevaux et chameaux américains, paresseux géants. Une vague d'extinctions qui explique pourquoi les Amériques n'avaient plus d'animaux domesticables à l'arrivée des Européens.",
+              "e": "🦣"
+            },
+            {
+              "t": "<b>Tous les Amérindiens descendent d'une seule vague migratoire</b> partie de Sibérie, dont les descendants ont été isolés des autres humains pendant 15 000 ans - la plus longue isolation d'une grande population humaine dans l'histoire. Certaines études suggèrent cependant des contacts côtiers polynésiens bien avant Colomb.",
+              "e": "🧬"
+            }
+          ]
+        },
+        {
+          "title": "Révolution Néolithique - L'Invention du Futur",
+          "date": "-10 000 ans",
+          "tag": "Événement",
+          "icon": "🌾",
+          "desc": "Pendant 300 000 ans, Homo sapiens a vécu en chassant et en cueillant - nomade, libre, bien nourri, travaillant environ 4 heures par jour. Puis, au Croissant Fertile (actuel Irak, Syrie, Turquie), quelque chose bascule : des groupes commencent à semer, à attendre, à récolter, à stocker. À élever des animaux. À construire des maisons permanentes. En apparence, c'est un progrès. En réalité, c'est aussi le début du travail épuisant, des inégalités, des guerres pour les terres, des épidémies et de la faim. La révolution agricole est l'une des décisions les plus ambiguës de l'histoire humaine.",
+          "kind": "histoire",
+          "img": "/img/chronologie/village-neolithique-au-coucher-du-soleil.webp",
+          "anecdotes": [
+            {
+              "t": "<b>L'agriculture a inventé le futur - et l'angoisse qui va avec.</b> Un chasseur-cueilleur vit dans le présent : il mange ce qu'il trouve aujourd'hui. Un agriculteur doit penser à dans six mois : préparer le sol, semer, irriguer, surveiller, stocker. Cette projection dans le temps a rendu nécessaires les calendriers, l'écriture (pour comptabiliser les récoltes), les contrats, les lois - et aussi l'inquiétude chronique pour l'avenir, qu'on appelle aujourd'hui le stress.",
+              "e": "⏰"
+            },
+            {
+              "t": "<b>Les premiers villages ont inventé les épidémies.</b> Avant l'agriculture, les humains vivaient en petits groupes dispersés - un virus qui tuait un groupe n'avait nulle part où aller. Dans un village dense où humains, vaches, cochons et poules cohabitent, les agents pathogènes sautent d'espèce en espèce et mutent à toute vitesse. La variole vient des vaches, la grippe des canards et cochons, la rougeole des chiens. Toutes les grandes pandémies de l'histoire naissent de l'élevage.",
+              "e": "🦠"
+            },
+            {
+              "t": "<b>L'agriculture a peut-être rendu les humains moins heureux - et plus petits.</b> Les squelettes des premiers agriculteurs sont en moyenne 10 cm plus courts que ceux des chasseurs-cueilleurs qui les précèdent : signe de malnutrition, car un régime à base de céréales est bien moins varié que celui d'un nomade. Leur espérance de vie était plus courte, leurs dents plus cariées. Alors pourquoi ont-ils continué ? Probablement parce que l'agriculture nourrit dix fois plus de personnes par km² - et que la démographie fait le reste.",
+              "e": "🤔"
+            }
+          ]
+        },
+        {
+          "title": "Göbekli Tepe",
+          "date": "-9 500 av. J.-C.",
+          "icon": "🏛️",
+          "desc": "En Turquie actuelle, des chasseurs-cueilleurs érigent les premiers grands monuments en pierre de l'humanité : des cercles de piliers en T de 6 mètres de haut, ornés de bas-reliefs d'animaux. Göbekli Tepe précède Stonehenge de 6 000 ans et les pyramides de 7 000 ans - et renverse tout ce qu'on croyait savoir.",
+          "kind": "histoire",
+          "img": "/img/chronologie/lever-de-soleil-sur-gobekli-tepe.webp",
+          "anecdotes": [
+            {
+              "t": "<b>Göbekli Tepe a été construit avant l'agriculture.</b> On pensait que les grandes constructions nécessitaient une société sédentaire et agricole. Mais ses bâtisseurs étaient des nomades chasseurs-cueilleurs. C'est peut-être le temple lui-même - et les rassemblements qu'il imposait - qui a donné naissance à l'agriculture, et non l'inverse.",
+              "e": "🤯"
+            },
+            {
+              "t": "<b>Seulement 5 % du site a été fouillé.</b> Le géoradar révèle au moins 16 enceintes encore enfouies. Et le plus étrange : vers -8 000 av. J.-C., ses bâtisseurs ont délibérément enfoui le site sous des tonnes de terre, le préservant intact pendant 11 000 ans.",
+              "e": "⛏️"
+            }
+          ]
+        },
+        {
+          "title": "La Trépanation - Première Chirurgie",
+          "date": "-6 500 av. J.-C.",
+          "icon": "💀",
+          "desc": "Des crânes néolithiques retrouvés en Europe et au Proche-Orient portent des trous soigneusement percés avec des outils en silex - et des bords recalcifiés, prouvant que les patients ont survécu. C'est la plus ancienne opération chirurgicale connue : on ouvre le crâne pour soigner des fractures, des hématomes, des crises convulsives, ou lors de rituels. L'humanité opère le cerveau 8 500 ans avant l'antisepsie.",
+          "kind": "histoire",
+          "img": "/img/chronologie/trepanations-neolithiques-688po.webp",
+          "anecdotes": [
+            {
+              "t": "<b>Certains individus ont subi plusieurs trépanations et survécu à toutes.</b> Un crâne retrouvé en France porte cinq ouvertures cicatrisées à des stades différents. Les chirurgiens néolithiques connaissaient probablement des anesthésiants naturels (plantes, alcool fermenté) et maintenaient les plaies propres, peut-être avec des résines antibactériennes.",
+              "e": "🧠"
+            },
+            {
+              "t": "<b>La trépanation est apparue indépendamment sur tous les continents.</b> En Europe, en Afrique, en Amérique précolombienne et en Polynésie - sans contact entre ces populations. C'est une invention que l'humanité a faite au moins 5 ou 6 fois séparément, face aux mêmes besoins médicaux universels.",
+              "e": "🌍"
+            },
+            {
+              "t": "<b>Le taux de survie néolithique dépasse 50 %</b> d'après les études sur les séries de crânes. Soit les praticiens étaient bien plus compétents qu'on ne le croit, soit les indications chirurgicales - fractures ouvertes, hématomes sous-duraux après un coup - étaient précisément ciblées sur des cas qui nécessitaient vraiment l'intervention.",
+              "e": "⚕️"
+            }
+          ]
+        },
+        {
+          "title": "Menhirs, Dolmens & Carnac",
+          "date": "-4 500 av. J.-C.",
+          "icon": "🗿",
+          "desc": "En Bretagne, des milliers de menhirs sont dressés en alignements sur des kilomètres. Les dolmens - chambres funéraires collectives en dalles de pierre - parsèment l'Europe de l'Atlantique à la mer du Nord. Ces monuments néolithiques exigent des centaines de personnes, des chantiers planifiés sur des décennies, et une astronomie précise : la plupart sont orientés sur les solstices.",
+          "kind": "histoire",
+          "img": "/img/chronologie/lever-de-soleil-sur-les-menhirs-de-bretagne.webp",
+          "anecdotes": [
+            {
+              "t": "<b>Les alignements de Carnac</b> (Morbihan) comptent plus de 3 000 menhirs disposés en 11 rangées parallèles sur 4 km - le plus grand ensemble mégalithique du monde. Le Grand Menhir Brisé, aujourd'hui couché, pesait 280 tonnes. Stonehenge, plus célèbre, est construit 1 500 ans plus tard.",
+              "e": "🇫🇷"
+            },
+            {
+              "t": "<b>Les dolmens étaient des tombes collectives transgénérationnelles.</b> Certains contiennent plus de 200 squelettes accumulés sur des siècles - les mêmes familles enterrées génération après génération. L'entrée de Newgrange (Irlande, -3 200 av. J.-C.) est alignée exactement sur le soleil levant du solstice d'hiver : la lumière illumine la chambre funéraire pendant 17 minutes, une seule fois par an.",
+              "e": "☀️"
+            },
+            {
+              "t": "<b>Comment déplacer une dalle de 50 tonnes sans roue ni métal ?</b> Des reconstitutions expérimentales montrent que 200 personnes, des traîneaux en bois et des rouleaux suffisent. Ces chantiers impliquent une organisation complexe : spécialisation des tâches, stockage alimentaire pour nourrir les équipes, et une autorité - religieuse ou politique - capable de mobiliser des communautés entières pendant des décennies.",
+              "e": "🏗️"
+            }
+          ]
+        },
+        {
+          "title": "Domestication du Cheval",
+          "date": "-3 500 av. J.-C.",
+          "icon": "🐎",
+          "desc": "Dans les steppes d'Eurasie (culture Botaï, Kazakhstan actuel), des éleveurs néolithiques domestiquent le cheval sauvage. C'est une révolution de la mobilité, de la guerre et du commerce : l'humain peut désormais se déplacer 10 fois plus vite, porter des charges lourdes sur des milliers de kilomètres. En moins de 2 000 ans, le cheval transforme toutes les civilisations du monde connu.",
+          "kind": "histoire",
+          "img": "/img/chronologie/premier-contact-au-lever-du-soleil.webp",
+          "anecdotes": [
+            {
+              "t": "<b>La preuve de la domestication vient du lait.</b> Des résidus de graisse de lait de jument sur des poteries Botaï confirment que ces peuples traitaient les juments. L'ADN montre que tous les chevaux domestiques actuels descendent d'une unique population de la steppe pontique - une domestication qui a littéralement changé l'histoire de l'humanité.",
+              "e": "🥛"
+            },
+            {
+              "t": "<b>Le cheval a révolutionné la guerre en quelques siècles.</b> Un cavalier peut charger à 60 km/h, se replier, encercler - impossible à pied. La diffusion de la culture yamna (steppe pontique, -3 000 av. J.-C.) a propagé les langues indo-européennes - ancêtres du français, de l'anglais, du russe et du sanskrit - de l'Inde à l'Irlande, portées par des populations montées.",
+              "e": "⚔️"
+            },
+            {
+              "t": "<b>Le cheval a inventé la mondialisation antique.</b> La Route de la Soie n'aurait pas existé sans lui. Épidémies, religions et innovations techniques se sont propagées à travers l'Eurasie à la vitesse du galop - le cheval est le premier réseau de communication continental de l'histoire, bien avant l'écriture.",
+              "e": "🗺️"
+            }
+          ]
+        },
+        {
+          "title": "La Roue - L'Invention qui Change Tout",
+          "date": "-3 500 av. J.-C.",
+          "tag": "Invention",
+          "icon": "⚙️",
+          "desc": "La roue apparaît en Mésopotamie et dans les steppes d'Eurasie vers -3 500 av. J.-C. - probablement à la même époque que la domestication du cheval, dont elle démultiplie l'utilité. La plus ancienne roue complète retrouvée est celle de Ljubljana (Slovénie, -3 350 av. J.-C.). D'abord utilisée pour les potiers, elle est rapidement adaptée aux chariots. Associée à l'axe fixe, elle révolutionne le transport, la guerre et l'agriculture.",
+          "kind": "histoire",
+          "img": "/img/chronologie/atelier-de-charpentier-ancien.webp",
+          "anecdotes": [
+            {
+              "t": "<b>La roue a été inventée pour la poterie avant les transports.</b> Le tour du potier, qui permet de façonner l'argile en la faisant tourner, précède le chariot de plusieurs siècles. Ce n'est qu'ensuite que quelqu'un a eu l'idée de mettre la roue sous un véhicule - une révolution dans la révolution.",
+              "e": "🏺"
+            },
+            {
+              "t": "<b>La roue ne sert à rien sans routes - et sans animaux pour tirer.</b> Les Mésoaméricains connaissaient le principe de la roue (on en a retrouvé sur des jouets) mais ne l'utilisaient pas pour le transport : il n'y avait ni chevaux, ni bœufs, ni routes adaptées. Une invention n'est utile que dans l'écosystème qui permet de l'exploiter.",
+              "e": "🐎"
+            },
+            {
+              "t": "<b>Le char de guerre à roues à rayons (-2 000 av. J.-C.) est l'arme absolue de l'Antiquité.</b> Léger, rapide, manœuvrable - il domine les champs de bataille pendant 1 500 ans. À la bataille de Qadesh (-1 274 av. J.-C.), Ramsès II et les Hittites alignèrent plusieurs milliers de chars. C'est la première grande bataille de chars de l'histoire - 3 200 ans avant la Seconde Guerre mondiale.",
+              "e": "⚔️"
+            }
+          ]
+        },
+        {
+          "title": "Ötzi - L'Homme des Glaces",
+          "date": "-3 300 av. J.-C.",
+          "tag": "Événement",
+          "icon": "🧊",
+          "desc": "Dans les Alpes tyroliennes, un chasseur néolithique meurt à 3 210 m d'altitude. Préservé 5 300 ans dans la glace, il est découvert en 1991 et livre un portrait saisissant de l'homme de la fin du Néolithique.",
+          "kind": "histoire",
+          "img": "/img/chronologie/otzi.webp",
+          "anecdotes": [
+            {
+              "t": "<b>Ötzi a été assassiné :</b> une pointe de flèche est logée dans son épaule, sectionnant une artère. Premier « cold case » de l'histoire, vieux de 5 300 ans.",
+              "e": "🏹"
+            },
+            {
+              "t": "<b>Son ADN révèle qu'Ötzi est le cousin génétique</b> de nombreux Sardes et Corses actuels. Il était intolérant au lactose, avait les yeux marron et souffrait de maladie de Lyme.",
+              "e": "🧬"
+            }
+          ]
+        },
+        {
+          "title": "Uruk & Ur - Les Premières Villes du Monde",
+          "date": "-3 200 av. J.-C.",
+          "icon": "🏙️",
+          "desc": "En Mésopotamie (actuel Irak), entre le Tigre et l'Euphrate, naît quelque chose d'entièrement nouveau dans l'histoire humaine : la ville. Uruk dépasse 50 000 habitants - une densité humaine sans précédent. Pour gérer des stocks de milliers de jarres de grain, des centaines de troupeaux, des milliers d'ouvriers, les administrateurs inventent un système de notation : les premiers signes gravés sur argile. L'écriture vient d'être inventée - non pas pour raconter des poèmes, mais pour faire de la comptabilité.",
+          "kind": "histoire",
+          "img": "/img/chronologie/la-cite-ancienne-dur-au-crepuscule.webp",
+          "anecdotes": [
+            {
+              "t": "<b>L'écriture a été inventée pour noter des dettes, pas des histoires.</b> Les premières tablettes cunéiformes d'Uruk (-3 200 av. J.-C.) sont des reçus : « 29 mesures d'orge reçues de Kushim. » Kushim est le premier être humain dont on connaît le nom dans l'histoire. Pas un roi, pas un héros - un comptable. La littérature attendra encore 500 ans.",
+              "e": "✍️"
+            },
+            {
+              "t": "<b>À Ur, les rois n'mouraient pas seuls.</b> Les fouilles des tombes royales d'Ur (-2 600 av. J.-C.) ont révélé des dizaines de serviteurs, gardes et musiciens enterrés vivants avec leur maître - après avoir probablement bu un poison. Dans une tombe, 74 personnes accompagnaient la reine dans la mort. La harpe d'or retrouvée auprès d'eux est aujourd'hui au British Museum.",
+              "e": "⚰️"
+            },
+            {
+              "t": "<b>Gilgamesh, roi d'Uruk, est le premier héros de la littérature mondiale.</b> L'Épopée de Gilgamesh (-2 100 av. J.-C.) raconte un roi mi-dieu mi-humain, sa quête de l'immortalité et son amitié avec l'homme sauvage Enkidu. Elle contient aussi un récit de Déluge universel - écrit 1 500 ans avant la Bible - avec une arche, des animaux sauvés par paires, et une colombe envoyée en éclaireur.",
+              "e": "🦸"
+            }
+          ]
+        },
+        {
+          "title": "L'Écriture - La Fin de la Préhistoire",
+          "date": "-3 200 av. J.-C.",
+          "tag": "Invention",
+          "icon": "✍️",
+          "desc": "À Uruk (Mésopotamie), des administrateurs gravent des signes cunéiformes sur des tablettes d'argile pour gérer les stocks de grain et de bétail. C'est l'invention de l'écriture - et par définition, la fin de la Préhistoire. Tout ce qui précède, nous ne le connaissons que par l'archéologie. Tout ce qui suit, l'humanité peut se souvenir elle-même. Cette frontière invisible, tracée dans l'argile d'une ville irakienne, sépare le silence des origines de la parole de l'Histoire.",
+          "kind": "histoire",
+          "img": "/img/chronologie/main-dun-scribe-sur-tablette-dargile.webp",
+          "anecdotes": [
+            {
+              "t": "<b>L'écriture n'a pas été inventée pour la littérature - mais pour la comptabilité.</b> Les premières tablettes cunéiformes sont des reçus et des inventaires : « 29 mesures d'orge reçues de Kushim. » Kushim est le premier être humain dont on connaît le nom. Pas un roi, pas un poète - un gestionnaire de stocks. La mémoire humaine a commencé par des tableurs.",
+              "e": "📊"
+            },
+            {
+              "t": "<b>L'écriture a été inventée de façon indépendante au moins 4 fois.</b> En Mésopotamie (-3 200), en Égypte (-3 100), en Chine (-1 200) et en Mésoamérique (-900 av. J.-C.) par les Olmèques. Chaque fois, c'est la complexité croissante des sociétés - gérer des impôts, des armées, des lois - qui rend la mémoire humaine seule insuffisante.",
+              "e": "🌍"
+            },
+            {
+              "t": "<b>La Préhistoire dure 3 millions d'années. L'Histoire écrite, 5 200 ans.</b> Si l'existence humaine était une journée de 24 heures, l'écriture serait apparue à 23h57. Tout Homère, la Bible, César, Shakespeare, la Révolution française, les deux guerres mondiales, internet - tout cela se passe dans les 3 dernières minutes de notre histoire.",
+              "e": "📅"
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

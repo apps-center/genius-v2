@@ -71,8 +71,14 @@ export const CONTENT: readonly ContentEntry[] = [
   // { sujet: 'mathematiques', contentKind: 'qcm', titre: 'Theoreme de Pythagore',
   //   load: () => import('../content/mathematiques/pythagore-qcm.json') },
 
-  // Chronologie (frise) : une branche = un pack. Migration pilote = Antiquite.
+  // Chronologie (frise) : une branche = un pack. Les 6 branches de l'ancien site,
+  // dans l'ordre chronologique (il pilote l'ordre des onglets de la brique).
+  { sujet: 'histoire', contentKind: 'chronologie', titre: 'Préhistoire', load: () => import('../content/chronologie/prehistoire.json') },
   { sujet: 'histoire', contentKind: 'chronologie', titre: 'Antiquité', load: () => import('../content/chronologie/antiquite.json') },
+  { sujet: 'histoire', contentKind: 'chronologie', titre: 'Moyen Âge', load: () => import('../content/chronologie/moyenage.json') },
+  { sujet: 'histoire', contentKind: 'chronologie', titre: 'Temps modernes', load: () => import('../content/chronologie/tempsmodernes.json') },
+  { sujet: 'histoire', contentKind: 'chronologie', titre: 'Époque contemporaine', load: () => import('../content/chronologie/contemporaine.json') },
+  { sujet: 'histoire', contentKind: 'chronologie', titre: 'Histoire du monde', load: () => import('../content/chronologie/monde.json') },
 ];
 
 // Apparie chaque pack avec les briques capables de le jouer (par contentKind).
