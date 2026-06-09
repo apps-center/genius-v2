@@ -1,0 +1,330 @@
+.wrap {
+  max-width: 720px;
+  margin: 0 auto;
+  padding: var(--space-4) var(--space-4) var(--space-8);
+}
+
+/* --- Etats de chargement / erreur (memes codes que la frise) --- */
+.state {
+  text-align: center;
+  color: var(--color-text-muted);
+  padding: var(--space-7);
+}
+
+.error {
+  max-width: 560px;
+  margin: var(--space-7) auto;
+  background: var(--color-card-bg);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-lg);
+}
+
+.errorTitle {
+  font-family: var(--font-display);
+  font-weight: var(--weight-bold);
+  letter-spacing: var(--tracking);
+  text-transform: uppercase;
+  color: var(--color-danger);
+  font-size: var(--font-sm);
+}
+
+.errorMsg {
+  color: var(--color-text-muted);
+  font-size: var(--font-sm);
+  margin-top: var(--space-3);
+  word-break: break-word;
+}
+
+/* --- En-tete --- */
+.head {
+  text-align: center;
+  padding: var(--space-4) 0 var(--space-6);
+}
+
+.kicker {
+  font-family: var(--font-display);
+  font-size: var(--font-xs);
+  letter-spacing: var(--tracking-wide);
+  text-transform: uppercase;
+  color: var(--color-text-muted);
+}
+
+.titre {
+  font-size: var(--font-2xl);
+  text-transform: uppercase;
+  letter-spacing: var(--tracking-tight);
+  background: var(--gradient-gold);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+  margin: var(--space-2) 0;
+}
+
+.sous {
+  font-style: italic;
+  color: var(--color-text-muted);
+}
+
+/* --- Deck --- */
+.deck {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+/* --- Progression (calque sur la barre du quiz) --- */
+.progress {
+  inline-size: 100%;
+  max-width: 560px;
+}
+
+.compteur {
+  font-family: var(--font-display);
+  font-size: var(--font-sm);
+  letter-spacing: var(--tracking);
+  text-transform: uppercase;
+  color: var(--color-text-muted);
+  text-align: center;
+  margin-bottom: var(--space-3);
+}
+
+.barre {
+  block-size: 4px;
+  background: var(--color-line);
+  border-radius: var(--radius-pill);
+  overflow: hidden;
+  margin-bottom: var(--space-5);
+}
+
+.barreRemplie {
+  display: block;
+  block-size: 100%;
+  background: var(--gradient-gold);
+  transition: inline-size var(--transition);
+}
+
+/* --- Carte a retournement (standard de flip Genius) --- */
+.flipWrap {
+  inline-size: 100%;
+  max-width: 560px;
+  perspective: var(--flip-perspective);
+  cursor: pointer;
+  border-radius: var(--radius-lg);
+}
+
+.flipWrap:focus-visible {
+  outline: none;
+  box-shadow: var(--shadow-focus);
+}
+
+.flipInner {
+  display: grid;
+  transform-style: preserve-3d;
+  transition: transform var(--flip-duration) var(--flip-ease);
+}
+
+.flipInner[data-revelee] {
+  transform: rotateY(180deg);
+}
+
+/* Mouvement reduit : on coupe l'animation, le retournement reste instantane. */
+.sansAnim .flipInner {
+  transition: none;
+}
+
+/* Les deux faces occupent la meme cellule : la carte prend la hauteur de la plus grande,
+   sans hauteur figee, donc aucune image n'est rognee. */
+.face {
+  grid-area: 1 / 1;
+  -webkit-backface-visibility: hidden;
+  backface-visibility: hidden;
+  display: flex;
+  flex-direction: column;
+  min-block-size: 340px;
+  background: var(--color-card-bg);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-lg);
+  box-shadow: var(--shadow-card);
+  overflow: hidden;
+}
+
+.faceRecto {
+  align-items: center;
+  justify-content: center;
+}
+
+.faceVerso {
+  transform: rotateY(180deg);
+  padding: var(--space-6) var(--space-5);
+}
+
+.hint {
+  padding: var(--space-3) var(--space-4) var(--space-4);
+  font-family: var(--font-display);
+  font-size: var(--font-xs);
+  letter-spacing: var(--tracking);
+  text-transform: uppercase;
+  color: var(--color-text-muted);
+}
+
+/* --- Modele IMAGE --- */
+/* Image servie sans rognage : largeur pleine, hauteur naturelle (comme la frise). */
+.image {
+  display: block;
+  inline-size: 100%;
+  block-size: auto;
+}
+
+.epoque {
+  align-self: flex-start;
+  font-family: var(--font-display);
+  font-size: var(--font-xs);
+  font-weight: var(--weight-bold);
+  letter-spacing: var(--tracking);
+  text-transform: uppercase;
+  color: var(--color-gold);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-pill);
+  padding: var(--space-1) var(--space-3);
+}
+
+.date {
+  font-family: var(--font-display);
+  font-size: var(--font-lg);
+  font-weight: var(--weight-bold);
+  letter-spacing: var(--tracking-tight);
+  color: var(--color-gold);
+  margin-top: var(--space-3);
+}
+
+.carteTitre {
+  font-family: var(--font-display);
+  font-weight: var(--weight-black);
+  font-size: var(--font-xl);
+  line-height: 1.25;
+  margin: var(--space-2) 0 var(--space-4);
+}
+
+.description {
+  color: var(--color-text);
+  font-size: var(--font-md);
+  line-height: 1.7;
+}
+
+/* --- Modele QUESTION-REPONSE --- */
+.rectoCorps {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: var(--space-4);
+  padding: var(--space-6) var(--space-5);
+  text-align: center;
+}
+
+.categorie {
+  font-family: var(--font-display);
+  font-size: var(--font-xs);
+  font-weight: var(--weight-bold);
+  letter-spacing: var(--tracking);
+  text-transform: uppercase;
+  color: var(--color-gold);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-pill);
+  padding: var(--space-1) var(--space-3);
+}
+
+.question {
+  font-family: var(--font-body);
+  font-size: var(--font-lg);
+  line-height: 1.5;
+  color: var(--color-text);
+  white-space: pre-line;
+}
+
+.versoCorps {
+  display: flex;
+  flex-direction: column;
+}
+
+.label {
+  align-self: flex-start;
+  font-family: var(--font-display);
+  font-size: var(--font-xs);
+  font-weight: var(--weight-bold);
+  letter-spacing: var(--tracking);
+  text-transform: uppercase;
+  color: var(--color-text-muted);
+}
+
+.reponse {
+  font-family: var(--font-display);
+  font-weight: var(--weight-bold);
+  font-size: var(--font-xl);
+  line-height: 1.3;
+  color: var(--color-gold);
+  margin: var(--space-2) 0 var(--space-4);
+}
+
+.explication {
+  color: var(--color-text);
+  font-size: var(--font-md);
+  line-height: 1.7;
+  white-space: pre-line;
+}
+
+/* --- Controles de navigation --- */
+.controles {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: var(--space-3);
+  margin-top: var(--space-5);
+}
+
+.nav,
+.flipBtn {
+  min-height: var(--tap-min);
+  padding: 0 var(--space-5);
+  border-radius: var(--radius-pill);
+  font-family: var(--font-display);
+  font-size: var(--font-sm);
+  letter-spacing: var(--tracking-tight);
+  text-transform: uppercase;
+  cursor: pointer;
+  transition: color var(--transition), background var(--transition),
+    border-color var(--transition);
+}
+
+.nav {
+  background: var(--color-surface);
+  border: 1px solid var(--color-border);
+  color: var(--color-text-muted);
+}
+
+.nav:hover:not(:disabled) {
+  color: var(--color-text);
+  border-color: var(--color-gold);
+}
+
+.nav:disabled {
+  opacity: 0.4;
+  cursor: not-allowed;
+}
+
+.flipBtn {
+  background: var(--color-gold);
+  border: 1px solid var(--color-gold);
+  color: var(--color-bg);
+  font-weight: var(--weight-bold);
+}
+
+.flipBtn:hover {
+  background: var(--color-gold-2);
+  border-color: var(--color-gold-2);
+}
+
+.nav:focus-visible,
+.flipBtn:focus-visible {
+  outline: none;
+  box-shadow: var(--shadow-focus);
+}
