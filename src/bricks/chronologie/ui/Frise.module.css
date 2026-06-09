@@ -65,6 +65,51 @@
   color: var(--color-text-muted);
 }
 
+/* --- Onglets de branche (periodes) : generes depuis le registre --- */
+.onglets {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: var(--space-2);
+  margin-bottom: var(--space-6);
+}
+
+.onglet {
+  min-height: var(--tap-min);
+  padding: 0 var(--space-4);
+  background: var(--color-surface);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-pill);
+  color: var(--color-text-muted);
+  font-family: var(--font-display);
+  font-size: var(--font-xs);
+  letter-spacing: var(--tracking-tight);
+  text-transform: uppercase;
+  cursor: pointer;
+  transition: color var(--transition), background var(--transition),
+    border-color var(--transition);
+}
+
+.onglet:hover {
+  color: var(--color-text);
+  border-color: var(--color-gold);
+}
+
+.onglet:focus-visible {
+  outline: none;
+  box-shadow: var(--shadow-focus);
+}
+
+.ongletActif {
+  color: var(--color-bg);
+  background: var(--color-gold);
+  border-color: var(--color-gold);
+}
+
+.ongletActif:hover {
+  color: var(--color-bg);
+}
+
 /* --- Frise verticale --- */
 .timeline {
   position: relative;

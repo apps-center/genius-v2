@@ -44,9 +44,12 @@ Le texte des descriptions et des anecdotes peut contenir un peu de HTML de mise 
 forme (`<b>`, `&nbsp;`) present dans le contenu d'origine ; il est statique, embarque au
 build et valide par Zod, donc rendu tel quel.
 
-Branche pilote migree : **Antiquite** (`src/content/chronologie/antiquite.json`),
-10 periodes, 63 evenements. Les 5 autres branches (prehistoire, moyenage, tempsmodernes,
-contemporaine, monde) seront migrees dans une passe separee, avec le meme outil.
+Les 6 branches de l'ancien site sont migrees (`src/content/chronologie/*.json`) :
+prehistoire, antiquite, moyenage, tempsmodernes, contemporaine, monde. La brique
+DECOUVRE ces branches via `ctx.content.list('chronologie')` (filtre sur le sujet) et
+genere une rangee d'onglets : changer d'onglet recharge le pack correspondant. L'ordre
+des onglets suit l'ordre du registre (`CONTENT`). Ajouter une 7e branche reste donc
+1 JSON + 1 ligne de registre, zero code dans la brique.
 
 ## Strategie d'images
 

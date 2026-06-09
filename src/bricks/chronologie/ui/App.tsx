@@ -47,12 +47,33 @@ type Chargement =
 
 function Chronologie({ ctx }: { ctx: AppContext }) {
   const cible = useMemo(cibleDepuisUrl, []);
+
+  // Les branches disponibles pour ce sujet sont DECOUVERTES depuis le registre
+  // (ctx.content.list), jamais codees en dur : deposer un pack + 1 ligne de registre
+  // ajoute son onglet, zero code dans la brique. L'ordre du registre pilote les onglets.
+  const branches = useMemo(
+    () => ctx.content.list('chronologie').filter((e) => e.sujet === cible.sujet),
+    [ctx, cible],
+  );
+
+  // Branche active : celle de l'URL (lancement depuis l'accueil) sinon la premiere.
+  const [titreActif, setTitreActif] = useState<string | undefined>(
+    () => cible.titre ?? branches[0]?.titre,
+  );
   const [chargement, setChargement] = useState<Chargement>({ statut: 'chargement' });
 
+  // Evenement de domaine : debut de consultation (consomme par gamification/telemetrie).
+  useEffect(() => {
+    ctx.events.emit('activity.start', { brick: manifest.id, sujet: cible.sujet });
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, []);
+
+  // Recharge le pack a chaque changement de branche active.
   useEffect(() => {
     let actif = true;
+    setChargement({ statut: 'chargement' });
     ctx.content
-      .loadPack(cible.sujet, 'chronologie', cible.titre)
+      .loadPack(cible.sujet, 'chronologie', titreActif)
       .then((pack) => actif && setChargement({ statut: 'pret', pack }))
       .catch((err: unknown) => {
         if (!actif) return;
@@ -65,35 +86,61 @@ function Chronologie({ ctx }: { ctx: AppContext }) {
     return () => {
       actif = false;
     };
-  }, [ctx, cible]);
+  }, [ctx, cible.sujet, titreActif]);
 
-  if (chargement.statut === 'chargement') {
-    return <p className={styles.state}>Chargement de la frise...</p>;
-  }
-  if (chargement.statut === 'erreur') {
-    return (
-      <div className={`${styles.state} ${styles.error}`} role="alert">
-        <p className={styles.errorTitle}>Pack non charge</p>
-        <p className={styles.errorMsg}>{chargement.message}</p>
-      </div>
-    );
-  }
-  return <Frise ctx={ctx} pack={chargement.pack} />;
+  const pack = chargement.statut === 'pret' ? chargement.pack : undefined;
+  const titreAffiche = pack?.titre ?? titreActif ?? 'Chronologie';
+
+  return (
+    <div className={styles.wrap}>
+      <header className={styles.head}>
+        <p className={styles.kicker}>Chronologie historique</p>
+        <h1 className={styles.titre}>{titreAffiche}</h1>
+        {pack && (
+          <p className={styles.sous}>
+            {compterEvenements(pack.periodes)} evenements - {compterPeriodes(pack.periodes)} periodes
+          </p>
+        )}
+      </header>
+
+      {branches.length > 1 && (
+        <nav className={styles.onglets} aria-label="Choisir une periode">
+          {branches.map((b) => {
+            const actif = b.titre === titreActif;
+            return (
+              <button
+                key={b.titre}
+                type="button"
+                className={`${styles.onglet} ${actif ? styles.ongletActif : ''}`}
+                aria-current={actif ? 'true' : undefined}
+                onClick={() => setTitreActif(b.titre)}
+              >
+                {b.titre}
+              </button>
+            );
+          })}
+        </nav>
+      )}
+
+      {chargement.statut === 'chargement' && (
+        <p className={styles.state}>Chargement de la frise...</p>
+      )}
+      {chargement.statut === 'erreur' && (
+        <div className={`${styles.state} ${styles.error}`} role="alert">
+          <p className={styles.errorTitle}>Pack non charge</p>
+          <p className={styles.errorMsg}>{chargement.message}</p>
+        </div>
+      )}
+      {pack && <Frise ctx={ctx} pack={pack} />}
+    </div>
+  );
 }
 
 function Frise({ ctx, pack }: { ctx: AppContext; pack: ChronologiePack }) {
   const sections = useMemo(() => construireFrise(pack.periodes), [pack]);
-  const nbEvenements = useMemo(() => compterEvenements(pack.periodes), [pack]);
-  const nbPeriodes = useMemo(() => compterPeriodes(pack.periodes), [pack]);
 
   // Evenement actuellement affiche dans la modale (null = modale fermee).
   const [selectionne, setSelectionne] = useState<EvenementFrise | null>(null);
-
-  // Evenement de domaine : debut de consultation (consomme par gamification/telemetrie).
-  useEffect(() => {
-    ctx.events.emit('activity.start', { brick: manifest.id, sujet: pack.sujet });
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, []);
 
   function ouvrir(ev: EvenementFrise) {
     setSelectionne(ev);
@@ -106,15 +153,7 @@ function Frise({ ctx, pack }: { ctx: AppContext; pack: ChronologiePack }) {
   }
 
   return (
-    <div className={styles.wrap}>
-      <header className={styles.head}>
-        <p className={styles.kicker}>Chronologie historique</p>
-        <h1 className={styles.titre}>{pack.titre}</h1>
-        <p className={styles.sous}>
-          {nbEvenements} evenements - {nbPeriodes} periodes
-        </p>
-      </header>
-
+    <>
       <div className={styles.timeline}>
         {sections.map((section, i) =>
           section.type === 'entete' ? (
@@ -137,7 +176,7 @@ function Frise({ ctx, pack }: { ctx: AppContext; pack: ChronologiePack }) {
       {selectionne && (
         <Modale ev={selectionne} onFermer={() => setSelectionne(null)} />
       )}
-    </div>
+    </>
   );
 }
 
