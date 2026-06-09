@@ -145,7 +145,9 @@
   border: 1px solid var(--color-border);
   border-radius: var(--radius-lg);
   box-shadow: var(--shadow-card);
-  overflow: hidden;
+  /* Horizontal masque (coins arrondis sur l'image) ; vertical defilant en secours :
+     un contenu plus long que la carte s'aligne en haut et defile au lieu d'etre rogne. */
+  overflow: hidden auto;
 }
 
 .faceRecto {
@@ -244,10 +246,17 @@
 .versoCorps {
   display: flex;
   flex-direction: column;
+  /* Centrage vertical ADAPTATIF : les marges auto absorbent l'espace libre et centrent
+     un contenu court ; quand le contenu depasse la carte, elles retombent a zero et le
+     contenu s'aligne en haut (puis defile via .face). Robuste au scroll, contrairement
+     a justify-content: center qui rendrait le haut inaccessible. */
+  margin-block: auto;
 }
 
+/* Carte question-reponse : contenu court, centre horizontalement (recto deja centre),
+   pour un verso equilibre ("REPONSE 13" centre plutot que colle en haut a gauche). */
 .label {
-  align-self: flex-start;
+  align-self: center;
   font-family: var(--font-display);
   font-size: var(--font-xs);
   font-weight: var(--weight-bold);
@@ -263,6 +272,7 @@
   line-height: 1.3;
   color: var(--color-gold);
   margin: var(--space-2) 0 var(--space-4);
+  text-align: center;
 }
 
 .explication {
@@ -270,6 +280,7 @@
   font-size: var(--font-md);
   line-height: 1.7;
   white-space: pre-line;
+  text-align: center;
 }
 
 /* --- Controles de navigation --- */
