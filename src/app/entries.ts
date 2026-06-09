@@ -27,6 +27,14 @@ export interface LancementDirect {
   titre: string;
 }
 
+// Ecran d'entree "grille de decks" : niveau 2 qui DECOUVRE ses decks depuis le
+// registre (les packs du `contentKind`) et lance la `brique` au clic. Aucun deck
+// n'est liste ici : ajouter un deck = 1 ligne de CONTENT, zero code dans l'ecran.
+export interface GrilleDecks {
+  brickId: string;
+  contentKind: ContentKind;
+}
+
 // Un mode au sein d'une activite (ex. les 3 modes du Quiz : Questions / Dates / Images).
 export interface ModeEntree {
   id: string;
@@ -57,6 +65,8 @@ export interface NavEntry {
   modes?: readonly ModeEntree[];
   // Present quand l'entree lance directement une brique (modules : pas d'ecran de modes).
   lancement?: LancementDirect;
+  // Present quand l'ecran de niveau 2 est une grille de decks decouverte du registre.
+  grille?: GrilleDecks;
 }
 
 export const ENTRIES: readonly NavEntry[] = [
@@ -70,8 +80,11 @@ export const ENTRIES: readonly NavEntry[] = [
     sousTitre: 'Teste tes connaissances',
     description:
       'Retourne les cartes, memorise les reponses, accumule les points. Mode ⚡ Genius pour tout melanger.',
-    tags: ['Histoire', 'Geo', 'Maths', 'Sciences'],
-    etat: 'a-venir',
+    tags: ['Arts', 'Logique'],
+    etat: 'disponible',
+    // Niveau 2 = grille de decks decouverte du registre (packs 'flashcards'),
+    // chaque deck lance la brique flashcards. Ajouter un deck = 1 ligne de CONTENT.
+    grille: { brickId: 'flashcards', contentKind: 'flashcards' },
   },
   {
     id: 'quiz',

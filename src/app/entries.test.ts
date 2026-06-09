@@ -33,11 +33,20 @@ describe('registre de navigation (entries)', () => {
     ]);
   });
 
-  it('entrees disponibles : Quiz et Chronologie Historique ; le reste a venir', () => {
+  it('entrees disponibles : Flashcards, Quiz et Chronologie Historique ; le reste a venir', () => {
     const dispo = ENTRIES.filter((e) => e.etat === 'disponible')
       .map((e) => e.id)
       .sort();
-    expect(dispo).toEqual(['chronologie', 'quiz']);
+    expect(dispo).toEqual(['chronologie', 'flashcards', 'quiz']);
+  });
+
+  it('la Flashcards ouvre une grille de decks branchee sur la brique flashcards', () => {
+    const fc = entreeParId('flashcards');
+    expect(fc?.etat).toBe('disponible');
+    // Niveau 2 = grille decouverte du registre (pas de modes, pas de lancement direct).
+    expect(fc?.modes).toBeUndefined();
+    expect(fc?.lancement).toBeUndefined();
+    expect(fc?.grille).toEqual({ brickId: 'flashcards', contentKind: 'flashcards' });
   });
 
   it('la Chronologie lance directement la brique chronologie sur la branche Antiquite', () => {

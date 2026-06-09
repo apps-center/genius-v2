@@ -213,6 +213,88 @@
   color: var(--color-gold);
 }
 
+/* --- Grille de decks (ecran d'entree Flashcards) --- */
+/* Pied de tuile : compteur de cartes (or) + indice de modele (chip attenuee). */
+.deckMeta {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: var(--space-2);
+  margin-top: auto;
+  padding-top: var(--space-3);
+}
+
+.deckCount {
+  font-family: var(--font-display);
+  font-size: var(--font-xs);
+  letter-spacing: var(--tracking);
+  text-transform: uppercase;
+  color: var(--color-gold);
+}
+
+.deckType {
+  font-family: var(--font-display);
+  font-size: var(--font-xs);
+  letter-spacing: var(--tracking);
+  text-transform: uppercase;
+  color: var(--color-text-muted);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-pill);
+  padding: var(--space-1) var(--space-3);
+}
+
+/* Emplacements reserves (stats par deck, Mode Genius) : presents mais desactives. */
+.reserveLabel {
+  text-align: center;
+  font-family: var(--font-display);
+  font-size: var(--font-xs);
+  letter-spacing: var(--tracking-wide);
+  text-transform: uppercase;
+  color: var(--color-text-muted);
+  margin: var(--space-8) 0 var(--space-5);
+}
+
+.reserveGrid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: var(--space-5);
+}
+
+.reserve {
+  background: var(--color-card-bg);
+  border: 1px dashed var(--color-border);
+  border-radius: var(--radius-lg);
+  padding: var(--space-5);
+  opacity: 0.7;
+}
+
+.reserveBadge {
+  display: inline-block;
+  font-family: var(--font-display);
+  font-size: var(--font-xs);
+  letter-spacing: var(--tracking);
+  text-transform: uppercase;
+  color: var(--color-text-muted);
+  border: 1px solid var(--color-line);
+  border-radius: var(--radius-sm);
+  padding: var(--space-1) var(--space-3);
+}
+
+.reserveTitle {
+  font-family: var(--font-display);
+  font-weight: var(--weight-bold);
+  font-size: var(--font-md);
+  text-transform: uppercase;
+  letter-spacing: var(--tracking-tight);
+  margin: var(--space-3) 0 var(--space-2);
+}
+
+.reserveMsg {
+  font-size: var(--font-sm);
+  color: var(--color-text-muted);
+  line-height: 1.5;
+}
+
 /* --- Ecrans de niveau 2 / 3 --- */
 .screen {
   max-width: 980px;

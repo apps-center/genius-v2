@@ -1,4 +1,8 @@
+import { useEffect, useMemo, useState } from 'react';
 import { Link, Navigate, useParams } from 'react-router-dom';
+import { useApp } from '../core/context';
+import type { ContentEntry } from '../core/content/client';
+import { ContentError } from '../core/content/load';
 import {
   entreeParId,
   modeParId,
@@ -7,6 +11,12 @@ import {
   type ModeEntree,
 } from './entries';
 import { packsPour, briqueParId } from './registry';
+import {
+  apercuDeck,
+  libelleModele,
+  iconeModele,
+  type ApercuDeck,
+} from './flashcards-entree';
 import styles from './shell.module.css';
 
 /*
@@ -35,12 +45,154 @@ export function Activite() {
     );
   }
 
+  // Entree "grille de decks" (Flashcards) : niveau 2 = grille decouverte du registre.
+  if (entree.grille) {
+    return (
+      <div className={styles.screen}>
+        <EnTete
+          kicker={libelleSection(entree.section)}
+          titre={entree.titre}
+          sous={entree.sousTitre}
+        />
+        <GrilleDecks entree={entree} />
+      </div>
+    );
+  }
+
   const aModes = !!entree.modes && entree.modes.length > 0;
   return (
     <div className={styles.screen}>
       <EnTete kicker={libelleSection(entree.section)} titre={entree.titre} sous={entree.sousTitre} />
       {aModes ? <Modes entree={entree} /> : <Placeholder />}
     </div>
+  );
+}
+
+// --- Niveau 2 (variante) : grille de decks decouverte du registre (Flashcards) ---
+// Etat d'apercu d'un deck : le titre/lien viennent du registre (toujours connus,
+// donc toujours cliquables) ; le compteur et le modele viennent du pack charge.
+type EtatApercu =
+  | { statut: 'chargement' }
+  | { statut: 'pret'; apercu: ApercuDeck }
+  | { statut: 'erreur' };
+
+function GrilleDecks({ entree }: { entree: NavEntry }) {
+  const grille = entree.grille!;
+  const ctx = useApp();
+  // DECOUVERTE depuis le registre : aucun deck code en dur ici. Un futur deck
+  // ajoute au registre apparait automatiquement dans cette grille.
+  const decks = useMemo(
+    () => ctx.content.list(grille.contentKind),
+    [ctx, grille.contentKind],
+  );
+  const [apercus, setApercus] = useState<Record<string, EtatApercu>>({});
+
+  useEffect(() => {
+    let actif = true;
+    setApercus({});
+    for (const deck of decks) {
+      const cle = `${deck.sujet}:${deck.titre}`;
+      ctx.content
+        .loadPack(deck.sujet, 'flashcards', deck.titre)
+        .then((pack) => {
+          if (actif) setApercus((m) => ({ ...m, [cle]: { statut: 'pret', apercu: apercuDeck(pack) } }));
+        })
+        .catch((err: unknown) => {
+          // Pack rejete par Zod : on n'efface pas la tuile (toujours jouable), on
+          // signale juste l'apercu indisponible (jamais d'ecran blanc silencieux).
+          if (err instanceof ContentError || err instanceof Error) {
+            if (actif) setApercus((m) => ({ ...m, [cle]: { statut: 'erreur' } }));
+          }
+        });
+    }
+    return () => {
+      actif = false;
+    };
+  }, [decks, ctx]);
+
+  if (decks.length === 0) {
+    return (
+      <div className={styles.placeholder}>
+        <p className={styles.placeholderBadge}>À venir</p>
+        <p className={styles.placeholderMsg}>Aucun deck n'est encore declare au registre.</p>
+      </div>
+    );
+  }
+
+  return (
+    <>
+      <div className={styles.grid}>
+        {decks.map((deck) => (
+          <TuileDeck
+            key={`${deck.sujet}:${deck.titre}`}
+            deck={deck}
+            brickId={grille.brickId}
+            etat={apercus[`${deck.sujet}:${deck.titre}`] ?? { statut: 'chargement' }}
+          />
+        ))}
+      </div>
+
+      {/* Emplacements reserves : materialises mais clairement desactives (zero fausse donnee). */}
+      <h2 className={styles.reserveLabel}>A venir</h2>
+      <div className={styles.reserveGrid}>
+        <section className={styles.reserve} aria-disabled="true">
+          <span className={styles.reserveBadge}>Bientot</span>
+          <h3 className={styles.reserveTitle}>Statistiques par deck</h3>
+          <p className={styles.reserveMsg}>
+            Cartes vues et progression de chaque deck s'afficheront ici.
+          </p>
+        </section>
+        <section className={styles.reserve} aria-disabled="true">
+          <span className={styles.reserveBadge}>Bientot</span>
+          <h3 className={styles.reserveTitle}>⚡ Mode Genius</h3>
+          <p className={styles.reserveMsg}>
+            Tous les decks melanges en un seul defi, tous themes confondus.
+          </p>
+        </section>
+      </div>
+    </>
+  );
+}
+
+function TuileDeck({
+  deck,
+  brickId,
+  etat,
+}: {
+  deck: ContentEntry;
+  brickId: string;
+  etat: EtatApercu;
+}) {
+  // Lien vers la brique avec les coordonnees du registre : plus jamais d'URL tapee a la main.
+  const lien = `/play/${brickId}?sujet=${encodeURIComponent(
+    deck.sujet,
+  )}&titre=${encodeURIComponent(deck.titre)}`;
+  const icone = etat.statut === 'pret' ? iconeModele(etat.apercu.modele) : '🃏';
+
+  return (
+    <Link to={lien} className={styles.cardLink}>
+      <article className={styles.card}>
+        <div className={styles.cardHead}>
+          <span className={styles.cardIcon} aria-hidden="true">
+            {icone}
+          </span>
+          <span className={styles.badge}>Jouer</span>
+        </div>
+        <h3 className={styles.cardTitle}>{deck.titre}</h3>
+        <div className={styles.deckMeta}>
+          {etat.statut === 'pret' ? (
+            <>
+              <span className={styles.deckCount}>{etat.apercu.nbCartes} cartes</span>
+              <span className={styles.deckType}>{libelleModele(etat.apercu.modele)}</span>
+            </>
+          ) : etat.statut === 'erreur' ? (
+            <span className={styles.deckCount}>Apercu indisponible</span>
+          ) : (
+            <span className={styles.deckCount}>Chargement...</span>
+          )}
+        </div>
+      </article>
+    </Link>
   );
 }
 

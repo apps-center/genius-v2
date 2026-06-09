@@ -29,7 +29,7 @@ const DECKS = {
     html: 'legacy/flashcards/art.html',
     marqueur: 'const CARDS =',
     sujet: 'arts',
-    titre: 'Arts et Culture',
+    titre: 'Arts',
     modele: 'image',
     imgSrc: 'legacy/img/arts',
   },
