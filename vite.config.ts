@@ -6,8 +6,10 @@ import react from '@vitejs/plugin-react';
 export default defineConfig({
   plugins: [react()],
   test: {
-    // logic/ testable sans navigateur
+    // logic/ testable sans navigateur : environnement 'node' par defaut.
+    // Un rare test de COMPORTEMENT d'ui (timing de flip) bascule en jsdom via le
+    // docblock "// @vitest-environment jsdom" en tete de fichier, sans alourdir le reste.
     environment: 'node',
-    include: ['src/**/*.test.ts'],
+    include: ['src/**/*.test.{ts,tsx}'],
   },
 });

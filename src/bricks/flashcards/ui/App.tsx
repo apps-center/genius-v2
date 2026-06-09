@@ -106,7 +106,9 @@ function Flashcards({ ctx }: { ctx: AppContext }) {
   );
 }
 
-function Deck({ ctx, pack }: { ctx: AppContext; pack: FlashcardsPack }) {
+// Exporte pour le test de comportement (ui/), qui verrouille l'absence de flip parasite
+// a la navigation. La frontiere de brique (brick.tsx) reste inchangee : manifest/mount/unmount.
+export function Deck({ ctx, pack }: { ctx: AppContext; pack: FlashcardsPack }) {
   const cartes = pack.cartes;
   const [state, setState] = useState<DeckState>(() => initDeck(cartes.length));
   // Memoire des decks deja "completes" : evite de re-emettre deck.completed.
@@ -152,12 +154,23 @@ function Deck({ ctx, pack }: { ctx: AppContext; pack: FlashcardsPack }) {
   );
 
   // Une fois la remise au recto peinte sans transition, on retablit l'animation pour
-  // les prochains retournements volontaires. requestAnimationFrame garantit que le
-  // recto est commite avant de reactiver la transition (pas de flip residuel).
+  // les prochains retournements volontaires. DOUBLE requestAnimationFrame : un seul ne
+  // suffit pas. L'effet passif de React et le rAF peuvent s'executer dans la meme frame
+  // AVANT toute peinture ; le navigateur ne voit alors jamais .instant et anime quand
+  // meme le retour au recto (le flip parasite). Le 1er rAF laisse le navigateur PEINDRE
+  // l'etat recto pendant que .instant coupe la transition (la variation 180deg -> 0 est
+  // donc capturee SANS animation comme nouvelle base) ; le 2e rAF retablit la transition
+  // une fois cette peinture confirmee, transform valant deja 0 -> aucun retournement.
   useEffect(() => {
     if (!flipInstant) return;
-    const id = requestAnimationFrame(() => setFlipInstant(false));
-    return () => cancelAnimationFrame(id);
+    let raf2 = 0;
+    const raf1 = requestAnimationFrame(() => {
+      raf2 = requestAnimationFrame(() => setFlipInstant(false));
+    });
+    return () => {
+      cancelAnimationFrame(raf1);
+      cancelAnimationFrame(raf2);
+    };
   }, [flipInstant]);
 
   // Evenement de domaine : la derniere carte du deck a ete atteinte (une seule fois).
