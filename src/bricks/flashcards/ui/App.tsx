@@ -120,6 +120,11 @@ function Deck({ ctx, pack }: { ctx: AppContext; pack: FlashcardsPack }) {
 
   const carte = cartes[state.position];
 
+  // Flip instantane (sans animation) le temps d'un changement de carte : la remise au
+  // recto lors d'une navigation ne doit pas etre animee (sinon la carte se retourne
+  // visiblement avant d'afficher la suivante). Le retournement VOLONTAIRE reste anime.
+  const [flipInstant, setFlipInstant] = useState(false);
+
   const flip = useCallback(() => {
     setState((s) => {
       const next = retourner(s);
@@ -138,10 +143,22 @@ function Deck({ ctx, pack }: { ctx: AppContext; pack: FlashcardsPack }) {
 
   const aller = useCallback(
     (sens: 'suivante' | 'precedente') => {
+      // Coupe la transition de flip pour ce changement : la nouvelle carte apparait
+      // directement sur son recto, sans retournement parasite.
+      setFlipInstant(true);
       setState((s) => (sens === 'suivante' ? suivante(s) : precedente(s)));
     },
     [],
   );
+
+  // Une fois la remise au recto peinte sans transition, on retablit l'animation pour
+  // les prochains retournements volontaires. requestAnimationFrame garantit que le
+  // recto est commite avant de reactiver la transition (pas de flip residuel).
+  useEffect(() => {
+    if (!flipInstant) return;
+    const id = requestAnimationFrame(() => setFlipInstant(false));
+    return () => cancelAnimationFrame(id);
+  }, [flipInstant]);
 
   // Evenement de domaine : la derniere carte du deck a ete atteinte (une seule fois).
   useEffect(() => {
@@ -194,7 +211,13 @@ function Deck({ ctx, pack }: { ctx: AppContext; pack: FlashcardsPack }) {
         </div>
       </div>
 
-      <Carte carte={carte} revelee={state.revelee} sansAnim={sansAnim} onFlip={flip} />
+      <Carte
+        carte={carte}
+        revelee={state.revelee}
+        sansAnim={sansAnim}
+        instant={flipInstant}
+        onFlip={flip}
+      />
 
       <div className={styles.controles}>
         <button
@@ -225,11 +248,13 @@ function Carte({
   carte,
   revelee,
   sansAnim,
+  instant,
   onFlip,
 }: {
   carte: Flashcard;
   revelee: boolean;
   sansAnim: boolean;
+  instant: boolean;
   onFlip: () => void;
 }) {
   function onKeyDown(e: React.KeyboardEvent) {
@@ -241,7 +266,9 @@ function Carte({
 
   return (
     <div
-      className={`${styles.flipWrap} ${sansAnim ? styles.sansAnim : ''}`}
+      className={`${styles.flipWrap} ${sansAnim ? styles.sansAnim : ''} ${
+        instant ? styles.instant : ''
+      }`}
       role="button"
       tabIndex={0}
       aria-label={revelee ? 'Carte retournee : voir le recto' : 'Reveler la carte'}
