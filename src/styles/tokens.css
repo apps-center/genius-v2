@@ -102,6 +102,8 @@
 
   /* --- Couches (z-index) --- */
   --z-modal: 1000;
+  /* Croix flottante : au-dessus du contenu defilant, dans le calque modale. */
+  --z-modal-close: calc(var(--z-modal) + 1);
 
   /* --- Animation flip : standard Genius (NE PAS modifier) --- */
   --flip-perspective: 1200px;

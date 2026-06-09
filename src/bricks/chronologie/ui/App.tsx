@@ -302,46 +302,48 @@ function Modale({ ev, onFermer }: { ev: EvenementFrise; onFermer: () => void }) 
           &#10005;
         </button>
 
-        {ev.img && (
-          <img
-            className={styles.modaleImage}
-            src={ev.img}
-            alt={ev.title}
-            decoding="async"
-          />
-        )}
-
-        <div className={styles.modaleHead}>
-          {ev.icon && (
-            <span className={styles.icon} aria-hidden="true">
-              {ev.icon}
-            </span>
+        <div className={styles.modaleScroll}>
+          {ev.img && (
+            <img
+              className={styles.modaleImage}
+              src={ev.img}
+              alt={ev.title}
+              decoding="async"
+            />
           )}
-          {ev.tag && <span className={styles.tag}>{ev.tag}</span>}
-        </div>
-        <p className={styles.date}>{ev.date}</p>
-        <h3 id={titreId} className={styles.modaleTitre}>
-          {ev.title}
-        </h3>
-        <RichText className={styles.modaleDesc} html={ev.desc} />
 
-        {aAnecdotes && (
-          <>
-            <p className={styles.anecdotesHead}>Anecdotes &amp; curiosites</p>
-            <ul className={styles.anecdotes}>
-              {ev.anecdotes.map((a, i) => (
-                <li key={i} className={styles.anecdote}>
-                  {a.e && (
-                    <span className={styles.anecdoteEmoji} aria-hidden="true">
-                      {a.e}
-                    </span>
-                  )}
-                  <RichText className={styles.anecdoteText} html={a.t} />
-                </li>
-              ))}
-            </ul>
-          </>
-        )}
+          <div className={styles.modaleHead}>
+            {ev.icon && (
+              <span className={styles.icon} aria-hidden="true">
+                {ev.icon}
+              </span>
+            )}
+            {ev.tag && <span className={styles.tag}>{ev.tag}</span>}
+          </div>
+          <p className={styles.date}>{ev.date}</p>
+          <h3 id={titreId} className={styles.modaleTitre}>
+            {ev.title}
+          </h3>
+          <RichText className={styles.modaleDesc} html={ev.desc} />
+
+          {aAnecdotes && (
+            <>
+              <p className={styles.anecdotesHead}>Anecdotes &amp; curiosites</p>
+              <ul className={styles.anecdotes}>
+                {ev.anecdotes.map((a, i) => (
+                  <li key={i} className={styles.anecdote}>
+                    {a.e && (
+                      <span className={styles.anecdoteEmoji} aria-hidden="true">
+                        {a.e}
+                      </span>
+                    )}
+                    <RichText className={styles.anecdoteText} html={a.t} />
+                  </li>
+                ))}
+              </ul>
+            </>
+          )}
+        </div>
       </div>
     </div>
   );
