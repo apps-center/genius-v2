@@ -218,11 +218,18 @@
 }
 
 /* --- Modele IMAGE --- */
-/* Image servie sans rognage : largeur pleine, hauteur naturelle (comme la frise). */
+/* Cadre image FIXE au format portrait : meme taille pour toutes les cartes du deck, donc
+   la carte ne "saute" plus en hauteur a la navigation et les boutons ne bougent plus.
+   L'image REMPLIT le cadre (cover), centree (object-position), quitte a rogner les bords.
+   Responsive : largeur pleine bornee sur desktop, ratio portrait conserve a toute largeur. */
 .image {
   display: block;
   inline-size: 100%;
+  max-inline-size: var(--flashcard-image-largeur-max);
+  aspect-ratio: var(--flashcard-image-ratio);
   block-size: auto;
+  object-fit: cover;
+  object-position: center;
 }
 
 .epoque {
@@ -291,8 +298,9 @@
   white-space: pre-line;
 }
 
-/* Illustration OPTIONNELLE d'une carte qr (bitmap ou svg). Servie sans rognage, comme le
-   modele image : largeur bornee, hauteur naturelle. Absente du JSON = jamais rendue. */
+/* Illustration OPTIONNELLE d'une carte qr (bitmap ou svg). Servie sans rognage : largeur
+   bornee, hauteur naturelle (le cadre fixe ne concerne QUE le modele image, pas le qr).
+   Absente du JSON = jamais rendue. */
 .illustration,
 .illustrationSvg {
   display: block;

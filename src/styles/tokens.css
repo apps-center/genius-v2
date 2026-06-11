@@ -110,6 +110,12 @@
   --flip-ease: cubic-bezier(0.34, 1.4, 0.64, 1);
   --flip-duration: 0.6s;
 
+  /* --- Flashcards : cadre image FIXE au format portrait, stable d'une carte a l'autre.
+     Largeur bornee sur desktop, ratio portrait conserve a toutes les largeurs (mobile
+     inclus) ; l'image remplit le cadre (cover) et reste centree. */
+  --flashcard-image-largeur-max: 560px;
+  --flashcard-image-ratio: 3 / 4;
+
   /* Transitions generiques */
   --ease-out: cubic-bezier(0.22, 1, 0.36, 1);
   --transition: 0.2s var(--ease-out);
