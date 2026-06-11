@@ -72,6 +72,48 @@
   align-items: center;
 }
 
+/* --- Bascule d'ordre (Ordre normal / Melanger), calquee sur les boutons de nav --- */
+.modeOrdre {
+  display: flex;
+  justify-content: center;
+  gap: var(--space-2);
+  margin-bottom: var(--space-5);
+}
+
+.ordreBtn {
+  min-height: var(--tap-min);
+  padding: 0 var(--space-5);
+  border-radius: var(--radius-pill);
+  background: var(--color-surface);
+  border: 1px solid var(--color-border);
+  color: var(--color-text-muted);
+  font-family: var(--font-display);
+  font-size: var(--font-sm);
+  letter-spacing: var(--tracking-tight);
+  text-transform: uppercase;
+  cursor: pointer;
+  transition: color var(--transition), background var(--transition),
+    border-color var(--transition);
+}
+
+.ordreBtn:hover {
+  color: var(--color-text);
+  border-color: var(--color-gold);
+}
+
+/* Etat actif (option en cours) : signale par aria-pressed, stylise via les tokens. */
+.ordreBtn[aria-pressed='true'] {
+  background: var(--color-gold);
+  border-color: var(--color-gold);
+  color: var(--color-bg);
+  font-weight: var(--weight-bold);
+}
+
+.ordreBtn:focus-visible {
+  outline: none;
+  box-shadow: var(--shadow-focus);
+}
+
 /* --- Progression (calque sur la barre du quiz) --- */
 .progress {
   inline-size: 100%;

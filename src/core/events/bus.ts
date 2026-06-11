@@ -20,6 +20,8 @@ export interface DomainEvents {
   'card.flipped': { brick: string; sujet: string; cardId: string; face: 'recto' | 'verso' };
   // Flashcards : la derniere carte du deck a ete atteinte.
   'deck.completed': { brick: string; sujet: string; total: number };
+  // Flashcards : l'ordre des cartes a ete tire au sort (melange Fisher-Yates).
+  'deck.shuffled': { brick: string; sujet: string; total: number };
 }
 
 export type DomainEventName = keyof DomainEvents;

@@ -89,6 +89,22 @@ function boutonParTexte(container: HTMLElement, texte: string): HTMLButtonElemen
   return btn;
 }
 
+function compteur(container: HTMLElement): string {
+  return container.querySelector(`.${styles.compteur}`)?.textContent?.trim() ?? '';
+}
+
+// Deck IMAGE (type Histoire/Arts) : verifie que la bascule marche aussi sur ce modele.
+const packImage: FlashcardsPack = {
+  contentKind: 'flashcards',
+  sujet: 'histoire',
+  titre: 'Deck image',
+  cartes: [
+    { type: 'image', id: 'i1', image: '/a.jpg', date: '1', titre: 'A', description: 'da' },
+    { type: 'image', id: 'i2', image: '/b.jpg', date: '2', titre: 'B', description: 'db' },
+    { type: 'image', id: 'i3', image: '/c.jpg', date: '3', titre: 'C', description: 'dc' },
+  ],
+};
+
 describe('Flashcards - pas de flip parasite a la navigation', () => {
   it('depuis le verso, "Suivante" coupe la transition jusqu\'a une peinture confirmee', () => {
     const { container } = render(<Deck ctx={ctxStub()} pack={pack} />);
@@ -131,5 +147,66 @@ describe('Flashcards - pas de flip parasite a la navigation', () => {
     expect(flipInner(container).getAttribute('data-revelee')).toBe('true');
     expect(flipWrap(container).className).not.toContain(styles.instant);
     expect(rafQueue).toHaveLength(0); // aucun cycle "instant" programme
+  });
+});
+
+describe('Flashcards - bascule Ordre normal / Melanger', () => {
+  it('par defaut l ordre est l ordre original (Ordre normal actif)', () => {
+    const { container } = render(<Deck ctx={ctxStub()} pack={pack} />);
+    expect(boutonParTexte(container, 'Ordre normal').getAttribute('aria-pressed')).toBe('true');
+    expect(boutonParTexte(container, 'Melanger').getAttribute('aria-pressed')).toBe('false');
+    // Premiere carte = premiere du pack.
+    expect(container.textContent).toContain('Q1 ?');
+  });
+
+  it('Melanger : revient a la carte 1 sur le recto, marque le mode et emet deck.shuffled', () => {
+    const ctx = ctxStub();
+    const { container } = render(<Deck ctx={ctx} pack={packImage} />);
+
+    // On avance et on revele pour partir d'un etat non trivial (verso, carte 2).
+    act(() => fireEvent.click(boutonParTexte(container, 'Suivante')));
+    act(() => fireEvent.click(flipWrap(container)));
+    expect(compteur(container)).toBe('Carte 2 / 3');
+
+    act(() => fireEvent.click(boutonParTexte(container, 'Melanger')));
+
+    // Retour carte 1, recto, mode melange actif.
+    expect(compteur(container)).toBe('Carte 1 / 3');
+    expect(flipInner(container).getAttribute('data-revelee')).toBeNull();
+    expect(boutonParTexte(container, 'Melanger').getAttribute('aria-pressed')).toBe('true');
+    expect(boutonParTexte(container, 'Ordre normal').getAttribute('aria-pressed')).toBe('false');
+    expect(ctx.events.emit).toHaveBeenCalledWith('deck.shuffled', {
+      brick: 'flashcards',
+      sujet: 'histoire',
+      total: 3,
+    });
+  });
+
+  it('la navigation reste correcte apres melange (toutes les cartes, bornes respectees)', () => {
+    const { container } = render(<Deck ctx={ctxStub()} pack={packImage} />);
+    act(() => fireEvent.click(boutonParTexte(container, 'Melanger')));
+
+    // Parcours complet : on collecte les titres vus, ce doit etre une permutation de A,B,C.
+    const vus = new Set<string>();
+    for (let i = 0; i < 3; i++) {
+      const titre = container.querySelector(`.${styles.carteTitre}`)?.textContent ?? '';
+      // Le titre est sur le verso : on revele pour le lire.
+      act(() => fireEvent.click(flipWrap(container)));
+      vus.add(container.querySelector(`.${styles.carteTitre}`)?.textContent ?? titre);
+      act(() => fireEvent.click(boutonParTexte(container, 'Suivante')));
+    }
+    expect(vus).toEqual(new Set(['A', 'B', 'C']));
+    // Borne haute : "Suivante" est desactive sur la derniere carte.
+    expect(boutonParTexte(container, 'Suivante').disabled).toBe(true);
+  });
+
+  it('Ordre normal restaure l ordre original du pack', () => {
+    const { container } = render(<Deck ctx={ctxStub()} pack={pack} />);
+    act(() => fireEvent.click(boutonParTexte(container, 'Melanger')));
+    act(() => fireEvent.click(boutonParTexte(container, 'Ordre normal')));
+    expect(compteur(container)).toBe('Carte 1 / 2');
+    expect(boutonParTexte(container, 'Ordre normal').getAttribute('aria-pressed')).toBe('true');
+    // Premiere carte = premiere du pack d'origine.
+    expect(container.textContent).toContain('Q1 ?');
   });
 });

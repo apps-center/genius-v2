@@ -12,6 +12,9 @@ import {
   retourner,
   suivante,
   precedente,
+  melanger,
+  ordreNormal,
+  indexCourant,
   estPremiere,
   estDerniere,
   numeroCarte,
@@ -124,7 +127,7 @@ export function Deck({ ctx, pack }: { ctx: AppContext; pack: FlashcardsPack }) {
     completeRef.current = false;
   }, [cartes]);
 
-  const carte = cartes[state.position];
+  const carte = cartes[indexCourant(state)];
 
   // Flip instantane (sans animation) le temps d'un changement de carte : la remise au
   // recto lors d'une navigation ne doit pas etre animee (sinon la carte se retourne
@@ -134,7 +137,7 @@ export function Deck({ ctx, pack }: { ctx: AppContext; pack: FlashcardsPack }) {
   const flip = useCallback(() => {
     setState((s) => {
       const next = retourner(s);
-      const courante = cartes[s.position];
+      const courante = cartes[indexCourant(s)];
       if (courante) {
         ctx.events.emit('card.flipped', {
           brick: manifest.id,
@@ -156,6 +159,26 @@ export function Deck({ ctx, pack }: { ctx: AppContext; pack: FlashcardsPack }) {
     },
     [],
   );
+
+  // Changement d'ordre d'affichage (melange / retour a l'ordre original). On revient a la
+  // carte 1 sur le recto : on coupe la transition (comme la navigation) pour eviter un flip
+  // parasite si la carte courante etait sur le verso. Le deck redevient "non complete".
+  const melangerDeck = useCallback(() => {
+    setFlipInstant(true);
+    setState((s) => melanger(s));
+    completeRef.current = false;
+    ctx.events.emit('deck.shuffled', {
+      brick: manifest.id,
+      sujet: pack.sujet,
+      total: cartes.length,
+    });
+  }, [ctx, pack.sujet, cartes.length]);
+
+  const ordreOriginal = useCallback(() => {
+    setFlipInstant(true);
+    setState((s) => ordreNormal(s));
+    completeRef.current = false;
+  }, []);
 
   // Une fois la remise au recto peinte sans transition, on retablit l'animation pour
   // les prochains retournements volontaires. DOUBLE requestAnimationFrame : un seul ne
@@ -213,6 +236,25 @@ export function Deck({ ctx, pack }: { ctx: AppContext; pack: FlashcardsPack }) {
 
   return (
     <div className={styles.deck}>
+      <div className={styles.modeOrdre} role="group" aria-label="Ordre des cartes">
+        <button
+          type="button"
+          className={styles.ordreBtn}
+          aria-pressed={!state.melange}
+          onClick={ordreOriginal}
+        >
+          Ordre normal
+        </button>
+        <button
+          type="button"
+          className={styles.ordreBtn}
+          aria-pressed={state.melange}
+          onClick={melangerDeck}
+        >
+          Melanger
+        </button>
+      </div>
+
       <div className={styles.progress}>
         <p className={styles.compteur} aria-live="polite">
           Carte {numeroCarte(state)} / {state.total}

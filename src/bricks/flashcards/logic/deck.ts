@@ -1,25 +1,50 @@
 /*
-  Mecanique PURE d'un deck de flashcards : navigation et retournement. ZERO React, ZERO DOM.
-  Testable seule (vitest). L'etat ne contient que des index et un booleen de face : le
-  rendu (image vs question-reponse) est decide par ui/ a partir du `type` de la carte.
+  Mecanique PURE d'un deck de flashcards : navigation, retournement et ordre d'affichage.
+  ZERO React, ZERO DOM. Testable seule (vitest). L'etat ne contient que des index, un
+  ordre d'affichage et un booleen de face : le rendu (image vs question-reponse) est decide
+  par ui/ a partir du `type` de la carte.
 
-  Perimetre volontairement reduit a "un deck qui se joue". Les coutures pour le futur
-  (melange, filtres par categorie/niveau, mode Genius) ne sont PAS implementees ici ;
-  l'etat reste minimal pour les accueillir sans rupture.
+  ORDRE D'AFFICHAGE : `ordre` est une permutation des indices du pack d'origine. La position
+  courante indexe `ordre`, jamais le pack directement : melanger ne fait que reordonner cette
+  liste d'index, le pack de contenu n'est JAMAIS mute. Par defaut `ordre` vaut l'identite
+  [0, 1, ... total-1] : le deck defile dans l'ordre original du pack (comportement par defaut).
 */
 
 export interface DeckState {
-  position: number; // index de la carte courante (0..total-1)
+  ordre: number[]; // ordre d'AFFICHAGE : indices dans le pack d'origine (jamais mute le pack)
+  position: number; // index DANS `ordre` de la carte courante (0..total-1)
   total: number; // nombre de cartes du deck
   revelee: boolean; // true = verso visible, false = recto
+  melange: boolean; // true = ordre aleatoire actif, false = ordre original du pack
+}
+
+// Ordre identite [0..total-1] : l'ordre original du pack, neuf a chaque appel.
+function ordreIdentite(total: number): number[] {
+  return Array.from({ length: total }, (_, i) => i);
+}
+
+// Melange de Fisher-Yates (non biaise) sur une copie : chaque permutation est equiprobable.
+// `rng` injectable (defaut Math.random) pour des tests deterministes et reproductibles.
+function fisherYates(source: number[], rng: () => number): number[] {
+  const out = [...source];
+  for (let i = out.length - 1; i > 0; i--) {
+    const j = Math.floor(rng() * (i + 1));
+    const tmp = out[i]!;
+    out[i] = out[j]!;
+    out[j] = tmp;
+  }
+  return out;
 }
 
 export function initDeck(total: number): DeckState {
   if (total < 1) throw new Error('Un deck doit contenir au moins une carte.');
-  return { position: 0, total, revelee: false };
+  return { ordre: ordreIdentite(total), position: 0, total, revelee: false, melange: false };
 }
 
-// Retourne la carte courante (recto <-> verso) sans changer de position.
+// Index de la carte courante DANS LE PACK d'origine (a travers l'ordre d'affichage).
+export const indexCourant = (s: DeckState): number => s.ordre[s.position] ?? -1;
+
+// Retourne la carte courante (recto <-> verso) sans changer de position ni d'ordre.
 export function retourner(s: DeckState): DeckState {
   return { ...s, revelee: !s.revelee };
 }
@@ -34,6 +59,18 @@ export function suivante(s: DeckState): DeckState {
 export function precedente(s: DeckState): DeckState {
   const position = Math.max(s.position - 1, 0);
   return { ...s, position, revelee: false };
+}
+
+// Active l'ordre aleatoire : tire un NOUVEL ordre (Fisher-Yates), revient a la carte 1 sur le
+// recto. Re-appeler en mode melange retire un autre ordre. Ne mute ni l'etat ni le pack source.
+export function melanger(s: DeckState, rng: () => number = Math.random): DeckState {
+  const ordre = fisherYates(ordreIdentite(s.total), rng);
+  return { ...s, ordre, position: 0, revelee: false, melange: true };
+}
+
+// Restaure l'ordre original du pack, revient a la carte 1 sur le recto.
+export function ordreNormal(s: DeckState): DeckState {
+  return { ...s, ordre: ordreIdentite(s.total), position: 0, revelee: false, melange: false };
 }
 
 export const estPremiere = (s: DeckState): boolean => s.position <= 0;
