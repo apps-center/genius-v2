@@ -249,6 +249,22 @@
   white-space: pre-line;
 }
 
+/* Illustration OPTIONNELLE d'une carte qr (bitmap ou svg). Servie sans rognage, comme le
+   modele image : largeur bornee, hauteur naturelle. Absente du JSON = jamais rendue. */
+.illustration,
+.illustrationSvg {
+  display: block;
+  inline-size: 100%;
+  max-width: 280px;
+  block-size: auto;
+}
+
+.illustrationSvg svg {
+  display: block;
+  inline-size: 100%;
+  block-size: auto;
+}
+
 .versoCorps {
   display: flex;
   flex-direction: column;

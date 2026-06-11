@@ -2,7 +2,11 @@ import { useCallback, useEffect, useMemo, useRef, useState } from 'react';
 import type { AppContext } from '../../../core/context';
 import { AppProvider } from '../../../core/context';
 import { ContentError } from '../../../core/content/load';
-import type { Flashcard, FlashcardsPack } from '../../../core/content/flashcards.schema';
+import type {
+  Flashcard,
+  FlashcardsPack,
+  Illustration as IllustrationType,
+} from '../../../core/content/flashcards.schema';
 import {
   initDeck,
   retourner,
@@ -324,13 +328,44 @@ function VersoImage({ carte }: { carte: Extract<Flashcard, { type: 'image' }> })
   );
 }
 
-// --- Modele QR : recto = (categorie) + question, verso = reponse + explication ---
+// --- Modele QR : recto = (categorie) + question + (illustration), verso = reponse + explication ---
 function RectoQr({ carte }: { carte: Extract<Flashcard, { type: 'qr' }> }) {
   return (
     <div className={styles.rectoCorps}>
       {carte.categorie && <span className={styles.categorie}>{carte.categorie}</span>}
       <p className={styles.question}>{carte.question}</p>
+      {carte.illustration && <Illustration illustration={carte.illustration} />}
     </div>
+  );
+}
+
+// Visuel d'appoint OPTIONNEL d'une carte qr. Absent du JSON = ce composant n'est jamais
+// monte : une carte sans illustration s'affiche exactement comme avant. Deux formes :
+//  - 'image' : bitmap servi sans rognage (meme strategie que le modele image).
+//  - 'svg'   : markup inline RENDU DE MANIERE MAITRISEE. Le SVG provient de NOS packs
+//    (valides Zod au chargement), jamais d'une source externe ; garde-fou supplementaire :
+//    on n'injecte que si le contenu ressemble bien a un <svg> (sinon on n'affiche rien).
+function Illustration({ illustration }: { illustration: IllustrationType }) {
+  if (illustration.type === 'image') {
+    return (
+      <img
+        className={styles.illustration}
+        src={illustration.src}
+        alt=""
+        aria-hidden="true"
+        decoding="async"
+      />
+    );
+  }
+  const svg = illustration.svg.trim();
+  if (!svg.startsWith('<svg')) return null;
+  return (
+    <span
+      className={styles.illustrationSvg}
+      aria-hidden="true"
+      // SVG issu de notre contenu valide (cf. commentaire ci-dessus), jamais d'entree externe.
+      dangerouslySetInnerHTML={{ __html: svg }}
+    />
   );
 }
 
