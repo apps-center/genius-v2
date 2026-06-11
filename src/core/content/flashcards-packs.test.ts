@@ -1,5 +1,6 @@
 import { describe, it, expect } from 'vitest';
 import { parsePack } from './load';
+import { Flashcard } from './flashcards.schema';
 
 /*
   Charge TOUS les decks flashcards de src/content/flashcards/ et valide chacun avec le
@@ -82,5 +83,51 @@ describe('couverture des deux modeles de carte', () => {
     const pack = parsePack('flashcards', logique!.raw);
     expect(pack.cartes.length).toBe(30);
     expect(pack.cartes.every((c) => c.type === 'qr')).toBe(true);
+  });
+
+  it('deck geographie (modele question-reponse) : 155 cartes, toutes de type qr, sans illustration', () => {
+    const geo = packs.find((p) => p.chemin.includes('geographie'));
+    expect(geo).toBeDefined();
+    const pack = parsePack('flashcards', geo!.raw);
+    expect(pack.cartes.length).toBe(155);
+    expect(pack.cartes.every((c) => c.type === 'qr')).toBe(true);
+    // Migration TEXTE seul : aucune illustration remplie a ce stade.
+    expect(pack.cartes.every((c) => c.type === 'qr' && c.illustration === undefined)).toBe(true);
+  });
+});
+
+describe('carte qr : illustration optionnelle (bitmap, svg, ou absente)', () => {
+  const base = { type: 'qr' as const, id: 'q1', question: 'Q ?', reponse: 'R' };
+
+  it('une carte qr SANS illustration est valide (comportement actuel inchange)', () => {
+    const res = Flashcard.safeParse(base);
+    expect(res.success).toBe(true);
+    expect(res.success && res.data.type === 'qr' && res.data.illustration).toBeUndefined();
+  });
+
+  it('une carte qr AVEC illustration image (bitmap) valide le schema', () => {
+    const res = Flashcard.safeParse({
+      ...base,
+      illustration: { type: 'image', src: '/img/flashcards/geographie/france.webp' },
+    });
+    expect(res.success).toBe(true);
+    expect(res.success && res.data.type === 'qr' && res.data.illustration?.type).toBe('image');
+  });
+
+  it('une carte qr AVEC illustration svg inline valide le schema', () => {
+    const res = Flashcard.safeParse({
+      ...base,
+      illustration: { type: 'svg', svg: '<svg viewBox="0 0 10 10"></svg>' },
+    });
+    expect(res.success).toBe(true);
+    expect(res.success && res.data.type === 'qr' && res.data.illustration?.type).toBe('svg');
+  });
+
+  it('une illustration de type inconnu OU mal formee est rejetee', () => {
+    expect(Flashcard.safeParse({ ...base, illustration: { type: 'video', src: 'x' } }).success).toBe(false);
+    // type 'image' sans `src` : rejete.
+    expect(Flashcard.safeParse({ ...base, illustration: { type: 'image' } }).success).toBe(false);
+    // type 'svg' sans `svg` : rejete.
+    expect(Flashcard.safeParse({ ...base, illustration: { type: 'svg' } }).success).toBe(false);
   });
 });

@@ -23,9 +23,10 @@ describe('ecran d entree flashcards : decouverte des decks', () => {
     expect(decks.map((d) => d.titre)).toEqual(duRegistre);
   });
 
-  it('expose aujourd hui les decks Arts et Logique (sujet + titre lus du registre)', () => {
+  it('expose aujourd hui les decks Arts, Logique et Geographie (sujet + titre lus du registre)', () => {
     expect(decks.map((d) => `${d.sujet}:${d.titre}`).sort()).toEqual([
       'arts:Arts',
+      'geographie:Géographie',
       'logique:Logique',
     ]);
   });

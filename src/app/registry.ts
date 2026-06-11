@@ -87,6 +87,7 @@ export const CONTENT: readonly ContentEntry[] = [
   // Jouables directement via /play/flashcards?sujet=...&titre=... (pas encore d'entree d'accueil).
   { sujet: 'arts', contentKind: 'flashcards', titre: 'Arts', load: () => import('../content/flashcards/arts.json') },
   { sujet: 'logique', contentKind: 'flashcards', titre: 'Logique', load: () => import('../content/flashcards/logique.json') },
+  { sujet: 'geographie', contentKind: 'flashcards', titre: 'Géographie', load: () => import('../content/flashcards/geographie.json') },
 ];
 
 // Apparie chaque pack avec les briques capables de le jouer (par contentKind).

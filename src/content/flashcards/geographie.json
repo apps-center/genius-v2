@@ -1,0 +1,1247 @@
+{
+  "contentKind": "flashcards",
+  "sujet": "geographie",
+  "titre": "Géographie",
+  "cartes": [
+    {
+      "type": "qr",
+      "id": "geographie-1",
+      "question": "Quelle est la capitale de la France ?",
+      "reponse": "Paris",
+      "explication": "68 M d'hab. République en Europe de l'Ouest. Membre UE, OTAN, G7. Tourisme (1er pays visité), industrie aéronautique (Airbus), agriculture, services financiers.",
+      "categorie": "Pays & Capitales"
+    },
+    {
+      "type": "qr",
+      "id": "geographie-2",
+      "question": "Quelle est la capitale de l'Allemagne ?",
+      "reponse": "Berlin",
+      "explication": "84 M d'hab. 1ère économie de l'UE. Industrie automobile (BMW, Volkswagen, Mercedes), chimie, machines. Réunifiée en 1990 après la chute du Mur.",
+      "categorie": "Pays & Capitales"
+    },
+    {
+      "type": "qr",
+      "id": "geographie-3",
+      "question": "Quelle est la capitale du Royaume-Uni ?",
+      "reponse": "Londres",
+      "explication": "67 M d'hab. Île en Europe du Nord-Ouest. A quitté l'UE en 2020 (Brexit). Finance (City de Londres), pharmacie, pétrole de mer du Nord.",
+      "categorie": "Pays & Capitales"
+    },
+    {
+      "type": "qr",
+      "id": "geographie-4",
+      "question": "Quelle est la capitale de l'Espagne ?",
+      "reponse": "Madrid",
+      "explication": "47 M d'hab. Membre UE. 4e économie de la zone euro. Tourisme (2e mondial), énergie éolienne et solaire, agriculture (olives, agrumes), automobile.",
+      "categorie": "Pays & Capitales"
+    },
+    {
+      "type": "qr",
+      "id": "geographie-5",
+      "question": "Quelle est la capitale de l'Italie ?",
+      "reponse": "Rome",
+      "explication": "60 M d'hab. Péninsule en forme de botte en Méditerranée. Membre UE/G7. Tourisme, mode (Milan), agroalimentaire (pasta, vin), industrie mécanique.",
+      "categorie": "Pays & Capitales"
+    },
+    {
+      "type": "qr",
+      "id": "geographie-6",
+      "question": "Quelle est la capitale de la Russie ?",
+      "reponse": "Moscou",
+      "explication": "145 M d'hab. sur 17 millions km² = plus grand pays du monde. Immenses réserves de pétrole, gaz et minerais. Puissance nucléaire. Taïga et Sibérie couvrent la majorité du territoire.",
+      "categorie": "Pays & Capitales"
+    },
+    {
+      "type": "qr",
+      "id": "geographie-7",
+      "question": "Quelle est la capitale de la Turquie ?",
+      "reponse": "Ankara - et non Istanbul !",
+      "explication": "85 M d'hab. Carrefour Europe-Asie (péninsule d'Anatolie). Membre OTAN. Industrie textile, agroalimentaire, tourisme, construction. Istanbul est la plus grande ville.",
+      "categorie": "Pays & Capitales"
+    },
+    {
+      "type": "qr",
+      "id": "geographie-8",
+      "question": "Quelle est la capitale de l'Égypte ?",
+      "reponse": "Le Caire",
+      "explication": "105 M d'hab. Traversée par le Nil ; 96% du territoire est désertique. Canal de Suez = voie maritime stratégique mondiale. Tourisme (pyramides), agriculture du Nil, hydrocarbures.",
+      "categorie": "Pays & Capitales"
+    },
+    {
+      "type": "qr",
+      "id": "geographie-9",
+      "question": "Quelle est la capitale du Nigeria ?",
+      "reponse": "Abuja",
+      "explication": "~220 M d'hab. = pays le plus peuplé d'Afrique. 1ère puissance économique africaine. Pétrole du delta du Niger (membre OPEP). Lagos = plus grande ville du continent.",
+      "categorie": "Pays & Capitales"
+    },
+    {
+      "type": "qr",
+      "id": "geographie-10",
+      "question": "Quelle est la capitale administrative de l'Afrique du Sud ?",
+      "reponse": "Pretoria - mais 3 capitales : Pretoria, Le Cap, Bloemfontein",
+      "explication": "60 M d'hab. Économie la plus industrialisée d'Afrique sub-saharienne. Or, diamants, platine, charbon. Fin de l'apartheid en 1994 avec Nelson Mandela.",
+      "categorie": "Pays & Capitales"
+    },
+    {
+      "type": "qr",
+      "id": "geographie-11",
+      "question": "Quelle est la capitale de l'Éthiopie ?",
+      "reponse": "Addis-Abeba",
+      "explication": "~120 M d'hab. = 2e pays le plus peuplé d'Afrique. Siège de l'Union Africaine. Berceau du café arabica. Pays enclavé depuis 1993 (pas d'accès à la mer).",
+      "categorie": "Pays & Capitales"
+    },
+    {
+      "type": "qr",
+      "id": "geographie-12",
+      "question": "Quelle est la capitale du Maroc ?",
+      "reponse": "Rabat - et non Casablanca !",
+      "explication": "37 M d'hab. Monarchie d'Afrique du Nord. Tourisme, phosphates (1er exportateur mondial), agriculture (agrumes, olives), textile. Casablanca = capitale économique.",
+      "categorie": "Pays & Capitales"
+    },
+    {
+      "type": "qr",
+      "id": "geographie-13",
+      "question": "Quelle est la capitale du Kenya ?",
+      "reponse": "Nairobi",
+      "explication": "55 M d'hab. Afrique de l'Est, traversé par l'équateur. Hub économique régional. Tourisme safari, fleurs (1er exportateur mondial vers UE), thé, café.",
+      "categorie": "Pays & Capitales"
+    },
+    {
+      "type": "qr",
+      "id": "geographie-14",
+      "question": "Quelle est la capitale des États-Unis ?",
+      "reponse": "Washington D.C. - et non New York !",
+      "explication": "333 M d'hab. 1ère économie mondiale. Silicon Valley (tech), Wall Street (finance), pétrole (Texas), agriculture. New York et Los Angeles sont les plus grandes villes.",
+      "categorie": "Pays & Capitales"
+    },
+    {
+      "type": "qr",
+      "id": "geographie-15",
+      "question": "Quelle est la capitale du Canada ?",
+      "reponse": "Ottawa - et non Toronto ou Montréal !",
+      "explication": "38 M d'hab. sur 10 millions km² = 2e plus grand pays. Pétrole (sables bitumineux Alberta), bois, minerais, agriculture (blé). Bilingue français/anglais.",
+      "categorie": "Pays & Capitales"
+    },
+    {
+      "type": "qr",
+      "id": "geographie-16",
+      "question": "Quelle est la capitale du Mexique ?",
+      "reponse": "Mexico",
+      "explication": "~130 M d'hab. 15e économie mondiale. Accord commercial USMCA avec USA et Canada. Pétrole, industrie d'assemblage, tourisme, maïs (plante originaire du Mexique).",
+      "categorie": "Pays & Capitales"
+    },
+    {
+      "type": "qr",
+      "id": "geographie-17",
+      "question": "Quelle est la capitale du Brésil ?",
+      "reponse": "Brasília - et non São Paulo ou Rio de Janeiro !",
+      "explication": "215 M d'hab. 1ère économie d'Amérique Latine. Soja (1er exportateur), café, canne à sucre, pétrole offshore (Petrobras), minerai de fer. Amazonie = 60% du territoire.",
+      "categorie": "Pays & Capitales"
+    },
+    {
+      "type": "qr",
+      "id": "geographie-18",
+      "question": "Quelle est la capitale de l'Argentine ?",
+      "reponse": "Buenos Aires",
+      "explication": "46 M d'hab. Soja, bœuf (pampas), lithium (2e réserves mondiales), pétrole (Vaca Muerta). Patagonie = immense territoire austral quasi désert.",
+      "categorie": "Pays & Capitales"
+    },
+    {
+      "type": "qr",
+      "id": "geographie-19",
+      "question": "Quelle est la capitale de la Chine ?",
+      "reponse": "Pékin (Beijing)",
+      "explication": "1,4 milliard d'hab. 2e économie mondiale. Surnommée 'l'atelier du monde' : manufacture, électronique. Terres rares, charbon, riz, acier. Route de la Soie 2.0 (Belt & Road Initiative).",
+      "categorie": "Pays & Capitales"
+    },
+    {
+      "type": "qr",
+      "id": "geographie-20",
+      "question": "Quelle est la capitale de l'Inde ?",
+      "reponse": "New Delhi - et non Mumbai ou Calcutta !",
+      "explication": "1,4 milliard d'hab. = pays le plus peuplé du monde (2023). 5e économie mondiale. Informatique (Bangalore), textile, agriculture (riz, blé, thé, coton), pharmacie.",
+      "categorie": "Pays & Capitales"
+    },
+    {
+      "type": "qr",
+      "id": "geographie-21",
+      "question": "Quelle est la capitale du Japon ?",
+      "reponse": "Tokyo",
+      "explication": "125 M d'hab. Archipel de 4 îles principales. 3e économie mondiale. Technologie (Sony, Panasonic), automobile (Toyota, Honda), robotique. Zone sismique active (Anneau de feu).",
+      "categorie": "Pays & Capitales"
+    },
+    {
+      "type": "qr",
+      "id": "geographie-22",
+      "question": "Quelle est la capitale de l'Indonésie ?",
+      "reponse": "Jakarta (en cours de déplacement vers Nusantara)",
+      "explication": "277 M d'hab. = 4e plus peuplé du monde. Archipel de +17 000 îles. Huile de palme (1er producteur), charbon, gaz, nickel, textile, tourisme (Bali).",
+      "categorie": "Pays & Capitales"
+    },
+    {
+      "type": "qr",
+      "id": "geographie-23",
+      "question": "Quelle est la capitale de l'Arabie Saoudite ?",
+      "reponse": "Riyad",
+      "explication": "35 M d'hab. 1ères réserves prouvées de pétrole au monde. Monarchie absolue. Membre fondateur de l'OPEP. Territoire majoritairement désertique. Vision 2030 : diversification économique.",
+      "categorie": "Pays & Capitales"
+    },
+    {
+      "type": "qr",
+      "id": "geographie-24",
+      "question": "Quelle est la capitale de l'Iran ?",
+      "reponse": "Téhéran",
+      "explication": "87 M d'hab. 4e réserves mondiales de pétrole, 2e de gaz. République islamique depuis 1979. Sous sanctions internationales. Carrefour Moyen-Orient / Asie centrale.",
+      "categorie": "Pays & Capitales"
+    },
+    {
+      "type": "qr",
+      "id": "geographie-25",
+      "question": "Quelle est la capitale du Pakistan ?",
+      "reponse": "Islamabad - et non Karachi !",
+      "explication": "~230 M d'hab. = 5e pays le plus peuplé. Agriculture (coton, riz, blé). Puissance nucléaire. Frontalier avec Inde, Afghanistan, Chine et Iran.",
+      "categorie": "Pays & Capitales"
+    },
+    {
+      "type": "qr",
+      "id": "geographie-26",
+      "question": "Quelle est la capitale de l'Australie ?",
+      "reponse": "Canberra - et non Sydney ou Melbourne !",
+      "explication": "26 M d'hab. Continent-île entouré d'océans. Charbon, minerai de fer, gaz naturel, blé, laine. Principal fournisseur de matières premières de l'Asie du Nord-Est.",
+      "categorie": "Pays & Capitales"
+    },
+    {
+      "type": "qr",
+      "id": "geographie-27",
+      "question": "Quelle est la capitale de la Grèce ?",
+      "reponse": "Athènes",
+      "explication": "11 M d'hab. + 6 000 îles. Berceau de la démocratie. Tourisme (25% du PIB), armateurs (1ère flotte commerciale mondiale), huile d'olive, coton.",
+      "categorie": "Pays & Capitales"
+    },
+    {
+      "type": "qr",
+      "id": "geographie-28",
+      "question": "Quelle est la capitale de la Pologne ?",
+      "reponse": "Varsovie (Warszawa)",
+      "explication": "38 M d'hab. Grande économie d'Europe centrale. Industrie (charbon, acier, agroalimentaire), hub logistique. Membre UE et OTAN. Frontière avec l'Ukraine à l'est.",
+      "categorie": "Pays & Capitales"
+    },
+    {
+      "type": "qr",
+      "id": "geographie-29",
+      "question": "Quelle est la capitale de la Colombie ?",
+      "reponse": "Bogotá",
+      "explication": "51 M d'hab. Café (3e producteur mondial), fleurs (2e exportateur), pétrole, or, charbon. Seul pays d'Amérique du Sud avec accès aux deux océans (Pacifique et Atlantique).",
+      "categorie": "Pays & Capitales"
+    },
+    {
+      "type": "qr",
+      "id": "geographie-30",
+      "question": "Quelle est la capitale du Bangladesh ?",
+      "reponse": "Dacca (Dhaka)",
+      "explication": "170 M d'hab. sur 147 000 km² = densité extrême. 2e exportateur mondial de textile et vêtements. Delta du Gange très fertile mais très vulnérable aux cyclones et inondations.",
+      "categorie": "Pays & Capitales"
+    },
+    {
+      "type": "qr",
+      "id": "geographie-31",
+      "question": "Quel est ce pays ?",
+      "reponse": "France - Capitale : Paris - Europe de l'Ouest",
+      "explication": "Surnommée l'Hexagone. Traversée par la Loire, la Garonne, le Rhône. Frontalière de 8 pays : Belgique, Luxembourg, Allemagne, Suisse, Italie, Monaco, Espagne, Andorre.",
+      "categorie": "Silhouettes"
+    },
+    {
+      "type": "qr",
+      "id": "geographie-32",
+      "question": "Quel est ce pays ?",
+      "reponse": "Italie - Capitale : Rome - Europe du Sud",
+      "explication": "Péninsule en forme de botte dans la Méditerranée. Bordée par les Alpes au nord. La Sicile et la Sardaigne sont ses deux plus grandes îles.",
+      "categorie": "Silhouettes"
+    },
+    {
+      "type": "qr",
+      "id": "geographie-33",
+      "question": "Quel est ce pays ?",
+      "reponse": "Royaume-Uni - Capitale : Londres - Europe du Nord-Ouest",
+      "explication": "Île séparée du continent par la Manche. Comprend l'Angleterre, le Pays de Galles, l'Écosse, et l'Irlande du Nord. A quitté l'UE (Brexit, 2020).",
+      "categorie": "Silhouettes"
+    },
+    {
+      "type": "qr",
+      "id": "geographie-34",
+      "question": "Quel est ce pays ?",
+      "reponse": "Espagne - Capitale : Madrid - Europe du Sud",
+      "explication": "Péninsule Ibérique partagée avec le Portugal. Bordée par les Pyrénées au nord. Ouverture sur Atlantique et Méditerranée. Détroit de Gibraltar vers le Maroc.",
+      "categorie": "Silhouettes"
+    },
+    {
+      "type": "qr",
+      "id": "geographie-35",
+      "question": "Quel est ce pays ?",
+      "reponse": "Allemagne - Capitale : Berlin - Europe centrale",
+      "explication": "Au cœur de l'Europe, frontalière de 9 pays. Plaines au nord, Alpes bavaroises au sud. Rhin et Elbe = fleuves majeurs. Réunification est-ouest en 1990.",
+      "categorie": "Silhouettes"
+    },
+    {
+      "type": "qr",
+      "id": "geographie-36",
+      "question": "Quel est ce pays ?",
+      "reponse": "Norvège - Capitale : Oslo - Europe du Nord",
+      "explication": "Très allongée du nord au sud, côte ouest découpée par les fjords. Une partie au-delà du cercle polaire. Riches ressources en pétrole et gaz (mer du Nord).",
+      "categorie": "Silhouettes"
+    },
+    {
+      "type": "qr",
+      "id": "geographie-37",
+      "question": "Quel est ce pays ?",
+      "reponse": "Égypte - Capitale : Le Caire - Afrique du Nord",
+      "explication": "Rectangulaire avec la péninsule du Sinaï à l'est. Le Nil traverse du sud au nord. 96% du territoire est désertique. Canal de Suez à l'est.",
+      "categorie": "Silhouettes"
+    },
+    {
+      "type": "qr",
+      "id": "geographie-38",
+      "question": "Quel est ce pays ?",
+      "reponse": "Afrique du Sud - Capitale : Pretoria - Afrique australe",
+      "explication": "Pointe sud du continent africain, entouré par l'Atlantique et l'Indien. Entoure le Lesotho. Cap de Bonne-Espérance = cap emblématique.",
+      "categorie": "Silhouettes"
+    },
+    {
+      "type": "qr",
+      "id": "geographie-39",
+      "question": "Quel est ce pays ?",
+      "reponse": "Madagascar - Capitale : Antananarivo - Océan Indien",
+      "explication": "4e plus grande île du monde. Séparée de l'Afrique par le canal du Mozambique. 80% des espèces endémiques. Biodiversité exceptionnelle.",
+      "categorie": "Silhouettes"
+    },
+    {
+      "type": "qr",
+      "id": "geographie-40",
+      "question": "Quel est ce pays ?",
+      "reponse": "Inde - Capitale : New Delhi - Asie du Sud",
+      "explication": "Triangle inversé dans l'Océan Indien. Himalaya au nord. Gange et Indus = grands fleuves. Frontières avec 6 pays. 1,4 milliard d'habitants.",
+      "categorie": "Silhouettes"
+    },
+    {
+      "type": "qr",
+      "id": "geographie-41",
+      "question": "Quel est ce pays ?",
+      "reponse": "Chine - Capitale : Pékin - Asie de l'Est",
+      "explication": "3e plus grand pays du monde (9,6 M km²). Irrégulier : montagnes à l'ouest, plaines côtières à l'est. Himalaya au SW, désert de Gobi au nord.",
+      "categorie": "Silhouettes"
+    },
+    {
+      "type": "qr",
+      "id": "geographie-42",
+      "question": "Quel est ce pays ?",
+      "reponse": "Japon - Capitale : Tokyo - Asie de l'Est",
+      "explication": "Archipel de +6 800 îles. 4 îles principales : Hokkaido, Honshu, Shikoku, Kyushu. Zone sismique intense (Anneau de feu). 73% du territoire montagneux.",
+      "categorie": "Silhouettes"
+    },
+    {
+      "type": "qr",
+      "id": "geographie-43",
+      "question": "Quel est ce pays ?",
+      "reponse": "Arabie Saoudite - Capitale : Riyad - Moyen-Orient",
+      "explication": "Occupe presque toute la péninsule Arabique. Bordée par la mer Rouge à l'ouest et le golfe Persique à l'est. Territoire majoritairement désertique (Rub al-Khali).",
+      "categorie": "Silhouettes"
+    },
+    {
+      "type": "qr",
+      "id": "geographie-44",
+      "question": "Quel est ce pays ?",
+      "reponse": "Australie - Capitale : Canberra - Océanie",
+      "explication": "Continent-île = 6e plus grand pays (7,7 M km²). Aucune frontière terrestre. Centre aride (Outback). Grande Barrière de Corail à l'est.",
+      "categorie": "Silhouettes"
+    },
+    {
+      "type": "qr",
+      "id": "geographie-45",
+      "question": "Quel est ce pays ?",
+      "reponse": "Brésil - Capitale : Brasília - Amérique du Sud",
+      "explication": "Plus grand pays d'Amérique Latine (8,5 M km²). Forêt Amazonienne = 60% du territoire. Longue façade atlantique. Frontières avec 10 pays.",
+      "categorie": "Silhouettes"
+    },
+    {
+      "type": "qr",
+      "id": "geographie-46",
+      "question": "Quel est ce pays ?",
+      "reponse": "Chili - Capitale : Santiago - Amérique du Sud",
+      "explication": "Pays le plus long du monde (4 300 km du nord au sud) pour environ 177 km de large. Andes à l'est, Pacifique à l'ouest. Désert d'Atacama au nord.",
+      "categorie": "Silhouettes"
+    },
+    {
+      "type": "qr",
+      "id": "geographie-47",
+      "question": "Quel est ce pays ?",
+      "reponse": "Argentine - Capitale : Buenos Aires - Amérique du Sud",
+      "explication": "2e plus grand pays d'Amérique Latine. Andes à l'ouest. Pampas = grandes plaines agricoles au centre. Patagonie australe très froide et ventée.",
+      "categorie": "Silhouettes"
+    },
+    {
+      "type": "qr",
+      "id": "geographie-48",
+      "question": "Quel est ce pays ?",
+      "reponse": "États-Unis - Capitale : Washington D.C. - Amérique du Nord",
+      "explication": "4e plus grand pays du monde (9,8 M km²). Atlantique à l'est, Pacifique à l'ouest. Canada au nord, Mexique au sud. Grandes Plaines au centre.",
+      "categorie": "Silhouettes"
+    },
+    {
+      "type": "qr",
+      "id": "geographie-49",
+      "question": "Quel est ce pays ?",
+      "reponse": "Mexique - Capitale : Mexico - Amérique du Nord",
+      "explication": "En forme de corne. Partage 3 180 km de frontière avec les USA. Accès au Pacifique et au golfe du Mexique. Péninsule du Yucatan au SE.",
+      "categorie": "Silhouettes"
+    },
+    {
+      "type": "qr",
+      "id": "geographie-50",
+      "question": "Quel est ce pays ?",
+      "reponse": "Turquie - Capitale : Ankara - Carrefour Europe/Asie",
+      "explication": "Péninsule d'Anatolie = 97% en Asie, 3% en Europe. Détroits du Bosphore et des Dardanelles = passages stratégiques entre mer Noire et Méditerranée.",
+      "categorie": "Silhouettes"
+    },
+    {
+      "type": "qr",
+      "id": "geographie-51",
+      "question": "Qu'est-ce que le Sahara ?",
+      "reponse": "Le plus grand désert chaud du monde (9,2 millions km²).",
+      "explication": "S'étend sur 11 pays d'Afrique du Nord. Températures extrêmes (50°C le jour, 0°C la nuit). Couvre 31% du continent africain. Pas que du sable : 25% d'ergs (dunes), le reste = rochers et plateaux.",
+      "categorie": "Reliefs & Milieux"
+    },
+    {
+      "type": "qr",
+      "id": "geographie-52",
+      "question": "Pourquoi le désert d'Atacama est-il unique ?",
+      "reponse": "C'est le désert le plus aride de la planète.",
+      "explication": "Situé au Chili et Pérou. Certaines zones n'ont jamais reçu de pluie. Altitude élevée (2 000-5 000 m). Grandes réserves de lithium et cuivre. Utilisé pour simuler les conditions martiennes.",
+      "categorie": "Reliefs & Milieux"
+    },
+    {
+      "type": "qr",
+      "id": "geographie-53",
+      "question": "Qu'est-ce que le désert de Gobi ?",
+      "reponse": "Le plus grand désert froid d'Asie (~1,3 million km²).",
+      "explication": "S'étend sur la Chine et la Mongolie. Températures : -40°C en hiver à +40°C en été. En expansion à cause de la désertification. Riche en fossiles de dinosaures.",
+      "categorie": "Reliefs & Milieux"
+    },
+    {
+      "type": "qr",
+      "id": "geographie-54",
+      "question": "Qu'est-ce que l'Himalaya ?",
+      "reponse": "La plus haute chaîne de montagnes du monde, avec l'Everest (8 849 m).",
+      "explication": "S'étend sur 5 pays : Népal, Inde, Pakistan, Chine, Bhoutan. Alimente les grands fleuves d'Asie (Gange, Yangtsé, Mékong, Indus). Source d'eau pour 3 milliards de personnes.",
+      "categorie": "Reliefs & Milieux"
+    },
+    {
+      "type": "qr",
+      "id": "geographie-55",
+      "question": "Pourquoi les Andes sont-elles remarquables ?",
+      "reponse": "C'est la plus longue chaîne de montagnes du monde (7 000 km).",
+      "explication": "Borde la côte ouest de l'Amérique du Sud sur 7 pays. Sépare la forêt amazonienne (est) du Pacifique (ouest). Riches en minerais : cuivre (Chili), lithium (Bolivie/Argentine), argent (Pérou).",
+      "categorie": "Reliefs & Milieux"
+    },
+    {
+      "type": "qr",
+      "id": "geographie-56",
+      "question": "Où se trouvent les Alpes et quelle est leur importance ?",
+      "reponse": "En Europe de l'Ouest, sur 8 pays. Point culminant : Mont Blanc (4 808 m).",
+      "explication": "Source du Rhin, du Rhône et du Pô. Tourisme hivernal (ski). Barrière naturelle historique. La Suisse et l'Autriche sont presque entièrement couvertes d'Alpes.",
+      "categorie": "Reliefs & Milieux"
+    },
+    {
+      "type": "qr",
+      "id": "geographie-57",
+      "question": "Pourquoi le Nil est-il stratégique pour l'Égypte ?",
+      "reponse": "Le Nil est la principale source d'eau douce et de fertilité de l'Égypte.",
+      "explication": "Long de 6 650 km, traverse 11 pays. 95% des Égyptiens vivent dans sa vallée. Le barrage d'Assouan régule les crues. Le Grand Barrage de la Renaissance en Éthiopie crée des tensions.",
+      "categorie": "Reliefs & Milieux"
+    },
+    {
+      "type": "qr",
+      "id": "geographie-58",
+      "question": "Pourquoi l'Amazone est-il le fleuve le plus puissant du monde ?",
+      "reponse": "Il déverse 20% de toute l'eau douce des fleuves du monde dans l'Atlantique.",
+      "explication": "Long d'environ 6 400 km. Bassin de 7 millions km². Traverse Brésil, Pérou, Colombie. Débit 10x supérieur au Congo. La forêt amazonienne = 'poumon de la Terre'.",
+      "categorie": "Reliefs & Milieux"
+    },
+    {
+      "type": "qr",
+      "id": "geographie-59",
+      "question": "Pourquoi la forêt du Congo est-elle importante ?",
+      "reponse": "C'est la 2e plus grande forêt tropicale du monde et le 2e poumon de la Terre.",
+      "explication": "3,6 millions km². Couvre Congo, RD Congo, Gabon, Cameroun... Le fleuve Congo est le plus profond du monde (220 m). Gorilles, bonobos, okapis = biodiversité unique.",
+      "categorie": "Reliefs & Milieux"
+    },
+    {
+      "type": "qr",
+      "id": "geographie-60",
+      "question": "Qu'est-ce que la taïga ?",
+      "reponse": "La plus grande forêt du monde : zone de forêts de conifères boréales.",
+      "explication": "S'étend en Russie, Canada, Scandinavie. Couvre ~17 millions km² (11% des terres émergées). Immenses réserves de bois. Faible densité de population. Très sensible au réchauffement climatique.",
+      "categorie": "Reliefs & Milieux"
+    },
+    {
+      "type": "qr",
+      "id": "geographie-61",
+      "question": "Qu'est-ce que la savane africaine ?",
+      "reponse": "Un biome de transition entre forêt tropicale et désert, avec herbes hautes et arbres épars.",
+      "explication": "Couvre 40% de l'Afrique. Sèche en saison sèche, verte en saison des pluies. Accueille les plus grandes migrations animales (gnous, zèbres). Menacée par l'agriculture.",
+      "categorie": "Reliefs & Milieux"
+    },
+    {
+      "type": "qr",
+      "id": "geographie-62",
+      "question": "Qu'est-ce que la toundra ?",
+      "reponse": "Biome polaire sans arbres, avec sol gelé en permanence (pergélisol).",
+      "explication": "S'étend dans l'Arctique, en Sibérie, Canada, Alaska. Très fragile : le réchauffement fait fondre le pergélisol, libérant du méthane (puissant gaz à effet de serre).",
+      "categorie": "Reliefs & Milieux"
+    },
+    {
+      "type": "qr",
+      "id": "geographie-63",
+      "question": "Qu'est-ce que le Yangtsé ?",
+      "reponse": "Le plus long fleuve d'Asie (6 380 km), en Chine.",
+      "explication": "Traverse la Chine d'ouest en est. Le barrage des Trois-Gorges (le plus grand barrage hydroélectrique du monde) est sur le Yangtsé. Source vitale d'eau et d'énergie pour 400 millions de personnes.",
+      "categorie": "Reliefs & Milieux"
+    },
+    {
+      "type": "qr",
+      "id": "geographie-64",
+      "question": "Quels sont les Grands Lacs africains ?",
+      "reponse": "Tanganyika, Victoria, Malawi, Kivu, Turkana - dans la vallée du Rift.",
+      "explication": "Le lac Victoria = 2e plus grand lac d'eau douce du monde. Le Tanganyika = plus profond d'Afrique (1 470 m). La vallée du Rift = fissure tectonique divisant l'Afrique orientale.",
+      "categorie": "Reliefs & Milieux"
+    },
+    {
+      "type": "qr",
+      "id": "geographie-65",
+      "question": "Qu'est-ce que la mer Méditerranée ?",
+      "reponse": "Une mer presque fermée entre l'Europe, l'Afrique et l'Asie, reliée à l'Atlantique par le détroit de Gibraltar.",
+      "explication": "2,5 millions km². 22 pays riverains. Berceau de nombreuses civilisations (Égypte, Grèce, Rome). Route migratoire importante. L'une des mers les plus polluées du monde.",
+      "categorie": "Reliefs & Milieux"
+    },
+    {
+      "type": "qr",
+      "id": "geographie-66",
+      "question": "Qu'est-ce que les mangroves ?",
+      "reponse": "Des forêts côtières tropicales qui poussent dans l'eau salée.",
+      "explication": "Protègent les côtes des tempêtes et tsunamis. Pépinières à poissons et crustacés. Stockent 3x plus de carbone que les forêts terrestres. Menacées par l'urbanisation et l'aquaculture.",
+      "categorie": "Reliefs & Milieux"
+    },
+    {
+      "type": "qr",
+      "id": "geographie-67",
+      "question": "Pourquoi les récifs coralliens sont-ils menacés ?",
+      "reponse": "Le réchauffement des océans provoque le blanchissement et la mort des coraux.",
+      "explication": "Couvrent moins de 1% des océans mais abritent 25% des espèces marines. La Grande Barrière de Corail (Australie) = plus grand récif du monde (2 300 km). Vulnérables aussi à l'acidification.",
+      "categorie": "Reliefs & Milieux"
+    },
+    {
+      "type": "qr",
+      "id": "geographie-68",
+      "question": "Quelle est la différence entre l'Arctique et l'Antarctique ?",
+      "reponse": "Arctique = océan glacé au nord / Antarctique = continent glacé au sud.",
+      "explication": "L'Arctique fond en été (banquise). L'Antarctique contient 90% des glaces de la Terre. La banquise arctique a réduit de 40% en volume depuis 1979.",
+      "categorie": "Reliefs & Milieux"
+    },
+    {
+      "type": "qr",
+      "id": "geographie-69",
+      "question": "Qu'est-ce que le Mississippi ?",
+      "reponse": "Le plus long fleuve des États-Unis (~3 730 km), drainant le centre du pays.",
+      "explication": "S'écoule des Grands Lacs au golfe du Mexique. Bassin de 3 millions km². Voie navigable essentielle (soja, maïs). La Nouvelle-Orléans est à son embouchure.",
+      "categorie": "Reliefs & Milieux"
+    },
+    {
+      "type": "qr",
+      "id": "geographie-70",
+      "question": "Qu'est-ce que le détroit de Gibraltar ?",
+      "reponse": "Un passage maritime de 14 km de large entre l'Espagne (Europe) et le Maroc (Afrique).",
+      "explication": "Relie l'Atlantique à la Méditerranée. Des milliers de navires le traversent chaque jour. Route migratoire (Afrique vers Europe). Contrôlé par Gibraltar, territoire britannique.",
+      "categorie": "Reliefs & Milieux"
+    },
+    {
+      "type": "qr",
+      "id": "geographie-71",
+      "question": "Qu'est-ce que l'ONU ?",
+      "reponse": "Organisation des Nations Unies - organe international créé en 1945 pour maintenir la paix mondiale.",
+      "explication": "193 États membres. Siège à New York. 5 membres permanents du Conseil de Sécurité : USA, Russie, Chine, France, Royaume-Uni. Chacun a un droit de véto.",
+      "categorie": "Géopolitique"
+    },
+    {
+      "type": "qr",
+      "id": "geographie-72",
+      "question": "Qu'est-ce que l'OTAN ?",
+      "reponse": "Alliance militaire de l'Atlantique Nord (32 membres), créée en 1949.",
+      "explication": "Siège à Bruxelles. L'article 5 : attaque contre un membre = attaque contre tous. Fondée contre l'URSS. S'est élargie à l'Est depuis 1990. Ukraine = candidature controversée.",
+      "categorie": "Géopolitique"
+    },
+    {
+      "type": "qr",
+      "id": "geographie-73",
+      "question": "Qu'est-ce que l'Union Européenne ?",
+      "reponse": "Organisation politique et économique de 27 États membres européens.",
+      "explication": "Créée par le Traité de Rome (1957). Marché unique, monnaie commune (euro, 20 pays). Libre circulation des personnes. Siège à Bruxelles. Brexit = départ du Royaume-Uni en 2020.",
+      "categorie": "Géopolitique"
+    },
+    {
+      "type": "qr",
+      "id": "geographie-74",
+      "question": "Qu'est-ce que l'Union Africaine ?",
+      "reponse": "Organisation de 55 États membres africains, créée en 2002.",
+      "explication": "Siège à Addis-Abeba. Succède à l'OUA. Objectifs : paix, développement, démocratie en Afrique. Ambition d'une zone de libre-échange africaine (ZLECAf) = plus grand marché commun du monde.",
+      "categorie": "Géopolitique"
+    },
+    {
+      "type": "qr",
+      "id": "geographie-75",
+      "question": "Qu'est-ce que l'ASEAN ?",
+      "reponse": "Association des Nations de l'Asie du Sud-Est (10 membres).",
+      "explication": "Créée en 1967. Membres : Thaïlande, Indonésie, Malaisie, Philippines, Singapour, Vietnam, Myanmar, Cambodge, Laos, Brunei. Siège à Jakarta. PIB combiné = 3e zone économique mondiale.",
+      "categorie": "Géopolitique"
+    },
+    {
+      "type": "qr",
+      "id": "geographie-76",
+      "question": "Qu'est-ce que le MERCOSUR ?",
+      "reponse": "Marché commun d'Amérique du Sud : Brésil, Argentine, Uruguay, Paraguay.",
+      "explication": "Créé en 1991. Zone de libre-échange. Accord avec l'UE en négociation depuis 1999. Cherche à s'affranchir de la domination économique des USA en Amérique Latine.",
+      "categorie": "Géopolitique"
+    },
+    {
+      "type": "qr",
+      "id": "geographie-77",
+      "question": "Qu'est-ce que le G7 ?",
+      "reponse": "Groupe des 7 grandes démocraties industrialisées : USA, Canada, France, Allemagne, Italie, Japon, Royaume-Uni.",
+      "explication": "Forum informel créé en 1975. Représente ~45% du PIB mondial. L'UE participe. Anciennement G8 avec la Russie, exclue en 2014 après l'annexion de la Crimée.",
+      "categorie": "Géopolitique"
+    },
+    {
+      "type": "qr",
+      "id": "geographie-78",
+      "question": "Qu'est-ce que le G20 ?",
+      "reponse": "Forum des 20 plus grandes économies mondiales (pays développés + émergents).",
+      "explication": "Représente 85% du PIB, 80% du commerce, 2/3 de la population mondiale. Créé en 1999. Inclut les BRICS (Chine, Inde, Brésil, Russie, Afrique du Sud) + nouvelles économies.",
+      "categorie": "Géopolitique"
+    },
+    {
+      "type": "qr",
+      "id": "geographie-79",
+      "question": "Qu'est-ce que les BRICS ?",
+      "reponse": "Groupe des puissances émergentes : Brésil, Russie, Inde, Chine, Afrique du Sud (+ nouveaux membres).",
+      "explication": "Représentent 40% de la population mondiale et 30% du PIB mondial (en parité de pouvoir d'achat). Veulent réformer la gouvernance mondiale et réduire la domination du dollar américain.",
+      "categorie": "Géopolitique"
+    },
+    {
+      "type": "qr",
+      "id": "geographie-80",
+      "question": "Qu'est-ce que l'OPEP ?",
+      "reponse": "Organisation des Pays Exportateurs de Pétrole (13 membres).",
+      "explication": "Fondée en 1960. Siège à Vienne. Contrôle ~40% de la production mondiale. Fixe les quotas de production pour stabiliser les prix. L'Arabie Saoudite = membre dominant.",
+      "categorie": "Géopolitique"
+    },
+    {
+      "type": "qr",
+      "id": "geographie-81",
+      "question": "Qu'est-ce qu'une démocratie ?",
+      "reponse": "Régime politique où le pouvoir émane du peuple, exercé directement ou par des représentants élus.",
+      "explication": "Caractéristiques : élections libres, séparation des pouvoirs, liberté de la presse, droits fondamentaux. Démocratie directe (rare) vs représentative (la plus fréquente).",
+      "categorie": "Géopolitique"
+    },
+    {
+      "type": "qr",
+      "id": "geographie-82",
+      "question": "Quelle est la différence entre monarchie absolue et monarchie constitutionnelle ?",
+      "reponse": "Absolue : le roi a tous les pouvoirs. Constitutionnelle : le roi règne mais un parlement gouverne.",
+      "explication": "Exemples de monarchie absolue : Arabie Saoudite, Eswatini. Exemples constitutionnelles : Royaume-Uni, Espagne, Belgique, Pays-Bas, Maroc (semi-constitutionnelle).",
+      "categorie": "Géopolitique"
+    },
+    {
+      "type": "qr",
+      "id": "geographie-83",
+      "question": "Qu'est-ce qu'une dictature ?",
+      "reponse": "Régime où le pouvoir est concentré dans les mains d'une personne ou d'un groupe, sans contrôle démocratique.",
+      "explication": "Absence d'élections libres, censure, répression des opposants, contrôle de l'armée. Exemples : Corée du Nord, Biélorussie. Historiques : Staline (URSS), Hitler (Allemagne nazie).",
+      "categorie": "Géopolitique"
+    },
+    {
+      "type": "qr",
+      "id": "geographie-84",
+      "question": "Qu'est-ce que la mondialisation ?",
+      "reponse": "L'intensification des échanges de marchandises, services, capitaux et personnes à l'échelle mondiale.",
+      "explication": "Accélérée depuis les années 1980 par les conteneurs, Internet et le libre-échange. Avantages : croissance, échanges culturels. Inconvénients : délocalisations, inégalités, uniformisation culturelle.",
+      "categorie": "Géopolitique"
+    },
+    {
+      "type": "qr",
+      "id": "geographie-85",
+      "question": "Qu'est-ce que l'IDH (Indice de Développement Humain) ?",
+      "reponse": "Indicateur mesurant le développement via 3 critères : espérance de vie, éducation, revenu.",
+      "explication": "Créé par le PNUD (ONU). Varie de 0 à 1. IDH très élevé > 0,8. IDH faible < 0,55 (pays les moins avancés). Le PIB seul ne mesure pas le bien-être. Niger = IDH le plus bas en 2023.",
+      "categorie": "Géopolitique"
+    },
+    {
+      "type": "qr",
+      "id": "geographie-86",
+      "question": "Qu'est-ce qu'un pays du Sud (ou pays en développement) ?",
+      "reponse": "Pays à faible niveau de développement économique, social et technologique.",
+      "explication": "Anciens termes : Tiers-monde, PVD. Généralement dans la zone intertropicale. Indicateurs faibles : IDH, espérance de vie, accès à l'éducation et aux soins, revenus. Terme critiqué pour sa généralisation.",
+      "categorie": "Géopolitique"
+    },
+    {
+      "type": "qr",
+      "id": "geographie-87",
+      "question": "Qu'est-ce que le libre-échange ?",
+      "reponse": "Système commercial sans barrières entre pays : ni droits de douane, ni quotas d'importation.",
+      "explication": "Promu par l'OMC (Organisation Mondiale du Commerce). Avantages : baisse des prix pour les consommateurs, spécialisation. Inconvénients : concurrence déloyale, délocalisations, inégalités entre pays.",
+      "categorie": "Géopolitique"
+    },
+    {
+      "type": "qr",
+      "id": "geographie-88",
+      "question": "Qu'est-ce que la DUDH ?",
+      "reponse": "Déclaration Universelle des Droits de l'Homme - texte adopté par l'ONU en 1948.",
+      "explication": "30 articles garantissant droits civils (liberté, vie), politiques (vote), économiques (travail), culturels. Non contraignante juridiquement mais base de nombreuses constitutions. ONG : Amnesty International.",
+      "categorie": "Géopolitique"
+    },
+    {
+      "type": "qr",
+      "id": "geographie-89",
+      "question": "Qu'est-ce qu'une Zone Économique Exclusive (ZEE) ?",
+      "reponse": "Zone maritime de 200 miles nautiques (370 km) où un pays a des droits économiques exclusifs.",
+      "explication": "La France a la 2e plus grande ZEE du monde grâce à ses territoires ultramarins (Polynésie, Guyane, Antilles, Réunion...). Les ZEE permettent l'exploitation des ressources marines.",
+      "categorie": "Géopolitique"
+    },
+    {
+      "type": "qr",
+      "id": "geographie-90",
+      "question": "Qu'est-ce qu'un réfugié selon le droit international ?",
+      "reponse": "Personne contrainte de fuir son pays à cause d'une guerre, d'une persécution ou d'une catastrophe.",
+      "explication": "Protégé par la Convention de Genève (1951) et le HCR (ONU). À distinguer du migrant économique. Actuellement ~110 millions de déplacés dans le monde. Syrie, Ukraine, Afghanistan = principales crises.",
+      "categorie": "Géopolitique"
+    },
+    {
+      "type": "qr",
+      "id": "geographie-91",
+      "question": "Qu'est-ce que la Cour Pénale Internationale (CPI) ?",
+      "reponse": "Tribunal international permanent jugeant les crimes de guerre, crimes contre l'humanité et génocides.",
+      "explication": "Créée en 2002, siège à La Haye. 124 États membres. Les USA, Russie et Chine n'ont pas ratifié son statut. A condamné des chefs de guerre pour crimes au Congo, Darfour, Libye.",
+      "categorie": "Géopolitique"
+    },
+    {
+      "type": "qr",
+      "id": "geographie-92",
+      "question": "Qu'est-ce que la dette extérieure des pays du Sud ?",
+      "reponse": "Prêts contractés auprès de pays riches ou d'organisations (FMI, Banque Mondiale) qui grèvent le budget des pays pauvres.",
+      "explication": "Les pays doivent rembourser la dette avant d'investir en santé ou éducation. La Chine prête massivement à l'Afrique (Route de la Soie). Débat sur l'annulation de la dette.",
+      "categorie": "Géopolitique"
+    },
+    {
+      "type": "qr",
+      "id": "geographie-93",
+      "question": "Qu'est-ce que le protectionnisme ?",
+      "reponse": "Politique protégeant les industries nationales contre la concurrence étrangère (droits de douane, quotas).",
+      "explication": "Opposé au libre-échange. Trump a imposé des droits de douane à la Chine. L'UE taxe les voitures électriques chinoises. Argument : protéger les emplois et les industries stratégiques.",
+      "categorie": "Géopolitique"
+    },
+    {
+      "type": "qr",
+      "id": "geographie-94",
+      "question": "Qu'est-ce que la COP sur le climat ?",
+      "reponse": "Conférence des Parties : réunion annuelle de l'ONU sur les changements climatiques.",
+      "explication": "La COP21 (Paris, 2015) = Accord de Paris, objectif +1,5°C maximum. Les pays s'engagent sur des réductions d'émissions (NDC). Critiquée pour le manque d'engagements contraignants.",
+      "categorie": "Géopolitique"
+    },
+    {
+      "type": "qr",
+      "id": "geographie-95",
+      "question": "Qu'est-ce que l'UNESCO ?",
+      "reponse": "Organisation des Nations Unies pour l'Éducation, la Science et la Culture.",
+      "explication": "Siège à Paris. Classe les sites du Patrimoine Mondial (1 200 sites dans 167 pays). Exemples : Pyramides d'Égypte, Mont-Saint-Michel, Galápagos, Grande Barrière de Corail.",
+      "categorie": "Géopolitique"
+    },
+    {
+      "type": "qr",
+      "id": "geographie-96",
+      "question": "Quels sont les 3 premiers pays producteurs de pétrole ?",
+      "reponse": "États-Unis, Arabie Saoudite, Russie (ordre 2023).",
+      "explication": "Les USA sont devenus 1ers grâce au pétrole de schiste (fracking). L'OPEP tente de réguler les prix. Le pétrole représente ~30% de l'énergie mondiale. Réserves : 50 ans au rythme actuel.",
+      "categorie": "Ressources & Économie"
+    },
+    {
+      "type": "qr",
+      "id": "geographie-97",
+      "question": "Pourquoi les terres rares sont-elles stratégiques ?",
+      "reponse": "Métaux indispensables aux technologies modernes : batteries, smartphones, éoliennes, armement.",
+      "explication": "La Chine contrôle 60% de la production et 85% du raffinage mondial. Enjeu géopolitique majeur : les USA et l'UE cherchent à diversifier leurs approvisionnements. RD Congo, Australie = autres sources.",
+      "categorie": "Ressources & Économie"
+    },
+    {
+      "type": "qr",
+      "id": "geographie-98",
+      "question": "Qu'est-ce que le lithium et où se trouve-t-il ?",
+      "reponse": "Métal léger essentiel aux batteries des véhicules électriques et appareils portables.",
+      "explication": "Le 'triangle du lithium' (Argentine, Bolivie, Chili) contient 60% des réserves mondiales. L'Australie est le 1er producteur. La Bolivie a les plus grandes réserves mais peu exploitées. Demande en explosion.",
+      "categorie": "Ressources & Économie"
+    },
+    {
+      "type": "qr",
+      "id": "geographie-99",
+      "question": "Pourquoi le cobalt est-il controversé ?",
+      "reponse": "Métal essentiel aux batteries Li-ion, produit à 70% en RD Congo dans des conditions difficiles.",
+      "explication": "La RD Congo = 70% de la production mondiale mais parmi les pays les plus pauvres. Travail des enfants dans les mines artisanales signalé. Les marques tech sous pression pour tracer l'approvisionnement.",
+      "categorie": "Ressources & Économie"
+    },
+    {
+      "type": "qr",
+      "id": "geographie-100",
+      "question": "Quels sont les principaux producteurs d'or ?",
+      "reponse": "Chine, Russie, Australie, Canada, USA, Ghana.",
+      "explication": "L'Afrique du Sud, autrefois 1er producteur mondial, a vu sa production baisser. L'or est une valeur refuge en temps de crise. Le Ghana = 1er producteur africain aujourd'hui.",
+      "categorie": "Ressources & Économie"
+    },
+    {
+      "type": "qr",
+      "id": "geographie-101",
+      "question": "Où sont produits les diamants dans le monde ?",
+      "reponse": "Principalement Russie, Botswana, Canada, RD Congo, Australie.",
+      "explication": "Le Botswana tire 70% de ses revenus des diamants (Debswana/De Beers). Les 'diamants du sang' ont financé des guerres civiles en Sierra Leone et Angola. La certification Kimberley Process tente d'y remédier.",
+      "categorie": "Ressources & Économie"
+    },
+    {
+      "type": "qr",
+      "id": "geographie-102",
+      "question": "Quels sont les 5 premiers producteurs de blé ?",
+      "reponse": "Chine, Inde, Russie, USA, France.",
+      "explication": "La Russie est le 1er exportateur mondial. L'Ukraine (2e exportateur) = 'grenier à blé de l'Europe'. La guerre en Ukraine 2022 a provoqué une crise alimentaire mondiale. Blé = nourriture de base pour 2 milliards.",
+      "categorie": "Ressources & Économie"
+    },
+    {
+      "type": "qr",
+      "id": "geographie-103",
+      "question": "Quels sont les principaux producteurs de riz ?",
+      "reponse": "Chine, Inde, Bangladesh, Indonésie, Vietnam.",
+      "explication": "Le riz nourrit 3,5 milliards de personnes. 90% de la production est en Asie. Très dépendant de l'eau : 1 kg de riz = 3 500 litres d'eau. Cultive principalement dans des rizières inondées.",
+      "categorie": "Ressources & Économie"
+    },
+    {
+      "type": "qr",
+      "id": "geographie-104",
+      "question": "Pourquoi le Brésil est-il le roi du soja ?",
+      "reponse": "Le Brésil est le 1er exportateur mondial de soja, devant USA et Argentine.",
+      "explication": "Le soja brésilien pousse dans le Cerrado (savane brésilienne). Sert à nourrir les élevages (poulets, porcs) en Europe et en Chine. La déforestation pour le soja = enjeu environnemental majeur.",
+      "categorie": "Ressources & Économie"
+    },
+    {
+      "type": "qr",
+      "id": "geographie-105",
+      "question": "Où est produit le cacao et pourquoi est-ce stratégique ?",
+      "reponse": "70% du cacao mondial vient d'Afrique de l'Ouest : Côte d'Ivoire (1er) et Ghana (2e).",
+      "explication": "Le chocolat européen dépend entièrement de ces pays. Les producteurs perçoivent moins de 6% de la valeur du chocolat vendu. Enjeu du commerce équitable et de la déforestation des forêts tropicales.",
+      "categorie": "Ressources & Économie"
+    },
+    {
+      "type": "qr",
+      "id": "geographie-106",
+      "question": "Quels sont les principaux pays producteurs de café ?",
+      "reponse": "Brésil (1er), Vietnam, Colombie, Indonésie, Éthiopie.",
+      "explication": "Le café arabica (Éthiopie, Colombie) = café de qualité supérieure. Le robusta (Vietnam) = moins cher. Le café est le 2e produit le plus échangé dans le monde après le pétrole.",
+      "categorie": "Ressources & Économie"
+    },
+    {
+      "type": "qr",
+      "id": "geographie-107",
+      "question": "Pourquoi le canal de Suez est-il stratégique ?",
+      "reponse": "Il relie la mer Rouge à la Méditerranée, évitant de contourner l'Afrique (gain de 7 000 km).",
+      "explication": "Ouvert en 1869. Situé en Égypte = 12% du commerce mondial. 19 000 navires/an. En 2021, le porte-conteneurs 'Ever Given' bloqué a causé 10 milliards de dollars de pertes par jour.",
+      "categorie": "Ressources & Économie"
+    },
+    {
+      "type": "qr",
+      "id": "geographie-108",
+      "question": "Pourquoi le canal de Panama est-il stratégique ?",
+      "reponse": "Il relie l'Atlantique au Pacifique, évitant le cap Horn (gain de 15 000 km).",
+      "explication": "Ouvert en 1914 (USA). Géré par Panama depuis 1999. Élargi en 2016. 14 000 navires/an. La Chine cherche à financer un canal concurrent au Nicaragua.",
+      "categorie": "Ressources & Économie"
+    },
+    {
+      "type": "qr",
+      "id": "geographie-109",
+      "question": "Quels sont les 5 premières économies mondiales (PIB nominal) ?",
+      "reponse": "USA (1er), Chine (2e), Allemagne (3e), Japon (4e), Inde (5e) en 2023.",
+      "explication": "En Parité de Pouvoir d'Achat (PPA), la Chine dépasse les USA. L'Inde devrait devenir 3e avant 2030. Les pays du G7 représentent encore ~45% du PIB mondial mais leur part diminue.",
+      "categorie": "Ressources & Économie"
+    },
+    {
+      "type": "qr",
+      "id": "geographie-110",
+      "question": "Qu'est-ce que les délocalisations industrielles ?",
+      "reponse": "Le transfert de la production d'un pays riche vers un pays à moindre coût de main-d'œuvre.",
+      "explication": "Exemples : textile au Bangladesh/Vietnam, électronique en Chine, call centers en Inde. Avantages pour les entreprises : coûts réduits. Conséquences : chômage dans les pays riches, conditions sociales difficiles.",
+      "categorie": "Ressources & Économie"
+    },
+    {
+      "type": "qr",
+      "id": "geographie-111",
+      "question": "Pourquoi le Bangladesh est-il un géant du textile ?",
+      "reponse": "2e exportateur mondial de vêtements (après la Chine), avec des salaires très bas.",
+      "explication": "L'effondrement du Rana Plaza (2013 : 1 130 morts) a révélé les conditions de travail. Grandes marques (Zara, H&M, Gap) se fournissent au Bangladesh. Le secteur = 80% des exportations du pays.",
+      "categorie": "Ressources & Économie"
+    },
+    {
+      "type": "qr",
+      "id": "geographie-112",
+      "question": "Qu'est-ce que le tourisme représente dans l'économie mondiale ?",
+      "reponse": "Environ 10% du PIB mondial et 10% des emplois (avant la pandémie).",
+      "explication": "La France = 1er pays visité (90 millions de touristes/an). L'Espagne, USA, Italie, Turquie = grands pôles. Le tourisme de masse peut détruire l'environnement local et les cultures.",
+      "categorie": "Ressources & Économie"
+    },
+    {
+      "type": "qr",
+      "id": "geographie-113",
+      "question": "Quels sont les principaux producteurs de gaz naturel ?",
+      "reponse": "USA (1er), Russie (2e), Iran (3e), Qatar (4e), Canada.",
+      "explication": "Le Qatar exporte massivement du GNL (gaz naturel liquéfié). La Russie fournissait 40% du gaz européen avant 2022 (guerre Ukraine). L'Europe diversifie depuis : GNL américain, algérien, norvégien.",
+      "categorie": "Ressources & Économie"
+    },
+    {
+      "type": "qr",
+      "id": "geographie-114",
+      "question": "Qu'est-ce que la Route de la Soie chinoise (Belt and Road) ?",
+      "reponse": "Projet d'investissement massif de la Chine dans des infrastructures à travers l'Asie, l'Afrique et l'Europe.",
+      "explication": "Lancé par Xi Jinping en 2013. 140+ pays concernés. Ports (Hambourg, Pirée, Djibouti), routes, voies ferrées. Critiqué pour le 'piège de la dette' envers les pays pauvres.",
+      "categorie": "Ressources & Économie"
+    },
+    {
+      "type": "qr",
+      "id": "geographie-115",
+      "question": "Qu'est-ce que le commerce équitable ?",
+      "reponse": "Système garantissant aux producteurs du Sud un prix minimum et juste pour leur production.",
+      "explication": "Label Fairtrade/Max Havelaar. Concerne café, cacao, bananes, coton, thé, quinoa. Le consommateur paie un peu plus, l'argent va aux producteurs. Représente ~1% du commerce mondial.",
+      "categorie": "Ressources & Économie"
+    },
+    {
+      "type": "qr",
+      "id": "geographie-116",
+      "question": "Qu'est-ce que les paradis fiscaux ?",
+      "reponse": "Territoires offrant une très faible imposition aux entreprises et aux particuliers fortunés.",
+      "explication": "Exemples : îles Caïmans, Luxembourg, Suisse, Singapour, Monaco. Coût estimé : 200 à 600 milliards de dollars de recettes fiscales perdues par les États chaque année. L'OCDE impose un taux minimum de 15%.",
+      "categorie": "Ressources & Économie"
+    },
+    {
+      "type": "qr",
+      "id": "geographie-117",
+      "question": "Pourquoi le Maroc est-il stratégique pour les engrais mondiaux ?",
+      "reponse": "Le Maroc possède 75% des réserves mondiales de phosphate, indispensable aux engrais agricoles.",
+      "explication": "Sans phosphate, l'agriculture mondiale ne peut nourrir 8 milliards de personnes. OCP = entreprise marocaine, 1er exportateur mondial. Le phosphate = littéralement 'la nourriture des plantes'.",
+      "categorie": "Ressources & Économie"
+    },
+    {
+      "type": "qr",
+      "id": "geographie-118",
+      "question": "Qu'est-ce qu'une zone franche industrielle ?",
+      "reponse": "Zone où les règles économiques (taxes, droit du travail) sont allégées pour attirer les investisseurs étrangers.",
+      "explication": "Exemples : Shenzhen (Chine, modèle du genre), zones EPZ au Bangladesh, maquiladoras au Mexique. Attirent les usines étrangères mais critiquées pour les conditions de travail souvent précaires.",
+      "categorie": "Ressources & Économie"
+    },
+    {
+      "type": "qr",
+      "id": "geographie-119",
+      "question": "Quel pays est le 1er importateur de matières premières ?",
+      "reponse": "La Chine est le 1er importateur mondial : pétrole, minerai de fer, cuivre, soja...",
+      "explication": "La Chine importe massivement pour alimenter son industrie et nourrir 1,4 milliard de personnes. Cette dépendance explique sa politique d'investissement en Afrique, Amérique Latine et Moyen-Orient.",
+      "categorie": "Ressources & Économie"
+    },
+    {
+      "type": "qr",
+      "id": "geographie-120",
+      "question": "Qu'est-ce que l'économie de plantation héritée de la colonisation ?",
+      "reponse": "Système où les pays du Sud produisent des matières premières exportées sans transformation, au profit des pays du Nord.",
+      "explication": "Héritage de la colonisation : coton (Afrique), sucre (Caraïbes), thé (Inde). Crée une dépendance économique. Les pays du Sud réclament plus de valeur ajoutée en transformant eux-mêmes leurs ressources.",
+      "categorie": "Ressources & Économie"
+    },
+    {
+      "type": "qr",
+      "id": "geographie-121",
+      "question": "Quelles sont les grandes zones climatiques mondiales ?",
+      "reponse": "Tropical, aride (désertique), méditerranéen, tempéré, continental, polaire.",
+      "explication": "La latitude détermine en grande partie le climat. Le réchauffement climatique modifie ces zones. La zone tropicale (entre les tropiques) reçoit le plus de chaleur et de précipitations.",
+      "categorie": "Environnement"
+    },
+    {
+      "type": "qr",
+      "id": "geographie-122",
+      "question": "Qu'est-ce que l'effet de serre naturel ?",
+      "reponse": "Phénomène naturel où des gaz atmosphériques (CO₂, vapeur d'eau, méthane) retiennent la chaleur solaire.",
+      "explication": "Sans effet de serre naturel, la Terre serait à -18°C (au lieu de +15°C). C'est un phénomène vital. Le problème = l'effet de serre renforcé par les activités humaines (combustibles fossiles).",
+      "categorie": "Environnement"
+    },
+    {
+      "type": "qr",
+      "id": "geographie-123",
+      "question": "Qu'est-ce que le réchauffement climatique ?",
+      "reponse": "Augmentation de la température moyenne de la Terre à cause des émissions humaines de gaz à effet de serre.",
+      "explication": "La Terre a réchauffé de +1,1°C depuis l'ère pré-industrielle. Causes : transports, industrie, élevage, déforestation. Conséquences : sécheresses, inondations, montée des eaux, migrations climatiques.",
+      "categorie": "Environnement"
+    },
+    {
+      "type": "qr",
+      "id": "geographie-124",
+      "question": "Quelles sont les conséquences de la fonte des glaciers ?",
+      "reponse": "Montée des eaux, manque d'eau douce, déstabilisation des écosystèmes polaires, libération de méthane.",
+      "explication": "L'Arctique se réchauffe 4x plus vite que la moyenne mondiale. Le Groenland et l'Antarctique perdent des milliards de tonnes de glace par an. Le niveau des mers monte de 3,3 mm/an.",
+      "categorie": "Environnement"
+    },
+    {
+      "type": "qr",
+      "id": "geographie-125",
+      "question": "Quels pays sont les plus menacés par la montée des eaux ?",
+      "reponse": "Bangladesh, îles Maldives, Tuvalu, Kiribati, Pays-Bas, Vietnam, Égypte (delta du Nil).",
+      "explication": "Les îles du Pacifique (Tuvalu, Kiribati) pourraient disparaître d'ici 2100 avec +1 m de montée. Le Bangladesh (170 M d'hab. sur un delta) = catastrophe humanitaire annoncée.",
+      "categorie": "Environnement"
+    },
+    {
+      "type": "qr",
+      "id": "geographie-126",
+      "question": "Pourquoi la déforestation de l'Amazonie est-elle un problème mondial ?",
+      "reponse": "L'Amazonie absorbe des millions de tonnes de CO₂ et produit de l'oxygène pour la planète entière.",
+      "explication": "17% de la forêt déjà détruite depuis 1970. Causes : agriculture (soja, élevage), bois illégal, mines. Conséquences : disparition d'espèces, modification du cycle de l'eau, libération de CO₂.",
+      "categorie": "Environnement"
+    },
+    {
+      "type": "qr",
+      "id": "geographie-127",
+      "question": "Qu'est-ce que la désertification du Sahel ?",
+      "reponse": "L'avancée du désert vers le sud en Afrique, réduisant les terres agricoles disponibles.",
+      "explication": "Le Sahel (bande Afrique entre Sahara et savane) se dessèche à cause du réchauffement + surpâturage + déforestation. La 'Grande Muraille Verte' : projet pour planter 8 000 km d'arbres de Dakar à Djibouti.",
+      "categorie": "Environnement"
+    },
+    {
+      "type": "qr",
+      "id": "geographie-128",
+      "question": "Pourquoi la pollution plastique des océans est-elle alarmante ?",
+      "reponse": "8 millions de tonnes de plastique entrent dans les océans chaque année.",
+      "explication": "Le 7e continent de plastique dans le Pacifique fait 1,6 million km² (3x la France). Les microplastiques entrent dans la chaîne alimentaire (poissons puis humains). Principaux pollueurs : Asie du Sud-Est et Afrique.",
+      "categorie": "Environnement"
+    },
+    {
+      "type": "qr",
+      "id": "geographie-129",
+      "question": "Qu'est-ce que la pénurie d'eau douce ?",
+      "reponse": "Un manque d'eau potable touchant 2 milliards de personnes actuellement.",
+      "explication": "Seuls 3% de l'eau de la Terre est douce, dont 2% dans les glaciers. Agriculture = 70% de la consommation mondiale. Zones en stress hydrique : Moyen-Orient, Afrique du Nord, nord de l'Inde.",
+      "categorie": "Environnement"
+    },
+    {
+      "type": "qr",
+      "id": "geographie-130",
+      "question": "Qu'est-ce que la biodiversité et pourquoi est-elle menacée ?",
+      "reponse": "La diversité du vivant (espèces, gènes, écosystèmes), en crise à cause des activités humaines.",
+      "explication": "1 million d'espèces menacées d'extinction. Causes : déforestation, agriculture intensive, pollution, espèces invasives, changement climatique. Hotspots : Madagascar, Amazonie, Bornéo, Mésoamérique.",
+      "categorie": "Environnement"
+    },
+    {
+      "type": "qr",
+      "id": "geographie-131",
+      "question": "Qu'est-ce que l'Accord de Paris (COP21, 2015) ?",
+      "reponse": "Accord international visant à limiter le réchauffement climatique à +1,5°C (max. +2°C).",
+      "explication": "195 pays signataires. Chaque pays fixe ses propres objectifs (NDC). Non contraignant. Les émissions mondiales continuent de croître. Succès diplomatique mais mise en oeuvre insuffisante.",
+      "categorie": "Environnement"
+    },
+    {
+      "type": "qr",
+      "id": "geographie-132",
+      "question": "Qu'est-ce que l'empreinte carbone ?",
+      "reponse": "La quantité totale de CO₂ émise par une personne, entreprise ou pays (directement et indirectement).",
+      "explication": "Empreinte d'un Américain : ~15 t CO₂/an. Européen : ~7 t. Indien : ~2 t. Pour limiter à +1,5°C, il faudrait descendre à 2 t/an/personne. Transport aérien, viande rouge, chauffage = principaux postes.",
+      "categorie": "Environnement"
+    },
+    {
+      "type": "qr",
+      "id": "geographie-133",
+      "question": "Quelles sont les principales énergies renouvelables ?",
+      "reponse": "Solaire, éolien (terrestre et offshore), hydraulique, géothermique, biomasse, marémotrice.",
+      "explication": "L'hydraulique produit encore le plus d'électricité renouvelable (Chine, Canada, Brésil). Le solaire et l'éolien croissent le plus vite. L'Allemagne et la Chine sont leaders. France = 75% nucléaire.",
+      "categorie": "Environnement"
+    },
+    {
+      "type": "qr",
+      "id": "geographie-134",
+      "question": "Quels sont les pays les plus émetteurs de CO₂ ?",
+      "reponse": "Chine (1ère, ~30%), USA (2e, ~15%), Inde (3e, ~7%), Russie, Japon.",
+      "explication": "La Chine est le 1er émetteur total mais pas par habitant (USA = 2x plus par personne). Historiquement, l'Europe et les USA ont le plus émis. Les pays du Sud refusent des contraintes sans aide financière.",
+      "categorie": "Environnement"
+    },
+    {
+      "type": "qr",
+      "id": "geographie-135",
+      "question": "Qu'est-ce qu'El Niño ?",
+      "reponse": "Phénomène climatique naturel de réchauffement des eaux du Pacifique équatorial, perturbant le climat mondial.",
+      "explication": "Revient tous les 2-7 ans. Cause : sécheresses en Australie/Asie du Sud-Est, inondations en Amérique du Sud. Le réchauffement climatique intensifie El Niño. Son opposé = La Niña.",
+      "categorie": "Environnement"
+    },
+    {
+      "type": "qr",
+      "id": "geographie-136",
+      "question": "Qu'est-ce que le nucléaire comme source d'énergie ?",
+      "reponse": "Énergie produite par la fission de l'uranium, sans émissions de CO₂ pendant la production.",
+      "explication": "32 pays utilisent le nucléaire. France = 75% de son électricité nucléaire. Avantages : faible CO₂, grande puissance. Inconvénients : déchets radioactifs millénaires, risques (Tchernobyl 1986, Fukushima 2011).",
+      "categorie": "Environnement"
+    },
+    {
+      "type": "qr",
+      "id": "geographie-137",
+      "question": "Qu'est-ce que le développement durable ?",
+      "reponse": "Développement répondant aux besoins du présent sans compromettre les générations futures.",
+      "explication": "Défini en 1987 (rapport Brundtland). 3 piliers : économique (croissance), social (équité), environnemental (préservation). L'ONU a fixé 17 Objectifs de Développement Durable (ODD) pour 2030.",
+      "categorie": "Environnement"
+    },
+    {
+      "type": "qr",
+      "id": "geographie-138",
+      "question": "Qu'est-ce que la couche d'ozone et comment est-elle menacée ?",
+      "reponse": "Couche de la stratosphère filtrant les UV-B nocifs du soleil, menacée par les CFC.",
+      "explication": "Trou découvert en 1985 (Antarctique). Protocole de Montréal (1987) = interdiction des CFC. La couche se reconstitue lentement. Rare succès diplomatique environnemental.",
+      "categorie": "Environnement"
+    },
+    {
+      "type": "qr",
+      "id": "geographie-139",
+      "question": "Qu'est-ce qu'une aire protégée ?",
+      "reponse": "Zone terrestre ou marine protégée des activités humaines : parc national, réserve, site Ramsar...",
+      "explication": "17% des terres et 8% des océans sont protégés. Objectif : 30% d'ici 2030 (accord Kunming-Montréal 2022). Grandes aires : Patagonie, Sibérie, Arctique, désert de Gobi.",
+      "categorie": "Environnement"
+    },
+    {
+      "type": "qr",
+      "id": "geographie-140",
+      "question": "Qu'est-ce que l'économie circulaire ?",
+      "reponse": "Modèle économique éliminant les déchets en réutilisant, réparant et recyclant les matériaux.",
+      "explication": "Opposé à l'économie linéaire (extraire → produire → jeter). Exemples : textile de seconde main, électronique réparable, compostage. L'UE développe un cadre réglementaire ambitieux.",
+      "categorie": "Environnement"
+    },
+    {
+      "type": "qr",
+      "id": "geographie-141",
+      "question": "Qu'est-ce que l'équateur ?",
+      "reponse": "La ligne imaginaire à 0° de latitude divisant la Terre en hémisphère nord et hémisphère sud.",
+      "explication": "Pays traversés : Équateur, Brésil, Congo, Kenya, Indonésie, Gabon, Somalie... Il y fait chaud toute l'année (forêt tropicale). Circonférence de la Terre sur l'équateur : 40 075 km.",
+      "categorie": "Repères"
+    },
+    {
+      "type": "qr",
+      "id": "geographie-142",
+      "question": "Qu'est-ce que le tropique du Cancer et le tropique du Capricorne ?",
+      "reponse": "Cancer (23,5°N) et Capricorne (23,5°S) délimitent la zone intertropicale.",
+      "explication": "La zone intertropicale reçoit le soleil à la verticale deux fois par an. Pays traversés par le Cancer : Mexique, Sahara, Inde, Chine. Par le Capricorne : Chili, Brésil, Mozambique, Australie.",
+      "categorie": "Repères"
+    },
+    {
+      "type": "qr",
+      "id": "geographie-143",
+      "question": "Qu'est-ce que les cercles polaires ?",
+      "reponse": "Arctique (66,5°N) et Antarctique (66,5°S) délimitent les zones de nuit polaire et de soleil de minuit.",
+      "explication": "Au-delà : 'nuit polaire' (soleil jamais levé en hiver) et 'soleil de minuit' (soleil jamais couché en été). Pays arctiques : Norvège, Finlande, Suède, Russie, Canada, Alaska, Islande, Groenland.",
+      "categorie": "Repères"
+    },
+    {
+      "type": "qr",
+      "id": "geographie-144",
+      "question": "Qu'est-ce que le méridien de Greenwich ?",
+      "reponse": "La ligne à 0° de longitude passant par Greenwich (Londres), référence de l'heure mondiale (UTC/GMT).",
+      "explication": "Défini en 1884 lors d'une conférence internationale à Washington. Sert de référence pour toutes les longitudes. Paris est à 2°20'E de Greenwich. Tokyo à 139°45'E.",
+      "categorie": "Repères"
+    },
+    {
+      "type": "qr",
+      "id": "geographie-145",
+      "question": "Qu'est-ce que la latitude ?",
+      "reponse": "Distance angulaire d'un point par rapport à l'équateur, mesurée de 0° à 90° N ou S.",
+      "explication": "Plus on monte en latitude, plus il fait généralement froid. Paris ≈ 48°N. New York ≈ 40°N. Sydney ≈ 34°S. À l'équateur = 0°. Aux pôles = 90°. Mesurée depuis l'Antiquité par les ombres.",
+      "categorie": "Repères"
+    },
+    {
+      "type": "qr",
+      "id": "geographie-146",
+      "question": "Qu'est-ce que la longitude ?",
+      "reponse": "Distance angulaire d'un point par rapport au méridien de Greenwich, de 0° à 180° E ou O.",
+      "explication": "Les méridiens convergent aux pôles. 15° = 1 heure de décalage horaire. Le 180e méridien = la ligne internationale de changement de date (dans l'océan Pacifique).",
+      "categorie": "Repères"
+    },
+    {
+      "type": "qr",
+      "id": "geographie-147",
+      "question": "Comment se lisent les coordonnées géographiques ?",
+      "reponse": "Sous la forme (Latitude, Longitude) : ex. Paris = (48°51'N, 2°21'E).",
+      "explication": "Un GPS utilise ces coordonnées. 1 minute d'arc (1/60°) ≈ 1,8 km. La notion existe depuis Ptolémée (~150 ap. J.-C.). Aujourd'hui les satellites GPS précisent à quelques mètres.",
+      "categorie": "Repères"
+    },
+    {
+      "type": "qr",
+      "id": "geographie-148",
+      "question": "Qu'est-ce qu'un fuseau horaire ?",
+      "reponse": "Zone géographique où l'heure est la même. La Terre est divisée en 24 fuseaux de 15° chacun.",
+      "explication": "La France est à UTC+1 (hiver) / UTC+2 (été). La Russie couvre 11 fuseaux horaires ! La Chine n'en utilise qu'un seul malgré sa superficie. La ligne de changement de date est à 180° (Pacifique).",
+      "categorie": "Repères"
+    },
+    {
+      "type": "qr",
+      "id": "geographie-149",
+      "question": "Quelle est la différence entre hémisphère nord et hémisphère sud ?",
+      "reponse": "L'hémisphère nord concentre la plupart des terres et des populations. Le sud est surtout océanique.",
+      "explication": "90% de la population mondiale vit dans l'hémisphère nord. Les saisons sont inversées entre les deux hémisphères. Les cyclones tournent dans des sens opposés (force de Coriolis).",
+      "categorie": "Repères"
+    },
+    {
+      "type": "qr",
+      "id": "geographie-150",
+      "question": "Qu'est-ce que l'échelle d'une carte ?",
+      "reponse": "Le rapport entre une distance sur la carte et la distance réelle sur le terrain.",
+      "explication": "1/100 000 = 1 cm sur la carte = 1 km dans la réalité. Plus l'échelle est grande (1/10 000), plus les détails sont visibles mais moins la zone couverte est étendue. IGN France : cartes à 1/25 000.",
+      "categorie": "Repères"
+    },
+    {
+      "type": "qr",
+      "id": "geographie-151",
+      "question": "Qu'est-ce que la projection de Mercator ?",
+      "reponse": "Projection cartographique qui déforme les surfaces aux hautes latitudes (agrandit les pôles).",
+      "explication": "Créée en 1569. Utile pour la navigation (les angles sont corrects). Défaut : le Groenland semble aussi grand que l'Afrique alors qu'il est 14x plus petit ! La projection de Peters est une alternative plus juste.",
+      "categorie": "Repères"
+    },
+    {
+      "type": "qr",
+      "id": "geographie-152",
+      "question": "Qu'est-ce que les points cardinaux ?",
+      "reponse": "Les 4 directions principales : Nord (N), Sud (S), Est (E), Ouest (O).",
+      "explication": "Le nord magnétique (boussole) diffère légèrement du nord géographique (pôle). L'écart = déclinaison magnétique. Intermédiaires : NE, NO, SE, SO. Le Soleil se lève à l'Est et se couche à l'Ouest.",
+      "categorie": "Repères"
+    },
+    {
+      "type": "qr",
+      "id": "geographie-153",
+      "question": "Qu'est-ce que la ligne internationale de changement de date ?",
+      "reponse": "Ligne imaginaire dans le Pacifique (≈180e méridien) où la date change d'un jour.",
+      "explication": "En franchissant vers l'est : on recule d'un jour. Vers l'ouest : on avance d'un jour. C'est le principe du tour du monde de Philéas Fogg (Jules Verne). Kiribati l'a déplacée à l'est pour rester du même côté.",
+      "categorie": "Repères"
+    },
+    {
+      "type": "qr",
+      "id": "geographie-154",
+      "question": "Comment orienter une carte sans boussole ?",
+      "reponse": "En cherchant la position du Soleil (levant = Est) ou l'Étoile Polaire (Nord) dans l'hémisphère nord.",
+      "explication": "L'Étoile Polaire (Polaris) est pratiquement fixe dans le ciel. Dans l'hémisphère sud, on utilise la Croix du Sud. Les ombres à midi solaire pointent vers le nord (hémisphère nord).",
+      "categorie": "Repères"
+    },
+    {
+      "type": "qr",
+      "id": "geographie-155",
+      "question": "Qu'est-ce qu'une carte topographique ?",
+      "reponse": "Carte représentant le relief (altitude, pentes) à l'aide de courbes de niveau.",
+      "explication": "Les courbes de niveau relient les points de même altitude. Plus elles sont rapprochées, plus la pente est raide. L'IGN (France) produit des cartes topo à 1/25 000 utilisées par les randonneurs.",
+      "categorie": "Repères"
+    }
+  ]
+}

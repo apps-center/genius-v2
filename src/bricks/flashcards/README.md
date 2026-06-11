@@ -9,8 +9,13 @@ UN schema, DEUX modeles de carte distingues par le champ discriminant `type` :
 
 - `image` : recto = image plein cadre (sans rognage, hauteur naturelle comme la frise),
   verso = epoque + date + titre + description. Utilise par histoire, arts...
-- `qr` (question-reponse) : recto = categorie + question, verso = reponse + explication.
-  Utilise par maths, logique...
+- `qr` (question-reponse) : recto = categorie + question (+ illustration OPTIONNELLE),
+  verso = reponse + explication. Utilise par maths, logique, geographie...
+
+L'illustration d'une carte `qr` est ENTIEREMENT optionnelle (forme discriminee `image`
+bitmap ou `svg` inline). Absente, la carte s'affiche comme avant. Le SVG inline provient de
+NOS packs valides Zod et n'est rendu que s'il commence bien par `<svg` (jamais de source
+externe). Les decks deja migres n'en portent pas encore : on prepare l'architecture.
 
 ## Perimetre
 
@@ -64,14 +69,17 @@ Un deck = un pack. Forme validee par Zod (`src/core/content/flashcards.schema.ts
 ```
 { contentKind: 'flashcards', sujet, titre, cartes: [
     { type: 'image', id, image, titre, date, epoque?, description }
-  | { type: 'qr', id, question, reponse, explication?, categorie?, difficulte? }
+  | { type: 'qr', id, question, reponse, explication?, categorie?, difficulte?,
+      illustration?: { type: 'image', src } | { type: 'svg', svg } }
 ] }
 ```
 
-Deux decks pilotes migres (`src/content/flashcards/*.json`), un par modele :
+Decks migres (`src/content/flashcards/*.json`) :
 
 - `arts.json` : 48 cartes du deck Arts du legacy (modele image).
 - `logique.json` : 30 cartes du deck Logique du legacy (modele question-reponse).
+- `geographie.json` : 155 cartes du deck Geographie du legacy (modele qr, TEXTE seul :
+  les illustrations du legacy ne sont pas encore migrees).
 
 ## Strategie d'images (modele image)
 
@@ -88,10 +96,14 @@ Reproductible via :
 ```
 node scripts/migrer-flashcards.mjs arts
 node scripts/migrer-flashcards.mjs logique
+node scripts/migrer-flashcards.mjs geographie
 ```
 
 Le script lit le HTML legacy, convertit les tirets longs en tiret simple, copie/slugifie
-les images (modele image) et ecrit le pack dans `src/content/flashcards/`.
+les images (modele image) et ecrit le pack dans `src/content/flashcards/`. Pour les decks
+qr referencant des illustrations legacy (identifiants `SVG.*`, palette `C`), l'extraction
+evalue le tableau avec des stubs NEUTRES : la migration ne casse plus, et le champ
+`illustration` reste vide (on ne migre que le TEXTE pour l'instant).
 
 ## Ajouter un deck (passe ulterieure)
 
