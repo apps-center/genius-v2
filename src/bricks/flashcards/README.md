@@ -78,8 +78,13 @@ Decks migres (`src/content/flashcards/*.json`) :
 
 - `arts.json` : 48 cartes du deck Arts du legacy (modele image).
 - `logique.json` : 30 cartes du deck Logique du legacy (modele question-reponse).
-- `geographie.json` : 155 cartes du deck Geographie du legacy (modele qr, TEXTE seul :
-  les illustrations du legacy ne sont pas encore migrees).
+- `geographie.json` : 155 cartes du deck Geographie du legacy (modele qr).
+- `mathematiques.json` : 248 cartes du deck Mathematiques du legacy (modele qr).
+- `sciences.json` : 155 cartes du deck Sciences du legacy (modele qr).
+
+Les decks qr sont migres en TEXTE seul : les illustrations du legacy (SVG inline en maths,
+references `SVG.*` en geographie et sciences) ne sont pas encore migrees ; le champ
+`illustration` reste vide partout.
 
 ## Strategie d'images (modele image)
 
@@ -97,6 +102,8 @@ Reproductible via :
 node scripts/migrer-flashcards.mjs arts
 node scripts/migrer-flashcards.mjs logique
 node scripts/migrer-flashcards.mjs geographie
+node scripts/migrer-flashcards.mjs mathematiques
+node scripts/migrer-flashcards.mjs sciences
 ```
 
 Le script lit le HTML legacy, convertit les tirets longs en tiret simple, copie/slugifie

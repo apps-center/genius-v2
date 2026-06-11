@@ -1,0 +1,1991 @@
+{
+  "contentKind": "flashcards",
+  "sujet": "mathematiques",
+  "titre": "Mathématiques",
+  "cartes": [
+    {
+      "type": "qr",
+      "id": "mathematiques-1",
+      "question": "Qu'est-ce qu'une fraction irréductible ?",
+      "reponse": "Une fraction dont numérateur et dénominateur n'ont aucun diviseur commun autre que 1.",
+      "explication": "Ex : 3/4 est irréductible. 6/8 ne l'est pas car on peut simplifier par 2.",
+      "categorie": "Fractions"
+    },
+    {
+      "type": "qr",
+      "id": "mathematiques-2",
+      "question": "Comment simplifier 18/24 ?",
+      "reponse": "3/4",
+      "explication": "On divise numérateur et dénominateur par leur PGCD = 6. 18÷6 = 3, 24÷6 = 4.",
+      "categorie": "Fractions"
+    },
+    {
+      "type": "qr",
+      "id": "mathematiques-3",
+      "question": "Comment comparer 3/4 et 5/8 ?",
+      "reponse": "3/4 > 5/8",
+      "explication": "On réduit au même dénominateur : 3/4 = 6/8. Comme 6/8 > 5/8, alors 3/4 > 5/8.",
+      "categorie": "Fractions"
+    },
+    {
+      "type": "qr",
+      "id": "mathematiques-4",
+      "question": "Calculer 2/5 de 30.",
+      "reponse": "12",
+      "explication": "2/5 × 30 = 60/5 = 12.",
+      "categorie": "Fractions"
+    },
+    {
+      "type": "qr",
+      "id": "mathematiques-5",
+      "question": "Additionner 1/3 + 1/4.",
+      "reponse": "7/12",
+      "explication": "Dénominateur commun = 12. 4/12 + 3/12 = 7/12.",
+      "categorie": "Fractions"
+    },
+    {
+      "type": "qr",
+      "id": "mathematiques-6",
+      "question": "Multiplier 2/3 × 3/5.",
+      "reponse": "6/15 = 2/5",
+      "explication": "On multiplie numérateurs entre eux et dénominateurs entre eux : (2×3)/(3×5) = 6/15 = 2/5.",
+      "categorie": "Fractions"
+    },
+    {
+      "type": "qr",
+      "id": "mathematiques-7",
+      "question": "Écriture décimale de 7/10 ?",
+      "reponse": "0,7",
+      "explication": "7 divisé par 10 = 0,7.",
+      "categorie": "Fractions"
+    },
+    {
+      "type": "qr",
+      "id": "mathematiques-8",
+      "question": "Peut-on faire 1/2 + 1/3 = 2/5 ?",
+      "reponse": "Non !",
+      "explication": "On ne peut pas additionner les numérateurs et dénominateurs séparément. Résultat correct : 5/6.",
+      "categorie": "Fractions"
+    },
+    {
+      "type": "qr",
+      "id": "mathematiques-9",
+      "question": "Quelle fraction est égale à 0,25 ?",
+      "reponse": "1/4",
+      "explication": "0,25 = 25/100 = 1/4 après simplification par 25.",
+      "categorie": "Fractions"
+    },
+    {
+      "type": "qr",
+      "id": "mathematiques-10",
+      "question": "Calculer 3/4 - 1/3.",
+      "reponse": "5/12",
+      "explication": "Dénominateur commun = 12. 9/12 - 4/12 = 5/12.",
+      "categorie": "Fractions"
+    },
+    {
+      "type": "qr",
+      "id": "mathematiques-11",
+      "question": "Diviser 3/4 ÷ 2.",
+      "reponse": "3/8",
+      "explication": "Diviser par 2 = multiplier par 1/2. 3/4 × 1/2 = 3/8.",
+      "categorie": "Fractions"
+    },
+    {
+      "type": "qr",
+      "id": "mathematiques-12",
+      "question": "Simplifier 21/28.",
+      "reponse": "3/4",
+      "explication": "PGCD de 21 et 28 = 7. 21÷7 = 3, 28÷7 = 4.",
+      "categorie": "Fractions"
+    },
+    {
+      "type": "qr",
+      "id": "mathematiques-13",
+      "question": "Quelle fraction de 60 vaut 20 ?",
+      "reponse": "1/3",
+      "explication": "20/60 = 1/3.",
+      "categorie": "Fractions"
+    },
+    {
+      "type": "qr",
+      "id": "mathematiques-14",
+      "question": "Écrire 0,6 sous forme de fraction irréductible.",
+      "reponse": "3/5",
+      "explication": "0,6 = 6/10 = 3/5 en divisant par 2.",
+      "categorie": "Fractions"
+    },
+    {
+      "type": "qr",
+      "id": "mathematiques-15",
+      "question": "Comparer 2/3 et 3/5.",
+      "reponse": "2/3 > 3/5",
+      "explication": "Dénominateur commun = 15 : 10/15 > 9/15.",
+      "categorie": "Fractions"
+    },
+    {
+      "type": "qr",
+      "id": "mathematiques-16",
+      "question": "Critère de divisibilité par 3 ?",
+      "reponse": "La somme des chiffres est divisible par 3.",
+      "explication": "Ex : 123 → 1+2+3 = 6, divisible par 3. Donc 123 est divisible par 3.",
+      "categorie": "Arithmétique"
+    },
+    {
+      "type": "qr",
+      "id": "mathematiques-17",
+      "question": "Critère de divisibilité par 9 ?",
+      "reponse": "La somme des chiffres est divisible par 9.",
+      "explication": "Ex : 729 → 7+2+9 = 18, divisible par 9.",
+      "categorie": "Arithmétique"
+    },
+    {
+      "type": "qr",
+      "id": "mathematiques-18",
+      "question": "Critère de divisibilité par 2 ?",
+      "reponse": "Le dernier chiffre est pair (0, 2, 4, 6, 8).",
+      "explication": "Ex : 348 est divisible par 2 car il finit par 8.",
+      "categorie": "Arithmétique"
+    },
+    {
+      "type": "qr",
+      "id": "mathematiques-19",
+      "question": "29 est-il un nombre premier ?",
+      "reponse": "Oui.",
+      "explication": "29 n'a aucun diviseur entre 2 et 5 (√29 ≈ 5,4). Il est donc premier.",
+      "categorie": "Arithmétique"
+    },
+    {
+      "type": "qr",
+      "id": "mathematiques-20",
+      "question": "Qu'est-ce qu'un nombre premier ?",
+      "reponse": "Un entier > 1 qui n'a que 1 et lui-même comme diviseurs.",
+      "explication": "Exemples : 2, 3, 5, 7, 11, 13, 17, 19, 23...",
+      "categorie": "Arithmétique"
+    },
+    {
+      "type": "qr",
+      "id": "mathematiques-21",
+      "question": "Que vaut 10³ ?",
+      "reponse": "1 000",
+      "explication": "10³ = 10 × 10 × 10 = 1 000.",
+      "categorie": "Arithmétique"
+    },
+    {
+      "type": "qr",
+      "id": "mathematiques-22",
+      "question": "Décomposer 60 en facteurs premiers.",
+      "reponse": "60 = 2² × 3 × 5",
+      "explication": "60 ÷ 2 = 30 ÷ 2 = 15 ÷ 3 = 5. Donc 2² × 3 × 5.",
+      "categorie": "Arithmétique"
+    },
+    {
+      "type": "qr",
+      "id": "mathematiques-23",
+      "question": "Qu'est-ce qu'un multiple de 7 ?",
+      "reponse": "Un nombre obtenu en multipliant 7 par un entier.",
+      "explication": "Multiples de 7 : 7, 14, 21, 28, 35...",
+      "categorie": "Arithmétique"
+    },
+    {
+      "type": "qr",
+      "id": "mathematiques-24",
+      "question": "PGCD de 12 et 18 ?",
+      "reponse": "6",
+      "explication": "Diviseurs de 12 : 1,2,3,4,6,12. Diviseurs de 18 : 1,2,3,6,9,18. Le plus grand commun est 6.",
+      "categorie": "Arithmétique"
+    },
+    {
+      "type": "qr",
+      "id": "mathematiques-25",
+      "question": "Critère de divisibilité par 5 ?",
+      "reponse": "Le dernier chiffre est 0 ou 5.",
+      "explication": "Ex : 235 et 420 sont divisibles par 5.",
+      "categorie": "Arithmétique"
+    },
+    {
+      "type": "qr",
+      "id": "mathematiques-26",
+      "question": "Que vaut 2⁵ ?",
+      "reponse": "32",
+      "explication": "2⁵ = 2×2×2×2×2 = 32.",
+      "categorie": "Arithmétique"
+    },
+    {
+      "type": "qr",
+      "id": "mathematiques-27",
+      "question": "Que signifie a⁰ pour tout a ≠ 0 ?",
+      "reponse": "a⁰ = 1",
+      "explication": "Toute base non nulle élevée à la puissance 0 vaut 1.",
+      "categorie": "Arithmétique"
+    },
+    {
+      "type": "qr",
+      "id": "mathematiques-28",
+      "question": "Quel est l'opposé de - 8 ?",
+      "reponse": "+8",
+      "explication": "L'opposé d'un nombre change son signe.",
+      "categorie": "Nombres relatifs"
+    },
+    {
+      "type": "qr",
+      "id": "mathematiques-29",
+      "question": "Lequel est plus grand : - 3 ou - 7 ?",
+      "reponse": " - 3",
+      "explication": "Sur une droite graduée, - 3 est plus à droite que - 7.",
+      "categorie": "Nombres relatifs"
+    },
+    {
+      "type": "qr",
+      "id": "mathematiques-30",
+      "question": "Calculer ( - 4) + (+9).",
+      "reponse": "+5",
+      "explication": "On soustrait 4 à 9 : 9 - 4 = 5, et on garde le signe du plus grand en valeur absolue.",
+      "categorie": "Nombres relatifs"
+    },
+    {
+      "type": "qr",
+      "id": "mathematiques-31",
+      "question": "Calculer ( - 6) - (+2).",
+      "reponse": " - 8",
+      "explication": "Soustraire +2, c'est ajouter - 2 : - 6 + ( - 2) = - 8.",
+      "categorie": "Nombres relatifs"
+    },
+    {
+      "type": "qr",
+      "id": "mathematiques-32",
+      "question": "Signe de ( - 3) × ( - 5) ?",
+      "reponse": "Positif (+15)",
+      "explication": "Moins × Moins = Plus. Règle des signes pour la multiplication.",
+      "categorie": "Nombres relatifs"
+    },
+    {
+      "type": "qr",
+      "id": "mathematiques-33",
+      "question": "Calculer ( - 7) × (+2).",
+      "reponse": " - 14",
+      "explication": "Moins × Plus = Moins.",
+      "categorie": "Nombres relatifs"
+    },
+    {
+      "type": "qr",
+      "id": "mathematiques-34",
+      "question": "Distance à zéro de - 12 ?",
+      "reponse": "12",
+      "explication": "La distance à zéro est la valeur absolue : | - 12| = 12.",
+      "categorie": "Nombres relatifs"
+    },
+    {
+      "type": "qr",
+      "id": "mathematiques-35",
+      "question": "Calculer ( - 18) ÷ ( - 3).",
+      "reponse": "+6",
+      "explication": "Moins ÷ Moins = Plus. 18 ÷ 3 = 6.",
+      "categorie": "Nombres relatifs"
+    },
+    {
+      "type": "qr",
+      "id": "mathematiques-36",
+      "question": "Calculer (+5) - ( - 3).",
+      "reponse": "+8",
+      "explication": "Soustraire - 3, c'est ajouter +3 : 5 + 3 = 8.",
+      "categorie": "Nombres relatifs"
+    },
+    {
+      "type": "qr",
+      "id": "mathematiques-37",
+      "question": "Ranger dans l'ordre croissant : - 5 ; +2 ; - 1 ; 0.",
+      "reponse": " - 5 < - 1 < 0 < +2",
+      "explication": "On lit de gauche à droite sur la droite graduée.",
+      "categorie": "Nombres relatifs"
+    },
+    {
+      "type": "qr",
+      "id": "mathematiques-38",
+      "question": "Calculer - 3 + ( - 4) + 7.",
+      "reponse": "0",
+      "explication": " - 3 - 4 + 7 = - 7 + 7 = 0.",
+      "categorie": "Nombres relatifs"
+    },
+    {
+      "type": "qr",
+      "id": "mathematiques-39",
+      "question": "Que vaut ( - 1)⁴ ?",
+      "reponse": "+1",
+      "explication": "Exposant pair → résultat positif. ( - 1)⁴ = 1.",
+      "categorie": "Nombres relatifs"
+    },
+    {
+      "type": "qr",
+      "id": "mathematiques-40",
+      "question": "Que vaut ( - 2)³ ?",
+      "reponse": " - 8",
+      "explication": "Exposant impair → résultat négatif. - 2 × - 2 × - 2 = - 8.",
+      "categorie": "Nombres relatifs"
+    },
+    {
+      "type": "qr",
+      "id": "mathematiques-41",
+      "question": "Comment reconnaître un tableau de proportionnalité ?",
+      "reponse": "On passe d'une ligne à l'autre en multipliant toujours par le même nombre.",
+      "explication": "Ce nombre s'appelle le coefficient de proportionnalité.",
+      "categorie": "Proportionnalité"
+    },
+    {
+      "type": "qr",
+      "id": "mathematiques-42",
+      "question": "Si 1 cahier coûte 2 €, combien coûtent 7 cahiers ?",
+      "reponse": "14 €",
+      "explication": "7 × 2 = 14. Situation directement proportionnelle.",
+      "categorie": "Proportionnalité"
+    },
+    {
+      "type": "qr",
+      "id": "mathematiques-43",
+      "question": "Calculer 25 % de 80.",
+      "reponse": "20",
+      "explication": "25 % = 1/4. 80 ÷ 4 = 20.",
+      "categorie": "Proportionnalité"
+    },
+    {
+      "type": "qr",
+      "id": "mathematiques-44",
+      "question": "Calculer 10 % de 350.",
+      "reponse": "35",
+      "explication": "10 % = 1/10. 350 ÷ 10 = 35.",
+      "categorie": "Proportionnalité"
+    },
+    {
+      "type": "qr",
+      "id": "mathematiques-45",
+      "question": "Augmenter 60 de 20 %.",
+      "reponse": "72",
+      "explication": "20 % de 60 = 12. 60 + 12 = 72. (ou 60 × 1,2 = 72)",
+      "categorie": "Proportionnalité"
+    },
+    {
+      "type": "qr",
+      "id": "mathematiques-46",
+      "question": "Réduire 50 de 10 %.",
+      "reponse": "45",
+      "explication": "10 % de 50 = 5. 50 - 5 = 45. (ou 50 × 0,9 = 45)",
+      "categorie": "Proportionnalité"
+    },
+    {
+      "type": "qr",
+      "id": "mathematiques-47",
+      "question": "À l'échelle 1:100, 3 cm représentent combien en réalité ?",
+      "reponse": "3 m",
+      "explication": "3 cm × 100 = 300 cm = 3 m.",
+      "categorie": "Proportionnalité"
+    },
+    {
+      "type": "qr",
+      "id": "mathematiques-48",
+      "question": "Vitesse pour 150 km en 3 h ?",
+      "reponse": "50 km/h",
+      "explication": "v = d/t = 150/3 = 50 km/h.",
+      "categorie": "Proportionnalité"
+    },
+    {
+      "type": "qr",
+      "id": "mathematiques-49",
+      "question": "Quelle est la formule v = d/t en mots ?",
+      "reponse": "Vitesse = Distance ÷ Temps",
+      "explication": "On peut aussi écrire d = v × t et t = d/v.",
+      "categorie": "Proportionnalité"
+    },
+    {
+      "type": "qr",
+      "id": "mathematiques-50",
+      "question": "Quel multiplicateur correspond à +15 % ?",
+      "reponse": "× 1,15",
+      "explication": "Pour augmenter de 15 %, on multiplie par 1 + 0,15 = 1,15.",
+      "categorie": "Proportionnalité"
+    },
+    {
+      "type": "qr",
+      "id": "mathematiques-51",
+      "question": "Quel multiplicateur correspond à - 30 % ?",
+      "reponse": "× 0,70",
+      "explication": "Pour réduire de 30 %, on multiplie par 1 - 0,30 = 0,70.",
+      "categorie": "Proportionnalité"
+    },
+    {
+      "type": "qr",
+      "id": "mathematiques-52",
+      "question": "5 stylos coûtent 7,50 €. Combien coûte 1 stylo ?",
+      "reponse": "1,50 €",
+      "explication": "7,50 ÷ 5 = 1,50. Passage par l'unité.",
+      "categorie": "Proportionnalité"
+    },
+    {
+      "type": "qr",
+      "id": "mathematiques-53",
+      "question": "Traduire 'le double de x augmenté de 3'.",
+      "reponse": "2x + 3",
+      "explication": "Double = × 2, augmenté de 3 = + 3.",
+      "categorie": "Algèbre"
+    },
+    {
+      "type": "qr",
+      "id": "mathematiques-54",
+      "question": "Calculer 3x + 2 pour x = 4.",
+      "reponse": "14",
+      "explication": "3 × 4 + 2 = 12 + 2 = 14.",
+      "categorie": "Algèbre"
+    },
+    {
+      "type": "qr",
+      "id": "mathematiques-55",
+      "question": "Réduire 3x + 5x.",
+      "reponse": "8x",
+      "explication": "On additionne les termes semblables : (3+5)x = 8x.",
+      "categorie": "Algèbre"
+    },
+    {
+      "type": "qr",
+      "id": "mathematiques-56",
+      "question": "Développer 4(x + 2).",
+      "reponse": "4x + 8",
+      "explication": "On distribue : 4 × x + 4 × 2 = 4x + 8.",
+      "categorie": "Algèbre"
+    },
+    {
+      "type": "qr",
+      "id": "mathematiques-57",
+      "question": "Factoriser 5x + 10.",
+      "reponse": "5(x + 2)",
+      "explication": "On met 5 en facteur : 5 × x + 5 × 2 = 5(x + 2).",
+      "categorie": "Algèbre"
+    },
+    {
+      "type": "qr",
+      "id": "mathematiques-58",
+      "question": "Résoudre x + 7 = 12.",
+      "reponse": "x = 5",
+      "explication": "On soustrait 7 des deux membres : x = 12 - 7 = 5.",
+      "categorie": "Algèbre"
+    },
+    {
+      "type": "qr",
+      "id": "mathematiques-59",
+      "question": "Résoudre 3x = 18.",
+      "reponse": "x = 6",
+      "explication": "On divise les deux membres par 3 : x = 18 ÷ 3 = 6.",
+      "categorie": "Algèbre"
+    },
+    {
+      "type": "qr",
+      "id": "mathematiques-60",
+      "question": "Résoudre x/4 = 5.",
+      "reponse": "x = 20",
+      "explication": "On multiplie les deux membres par 4 : x = 5 × 4 = 20.",
+      "categorie": "Algèbre"
+    },
+    {
+      "type": "qr",
+      "id": "mathematiques-61",
+      "question": "Réduire 5a + 3b - 2a + b.",
+      "reponse": "3a + 4b",
+      "explication": "On regroupe les termes en a et en b : (5 - 2)a + (3+1)b.",
+      "categorie": "Algèbre"
+    },
+    {
+      "type": "qr",
+      "id": "mathematiques-62",
+      "question": "Développer 3(2x - 1).",
+      "reponse": "6x - 3",
+      "explication": "3 × 2x - 3 × 1 = 6x - 3.",
+      "categorie": "Algèbre"
+    },
+    {
+      "type": "qr",
+      "id": "mathematiques-63",
+      "question": "Résoudre 2x - 3 = 7.",
+      "reponse": "x = 5",
+      "explication": "2x = 7 + 3 = 10, puis x = 10 ÷ 2 = 5.",
+      "categorie": "Algèbre"
+    },
+    {
+      "type": "qr",
+      "id": "mathematiques-64",
+      "question": "Que signifie 'factoriser' ?",
+      "reponse": "Écrire une expression comme un produit de facteurs.",
+      "explication": "Ex : 6x + 9 = 3(2x + 3). On met le facteur commun en évidence.",
+      "categorie": "Algèbre"
+    },
+    {
+      "type": "qr",
+      "id": "mathematiques-65",
+      "question": "Résoudre 4x + 1 = 2x + 9.",
+      "reponse": "x = 4",
+      "explication": "4x - 2x = 9 - 1 → 2x = 8 → x = 4.",
+      "categorie": "Algèbre"
+    },
+    {
+      "type": "qr",
+      "id": "mathematiques-66",
+      "question": "Somme des angles d'un triangle ?",
+      "reponse": "180°",
+      "explication": "Toujours, quel que soit le triangle.",
+      "categorie": "Géométrie"
+    },
+    {
+      "type": "qr",
+      "id": "mathematiques-67",
+      "question": "Deux angles complémentaires font combien ?",
+      "reponse": "90°",
+      "explication": "Complémentaires = leur somme vaut 90°.",
+      "categorie": "Géométrie"
+    },
+    {
+      "type": "qr",
+      "id": "mathematiques-68",
+      "question": "Deux angles supplémentaires font combien ?",
+      "reponse": "180°",
+      "explication": "Supplémentaires = leur somme vaut 180°.",
+      "categorie": "Géométrie"
+    },
+    {
+      "type": "qr",
+      "id": "mathematiques-69",
+      "question": "Propriété des angles opposés par le sommet ?",
+      "reponse": "Ils sont égaux.",
+      "explication": "Quand deux droites se croisent, les angles en face sont égaux.",
+      "categorie": "Géométrie"
+    },
+    {
+      "type": "qr",
+      "id": "mathematiques-70",
+      "question": "Dans des droites parallèles, les angles alternes-internes sont…",
+      "reponse": "Égaux.",
+      "explication": "Propriété fondamentale des droites parallèles.",
+      "categorie": "Géométrie"
+    },
+    {
+      "type": "qr",
+      "id": "mathematiques-71",
+      "question": "Caractéristique d'un triangle équilatéral ?",
+      "reponse": "3 côtés égaux, 3 angles de 60°",
+      "explication": "Equi-latéral = côtés égaux.",
+      "categorie": "Géométrie"
+    },
+    {
+      "type": "qr",
+      "id": "mathematiques-72",
+      "question": "Dans un triangle rectangle, comment s'appelle le côté opposé à l'angle droit ?",
+      "reponse": "L'hypoténuse.",
+      "explication": "C'est toujours le plus long côté.",
+      "categorie": "Géométrie"
+    },
+    {
+      "type": "qr",
+      "id": "mathematiques-73",
+      "question": "Formule du périmètre d'un rectangle ?",
+      "reponse": "P = 2 × (L + l)",
+      "explication": "Ex : 5 cm × 3 cm → P = 2×8 = 16 cm.",
+      "categorie": "Géométrie"
+    },
+    {
+      "type": "qr",
+      "id": "mathematiques-74",
+      "question": "Formule de l'aire d'un rectangle ?",
+      "reponse": "A = L × l",
+      "explication": "Ex : 5 cm × 3 cm = 15 cm².",
+      "categorie": "Géométrie"
+    },
+    {
+      "type": "qr",
+      "id": "mathematiques-75",
+      "question": "Formule de l'aire d'un triangle ?",
+      "reponse": "A = (base × hauteur) ÷ 2",
+      "explication": "La hauteur est perpendiculaire à la base.",
+      "categorie": "Géométrie"
+    },
+    {
+      "type": "qr",
+      "id": "mathematiques-76",
+      "question": "Formule du périmètre d'un cercle ?",
+      "reponse": "P = 2πr",
+      "explication": "r = rayon, π ≈ 3,14.",
+      "categorie": "Géométrie"
+    },
+    {
+      "type": "qr",
+      "id": "mathematiques-77",
+      "question": "Formule de l'aire d'un disque ?",
+      "reponse": "A = πr²",
+      "explication": "Ex : r = 3 cm → A ≈ 28,3 cm².",
+      "categorie": "Géométrie"
+    },
+    {
+      "type": "qr",
+      "id": "mathematiques-78",
+      "question": "Relation entre rayon et diamètre ?",
+      "reponse": "d = 2r",
+      "explication": "Ou encore r = d/2.",
+      "categorie": "Géométrie"
+    },
+    {
+      "type": "qr",
+      "id": "mathematiques-79",
+      "question": "Définition d'un parallélogramme ?",
+      "reponse": "Côtés opposés parallèles et égaux.",
+      "explication": "Rectangle, losange, carré en sont des cas particuliers.",
+      "categorie": "Géométrie"
+    },
+    {
+      "type": "qr",
+      "id": "mathematiques-80",
+      "question": "Propriété des diagonales d'un parallélogramme ?",
+      "reponse": "Elles se coupent en leur milieu.",
+      "explication": "Propriété utile pour le reconnaître.",
+      "categorie": "Géométrie"
+    },
+    {
+      "type": "qr",
+      "id": "mathematiques-81",
+      "question": "Un carré est-il à la fois rectangle et losange ?",
+      "reponse": "Oui.",
+      "explication": "4 angles droits + 4 côtés égaux.",
+      "categorie": "Géométrie"
+    },
+    {
+      "type": "qr",
+      "id": "mathematiques-82",
+      "question": "La symétrie axiale conserve-t-elle les longueurs ?",
+      "reponse": "Oui.",
+      "explication": "La symétrie est une isométrie : distances, aires et angles conservés.",
+      "categorie": "Géométrie"
+    },
+    {
+      "type": "qr",
+      "id": "mathematiques-83",
+      "question": "Dans A(3 ; - 2), quelle est l'abscisse ?",
+      "reponse": "3",
+      "explication": "Dans (x ; y), l'abscisse x est toujours en premier.",
+      "categorie": "Géométrie"
+    },
+    {
+      "type": "qr",
+      "id": "mathematiques-84",
+      "question": "Qu'est-ce que le milieu d'un segment ?",
+      "reponse": "Point à égale distance des deux extrémités.",
+      "explication": "xM = (xA + xB)/2 et yM = (yA + yB)/2.",
+      "categorie": "Géométrie"
+    },
+    {
+      "type": "qr",
+      "id": "mathematiques-85",
+      "question": "Aire d'un parallélogramme ?",
+      "reponse": "A = base × hauteur",
+      "explication": "La hauteur est perpendiculaire à la base (pas le côté oblique).",
+      "categorie": "Géométrie"
+    },
+    {
+      "type": "qr",
+      "id": "mathematiques-101",
+      "question": "Théorème de Pythagore - complète la formule.",
+      "reponse": "c² = a² + b²",
+      "explication": "Dans un triangle rectangle, le carré de l'hypoténuse est égal à la somme des carrés des deux autres côtés.",
+      "categorie": "Géométrie"
+    },
+    {
+      "type": "qr",
+      "id": "mathematiques-86",
+      "question": "1 m = combien de cm ?",
+      "reponse": "100 cm",
+      "explication": "Centi = 1/100. Donc 1 m = 100 cm.",
+      "categorie": "Grandeurs"
+    },
+    {
+      "type": "qr",
+      "id": "mathematiques-87",
+      "question": "1 km = combien de m ?",
+      "reponse": "1 000 m",
+      "explication": "Kilo = 1 000. Donc 1 km = 1 000 m.",
+      "categorie": "Grandeurs"
+    },
+    {
+      "type": "qr",
+      "id": "mathematiques-88",
+      "question": "1 m² = combien de cm² ?",
+      "reponse": "10 000 cm²",
+      "explication": "1 m = 100 cm, donc 1 m² = 100 × 100 = 10 000 cm².",
+      "categorie": "Grandeurs"
+    },
+    {
+      "type": "qr",
+      "id": "mathematiques-89",
+      "question": "1 cm³ = combien de mL ?",
+      "reponse": "1 mL",
+      "explication": "Correspondance directe : 1 cm³ = 1 mL = 1 cc.",
+      "categorie": "Grandeurs"
+    },
+    {
+      "type": "qr",
+      "id": "mathematiques-90",
+      "question": "1 L = combien de cm³ ?",
+      "reponse": "1 000 cm³",
+      "explication": "1 L = 1 dm³ = 1 000 cm³.",
+      "categorie": "Grandeurs"
+    },
+    {
+      "type": "qr",
+      "id": "mathematiques-91",
+      "question": "Volume d'un cube d'arête 3 cm ?",
+      "reponse": "27 cm³",
+      "explication": "V = a³ = 3³ = 3 × 3 × 3 = 27 cm³.",
+      "categorie": "Grandeurs"
+    },
+    {
+      "type": "qr",
+      "id": "mathematiques-92",
+      "question": "Volume d'un pavé droit (formule) ?",
+      "reponse": "V = longueur × largeur × hauteur",
+      "explication": "Ex : 4 cm × 3 cm × 2 cm = 24 cm³.",
+      "categorie": "Grandeurs"
+    },
+    {
+      "type": "qr",
+      "id": "mathematiques-93",
+      "question": "1 heure = combien de secondes ?",
+      "reponse": "3 600 secondes",
+      "explication": "1 h = 60 min × 60 s = 3 600 s.",
+      "categorie": "Grandeurs"
+    },
+    {
+      "type": "qr",
+      "id": "mathematiques-94",
+      "question": "1 kg = combien de g ?",
+      "reponse": "1 000 g",
+      "explication": "Kilo = 1 000. Donc 1 kg = 1 000 g.",
+      "categorie": "Grandeurs"
+    },
+    {
+      "type": "qr",
+      "id": "mathematiques-95",
+      "question": "Convertir 2,5 km en m.",
+      "reponse": "2 500 m",
+      "explication": "2,5 × 1 000 = 2 500 m.",
+      "categorie": "Grandeurs"
+    },
+    {
+      "type": "qr",
+      "id": "mathematiques-96",
+      "question": "Convertir 3h 45min en minutes.",
+      "reponse": "225 minutes",
+      "explication": "3 × 60 + 45 = 180 + 45 = 225 min.",
+      "categorie": "Grandeurs"
+    },
+    {
+      "type": "qr",
+      "id": "mathematiques-97",
+      "question": "Aire d'un triangle de base 8 cm et hauteur 5 cm ?",
+      "reponse": "20 cm²",
+      "explication": "A = (8 × 5) ÷ 2 = 40 ÷ 2 = 20 cm².",
+      "categorie": "Grandeurs"
+    },
+    {
+      "type": "qr",
+      "id": "mathematiques-98",
+      "question": "Périmètre d'un carré de côté 6 cm ?",
+      "reponse": "24 cm",
+      "explication": "P = 4 × 6 = 24 cm.",
+      "categorie": "Grandeurs"
+    },
+    {
+      "type": "qr",
+      "id": "mathematiques-99",
+      "question": "1 dm = combien de mm ?",
+      "reponse": "100 mm",
+      "explication": "1 dm = 10 cm = 100 mm.",
+      "categorie": "Grandeurs"
+    },
+    {
+      "type": "qr",
+      "id": "mathematiques-100",
+      "question": "Convertir 450 min en heures et minutes.",
+      "reponse": "7 h 30 min",
+      "explication": "450 ÷ 60 = 7 h et reste 30 min.",
+      "categorie": "Grandeurs"
+    },
+    {
+      "type": "qr",
+      "id": "mathematiques-102",
+      "question": "Quel type d'angle est représenté ici ?",
+      "reponse": "Angle droit - exactement 90°",
+      "explication": "Un angle droit forme un coin parfait. On le repère grâce au petit carré dessiné au sommet.",
+      "categorie": "Géométrie"
+    },
+    {
+      "type": "qr",
+      "id": "mathematiques-103",
+      "question": "Quel type d'angle est représenté ici ?",
+      "reponse": "Angle aigu - inférieur à 90°",
+      "explication": "Un angle aigu est plus petit qu'un angle droit. Il est 'pointu'.",
+      "categorie": "Géométrie"
+    },
+    {
+      "type": "qr",
+      "id": "mathematiques-104",
+      "question": "Quel type d'angle est représenté ici ?",
+      "reponse": "Angle obtus - entre 90° et 180°",
+      "explication": "Un angle obtus est plus grand qu'un angle droit mais plus petit qu'un angle plat.",
+      "categorie": "Géométrie"
+    },
+    {
+      "type": "qr",
+      "id": "mathematiques-105",
+      "question": "Quel type d'angle est représenté ici ?",
+      "reponse": "Angle plat - exactement 180°",
+      "explication": "Un angle plat est une ligne droite. Les deux côtés forment une droite complète.",
+      "categorie": "Géométrie"
+    },
+    {
+      "type": "qr",
+      "id": "mathematiques-106",
+      "question": "Range ces angles du plus petit au plus grand : obtus, droit, aigu, plat.",
+      "reponse": "Aigu < Droit < Obtus < Plat",
+      "explication": "Aigu : < 90° / Droit : = 90° / Obtus : entre 90° et 180° / Plat : = 180°",
+      "categorie": "Géométrie"
+    },
+    {
+      "type": "qr",
+      "id": "mathematiques-107",
+      "question": "4 × 8 = ?",
+      "reponse": "32",
+      "explication": "4 × 8 = 32. Astuce : 4 × 8 = 4 × 4 × 2 = 16 × 2 = 32.",
+      "categorie": "Calcul"
+    },
+    {
+      "type": "qr",
+      "id": "mathematiques-108",
+      "question": "6 × 7 = ?",
+      "reponse": "42",
+      "explication": "6 × 7 = 42. Moyen mnémotechnique : 5, 6, 7, 8 → 56 = 7 × 8 et 42 = 6 × 7.",
+      "categorie": "Calcul"
+    },
+    {
+      "type": "qr",
+      "id": "mathematiques-109",
+      "question": "8 × 9 = ?",
+      "reponse": "72",
+      "explication": "8 × 9 = 72. Astuce : 9 × n - les doigts à gauche du nième = dizaines, à droite = unités.",
+      "categorie": "Calcul"
+    },
+    {
+      "type": "qr",
+      "id": "mathematiques-110",
+      "question": "6 × 9 = ?",
+      "reponse": "54",
+      "explication": "6 × 9 = 54. Vérification : 5 + 4 = 9 ✓. Toutes les multiples de 9 ont leurs chiffres dont la somme vaut 9.",
+      "categorie": "Calcul"
+    },
+    {
+      "type": "qr",
+      "id": "mathematiques-111",
+      "question": "3 × 9 = ?",
+      "reponse": "27",
+      "explication": "3 × 9 = 27. Vérification : 2 + 7 = 9 ✓.",
+      "categorie": "Calcul"
+    },
+    {
+      "type": "qr",
+      "id": "mathematiques-112",
+      "question": "7 × 8 = ?",
+      "reponse": "56",
+      "explication": "7 × 8 = 56. Moyen mnémotechnique : 5, 6, 7, 8 - 56 = 7 × 8.",
+      "categorie": "Calcul"
+    },
+    {
+      "type": "qr",
+      "id": "mathematiques-113",
+      "question": "9 × 9 = ?",
+      "reponse": "81",
+      "explication": "9 × 9 = 81. Vérification : 8 + 1 = 9 ✓.",
+      "categorie": "Calcul"
+    },
+    {
+      "type": "qr",
+      "id": "mathematiques-114",
+      "question": "7 × 6 = ?",
+      "reponse": "42",
+      "explication": "7 × 6 = 42. La multiplication est commutative : 7 × 6 = 6 × 7.",
+      "categorie": "Calcul"
+    },
+    {
+      "type": "qr",
+      "id": "mathematiques-115",
+      "question": "8 × 7 = ?",
+      "reponse": "56",
+      "explication": "8 × 7 = 56. Même résultat que 7 × 8 (commutativité).",
+      "categorie": "Calcul"
+    },
+    {
+      "type": "qr",
+      "id": "mathematiques-116",
+      "question": "9 × 6 = ?",
+      "reponse": "54",
+      "explication": "9 × 6 = 54. Vérification : 5 + 4 = 9 ✓.",
+      "categorie": "Calcul"
+    },
+    {
+      "type": "qr",
+      "id": "mathematiques-117",
+      "question": "8 × 4 = ?",
+      "reponse": "32",
+      "explication": "8 × 4 = 32. Même que 4 × 8 par commutativité.",
+      "categorie": "Calcul"
+    },
+    {
+      "type": "qr",
+      "id": "mathematiques-118",
+      "question": "7 × 9 = ?",
+      "reponse": "63",
+      "explication": "7 × 9 = 63. Vérification : 6 + 3 = 9 ✓.",
+      "categorie": "Calcul"
+    },
+    {
+      "type": "qr",
+      "id": "mathematiques-119",
+      "question": "6 × 8 = ?",
+      "reponse": "48",
+      "explication": "6 × 8 = 48. Astuce : 6 × 8 = 6 × 4 × 2 = 24 × 2 = 48.",
+      "categorie": "Calcul"
+    },
+    {
+      "type": "qr",
+      "id": "mathematiques-120",
+      "question": "9 × 4 = ?",
+      "reponse": "36",
+      "explication": "9 × 4 = 36. Vérification : 3 + 6 = 9 ✓.",
+      "categorie": "Calcul"
+    },
+    {
+      "type": "qr",
+      "id": "mathematiques-121",
+      "question": "7 × 7 = ?",
+      "reponse": "49",
+      "explication": "7 × 7 = 49. Le carré de 7. Pense à 50 - 1 = 49.",
+      "categorie": "Calcul"
+    },
+    {
+      "type": "qr",
+      "id": "mathematiques-122",
+      "question": "Quelle est la formule de l'aire d'un rectangle ?",
+      "reponse": "Aire = longueur × largeur",
+      "explication": "L'aire s'exprime en unités carrées (cm², m²…). Exemple : 5 cm × 3 cm = 15 cm².",
+      "categorie": "Grandeurs"
+    },
+    {
+      "type": "qr",
+      "id": "mathematiques-123",
+      "question": "Aire d'un rectangle de 7 cm × 4 cm ?",
+      "reponse": "28 cm²",
+      "explication": "A = 7 × 4 = 28 cm².",
+      "categorie": "Grandeurs"
+    },
+    {
+      "type": "qr",
+      "id": "mathematiques-124",
+      "question": "Aire d'un rectangle de 12 m × 5 m ?",
+      "reponse": "60 m²",
+      "explication": "A = 12 × 5 = 60 m².",
+      "categorie": "Grandeurs"
+    },
+    {
+      "type": "qr",
+      "id": "mathematiques-125",
+      "question": "Un rectangle a une aire de 48 cm² et une largeur de 6 cm. Quelle est sa longueur ?",
+      "reponse": "8 cm",
+      "explication": "L = Aire ÷ largeur = 48 ÷ 6 = 8 cm.",
+      "categorie": "Grandeurs"
+    },
+    {
+      "type": "qr",
+      "id": "mathematiques-126",
+      "question": "Formule du volume d'un cube d'arête a ?",
+      "reponse": "V = a³  (a × a × a)",
+      "explication": "Exemple : cube d'arête 4 cm → V = 4³ = 64 cm³.",
+      "categorie": "Grandeurs"
+    },
+    {
+      "type": "qr",
+      "id": "mathematiques-127",
+      "question": "Volume d'un cube d'arête 5 cm ?",
+      "reponse": "125 cm³",
+      "explication": "V = 5³ = 5 × 5 × 5 = 125 cm³.",
+      "categorie": "Grandeurs"
+    },
+    {
+      "type": "qr",
+      "id": "mathematiques-128",
+      "question": "Formule du volume d'un pavé droit ?",
+      "reponse": "V = longueur × largeur × hauteur",
+      "explication": "Exemple : 6 cm × 4 cm × 3 cm = 72 cm³.",
+      "categorie": "Grandeurs"
+    },
+    {
+      "type": "qr",
+      "id": "mathematiques-129",
+      "question": "Volume d'un pavé droit de 8 cm × 3 cm × 5 cm ?",
+      "reponse": "120 cm³",
+      "explication": "V = 8 × 3 × 5 = 120 cm³.",
+      "categorie": "Grandeurs"
+    },
+    {
+      "type": "qr",
+      "id": "mathematiques-130",
+      "question": "Formule du volume d'un cylindre ?",
+      "reponse": "V = π × r² × h",
+      "explication": "r = rayon de la base, h = hauteur. Exemple : r = 3 cm, h = 10 cm → V = π × 9 × 10 ≈ 282,7 cm³.",
+      "categorie": "Grandeurs"
+    },
+    {
+      "type": "qr",
+      "id": "mathematiques-131",
+      "question": "Volume d'un cylindre de rayon 2 cm et hauteur 6 cm ? (π ≈ 3,14)",
+      "reponse": "≈ 75,4 cm³",
+      "explication": "V = π × 2² × 6 = π × 4 × 6 = 24π ≈ 75,4 cm³.",
+      "categorie": "Grandeurs"
+    },
+    {
+      "type": "qr",
+      "id": "mathematiques-132",
+      "question": "Un cylindre a un rayon de 5 cm et une hauteur de 10 cm. Quel est son volume ? (π ≈ 3,14)",
+      "reponse": "≈ 785 cm³",
+      "explication": "V = π × 5² × 10 = π × 25 × 10 = 250π ≈ 785 cm³.",
+      "categorie": "Grandeurs"
+    },
+    {
+      "type": "qr",
+      "id": "mathematiques-133",
+      "question": "Quelle est la valeur du chiffre 7 dans 3 724 ?",
+      "reponse": "700 (7 centaines)",
+      "explication": "Dans 3 724 : 3 milliers, 7 centaines, 2 dizaines, 4 unités. Le 7 vaut 7 × 100 = 700.",
+      "categorie": "Numération"
+    },
+    {
+      "type": "qr",
+      "id": "mathematiques-134",
+      "question": "Comment s'écrit 'quatre virgule cinq' en chiffres ?",
+      "reponse": "4,5",
+      "explication": "La virgule sépare la partie entière (4) des dixièmes (5). 4,5 = 4 + 5/10.",
+      "categorie": "Numération"
+    },
+    {
+      "type": "qr",
+      "id": "mathematiques-135",
+      "question": "Ranger dans l'ordre croissant : 3,7 ; 3,07 ; 3,70 ; 3,007.",
+      "reponse": "3,007 < 3,07 < 3,7 = 3,70",
+      "explication": "On compare chiffre par chiffre après la virgule. 3,70 = 3,7. Attention : 3,07 < 3,7 car 0 dixième < 7 dixièmes.",
+      "categorie": "Numération"
+    },
+    {
+      "type": "qr",
+      "id": "mathematiques-136",
+      "question": "Arrondir 4,67 à l'unité.",
+      "reponse": "5",
+      "explication": "Le chiffre des dixièmes est 6 ≥ 5, donc on arrondit à l'unité supérieure : 5.",
+      "categorie": "Numération"
+    },
+    {
+      "type": "qr",
+      "id": "mathematiques-137",
+      "question": "Arrondir 12,34 au dixième.",
+      "reponse": "12,3",
+      "explication": "Le chiffre des centièmes est 4 < 5, donc on garde le dixième tel quel : 12,3.",
+      "categorie": "Numération"
+    },
+    {
+      "type": "qr",
+      "id": "mathematiques-138",
+      "question": "Quelle est la priorité des opérations ?",
+      "reponse": "× et ÷ avant + et - , parenthèses en premier.",
+      "explication": "Dans 3 + 4 × 2, on calcule d'abord 4 × 2 = 8, puis 3 + 8 = 11. Avec parenthèses : (3+4) × 2 = 14.",
+      "categorie": "Calcul"
+    },
+    {
+      "type": "qr",
+      "id": "mathematiques-139",
+      "question": "Calculer 15 - 7 + 3.",
+      "reponse": "11",
+      "explication": "On calcule de gauche à droite : 15 - 7 = 8, puis 8 + 3 = 11.",
+      "categorie": "Calcul"
+    },
+    {
+      "type": "qr",
+      "id": "mathematiques-140",
+      "question": "Quelle fraction représente la moitié ?",
+      "reponse": "1/2",
+      "explication": "Partager en 2 parts égales et en prendre 1 = 1/2. De même, 1/4 = un quart, 3/4 = trois quarts.",
+      "categorie": "Fractions"
+    },
+    {
+      "type": "qr",
+      "id": "mathematiques-141",
+      "question": "3/4 de 20, c'est combien ?",
+      "reponse": "15",
+      "explication": "1/4 de 20 = 5. Donc 3/4 = 3 × 5 = 15.",
+      "categorie": "Fractions"
+    },
+    {
+      "type": "qr",
+      "id": "mathematiques-142",
+      "question": "Comment tracer une droite perpendiculaire à une autre ?",
+      "reponse": "Utiliser une équerre - l'angle doit être de 90°.",
+      "explication": "Les droites perpendiculaires forment un angle droit (90°). On note l'angle droit avec un petit carré.",
+      "categorie": "Géométrie"
+    },
+    {
+      "type": "qr",
+      "id": "mathematiques-143",
+      "question": "Comment reconnaître deux droites parallèles ?",
+      "reponse": "Elles ne se croisent jamais et sont à égale distance l'une de l'autre.",
+      "explication": "On utilise une règle + équerre pour vérifier que la distance entre elles reste constante. On les note d ∥ d'.",
+      "categorie": "Géométrie"
+    },
+    {
+      "type": "qr",
+      "id": "mathematiques-144",
+      "question": "Qu'est-ce qu'un triangle isocèle ?",
+      "reponse": "Un triangle qui a exactement deux côtés égaux.",
+      "explication": "Les deux angles à la base (opposés aux côtés égaux) sont aussi égaux. À ne pas confondre avec équilatéral (3 côtés égaux).",
+      "categorie": "Géométrie"
+    },
+    {
+      "type": "qr",
+      "id": "mathematiques-145",
+      "question": "Additionner 3/7 + 2/7.",
+      "reponse": "5/7",
+      "explication": "Même dénominateur → on additionne juste les numérateurs : 3 + 2 = 5. Le dénominateur reste 7.",
+      "categorie": "Fractions"
+    },
+    {
+      "type": "qr",
+      "id": "mathematiques-146",
+      "question": "Calculer 5/8 - 1/8.",
+      "reponse": "4/8 = 1/2",
+      "explication": "Même dénominateur : 5 - 1 = 4. On obtient 4/8 que l'on simplifie par 4 : = 1/2.",
+      "categorie": "Fractions"
+    },
+    {
+      "type": "qr",
+      "id": "mathematiques-147",
+      "question": "Critère de divisibilité par 4 ?",
+      "reponse": "Les deux derniers chiffres forment un nombre divisible par 4.",
+      "explication": "Ex : 312 → les deux derniers chiffres = 12. 12 ÷ 4 = 3 → 312 est divisible par 4.",
+      "categorie": "Arithmétique"
+    },
+    {
+      "type": "qr",
+      "id": "mathematiques-148",
+      "question": "Critère de divisibilité par 6 ?",
+      "reponse": "Divisible par 2 ET par 3 en même temps.",
+      "explication": "Ex : 42 → pair (div. par 2) ET 4+2=6 (div. par 3) → 42 est divisible par 6.",
+      "categorie": "Arithmétique"
+    },
+    {
+      "type": "qr",
+      "id": "mathematiques-149",
+      "question": "Critère de divisibilité par 10 ?",
+      "reponse": "Le nombre se termine par 0.",
+      "explication": "Ex : 340, 1 500, 70 sont divisibles par 10. 341 ne l'est pas.",
+      "categorie": "Arithmétique"
+    },
+    {
+      "type": "qr",
+      "id": "mathematiques-150",
+      "question": "Qu'est-ce que le PPCM de deux nombres ?",
+      "reponse": "Le Plus Petit Multiple Commun.",
+      "explication": "PPCM(4, 6) = 12 car 12 est le plus petit nombre divisible à la fois par 4 et par 6. Utile pour réduire au même dénominateur.",
+      "categorie": "Arithmétique"
+    },
+    {
+      "type": "qr",
+      "id": "mathematiques-151",
+      "question": "Calculer le PPCM de 3 et 4.",
+      "reponse": "12",
+      "explication": "Multiples de 3 : 3, 6, 9, 12... Multiples de 4 : 4, 8, 12... Le premier en commun est 12.",
+      "categorie": "Arithmétique"
+    },
+    {
+      "type": "qr",
+      "id": "mathematiques-152",
+      "question": "Trouver la 4e proportionnelle : 3/5 = x/20.",
+      "reponse": "x = 12",
+      "explication": "Dans un tableau proportionnel, 3 × 20 = 5 × x → 60 = 5x → x = 12. Vérification : 3/5 = 12/20 = 0,6.",
+      "categorie": "Proportionnalité"
+    },
+    {
+      "type": "qr",
+      "id": "mathematiques-153",
+      "question": "Qu'est-ce qu'un triangle isocèle ?",
+      "reponse": "Un triangle avec exactement deux côtés égaux.",
+      "explication": "Les angles à la base (en face des côtés égaux) sont égaux. Ex : triangle avec côtés 5 cm, 5 cm et 3 cm.",
+      "categorie": "Géométrie"
+    },
+    {
+      "type": "qr",
+      "id": "mathematiques-154",
+      "question": "Aire d'un losange de diagonales 8 cm et 6 cm ?",
+      "reponse": "24 cm²",
+      "explication": "Aire losange = (d₁ × d₂) ÷ 2 = (8 × 6) ÷ 2 = 48 ÷ 2 = 24 cm².",
+      "categorie": "Géométrie"
+    },
+    {
+      "type": "qr",
+      "id": "mathematiques-155",
+      "question": "1 m² = combien de dm² ?",
+      "reponse": "100 dm²",
+      "explication": "1 m = 10 dm → 1 m² = 10 × 10 = 100 dm². Chaque changement d'unité de longueur × ou ÷ par 10, donc pour les aires × ou ÷ par 100.",
+      "categorie": "Grandeurs"
+    },
+    {
+      "type": "qr",
+      "id": "mathematiques-156",
+      "question": "1 dm² = combien de cm² ?",
+      "reponse": "100 cm²",
+      "explication": "1 dm = 10 cm → 1 dm² = 10 × 10 = 100 cm². Pour passer de m² à cm², on multiplie par 10 000.",
+      "categorie": "Grandeurs"
+    },
+    {
+      "type": "qr",
+      "id": "mathematiques-157",
+      "question": "Comment calculer la moyenne d'une série de nombres ?",
+      "reponse": "Somme des valeurs ÷ nombre de valeurs.",
+      "explication": "Ex : notes 12, 14, 10, 16 → somme = 52 → moyenne = 52 ÷ 4 = 13.",
+      "categorie": "Statistiques"
+    },
+    {
+      "type": "qr",
+      "id": "mathematiques-158",
+      "question": "Moyenne de : 8, 12, 15, 9, 11.",
+      "reponse": "11",
+      "explication": "Somme = 8+12+15+9+11 = 55. Nombre de valeurs = 5. Moyenne = 55 ÷ 5 = 11.",
+      "categorie": "Statistiques"
+    },
+    {
+      "type": "qr",
+      "id": "mathematiques-159",
+      "question": "Qu'est-ce qu'un diagramme en bâtons ?",
+      "reponse": "Un graphique où chaque valeur est représentée par une barre verticale dont la hauteur correspond à l'effectif.",
+      "explication": "Adapté aux données discrètes (ex : notes d'une classe). L'axe horizontal = valeurs, l'axe vertical = fréquence ou effectif.",
+      "categorie": "Statistiques"
+    },
+    {
+      "type": "qr",
+      "id": "mathematiques-160",
+      "question": "Qu'est-ce qu'un diagramme circulaire (camembert) ?",
+      "reponse": "Un cercle découpé en secteurs dont l'angle est proportionnel à la fréquence.",
+      "explication": "Si 25% des élèves ont eu A, le secteur A fait 25% × 360° = 90°. La somme de tous les secteurs = 360°.",
+      "categorie": "Statistiques"
+    },
+    {
+      "type": "qr",
+      "id": "mathematiques-161",
+      "question": "Calculer 3/4 ÷ 3/8.",
+      "reponse": "2",
+      "explication": "Diviser par une fraction = multiplier par son inverse : 3/4 × 8/3 = 24/12 = 2.",
+      "categorie": "Fractions"
+    },
+    {
+      "type": "qr",
+      "id": "mathematiques-162",
+      "question": "Quelle est la règle pour diviser par une fraction ?",
+      "reponse": "Multiplier par l'inverse (retourner la fraction du diviseur).",
+      "explication": "a/b ÷ c/d = a/b × d/c. Ex : 2/3 ÷ 4/5 = 2/3 × 5/4 = 10/12 = 5/6.",
+      "categorie": "Fractions"
+    },
+    {
+      "type": "qr",
+      "id": "mathematiques-163",
+      "question": "Qu'est-ce qu'un taux d'évolution ?",
+      "reponse": "Le pourcentage d'augmentation ou de diminution par rapport à la valeur initiale.",
+      "explication": "Taux = (valeur finale - valeur initiale) ÷ valeur initiale × 100. Ex : 80 → 100 : taux = (100 - 80)/80 × 100 = 25%.",
+      "categorie": "Proportionnalité"
+    },
+    {
+      "type": "qr",
+      "id": "mathematiques-164",
+      "question": "Réciproque du théorème de Pythagore - comment l'utiliser ?",
+      "reponse": "Si c² = a² + b², alors le triangle est rectangle.",
+      "explication": "On mesure les 3 côtés, on calcule le carré du plus grand. Si égal à la somme des carrés des deux autres → angle droit. Ex : 3² + 4² = 9 + 16 = 25 = 5² → triangle rectangle.",
+      "categorie": "Géométrie"
+    },
+    {
+      "type": "qr",
+      "id": "mathematiques-165",
+      "question": "Qu'est-ce que la symétrie centrale ?",
+      "reponse": "Une transformation qui fait correspondre à chaque point A un point A' tel que le centre O soit le milieu de [AA'].",
+      "explication": "Contrairement à la symétrie axiale (miroir), la symétrie centrale tourne la figure de 180° autour du point O.",
+      "categorie": "Géométrie"
+    },
+    {
+      "type": "qr",
+      "id": "mathematiques-166",
+      "question": "Qu'est-ce qu'une translation ?",
+      "reponse": "Un déplacement qui fait glisser une figure sans la tourner ni la retourner.",
+      "explication": "Chaque point se déplace de la même distance dans la même direction. On parle de vecteur de translation. La figure image est identique à l'original.",
+      "categorie": "Géométrie"
+    },
+    {
+      "type": "qr",
+      "id": "mathematiques-167",
+      "question": "Qu'est-ce qu'un agrandissement/réduction ?",
+      "reponse": "Une transformation qui multiplie toutes les longueurs par un même coefficient k.",
+      "explication": "Si k > 1 : agrandissement. Si 0 < k < 1 : réduction. Les angles sont conservés, les aires sont multipliées par k².",
+      "categorie": "Géométrie"
+    },
+    {
+      "type": "qr",
+      "id": "mathematiques-168",
+      "question": "Volume d'un prisme droit (formule) ?",
+      "reponse": "V = Aire de la base × hauteur",
+      "explication": "Un prisme droit a deux bases identiques et des faces latérales rectangulaires. Ex : prisme triangulaire de base 10 cm² et hauteur 5 cm → V = 10 × 5 = 50 cm³.",
+      "categorie": "Grandeurs"
+    },
+    {
+      "type": "qr",
+      "id": "mathematiques-169",
+      "question": "1 m³ = combien de dm³ = combien de L ?",
+      "reponse": "1 m³ = 1 000 dm³ = 1 000 L",
+      "explication": "1 m = 10 dm → 1 m³ = 10 × 10 × 10 = 1 000 dm³. Et 1 dm³ = 1 L (litre). Donc 1 m³ = 1 000 litres.",
+      "categorie": "Grandeurs"
+    },
+    {
+      "type": "qr",
+      "id": "mathematiques-170",
+      "question": "Qu'est-ce que l'étendue d'une série statistique ?",
+      "reponse": "La différence entre la valeur maximale et la valeur minimale.",
+      "explication": "Ex : notes 8, 12, 15, 9, 11 → étendue = 15 - 8 = 7. L'étendue mesure la dispersion de la série.",
+      "categorie": "Statistiques"
+    },
+    {
+      "type": "qr",
+      "id": "mathematiques-171",
+      "question": "Comment lire un graphique en courbes ?",
+      "reponse": "L'axe horizontal représente la variable (ex : temps), l'axe vertical la valeur mesurée. Chaque point = une mesure.",
+      "explication": "On lit les valeurs aux intersections. La pente de la courbe indique si la valeur augmente, diminue ou reste stable.",
+      "categorie": "Statistiques"
+    },
+    {
+      "type": "qr",
+      "id": "mathematiques-172",
+      "question": "Qu'est-ce qu'une expérience aléatoire ?",
+      "reponse": "Une expérience dont on ne peut pas prévoir le résultat à l'avance.",
+      "explication": "Ex : lancer un dé, tirer une carte. L'ensemble des résultats possibles s'appelle l'univers. Chaque résultat possible est une issue.",
+      "categorie": "Probabilités"
+    },
+    {
+      "type": "qr",
+      "id": "mathematiques-173",
+      "question": "Probabilité d'obtenir 6 en lançant un dé équilibré ?",
+      "reponse": "1/6 ≈ 0,17 ≈ 17%",
+      "explication": "Il y a 6 issues possibles, toutes équiprobables. L'événement 'obtenir 6' contient 1 issue. P(6) = 1/6.",
+      "categorie": "Probabilités"
+    },
+    {
+      "type": "qr",
+      "id": "mathematiques-174",
+      "question": "La somme de toutes les probabilités d'un univers vaut toujours…",
+      "reponse": "1 (soit 100%)",
+      "explication": "Si l'univers = {pile, face}, P(pile) + P(face) = 1. Si P(pile) = 0,6 alors P(face) = 0,4. P(A) + P(non-A) = 1.",
+      "categorie": "Probabilités"
+    },
+    {
+      "type": "qr",
+      "id": "mathematiques-175",
+      "question": "Développer (a + b)².",
+      "reponse": "a² + 2ab + b²",
+      "explication": "C'est une identité remarquable à mémoriser. Ex : (x+3)² = x² + 6x + 9. On développe : (a+b)(a+b) = a²+ab+ab+b².",
+      "categorie": "Algèbre"
+    },
+    {
+      "type": "qr",
+      "id": "mathematiques-176",
+      "question": "Développer (a - b)².",
+      "reponse": "a² - 2ab + b²",
+      "explication": "Ex : (x - 4)² = x² - 8x + 16. Attention au signe : - 2ab et non +2ab.",
+      "categorie": "Algèbre"
+    },
+    {
+      "type": "qr",
+      "id": "mathematiques-177",
+      "question": "Développer (a + b)(a - b).",
+      "reponse": "a² - b²",
+      "explication": "C'est la 3e identité remarquable. Ex : (x+5)(x - 5) = x² - 25. Très utile pour factoriser rapidement.",
+      "categorie": "Algèbre"
+    },
+    {
+      "type": "qr",
+      "id": "mathematiques-178",
+      "question": "Résoudre x/3 + 1 = 4.",
+      "reponse": "x = 9",
+      "explication": "On isole x : x/3 = 4 - 1 = 3. Puis x = 3 × 3 = 9. Vérification : 9/3 + 1 = 3 + 1 = 4 ✓",
+      "categorie": "Algèbre"
+    },
+    {
+      "type": "qr",
+      "id": "mathematiques-179",
+      "question": "Que vaut 10⁻³ ?",
+      "reponse": "0,001 = 1/1000",
+      "explication": "Les puissances négatives de 10 donnent des décimaux : 10⁻¹=0,1 ; 10⁻²=0,01 ; 10⁻³=0,001. La règle : 10⁻ⁿ = 1/10ⁿ.",
+      "categorie": "Puissances"
+    },
+    {
+      "type": "qr",
+      "id": "mathematiques-180",
+      "question": "Écrire 3 400 000 en notation scientifique.",
+      "reponse": "3,4 × 10⁶",
+      "explication": "On déplace la virgule pour avoir un chiffre entre 1 et 10, puis on note la puissance de 10. 6 déplacements vers la gauche → 10⁶.",
+      "categorie": "Puissances"
+    },
+    {
+      "type": "qr",
+      "id": "mathematiques-181",
+      "question": "Écrire 0,000 52 en notation scientifique.",
+      "reponse": "5,2 × 10⁻⁴",
+      "explication": "On déplace la virgule 4 fois vers la droite pour obtenir 5,2 → puissance négative 10⁻⁴.",
+      "categorie": "Puissances"
+    },
+    {
+      "type": "qr",
+      "id": "mathematiques-182",
+      "question": "Calculer aⁿ × aᵐ.",
+      "reponse": "aⁿ⁺ᵐ (on additionne les exposants)",
+      "explication": "Ex : 2³ × 2⁴ = 2⁷ = 128. De même : aⁿ ÷ aᵐ = aⁿ⁻ᵐ. Et (aⁿ)ᵐ = aⁿˣᵐ.",
+      "categorie": "Puissances"
+    },
+    {
+      "type": "qr",
+      "id": "mathematiques-183",
+      "question": "Dans un triangle rectangle, cos(angle) = ?",
+      "reponse": "côté adjacent ÷ hypoténuse",
+      "explication": "SOH-CAH-TOA : Sin = Opp/Hyp, Cos = Adj/Hyp, Tan = Opp/Adj. Ex : cos(30°) = côté adjacent / hypoténuse.",
+      "categorie": "Géométrie"
+    },
+    {
+      "type": "qr",
+      "id": "mathematiques-184",
+      "question": "Dans un triangle rectangle, sin(angle) = ?",
+      "reponse": "côté opposé ÷ hypoténuse",
+      "explication": "Ex : si l'hypoténuse = 10 et le côté opposé = 5, alors sin(α) = 5/10 = 0,5 → α = 30°.",
+      "categorie": "Géométrie"
+    },
+    {
+      "type": "qr",
+      "id": "mathematiques-185",
+      "question": "Dans un triangle rectangle, tan(angle) = ?",
+      "reponse": "côté opposé ÷ côté adjacent",
+      "explication": "Ex : tan(45°) = 1 car les deux côtés de l'angle droit sont égaux. tan(α) > 1 si l'angle > 45°.",
+      "categorie": "Géométrie"
+    },
+    {
+      "type": "qr",
+      "id": "mathematiques-186",
+      "question": "Théorème de Thalès - énoncé.",
+      "reponse": "Si deux droites coupent deux parallèles, les longueurs sont proportionnelles.",
+      "explication": "Si (DE) ∥ (BC) dans un triangle ABC, alors AD/AB = AE/AC = DE/BC. Les triangles ADE et ABC sont semblables.",
+      "categorie": "Géométrie"
+    },
+    {
+      "type": "qr",
+      "id": "mathematiques-187",
+      "question": "Qu'est-ce qu'une fonction ?",
+      "reponse": "Une règle qui associe à chaque valeur d'entrée (x) une valeur de sortie unique (y = f(x)).",
+      "explication": "Ex : f(x) = 2x+1. Pour x=3, f(3) = 7. L'ensemble des x est le domaine de définition. On note y = f(x).",
+      "categorie": "Fonctions"
+    },
+    {
+      "type": "qr",
+      "id": "mathematiques-188",
+      "question": "Qu'est-ce qu'un tableau de valeurs d'une fonction ?",
+      "reponse": "Un tableau qui liste des valeurs de x et les valeurs de f(x) correspondantes.",
+      "explication": "Ex pour f(x) = x² : x=-2,-1,0,1,2 → f(x)=4,1,0,1,4. Permet de tracer la courbe point par point.",
+      "categorie": "Fonctions"
+    },
+    {
+      "type": "qr",
+      "id": "mathematiques-189",
+      "question": "Comment tracer la courbe représentative d'une fonction ?",
+      "reponse": "Calculer des points (x ; f(x)), les placer dans un repère, les relier par une courbe.",
+      "explication": "Plus on calcule de points, plus la courbe est précise. Pour une droite (fonction affine), 2 points suffisent.",
+      "categorie": "Fonctions"
+    },
+    {
+      "type": "qr",
+      "id": "mathematiques-190",
+      "question": "Comment calculer une probabilité théorique ?",
+      "reponse": "P(événement) = nombre d'issues favorables ÷ nombre total d'issues équiprobables.",
+      "explication": "Ex : probabilité de tirer un as dans un jeu de 52 cartes = 4/52 = 1/13 ≈ 7,7%.",
+      "categorie": "Probabilités"
+    },
+    {
+      "type": "qr",
+      "id": "mathematiques-191",
+      "question": "Probabilité d'obtenir pile ET face en lançant 2 pièces (dans cet ordre) ?",
+      "reponse": "1/4",
+      "explication": "Univers : {(P,P), (P,F), (F,P), (F,F)} - 4 issues équiprobables. P(pile puis face) = 1/4.",
+      "categorie": "Probabilités"
+    },
+    {
+      "type": "qr",
+      "id": "mathematiques-192",
+      "question": "Comment trouver la médiane d'une série ?",
+      "reponse": "La valeur du milieu quand les données sont rangées dans l'ordre.",
+      "explication": "Série : 3, 5, 7, 8, 12 → médiane = 7. Si nombre pair de valeurs : moyenne des deux centrales. Ex : 3,5,7,8 → médiane = (5+7)/2 = 6.",
+      "categorie": "Statistiques"
+    },
+    {
+      "type": "qr",
+      "id": "mathematiques-193",
+      "question": "Quelle est la différence entre moyenne et médiane ?",
+      "reponse": "La moyenne est sensible aux valeurs extrêmes, pas la médiane.",
+      "explication": "Ex : salaires 1000, 1000, 1000, 1000, 10000 → moyenne = 2800 (faussée), médiane = 1000 (plus représentative).",
+      "categorie": "Statistiques"
+    },
+    {
+      "type": "qr",
+      "id": "mathematiques-194",
+      "question": "Qu'est-ce qu'une fonction linéaire ?",
+      "reponse": "f(x) = ax - une droite passant par l'origine.",
+      "explication": "Ex : f(x) = 3x. Le graphique est une droite passant par O(0,0). Le coefficient a est le coefficient directeur (pente).",
+      "categorie": "Fonctions"
+    },
+    {
+      "type": "qr",
+      "id": "mathematiques-195",
+      "question": "Qu'est-ce qu'une fonction affine ?",
+      "reponse": "f(x) = ax + b - une droite (pas forcément par l'origine).",
+      "explication": "a = coefficient directeur (pente), b = ordonnée à l'origine (valeur quand x=0). Ex : f(x) = 2x + 3 coupe l'axe y en (0, 3).",
+      "categorie": "Fonctions"
+    },
+    {
+      "type": "qr",
+      "id": "mathematiques-196",
+      "question": "Quel est le coefficient directeur de y = 3x - 5 ?",
+      "reponse": "a = 3",
+      "explication": "Dans f(x) = ax + b, a est le coefficient directeur. Ici a = 3 : quand x augmente de 1, y augmente de 3.",
+      "categorie": "Fonctions"
+    },
+    {
+      "type": "qr",
+      "id": "mathematiques-197",
+      "question": "Comment lire l'image de 4 par f(x) = 2x + 1 ?",
+      "reponse": "f(4) = 2×4+1 = 9",
+      "explication": "On remplace x par 4 dans la formule. Sur un graphique : on part de x=4, on monte jusqu'à la courbe, on lit y = 9.",
+      "categorie": "Fonctions"
+    },
+    {
+      "type": "qr",
+      "id": "mathematiques-198",
+      "question": "Qu'est-ce que le taux de variation entre a et b ?",
+      "reponse": "(f(b) - f(a)) ÷ (b - a)",
+      "explication": "Ex : f(x) = x². Entre 1 et 3 : (9 - 1)/(3 - 1) = 8/2 = 4. Pour une fonction affine, le taux de variation est constant et égal à a.",
+      "categorie": "Fonctions"
+    },
+    {
+      "type": "qr",
+      "id": "mathematiques-199",
+      "question": "Résoudre le système : x + y = 5 et x - y = 1.",
+      "reponse": "x = 3, y = 2",
+      "explication": "Par addition des deux équations : 2x = 6 → x = 3. Puis y = 5 - 3 = 2. Méthodes possibles : addition, substitution.",
+      "categorie": "Algèbre"
+    },
+    {
+      "type": "qr",
+      "id": "mathematiques-200",
+      "question": "Résoudre l'inéquation 2x - 3 > 7.",
+      "reponse": "x > 5",
+      "explication": "2x > 7 + 3 → 2x > 10 → x > 5. Solution : l'intervalle ]5 ; +∞[.",
+      "categorie": "Algèbre"
+    },
+    {
+      "type": "qr",
+      "id": "mathematiques-201",
+      "question": "Que se passe-t-il quand on multiplie une inégalité par - 1 ?",
+      "reponse": "Le sens de l'inégalité s'inverse : < devient >.",
+      "explication": "Ex : - x > 3 → en multipliant par - 1 : x < - 3. Règle fondamentale des inéquations.",
+      "categorie": "Algèbre"
+    },
+    {
+      "type": "qr",
+      "id": "mathematiques-202",
+      "question": "Thalès - calculer BC si AD=3, AB=5, DE=4 avec (DE)∥(BC).",
+      "reponse": "BC = DE × AB/AD = 4 × 5/3 ≈ 6,67 cm",
+      "explication": "Si (DE)∥(BC), alors AD/AB = DE/BC → BC = DE × AB/AD. Vérifier l'ordre des sommets dans les rapports.",
+      "categorie": "Géométrie"
+    },
+    {
+      "type": "qr",
+      "id": "mathematiques-203",
+      "question": "sin(30°) = ? cos(60°) = ?",
+      "reponse": "sin(30°) = 0,5 et cos(60°) = 0,5",
+      "explication": "Valeurs à connaître : sin(30°)=0,5 ; cos(30°)≈0,87 ; sin(45°)=cos(45°)≈0,71 ; sin(60°)≈0,87 ; cos(60°)=0,5.",
+      "categorie": "Géométrie"
+    },
+    {
+      "type": "qr",
+      "id": "mathematiques-204",
+      "question": "Comment calculer un angle avec la trigonométrie ?",
+      "reponse": "On utilise arcsin, arccos ou arctan sur la calculatrice (touche sin⁻¹).",
+      "explication": "Ex : sin(α) = 0,6 → α = arcsin(0,6) ≈ 37°. Sur calculatrice : touche sin⁻¹ ou 2nd+sin.",
+      "categorie": "Géométrie"
+    },
+    {
+      "type": "qr",
+      "id": "mathematiques-205",
+      "question": "Que vaut 2⁻³ ?",
+      "reponse": "1/8 = 0,125",
+      "explication": "a⁻ⁿ = 1/aⁿ. Donc 2⁻³ = 1/2³ = 1/8. De même : 10⁻⁶ = 0,000001.",
+      "categorie": "Puissances"
+    },
+    {
+      "type": "qr",
+      "id": "mathematiques-206",
+      "question": "Simplifier (2³)⁴.",
+      "reponse": "2¹² = 4096",
+      "explication": "(aⁿ)ᵐ = aⁿˣᵐ. (2³)⁴ = 2^(3×4) = 2¹². Autre règle : aⁿ ÷ aᵐ = aⁿ⁻ᵐ.",
+      "categorie": "Puissances"
+    },
+    {
+      "type": "qr",
+      "id": "mathematiques-207",
+      "question": "Comment lire un arbre de probabilités ?",
+      "reponse": "On multiplie les probabilités le long d'une branche, on additionne les branches favorables.",
+      "explication": "Pour P(A et B) : multiplier P(A) × P(B|A). La somme de toutes les branches finales = 1.",
+      "categorie": "Probabilités"
+    },
+    {
+      "type": "qr",
+      "id": "mathematiques-208",
+      "question": "Probabilité de tirer 2 boules rouges sans remise (4 rouges, 6 bleues) ?",
+      "reponse": "P = 4/10 × 3/9 = 2/15",
+      "explication": "1er tirage : 4 rouges sur 10. Après 1 rouge retiré : 3 rouges sur 9. P = 4/10 × 3/9 = 12/90 = 2/15.",
+      "categorie": "Probabilités"
+    },
+    {
+      "type": "qr",
+      "id": "mathematiques-209",
+      "question": "Comment calculer une moyenne pondérée ?",
+      "reponse": "Somme(valeur × coefficient) ÷ Somme(coefficients).",
+      "explication": "Ex : note 12 (coef 2) et 16 (coef 3) → moyenne = (12×2 + 16×3)/(2+3) = 72/5 = 14,4.",
+      "categorie": "Statistiques"
+    },
+    {
+      "type": "qr",
+      "id": "mathematiques-210",
+      "question": "Qu'est-ce qu'un histogramme ?",
+      "reponse": "Un graphique en barres adjacentes pour représenter des données continues.",
+      "explication": "Les barres sont collées (pas d'espace). L'aire de chaque barre est proportionnelle à la fréquence. Différent du diagramme en bâtons (données discrètes).",
+      "categorie": "Statistiques"
+    },
+    {
+      "type": "qr",
+      "id": "mathematiques-211",
+      "question": "PPCM de 12 et 18 ?",
+      "reponse": "36",
+      "explication": "Décomposer : 12 = 2²×3, 18 = 2×3². PPCM = 2²×3² = 4×9 = 36. Vérification : 36÷12=3 ✓ et 36÷18=2 ✓.",
+      "categorie": "Arithmétique"
+    },
+    {
+      "type": "qr",
+      "id": "mathematiques-212",
+      "question": "Comment écrire 5/4 sous forme décimale et en fraction mixte ?",
+      "reponse": "1,25 et 1 + 1/4",
+      "explication": "5/4 = 4/4 + 1/4 = 1 + 1/4 = 1,25. Une fraction > 1 peut toujours s'écrire en fraction mixte.",
+      "categorie": "Arithmétique"
+    },
+    {
+      "type": "qr",
+      "id": "mathematiques-213",
+      "question": "Calculer 24 × 25.",
+      "reponse": "600",
+      "explication": "Astuce : 24 × 25 = 24 × 100 ÷ 4 = 2400 ÷ 4 = 600. Ou : 25 × 24 = 25 × 20 + 25 × 4 = 500 + 100.",
+      "categorie": "Calcul"
+    },
+    {
+      "type": "qr",
+      "id": "mathematiques-214",
+      "question": "Calculer 36 ÷ 0,4.",
+      "reponse": "90",
+      "explication": "Diviser par 0,4 = multiplier par 10 puis diviser par 4. 36 × 10 = 360 ÷ 4 = 90. Ou : 36 ÷ (2/5) = 36 × 5/2 = 90.",
+      "categorie": "Calcul"
+    },
+    {
+      "type": "qr",
+      "id": "mathematiques-215",
+      "question": "Calculer 3 + 4 × 2 - 1.",
+      "reponse": "10",
+      "explication": "Priorité : d'abord 4 × 2 = 8. Puis : 3 + 8 - 1 = 10. Sans priorité on aurait tort.",
+      "categorie": "Calcul"
+    },
+    {
+      "type": "qr",
+      "id": "mathematiques-216",
+      "question": "Calculer (3 + 4) × (2 - 1).",
+      "reponse": "7",
+      "explication": "Les parenthèses passent en premier : (3+4) = 7, (2 - 1) = 1. Puis 7 × 1 = 7.",
+      "categorie": "Calcul"
+    },
+    {
+      "type": "qr",
+      "id": "mathematiques-217",
+      "question": "Que vaut 0,1 × 0,1 ?",
+      "reponse": "0,01",
+      "explication": "0,1 × 0,1 = 1/10 × 1/10 = 1/100 = 0,01. Règle : le nombre de décimales du résultat = somme des décimales des deux facteurs.",
+      "categorie": "Calcul"
+    },
+    {
+      "type": "qr",
+      "id": "mathematiques-218",
+      "question": "Calculer 15 % de 60.",
+      "reponse": "9",
+      "explication": "15% = 15/100. 15/100 × 60 = 900/100 = 9. Astuce : 10% de 60 = 6, et 5% = 3, donc 15% = 6+3 = 9.",
+      "categorie": "Calcul"
+    },
+    {
+      "type": "qr",
+      "id": "mathematiques-219",
+      "question": "Calculer ( - 3)² + 4².",
+      "reponse": "9 + 16 = 25",
+      "explication": "( - 3)² = 9 (le carré est toujours positif). 4² = 16. Total = 25. Attention : - 3² = - 9 ≠ ( - 3)² = 9.",
+      "categorie": "Calcul"
+    },
+    {
+      "type": "qr",
+      "id": "mathematiques-220",
+      "question": "Calculer √144.",
+      "reponse": "12",
+      "explication": "12 × 12 = 144 → √144 = 12. Racines à connaître : √1=1, √4=2, √9=3, √16=4, √25=5, √36=6, √49=7, √64=8, √81=9, √100=10.",
+      "categorie": "Calcul"
+    },
+    {
+      "type": "qr",
+      "id": "mathematiques-221",
+      "question": "Calculer √2 × √8.",
+      "reponse": "4",
+      "explication": "√2 × √8 = √(2×8) = √16 = 4. Règle : √a × √b = √(a×b) si a,b ≥ 0.",
+      "categorie": "Calcul"
+    },
+    {
+      "type": "qr",
+      "id": "mathematiques-222",
+      "question": "Vérifier que x = - 2 est solution de 3x + 7 = 1.",
+      "reponse": "3×( - 2)+7 = - 6+7 = 1 ✓",
+      "explication": "On substitue x par - 2 dans l'équation et on vérifie l'égalité. Méthode à appliquer systématiquement après résolution.",
+      "categorie": "Calcul"
+    },
+    {
+      "type": "qr",
+      "id": "mathematiques-223",
+      "question": "Écrire 7/4 sous forme décimale.",
+      "reponse": "1,75",
+      "explication": "7 ÷ 4 = 1 reste 3 → 30 ÷ 4 = 7 reste 2 → 20 ÷ 4 = 5. Donc 7/4 = 1,75.",
+      "categorie": "Numération"
+    },
+    {
+      "type": "qr",
+      "id": "mathematiques-224",
+      "question": "0,(3) signifie quoi ? (0,333...)",
+      "reponse": "= 1/3",
+      "explication": "0,333... est un décimal illimité périodique. 1/3 = 0,3333... La fraction 1/3 ne peut pas s'écrire exactement en décimal fini.",
+      "categorie": "Numération"
+    },
+    {
+      "type": "qr",
+      "id": "mathematiques-225",
+      "question": "Quelle est la différence entre un décimal fini et un décimal illimité ?",
+      "reponse": "Fini : s'arrête (ex: 0,25). Illimité : se répète indéfiniment (ex: 1/3 = 0,333...).",
+      "explication": "Les fractions irréductibles dont le dénominateur n'a que 2 et 5 comme facteurs premiers donnent des décimaux finis.",
+      "categorie": "Numération"
+    },
+    {
+      "type": "qr",
+      "id": "mathematiques-226",
+      "question": "Qu'est-ce qu'un nombre irrationnel ?",
+      "reponse": "Un nombre qui ne peut s'écrire ni comme fraction ni comme décimal fini ou périodique.",
+      "explication": "Ex : √2 ≈ 1,41421356... et π ≈ 3,14159... sont irrationnels. Ils existent sur la droite des réels mais ne sont pas des fractions.",
+      "categorie": "Numération"
+    },
+    {
+      "type": "qr",
+      "id": "mathematiques-227",
+      "question": "√2 est-il rationnel ou irrationnel ?",
+      "reponse": "Irrationnel - on ne peut pas l'écrire sous forme de fraction a/b.",
+      "explication": "√2 ≈ 1,4142135... Les décimales ne se répètent jamais. C'est un nombre réel mais pas rationnel.",
+      "categorie": "Numération"
+    },
+    {
+      "type": "qr",
+      "id": "mathematiques-228",
+      "question": "Qu'appelle-t-on l'ensemble des réels ?",
+      "reponse": "L'ensemble de tous les nombres : entiers, décimaux, fractions, irrationnels - tous les points de la droite numérique.",
+      "explication": "Notation ℝ. Contient ℕ (entiers naturels) ⊂ ℤ (relatifs) ⊂ ℚ (rationnels) ⊂ ℝ. Ex : π ∈ ℝ mais π ∉ ℚ.",
+      "categorie": "Numération"
+    },
+    {
+      "type": "qr",
+      "id": "mathematiques-229",
+      "question": "Qu'est-ce qu'une expression littérale ?",
+      "reponse": "Une expression mathématique contenant des lettres (variables) qui représentent des nombres inconnus.",
+      "explication": "Ex : 3x + 2, ou ab + c². La lettre x peut prendre différentes valeurs. On évalue l'expression en remplaçant la lettre par un nombre.",
+      "categorie": "Algèbre"
+    },
+    {
+      "type": "qr",
+      "id": "mathematiques-230",
+      "question": "Calculer 2a + 3 pour a = 5.",
+      "reponse": "13",
+      "explication": "On remplace a par 5 : 2×5 + 3 = 10 + 3 = 13.",
+      "categorie": "Algèbre"
+    },
+    {
+      "type": "qr",
+      "id": "mathematiques-231",
+      "question": "Réduire 4x + 2 + 3x - 5.",
+      "reponse": "7x - 3",
+      "explication": "On regroupe les termes en x : 4x + 3x = 7x. Puis les constantes : 2 - 5 = - 3. Résultat : 7x - 3.",
+      "categorie": "Algèbre"
+    },
+    {
+      "type": "qr",
+      "id": "mathematiques-232",
+      "question": "Développer 2(x + 4).",
+      "reponse": "2x + 8",
+      "explication": "On multiplie chaque terme dans la parenthèse par 2 : 2×x + 2×4 = 2x + 8.",
+      "categorie": "Algèbre"
+    },
+    {
+      "type": "qr",
+      "id": "mathematiques-233",
+      "question": "Tester si x = 3 est solution de 2x - 1 = 5.",
+      "reponse": "Oui : 2×3 - 1 = 5 ✓",
+      "explication": "On remplace x par 3 : 2×3 - 1 = 6 - 1 = 5. L'égalité est vraie → x=3 est solution.",
+      "categorie": "Algèbre"
+    },
+    {
+      "type": "qr",
+      "id": "mathematiques-234",
+      "question": "Simplifier (6x)/(9x) avec x ≠ 0.",
+      "reponse": "2/3",
+      "explication": "On simplifie les coefficients : 6/9 = 2/3. Les x au numérateur et dénominateur se simplifient (x/x = 1).",
+      "categorie": "Fractions"
+    },
+    {
+      "type": "qr",
+      "id": "mathematiques-235",
+      "question": "Additionner 1/x + 2/x (x ≠ 0).",
+      "reponse": "3/x",
+      "explication": "Même dénominateur → on additionne les numérateurs : (1+2)/x = 3/x.",
+      "categorie": "Fractions"
+    },
+    {
+      "type": "qr",
+      "id": "mathematiques-236",
+      "question": "Résoudre 3/x = 6 (x ≠ 0).",
+      "reponse": "x = 1/2",
+      "explication": "3/x = 6 → 3 = 6x → x = 3/6 = 1/2. Vérification : 3 ÷ (1/2) = 3 × 2 = 6 ✓.",
+      "categorie": "Fractions"
+    },
+    {
+      "type": "qr",
+      "id": "mathematiques-237",
+      "question": "Simplifier (x² - 4) / (x - 2) avec x ≠ 2.",
+      "reponse": "x + 2",
+      "explication": "x² - 4 = (x+2)(x - 2) - identité remarquable a² - b². On divise par (x - 2) : reste (x+2).",
+      "categorie": "Fractions"
+    },
+    {
+      "type": "qr",
+      "id": "mathematiques-238",
+      "question": "Additionner 1/2 + 1/x (x ≠ 0).",
+      "reponse": "(x + 2) / (2x)",
+      "explication": "Dénominateur commun = 2x. 1/2 = x/(2x). 1/x = 2/(2x). Somme = (x+2)/(2x).",
+      "categorie": "Fractions"
+    },
+    {
+      "type": "qr",
+      "id": "mathematiques-239",
+      "question": "Une pièce de monnaie équilibrée - probabilité de tomber sur pile ?",
+      "reponse": "1/2 = 0,5 = 50%",
+      "explication": "Il y a 2 issues possibles et équiprobables : pile et face. P(pile) = 1/2. C'est la première notion de probabilité.",
+      "categorie": "Probabilités"
+    },
+    {
+      "type": "qr",
+      "id": "mathematiques-240",
+      "question": "Qu'est-ce que la fréquence d'un événement ?",
+      "reponse": "Le nombre de fois où l'événement se produit divisé par le nombre total d'essais.",
+      "explication": "Ex : si on obtient 38 fois pile sur 100 lancers, la fréquence = 38/100 = 0,38. Plus on répète, plus la fréquence se rapproche de la probabilité.",
+      "categorie": "Probabilités"
+    },
+    {
+      "type": "qr",
+      "id": "mathematiques-241",
+      "question": "Probabilité d'un événement impossible ?",
+      "reponse": "0",
+      "explication": "Un événement impossible ne peut jamais se produire. Ex : obtenir 7 en lançant un dé à 6 faces → P = 0.",
+      "categorie": "Probabilités"
+    },
+    {
+      "type": "qr",
+      "id": "mathematiques-242",
+      "question": "Probabilité d'un événement certain ?",
+      "reponse": "1",
+      "explication": "Un événement certain se produit à tous les coups. Ex : obtenir un nombre entre 1 et 6 en lançant un dé → P = 1.",
+      "categorie": "Probabilités"
+    },
+    {
+      "type": "qr",
+      "id": "mathematiques-243",
+      "question": "Comment placer le point A( - 2 ; 3) dans un repère ?",
+      "reponse": "Abscisse = - 2 (axe horizontal), ordonnée = 3 (axe vertical).",
+      "explication": "On part de l'origine O, on va à - 2 sur l'axe x, puis on monte à +3 sur l'axe y. Le repère s'appelle (O ; I ; J).",
+      "categorie": "Fonctions"
+    },
+    {
+      "type": "qr",
+      "id": "mathematiques-244",
+      "question": "Que représente une droite croissante sur un graphique ?",
+      "reponse": "Quand x augmente, y augmente aussi.",
+      "explication": "Pente positive = droite qui monte de gauche à droite. Pente négative = droite qui descend. Droite horizontale = valeur constante.",
+      "categorie": "Fonctions"
+    },
+    {
+      "type": "qr",
+      "id": "mathematiques-245",
+      "question": "Comment lire les coordonnées d'un point sur un graphique ?",
+      "reponse": "On lit l'abscisse (x) sur l'axe horizontal et l'ordonnée (y) sur l'axe vertical.",
+      "explication": "Ex : un point situé à 3 cases à droite et 2 cases en bas a les coordonnées (3 ; - 2).",
+      "categorie": "Fonctions"
+    },
+    {
+      "type": "qr",
+      "id": "mathematiques-246",
+      "question": "Que signifie 5³ ?",
+      "reponse": "5 × 5 × 5 = 125",
+      "explication": "L'exposant indique combien de fois on multiplie la base par elle-même. 5³ = 5×5×5 = 125. On lit 'cinq au cube'.",
+      "categorie": "Puissances"
+    },
+    {
+      "type": "qr",
+      "id": "mathematiques-247",
+      "question": "Que vaut 2⁴ ?",
+      "reponse": "16",
+      "explication": "2⁴ = 2×2×2×2 = 16. À connaître : 2¹=2, 2²=4, 2³=8, 2⁴=16, 2⁵=32, 2⁶=64, 2⁷=128, 2⁸=256.",
+      "categorie": "Puissances"
+    },
+    {
+      "type": "qr",
+      "id": "mathematiques-248",
+      "question": "Que vaut 10² ? 10³ ? 10⁶ ?",
+      "reponse": "100 ; 1 000 ; 1 000 000",
+      "explication": "Les puissances de 10 donnent directement les préfixes : 10² = cent, 10³ = mille, 10⁶ = million, 10⁹ = milliard.",
+      "categorie": "Puissances"
+    }
+  ]
+}

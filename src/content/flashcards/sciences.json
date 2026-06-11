@@ -1,0 +1,1247 @@
+{
+  "contentKind": "flashcards",
+  "sujet": "sciences",
+  "titre": "Sciences",
+  "cartes": [
+    {
+      "type": "qr",
+      "id": "sciences-1",
+      "question": "Quelle est l'unité de base du vivant ?",
+      "reponse": "La cellule.",
+      "explication": "Tout être vivant est constitué d'une ou plusieurs cellules. C'est la plus petite unité capable de vie autonome.",
+      "categorie": "SVT"
+    },
+    {
+      "type": "qr",
+      "id": "sciences-2",
+      "question": "Cite 3 éléments communs à toutes les cellules.",
+      "reponse": "Membrane, cytoplasme, noyau.",
+      "explication": "La membrane délimite la cellule, le cytoplasme est le milieu intérieur, le noyau contient l'ADN.",
+      "categorie": "SVT"
+    },
+    {
+      "type": "qr",
+      "id": "sciences-3",
+      "question": "Quelle est la différence principale entre cellule animale et cellule végétale ?",
+      "reponse": "La cellule végétale a une paroi, des chloroplastes et une grande vacuole.",
+      "explication": "Ces structures sont absentes des cellules animales.",
+      "categorie": "SVT"
+    },
+    {
+      "type": "qr",
+      "id": "sciences-4",
+      "question": "Quel organite réalise la photosynthèse ?",
+      "reponse": "Le chloroplaste.",
+      "explication": "Les chloroplastes contiennent la chlorophylle, le pigment vert qui capte la lumière.",
+      "categorie": "SVT"
+    },
+    {
+      "type": "qr",
+      "id": "sciences-5",
+      "question": "Qu'est-ce que la mitose ?",
+      "reponse": "La division d'une cellule en deux cellules filles identiques.",
+      "explication": "La mitose permet la croissance et le renouvellement des tissus.",
+      "categorie": "SVT"
+    },
+    {
+      "type": "qr",
+      "id": "sciences-6",
+      "question": "Qu'est-ce que l'ADN ?",
+      "reponse": "La molécule qui porte l'information génétique.",
+      "explication": "L'ADN (acide désoxyribonucléique) est présent dans le noyau et contient les gènes.",
+      "categorie": "SVT"
+    },
+    {
+      "type": "qr",
+      "id": "sciences-7",
+      "question": "Qu'est-ce qu'un gène ?",
+      "reponse": "Un segment d'ADN qui code une caractéristique héréditaire.",
+      "explication": "Les gènes déterminent les caractères biologiques (couleur des yeux, groupe sanguin...).",
+      "categorie": "SVT"
+    },
+    {
+      "type": "qr",
+      "id": "sciences-8",
+      "question": "Définition d'un être unicellulaire ?",
+      "reponse": "Un être vivant constitué d'une seule cellule.",
+      "explication": "Exemples : bactérie, paramécie, levure, amibes.",
+      "categorie": "SVT"
+    },
+    {
+      "type": "qr",
+      "id": "sciences-9",
+      "question": "Qu'est-ce qu'un tissu en biologie ?",
+      "reponse": "Un ensemble de cellules de même type assurant une même fonction.",
+      "explication": "Exemples : tissu musculaire, tissu nerveux, tissu épithélial.",
+      "categorie": "SVT"
+    },
+    {
+      "type": "qr",
+      "id": "sciences-10",
+      "question": "Qu'est-ce qu'un organe ?",
+      "reponse": "Un ensemble de tissus assurant une fonction précise.",
+      "explication": "Exemples : cœur, foie, poumon, rein.",
+      "categorie": "SVT"
+    },
+    {
+      "type": "qr",
+      "id": "sciences-11",
+      "question": "Quelle est la formule de la photosynthèse ?",
+      "reponse": "CO₂ + H₂O + lumière → glucose + O₂",
+      "explication": "Les plantes fabriquent leur propre matière organique grâce à la lumière solaire.",
+      "categorie": "SVT"
+    },
+    {
+      "type": "qr",
+      "id": "sciences-12",
+      "question": "Qu'est-ce que la respiration cellulaire ?",
+      "reponse": "La dégradation du glucose avec l'O₂ pour produire de l'énergie.",
+      "explication": "C₆H₁₂O₆ + O₂ → CO₂ + H₂O + énergie. Toutes les cellules respirent.",
+      "categorie": "SVT"
+    },
+    {
+      "type": "qr",
+      "id": "sciences-13",
+      "question": "Quel est le rôle du noyau ?",
+      "reponse": "Contenir et protéger l'ADN, coordonner les activités de la cellule.",
+      "explication": "Le noyau est le centre de contrôle de la cellule.",
+      "categorie": "SVT"
+    },
+    {
+      "type": "qr",
+      "id": "sciences-14",
+      "question": "Qu'est-ce que la biodiversité ?",
+      "reponse": "La diversité des espèces vivantes sur Terre.",
+      "explication": "Il existe environ 8,7 millions d'espèces estimées, dont seulement ~2 millions décrites.",
+      "categorie": "SVT"
+    },
+    {
+      "type": "qr",
+      "id": "sciences-15",
+      "question": "Quelle est la différence entre reproduction sexuée et asexuée ?",
+      "reponse": "Sexuée = 2 parents, variation génétique. Asexuée = 1 parent, clones.",
+      "explication": "La reproduction sexuée crée de la diversité génétique grâce à la fécondation.",
+      "categorie": "SVT"
+    },
+    {
+      "type": "qr",
+      "id": "sciences-16",
+      "question": "Qu'est-ce qu'un écosystème ?",
+      "reponse": "L'ensemble des êtres vivants d'un milieu et leurs interactions.",
+      "explication": "Un écosystème comprend la biocénose (vivant) et le biotope (milieu physique).",
+      "categorie": "SVT"
+    },
+    {
+      "type": "qr",
+      "id": "sciences-17",
+      "question": "Qu'est-ce qu'une chaîne alimentaire ?",
+      "reponse": "Une suite d'êtres vivants où chacun mange le précédent.",
+      "explication": "Ex : herbe → lapin → renard → décomposeurs.",
+      "categorie": "SVT"
+    },
+    {
+      "type": "qr",
+      "id": "sciences-18",
+      "question": "Qu'est-ce qu'un producteur dans une chaîne alimentaire ?",
+      "reponse": "Un être vivant qui fabrique sa propre matière organique (plante verte).",
+      "explication": "Les producteurs réalisent la photosynthèse. Ils sont à la base de toutes les chaînes alimentaires.",
+      "categorie": "SVT"
+    },
+    {
+      "type": "qr",
+      "id": "sciences-19",
+      "question": "Qu'est-ce qu'un décomposeur ?",
+      "reponse": "Un organisme qui dégrade la matière organique morte.",
+      "explication": "Champignons, bactéries. Ils recyclent la matière et la rendent disponible pour les plantes.",
+      "categorie": "SVT"
+    },
+    {
+      "type": "qr",
+      "id": "sciences-20",
+      "question": "Comment s'appelle le squelette des arthropodes ?",
+      "reponse": "L'exosquelette (squelette externe).",
+      "explication": "Insectes, crustacés, araignées ont un exosquelette en chitine. Ils muent pour grandir.",
+      "categorie": "SVT"
+    },
+    {
+      "type": "qr",
+      "id": "sciences-21",
+      "question": "Qu'est-ce que la classification du vivant ?",
+      "reponse": "Regrouper les êtres vivants selon leurs caractères communs.",
+      "explication": "Les grands groupes : bactéries, protistes, champignons, plantes, animaux.",
+      "categorie": "SVT"
+    },
+    {
+      "type": "qr",
+      "id": "sciences-22",
+      "question": "Qu'est-ce qu'un vertébré ?",
+      "reponse": "Un animal possédant une colonne vertébrale.",
+      "explication": "Poissons, amphibiens, reptiles, oiseaux, mammifères sont des vertébrés.",
+      "categorie": "SVT"
+    },
+    {
+      "type": "qr",
+      "id": "sciences-23",
+      "question": "Qu'est-ce que l'évolution des espèces ?",
+      "reponse": "La modification progressive des espèces au fil des générations.",
+      "explication": "Darwin a proposé la sélection naturelle : les individus les mieux adaptés survivent et se reproduisent.",
+      "categorie": "SVT"
+    },
+    {
+      "type": "qr",
+      "id": "sciences-24",
+      "question": "Qu'est-ce qu'un micro-organisme ?",
+      "reponse": "Un être vivant invisible à l'œil nu.",
+      "explication": "Bactéries, virus, champignons microscopiques, protistes. Certains sont pathogènes (maladies).",
+      "categorie": "SVT"
+    },
+    {
+      "type": "qr",
+      "id": "sciences-25",
+      "question": "Quelle est la différence entre bactérie et virus ?",
+      "reponse": "La bactérie est une cellule vivante, le virus est une particule non vivante.",
+      "explication": "Les bactéries peuvent se reproduire seules, les virus ont besoin d'une cellule hôte.",
+      "categorie": "SVT"
+    },
+    {
+      "type": "qr",
+      "id": "sciences-26",
+      "question": "Quel est l'ordre des organes du tube digestif ?",
+      "reponse": "Bouche → œsophage → estomac → intestin grêle → gros intestin → anus.",
+      "explication": "Le tube digestif mesure environ 9 mètres au total.",
+      "categorie": "Digestion"
+    },
+    {
+      "type": "qr",
+      "id": "sciences-27",
+      "question": "Qu'est-ce que la digestion ?",
+      "reponse": "La transformation des aliments en nutriments absorbables par l'organisme.",
+      "explication": "La digestion est à la fois mécanique (mastication) et chimique (enzymes).",
+      "categorie": "Digestion"
+    },
+    {
+      "type": "qr",
+      "id": "sciences-28",
+      "question": "Quel est le rôle de l'estomac ?",
+      "reponse": "Broyer les aliments et les mélanger avec le suc gastrique.",
+      "explication": "Le suc gastrique contient de l'acide chlorhydrique et des enzymes qui décomposent les protéines.",
+      "categorie": "Digestion"
+    },
+    {
+      "type": "qr",
+      "id": "sciences-29",
+      "question": "Où se fait principalement l'absorption des nutriments ?",
+      "reponse": "Dans l'intestin grêle.",
+      "explication": "La paroi de l'intestin grêle possède des villosités qui augmentent la surface d'absorption.",
+      "categorie": "Digestion"
+    },
+    {
+      "type": "qr",
+      "id": "sciences-30",
+      "question": "Quel est le rôle du foie dans la digestion ?",
+      "reponse": "Produire la bile qui émulsionne les graisses.",
+      "explication": "La bile est stockée dans la vésicule biliaire et déversée dans l'intestin grêle lors des repas.",
+      "categorie": "Digestion"
+    },
+    {
+      "type": "qr",
+      "id": "sciences-31",
+      "question": "Qu'est-ce qu'une enzyme digestive ?",
+      "reponse": "Une molécule qui accélère la dégradation des aliments.",
+      "explication": "Amylase (amidon), protéase (protéines), lipase (graisses). Sans elles, la digestion serait trop lente.",
+      "categorie": "Digestion"
+    },
+    {
+      "type": "qr",
+      "id": "sciences-32",
+      "question": "Quelle enzyme de la salive commence la digestion de l'amidon ?",
+      "reponse": "L'amylase salivaire (ptyaline).",
+      "explication": "Elle transforme l'amidon en sucres simples dès la bouche.",
+      "categorie": "Digestion"
+    },
+    {
+      "type": "qr",
+      "id": "sciences-33",
+      "question": "Qu'est-ce qu'un nutriment ?",
+      "reponse": "Une petite molécule issue de la digestion, directement utilisable par les cellules.",
+      "explication": "Glucose, acides aminés, acides gras, vitamines, minéraux sont des nutriments.",
+      "categorie": "Digestion"
+    },
+    {
+      "type": "qr",
+      "id": "sciences-34",
+      "question": "Quel est le rôle du gros intestin ?",
+      "reponse": "Absorber l'eau et former les excréments.",
+      "explication": "Le gros intestin abrite des milliards de bactéries (microbiote) qui aident à la fermentation.",
+      "categorie": "Digestion"
+    },
+    {
+      "type": "qr",
+      "id": "sciences-35",
+      "question": "Qu'est-ce que le péristaltisme ?",
+      "reponse": "Les contractions musculaires qui font avancer les aliments dans le tube digestif.",
+      "explication": "Ce mouvement ondulatoire propulse le bol alimentaire de l'œsophage jusqu'à l'anus.",
+      "categorie": "Digestion"
+    },
+    {
+      "type": "qr",
+      "id": "sciences-36",
+      "question": "Qu'est-ce que le bol alimentaire ?",
+      "reponse": "La masse d'aliments mâchés et mélangés à la salive.",
+      "explication": "Il passe de la bouche à l'estomac via l'œsophage grâce à la déglutition.",
+      "categorie": "Digestion"
+    },
+    {
+      "type": "qr",
+      "id": "sciences-37",
+      "question": "Quel nutriment est la principale source d'énergie des cellules ?",
+      "reponse": "Le glucose.",
+      "explication": "Le glucose est issu de la digestion des glucides (pain, pâtes, sucre...).",
+      "categorie": "Digestion"
+    },
+    {
+      "type": "qr",
+      "id": "sciences-38",
+      "question": "Qu'est-ce qu'une villosité intestinale ?",
+      "reponse": "Un repli de la paroi de l'intestin grêle qui augmente la surface d'absorption.",
+      "explication": "Sans les villosités, la surface d'absorption ne serait que de 0,3 m². Avec elles, elle atteint 200 m².",
+      "categorie": "Digestion"
+    },
+    {
+      "type": "qr",
+      "id": "sciences-39",
+      "question": "Par où passent les nutriments après absorption intestinale ?",
+      "reponse": "Dans le sang (et la lymphe pour les graisses).",
+      "explication": "Le sang transporte les nutriments vers le foie en premier, puis vers toutes les cellules.",
+      "categorie": "Digestion"
+    },
+    {
+      "type": "qr",
+      "id": "sciences-40",
+      "question": "Qu'est-ce que le microbiote intestinal ?",
+      "reponse": "L'ensemble des micro-organismes (bactéries) vivant dans l'intestin.",
+      "explication": "Le microbiote aide à la digestion, la synthèse de vitamines et la protection contre les pathogènes.",
+      "categorie": "Digestion"
+    },
+    {
+      "type": "qr",
+      "id": "sciences-41",
+      "question": "Qu'appelle-t-on les sucs digestifs ?",
+      "reponse": "Les liquides produits par les glandes pour digérer les aliments.",
+      "explication": "Salive, suc gastrique, suc pancréatique, bile. Chacun contient des enzymes spécifiques.",
+      "categorie": "Digestion"
+    },
+    {
+      "type": "qr",
+      "id": "sciences-42",
+      "question": "Combien de temps dure environ la digestion complète ?",
+      "reponse": "Entre 24 et 72 heures.",
+      "explication": "L'estomac vide en 2-4 h, l'intestin grêle en 3-5 h, le gros intestin en 10-59 h.",
+      "categorie": "Digestion"
+    },
+    {
+      "type": "qr",
+      "id": "sciences-43",
+      "question": "Qu'est-ce que le pancréas ?",
+      "reponse": "Une glande qui produit des enzymes digestives et l'insuline.",
+      "explication": "Le suc pancréatique digère glucides, protéines et lipides. L'insuline régule la glycémie.",
+      "categorie": "Digestion"
+    },
+    {
+      "type": "qr",
+      "id": "sciences-44",
+      "question": "Pourquoi les graisses ont-elles besoin d'être émulsionnées ?",
+      "reponse": "Pour être découpées en petites gouttelettes accessibles aux lipases.",
+      "explication": "L'émulsification par la bile augmente la surface de contact entre les graisses et les enzymes.",
+      "categorie": "Digestion"
+    },
+    {
+      "type": "qr",
+      "id": "sciences-45",
+      "question": "Quelle est la différence entre digestion et absorption ?",
+      "reponse": "Digestion = transformer les aliments. Absorption = faire passer les nutriments dans le sang.",
+      "explication": "Les deux étapes sont nécessaires pour nourrir les cellules.",
+      "categorie": "Digestion"
+    },
+    {
+      "type": "qr",
+      "id": "sciences-46",
+      "question": "Qu'est-ce que la tension électrique ?",
+      "reponse": "La différence de potentiel entre deux points d'un circuit.",
+      "explication": "Elle se mesure en Volts (V) avec un voltmètre branché en dérivation.",
+      "categorie": "Physique"
+    },
+    {
+      "type": "qr",
+      "id": "sciences-47",
+      "question": "Qu'est-ce que l'intensité du courant ?",
+      "reponse": "La quantité de charges électriques qui passe par seconde.",
+      "explication": "Elle se mesure en Ampères (A) avec un ampèremètre branché en série.",
+      "categorie": "Physique"
+    },
+    {
+      "type": "qr",
+      "id": "sciences-48",
+      "question": "Quelle est la loi d'Ohm ?",
+      "reponse": "U = R × I (tension = résistance × intensité).",
+      "explication": "U en Volts, R en Ohms (Ω), I en Ampères. La résistance s'oppose au passage du courant.",
+      "categorie": "Physique"
+    },
+    {
+      "type": "qr",
+      "id": "sciences-49",
+      "question": "Dans un circuit en série, que se passe-t-il si une lampe grille ?",
+      "reponse": "Tout le circuit s'éteint.",
+      "explication": "En série, il n'y a qu'un seul chemin pour le courant. Si coupé, tout s'arrête.",
+      "categorie": "Physique"
+    },
+    {
+      "type": "qr",
+      "id": "sciences-50",
+      "question": "Dans un circuit en dérivation, que se passe-t-il si une lampe grille ?",
+      "reponse": "Les autres lampes restent allumées.",
+      "explication": "En dérivation, chaque branche a son propre chemin. Les autres fonctionnent indépendamment.",
+      "categorie": "Physique"
+    },
+    {
+      "type": "qr",
+      "id": "sciences-51",
+      "question": "Comment la tension se comporte-t-elle en série ?",
+      "reponse": "Elle se partage entre les dipôles.",
+      "explication": "U_total = U1 + U2 + U3. La somme des tensions = tension de la pile.",
+      "categorie": "Physique"
+    },
+    {
+      "type": "qr",
+      "id": "sciences-52",
+      "question": "Comment l'intensité se comporte-t-elle en série ?",
+      "reponse": "Elle est identique partout dans le circuit.",
+      "explication": "I = même valeur en tout point d'un circuit série.",
+      "categorie": "Physique"
+    },
+    {
+      "type": "qr",
+      "id": "sciences-53",
+      "question": "Comment la tension se comporte-t-elle en dérivation ?",
+      "reponse": "Elle est identique aux bornes de chaque branche.",
+      "explication": "U_branche1 = U_branche2 = U_total (pile).",
+      "categorie": "Physique"
+    },
+    {
+      "type": "qr",
+      "id": "sciences-54",
+      "question": "Qu'est-ce qu'un conducteur électrique ?",
+      "reponse": "Un matériau qui laisse passer le courant électrique.",
+      "explication": "Métaux (cuivre, aluminium, or), eau salée, graphite. Le cuivre est le plus utilisé.",
+      "categorie": "Physique"
+    },
+    {
+      "type": "qr",
+      "id": "sciences-55",
+      "question": "Qu'est-ce qu'un isolant électrique ?",
+      "reponse": "Un matériau qui ne laisse pas passer le courant.",
+      "explication": "Plastique, caoutchouc, verre, bois sec, air. Ils protègent des électrocutions.",
+      "categorie": "Physique"
+    },
+    {
+      "type": "qr",
+      "id": "sciences-56",
+      "question": "Qu'est-ce qu'un interrupteur dans un circuit ?",
+      "reponse": "Un dipôle qui ouvre ou ferme le circuit.",
+      "explication": "Ouvert → circuit coupé → rien ne fonctionne. Fermé → circuit parcouru par le courant.",
+      "categorie": "Physique"
+    },
+    {
+      "type": "qr",
+      "id": "sciences-57",
+      "question": "Quelle est l'unité de la résistance électrique ?",
+      "reponse": "L'Ohm (Ω).",
+      "explication": "La résistance s'oppose au passage du courant. Plus R est grande, moins I est importante.",
+      "categorie": "Physique"
+    },
+    {
+      "type": "qr",
+      "id": "sciences-58",
+      "question": "Qu'est-ce que la puissance électrique ?",
+      "reponse": "P = U × I (en Watts).",
+      "explication": "P en Watts (W), U en Volts, I en Ampères. Ex : ampoule 60 W sous 230 V.",
+      "categorie": "Physique"
+    },
+    {
+      "type": "qr",
+      "id": "sciences-59",
+      "question": "Qu'est-ce qu'un court-circuit ?",
+      "reponse": "Une connexion directe entre les bornes de la pile sans résistance.",
+      "explication": "Le courant très intense peut provoquer un incendie ou détruire la pile.",
+      "categorie": "Physique"
+    },
+    {
+      "type": "qr",
+      "id": "sciences-60",
+      "question": "Comment mesure-t-on la tension ?",
+      "reponse": "Avec un voltmètre branché en dérivation (en parallèle).",
+      "explication": "Le voltmètre a une très grande résistance pour ne pas modifier le circuit.",
+      "categorie": "Physique"
+    },
+    {
+      "type": "qr",
+      "id": "sciences-61",
+      "question": "Comment mesure-t-on l'intensité ?",
+      "reponse": "Avec un ampèremètre branché en série.",
+      "explication": "L'ampèremètre a une résistance quasi nulle pour ne pas gêner le courant.",
+      "categorie": "Physique"
+    },
+    {
+      "type": "qr",
+      "id": "sciences-62",
+      "question": "Qu'est-ce que l'énergie électrique ?",
+      "reponse": "E = P × t (puissance × durée, en Joules ou kWh).",
+      "explication": "1 kWh = énergie consommée par un appareil de 1000 W pendant 1 heure.",
+      "categorie": "Physique"
+    },
+    {
+      "type": "qr",
+      "id": "sciences-63",
+      "question": "Qu'est-ce que la lumière blanche selon la physique ?",
+      "reponse": "Un mélange de toutes les couleurs du spectre visible.",
+      "explication": "Un prisme décompose la lumière blanche en arc-en-ciel (violet → rouge).",
+      "categorie": "Physique"
+    },
+    {
+      "type": "qr",
+      "id": "sciences-64",
+      "question": "Quelle est la vitesse de la lumière dans le vide ?",
+      "reponse": "300 000 km/s (≈ 3×10⁸ m/s).",
+      "explication": "C'est la vitesse limite dans l'univers. La lumière met 8 min pour aller du Soleil à la Terre.",
+      "categorie": "Physique"
+    },
+    {
+      "type": "qr",
+      "id": "sciences-65",
+      "question": "Qu'est-ce que l'ombre d'un objet ?",
+      "reponse": "La zone où la lumière est bloquée par un objet opaque.",
+      "explication": "La lumière se propage en ligne droite. Un objet opaque crée une ombre portée.",
+      "categorie": "Physique"
+    },
+    {
+      "type": "qr",
+      "id": "sciences-66",
+      "question": "De quoi est composé un atome ?",
+      "reponse": "D'un noyau (protons + neutrons) et d'électrons.",
+      "explication": "Le noyau est positif, les électrons sont négatifs. L'atome est globalement neutre.",
+      "categorie": "Chimie"
+    },
+    {
+      "type": "qr",
+      "id": "sciences-67",
+      "question": "Qu'est-ce qu'un élément chimique ?",
+      "reponse": "Un type d'atome défini par son nombre de protons.",
+      "explication": "Ex : Hydrogène (1 proton), Carbone (6 protons), Oxygène (8 protons).",
+      "categorie": "Chimie"
+    },
+    {
+      "type": "qr",
+      "id": "sciences-68",
+      "question": "Qu'est-ce qu'une molécule ?",
+      "reponse": "Un assemblage d'atomes liés chimiquement.",
+      "explication": "H₂O = 2 hydrogènes + 1 oxygène. CO₂ = 1 carbone + 2 oxygènes.",
+      "categorie": "Chimie"
+    },
+    {
+      "type": "qr",
+      "id": "sciences-69",
+      "question": "Qu'est-ce qu'un mélange ?",
+      "reponse": "Une association de plusieurs substances sans réaction chimique.",
+      "explication": "Ex : eau + sel, air (N₂ + O₂), vinaigrette. Les composants peuvent être séparés.",
+      "categorie": "Chimie"
+    },
+    {
+      "type": "qr",
+      "id": "sciences-70",
+      "question": "Qu'est-ce qu'une solution ?",
+      "reponse": "Un mélange homogène d'un soluté dissous dans un solvant.",
+      "explication": "Eau sucrée = sucre (soluté) dans eau (solvant). L'eau est le solvant universel.",
+      "categorie": "Chimie"
+    },
+    {
+      "type": "qr",
+      "id": "sciences-71",
+      "question": "Qu'est-ce que la solubilité ?",
+      "reponse": "La quantité maximale d'un soluté pouvant se dissoudre dans un solvant.",
+      "explication": "La solubilité augmente généralement avec la température. Au-delà : solution saturée.",
+      "categorie": "Chimie"
+    },
+    {
+      "type": "qr",
+      "id": "sciences-72",
+      "question": "Quelles sont les 3 états de la matière ?",
+      "reponse": "Solide, liquide, gazeux.",
+      "explication": "Solide : forme et volume fixes. Liquide : volume fixe, forme variable. Gaz : volume et forme variables.",
+      "categorie": "Chimie"
+    },
+    {
+      "type": "qr",
+      "id": "sciences-73",
+      "question": "Comment s'appelle le passage solide → liquide ?",
+      "reponse": "La fusion.",
+      "explication": "Température de fusion de l'eau = 0°C. On parle de solidification pour le passage inverse.",
+      "categorie": "Chimie"
+    },
+    {
+      "type": "qr",
+      "id": "sciences-74",
+      "question": "Comment s'appelle le passage liquide → gazeux ?",
+      "reponse": "La vaporisation (ébullition ou évaporation).",
+      "explication": "Ébullition à 100°C pour l'eau à pression normale. La condensation est le passage inverse.",
+      "categorie": "Chimie"
+    },
+    {
+      "type": "qr",
+      "id": "sciences-75",
+      "question": "Comment s'appelle le passage solide → gazeux directement ?",
+      "reponse": "La sublimation.",
+      "explication": "Ex : glace carbonique (CO₂ solide) → gaz. La sublimation inverse s'appelle la condensation solide.",
+      "categorie": "Chimie"
+    },
+    {
+      "type": "qr",
+      "id": "sciences-76",
+      "question": "Qu'est-ce qu'une réaction chimique ?",
+      "reponse": "Une transformation qui produit de nouvelles substances avec de nouvelles propriétés.",
+      "explication": "Les liaisons entre atomes se brisent et se reforment. La masse totale est conservée.",
+      "categorie": "Chimie"
+    },
+    {
+      "type": "qr",
+      "id": "sciences-77",
+      "question": "Qu'est-ce que la loi de conservation de la masse ?",
+      "reponse": "La masse des réactifs = masse des produits.",
+      "explication": "Lavoisier (1789) : « Rien ne se perd, rien ne se crée, tout se transforme. »",
+      "categorie": "Chimie"
+    },
+    {
+      "type": "qr",
+      "id": "sciences-78",
+      "question": "Qu'est-ce qu'un réactif ?",
+      "reponse": "Une substance qui intervient au début d'une réaction chimique.",
+      "explication": "Les réactifs sont transformés en produits lors de la réaction.",
+      "categorie": "Chimie"
+    },
+    {
+      "type": "qr",
+      "id": "sciences-79",
+      "question": "Qu'est-ce qu'un acide ?",
+      "reponse": "Une substance qui libère des ions H⁺ en solution aqueuse.",
+      "explication": "pH < 7. Exemples : jus de citron (pH 2), vinaigre (pH 3), eau gazeuse (pH 6).",
+      "categorie": "Chimie"
+    },
+    {
+      "type": "qr",
+      "id": "sciences-80",
+      "question": "Qu'est-ce qu'une base ?",
+      "reponse": "Une substance qui libère des ions OH⁻ en solution aqueuse.",
+      "explication": "pH > 7. Exemples : soude (pH 14), eau de Javel (pH 12), savon (pH 9).",
+      "categorie": "Chimie"
+    },
+    {
+      "type": "qr",
+      "id": "sciences-81",
+      "question": "Qu'est-ce que le pH ?",
+      "reponse": "Une mesure de l'acidité ou basicité d'une solution.",
+      "explication": "pH 7 = neutre. 0-6 = acide. 8-14 = basique. On mesure avec du papier pH ou un pH-mètre.",
+      "categorie": "Chimie"
+    },
+    {
+      "type": "qr",
+      "id": "sciences-82",
+      "question": "Qu'est-ce que la combustion ?",
+      "reponse": "Une réaction entre un combustible et l'oxygène produisant chaleur et lumière.",
+      "explication": "Combustion du méthane : CH₄ + 2O₂ → CO₂ + 2H₂O. Elle libère de l'énergie.",
+      "categorie": "Chimie"
+    },
+    {
+      "type": "qr",
+      "id": "sciences-83",
+      "question": "Quelle est la formule chimique de l'eau ?",
+      "reponse": "H₂O",
+      "explication": "2 atomes d'hydrogène + 1 atome d'oxygène. L'eau est neutre (pH 7).",
+      "categorie": "Chimie"
+    },
+    {
+      "type": "qr",
+      "id": "sciences-84",
+      "question": "Quelle est la formule du dioxyde de carbone ?",
+      "reponse": "CO₂",
+      "explication": "1 carbone + 2 oxygènes. Produit par la respiration cellulaire et la combustion.",
+      "categorie": "Chimie"
+    },
+    {
+      "type": "qr",
+      "id": "sciences-85",
+      "question": "Qu'est-ce que l'électrolyse de l'eau ?",
+      "reponse": "La décomposition de l'eau en hydrogène et oxygène par un courant électrique.",
+      "explication": "2H₂O → 2H₂ + O₂. H₂ se forme à la cathode ( - ), O₂ à l'anode (+).",
+      "categorie": "Chimie"
+    },
+    {
+      "type": "qr",
+      "id": "sciences-86",
+      "question": "Qu'est-ce qu'un indicateur coloré ?",
+      "reponse": "Une substance qui change de couleur selon le pH.",
+      "explication": "BBT : jaune en milieu acide, vert en neutre, bleu en milieu basique.",
+      "categorie": "Chimie"
+    },
+    {
+      "type": "qr",
+      "id": "sciences-87",
+      "question": "Quelle est la composition de l'air ?",
+      "reponse": "78% azote (N₂), 21% oxygène (O₂), 1% autres gaz.",
+      "explication": "Les autres gaz comprennent argon, CO₂, vapeur d'eau. L'air est un mélange.",
+      "categorie": "Chimie"
+    },
+    {
+      "type": "qr",
+      "id": "sciences-88",
+      "question": "Qu'est-ce qu'une dissolution ?",
+      "reponse": "L'action de dissoudre un soluté dans un solvant.",
+      "explication": "Le sel (NaCl) se dissocie en ions Na⁺ et Cl⁻ dans l'eau.",
+      "categorie": "Chimie"
+    },
+    {
+      "type": "qr",
+      "id": "sciences-89",
+      "question": "Qu'est-ce que la distillation ?",
+      "reponse": "Une technique de séparation basée sur les différences de températures d'ébullition.",
+      "explication": "Permet d'obtenir de l'eau pure, de séparer l'alcool du vin, de raffiner le pétrole.",
+      "categorie": "Chimie"
+    },
+    {
+      "type": "qr",
+      "id": "sciences-90",
+      "question": "Qu'est-ce qu'un oxyde ?",
+      "reponse": "Un composé d'un élément avec l'oxygène.",
+      "explication": "Rouille = oxyde de fer (Fe₂O₃). La rouille est une réaction lente d'oxydation.",
+      "categorie": "Chimie"
+    },
+    {
+      "type": "qr",
+      "id": "sciences-91",
+      "question": "Donne l'ordre des planètes du système solaire.",
+      "reponse": "Mercure, Vénus, Terre, Mars, Jupiter, Saturne, Uranus, Neptune.",
+      "explication": "Mnémotechnique : Mon Vieux Tu M'as Jeté Sur Une Navette.",
+      "categorie": "Astronomie"
+    },
+    {
+      "type": "qr",
+      "id": "sciences-92",
+      "question": "Qu'est-ce qu'une étoile ?",
+      "reponse": "Une sphère de gaz très chaud qui produit sa propre lumière par fusion nucléaire.",
+      "explication": "Le Soleil est une étoile de taille moyenne. Il fusionne l'hydrogène en hélium.",
+      "categorie": "Astronomie"
+    },
+    {
+      "type": "qr",
+      "id": "sciences-93",
+      "question": "Qu'est-ce qu'une planète ?",
+      "reponse": "Un corps céleste qui orbite autour d'une étoile, a nettoyé son orbite.",
+      "explication": "Notre système solaire compte 8 planètes. Pluton est une planète naine.",
+      "categorie": "Astronomie"
+    },
+    {
+      "type": "qr",
+      "id": "sciences-94",
+      "question": "Qu'est-ce qu'une année-lumière ?",
+      "reponse": "La distance parcourue par la lumière en 1 an ≈ 9 460 milliards de km.",
+      "explication": "L'étoile la plus proche (Proxima Centauri) est à 4,2 années-lumière.",
+      "categorie": "Astronomie"
+    },
+    {
+      "type": "qr",
+      "id": "sciences-95",
+      "question": "Pourquoi y a-t-il des saisons sur Terre ?",
+      "reponse": "À cause de l'inclinaison de l'axe terrestre par rapport au plan orbital.",
+      "explication": "L'inclinaison de 23,5° fait varier l'angle d'incidence des rayons solaires selon la saison.",
+      "categorie": "Astronomie"
+    },
+    {
+      "type": "qr",
+      "id": "sciences-96",
+      "question": "Quelle est la durée de révolution de la Terre autour du Soleil ?",
+      "reponse": "365 jours et 6 heures (environ 1 an).",
+      "explication": "Les 6h s'accumulent et donnent une année bissextile de 366 jours tous les 4 ans.",
+      "categorie": "Astronomie"
+    },
+    {
+      "type": "qr",
+      "id": "sciences-97",
+      "question": "Quelle est la durée de rotation de la Terre sur elle-même ?",
+      "reponse": "24 heures (1 jour).",
+      "explication": "Cette rotation est responsable de l'alternance jour/nuit.",
+      "categorie": "Astronomie"
+    },
+    {
+      "type": "qr",
+      "id": "sciences-98",
+      "question": "Qu'est-ce qu'une éclipse solaire ?",
+      "reponse": "La Lune passe devant le Soleil et masque sa lumière.",
+      "explication": "L'éclipse est totale quand la Lune cache entièrement le Soleil. Elle dure quelques minutes.",
+      "categorie": "Astronomie"
+    },
+    {
+      "type": "qr",
+      "id": "sciences-99",
+      "question": "Qu'est-ce qu'une éclipse lunaire ?",
+      "reponse": "La Terre passe entre le Soleil et la Lune, projetant son ombre sur la Lune.",
+      "explication": "La Lune prend une teinte rouge-orangée (Lune de sang) car la lumière est déviée par l'atmosphère.",
+      "categorie": "Astronomie"
+    },
+    {
+      "type": "qr",
+      "id": "sciences-100",
+      "question": "Qu'est-ce qui cause les marées ?",
+      "reponse": "L'attraction gravitationnelle de la Lune (et du Soleil) sur les océans.",
+      "explication": "Il y a 2 marées hautes et 2 marées basses par jour. Les grandes marées ont lieu lors des pleine/nouvelle lune.",
+      "categorie": "Astronomie"
+    },
+    {
+      "type": "qr",
+      "id": "sciences-101",
+      "question": "Qu'est-ce que la Voie lactée ?",
+      "reponse": "La galaxie spirale dans laquelle se trouve notre système solaire.",
+      "explication": "Elle contient environ 200 milliards d'étoiles. Notre Soleil est à 26 000 années-lumière de son centre.",
+      "categorie": "Astronomie"
+    },
+    {
+      "type": "qr",
+      "id": "sciences-102",
+      "question": "Qu'est-ce qu'un satellite naturel ?",
+      "reponse": "Un corps céleste qui orbite autour d'une planète.",
+      "explication": "La Lune est le seul satellite naturel de la Terre. Jupiter en possède 95 !",
+      "categorie": "Astronomie"
+    },
+    {
+      "type": "qr",
+      "id": "sciences-103",
+      "question": "Quelle planète est la plus grande du système solaire ?",
+      "reponse": "Jupiter.",
+      "explication": "Jupiter est 11 fois plus grande que la Terre et 318 fois plus massive. Sa Grande Tache Rouge est une tempête.",
+      "categorie": "Astronomie"
+    },
+    {
+      "type": "qr",
+      "id": "sciences-104",
+      "question": "Quelle planète possède les anneaux les plus visibles ?",
+      "reponse": "Saturne.",
+      "explication": "Les anneaux de Saturne sont composés de glace et de roche. Ils s'étendent sur 280 000 km.",
+      "categorie": "Astronomie"
+    },
+    {
+      "type": "qr",
+      "id": "sciences-105",
+      "question": "Qu'est-ce que le Big Bang ?",
+      "reponse": "L'événement originel il y a ~13,8 milliards d'années qui a donné naissance à l'univers.",
+      "explication": "L'univers a commencé par un état extrêmement dense et chaud, puis s'est étendu.",
+      "categorie": "Astronomie"
+    },
+    {
+      "type": "qr",
+      "id": "sciences-106",
+      "question": "Pourquoi le ciel est-il bleu ?",
+      "reponse": "La diffusion de Rayleigh : l'atmosphère diffuse plus la lumière bleue.",
+      "explication": "Les molécules d'air dévient préférentiellement les courtes longueurs d'onde (bleu/violet).",
+      "categorie": "Astronomie"
+    },
+    {
+      "type": "qr",
+      "id": "sciences-107",
+      "question": "Pourquoi le Soleil semble-t-il rouge au coucher ?",
+      "reponse": "La lumière traverse plus d'atmosphère, filtrant les bleues et laissant les rouges.",
+      "explication": "Au coucher, les rayons solaires traversent davantage d'atmosphère, diffusant les couleurs bleues.",
+      "categorie": "Astronomie"
+    },
+    {
+      "type": "qr",
+      "id": "sciences-108",
+      "question": "Qu'est-ce qu'une comète ?",
+      "reponse": "Un petit corps glacé qui développe une traînée lumineuse en approchant du Soleil.",
+      "explication": "La chaleur solaire vaporise la glace et crée la chevelure et la queue de la comète.",
+      "categorie": "Astronomie"
+    },
+    {
+      "type": "qr",
+      "id": "sciences-109",
+      "question": "Qu'est-ce qu'un astéroïde ?",
+      "reponse": "Un petit corps rocheux orbitant principalement entre Mars et Jupiter.",
+      "explication": "La ceinture d'astéroïdes contient des millions de ces rochers. Certains croisent l'orbite terrestre.",
+      "categorie": "Astronomie"
+    },
+    {
+      "type": "qr",
+      "id": "sciences-110",
+      "question": "Quelles phases de la Lune peut-on observer ?",
+      "reponse": "Nouvelle lune, premier quartier, pleine lune, dernier quartier.",
+      "explication": "Le cycle lunaire dure environ 29,5 jours. La Lune montre toujours la même face à la Terre.",
+      "categorie": "Astronomie"
+    },
+    {
+      "type": "qr",
+      "id": "sciences-111",
+      "question": "Quelles sont les principales formes d'énergie ?",
+      "reponse": "Cinétique, potentielle, thermique, chimique, électrique, lumineuse, nucléaire.",
+      "explication": "L'énergie se transforme d'une forme à l'autre mais ne se crée pas et ne se détruit pas.",
+      "categorie": "Énergie"
+    },
+    {
+      "type": "qr",
+      "id": "sciences-112",
+      "question": "Qu'est-ce que l'énergie cinétique ?",
+      "reponse": "L'énergie d'un objet en mouvement.",
+      "explication": "Ec = ½mv². Plus un objet est rapide et lourd, plus son énergie cinétique est grande.",
+      "categorie": "Énergie"
+    },
+    {
+      "type": "qr",
+      "id": "sciences-113",
+      "question": "Qu'est-ce que l'énergie potentielle de pesanteur ?",
+      "reponse": "L'énergie liée à la hauteur d'un objet.",
+      "explication": "Ep = m × g × h. Plus un objet est haut, plus il peut fournir d'énergie en tombant.",
+      "categorie": "Énergie"
+    },
+    {
+      "type": "qr",
+      "id": "sciences-114",
+      "question": "Qu'est-ce que la loi de conservation de l'énergie ?",
+      "reponse": "L'énergie totale d'un système isolé reste constante.",
+      "explication": "L'énergie se transforme mais ne disparaît pas. Ex : énergie chimique → électrique → lumineuse.",
+      "categorie": "Énergie"
+    },
+    {
+      "type": "qr",
+      "id": "sciences-115",
+      "question": "Qu'est-ce qu'une énergie fossile ?",
+      "reponse": "Une énergie issue de la décomposition d'organismes anciens.",
+      "explication": "Pétrole, gaz naturel, charbon. Formés sur des millions d'années, non renouvelables en temps humain.",
+      "categorie": "Énergie"
+    },
+    {
+      "type": "qr",
+      "id": "sciences-116",
+      "question": "Qu'est-ce qu'une énergie renouvelable ?",
+      "reponse": "Une énergie issue de sources naturelles qui se renouvellent rapidement.",
+      "explication": "Solaire, éolien, hydraulique, biomasse, géothermie. Inépuisables à l'échelle humaine.",
+      "categorie": "Énergie"
+    },
+    {
+      "type": "qr",
+      "id": "sciences-117",
+      "question": "Comment fonctionne un panneau solaire photovoltaïque ?",
+      "reponse": "Il convertit la lumière solaire en électricité grâce à l'effet photovoltaïque.",
+      "explication": "Les cellules en silicium absorbent les photons et libèrent des électrons → courant électrique.",
+      "categorie": "Énergie"
+    },
+    {
+      "type": "qr",
+      "id": "sciences-118",
+      "question": "Comment fonctionne une éolienne ?",
+      "reponse": "Le vent fait tourner les pales qui entraînent un générateur produisant de l'électricité.",
+      "explication": "L'énergie cinétique du vent est convertie en énergie mécanique puis électrique.",
+      "categorie": "Énergie"
+    },
+    {
+      "type": "qr",
+      "id": "sciences-119",
+      "question": "Comment fonctionne une centrale hydraulique ?",
+      "reponse": "L'eau en chute entraîne des turbines qui produisent de l'électricité.",
+      "explication": "L'énergie potentielle de l'eau (barrage) → cinétique (chute) → électrique (alternateur).",
+      "categorie": "Énergie"
+    },
+    {
+      "type": "qr",
+      "id": "sciences-120",
+      "question": "Qu'est-ce que l'effet de serre ?",
+      "reponse": "Le piégeage de la chaleur solaire par certains gaz atmosphériques.",
+      "explication": "CO₂, méthane, vapeur d'eau absorbent le rayonnement infrarouge. Sans effet de serre : - 18°C en moyenne.",
+      "categorie": "Énergie"
+    },
+    {
+      "type": "qr",
+      "id": "sciences-121",
+      "question": "Quels sont les principaux gaz à effet de serre ?",
+      "reponse": "CO₂, méthane (CH₄), vapeur d'eau (H₂O), protoxyde d'azote (N₂O).",
+      "explication": "Le CO₂ est le plus surveillé car sa concentration augmente avec les combustibles fossiles.",
+      "categorie": "Énergie"
+    },
+    {
+      "type": "qr",
+      "id": "sciences-122",
+      "question": "Qu'est-ce que l'énergie nucléaire ?",
+      "reponse": "L'énergie libérée lors de la fission ou fusion du noyau atomique.",
+      "explication": "Fission : division d'un noyau lourd (uranium). La France produit ~70% de son électricité ainsi.",
+      "categorie": "Énergie"
+    },
+    {
+      "type": "qr",
+      "id": "sciences-123",
+      "question": "Qu'est-ce que la biomasse comme source d'énergie ?",
+      "reponse": "L'énergie produite par la combustion ou fermentation de matière organique.",
+      "explication": "Bois, biocarburants, biogaz. Renouvelable si les plantations sont gérées durablement.",
+      "categorie": "Énergie"
+    },
+    {
+      "type": "qr",
+      "id": "sciences-124",
+      "question": "Qu'est-ce que la géothermie ?",
+      "reponse": "L'utilisation de la chaleur interne de la Terre pour produire de l'énergie.",
+      "explication": "On peut chauffer des habitations (géothermie basse énergie) ou produire de l'électricité (haute énergie).",
+      "categorie": "Énergie"
+    },
+    {
+      "type": "qr",
+      "id": "sciences-125",
+      "question": "Qu'est-ce que le rendement énergétique ?",
+      "reponse": "Le rapport entre l'énergie utile produite et l'énergie totale consommée.",
+      "explication": "Rendement = énergie utile / énergie totale × 100%. Une ampoule LED a un rendement de ~80%.",
+      "categorie": "Énergie"
+    },
+    {
+      "type": "qr",
+      "id": "sciences-126",
+      "question": "Quelle est l'unité d'énergie dans le Système international ?",
+      "reponse": "Le Joule (J).",
+      "explication": "1 kWh = 3 600 000 J. Les factures d'électricité utilisent le kWh (kilowattheure).",
+      "categorie": "Énergie"
+    },
+    {
+      "type": "qr",
+      "id": "sciences-127",
+      "question": "Qu'est-ce que la chaleur (thermique) ?",
+      "reponse": "L'énergie transférée entre deux corps à des températures différentes.",
+      "explication": "La chaleur va toujours du corps chaud vers le corps froid. Elle se mesure en Joules.",
+      "categorie": "Énergie"
+    },
+    {
+      "type": "qr",
+      "id": "sciences-128",
+      "question": "Pourquoi les énergies fossiles posent-elles problème ?",
+      "reponse": "Elles sont non renouvelables et émettent du CO₂ (réchauffement climatique).",
+      "explication": "À ce rythme, pétrole et gaz pourraient s'épuiser en quelques décennies.",
+      "categorie": "Énergie"
+    },
+    {
+      "type": "qr",
+      "id": "sciences-129",
+      "question": "Qu'est-ce qu'un générateur ?",
+      "reponse": "Un appareil qui convertit une autre forme d'énergie en énergie électrique.",
+      "explication": "Pile (chimique → électrique), dynamo (mécanique → électrique), panneau solaire (lumière → électrique).",
+      "categorie": "Énergie"
+    },
+    {
+      "type": "qr",
+      "id": "sciences-130",
+      "question": "Qu'est-ce qu'un récepteur énergétique ?",
+      "reponse": "Un appareil qui convertit l'énergie électrique en une autre forme.",
+      "explication": "Moteur (électrique → mécanique), lampe (électrique → lumineuse), radiateur (électrique → thermique).",
+      "categorie": "Énergie"
+    },
+    {
+      "type": "qr",
+      "id": "sciences-131",
+      "question": "Qu'est-ce que la transition énergétique ?",
+      "reponse": "Le passage des énergies fossiles vers les énergies renouvelables.",
+      "explication": "Objectif de limiter le réchauffement à +1,5°C (Accord de Paris, 2015).",
+      "categorie": "Énergie"
+    },
+    {
+      "type": "qr",
+      "id": "sciences-132",
+      "question": "Qu'est-ce qu'une pile à combustible ?",
+      "reponse": "Un dispositif qui produit de l'électricité par réaction entre H₂ et O₂.",
+      "explication": "H₂ + O₂ → H₂O + électricité. L'hydrogène est un vecteur d'énergie propre si produit par électrolyse.",
+      "categorie": "Énergie"
+    },
+    {
+      "type": "qr",
+      "id": "sciences-133",
+      "question": "Pourquoi dit-on que l'énergie se dégrade ?",
+      "reponse": "Elle se transforme partiellement en chaleur inutilisable (énergie perdue).",
+      "explication": "On ne peut pas utiliser 100% de l'énergie. Il y a toujours des pertes (frottements, résistances...).",
+      "categorie": "Énergie"
+    },
+    {
+      "type": "qr",
+      "id": "sciences-134",
+      "question": "Qu'est-ce que la puissance ?",
+      "reponse": "La quantité d'énergie transférée ou transformée par unité de temps.",
+      "explication": "P = E/t. Unité : le Watt (W). 1W = 1 J/s.",
+      "categorie": "Énergie"
+    },
+    {
+      "type": "qr",
+      "id": "sciences-135",
+      "question": "Qu'est-ce que le développement durable ?",
+      "reponse": "Un développement qui répond aux besoins actuels sans compromettre ceux des générations futures.",
+      "explication": "3 piliers : économique, social, environnemental. Défini par le rapport Brundtland (1987).",
+      "categorie": "Énergie"
+    },
+    {
+      "type": "qr",
+      "id": "sciences-136",
+      "question": "Comment caractérise-t-on le mouvement d'un objet ?",
+      "reponse": "Par sa trajectoire et sa vitesse.",
+      "explication": "La trajectoire est le chemin suivi. La vitesse mesure la rapidité du déplacement.",
+      "categorie": "Mouvements"
+    },
+    {
+      "type": "qr",
+      "id": "sciences-137",
+      "question": "Qu'est-ce qu'un mouvement uniforme ?",
+      "reponse": "Un mouvement à vitesse constante (ni accélération, ni décélération).",
+      "explication": "La trajectoire peut être rectiligne (voiture sur autoroute) ou courbe (satellite).",
+      "categorie": "Mouvements"
+    },
+    {
+      "type": "qr",
+      "id": "sciences-138",
+      "question": "Quelle est la formule de la vitesse ?",
+      "reponse": "v = d/t (vitesse = distance / temps).",
+      "explication": "Ex : 100 km en 2h → v = 50 km/h. On peut aussi l'écrire d = v × t.",
+      "categorie": "Mouvements"
+    },
+    {
+      "type": "qr",
+      "id": "sciences-139",
+      "question": "Qu'est-ce qu'un mouvement accéléré ?",
+      "reponse": "Un mouvement dont la vitesse augmente au cours du temps.",
+      "explication": "Une voiture qui démarre, un objet en chute libre (accélération = g = 9,8 m/s²).",
+      "categorie": "Mouvements"
+    },
+    {
+      "type": "qr",
+      "id": "sciences-140",
+      "question": "Qu'est-ce qu'un mouvement décéléré (freiné) ?",
+      "reponse": "Un mouvement dont la vitesse diminue au cours du temps.",
+      "explication": "Une voiture qui freine, une balle qui monte dans les airs (freinée par la pesanteur).",
+      "categorie": "Mouvements"
+    },
+    {
+      "type": "qr",
+      "id": "sciences-141",
+      "question": "Qu'est-ce qu'une trajectoire rectiligne ?",
+      "reponse": "Une trajectoire en ligne droite.",
+      "explication": "Ex : voiture sur autoroute, balle lancée horizontalement (approximation sans air).",
+      "categorie": "Mouvements"
+    },
+    {
+      "type": "qr",
+      "id": "sciences-142",
+      "question": "Qu'est-ce qu'une trajectoire circulaire ?",
+      "reponse": "Une trajectoire en forme de cercle.",
+      "explication": "Ex : manège, satellite, aiguille d'horloge, Terre autour du Soleil (approximation).",
+      "categorie": "Mouvements"
+    },
+    {
+      "type": "qr",
+      "id": "sciences-143",
+      "question": "Qu'est-ce que la force de gravité (poids) ?",
+      "reponse": "La force d'attraction exercée par la Terre sur les objets.",
+      "explication": "P = m × g. Sur Terre g ≈ 9,8 N/kg. Sur la Lune g ≈ 1,6 N/kg.",
+      "categorie": "Mouvements"
+    },
+    {
+      "type": "qr",
+      "id": "sciences-144",
+      "question": "Quelle est la différence entre masse et poids ?",
+      "reponse": "La masse est une quantité de matière (kg), le poids est une force (N).",
+      "explication": "La masse est invariable. Le poids change selon la gravité (Lune : poids 6× plus faible).",
+      "categorie": "Mouvements"
+    },
+    {
+      "type": "qr",
+      "id": "sciences-145",
+      "question": "Qu'est-ce que la loi d'inertie (1ère loi de Newton) ?",
+      "reponse": "Un objet sans force reste en repos ou en mouvement rectiligne uniforme.",
+      "explication": "En l'absence de force nette, la vitesse ne change pas. Un objet dans l'espace continue indéfiniment.",
+      "categorie": "Mouvements"
+    },
+    {
+      "type": "qr",
+      "id": "sciences-146",
+      "question": "Qu'est-ce que la friction ?",
+      "reponse": "Une force qui s'oppose au mouvement entre deux surfaces en contact.",
+      "explication": "La friction convertit l'énergie cinétique en chaleur. Elle permet de freiner, marcher, écrire.",
+      "categorie": "Mouvements"
+    },
+    {
+      "type": "qr",
+      "id": "sciences-147",
+      "question": "Qu'est-ce que la chute libre ?",
+      "reponse": "La chute d'un objet soumis uniquement à la pesanteur (sans frottement de l'air).",
+      "explication": "Tous les objets tombent à la même vitesse en chute libre, quelle que soit leur masse.",
+      "categorie": "Mouvements"
+    },
+    {
+      "type": "qr",
+      "id": "sciences-148",
+      "question": "Comment convertir km/h en m/s ?",
+      "reponse": "Diviser par 3,6. Ex : 90 km/h ÷ 3,6 = 25 m/s.",
+      "explication": "Pour convertir m/s en km/h, on multiplie par 3,6.",
+      "categorie": "Mouvements"
+    },
+    {
+      "type": "qr",
+      "id": "sciences-149",
+      "question": "Qu'est-ce que la distance de freinage ?",
+      "reponse": "La distance parcourue entre le début du freinage et l'arrêt complet.",
+      "explication": "Elle dépend de la vitesse (v²), de la masse, de l'état des pneus et de la route.",
+      "categorie": "Mouvements"
+    },
+    {
+      "type": "qr",
+      "id": "sciences-150",
+      "question": "Qu'est-ce que la distance de réaction ?",
+      "reponse": "La distance parcourue entre la perception du danger et le début du freinage.",
+      "explication": "À 90 km/h avec 1s de réaction : 90 km/h × 1s = 25 m parcourus avant de freiner !",
+      "categorie": "Mouvements"
+    },
+    {
+      "type": "qr",
+      "id": "sciences-151",
+      "question": "Qu'est-ce qu'une force en physique ?",
+      "reponse": "Une action mécanique capable de modifier le mouvement ou la forme d'un objet.",
+      "explication": "Une force a une direction, un sens et une intensité. Elle se mesure en Newtons (N).",
+      "categorie": "Mouvements"
+    },
+    {
+      "type": "qr",
+      "id": "sciences-152",
+      "question": "Comment représente-t-on une force ?",
+      "reponse": "Par une flèche (vecteur) dont la longueur représente l'intensité.",
+      "explication": "La flèche indique le point d'application, la direction, le sens et l'intensité.",
+      "categorie": "Mouvements"
+    },
+    {
+      "type": "qr",
+      "id": "sciences-153",
+      "question": "Qu'est-ce que l'équilibre d'un objet ?",
+      "reponse": "Quand la somme de toutes les forces exercées sur lui est nulle.",
+      "explication": "Un livre posé sur une table : poids (bas) + réaction de la table (haut) = 0.",
+      "categorie": "Mouvements"
+    },
+    {
+      "type": "qr",
+      "id": "sciences-154",
+      "question": "Qu'est-ce que la pression ?",
+      "reponse": "La force exercée par unité de surface : P = F/S (en Pascals).",
+      "explication": "1 Pa = 1 N/m². La pression atmosphérique au sol ≈ 101 325 Pa (1 atm).",
+      "categorie": "Mouvements"
+    },
+    {
+      "type": "qr",
+      "id": "sciences-155",
+      "question": "Pourquoi flotte-t-on dans l'eau ?",
+      "reponse": "La poussée d'Archimède (égale au poids du liquide déplacé) compense le poids.",
+      "explication": "Si la poussée > poids → flotte. Si poussée < poids → coule. Si égaux → densité = 1.",
+      "categorie": "Mouvements"
+    }
+  ]
+}

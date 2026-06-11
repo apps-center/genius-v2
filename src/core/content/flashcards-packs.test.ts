@@ -94,6 +94,26 @@ describe('couverture des deux modeles de carte', () => {
     // Migration TEXTE seul : aucune illustration remplie a ce stade.
     expect(pack.cartes.every((c) => c.type === 'qr' && c.illustration === undefined)).toBe(true);
   });
+
+  it('deck mathematiques (modele question-reponse) : 248 cartes, toutes de type qr, sans illustration', () => {
+    const maths = packs.find((p) => p.chemin.includes('mathematiques'));
+    expect(maths).toBeDefined();
+    const pack = parsePack('flashcards', maths!.raw);
+    expect(pack.cartes.length).toBe(248);
+    expect(pack.cartes.every((c) => c.type === 'qr')).toBe(true);
+    // Migration TEXTE seul : les SVG inline du legacy ne sont pas migres.
+    expect(pack.cartes.every((c) => c.type === 'qr' && c.illustration === undefined)).toBe(true);
+  });
+
+  it('deck sciences (modele question-reponse) : 155 cartes, toutes de type qr, sans illustration', () => {
+    const sciences = packs.find((p) => p.chemin.includes('sciences'));
+    expect(sciences).toBeDefined();
+    const pack = parsePack('flashcards', sciences!.raw);
+    expect(pack.cartes.length).toBe(155);
+    expect(pack.cartes.every((c) => c.type === 'qr')).toBe(true);
+    // Migration TEXTE seul : les references SVG.* du legacy ne sont pas migrees.
+    expect(pack.cartes.every((c) => c.type === 'qr' && c.illustration === undefined)).toBe(true);
+  });
 });
 
 describe('carte qr : illustration optionnelle (bitmap, svg, ou absente)', () => {
