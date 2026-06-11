@@ -40,6 +40,13 @@ const DECKS = {
     titre: 'Logique',
     modele: 'qr',
   },
+  geographie: {
+    html: 'legacy/flashcards/geographie.html',
+    marqueur: 'const ALL_CARDS =',
+    sujet: 'geographie',
+    titre: 'Géographie',
+    modele: 'qr',
+  },
 };
 
 function noDash(s) {
@@ -60,6 +67,12 @@ function slugify(name) {
 }
 
 // Extrait le tableau JS inline en cherchant le crochet fermant equilibre.
+// Certains decks qr (geographie, sciences) referencent dans leurs cartes des IDENTIFIANTS
+// d'illustration definis ailleurs dans le HTML legacy : SVG.xxx (dictionnaire de visuels)
+// et une palette C. Evaluer le seul tableau, hors contexte, levait "SVG is not defined".
+// On NE migre PAS les illustrations pour l'instant (le champ `illustration` du schema reste
+// vide), donc on evalue le tableau dans un scope ou SVG et C sont des stubs NEUTRES : toute
+// reference d'illustration s'evalue en `undefined` et n'alimente aucun champ du pack.
 function extraireTableau(html, marqueur) {
   const start = html.indexOf(marqueur);
   if (start < 0) throw new Error(`marqueur introuvable : ${marqueur}`);
@@ -76,8 +89,10 @@ function extraireTableau(html, marqueur) {
     if (c === '"') inStr = true;
     else if (c === '[') depth++;
     else if (c === ']' && --depth === 0) {
-      // eslint-disable-next-line no-eval
-      return eval(html.slice(open, i + 1));
+      const src = html.slice(open, i + 1);
+      const stub = new Proxy({}, { get: () => undefined });
+      // eslint-disable-next-line no-new-func
+      return Function('SVG', 'C', `return (${src});`)(stub, stub);
     }
   }
   throw new Error('tableau non termine');
