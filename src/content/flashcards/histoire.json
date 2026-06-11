@@ -1,0 +1,1861 @@
+{
+  "contentKind": "flashcards",
+  "sujet": "histoire",
+  "titre": "Histoire",
+  "cartes": [
+    {
+      "type": "image",
+      "id": "histoire-1",
+      "image": "/img/flashcards/histoire/naissance-de-l-univers-lumineux.webp",
+      "titre": "Naissance de l'Univers",
+      "date": "-13,8 milliards d'années",
+      "epoque": "Ère Cosmique",
+      "description": "Avant le Big Bang : rien. Pas le vide - le vide, c'est quelque chose. Rien. Pas d'espace, pas de temps, pas de matière."
+    },
+    {
+      "type": "image",
+      "id": "histoire-2",
+      "image": "/img/flashcards/histoire/creation-syst-solaire.webp",
+      "titre": "Naissance du Système Solaire",
+      "date": "-4,6 milliards d'années",
+      "epoque": "Ère Cosmique",
+      "description": "Un immense nuage de gaz et de poussières - restes d'étoiles mortes depuis longtemps - commence à s'effondrer sur lui-même sous l'effet de sa propre gravité."
+    },
+    {
+      "type": "image",
+      "id": "histoire-3",
+      "image": "/img/flashcards/histoire/la-formation-de-la-terre-primordiale.webp",
+      "titre": "Naissance de la Terre",
+      "date": "-4,5 milliards d'années",
+      "epoque": "Ère Cosmique",
+      "description": "La Terre se forme en agglomérant des millions de rochers en orbite. Mais à peine née, elle reçoit un impact catastrophique : une planète de la taille de Mars, baptisée Théia, la percute de plein fouet."
+    },
+    {
+      "type": "image",
+      "id": "histoire-4",
+      "image": "/img/flashcards/histoire/vents-hydrothermaux-et-vie-abyssale.webp",
+      "titre": "Naissance de la Vie",
+      "date": "-3,8 milliards d'années",
+      "epoque": "Ère Biologique",
+      "description": "Dans les océans primitifs brûlants, autour de cheminées hydrothermales crachant des minéraux à 300°C, quelque chose d'extraordinaire se produit : des molécules chimiques commencent à se copier elles-mêmes."
+    },
+    {
+      "type": "image",
+      "id": "histoire-5",
+      "image": "/img/flashcards/histoire/vue-prehistorique-sur-une-mer-d-algues.webp",
+      "titre": "Premières Algues",
+      "date": "-1,2 milliards d'années",
+      "epoque": "Ère Biologique",
+      "description": "Une cellule avale une bactérie photosynthétique - et au lieu de la digérer, elle la garde prisonnière. Cette bactérie devient un chloroplaste, une mini-usine à capter la lumière du Soleil."
+    },
+    {
+      "type": "image",
+      "id": "histoire-6",
+      "image": "/img/flashcards/histoire/ecosysteme-prehistorique-sous-marin-du-cambrien.webp",
+      "titre": "Explosion Cambrienne - Premiers Animaux",
+      "date": "-538,8 millions d'années",
+      "epoque": "Ère Biologique",
+      "description": "Pendant des milliards d'années, la vie est restée microscopique et molle. Puis, en quelques millions d'années - un claquement de doigts à l'échelle géologique - une explosion de formes de vie nouvelles envahit les."
+    },
+    {
+      "type": "image",
+      "id": "histoire-7",
+      "image": "/img/flashcards/histoire/premiers-pas-de-la-vie-vegetale.webp",
+      "titre": "Les Plantes Conquièrent la Terre",
+      "date": "-470 millions d'années",
+      "epoque": "Ère Biologique",
+      "description": "Pendant des milliards d'années, les continents sont des déserts de roche nue, battus par le vent et les pluies acides. Aucune plante, aucun animal."
+    },
+    {
+      "type": "image",
+      "id": "histoire-8",
+      "image": "/img/flashcards/histoire/dinosaures-au-bord-de-l-eau.webp",
+      "titre": "Premiers Dinosaures",
+      "date": "-230 millions d'années",
+      "epoque": "Ère Biologique",
+      "description": "Après une extinction massive qui a failli effacer toute la vie complexe , la vie repart de zéro. Parmi les survivants qui se disputent la Terre vide, un groupe se distingue : les dinosaures."
+    },
+    {
+      "type": "image",
+      "id": "histoire-9",
+      "image": "/img/flashcards/histoire/chute-d-asteroide-et-fuite-des-dinosaures.webp",
+      "titre": "Extinction des Dinosaures",
+      "date": "-66 millions d'années",
+      "epoque": "Ère Biologique",
+      "description": "Un mardi ordinaire, il y a 66 millions d'années. Un rocher de 10 km de diamètre - gros comme le Mont Blanc - pénètre l'atmosphère à 72 000 km/h. En quelques secondes, il percute le Yucatán (Mexique)."
+    },
+    {
+      "type": "image",
+      "id": "histoire-10",
+      "image": "/img/flashcards/histoire/bipedie.webp",
+      "titre": "Premiers Hominidés",
+      "date": "-7 millions d'années",
+      "epoque": "Préhistoire",
+      "description": "Sahelanthropus tchadensis (Tchad) - le plus ancien fossile de notre lignée, juste après la séparation évolutive avec les chimpanzés."
+    },
+    {
+      "type": "image",
+      "id": "histoire-11",
+      "image": "/img/flashcards/histoire/l-artisanat-prehistorique-a-l-ere-de-la-pierre.webp",
+      "titre": "Le Biface - Premier Chef-d'Œuvre Humain",
+      "date": "-1,7 million d'années",
+      "epoque": "Préhistoire",
+      "description": "Homo erectus ramasse un bloc de silex brut et, à force de coups précis avec un percuteur en pierre, en fait émerger une lame symétrique, pointue, tranchante des deux côtés."
+    },
+    {
+      "type": "image",
+      "id": "histoire-12",
+      "image": "/img/flashcards/histoire/feu-prehistoire.webp",
+      "titre": "Maîtrise du Feu",
+      "date": "-1 million à -400 000 ans",
+      "epoque": "Préhistoire",
+      "description": "Homo erectus apprivoise le feu - mais à quelle date exacte ? Les sources se contredisent légitimement, car il y a deux seuils distincts."
+    },
+    {
+      "type": "image",
+      "id": "histoire-13",
+      "image": "/img/flashcards/histoire/chasseur-prehistorique-pret-a-lancer-sa-lance.webp",
+      "titre": "La Lance en Bois - Première Arme à Distance",
+      "date": "-400 000 ans",
+      "epoque": "Préhistoire",
+      "description": "À Schöningen (Allemagne), huit épieux en bois d'épicéa sont retrouvés intacts, vieux de 400 000 ans. Taillés en pointe, équilibrés comme des javelots modernes, ils sont l'œuvre d'Homo heidelbergensis."
+    },
+    {
+      "type": "image",
+      "id": "histoire-14",
+      "image": "/img/flashcards/histoire/premiers-regards-sur-l-horizon-prehistorique.webp",
+      "titre": "Homo Sapiens - Notre Espèce Apparaît",
+      "date": "-300 000 ans",
+      "epoque": "Préhistoire",
+      "description": "Au Maroc, dans les rochers de Jebel Irhoud, des fossiles vieux de 300 000 ans révèlent les premiers visages reconnaissables comme les nôtres."
+    },
+    {
+      "type": "image",
+      "id": "histoire-15",
+      "image": "/img/flashcards/histoire/confrontation-prehistorique-dans-la-nuit.webp",
+      "titre": "La Lance à Pointe de Silex - L'Arme de Néandertal",
+      "date": "-250 000 ans",
+      "epoque": "Préhistoire",
+      "description": "Une révolution dans l'armement : on fixe une pointe de silex taillée sur une hampe en bois grâce à de la résine de bouleau chauffée et des ligatures en tendon."
+    },
+    {
+      "type": "image",
+      "id": "histoire-16",
+      "image": "/img/flashcards/histoire/mains-prehistoriques-tissant-des-coquillages.webp",
+      "titre": "Premières Parures & Sépultures",
+      "date": "-100 000 ans",
+      "epoque": "Préhistoire",
+      "description": "À Blombos Cave (Afrique du Sud), des coquillages percés sont enfilés en colliers - les plus anciens bijoux connus. Les morts commencent à être enterrés avec intention, parfois saupoudrés d'ocre rouge."
+    },
+    {
+      "type": "image",
+      "id": "histoire-17",
+      "image": "/img/flashcards/histoire/chasseurs-sur-la-savane-au-lever-du-soleil.webp",
+      "titre": "Premiers Vêtements en Peaux",
+      "date": "-80 000 ans",
+      "epoque": "Préhistoire",
+      "description": "Les premiers hommes taillaient des peaux d'animaux avec des grattoirs en silex pour fabriquer des vêtements. Ces peaux permettaient de résister au froid glaciaire et de survivre hors d'Afrique - sans elles, la conquête de l'Europe et de l'Asie était impossible."
+    },
+    {
+      "type": "image",
+      "id": "histoire-18",
+      "image": "/img/flashcards/histoire/sortie-afrique.webp",
+      "titre": "La Grande Sortie d'Afrique",
+      "date": "-70 000 ans",
+      "epoque": "Préhistoire",
+      "description": "Un petit groupe d'Homo Sapiens - peut-être quelques milliers d'individus - franchit le détroit de Bab-el-Mandeb et quitte l'Afrique. Tous les non-Africains vivant aujourd'hui descendent de ce groupe fondateur."
+    },
+    {
+      "type": "image",
+      "id": "histoire-19",
+      "image": "/img/flashcards/histoire/traversee-en-mer-au-coucher-du-soleil.webp",
+      "titre": "Peuplement de l'Australie",
+      "date": "-50 000 ans",
+      "epoque": "Préhistoire",
+      "description": "Des Homo Sapiens atteignent l'Australie en traversant au moins 90 km d'océan ouvert depuis l'Asie du Sud-Est - la première grande navigation de l'histoire humaine. Ce sont les ancêtres des Aborigènes d'aujourd'hui."
+    },
+    {
+      "type": "image",
+      "id": "histoire-20",
+      "image": "/img/flashcards/histoire/homme-des-neandertals-dans-la-neige.webp",
+      "titre": "Disparition des Néandertaliens",
+      "date": "-40 000 ans",
+      "epoque": "Préhistoire",
+      "description": "Homo neanderthalensis, qui peuplait l'Europe et le Proche-Orient depuis 400 000 ans, disparaît peu après l'arrivée de Sapiens sur le continent. Compétition, assimilation ou épidémies ? Le débat reste ouvert."
+    },
+    {
+      "type": "image",
+      "id": "histoire-21",
+      "image": "/img/flashcards/histoire/peintures-grotte-chauvet.webp",
+      "titre": "Grotte Chauvet",
+      "date": "-36 000 av. J.-C.",
+      "epoque": "Préhistoire",
+      "description": "Dans l'Ardèche, des Homo Sapiens peignent sur les parois de la grotte Chauvet les premières grandes œuvres d'art de l'humanité : mammouths, rhinocéros laineux, lions des cavernes - avec un sens du mouvement et de la."
+    },
+    {
+      "type": "image",
+      "id": "histoire-22",
+      "image": "/img/flashcards/histoire/chasseur-prehistorique-et-troupeau-de-rennes.webp",
+      "titre": "Le Propulseur & la Sagaie - Un Système Révolutionnaire",
+      "date": "-35 000 av. J.-C.",
+      "epoque": "Préhistoire",
+      "description": "Le propulseur (un bâton crocheté qui prolonge le bras) lance la sagaie (un javelot léger) beaucoup plus loin qu'à la main : jusqu'à 80 mètres avec précision. Un chasseur pouvait ainsi tuer un mammouth sans s'approcher - une vraie révolution militaire et alimentaire."
+    },
+    {
+      "type": "image",
+      "id": "histoire-23",
+      "image": "/img/flashcards/histoire/homme-prehistorique-jouant-une-flute-osseuse.webp",
+      "titre": "Les Premières Flûtes",
+      "date": "-35 000 av. J.-C.",
+      "epoque": "Préhistoire",
+      "description": "Dans les grottes d'Allemagne du Sud (Hohle Fels, Vogelherd), des artisans taillent des flûtes dans des os d'oiseaux et de l'ivoire de mammouth."
+    },
+    {
+      "type": "image",
+      "id": "histoire-24",
+      "image": "/img/flashcards/histoire/chasse-dans-la-tempete-de-neige.webp",
+      "titre": "La Grande Chasse au Mammouth",
+      "date": "-25 000 av. J.-C.",
+      "epoque": "Préhistoire",
+      "description": "Le mammouth laineux était la ressource centrale des hommes du Paléolithique : sa viande nourrissait des familles entières, sa fourrure protégeait du froid, ses os servaient à construire des cabanes. Chasser un mammouth nécessitait une organisation collective et des stratégies élaborées."
+    },
+    {
+      "type": "image",
+      "id": "histoire-25",
+      "image": "/img/flashcards/histoire/aiguille-en-os-sur-pierre-eclairee.webp",
+      "titre": "L'Aiguille à Coudre",
+      "date": "-22 000 av. J.-C.",
+      "epoque": "Préhistoire",
+      "description": "Taillée dans un fragment d'os ou de bois de renne, percée d'un chas minuscule avec un burin en silex : l'aiguille à coudre permet d'assembler des pièces de peau avec précision."
+    },
+    {
+      "type": "image",
+      "id": "histoire-26",
+      "image": "/img/flashcards/histoire/crepuscule-sur-l-immensite-glacee.webp",
+      "titre": "Maximum Glaciaire",
+      "date": "-20 000 av. J.-C.",
+      "epoque": "Préhistoire",
+      "description": "Pic de la dernière ère glaciaire : les glaces couvrent l'Europe du Nord, les Alpes et les Pyrénées. Le niveau des mers est 120 mètres plus bas qu'aujourd'hui. Des continents entiers sont reliés à pied."
+    },
+    {
+      "type": "image",
+      "id": "histoire-27",
+      "image": "/img/flashcards/histoire/modelage-d-un-pot-en-argile.webp",
+      "titre": "La Poterie",
+      "date": "-17 500 av. J.-C.",
+      "epoque": "Préhistoire",
+      "description": "Les premières poteries connues (Chine, Japon) permettent de cuire, stocker et transporter les aliments. Une révolution silencieuse qui précède l'agriculture de plusieurs millénaires."
+    },
+    {
+      "type": "image",
+      "id": "histoire-28",
+      "image": "/img/flashcards/histoire/artiste-prehistorique-peignant-un-cheval.webp",
+      "titre": "Grotte de Lascaux",
+      "date": "-17 000 av. J.-C.",
+      "epoque": "Préhistoire",
+      "description": "Dans une grotte de Dordogne, des artistes de la culture magdalénienne ont peint plus de 600 animaux - taureaux, chevaux, cerfs - avec une maîtrise stupéfiante du relief et du mouvement. Lascaux est le chef-d'œuvre de l'art préhistorique, fermé au public en 1963 pour le préserver."
+    },
+    {
+      "type": "image",
+      "id": "histoire-29",
+      "image": "/img/flashcards/histoire/l-homme-prehistorique-et-son-chien.webp",
+      "titre": "Domestication du Chien",
+      "date": "-15 000 av. J.-C.",
+      "epoque": "Préhistoire",
+      "description": "Le chien est le premier animal domestiqué par l'homme - bien avant les vaches, moutons ou chevaux. Issu du loup gris, il devient aide à la chasse, gardien et compagnon."
+    },
+    {
+      "type": "image",
+      "id": "histoire-30",
+      "image": "/img/flashcards/histoire/peuplement-amerique-traversee-bering.webp",
+      "titre": "Peuplement des Amériques",
+      "date": "-13 000 av. J.-C.",
+      "epoque": "Préhistoire",
+      "description": "Des chasseurs sibériens franchissent le pont terrestre de Béringie - une vaste plaine aujourd'hui engloutie sous le détroit de Béring - et s'installent en Amérique du Nord."
+    },
+    {
+      "type": "image",
+      "id": "histoire-31",
+      "image": "/img/flashcards/histoire/village-neolithique-au-coucher-du-soleil.webp",
+      "titre": "Révolution Néolithique - L'Invention du Futur",
+      "date": "-10 000 ans",
+      "epoque": "Préhistoire",
+      "description": "Pendant 300 000 ans, Homo sapiens a vécu en chassant et en cueillant - nomade, libre, bien nourri, travaillant environ 4 heures par jour."
+    },
+    {
+      "type": "image",
+      "id": "histoire-32",
+      "image": "/img/flashcards/histoire/lever-de-soleil-sur-gobekli-tepe.webp",
+      "titre": "Göbekli Tepe",
+      "date": "-9 500 av. J.-C.",
+      "epoque": "Préhistoire",
+      "description": "En Turquie actuelle, des chasseurs-cueilleurs érigent les premiers grands monuments en pierre de l'humanité : des cercles de piliers en T de 6 mètres de haut, ornés de bas-reliefs d'animaux."
+    },
+    {
+      "type": "image",
+      "id": "histoire-33",
+      "image": "/img/flashcards/histoire/trepanations-neolithiques-688po.webp",
+      "titre": "La Trépanation - Première Chirurgie",
+      "date": "-6 500 av. J.-C.",
+      "epoque": "Préhistoire",
+      "description": "Des crânes néolithiques retrouvés en Europe et au Proche-Orient portent des trous soigneusement percés avec des outils en silex - et des bords recalcifiés, prouvant que les patients ont survécu."
+    },
+    {
+      "type": "image",
+      "id": "histoire-34",
+      "image": "/img/flashcards/histoire/lever-de-soleil-sur-les-menhirs-de-bretagne.webp",
+      "titre": "Menhirs, Dolmens & Carnac",
+      "date": "-4 500 av. J.-C.",
+      "epoque": "Préhistoire",
+      "description": "En Bretagne, des milliers de menhirs sont dressés en alignements sur des kilomètres. Les dolmens - chambres funéraires collectives en dalles de pierre - parsèment l'Europe de l'Atlantique à la mer du Nord."
+    },
+    {
+      "type": "image",
+      "id": "histoire-35",
+      "image": "/img/flashcards/histoire/premier-contact-au-lever-du-soleil.webp",
+      "titre": "Domestication du Cheval",
+      "date": "-3 500 av. J.-C.",
+      "epoque": "Préhistoire",
+      "description": "Le cheval sauvage devient animal domestique dans les steppes d'Asie centrale vers - 3 500 av. J.-C. D'abord élevé pour sa viande et son lait, il devient rapidement une monture de guerre et un moteur de transport - révolutionnant les communications et la conquête sur toute l'Eurasie."
+    },
+    {
+      "type": "image",
+      "id": "histoire-36",
+      "image": "/img/flashcards/histoire/atelier-de-charpentier-ancien.webp",
+      "titre": "La Roue - L'Invention qui Change Tout",
+      "date": "-3 500 av. J.-C.",
+      "epoque": "Préhistoire",
+      "description": "La roue apparaît en Mésopotamie et dans les steppes d'Eurasie vers - 3 500 av. J.-C. - probablement à la même époque que la domestication du cheval, dont elle démultiplie l'utilité."
+    },
+    {
+      "type": "image",
+      "id": "histoire-37",
+      "image": "/img/flashcards/histoire/otzi.webp",
+      "titre": "Ötzi - L'Homme des Glaces",
+      "date": "-3 300 av. J.-C.",
+      "epoque": "Préhistoire",
+      "description": "Dans les Alpes tyroliennes, un chasseur néolithique meurt à 3 210 m d'altitude. Préservé 5 300 ans dans la glace, il est découvert en 1991 et livre un portrait saisissant de l'homme de la fin du Néolithique."
+    },
+    {
+      "type": "image",
+      "id": "histoire-38",
+      "image": "/img/flashcards/histoire/la-cite-ancienne-d-ur-au-crepuscule.webp",
+      "titre": "Uruk & Ur - Les Premières Villes du Monde",
+      "date": "-3 200 av. J.-C.",
+      "epoque": "Préhistoire",
+      "description": "En Mésopotamie (actuel Irak), entre le Tigre et l'Euphrate, naît quelque chose d'entièrement nouveau dans l'histoire humaine : la ville. Uruk dépasse 50 000 habitants - une densité humaine sans précédent."
+    },
+    {
+      "type": "image",
+      "id": "histoire-39",
+      "image": "/img/flashcards/histoire/lever-de-soleil-sur-les-menhirs-de-bretagne.webp",
+      "titre": "L'Écriture - La Fin de la Préhistoire",
+      "date": "-3 200 av. J.-C.",
+      "epoque": "Préhistoire",
+      "description": "À Uruk (Mésopotamie), des administrateurs gravent des signes cunéiformes sur des tablettes d'argile pour gérer les stocks de grain et de bétail. C'est la fin de la Préhistoire : tout ce qui se passe avant sera désormais racontable."
+    },
+    {
+      "type": "image",
+      "id": "histoire-40",
+      "image": "/img/flashcards/histoire/croissant-fertile.webp",
+      "titre": "Les Premières Cités-États - Uruk & Ur",
+      "date": "-3 500 av. J.-C.",
+      "epoque": "Premières Civilisations -  - 3500 à - 2000",
+      "description": "Entre le Tigre et l'Euphrate (actuel Irak), naît quelque chose d'entièrement nouveau : la ville. Uruk dépasse 50 000 habitants - une densité humaine sans précédent."
+    },
+    {
+      "type": "image",
+      "id": "histoire-41",
+      "image": "/img/flashcards/histoire/main-d-un-scribe-sur-tablette-d-argile.webp",
+      "titre": "L'Invention de l'Écriture - Cunéiforme & Hiéroglyphes",
+      "date": "-3 500 av. J.-C.",
+      "epoque": "Premières Civilisations -  - 3500 à - 2000",
+      "description": "En Mésopotamie, les marchands d'Uruk inventent les premiers signes d'écriture pour comptabiliser les récoltes et les troupeaux. Ce cunéiforme tracé sur argile est la première mémoire de l'humanité."
+    },
+    {
+      "type": "image",
+      "id": "histoire-42",
+      "image": "/img/flashcards/histoire/pharaon-menes-et-l-unification-de-l-egypte.webp",
+      "titre": "Unification de l'Égypte - Ménès & la Double Couronne",
+      "date": "-3 100 av. J.-C.",
+      "epoque": "Premières Civilisations -  - 3500 à - 2000",
+      "description": "Avant Ménès, il existait deux Égypte : la Haute (au sud, remontant le Nil) et la Basse (au nord, vers la mer). En les unifiant, Ménès crée l'un des premiers États centralisés de l'histoire. Il porte la double couronne blanche et rouge qui symbolise cette union - symbole encore présent sur les hiéroglyphes."
+    },
+    {
+      "type": "image",
+      "id": "histoire-43",
+      "image": "/img/flashcards/histoire/la-construction-de-la-pyramide.webp",
+      "titre": "Les Pyramides de Gizeh - L'Impossible Réalisé",
+      "date": "-2 560 av. J.-C.",
+      "epoque": "Premières Civilisations -  - 3500 à - 2000",
+      "description": "Sous le règne de Khéops, 20 000 ouvriers - pas des esclaves, des artisans organisés en équipes - érigent la Grande Pyramide en 20 ans. 2,3 millions de blocs de calcaire, chacun pesant en moyenne 2,5 tonnes."
+    },
+    {
+      "type": "image",
+      "id": "histoire-44",
+      "image": "/img/flashcards/histoire/levee-du-ciel-a-stonehenge.webp",
+      "titre": "Stonehenge - Le Monument le Plus Mystérieux du Monde",
+      "date": "-3 100 à -1 500 av. J.-C.",
+      "epoque": "Premières Civilisations -  - 3500 à - 2000",
+      "description": "Sur la plaine de Salisbury, en Angleterre, des générations de bâtisseurs érigent pendant 1 600 ans un cercle de pierres colossales. La phase principale commence vers - 2 500 av. J.-C."
+    },
+    {
+      "type": "image",
+      "id": "histoire-45",
+      "image": "/img/flashcards/histoire/rassemblement-de-guerriers-et-marchands-du-bronze.webp",
+      "titre": "L'Âge du Bronze - La Révolution des Métaux",
+      "date": "-2 000 av. J.-C.",
+      "epoque": "Premières Civilisations -  - 3500 à - 2000",
+      "description": "Vers - 2000 av. J.-C., l'alliage du cuivre et de l'étain donne naissance au bronze - métal plus dur, plus tranchant, plus durable que tout ce qui existait. Il révolutionne la guerre (épées, boucliers, armures), l'agriculture (faucilles, socs de charrue) et le commerce longue distance, car il faut importer l'étain depuis des centaines de kilomètres. Des civilisations brillantes s'épanouissent partout : Mycènes en Grèce, les Hittites en Anatolie, l'Égypte des pharaons, les Shang en Chine. Puis, vers - 1200 av. J.-C., survient l'une des catastrophes les plus mystérieuses de l'histoire : en l'espace de 50 ans, presque toutes ces civilisations s'effondrent simultanément. Villes brûlées, réseaux commerciaux brisés, populations décimées. Les causes - invasions des 'Peuples de la Mer', sécheresses, tremblements de terre, révoltes internes - restent débattues. Certains historiens parlent d'un 'effondrement systémique' : la première grande civilisation mondiale s'éteint de façon encore inexpliquée."
+    },
+    {
+      "type": "image",
+      "id": "histoire-46",
+      "image": "/img/flashcards/histoire/babylone-vers-1800.webp",
+      "titre": "Babylone & Hammurabi - Le Premier Code de Lois",
+      "date": "-1 800 av. J.-C.",
+      "epoque": "Égypte, Mésopotamie & Récits Fondateurs -  - 2000 à - 1200",
+      "description": "Babylone devient la plus grande ville du monde connu. Sous Hammurabi, elle unifie toute la Mésopotamie et grave sur une stèle de basalte de 2,25 mètres le premier grand code de lois de l'histoire : 282 articles."
+    },
+    {
+      "type": "image",
+      "id": "histoire-47",
+      "image": "/img/flashcards/histoire/le-sacrifice-d-isaac-arrete-par-l-ange.webp",
+      "titre": "La Naissance du Judaïsme - Le Premier Monothéisme",
+      "date": "-1 800 à -1 200 av. J.-C.",
+      "epoque": "Égypte, Mésopotamie & Récits Fondateurs -  - 2000 à - 1200",
+      "description": "Selon la tradition biblique, Abraham quitte Ur en Chaldée et conclut une alliance (berith) avec un Dieu unique et universel - idée révolutionnaire dans un monde polythéiste."
+    },
+    {
+      "type": "image",
+      "id": "histoire-48",
+      "image": "/img/flashcards/histoire/moise-et-le-buisson-ardent.webp",
+      "titre": "Moïse & l'Exode - La Libération d'Égypte",
+      "date": "-1 250 av. J.-C.",
+      "epoque": "Égypte, Mésopotamie & Récits Fondateurs -  - 2000 à - 1200",
+      "description": "Selon la Bible, le peuple hébreu est réduit en esclavage en Égypte. Moïse, hébreu élevé à la cour du Pharaon, reçoit de Dieu une mission au buisson ardent : libérer son peuple."
+    },
+    {
+      "type": "image",
+      "id": "histoire-49",
+      "image": "/img/flashcards/histoire/la-destruction-des-anciens-dieux-a-amarna.webp",
+      "titre": "Akhenaton - Le Pharaon Hérétique",
+      "date": "-1 372 à -1 336 av. J.-C.",
+      "epoque": "Égypte, Mésopotamie & Récits Fondateurs -  - 2000 à - 1200",
+      "description": "Amenhotep IV prend le nom d'Akhenaton ('celui qui est utile à Aton') et impose le monothéisme en Égypte : un seul dieu, Aton, le disque solaire."
+    },
+    {
+      "type": "image",
+      "id": "histoire-50",
+      "image": "/img/flashcards/histoire/le-jeune-pharaon-et-ses-tresors.webp",
+      "titre": "Toutankhamon - Le Pharaon Enfant",
+      "date": "-1 354 à -1 327 av. J.-C.",
+      "epoque": "Égypte, Mésopotamie & Récits Fondateurs -  - 2000 à - 1200",
+      "description": "Toutankhamon monte sur le trône à 9 ans et meurt à 18 ou 19 ans - probablement de complications liées à une fracture de la jambe, selon les analyses ADN récentes."
+    },
+    {
+      "type": "image",
+      "id": "histoire-51",
+      "image": "/img/flashcards/histoire/ramses-ii-devant-ses-temples-majestueux.webp",
+      "titre": "Ramsès II - Le Pharaon Bâtisseur",
+      "date": "-1 279 à -1 213 av. J.-C.",
+      "epoque": "Égypte, Mésopotamie & Récits Fondateurs -  - 2000 à - 1200",
+      "description": "Ramsès II règne 66 ans - le plus long règne de l'histoire égyptienne - et construit à une échelle jamais vue : Abu Simbel, Karnak, le Ramesseum. Grand guerrier, il combat les Hittites à Qadesh et signe le premier traité de paix écrit de l'histoire. Il meurt à plus de 90 ans."
+    },
+    {
+      "type": "image",
+      "id": "histoire-52",
+      "image": "/img/flashcards/histoire/le-cheval-de-troie-dans-la-cite.webp",
+      "titre": "La Guerre de Troie",
+      "date": "-1 250 av. J.-C.",
+      "epoque": "Égypte, Mésopotamie & Récits Fondateurs -  - 2000 à - 1200",
+      "description": "Selon la tradition épique grecque, le prince troyen Pâris enlève Hélène, épouse du roi de Sparte Ménélas. Une coalition grecque assiège Troie pendant dix ans."
+    },
+    {
+      "type": "image",
+      "id": "histoire-53",
+      "image": "/img/flashcards/histoire/marche-de-l-age-du-fer.webp",
+      "titre": "L'Âge du Fer & l'Alphabet Phénicien",
+      "date": "-1 200 av. J.-C.",
+      "epoque": "Égypte, Mésopotamie & Récits Fondateurs -  - 2000 à - 1200",
+      "description": "Deux révolutions simultanées transforment le monde méditerranéen : l'Âge du Fer remplace le bronze par un métal plus résistant et abondant, démocratisant l'armement."
+    },
+    {
+      "type": "image",
+      "id": "histoire-54",
+      "image": "/img/flashcards/histoire/scene-de-commerce-phenicien-au-port.webp",
+      "titre": "Les Phéniciens - Marchands & Inventeurs de l'Alphabet",
+      "date": "-1 200 à -146 av. J.-C.",
+      "epoque": "Égypte, Mésopotamie & Récits Fondateurs -  - 2000 à - 1200",
+      "description": "Peuple de marins et de commerçants établis sur les côtes de l'actuel Liban (Tyr, Sidon, Byblos), les Phéniciens sont les grands explorateurs de la Méditerranée antique."
+    },
+    {
+      "type": "image",
+      "id": "histoire-55",
+      "image": "/img/flashcards/histoire/david-et-goliath-sur-le-champ-de-bataille.webp",
+      "titre": "David & Goliath - Le Berger contre le Géant",
+      "date": "-1 020 av. J.-C.",
+      "epoque": "Proche-Orient & Méditerranée -  - 1200 à - 600",
+      "description": "Selon la Bible (1er livre de Samuel), les Israélites affrontent les Philistins dans la vallée d'Éla. Goliath, guerrier philistin de plus de deux mètres, défie en combat singulier le camp adverse."
+    },
+    {
+      "type": "image",
+      "id": "histoire-56",
+      "image": "/img/flashcards/histoire/jerusalem-ancienne-sous-la-lumiere-doree.webp",
+      "titre": "Jérusalem - La Ville aux Trois Religions",
+      "date": "-1 000 à aujourd'hui",
+      "epoque": "Proche-Orient & Méditerranée -  - 1200 à - 600",
+      "description": "David conquiert Jérusalem vers - 1000 av. J.-C. et en fait la capitale du royaume d'Israël. Son fils Salomon y bâtit le Premier Temple."
+    },
+    {
+      "type": "image",
+      "id": "histoire-57",
+      "image": "/img/flashcards/histoire/temple-de-salomon-et-l-arche-sainte.webp",
+      "titre": "Le Temple de Salomon - La Maison de Dieu",
+      "date": "-970 à -586 av. J.-C.",
+      "epoque": "Proche-Orient & Méditerranée -  - 1200 à - 600",
+      "description": "Le roi Salomon, fils de David, fait construire à Jérusalem le Premier Temple vers - 970 av. J.-C. - demeure de Dieu et écrin de l'Arche d'Alliance selon la Bible. Sa construction aurait duré 7 ans."
+    },
+    {
+      "type": "image",
+      "id": "histoire-58",
+      "image": "/img/flashcards/histoire/la-fondation-de-carthage-par-didon.webp",
+      "titre": "Création de Carthage - La Rivale de Rome",
+      "date": "-814 av. J.-C.",
+      "epoque": "Proche-Orient & Méditerranée -  - 1200 à - 600",
+      "description": "La reine phénicienne Didon fonde Carthage ('Qart Hadasht' - la nouvelle ville) vers - 814 av. J.-C. sur les côtes de l'actuelle Tunisie."
+    },
+    {
+      "type": "image",
+      "id": "histoire-59",
+      "image": "/img/flashcards/histoire/cyrus-libere-les-captifs-juifs.webp",
+      "titre": "L'Exil Babylonien & Cyrus le Grand",
+      "date": "-586 à -538 av. J.-C.",
+      "epoque": "Proche-Orient & Méditerranée -  - 1200 à - 600",
+      "description": "En - 586, Nabuchodonosor II, roi de Babylone, rase le Temple de Salomon, symbole de l'alliance entre Dieu et Israël, et déporte les élites juives à Babylone. C'est le traumatisme fondateur du peuple juif. Mais en - 538, tout bascule : Cyrus le Grand, roi des Perses, conquiert Babylone et prend une décision stupéfiante pour l'époque - il autorise tous les peuples déportés à rentrer chez eux et à pratiquer leur religion librement. La Bible l'appelle 'le Messie' - l'Oint de Dieu - unique non-juif à recevoir ce titre. Les Juifs regagnent Jérusalem et reconstruisent le Temple. Cet édit de Cyrus est considéré comme la première déclaration de tolérance religieuse de l'histoire."
+    },
+    {
+      "type": "image",
+      "id": "histoire-60",
+      "image": "/img/flashcards/histoire/moise-et-les-prophetes-sous-l-orage.webp",
+      "titre": "La Rédaction de la Bible Hébraïque",
+      "date": "-600 à -200 av. J.-C.",
+      "epoque": "Proche-Orient & Méditerranée -  - 1200 à - 600",
+      "description": "Les textes qui formeront la Bible hébraïque (Tanakh) ne sont pas écrits par Moïse mais compilés et mis par écrit principalement lors de l'exil à Babylone ( - 586) et dans les siècles qui suivent."
+    },
+    {
+      "type": "image",
+      "id": "histoire-61",
+      "image": "/img/flashcards/histoire/la-caravane-vers-le-tresor-de-petra.webp",
+      "titre": "Pétra & les Routes Caravanières",
+      "date": "-400 à -100 av. J.-C.",
+      "epoque": "Proche-Orient & Méditerranée -  - 1200 à - 600",
+      "description": "Au cœur du désert jordanien, le peuple nabatéen taille dans la roche rose une ville extraordinaire : Pétra. Capitale d'un empire commercial, elle contrôlait les routes de l'encens entre l'Arabie et la Méditerranée. Ses façades sculptées dans la falaise mesurent jusqu'à 40 mètres de haut."
+    },
+    {
+      "type": "image",
+      "id": "histoire-62",
+      "image": "/img/flashcards/histoire/l-odyssee-d-ulysse-et-les-creatures-mythologiques.webp",
+      "titre": "Homère - L'Iliade & l'Odyssée",
+      "date": "-800 av. J.-C.",
+      "epoque": "Grèce Antique & Monde Hellénistique -  - 800 à - 300",
+      "description": "Vers - 800 av. J.-C., un poète grec nommé Homère - peut-être aveugle, peut-être plusieurs personnes - compose les deux épopées fondatrices de toute la littérature occidentale."
+    },
+    {
+      "type": "image",
+      "id": "histoire-63",
+      "image": "/img/flashcards/histoire/les-jeux-olympiques-antiques-a-olympie.webp",
+      "titre": "Les Jeux Olympiques - La Trêve Sacrée",
+      "date": "-776 av. J.-C.",
+      "epoque": "Grèce Antique & Monde Hellénistique -  - 800 à - 300",
+      "description": "Les premiers Jeux Olympiques sont célébrés à Olympie en l'honneur de Zeus. Pendant les jeux, toutes les guerres s'arrêtent - la 'trêve olympique' est sacrée."
+    },
+    {
+      "type": "image",
+      "id": "histoire-64",
+      "image": "/img/flashcards/histoire/fondation-de-rome.webp",
+      "titre": "Fondation de Rome - Romulus & Remus",
+      "date": "-753 av. J.-C.",
+      "epoque": "Grèce Antique & Monde Hellénistique -  - 800 à - 300",
+      "description": "Selon la tradition romaine, Romulus et Remus - jumeaux fils de Mars et de la vestale Rhéa Silvia - sont abandonnés sur le Tibre et allaités par une louve. Romulus fonde Rome sur le Palatin le 21 avril 753 av. J.-C."
+    },
+    {
+      "type": "image",
+      "id": "histoire-65",
+      "image": "/img/flashcards/histoire/masalia-vue-sur-la-cite-antique-au-coucher-du-soleil.webp",
+      "titre": "Fondation de Massalia - La Plus Vieille Ville de France",
+      "date": "-600 av. J.-C.",
+      "epoque": "Grèce Antique & Monde Hellénistique -  - 800 à - 300",
+      "description": "Vers - 600 av. J.-C., des marins grecs venus de Phocée (actuelle Turquie) fondent Massalia sur une calanque naturelle du littoral méditerranéen. C'est la plus ancienne ville de France. Ils apportent avec eux la vigne, l'olivier, et l'alphabet grec - qui influencera l'écriture gauloise."
+    },
+    {
+      "type": "image",
+      "id": "histoire-66",
+      "image": "/img/flashcards/histoire/les-savants-grecs-en-pleine-etude.webp",
+      "titre": "Thalès, Pythagore, Ptolémée - Les Savants Grecs",
+      "date": "-625 à -100 av. J.-C.",
+      "epoque": "Grèce Antique & Monde Hellénistique -  - 800 à - 300",
+      "description": "En deux siècles, la Grèce accomplit une révolution intellectuelle sans précédent : elle invente la démonstration mathématique, la philosophie, l'astronomie scientifique et la géographie rationnelle."
+    },
+    {
+      "type": "image",
+      "id": "histoire-67",
+      "image": "/img/flashcards/histoire/rassemblement-philosophique-a-athenes.webp",
+      "titre": "La Démocratie Athénienne - Clisthène & Périclès",
+      "date": "-508 à -322 av. J.-C.",
+      "epoque": "Grèce Antique & Monde Hellénistique -  - 800 à - 300",
+      "description": "Clisthène réforme Athènes en 508 av. J.-C. et invente la démocratie directe : chaque citoyen vote en assemblée. Périclès porte ce système à son apogée (461-429 av. J.-C.) et fait construire le Parthénon."
+    },
+    {
+      "type": "image",
+      "id": "histoire-68",
+      "image": "/img/flashcards/histoire/batailles-iconiques-des-guerres-greco-perses.webp",
+      "titre": "Les Guerres Médiques - Marathon, Thermopyles, Salamine",
+      "date": "-490 à -479 av. J.-C.",
+      "epoque": "Grèce Antique & Monde Hellénistique -  - 800 à - 300",
+      "description": "L'Empire perse de Darios puis de Xerxès, le plus grand empire du monde connu, tente deux fois d'envahir la Grèce. Deux fois, les cités grecques repoussent l'envahisseur - contre toute attente."
+    },
+    {
+      "type": "image",
+      "id": "histoire-69",
+      "image": "/img/flashcards/histoire/socrates-face-a-la-fatalite.webp",
+      "titre": "Socrate, Platon - La Philosophie Occidentale",
+      "date": "-470 à -347 av. J.-C.",
+      "epoque": "Grèce Antique & Monde Hellénistique -  - 800 à - 300",
+      "description": "Socrate n'écrit rien - il questionne. Sa méthode (la maïeutique) consiste à faire accoucher les esprits de leurs propres vérités. En 399 av."
+    },
+    {
+      "type": "image",
+      "id": "histoire-70",
+      "image": "/img/flashcards/histoire/aristote-le-philosophe-et-ses-disciples-aux-etoiles.webp",
+      "titre": "Aristote - Le Fondateur de la Science",
+      "date": "-384 à -322 av. J.-C.",
+      "epoque": "Grèce Antique & Monde Hellénistique -  - 800 à - 300",
+      "description": "Élève de Platon à 17 ans, précepteur d'Alexandre le Grand à 42 ans, Aristote est le seul penseur de l'Antiquité à avoir fondé simultanément la logique, la biologie, la physique, la politique, la poétique et l'éthique."
+    },
+    {
+      "type": "image",
+      "id": "histoire-71",
+      "image": "/img/flashcards/histoire/alexandre-le-grand-le-general-au-coucher-du-soleil.webp",
+      "titre": "Alexandre le Grand - Le Plus Grand Conquérant",
+      "date": "-336 à -323 av. J.-C.",
+      "epoque": "Grèce Antique & Monde Hellénistique -  - 800 à - 300",
+      "description": "En 13 ans seulement (336 - 323 av. J.-C.), Alexandre le Grand conquiert un empire gigantesque : de la Grèce jusqu'à l'Inde, en passant par l'Égypte et la Perse. Il ne perd aucune bataille. À sa mort à 32 ans, son empire est si vaste qu'il se fragmente immédiatement entre ses généraux."
+    },
+    {
+      "type": "image",
+      "id": "histoire-72",
+      "image": "/img/flashcards/histoire/diogene-et-l-agora-d-athenes.webp",
+      "titre": "Diogène - Le Philosophe dans son Tonneau",
+      "date": "-412 à -323 av. J.-C.",
+      "epoque": "Grèce Antique & Monde Hellénistique -  - 800 à - 300",
+      "description": "Diogène de Sinope est le philosophe le plus provocateur de l'Antiquité. Fondateur du cynisme, il vit dans une jarre en terre cuite sur l'agora d'Athènes, ne possède rien, mendie sa nourriture et insulte les puissants."
+    },
+    {
+      "type": "image",
+      "id": "histoire-73",
+      "image": "/img/flashcards/histoire/les-sept-merveilles-du-monde-antique.webp",
+      "titre": "Les 7 Merveilles du Monde Antique",
+      "date": "-280 à -140 av. J.-C.",
+      "epoque": "Rome - République & Conquêtes -  - 300 à - 27",
+      "description": "La liste des 7 Merveilles est établie par des auteurs grecs - notamment Antipater de Sidon (~ - 140 av. J.-C.) - pour désigner les constructions humaines les plus spectaculaires du monde connu."
+    },
+    {
+      "type": "image",
+      "id": "histoire-74",
+      "image": "/img/flashcards/histoire/transition-historique-entre-etrusques-et-romains.webp",
+      "titre": "Les Étrusques & la République Romaine",
+      "date": "-800 à -509 av. J.-C.",
+      "epoque": "Rome - République & Conquêtes -  - 300 à - 27",
+      "description": "Avant Rome, les Étrusques dominent l'Italie centrale. Ce peuple mystérieux - dont la langue reste partiellement indéchiffrée - transmet à Rome l'architecture en voûte, les jeux du cirque, la divination et les symboles."
+    },
+    {
+      "type": "image",
+      "id": "histoire-75",
+      "image": "/img/flashcards/histoire/hannibal-traversant-les-alpes-enneigees.webp",
+      "titre": "Les Guerres Puniques - Carthage & Hannibal",
+      "date": "-264 à -146 av. J.-C.",
+      "epoque": "Rome - République & Conquêtes -  - 300 à - 27",
+      "description": "Rome et Carthage (actuelle Tunisie) se disputent la Méditerranée en trois grandes guerres (264 - 146 av. J.-C.). La deuxième est la plus célèbre : le général carthaginois Hannibal traverse les Alpes avec des éléphants et écrase Rome à Cannes (216 av. J.-C.). Rome finit par gagner et raser Carthage."
+    },
+    {
+      "type": "image",
+      "id": "histoire-76",
+      "image": "/img/flashcards/histoire/jules-cesar-de-general-a-empereur.webp",
+      "titre": "Jules César - Le Dictateur Éternel",
+      "date": "-100 à -44 av. J.-C.",
+      "epoque": "Rome - République & Conquêtes -  - 300 à - 27",
+      "description": "Général brillant, orateur redoutable, écrivain, César conquiert la Gaule (58-52 av. J.-C.), franchit le Rubicon ('alea jacta est'), devient dictateur perpétuel."
+    },
+    {
+      "type": "image",
+      "id": "histoire-77",
+      "image": "/img/flashcards/histoire/la-gaule-et-ses-peuples-anciens.webp",
+      "titre": "La Gaule Conquise - César & Vercingétorix",
+      "date": "-58 à -52 av. J.-C.",
+      "epoque": "Rome - République & Conquêtes -  - 300 à - 27",
+      "description": "En 8 campagnes, Jules César soumet 300 tribus gauloises et tue ou réduit en esclavage un million de personnes. Vercingétorix unifie les tribus gauloises en une dernière coalition."
+    },
+    {
+      "type": "image",
+      "id": "histoire-78",
+      "image": "/img/flashcards/histoire/le-siege-romain-d-alesia-enflamme.webp",
+      "titre": "Alésia - La Gaule Devient Romaine",
+      "date": "-52 av. J.-C.",
+      "epoque": "Rome - République & Conquêtes -  - 300 à - 27",
+      "description": "Vercingétorix unifie les peuples gaulois dans un dernier sursaut de résistance. Assiégé dans l'oppidum d'Alésia (Bourgogne), il fait face à César qui construit une double enceinte de 40 km - pour assiéger la ville tout."
+    },
+    {
+      "type": "image",
+      "id": "histoire-79",
+      "image": "/img/flashcards/histoire/cleopatre-surplombant-alexandrie-au-crepuscule.webp",
+      "titre": "Cléopâtre & la Fin de l'Égypte Pharaonique",
+      "date": "-51 à -30 av. J.-C.",
+      "epoque": "Rome - République & Conquêtes -  - 300 à - 27",
+      "description": "Cléopâtre VII n'est pas égyptienne de sang - elle est grecque, de la dynastie ptolémaïque fondée par un général d'Alexandre. Elle est la première de sa lignée à parler égyptien."
+    },
+    {
+      "type": "image",
+      "id": "histoire-80",
+      "image": "/img/flashcards/histoire/auguste.webp",
+      "titre": "Auguste - Le Premier Empereur",
+      "date": "-27 à 14 ap. J.-C.",
+      "epoque": "Empire Romain & Naissance du Christianisme -  - 27 à 200",
+      "description": "Octave a 18 ans quand son grand-oncle Jules César est assassiné. Il venge César, écrase ses rivaux et devient, sous le nom d'Auguste, le premier véritable empereur romain en - 27 av. J.-C. Il règne 44 ans, transforme Rome en marbre et inaugure deux siècles de paix : la Pax Romana."
+    },
+    {
+      "type": "image",
+      "id": "histoire-81",
+      "image": "/img/flashcards/histoire/lugdunum-a-son-apogee.webp",
+      "titre": "Lugdunum (Lyon) - Capitale des Gaules",
+      "date": "-15 av. J.-C.",
+      "epoque": "Empire Romain & Naissance du Christianisme -  - 27 à 200",
+      "description": "L'empereur Auguste fait de Lugdunum (Lyon) la capitale administrative des Trois Gaules. Deuxième ville de l'Empire après Rome, avec 50 000 à 80 000 habitants. Deux empereurs romains y naîtront : Claude et Caracalla."
+    },
+    {
+      "type": "image",
+      "id": "histoire-82",
+      "image": "/img/flashcards/histoire/pont-du-gard.webp",
+      "titre": "Le Pont du Gard - Le Génie Romain",
+      "date": "-19 av. J.-C.",
+      "epoque": "Empire Romain & Naissance du Christianisme -  - 27 à 200",
+      "description": "Construit sous Auguste près de Nîmes, le Pont du Gard est l'aqueduc le plus haut du monde romain : 49 mètres, 3 niveaux d'arcades, 50 km de canal pour acheminer 40 000 m³ d'eau par jour vers Nîmes."
+    },
+    {
+      "type": "image",
+      "id": "histoire-83",
+      "image": "/img/flashcards/histoire/la-nativite-sous-l-etoile-brillante.webp",
+      "titre": "Naissance de Jésus - Le Tournant du Calendrier",
+      "date": "0 ap. J.-C.",
+      "epoque": "Empire Romain & Naissance du Christianisme -  - 27 à 200",
+      "description": "La naissance de Jésus de Nazareth divise l'histoire en deux - avant et après Jésus-Christ. Né en Judée romaine, fils d'un charpentier, il prêche l'amour du prochain et le Royaume de Dieu pendant trois ans."
+    },
+    {
+      "type": "image",
+      "id": "histoire-84",
+      "image": "/img/flashcards/histoire/neron-contemple-la-ville-en-flammes.webp",
+      "titre": "Néron - L'Incendie de Rome & les Persécutions",
+      "date": "54 à 68 ap. J.-C.",
+      "epoque": "Empire Romain & Naissance du Christianisme -  - 27 à 200",
+      "description": "Néron monte sur le trône à 17 ans. Son règne commence bien - il est conseillé par le philosophe Sénèque - puis déraille dans la tyrannie, les meurtres de proches (dont sa propre mère Agrippine) et la mégalomanie."
+    },
+    {
+      "type": "image",
+      "id": "histoire-85",
+      "image": "/img/flashcards/histoire/persecution-des-chretiens-dans-l-arene.webp",
+      "titre": "Les Persécutions des Chrétiens - Le Sang des Martyrs",
+      "date": "64 à 313 ap. J.-C.",
+      "epoque": "Empire Romain & Naissance du Christianisme -  - 27 à 200",
+      "description": "Pendant 250 ans, être chrétien dans l'Empire romain était illégal et dangereux. Les empereurs voyaient cette nouvelle religion comme une menace à l'autorité de l'État. Des milliers de chrétiens furent exécutés - jetés aux lions, décapités. Ces martyrs renforceront paradoxalement la foi chrétienne."
+    },
+    {
+      "type": "image",
+      "id": "histoire-86",
+      "image": "/img/flashcards/histoire/la-chute-de-jerusalem-sous-siege.webp",
+      "titre": "Titus Détruit le Temple - La Diaspora Juive",
+      "date": "70 ap. J.-C.",
+      "epoque": "Empire Romain & Naissance du Christianisme -  - 27 à 200",
+      "description": "En l'an 70, le général romain Titus écrase la grande révolte juive et rase Jérusalem. Le Second Temple - reconstruit par Hérode le Grand à partir de - 20 av. J.-C. - est incendié et détruit."
+    },
+    {
+      "type": "image",
+      "id": "histoire-87",
+      "image": "/img/flashcards/histoire/l-expansion-du-christianisme-au-ier-siecle.webp",
+      "titre": "Le Nouveau Testament - La Naissance du Christianisme",
+      "date": "30 à 100 ap. J.-C.",
+      "epoque": "Empire Romain & Naissance du Christianisme -  - 27 à 200",
+      "description": "Jésus de Nazareth prêche en Galilée et Judée vers 27-30 ap. J.-C., est crucifié sous Ponce Pilate, et ses disciples annoncent sa résurrection."
+    },
+    {
+      "type": "image",
+      "id": "histoire-88",
+      "image": "/img/flashcards/histoire/l-eruption-de-pompei-en-79-apres-j-c.webp",
+      "titre": "Pompéi - La Ville Engloutie",
+      "date": "79 ap. J.-C.",
+      "epoque": "Empire Romain & Naissance du Christianisme -  - 27 à 200",
+      "description": "Le 24 août 79 ap. J.-C., le Vésuve entre en éruption et ensevelit Pompéi sous 6 mètres de cendres en quelques heures. 2 000 personnes périssent. La ville est oubliée pendant 1 700 ans."
+    },
+    {
+      "type": "image",
+      "id": "histoire-89",
+      "image": "/img/flashcards/histoire/construction-du-colisee-a-rome.webp",
+      "titre": "Le Colisée - La Violence comme Spectacle",
+      "date": "72 à 80 ap. J.-C.",
+      "epoque": "Empire Romain & Naissance du Christianisme -  - 27 à 200",
+      "description": "Inauguré en 80 ap. J.-C., le Colisée pouvait accueillir 50 000 spectateurs pour des combats de gladiateurs, des chasses d'animaux sauvages et parfois des reconstitutions de batailles navales. L'entrée était gratuite pour les citoyens romains - un spectacle offert par l'État pour distraire le peuple."
+    },
+    {
+      "type": "image",
+      "id": "histoire-90",
+      "image": "/img/flashcards/histoire/mur-d-hadrien.webp",
+      "titre": "Le Mur d'Hadrien - La Frontière du Monde Romain",
+      "date": "122 à 142 ap. J.-C.",
+      "epoque": "Empire Romain & Naissance du Christianisme -  - 27 à 200",
+      "description": "En 122 ap. J.-C., l'empereur Hadrien ordonne la construction d'un mur traversant l'île de Bretagne (actuelle Angleterre) d'est en ouest sur 118 km - pour marquer et défendre la frontière nord de l'Empire contre les."
+    },
+    {
+      "type": "image",
+      "id": "histoire-91",
+      "image": "/img/flashcards/histoire/lempire-trajan.webp",
+      "titre": "L'Apogée de l'Empire Romain - Sous Trajan",
+      "date": "117 ap. J.-C.",
+      "epoque": "Empire Romain & Naissance du Christianisme -  - 27 à 200",
+      "description": "Sous l'empereur Trajan (98 - 117 ap. J.-C.), l'Empire romain atteint sa plus grande extension : 5 millions de km², 70 millions d'habitants, de l'Écosse à la Mésopotamie, du Sahara au Rhin."
+    },
+    {
+      "type": "image",
+      "id": "histoire-206",
+      "image": "/img/flashcards/histoire/bains-romains-detente-et-interactions-sociales.webp",
+      "titre": "Les Thermes de Caracalla - Le Palace du Peuple Romain",
+      "date": "216 ap. J.-C.",
+      "epoque": "Empire Romain & Naissance du Christianisme -  - 27 à 200",
+      "description": "En 216, l'empereur Caracalla inaugure à Rome les plus grands thermes du monde antique : 22 hectares, 1 600 baigneurs simultanés, 80 000 litres d'eau chaude par citerne. Caldarium, tepidarium, frigidarium, natatio, palestres, bibliothèques et jardins - ouverts à tous pour quelques sesterces."
+    },
+    {
+      "type": "image",
+      "id": "histoire-92",
+      "image": "/img/flashcards/histoire/vie-quotidienne-dans-une-villa-romaine.webp",
+      "titre": "La Vie dans une Villa Romaine - Art de Vivre à la Romaine",
+      "date": "Ier-IIe siècle ap. J.-C.",
+      "epoque": "Gaule Romaine & Déclin de l'Empire - 200 à 476",
+      "description": "La villa romaine est bien plus qu'une maison : c'est une institution. Autour de l'atrium (cour centrale avec bassin), se déploient triclinium (salle à manger), tablinum (bureau du pater familias), jardins à colonnades."
+    },
+    {
+      "type": "image",
+      "id": "histoire-93",
+      "image": "/img/flashcards/histoire/le-semeur-au-lever-du-soleil.webp",
+      "titre": "L'Agriculture Romaine en Gaule - La Révolution des Techniques",
+      "date": "Ier-IIe siècle ap. J.-C.",
+      "epoque": "Gaule Romaine & Déclin de l'Empire - 200 à 476",
+      "description": "La conquête romaine apporte en Gaule une véritable révolution agricole. Le moulin à eau remplace le broyage à la main. La charrue à roues améliore le labour."
+    },
+    {
+      "type": "image",
+      "id": "histoire-94",
+      "image": "/img/flashcards/histoire/moissonneuse-gauloise.webp",
+      "titre": "La Faucille & la Moissonneuse Gauloise",
+      "date": "Ier siècle ap. J.-C.",
+      "epoque": "Gaule Romaine & Déclin de l'Empire - 200 à 476",
+      "description": "Les Gaulois romanisés perfectionnent la vallus - une moissonneuse tirée par un bœuf qui coupe les épis directement dans le champ."
+    },
+    {
+      "type": "image",
+      "id": "histoire-95",
+      "image": "/img/flashcards/histoire/bains-romains-sous-les-voutes-majestueuses.webp",
+      "titre": "La Gaule Romaine - Villes, Routes & Romanisation",
+      "date": "Ier-IIe siècle ap. J.-C.",
+      "epoque": "Gaule Romaine & Déclin de l'Empire - 200 à 476",
+      "description": "Pendant deux siècles, la Gaule est l'une des provinces les plus riches de l'Empire. De Lugdunum à Lutetia, des dizaines de villes romaines naissent avec leurs forums, amphithéâtres, thermes et aqueducs."
+    },
+    {
+      "type": "image",
+      "id": "histoire-96",
+      "image": "/img/flashcards/histoire/lutetia-au-crepuscule-du-ier-siecle.webp",
+      "titre": "Lutèce - La Naissance de Paris",
+      "date": "Ier-IIe siècle ap. J.-C.",
+      "epoque": "Gaule Romaine & Déclin de l'Empire - 200 à 476",
+      "description": "Sur l'île de la Cité et la rive gauche de la Seine, les Romains développent Lutèce, chef-lieu des Parisii. Forum, thermes, amphithéâtre, temple - une ville compacte de 10 000 habitants."
+    },
+    {
+      "type": "image",
+      "id": "histoire-97",
+      "image": "/img/flashcards/histoire/premieres-invasion-barbare-sur-l-empire-romain.webp",
+      "titre": "La Crise du IIIe Siècle - Les Premières Invasions Barbares",
+      "date": "235 à 284 ap. J.-C.",
+      "epoque": "Gaule Romaine & Déclin de l'Empire - 200 à 476",
+      "description": "En 50 ans, Rome connaît 50 empereurs - dont la plupart meurent assassinés. L'Empire s'effondre en trois tronçons. C'est le début des grandes invasions : vers 260 ap."
+    },
+    {
+      "type": "image",
+      "id": "histoire-98",
+      "image": "/img/flashcards/histoire/l-ediction-de-l-edit-de-milan.webp",
+      "titre": "L'Édit de Milan - La Victoire du Christianisme",
+      "date": "313 ap. J.-C.",
+      "epoque": "Gaule Romaine & Déclin de l'Empire - 200 à 476",
+      "description": "L'empereur Constantin proclame la liberté de culte dans tout l'Empire. Le christianisme, religion des persécutés depuis trois siècles, devient légal - puis bientôt officielle."
+    },
+    {
+      "type": "image",
+      "id": "histoire-99",
+      "image": "/img/flashcards/histoire/les-deux-souverains-face-a-face.webp",
+      "titre": "Théodose - La Division de l'Empire Romain",
+      "date": "395 ap. J.-C.",
+      "epoque": "Gaule Romaine & Déclin de l'Empire - 200 à 476",
+      "description": "Le 17 janvier 395, l'empereur Théodose Ier meurt à Milan et divise l'Empire entre ses deux fils : Arcadius reçoit l'Orient (Constantinople), Honorius l'Occident (Rome)."
+    },
+    {
+      "type": "image",
+      "id": "histoire-100",
+      "image": "/img/flashcards/histoire/sainte-genevieve-defendant-paris-en-451.webp",
+      "titre": "Sainte Geneviève - La Bergère qui Sauva Paris",
+      "date": "451 ap. J.-C.",
+      "epoque": "Gaule Romaine & Déclin de l'Empire - 200 à 476",
+      "description": "En 451, la nouvelle se répand comme une traînée de poudre : Attila et ses Huns déferlent vers Paris. La population panique et s'apprête à fuir."
+    },
+    {
+      "type": "image",
+      "id": "histoire-101",
+      "image": "/img/flashcards/histoire/atila.webp",
+      "titre": "Attila & les Huns aux Portes de Paris",
+      "date": "451 ap. J.-C.",
+      "epoque": "Gaule Romaine & Déclin de l'Empire - 200 à 476",
+      "description": "Attila, 'le fléau de Dieu', mène ses cavaliers huns à travers l'Europe. En 451, il menace Paris. Selon la tradition, la prière de la jeune Geneviève - future patronne de Paris - détourne les Huns."
+    },
+    {
+      "type": "image",
+      "id": "histoire-102",
+      "image": "/img/flashcards/histoire/la-chute-de-rome-476-apres-j-c.webp",
+      "titre": "Chute de l'Empire Romain d'Occident",
+      "date": "476 ap. J.-C.",
+      "epoque": "Gaule Romaine & Déclin de l'Empire - 200 à 476",
+      "description": "Le 4 septembre 476, le chef barbare Odoacre destitue Romulus Augustule, dernier empereur romain d'Occident. Ce n'est pas une chute dramatique - Rome se vide depuis des décennies."
+    },
+    {
+      "type": "image",
+      "id": "histoire-103",
+      "image": "/img/flashcards/histoire/premieres-invasion-barbare-sur-l-empire-romain.webp",
+      "titre": "Invasions Barbares & Chute de Rome",
+      "date": "376 - 476",
+      "epoque": "Haut Moyen Âge",
+      "description": "Entre 376 et 476 ap. J.-C., des peuples entiers - Huns, Wisigoths, Vandales, Ostrogoths - déferlent sur l'Empire romain affaibli. Ces migrations de masse en chaîne aboutissent à la déposition du dernier empereur d'Occident en 476 : fin de l'Antiquité, début du Moyen Âge."
+    },
+    {
+      "type": "image",
+      "id": "histoire-104",
+      "image": "/img/flashcards/histoire/attila.webp",
+      "titre": "Attila & les Huns - Le Fléau de Dieu",
+      "date": "434 - 453",
+      "epoque": "Haut Moyen Âge",
+      "description": "Attila unifie les tribus huns et ravage l'Europe de la Chine aux portes de Rome. En 451, il envahit la Gaule. La coalition romano-wisigothique l'arrête aux Champs Catalauniques (près de Châlons)."
+    },
+    {
+      "type": "image",
+      "id": "histoire-105",
+      "image": "/img/flashcards/histoire/le-bapteme-de-clovis-a-reims.webp",
+      "titre": "Clovis Ier - Fondateur du Royaume de France",
+      "date": "481 - 511",
+      "epoque": "Mérovingiens",
+      "description": "Clovis unifie les différentes tribus franques en un seul royaume. En se faisant baptiser à Reims vers 496, il est le premier roi barbare à adopter le christianisme catholique - scellant une alliance durable entre les rois de France et l'Église qui durera plus de 1 300 ans."
+    },
+    {
+      "type": "image",
+      "id": "histoire-106",
+      "image": "/img/flashcards/histoire/dagobert.webp",
+      "titre": "Dagobert Ier - Le Dernier Grand Mérovingien",
+      "date": "629 - 639",
+      "epoque": "Mérovingiens",
+      "description": "Dagobert Ier est le dernier roi mérovingien à exercer un vrai pouvoir. Il unifie le royaume franc de l'Atlantique au Rhin, rend la justice lui-même et fait de l'abbaye de Saint-Denis le lieu de sépulture des rois de France - tradition qui durera jusqu'à la Révolution."
+    },
+    {
+      "type": "image",
+      "id": "histoire-107",
+      "image": "/img/flashcards/histoire/rois-faineants.webp",
+      "titre": "Les Rois Fainéants",
+      "date": "639 - 751",
+      "epoque": "Mérovingiens",
+      "description": "Après Dagobert, les rois mérovingiens sont de plus en plus jeunes et faibles. Le vrai pouvoir passe entre les mains des maires du palais - c'est-à-dire les chefs de l'administration royale, les grands fonctionnaires qui gèrent tout à la place du roi. Le roi règne, le maire du palais gouverne. Ces monarques fantômes qu'on promène en chariot lors des fêtes sans aucun pouvoir sont appelés « rois fainéants » (rois qui ne font rien)."
+    },
+    {
+      "type": "image",
+      "id": "histoire-108",
+      "image": "/img/flashcards/histoire/charles-martel.webp",
+      "titre": "Charles Martel - Poitiers",
+      "date": "732",
+      "epoque": "Carolingiens",
+      "description": "Charles Martel est maire du palais du roi franc - autrement dit, le vrai chef du gouvernement derrière un roi fantoche. En 732, il arrête à Poitiers l'avancée des armées arabes qui avaient déjà conquis l'Espagne. Cette victoire lui vaut le surnom de Martel (le marteau) et fait de lui le sauveur de l'Europe chrétienne."
+    },
+    {
+      "type": "image",
+      "id": "histoire-109",
+      "image": "/img/flashcards/histoire/pepin-le-bref.webp",
+      "titre": "Pépin le Bref - 1er Roi Carolingien",
+      "date": "751 - 768",
+      "epoque": "Carolingiens",
+      "description": "Pépin le Bref est maire du palais, comme son père Charles Martel. Las de gouverner dans l'ombre d'un roi inutile, il obtient l'accord du pape pour destituer le dernier roi mérovingien et se faire couronner lui-même roi en 751. C'est le début de la dynastie carolingienne. Son fils s'appellera Charlemagne."
+    },
+    {
+      "type": "image",
+      "id": "histoire-110",
+      "image": "/img/flashcards/histoire/sacre-charlemagne.webp",
+      "titre": "Charlemagne - Empereur d'Occident",
+      "date": "768 - 814",
+      "epoque": "Carolingiens",
+      "description": "Charlemagne unifie presque toute l'Europe occidentale sous sa domination. Couronné Empereur d'Occident par le pape à Rome le 25 décembre 800, il crée les premières écoles dans les monastères pour former des clercs sachant lire et écrire. Son empire sera divisé à sa mort entre ses petits-fils - donnant naissance à la France et à l'Allemagne."
+    },
+    {
+      "type": "image",
+      "id": "histoire-111",
+      "image": "/img/flashcards/histoire/serment-de-strasbourg.webp",
+      "titre": "Les Serments de Strasbourg - Naissance du Français",
+      "date": "842",
+      "epoque": "Carolingiens",
+      "description": "Après la mort de Charlemagne, ses trois petits-fils se disputent l'empire. Deux d'entre eux, Louis le Germanique et Charles le Chauve, s'allient contre leur frère Lothaire."
+    },
+    {
+      "type": "image",
+      "id": "histoire-112",
+      "image": "/img/flashcards/histoire/traite-de-verdun.webp",
+      "titre": "Le Traité de Verdun - L'Europe Découpée",
+      "date": "843",
+      "epoque": "Carolingiens",
+      "description": "Un an après les Serments de Strasbourg, les trois petits-fils de Charlemagne signent le traité de Verdun en 843. Ils coupent l'empire en trois morceaux. Charles le Chauve reçoit l'Ouest - ce sera la France."
+    },
+    {
+      "type": "image",
+      "id": "histoire-113",
+      "image": "/img/flashcards/histoire/raids-vikings.webp",
+      "titre": "Les Vikings - Terreur sur la France & Naissance de la Normandie",
+      "date": "845 à 911",
+      "epoque": "Carolingiens",
+      "description": "Depuis les années 820, des guerriers scandinaves (les Vikings) remontent en drakkars la Seine, la Loire et la Gironde, pillant abbayes et villes. Paris est assiégée en 885. Le roi franc finit par céder à leur chef Rollon une région entière - la Normandie (« pays des hommes du Nord ») - en échange de la paix en 911."
+    },
+    {
+      "type": "image",
+      "id": "histoire-114",
+      "image": "/img/flashcards/histoire/collier-d-epaule.webp",
+      "titre": "L'Étrier & le Collier d'Épaule",
+      "date": "Xe - XIIe siècle",
+      "epoque": "Carolingiens",
+      "description": "L'étrier (venu d'Asie centrale, diffusé en Europe dès le VIIIe siècle) et le collier d'épaule (généralisé en Europe entre le Xe et le XIIe siècle) transforment radicalement la traction animale et le combat."
+    },
+    {
+      "type": "image",
+      "id": "histoire-115",
+      "image": "/img/flashcards/histoire/mont-saint-michel.webp",
+      "titre": "Le Mont Saint-Michel",
+      "date": "966",
+      "epoque": "Capétiens & Moyen Âge",
+      "description": "Une abbaye bénédictine fondée sur un îlot rocheux de 80 m de hauteur en Normandie. Construit sur 10 siècles, le Mont Saint-Michel est le monument le plus visité de France après le Louvre."
+    },
+    {
+      "type": "image",
+      "id": "histoire-116",
+      "image": "/img/flashcards/histoire/hugues-capet.webp",
+      "titre": "Hugues Capet - Fondateur de la Lignée",
+      "date": "987",
+      "epoque": "Capétiens & Moyen Âge",
+      "description": "En 987, les grands seigneurs élisent Hugues Capet roi des Francs à la place du dernier Carolingien. Son territoire ne dépasse pas l'Île-de-France - moins grand qu'un département actuel. Mais il a l'habileté de faire couronner son fils de son vivant. Sa lignée régnera sans interruption sur la France pendant 800 ans."
+    },
+    {
+      "type": "image",
+      "id": "histoire-117",
+      "image": "/img/flashcards/histoire/guillaume-le-conquerant.webp",
+      "titre": "Guillaume le Conquérant - La France Conquiert l'Angleterre",
+      "date": "1066",
+      "epoque": "Capétiens & Moyen Âge",
+      "description": "En 1066, Guillaume, duc de Normandie (donc descendant de Vikings devenus Français !), traverse la Manche avec son armée et bat le roi d'Angleterre Harold à la bataille d'Hastings. Il devient roi d'Angleterre."
+    },
+    {
+      "type": "image",
+      "id": "histoire-118",
+      "image": "/img/flashcards/histoire/urbain2-croisades.webp",
+      "titre": "Les Croisades - Dieu le Veut !",
+      "date": "1095 à 1291",
+      "epoque": "Capétiens & Moyen Âge",
+      "description": "En novembre 1095, le pape Urbain II prêche à Clermont-Ferrand devant une foule immense : il appelle les chrétiens à reprendre Jérusalem aux Turcs seldjoukides. La foule répond en masse : « Dieu le veut !"
+    },
+    {
+      "type": "image",
+      "id": "histoire-119",
+      "image": "/img/flashcards/histoire/templiers.webp",
+      "titre": "Les Templiers - Moines & Guerriers",
+      "date": "1119 - 1312",
+      "epoque": "Capétiens & Moyen Âge",
+      "description": "Fondé en 1119 à Jérusalem pour protéger les pèlerins, l'Ordre du Temple devient la première banque internationale d'Europe. Richissimes et puissants, les Templiers prêtent aux rois."
+    },
+    {
+      "type": "image",
+      "id": "histoire-120",
+      "image": "/img/flashcards/histoire/alienor.webp",
+      "titre": "Aliénor d'Aquitaine - Reine de France, puis d'Angleterre",
+      "date": "1122 à 1204",
+      "epoque": "Capétiens & Moyen Âge",
+      "description": "À 15 ans, Aliénor hérite du duché d'Aquitaine - un territoire plus vaste que le royaume de France. Elle épouse Louis VII et devient reine de France."
+    },
+    {
+      "type": "image",
+      "id": "histoire-121",
+      "image": "/img/flashcards/histoire/arc-boutant.webp",
+      "titre": "L'Arc-Boutant - Architecture Gothique",
+      "date": "1140",
+      "epoque": "Capétiens & Moyen Âge",
+      "description": "L'abbé Suger et les architectes de la cathédrale de Saint-Denis inventent l'arc-boutant. Cette structure reporte le poids des voûtes vers l'extérieur, permettant des murs percés de vitraux et des hauteurs inégalées."
+    },
+    {
+      "type": "image",
+      "id": "histoire-122",
+      "image": "/img/flashcards/histoire/basilique-saint-denis-gothique.webp",
+      "titre": "La Basilique Saint-Denis - L'Invention du Gothique",
+      "date": "1144",
+      "epoque": "Capétiens & Moyen Âge",
+      "description": "Un moine très intelligent nommé Suger a une idée géniale : et si on construisait des églises remplies de lumière ? Jusqu'alors, les églises romanes avaient des murs épais et des petites fenêtres - elles étaient sombres."
+    },
+    {
+      "type": "image",
+      "id": "histoire-123",
+      "image": "/img/flashcards/histoire/universites.webp",
+      "titre": "Naissance des Universités",
+      "date": "1150",
+      "epoque": "Capétiens & Moyen Âge",
+      "description": "Les premières universités européennes naissent à Bologne (1088), Paris (~1150 - 1170), Oxford (~1167). L'Université de Paris se forme progressivement autour des écoles cathédrales."
+    },
+    {
+      "type": "image",
+      "id": "histoire-124",
+      "image": "/img/flashcards/histoire/notre-dame-1200.webp",
+      "titre": "Notre-Dame de Paris",
+      "date": "1163",
+      "epoque": "Capétiens & Moyen Âge",
+      "description": "Chef-d'œuvre du gothique, Notre-Dame est construite en 182 ans sur l'Île de la Cité. Ses arcs-boutants, rosaces et 69 m de hauteur en font le symbole de Paris. Incendiée en 2019, elle rouvre en décembre 2024."
+    },
+    {
+      "type": "image",
+      "id": "histoire-125",
+      "image": "/img/flashcards/histoire/moulins-a-vent.webp",
+      "titre": "Le Moulin à Vent en Europe",
+      "date": "1180",
+      "epoque": "Capétiens & Moyen Âge",
+      "description": "Les croisés rapportent le moulin à vent de Perse. En quelques décennies, des milliers de moulins ponctuent le paysage européen, moudant le grain et pompant l'eau des polders hollandais."
+    },
+    {
+      "type": "image",
+      "id": "histoire-126",
+      "image": "/img/flashcards/histoire/la-bataille-de-bouvines-en-1214.webp",
+      "titre": "Philippe Auguste - Bâtisseur du Royaume",
+      "date": "1180 - 1223",
+      "epoque": "Capétiens & Moyen Âge",
+      "description": "Philippe Auguste est le roi qui fait vraiment de la France un grand royaume. Il récupère la Normandie, l'Anjou et le Poitou sur les rois anglais, quadruplant la taille de son domaine. Sa victoire à Bouvines en 1214 contre une coalition européenne est la première grande victoire nationale française."
+    },
+    {
+      "type": "image",
+      "id": "histoire-127",
+      "image": "/img/flashcards/histoire/schema-et-histoire-du-compas.webp",
+      "titre": "La Boussole en Europe",
+      "date": "1190",
+      "epoque": "Capétiens & Moyen Âge",
+      "description": "La boussole magnétique, venue de Chine via les Arabes, arrive en Europe. Elle permet la navigation en mer fermée, même par temps couvert. Sans elle, les Grandes Découvertes sont impossibles."
+    },
+    {
+      "type": "image",
+      "id": "histoire-128",
+      "image": "/img/flashcards/histoire/louis-ix.webp",
+      "titre": "Louis IX - Saint Louis",
+      "date": "1226 - 1270",
+      "epoque": "Capétiens & Moyen Âge",
+      "description": "Louis IX (Saint Louis) est le roi idéal du Moyen Âge : juste, pieux, réformateur. Il rend la justice en personne sous un chêne à Vincennes, interdit les guerres entre nobles, réforme la monnaie. Il part en croisade deux fois et meurt de la dysenterie devant Tunis en 1270. Le pape le canonise 27 ans après sa mort."
+    },
+    {
+      "type": "image",
+      "id": "histoire-129",
+      "image": "/img/flashcards/histoire/blanche-castille.webp",
+      "titre": "Blanche de Castille - La Reine qui Gouverna la France",
+      "date": "1226 - 1252",
+      "epoque": "Capétiens & Moyen Âge",
+      "description": "Quand le roi Louis VIII meurt en 1226, son fils et héritier Louis IX n'a que 12 ans. C'est sa mère, Blanche de Castille, qui prend les rênes du royaume - et elle le fait avec une poigne de fer."
+    },
+    {
+      "type": "image",
+      "id": "histoire-130",
+      "image": "/img/flashcards/histoire/1ers-etats-generaux.webp",
+      "titre": "Les États Généraux - Le Roi Demande l'Avis du Peuple",
+      "date": "10 avril 1302",
+      "epoque": "Capétiens & Moyen Âge",
+      "description": "Philippe le Bel convoque en 1302 les premiers États Généraux de l'histoire - une assemblée réunissant le clergé, la noblesse et les bourgeois des villes - pour obtenir leur soutien contre le pape qui prétend avoir plus d'autorité que le roi. C'est la première fois qu'un roi français consulte officiellement ses sujets."
+    },
+    {
+      "type": "image",
+      "id": "histoire-131",
+      "image": "/img/flashcards/histoire/philippe-le-bel.webp",
+      "titre": "Philippe le Bel & la Chute des Templiers",
+      "date": "1307 - 1314",
+      "epoque": "Capétiens & Moyen Âge",
+      "description": "Endetté jusqu'au cou envers les Templiers, Philippe IV fait arrêter tous leurs membres en France le 13 octobre 1307 - un vendredi. Sous la torture, les aveux s'accumulent. Il obtient du pape la dissolution de l'Ordre."
+    },
+    {
+      "type": "image",
+      "id": "histoire-132",
+      "image": "/img/flashcards/histoire/pape-avignon.webp",
+      "titre": "Les Papes à Avignon - Quand Rome s'Installa en France",
+      "date": "1309 - 1377",
+      "epoque": "Capétiens & Moyen Âge",
+      "description": "En 1309, le pape Clément V - français de naissance, élu sous pression du roi Philippe le Bel - quitte Rome et s'installe à Avignon. Six autres papes lui succèdent sur place. Pourquoi ? Rome est une ville dangereuse, ravagée par les luttes entre familles nobles. Avignon, enclave pontificale au cœur du royaume de France, offre la paix et la protection royale. Pendant 68 ans, la papauté construit le Palais des Papes - le plus grand bâtiment gothique du monde - et rayonne sur toute la chrétienté depuis la Provence. En 1377, Grégoire XI ramène la papauté à Rome, mais le retour provoque un 'Grand Schisme' : deux papes rivaux, l'un à Rome, l'autre à Avignon, se disputent la chrétienté pendant 40 ans."
+    },
+    {
+      "type": "image",
+      "id": "histoire-133",
+      "image": "/img/flashcards/histoire/jacques-de-molay-devant-notre-dame.webp",
+      "titre": "Le Bûcher de Jacques de Molay",
+      "date": "18 mars 1314",
+      "epoque": "Capétiens & Moyen Âge",
+      "description": "Le grand maître des Templiers, Jacques de Molay, est brûlé vif à Paris sur l'île de la Cité. Depuis les flammes, il maudit Philippe le Bel et le pape Clément V - tous deux mourront dans l'année."
+    },
+    {
+      "type": "image",
+      "id": "histoire-134",
+      "image": "/img/flashcards/histoire/la-fin-de-la-lignee-capetienne.webp",
+      "titre": "Les Rois Maudits - La Fin des Capétiens Directs",
+      "date": "1314 à 1328",
+      "epoque": "Capétiens & Moyen Âge",
+      "description": "Du bûcher, Jacques de Molay maudit Philippe le Bel et le pape Clément V : « Avant un an, je vous cite au tribunal de Dieu. » Le pape mourut en avril 1314, Philippe le Bel en novembre."
+    },
+    {
+      "type": "image",
+      "id": "histoire-135",
+      "image": "/img/flashcards/histoire/ars-nova.webp",
+      "titre": "Ars Nova - La Polyphonie",
+      "date": "1320 - 1370",
+      "epoque": "Capétiens & Moyen Âge",
+      "description": "Avant l'Ars Nova, la musique religieuse n'était qu'une seule voix chantant la même mélodie (grégorien). À partir du XIVe siècle, plusieurs voix indépendantes chantent ensemble des mélodies différentes mais harmonieuses : c'est la polyphonie, ancêtre direct de toute la musique chorale et orchestrale occidentale."
+    },
+    {
+      "type": "image",
+      "id": "histoire-136",
+      "image": "/img/flashcards/histoire/guerre-de-100-ans.webp",
+      "titre": "Guerre de Cent Ans",
+      "date": "1337 - 1453",
+      "epoque": "Capétiens & Moyen Âge",
+      "description": "France contre Angleterre pour la couronne de France. Cent ans de batailles, d'occupations et de misère populaire, du règne de Philippe VI jusqu'à Charles VII. Redressement final grâce à Jeanne d'Arc (1429)."
+    },
+    {
+      "type": "image",
+      "id": "histoire-137",
+      "image": "/img/flashcards/histoire/crecy.webp",
+      "titre": "Crécy - Le Désastre de la Chevalerie Française",
+      "date": "26 août 1346",
+      "epoque": "Capétiens & Moyen Âge",
+      "description": "Première grande défaite de la Guerre de Cent Ans. L'armée française, pourtant trois fois supérieure en nombre, est écrasée par les archers gallois d'Édouard III."
+    },
+    {
+      "type": "image",
+      "id": "histoire-138",
+      "image": "/img/flashcards/histoire/peste.webp",
+      "titre": "La Grande Peste Noire",
+      "date": "1347 - 1351",
+      "epoque": "Capétiens & Moyen Âge",
+      "description": "La peste bubonique (transmise par les puces des rats) arrive d'Asie en 1347 par les navires marchands. En 4 ans, elle tue entre 25 et 50 millions d'Européens - un tiers de la population. Des villages entiers disparaissent. La société médiévale en sort bouleversée : manque de main-d'œuvre, remise en question de l'Église, obsession de la mort."
+    },
+    {
+      "type": "image",
+      "id": "histoire-139",
+      "image": "/img/flashcards/histoire/roi-prisonnier.webp",
+      "titre": "Poitiers - Le Roi de France Fait Prisonnier !",
+      "date": "19 septembre 1356",
+      "epoque": "Capétiens & Moyen Âge",
+      "description": "Imaginez qu'on capture le Président de la République à la guerre ! C'est ce qui arrive au roi Jean II de France en 1356 à Poitiers. Les archers anglais écrasent une nouvelle fois la chevalerie française."
+    },
+    {
+      "type": "image",
+      "id": "histoire-140",
+      "image": "/img/flashcards/histoire/charles-v.webp",
+      "titre": "Charles V - Le Sage",
+      "date": "1364 - 1380",
+      "epoque": "Capétiens & Moyen Âge",
+      "description": "Après les défaites humiliantes de Crécy (1346) et Poitiers (1356) contre les Anglais, Charles V reconstruit la France méthodiquement : il réorganise l'armée, améliore les finances, développe la marine, fait agrandir Paris et constitue une bibliothèque royale de 1 200 volumes - base de la future Bibliothèque nationale."
+    },
+    {
+      "type": "image",
+      "id": "histoire-141",
+      "image": "/img/flashcards/histoire/charles-vi.webp",
+      "titre": "Charles VI - Le Fol",
+      "date": "1380 - 1422",
+      "epoque": "Capétiens & Moyen Âge",
+      "description": "Roi frappé de folie à partir de 1392 : crises de démence, il croit parfois être fait de verre. La France sombre dans la guerre civile entre Armagnacs et Bourguignons, ouvrant la porte aux Anglais."
+    },
+    {
+      "type": "image",
+      "id": "histoire-142",
+      "image": "/img/flashcards/histoire/expulsion-juifs.webp",
+      "titre": "L'Expulsion des Juifs de France",
+      "date": "1394",
+      "epoque": "Capétiens & Moyen Âge",
+      "description": "En 1394, le roi Charles VI décide d'expulser tous les Juifs du royaume de France. Ce n'était pas la première fois - ils avaient déjà été chassés plusieurs fois et rappelés."
+    },
+    {
+      "type": "image",
+      "id": "histoire-143",
+      "image": "/img/flashcards/histoire/christine-de-pisan.webp",
+      "titre": "Christine de Pisan - La Première Grande Écrivaine Française",
+      "date": "1405",
+      "epoque": "Capétiens & Moyen Âge",
+      "description": "Au Moyen Âge, les femmes n'étaient pas censées écrire des livres. Christine de Pisan, venue d'Italie enfant et éduquée à la cour du roi, ne s'en soucia pas."
+    },
+    {
+      "type": "image",
+      "id": "histoire-144",
+      "image": "/img/flashcards/histoire/bourguignon-armagnac.webp",
+      "titre": "Bourguignons contre Armagnacs - La France contre elle-même",
+      "date": "1407 à 1435",
+      "epoque": "Capétiens & Moyen Âge",
+      "description": "Pendant la folie de Charles VI, deux factions se disputent le pouvoir : les Bourguignons (menés par Jean sans Peur, duc de Bourgogne) et les Armagnacs (menés par Louis d'Orléans, frère du roi)."
+    },
+    {
+      "type": "image",
+      "id": "histoire-145",
+      "image": "/img/flashcards/histoire/bataille-d-azincourt-sous-la-pluie.webp",
+      "titre": "Azincourt - La Catastrophe des Fleurs de Lys",
+      "date": "25 octobre 1415",
+      "epoque": "Capétiens & Moyen Âge",
+      "description": "Henri V d'Angleterre écrase une armée française cinq fois plus nombreuse. La noblesse française est décimée - plus de 6 000 morts côté français, une centaine côté anglais."
+    },
+    {
+      "type": "image",
+      "id": "histoire-146",
+      "image": "/img/flashcards/histoire/charles-vii.webp",
+      "titre": "Charles VII - Le Victorieux",
+      "date": "1422 - 1461",
+      "epoque": "Capétiens & Moyen Âge",
+      "description": "Surnommé « le petit roi de Bourges » par ses ennemis, il semblait perdu. Jeanne d'Arc le fit sacrer à Reims en 1429. Il chassa les Anglais, mit fin à la Guerre de Cent Ans (1453) et réunifie la France."
+    },
+    {
+      "type": "image",
+      "id": "histoire-147",
+      "image": "/img/flashcards/histoire/jeanne-d-arc.webp",
+      "titre": "Le Bûcher de Jeanne d'Arc",
+      "date": "30 mai 1431",
+      "epoque": "Capétiens & Moyen Âge",
+      "description": "Capturée par les Bourguignons puis vendue aux Anglais, Jeanne d'Arc est jugée pour hérésie à Rouen. Condamnée par un tribunal ecclésiastique, elle est brûlée vive à 19 ans. Réhabilitée en 1456. Canonisée en 1920."
+    },
+    {
+      "type": "image",
+      "id": "histoire-148",
+      "image": "/img/flashcards/histoire/gutenberg.webp",
+      "titre": "L'Imprimerie de Gutenberg",
+      "date": "1450",
+      "epoque": "Capétiens & Moyen Âge",
+      "description": "Johannes Gutenberg invente les caractères mobiles en plomb à Mayence. La Bible à 42 lignes est imprimée vers 1455. En quelques décennies, l'imprimerie se répand dans toute l'Europe - y compris en France dès 1470."
+    },
+    {
+      "type": "image",
+      "id": "histoire-149",
+      "image": "/img/flashcards/histoire/castillon-la-bataille.webp",
+      "titre": "Castillon - La Fin de la Guerre de Cent Ans",
+      "date": "17 juillet 1453",
+      "epoque": "Capétiens & Moyen Âge",
+      "description": "Castillon (1453) est la dernière bataille de la Guerre de Cent Ans. L'artillerie française écrase la cavalerie anglaise - nouvelle preuve que les canons ont remplacé les chevaliers. Les Anglais ne conservent plus que Calais en France. Cent seize ans après le début du conflit, la France est enfin réunifiée."
+    },
+    {
+      "type": "image",
+      "id": "histoire-150",
+      "image": "/img/flashcards/histoire/louis-xi-carte.webp",
+      "titre": "Louis XI - L'Universelle Araignée",
+      "date": "1461 - 1483",
+      "epoque": "Capétiens & Moyen Âge",
+      "description": "Roi diplomate et rusé, il tisse ses intrigues plutôt que de livrer bataille. Il soumet la Bourgogne, annexe la Provence et la Franche-Comté, achève l'unification territoriale de la France."
+    },
+    {
+      "type": "image",
+      "id": "histoire-151",
+      "image": "/img/flashcards/histoire/relais-de-poste.webp",
+      "titre": "Les Relais de Poste - L'Internet du Moyen Âge",
+      "date": "1476",
+      "epoque": "Capétiens & Moyen Âge",
+      "description": "Sous Louis XI, une idée simple révolutionne les communications : on installe sur les grandes routes des 'relais' où des messagers royaux peuvent changer de cheval."
+    },
+    {
+      "type": "image",
+      "id": "histoire-152",
+      "image": "/img/flashcards/histoire/provence-rejoint-france.webp",
+      "titre": "La Provence Rejoint la France",
+      "date": "1481",
+      "epoque": "Capétiens & Moyen Âge",
+      "description": "En 1481, le comte de Provence meurt sans héritier direct et lègue sa région au roi de France Louis XI. La Provence - avec ses oliviers, sa mer bleue, son soleil et ses villes comme Marseille et Aix - devient française."
+    },
+    {
+      "type": "image",
+      "id": "histoire-153",
+      "image": "/img/flashcards/histoire/picardie.webp",
+      "titre": "La Bourgogne & la Picardie - La France Complète son Puzzle",
+      "date": "1482 - 1493",
+      "epoque": "Capétiens & Moyen Âge",
+      "description": "Charles le Téméraire, duc de Bourgogne et homme le plus puissant d'Europe après le roi, meurt en 1477 dans une bataille en Lorraine. Son rêve de créer un grand empire entre France et Allemagne s'effondre."
+    },
+    {
+      "type": "image",
+      "id": "histoire-154",
+      "image": "/img/flashcards/histoire/francois-ier.webp",
+      "titre": "François Ier - Roi de la Renaissance",
+      "date": "1515 - 1547",
+      "epoque": "Renaissance & Réforme",
+      "description": "François Ier est le roi de la Renaissance française : il fait venir Léonard de Vinci en France (qui y mourra en 1519), finance les arts et les bâtiments (Chambord, le Louvre), et impose par l'ordonnance de Villers-Cotterêts (1539) que tous les actes officiels soient rédigés en français - et non plus en latin."
+    },
+    {
+      "type": "image",
+      "id": "histoire-155",
+      "image": "/img/flashcards/histoire/rabelais.webp",
+      "titre": "Rabelais - Gargantua & Pantagruel",
+      "date": "1532",
+      "epoque": "Renaissance & Réforme",
+      "description": "François Rabelais publie Pantagruel (1532) puis Gargantua (1534) - mêlant érudition humaniste, satire et humour. Il incarne l'idéal humaniste de la Renaissance française : curiosité universelle et liberté d'esprit."
+    },
+    {
+      "type": "image",
+      "id": "histoire-156",
+      "image": "/img/flashcards/histoire/henri-ii.webp",
+      "titre": "Henri II - Mort dans un Tournoi",
+      "date": "1547 - 1559",
+      "epoque": "Renaissance & Réforme",
+      "description": "Fils de François Ier, Henri II poursuit la Renaissance mais est tué accidentellement lors d'un tournoi en 1559 : la lance de Gabriel de Montgomery lui transperce la visière et lui crève l'œil. Il agonise dix jours."
+    },
+    {
+      "type": "image",
+      "id": "histoire-157",
+      "image": "/img/flashcards/histoire/francois-ii.webp",
+      "titre": "François II - Le Roi Enfant",
+      "date": "1559 - 1560",
+      "epoque": "Renaissance & Réforme",
+      "description": "Fils aîné d'Henri II, il monte sur le trône à 15 ans et meurt à 16 ans d'une otite foudroyante. Mari de Marie Stuart, reine d'Écosse. Son règne de 17 mois est dominé par les Guise et préfigure les guerres de Religion."
+    },
+    {
+      "type": "image",
+      "id": "histoire-158",
+      "image": "/img/flashcards/histoire/guerres-religion.webp",
+      "titre": "Les Guerres de Religion",
+      "date": "1562 - 1598",
+      "epoque": "Renaissance & Réforme",
+      "description": "Huit guerres civiles déchirent la France entre catholiques et protestants (huguenots). Massacres, sièges, assassinats de rois. Un tiers de siècle de chaos qui ruine le pays jusqu'à l'Édit de Nantes d'Henri IV (1598)."
+    },
+    {
+      "type": "image",
+      "id": "histoire-159",
+      "image": "/img/flashcards/histoire/saint-barthelemy.webp",
+      "titre": "La Saint-Barthélemy",
+      "date": "24 août 1572",
+      "epoque": "Renaissance & Réforme",
+      "description": "Sur ordre de Catherine de Médicis, les cloches de Saint-Germain-l'Auxerrois sonnent à Paris dans la nuit du 23 au 24 août. C'est le signal du massacre des chefs protestants réunis pour un mariage royal."
+    },
+    {
+      "type": "image",
+      "id": "histoire-160",
+      "image": "/img/flashcards/histoire/henri-4.webp",
+      "titre": "Henri IV - Le Vert-Galant",
+      "date": "1589 - 1610",
+      "epoque": "Monarchie Absolue",
+      "description": "Henri IV est le premier roi de la dynastie des Bourbons. Protestant converti au catholicisme pour monter sur le trône (« Paris vaut bien une messe »), il met fin à 36 ans de guerres de Religion avec l'Édit de Nantes (1598), qui accorde la liberté de culte aux protestants. Populaire et pragmatique, il est assassiné par un fanatique catholique."
+    },
+    {
+      "type": "image",
+      "id": "histoire-161",
+      "image": "/img/flashcards/histoire/marie-de-medicis.webp",
+      "titre": "Marie de Médicis - La Régente",
+      "date": "1610 - 1617",
+      "epoque": "Monarchie Absolue",
+      "description": "Épouse d'Henri IV, Marie de Médicis assure la régence à la mort de son mari en 1610, pour le jeune Louis XIII. Sa régence effective court jusqu'en 1614 (majorité du roi), son influence politique jusqu'en 1617."
+    },
+    {
+      "type": "image",
+      "id": "histoire-162",
+      "image": "/img/flashcards/histoire/richelieu-louis-xiii.webp",
+      "titre": "Louis XIII & le Cardinal de Richelieu",
+      "date": "1610 - 1643",
+      "epoque": "Monarchie Absolue",
+      "description": "Fils d'Henri IV, Louis XIII règne avec l'ombre de Richelieu. Le Cardinal-Ministre centralise le pouvoir royal, écrase les Protestants à La Rochelle (1628) et fonde l'Académie française (1635)."
+    },
+    {
+      "type": "image",
+      "id": "histoire-163",
+      "image": "/img/flashcards/histoire/le-cid.webp",
+      "titre": "Corneille - Le Cid",
+      "date": "1637",
+      "epoque": "Monarchie Absolue",
+      "description": "Pierre Corneille révolutionne le théâtre français avec Le Cid (1637). Il invente le héros déchiré entre devoir et passion - le « dilemme cornélien » structurera la littérature pour des siècles."
+    },
+    {
+      "type": "image",
+      "id": "histoire-164",
+      "image": "/img/flashcards/histoire/pascal.webp",
+      "titre": "Pascal - Génie Universel",
+      "date": "1640 - 1670",
+      "epoque": "Monarchie Absolue",
+      "description": "Blaise Pascal est mathématicien (probabilités, triangle de Pascal), physicien (pression atmosphérique, expérience du Puy-de-Dôme) et philosophe. La Pascaline, première calculatrice mécanique, date de 1642."
+    },
+    {
+      "type": "image",
+      "id": "histoire-165",
+      "image": "/img/flashcards/histoire/mazarin.webp",
+      "titre": "Mazarin - La Régence & la Fronde",
+      "date": "1643 - 1661",
+      "epoque": "Monarchie Absolue",
+      "description": "Successeur de Richelieu, Mazarin gouverne en régent pour le jeune Louis XIV. Il surmonte la Fronde (1648-1653), révolte des nobles et du Parlement."
+    },
+    {
+      "type": "image",
+      "id": "histoire-166",
+      "image": "/img/flashcards/histoire/louis-xiv.webp",
+      "titre": "Louis XIV - Le Roi-Soleil",
+      "date": "1643 - 1715",
+      "epoque": "Monarchie Absolue",
+      "description": "Louis XIV règne 72 ans - le plus long règne de l'histoire de France. Il concentre tout le pouvoir en sa personne (« L'État, c'est moi »), impose sa cour à Versailles pour contrôler la noblesse, fait la guerre à toute l'Europe et révoque l'Édit de Nantes en 1685 (forçant 200 000 protestants à fuir). La France rayonne culturellement mais s'épuise militairement."
+    },
+    {
+      "type": "image",
+      "id": "histoire-167",
+      "image": "/img/flashcards/histoire/versailles.webp",
+      "titre": "Le Château de Versailles",
+      "date": "1661 - 1710",
+      "epoque": "Monarchie Absolue",
+      "description": "Louis XIV transforme un pavillon de chasse en le plus grand palais du monde sur cinquante ans de travaux (1661 - 1710) : 700 pièces, 2 000 hectares de jardins, 20 000 personnes à la cour."
+    },
+    {
+      "type": "image",
+      "id": "histoire-168",
+      "image": "/img/flashcards/histoire/colbert.webp",
+      "titre": "Colbert - L'Architecte de la France Moderne",
+      "date": "1661 - 1683",
+      "epoque": "Monarchie Absolue",
+      "description": "Colbert, ministre des finances de Louis XIV, invente une politique économique appelée mercantilisme : l'idée que la richesse d'un État dépend de la quantité d'or qu'il accumule. Pour cela, il développe les manufactures françaises, protège l'industrie nationale par des taxes et crée une marine de guerre puissante."
+    },
+    {
+      "type": "image",
+      "id": "histoire-169",
+      "image": "/img/flashcards/histoire/moliere.webp",
+      "titre": "Molière - Le Théâtre Français",
+      "date": "1664 - 1673",
+      "epoque": "Monarchie Absolue",
+      "description": "Jean-Baptiste Poquelin, dit Molière, révolutionne la comédie française avec Tartuffe, Le Misanthrope, L'Avare. Il dénonce les hypocrisies de son époque avec une liberté audacieuse."
+    },
+    {
+      "type": "image",
+      "id": "histoire-170",
+      "image": "/img/flashcards/histoire/racine-andromaque.webp",
+      "titre": "Racine - Andromaque & Phèdre",
+      "date": "1667",
+      "epoque": "Monarchie Absolue",
+      "description": "Jean Racine pousse la tragédie à son sommet avec Andromaque (1667) et Phèdre (1677). Sa langue d'une pureté absolue fait de lui le plus grand tragédien français."
+    },
+    {
+      "type": "image",
+      "id": "histoire-171",
+      "image": "/img/flashcards/histoire/la-fontaine.webp",
+      "titre": "La Fontaine - Les Fables",
+      "date": "1668",
+      "epoque": "Monarchie Absolue",
+      "description": "Jean de La Fontaine publie ses Fables en 12 livres (1668-1694). Ces courts poèmes animaliers cachent une critique mordante de la société. Appris par cœur par des générations d'écoliers français depuis 350 ans."
+    },
+    {
+      "type": "image",
+      "id": "histoire-172",
+      "image": "/img/flashcards/histoire/mme-de-cleves.webp",
+      "titre": "Mme de Lafayette - La Princesse de Clèves",
+      "date": "1678",
+      "epoque": "Monarchie Absolue",
+      "description": "Marie-Madeleine de Lafayette publie anonymement La Princesse de Clèves (1678) - le premier roman psychologique moderne. Une femme mariée résiste à sa passion par devoir. Fondateur du roman d'analyse."
+    },
+    {
+      "type": "image",
+      "id": "histoire-173",
+      "image": "/img/flashcards/histoire/corsaires.webp",
+      "titre": "Les Corsaires - La Guerre de Course",
+      "date": "1550 - 1815",
+      "epoque": "Monarchie Absolue",
+      "description": "Les corsaires sont des marins privés autorisés par le roi (via une « lettre de marque ») à attaquer et piller les navires ennemis. Légalement pirates pour les ennemis, héros nationaux en France. Duguay-Trouin et Jean Bart sont les plus célèbres. Ils affaiblissent le commerce anglais et hollandais sans que le roi ait à payer une flotte."
+    },
+    {
+      "type": "image",
+      "id": "histoire-174",
+      "image": "/img/flashcards/histoire/traite-negriere.webp",
+      "titre": "Le Commerce Triangulaire",
+      "date": "1640 - 1848",
+      "epoque": "Monarchie Absolue",
+      "description": "La France participe activement à la traite négrière atlantique. Nantes, Bordeaux et La Rochelle envoient des navires en Afrique, échangent des marchandises contre des esclaves, les déportent aux Antilles."
+    },
+    {
+      "type": "image",
+      "id": "histoire-175",
+      "image": "/img/flashcards/histoire/peste-marseille.webp",
+      "titre": "La Grande Peste de Marseille",
+      "date": "1720 - 1722",
+      "epoque": "Monarchie Absolue",
+      "description": "Le navire Grand-Saint-Antoine débarque la peste à Marseille. En deux ans, la ville perd la moitié de sa population - 50 000 morts sur 90 000 habitants. La Provence entière est frappée."
+    },
+    {
+      "type": "image",
+      "id": "histoire-176",
+      "image": "/img/flashcards/histoire/louis-xv.webp",
+      "titre": "Louis XV - Le Bien-Aimé",
+      "date": "1715 - 1774",
+      "epoque": "Monarchie Absolue",
+      "description": "Arrière-petit-fils de Louis XIV, il hérite d'un royaume épuisé. D'abord adoré (« le Bien-Aimé »), son long règne voit la montée des philosophes des Lumières, la perte du Canada et des Indes, et la France glisser vers."
+    },
+    {
+      "type": "image",
+      "id": "histoire-177",
+      "image": "/img/flashcards/histoire/voltaire.webp",
+      "titre": "Voltaire - Les Lumières & la Tolérance",
+      "date": "1734",
+      "epoque": "Monarchie Absolue",
+      "description": "François-Marie Arouet, dit Voltaire, symbole des Lumières : défenseur de la tolérance, ennemi du fanatisme. Candide et ses pamphlets incarnèrent la puissance de la plume contre l'arbitraire et l'injustice."
+    },
+    {
+      "type": "image",
+      "id": "histoire-178",
+      "image": "/img/flashcards/histoire/diderot-dalembert.webp",
+      "titre": "L'Encyclopédie de Diderot & d'Alembert",
+      "date": "1751 - 1772",
+      "epoque": "Monarchie Absolue",
+      "description": "En 1747, Denis Diderot et Jean le Rond d'Alembert lancent le projet le plus ambitieux du siècle des Lumières : rassembler tout le savoir humain en un seul ouvrage. Pendant 25 ans, 150 auteurs - Voltaire, Rousseau, Montesquieu - rédigent 72 000 articles sur tout : philosophie, sciences, arts, métiers, agriculture. L'Encyclopédie est un acte politique autant qu'intellectuel : en expliquant que la connaissance appartient à tous et non à l'Église ou au roi, elle sape les fondements de l'Ancien Régime. Le pouvoir royal la censure deux fois. Elle n'en continue pas moins de circuler clandestinement et d'inspirer les Révolutionnaires de 1789. Les 28 volumes seront traduits dans toute l'Europe et changeront la façon dont les hommes pensent le monde."
+    },
+    {
+      "type": "image",
+      "id": "histoire-179",
+      "image": "/img/flashcards/histoire/guerre-de-7-ans.webp",
+      "titre": "La Guerre de Sept Ans - La Première Guerre Mondiale",
+      "date": "1756 - 1763",
+      "epoque": "Monarchie Absolue",
+      "description": "Souvent appelée la première guerre mondiale, elle oppose la France à l'Angleterre sur 5 continents. La France perd le Canada, la Louisiane et ses comptoirs en Inde. L'Angleterre devient la première puissance mondiale."
+    },
+    {
+      "type": "image",
+      "id": "histoire-180",
+      "image": "/img/flashcards/histoire/rousseau.webp",
+      "titre": "Rousseau - Le Contrat Social",
+      "date": "1762",
+      "epoque": "Monarchie Absolue",
+      "description": "Rousseau affirme dans Le Contrat Social (1762) que le pouvoir ne vient pas de Dieu ni du roi de naissance, mais du peuple lui-même - qui délègue son autorité à un gouvernement. Si le gouvernement trahit le peuple, celui-ci peut le renverser. Ces idées nourriront directement la Révolution française 27 ans plus tard."
+    },
+    {
+      "type": "image",
+      "id": "histoire-181",
+      "image": "/img/flashcards/histoire/louis-xvi.webp",
+      "titre": "Louis XVI - La Fin de la Monarchie",
+      "date": "1774 - 1792",
+      "epoque": "Monarchie Absolue",
+      "description": "Louis XVI hérite d'une France au bord de la faillite. Incapable de réformer les finances, il convoque les États Généraux en 1789 - déclenchant la Révolution. La Bastille tombe le 14 juillet, les droits de l'Homme sont proclamés. Louis XVI est guillotiné le 21 janvier 1793 : fin de 800 ans de monarchie capétienne."
+    },
+    {
+      "type": "image",
+      "id": "histoire-182",
+      "image": "/img/flashcards/histoire/la-prise-de-la-bastille-en-feu.webp",
+      "titre": "Prise de la Bastille",
+      "date": "14 juillet 1789",
+      "epoque": "Révolution, Empires & XIXe siècle",
+      "description": "Le 14 juillet 1789, des milliers de Parisiens prennent d'assaut la Bastille - une forteresse-prison qui symbolisait le pouvoir absolu du roi. À l'intérieur : seulement 7 prisonniers. Mais le symbole est immense : le peuple s'est armé contre son roi. Cette date devient la fête nationale française."
+    },
+    {
+      "type": "image",
+      "id": "histoire-183",
+      "image": "/img/flashcards/histoire/execution-a-la-guillotine-pendant-la-revolution.webp",
+      "titre": "La Terreur - Robespierre",
+      "date": "1793 - 1794",
+      "epoque": "Révolution, Empires & XIXe siècle",
+      "description": "Le Comité de Salut Public envoie des milliers à la guillotine. 17 000 exécutions officielles. La Terreur finira par se dévorer elle-même."
+    },
+    {
+      "type": "image",
+      "id": "histoire-184",
+      "image": "/img/flashcards/histoire/napoleon-se-couronnant-a-notre-dame.webp",
+      "titre": "Napoléon Ier - Empereur des Français",
+      "date": "1804 - 1815",
+      "epoque": "Révolution, Empires & XIXe siècle",
+      "description": "Napoléon Bonaparte, général républicain, s'empare du pouvoir en 1799 et se fait sacrer Empereur en 1804. Il réforme toute la société française : Code civil (lois égales pour tous), lycées, Banque de France, Légion d'honneur. Il conquiert presque toute l'Europe mais est finalement vaincu à Waterloo en 1815."
+    },
+    {
+      "type": "image",
+      "id": "histoire-185",
+      "image": "/img/flashcards/histoire/revolution-industrielle.webp",
+      "titre": "La Révolution Industrielle Française",
+      "date": "1815 - 1870",
+      "epoque": "Révolution, Empires & XIXe siècle",
+      "description": "La France suit l'Angleterre avec une génération de retard. Chemins de fer, machines à vapeur, mines de charbon, sidérurgie. Lille, Saint-Étienne, Le Creusot deviennent des villes ouvrières."
+    },
+    {
+      "type": "image",
+      "id": "histoire-186",
+      "image": "/img/flashcards/histoire/victor-hugo.webp",
+      "titre": "Victor Hugo - Les Misérables & Notre-Dame",
+      "date": "1830 - 1885",
+      "epoque": "Révolution, Empires & XIXe siècle",
+      "description": "Victor Hugo est le monument de la littérature française du XIXe siècle : poète, romancier, dramaturge et homme politique. Les Misérables (1862) est l'un des romans les plus lus du monde."
+    },
+    {
+      "type": "image",
+      "id": "histoire-187",
+      "image": "/img/flashcards/histoire/epoque-coloniale.webp",
+      "titre": "L'Empire Colonial Français",
+      "date": "1830 - 1962",
+      "epoque": "Révolution, Empires & XIXe siècle",
+      "description": "La France bâtit le deuxième empire colonial du monde : Algérie (1830), Indochine, Afrique de l'Ouest, Madagascar, Polynésie. À son apogée en 1938, l'empire couvre 12 millions de km² et 110 millions d'habitants."
+    },
+    {
+      "type": "image",
+      "id": "histoire-188",
+      "image": "/img/flashcards/histoire/napoleon-iii.webp",
+      "titre": "Napoléon III - Le Second Empire",
+      "date": "1852 - 1870",
+      "epoque": "Révolution, Empires & XIXe siècle",
+      "description": "Louis-Napoléon Bonaparte, neveu de Napoléon Ier, est élu président de la République en 1848 - le premier président élu au suffrage universel masculin. Trois ans après, il organise un coup d'État et se fait couronner Napoléon III par référendum. Son règne voit la modernisation de Paris par Haussmann et l'industrialisation de la France."
+    },
+    {
+      "type": "image",
+      "id": "histoire-189",
+      "image": "/img/flashcards/histoire/haussman.webp",
+      "titre": "Haussmann - La Naissance de Paris Moderne",
+      "date": "1853 - 1870",
+      "epoque": "Révolution, Empires & XIXe siècle",
+      "description": "Mandaté par Napoléon III, le baron Haussmann détruit 20 000 immeubles et trace 137 km de grands boulevards. Il dote Paris d'égouts, de gaz, de parcs et de l'eau courante."
+    },
+    {
+      "type": "image",
+      "id": "histoire-190",
+      "image": "/img/flashcards/histoire/3eme-republique.webp",
+      "titre": "3ème République",
+      "date": "1870 - 1940",
+      "epoque": "Révolution, Empires & XIXe siècle",
+      "description": "70 ans de République. Jules Ferry instaure l'école laïque et gratuite (1882). Tour Eiffel (1889). Affaire Dreyfus. Deux guerres mondiales."
+    },
+    {
+      "type": "image",
+      "id": "histoire-191",
+      "image": "/img/flashcards/histoire/belle-epoque.webp",
+      "titre": "La Belle Époque",
+      "date": "1871 - 1914",
+      "epoque": "Révolution, Empires & XIXe siècle",
+      "description": "Entre la défaite de 1870 et la Grande Guerre, la France connaît une période de paix, de prospérité et d'innovations folles : électricité, automobile, cinéma, aviation."
+    },
+    {
+      "type": "image",
+      "id": "histoire-192",
+      "image": "/img/flashcards/histoire/zola.webp",
+      "titre": "Zola - Le Naturalisme",
+      "date": "1871 - 1902",
+      "epoque": "Révolution, Empires & XIXe siècle",
+      "description": "Émile Zola crée la série des Rougon-Macquart - 20 romans sur une famille sous le Second Empire. Germinal (1885) sur les mineurs reste l'un des grands romans sociaux de la littérature mondiale. En 1898, « J'accuse !"
+    },
+    {
+      "type": "image",
+      "id": "histoire-193",
+      "image": "/img/flashcards/histoire/impressionnisme.webp",
+      "titre": "Monet & l'Impressionnisme",
+      "date": "1874",
+      "epoque": "Révolution, Empires & XIXe siècle",
+      "description": "Claude Monet expose « Impression, Soleil Levant » - un critique la raille en disant « ce ne sont que des impressions ». Le mot reste et donne son nom au mouvement qui révolutionne la peinture."
+    },
+    {
+      "type": "image",
+      "id": "histoire-194",
+      "image": "/img/flashcards/histoire/tour-effeil.webp",
+      "titre": "La Tour Eiffel",
+      "date": "1889",
+      "epoque": "Révolution, Empires & XIXe siècle",
+      "description": "Gustave Eiffel construit cette tour de 330 m pour l'Exposition universelle de 1889. D'abord raillée comme une « vergue de fer », elle devait être démolie après 20 ans."
+    },
+    {
+      "type": "image",
+      "id": "histoire-195",
+      "image": "/img/flashcards/histoire/dreyfus.webp",
+      "titre": "L'Affaire Dreyfus - La France Déchirée",
+      "date": "1894 - 1906",
+      "epoque": "Révolution, Empires & XIXe siècle",
+      "description": "Le capitaine Alfred Dreyfus, officier juif, est accusé à tort de trahison et déporté à l'île du Diable. L'Affaire divise la France en deux : dreyfusards contre antidreyfusards."
+    },
+    {
+      "type": "image",
+      "id": "histoire-196",
+      "image": "/img/flashcards/histoire/premiere-guerre.webp",
+      "titre": "Première Guerre Mondiale",
+      "date": "1914 - 1918",
+      "epoque": "Révolution, Empires & XIXe siècle",
+      "description": "La Première Guerre Mondiale (1914-1918) est la guerre la plus meurtrière que la France ait jamais connue : 1,4 million de soldats français tués, des millions de blessés. Pendant 4 ans, des millions d'hommes s'affrontent dans des tranchées creusées sur 700 km. Toute une génération de jeunes Européens est décimée."
+    },
+    {
+      "type": "image",
+      "id": "histoire-197",
+      "image": "/img/flashcards/histoire/annees-folles.webp",
+      "titre": "Les Années Folles",
+      "date": "1920 - 1929",
+      "epoque": "Révolution, Empires & XIXe siècle",
+      "description": "Après l'horreur de la Grande Guerre, la France explose de joie. Paris devient la capitale mondiale du jazz, de la mode, de la littérature d'avant-garde."
+    },
+    {
+      "type": "image",
+      "id": "histoire-198",
+      "image": "/img/flashcards/histoire/crise-1929.webp",
+      "titre": "La Crise de 1929 - Le Grand Krach",
+      "date": "1929 - 1939",
+      "epoque": "Révolution, Empires & XIXe siècle",
+      "description": "Le jeudi 24 octobre 1929, la Bourse de New York s'effondre : des millions d'Américains perdent leurs économies en quelques heures. La crise se propage à l'Europe comme une épidémie - banques en faillite, usines fermées, chômage de masse. En France, la crise dure jusqu'à la guerre de 1939, alimentant la montée des extrémismes."
+    },
+    {
+      "type": "image",
+      "id": "histoire-199",
+      "image": "/img/flashcards/histoire/occupation.webp",
+      "titre": "Deuxième Guerre Mondiale",
+      "date": "1939 - 1945",
+      "epoque": "Révolution, Empires & XIXe siècle",
+      "description": "La France est occupée de 1940 à 1944. Résistance, débarquement du 6 juin 1944, Libération. La Shoah fait 6 millions de victimes juives."
+    },
+    {
+      "type": "image",
+      "id": "histoire-200",
+      "image": "/img/flashcards/histoire/debarquement.webp",
+      "titre": "Le Débarquement de Normandie - Jour J",
+      "date": "6 juin 1944",
+      "epoque": "Révolution, Empires & XIXe siècle",
+      "description": "La plus grande opération militaire amphibie de l'histoire. 156 000 soldats alliés débarquent sur 80 km de côtes normandes en une seule journée. Omaha, Utah, Gold, Juno, Sword."
+    },
+    {
+      "type": "image",
+      "id": "histoire-201",
+      "image": "/img/flashcards/histoire/guerre-d-indochine.webp",
+      "titre": "La Guerre d'Indochine",
+      "date": "1946 - 1954",
+      "epoque": "France Contemporaine",
+      "description": "Après la Seconde Guerre mondiale, le Vietnam (alors colonie française appelée Indochine) réclame son indépendance sous la direction d'Hô Chi Minh. La France refuse et engage une guerre épuisante. La défaite de Diên Biên Phu (1954) force la France à partir - mettant fin à un siècle de présence française en Asie."
+    },
+    {
+      "type": "image",
+      "id": "histoire-202",
+      "image": "/img/flashcards/histoire/guerre-d-algerie.webp",
+      "titre": "La Guerre d'Algérie",
+      "date": "1954 - 1962",
+      "epoque": "France Contemporaine",
+      "description": "En 1954, le FLN (Front de Libération National) déclenche une insurrection armée pour l'indépendance de l'Algérie, territoire français depuis 1830 et peuplé d'un million de colons européens. Huit ans de guerre terrible (tortures, attentats, massacres) s'ensuivent. L'Algérie devient indépendante en 1962 après les accords d'Évian."
+    },
+    {
+      "type": "image",
+      "id": "histoire-203",
+      "image": "/img/flashcards/histoire/de-gaulle.webp",
+      "titre": "5ème République - De Gaulle & Nos Jours",
+      "date": "1958 - aujourd'hui",
+      "epoque": "France Contemporaine",
+      "description": "La Constitution de 1958 instaure un régime semi-présidentiel fort. Mai 1968. Construction européenne. La France reste une grande puissance mondiale."
+    },
+    {
+      "type": "image",
+      "id": "histoire-204",
+      "image": "/img/flashcards/histoire/mai-68.webp",
+      "titre": "Mai 68 - La France Tremble",
+      "date": "Mai 1968",
+      "epoque": "France Contemporaine",
+      "description": "En quelques jours, une révolte étudiante à la Sorbonne devient une crise nationale. 10 millions de grévistes paralysent le pays. De Gaulle disparaît secrètement."
+    },
+    {
+      "type": "image",
+      "id": "histoire-205",
+      "image": "/img/flashcards/histoire/mur-de-berlin.webp",
+      "titre": "Le Mur de Berlin - La Guerre Froide en Béton",
+      "date": "1961 - 1989",
+      "epoque": "France Contemporaine",
+      "description": "L'URSS fait ériger le mur de Berlin en une nuit, le 13 août 1961. La France, puissance occupante de Berlin-Ouest, est en première ligne de la Guerre Froide."
+    }
+  ]
+}

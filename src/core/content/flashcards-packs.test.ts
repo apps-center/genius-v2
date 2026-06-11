@@ -77,6 +77,16 @@ describe('couverture des deux modeles de carte', () => {
     expect(pack.cartes.every((c) => c.type === 'image')).toBe(true);
   });
 
+  it('deck histoire (modele image) : 206 cartes, toutes de type image', () => {
+    const histoire = packs.find((p) => p.chemin.includes('histoire'));
+    expect(histoire).toBeDefined();
+    const pack = parsePack('flashcards', histoire!.raw);
+    expect(pack.cartes.length).toBe(206);
+    expect(pack.cartes.every((c) => c.type === 'image')).toBe(true);
+    // Strategie images : URL racine servie depuis public/, jamais un chemin legacy.
+    expect(pack.cartes.every((c) => c.type === 'image' && c.image.startsWith('/img/flashcards/histoire/'))).toBe(true);
+  });
+
   it('deck logique (modele question-reponse) : 30 cartes, toutes de type qr', () => {
     const logique = packs.find((p) => p.chemin.includes('logique'));
     expect(logique).toBeDefined();
