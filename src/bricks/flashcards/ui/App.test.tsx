@@ -151,12 +151,13 @@ describe('Flashcards - pas de flip parasite a la navigation', () => {
 });
 
 describe('Flashcards - bascule Ordre normal / Melanger', () => {
-  it('par defaut l ordre est l ordre original (Ordre normal actif)', () => {
-    const { container } = render(<Deck ctx={ctxStub()} pack={pack} />);
-    expect(boutonParTexte(container, 'Ordre normal').getAttribute('aria-pressed')).toBe('true');
-    expect(boutonParTexte(container, 'Melanger').getAttribute('aria-pressed')).toBe('false');
-    // Premiere carte = premiere du pack.
-    expect(container.textContent).toContain('Q1 ?');
+  it('a l ouverture, le deck est MELANGE par defaut (Melanger actif, carte 1 recto)', () => {
+    const { container } = render(<Deck ctx={ctxStub()} pack={packImage} />);
+    expect(boutonParTexte(container, 'Melanger').getAttribute('aria-pressed')).toBe('true');
+    expect(boutonParTexte(container, 'Ordre normal').getAttribute('aria-pressed')).toBe('false');
+    // Le retour a la carte 1 sur le recto reste correct a l'ouverture.
+    expect(compteur(container)).toBe('Carte 1 / 3');
+    expect(flipInner(container).getAttribute('data-revelee')).toBeNull();
   });
 
   it('Melanger : revient a la carte 1 sur le recto, marque le mode et emet deck.shuffled', () => {

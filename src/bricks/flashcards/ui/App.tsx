@@ -117,13 +117,16 @@ function Flashcards({ ctx }: { ctx: AppContext }) {
 // a la navigation. La frontiere de brique (brick.tsx) reste inchangee : manifest/mount/unmount.
 export function Deck({ ctx, pack }: { ctx: AppContext; pack: FlashcardsPack }) {
   const cartes = pack.cartes;
-  const [state, setState] = useState<DeckState>(() => initDeck(cartes.length));
+  // Etat initial : MELANGE par defaut a l'ouverture (un ordre aleatoire est tire des l'entree).
+  // L'utilisateur peut revenir a l'ordre du pack via "Ordre normal". melanger() garantit le
+  // retour a la carte 1 sur le recto. La logique de melange (Fisher-Yates) reste dans logic/.
+  const [state, setState] = useState<DeckState>(() => melanger(initDeck(cartes.length)));
   // Memoire des decks deja "completes" : evite de re-emettre deck.completed.
   const completeRef = useRef(false);
 
   // Reinitialise si le deck change (changement de sujet/titre sans remontage de brique).
   useEffect(() => {
-    setState(initDeck(cartes.length));
+    setState(melanger(initDeck(cartes.length)));
     completeRef.current = false;
   }, [cartes]);
 
