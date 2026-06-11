@@ -23,10 +23,11 @@ describe('ecran d entree flashcards : decouverte des decks', () => {
     expect(decks.map((d) => d.titre)).toEqual(duRegistre);
   });
 
-  it('expose aujourd hui les 5 decks migres (sujet + titre lus du registre)', () => {
+  it('expose aujourd hui les 6 decks migres (sujet + titre lus du registre)', () => {
     expect(decks.map((d) => `${d.sujet}:${d.titre}`).sort()).toEqual([
       'arts:Arts',
       'geographie:Géographie',
+      'histoire:Histoire',
       'logique:Logique',
       'mathematiques:Mathématiques',
       'sciences:Sciences',

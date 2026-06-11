@@ -33,6 +33,22 @@ const DECKS = {
     modele: 'image',
     imgSrc: 'legacy/img/arts',
   },
+  histoire: {
+    html: 'legacy/flashcards/histoire.html',
+    marqueur: 'const CARDS =',
+    sujet: 'histoire',
+    titre: 'Histoire',
+    modele: 'image',
+    imgSrc: 'legacy/img/histoire',
+    // TROIS references d'images sont cassees dans le legacy (le nom cite ne correspond a
+    // aucun fichier reel). On remappe vers le fichier source reel SANS renommer le legacy
+    // (lecture seule). Sans ce correctif, la copie planterait sur "image source manquante".
+    corrections: {
+      'Lever_de_soleil_sur_les_menhirs_de_Bretagne2.webp': 'Lever_de_soleil_sur_les_menhirs_de_Bretagne.webp',
+      'attila_huns.webp': 'Attila.webp',
+      'invasions_barbares.webp': 'premieres invasion barbare sur l empire romain.webp',
+    },
+  },
   logique: {
     html: 'legacy/flashcards/logique.html',
     marqueur: 'const ALL_CARDS =',
@@ -131,15 +147,18 @@ let cartes;
 if (cfg.modele === 'image') {
   const dst = join(RACINE, 'public/img/flashcards', deck);
   mkdirSync(dst, { recursive: true });
+  const corrections = cfg.corrections ?? {};
   const slugs = new Map();
   cartes = brut.map((c) => {
-    const slug = slugify(c.img);
-    if (slugs.has(slug) && slugs.get(slug) !== c.img) {
-      throw new Error(`collision de slug "${slug}" (${slugs.get(slug)} vs ${c.img})`);
+    // Le nom reel du fichier source : applique le correctif si la reference est cassee.
+    const reel = corrections[c.img] ?? c.img;
+    const slug = slugify(reel);
+    if (slugs.has(slug) && slugs.get(slug) !== reel) {
+      throw new Error(`collision de slug "${slug}" (${slugs.get(slug)} vs ${reel})`);
     }
-    slugs.set(slug, c.img);
-    const src = join(RACINE, cfg.imgSrc, c.img);
-    if (!existsSync(src)) throw new Error(`image source manquante : ${c.img}`);
+    slugs.set(slug, reel);
+    const src = join(RACINE, cfg.imgSrc, reel);
+    if (!existsSync(src)) throw new Error(`image source manquante : ${reel} (reference "${c.img}")`);
     copyFileSync(src, join(dst, slug));
     return {
       type: 'image',

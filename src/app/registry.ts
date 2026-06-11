@@ -90,6 +90,7 @@ export const CONTENT: readonly ContentEntry[] = [
   { sujet: 'geographie', contentKind: 'flashcards', titre: 'Géographie', load: () => import('../content/flashcards/geographie.json') },
   { sujet: 'mathematiques', contentKind: 'flashcards', titre: 'Mathématiques', load: () => import('../content/flashcards/mathematiques.json') },
   { sujet: 'sciences', contentKind: 'flashcards', titre: 'Sciences', load: () => import('../content/flashcards/sciences.json') },
+  { sujet: 'histoire', contentKind: 'flashcards', titre: 'Histoire', load: () => import('../content/flashcards/histoire.json') },
 ];
 
 // Apparie chaque pack avec les briques capables de le jouer (par contentKind).
