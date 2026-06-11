@@ -2,7 +2,7 @@
   Migration d'un deck de flashcards legacy vers un pack de CONTENU Genius.
 
   Usage : node scripts/migrer-flashcards.mjs <deck>
-          (deck = "arts" | "logique")
+          (deck = "arts" | "logique" | "geographie" | "mathematiques" | "sciences")
 
   Ce que fait le script, de facon REPRODUCTIBLE (les autres decks passeront par le
   meme outil dans une passe ulterieure) :
@@ -47,6 +47,20 @@ const DECKS = {
     titre: 'Géographie',
     modele: 'qr',
   },
+  mathematiques: {
+    html: 'legacy/flashcards/mathematiques.html',
+    marqueur: 'const ALL_CARDS =',
+    sujet: 'mathematiques',
+    titre: 'Mathématiques',
+    modele: 'qr',
+  },
+  sciences: {
+    html: 'legacy/flashcards/sciences.html',
+    marqueur: 'const ALL_CARDS =',
+    sujet: 'sciences',
+    titre: 'Sciences',
+    modele: 'qr',
+  },
 };
 
 function noDash(s) {
@@ -67,12 +81,17 @@ function slugify(name) {
 }
 
 // Extrait le tableau JS inline en cherchant le crochet fermant equilibre.
-// Certains decks qr (geographie, sciences) referencent dans leurs cartes des IDENTIFIANTS
-// d'illustration definis ailleurs dans le HTML legacy : SVG.xxx (dictionnaire de visuels)
-// et une palette C. Evaluer le seul tableau, hors contexte, levait "SVG is not defined".
+// Certains decks qr referencent dans leurs cartes des illustrations legacy de deux formes :
+//  - geographie / sciences : des IDENTIFIANTS definis ailleurs dans le HTML (SVG.xxx, un
+//    dictionnaire de visuels, et une palette C). Evaluer le seul tableau hors contexte
+//    levait "SVG is not defined".
+//  - mathematiques : des SVG INLINE en chaines (guillemets simples). Ceux-ci s'evaluent
+//    sans identifiant externe ; le scanner ne suit que les guillemets doubles, ce qui reste
+//    correct ici (les SVG inline ne contiennent ni crochet ni guillemet double impair).
 // On NE migre PAS les illustrations pour l'instant (le champ `illustration` du schema reste
 // vide), donc on evalue le tableau dans un scope ou SVG et C sont des stubs NEUTRES : toute
-// reference d'illustration s'evalue en `undefined` et n'alimente aucun champ du pack.
+// reference d'illustration s'evalue en `undefined` (ou reste une chaine ignoree) et
+// n'alimente aucun champ du pack.
 function extraireTableau(html, marqueur) {
   const start = html.indexOf(marqueur);
   if (start < 0) throw new Error(`marqueur introuvable : ${marqueur}`);
