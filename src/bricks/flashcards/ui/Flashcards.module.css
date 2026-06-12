@@ -106,7 +106,7 @@
 /* --- Carte a retournement (standard de flip Genius) --- */
 .flipWrap {
   inline-size: 100%;
-  max-width: 560px;
+  max-width: var(--card-max-width);
   perspective: var(--flip-perspective);
   cursor: pointer;
   border-radius: var(--radius-lg);
@@ -176,11 +176,19 @@
 }
 
 /* --- Modele IMAGE --- */
-/* Image servie sans rognage : largeur pleine, hauteur naturelle (comme la frise). */
+/* Cadre CARRE de taille fixe, identique sur mobile et desktop (une seule regle, aucune
+   media query de format) : largeur pleine bornee par la largeur max de carte, hauteur
+   egale a la largeur (aspect-ratio 1/1). L'image REMPLIT le carre (cover, centree),
+   quitte a rogner les bords. Toutes les cartes image ont donc exactement la meme taille,
+   plus de carte qui deborde en hauteur, plus de sautillement en navigation. */
 .image {
   display: block;
   inline-size: 100%;
-  block-size: auto;
+  max-inline-size: var(--card-max-width);
+  aspect-ratio: 1 / 1;
+  object-fit: cover;
+  object-position: center;
+  border-radius: var(--radius-lg);
 }
 
 .epoque {
