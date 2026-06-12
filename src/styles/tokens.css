@@ -111,10 +111,19 @@
   --flip-duration: 0.6s;
 
   /* --- Flashcards : cadre image FIXE au format portrait, stable d'une carte a l'autre.
-     Largeur bornee sur desktop, ratio portrait conserve a toutes les largeurs (mobile
-     inclus) ; l'image remplit le cadre (cover) et reste centree. */
+     L'image remplit le cadre (cover) et reste centree. Le ratio portrait est le MEME a
+     toutes les largeurs ; seul le mode de dimensionnement change selon l'ecran :
+     - mobile / petits ecrans : dimensionne par la LARGEUR (pleine largeur bornee) ;
+     - desktop / grands ecrans : dimensionne par la HAUTEUR (cf. media 768px du module),
+       plafonnee a une fraction de la fenetre, pour tenir sans scroll. */
   --flashcard-image-largeur-max: 560px;
-  --flashcard-image-ratio: 3 / 4;
+  --flashcard-image-ratio-l: 3; /* composante largeur du ratio portrait */
+  --flashcard-image-ratio-h: 4; /* composante hauteur du ratio portrait (plus haut que large) */
+  --flashcard-image-ratio: var(--flashcard-image-ratio-l) / var(--flashcard-image-ratio-h);
+  /* Desktop : place reservee AUTOUR de l'image (en-tete du deck, toggle, barre de
+     progression, indice et boutons de navigation). La hauteur du cadre image ne depasse
+     pas 100dvh moins cette reserve, garantissant que tout reste visible sans scroll. */
+  --flashcard-image-reserve-desktop: 440px;
 
   /* Transitions generiques */
   --ease-out: cubic-bezier(0.22, 1, 0.36, 1);

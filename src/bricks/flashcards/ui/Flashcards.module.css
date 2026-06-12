@@ -221,7 +221,7 @@
 /* Cadre image FIXE au format portrait : meme taille pour toutes les cartes du deck, donc
    la carte ne "saute" plus en hauteur a la navigation et les boutons ne bougent plus.
    L'image REMPLIT le cadre (cover), centree (object-position), quitte a rogner les bords.
-   Responsive : largeur pleine bornee sur desktop, ratio portrait conserve a toute largeur. */
+   MOBILE (base) : dimensionne par la LARGEUR (pleine largeur bornee), hauteur via le ratio. */
 .image {
   display: block;
   inline-size: 100%;
@@ -230,6 +230,25 @@
   block-size: auto;
   object-fit: cover;
   object-position: center;
+}
+
+/* DESKTOP / grands ecrans (point de rupture du projet) : on dimensionne le cadre par sa
+   HAUTEUR et non sa largeur, pour que la carte ENTIERE + tous les controles tiennent dans
+   la fenetre sans scroll. La hauteur est plafonnee a la fenetre (100dvh) moins la place des
+   controles, sans depasser la hauteur du cadre "pleine largeur". La largeur se DEDUIT de la
+   hauteur via le ratio portrait (inchange) : le format reste identique au mobile et stable
+   d'une carte a l'autre (aspect-ratio constant), donc aucun sautillement. */
+@media (min-width: 768px) {
+  .image {
+    inline-size: auto;
+    block-size: min(
+      calc(100dvh - var(--flashcard-image-reserve-desktop)),
+      calc(
+        var(--flashcard-image-largeur-max) / var(--flashcard-image-ratio-l) *
+          var(--flashcard-image-ratio-h)
+      )
+    );
+  }
 }
 
 .epoque {
