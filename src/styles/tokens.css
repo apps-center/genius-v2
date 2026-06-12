@@ -101,7 +101,7 @@
   --tap-min: 44px;
 
   /* --- Largeur max d'une carte (colonne de lecture des briques a carte) --- */
-  --card-max-width: 560px;
+  --card-max-width: 440px;
 
   /* --- Couches (z-index) --- */
   --z-modal: 1000;
