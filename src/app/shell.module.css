@@ -55,6 +55,8 @@
   background-clip: text;
   color: transparent;
   margin: var(--space-3) 0;
+  /* Sur petit ecran, un mot trop long se coupe proprement au lieu de deborder a droite. */
+  overflow-wrap: break-word;
 }
 
 .heroSub {

@@ -80,6 +80,7 @@
   display: flex;
   flex-direction: column;
   align-items: center;
+  justify-content: center;
   flex: 1 1 auto;
   min-block-size: 0;
   inline-size: 100%;
@@ -128,9 +129,12 @@
      d'une grande zone d'ombre). L'ombre dessine une silhouette de carte stable au flip. */
   box-shadow: var(--shadow-card);
   /* Prend l'espace vertical libre du deck ; min-block-size:0 autorise la carte a
-     retrecir sur un petit ecran pour que les controles restent visibles. */
+     retrecir sur un petit ecran pour que les controles restent visibles. La carte est
+     plafonnee a un carre (max-block-size = max-width) : sur grand ecran elle ne s'etire
+     pas en hauteur, le cadre image reste quasi carre. */
   flex: 1 1 auto;
   min-block-size: 0;
+  max-block-size: var(--card-max-width);
 }
 
 .flipWrap:focus-visible {
@@ -202,33 +206,27 @@
 }
 
 /* --- Modele IMAGE --- */
-/* Zone qui recoit l'image : prend l'espace libre de la face (au-dessus de l'indice) et
-   centre un carre dedans. Sa taille est entierement bornee par la fenetre (chaine flex),
-   donc l'ecran tient sans defilement. */
+/* Cadre de l'image : occupe l'espace libre de la face (au-dessus de l'indice) et a donc
+   une taille DEFINIE, bornee par la fenetre via la chaine flex. La carte etant plafonnee
+   a un carre (voir .flipWrap), ce cadre reste quasi carre. Coins arrondis ici (overflow
+   masque), pour ne pas dependre du rendu de l'image elle-meme. */
 .imageBox {
   flex: 1 1 auto;
   min-block-size: 0;
   inline-size: 100%;
-  display: grid;
-  place-items: center;
   overflow: hidden;
+  border-radius: var(--radius-lg);
 }
 
-/* Cadre CARRE (aspect-ratio 1/1), meme regle partout (aucune media query de format).
-   L'image est le plus grand carre qui tient dans la zone disponible : bornee par sa
-   largeur ET sa hauteur (max-block-size/max-inline-size a 100%), le cote vaut le plus
-   petit des deux. L'image REMPLIT le carre (cover, centree), quitte a rogner les bords ;
-   toutes les cartes affichent donc le meme carre a viewport donne. */
+/* L'image REMPLIT son cadre (taille explicite 100% x 100% + cover) : rendu fiable sur
+   tous les navigateurs (y compris Safari iOS, ou un <img> en auto + aspect-ratio +
+   max-height dans un conteneur flex peut s'effondrer a zero). Centree, bords rognes. */
 .image {
   display: block;
-  max-inline-size: 100%;
-  max-block-size: 100%;
-  inline-size: auto;
-  block-size: auto;
-  aspect-ratio: 1 / 1;
+  inline-size: 100%;
+  block-size: 100%;
   object-fit: cover;
   object-position: center;
-  border-radius: var(--radius-lg);
 }
 
 .epoque {
