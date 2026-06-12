@@ -44,9 +44,11 @@
 }
 
 /* --- En-tete --- */
+/* Compact : l'ecran de revision doit laisser la place a un grand carre image sous l'en-tete
+   sans defilement. Marges reduites et titre qui s'adapte a la largeur (borne par tokens). */
 .head {
   text-align: center;
-  padding: var(--space-4) 0 var(--space-6);
+  padding: var(--space-2) 0 var(--space-3);
 }
 
 .kicker {
@@ -58,14 +60,14 @@
 }
 
 .titre {
-  font-size: var(--font-2xl);
+  font-size: clamp(var(--font-xl), 7vw, var(--font-2xl));
   text-transform: uppercase;
   letter-spacing: var(--tracking-tight);
   background: var(--gradient-gold);
   -webkit-background-clip: text;
   background-clip: text;
   color: transparent;
-  margin: var(--space-2) 0;
+  margin: var(--space-1) 0;
 }
 
 .sous {
@@ -206,27 +208,31 @@
 }
 
 /* --- Modele IMAGE --- */
-/* Cadre de l'image : occupe l'espace libre de la face (au-dessus de l'indice) et a donc
-   une taille DEFINIE, bornee par la fenetre via la chaine flex. La carte etant plafonnee
-   a un carre (voir .flipWrap), ce cadre reste quasi carre. Coins arrondis ici (overflow
-   masque), pour ne pas dependre du rendu de l'image elle-meme. */
+/* Zone qui recoit l'image : occupe l'espace libre de la face (au-dessus de l'indice) et
+   centre un carre dedans. Sa hauteur est definie et bornee par la fenetre (chaine flex). */
 .imageBox {
   flex: 1 1 auto;
   min-block-size: 0;
   inline-size: 100%;
+  display: grid;
+  place-items: center;
   overflow: hidden;
-  border-radius: var(--radius-lg);
 }
 
-/* L'image REMPLIT son cadre (taille explicite 100% x 100% + cover) : rendu fiable sur
-   tous les navigateurs (y compris Safari iOS, ou un <img> en auto + aspect-ratio +
-   max-height dans un conteneur flex peut s'effondrer a zero). Centree, bords rognes. */
+/* L'image est un CARRE dimensionne par la hauteur disponible (block-size 100% de la zone,
+   aspect-ratio 1/1), centre horizontalement, jamais ecrase : si la zone est plus large que
+   haute, le carre garde ses proportions et laisse une marge laterale ; si elle est plus
+   haute que large (carte plafonnee a un carre), il est borne par la largeur. Taille de
+   hauteur EXPLICITE (pas auto) : rendu fiable sur Safari iOS. Remplissage cover, centre. */
 .image {
   display: block;
-  inline-size: 100%;
   block-size: 100%;
+  inline-size: auto;
+  aspect-ratio: 1 / 1;
+  max-inline-size: 100%;
   object-fit: cover;
   object-position: center;
+  border-radius: var(--radius-lg);
 }
 
 .epoque {
