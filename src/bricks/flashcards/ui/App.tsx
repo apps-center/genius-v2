@@ -313,7 +313,9 @@ function Carte({
 // --- Modele IMAGE : recto = image plein cadre, verso = epoque + date + titre + description ---
 function RectoImage({ carte }: { carte: Extract<Flashcard, { type: 'image' }> }) {
   return (
-    <img className={styles.image} src={carte.image} alt={carte.titre} decoding="async" />
+    <div className={styles.imageBox}>
+      <img className={styles.image} src={carte.image} alt={carte.titre} decoding="async" />
+    </div>
   );
 }
 
