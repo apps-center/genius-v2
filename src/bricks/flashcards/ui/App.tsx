@@ -229,6 +229,12 @@ export function Deck({ ctx, pack }: { ctx: AppContext; pack: FlashcardsPack }) {
       </div>
 
       <Carte
+        // Remonter la carte a chaque changement de position : la nouvelle carte naît sur
+        // son recto et AUCUNE transition CSS ne se declenche au montage. Le retournement
+        // parasite (retour anime au recto avant d'afficher la suivante) est ainsi exclu,
+        // sans dependre du timing du navigateur. Le flip volontaire (meme position, donc
+        // meme cle) conserve son animation.
+        key={state.position}
         carte={carte}
         revelee={state.revelee}
         sansAnim={sansAnim}
@@ -313,7 +319,9 @@ function Carte({
 // --- Modele IMAGE : recto = image plein cadre, verso = epoque + date + titre + description ---
 function RectoImage({ carte }: { carte: Extract<Flashcard, { type: 'image' }> }) {
   return (
-    <img className={styles.image} src={carte.image} alt={carte.titre} decoding="async" />
+    <div className={styles.imageBox}>
+      <img className={styles.image} src={carte.image} alt={carte.titre} decoding="async" />
+    </div>
   );
 }
 

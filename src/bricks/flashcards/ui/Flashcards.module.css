@@ -1,7 +1,15 @@
+/* Ecran de revision borne a la fenetre visible : la carte et ses controles tiennent
+   SANS defilement, du mobile au bureau. Hauteur = 100dvh moins la barre du haut du shell
+   (sa cible tactile + ses marges, exprimees en tokens). Le contenu interne ne deborde
+   jamais : l'en-tete et les controles gardent leur taille, la carte absorbe le reste. */
 .wrap {
   max-width: 720px;
   margin: 0 auto;
-  padding: var(--space-4) var(--space-4) var(--space-8);
+  padding: var(--space-4) var(--space-4) var(--space-5);
+  block-size: calc(100dvh - var(--tap-min) - 2 * var(--space-4));
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
 }
 
 /* --- Etats de chargement / erreur (memes codes que la frise) --- */
@@ -66,10 +74,15 @@
 }
 
 /* --- Deck --- */
+/* Occupe toute la hauteur restante sous l'en-tete ; la carte (flipWrap) y prend l'espace
+   libre, la progression et les controles gardent leur taille. */
 .deck {
   display: flex;
   flex-direction: column;
   align-items: center;
+  flex: 1 1 auto;
+  min-block-size: 0;
+  inline-size: 100%;
 }
 
 /* --- Progression (calque sur la barre du quiz) --- */
@@ -106,10 +119,18 @@
 /* --- Carte a retournement (standard de flip Genius) --- */
 .flipWrap {
   inline-size: 100%;
-  max-width: 560px;
+  max-width: var(--card-max-width);
   perspective: var(--flip-perspective);
   cursor: pointer;
   border-radius: var(--radius-lg);
+  /* Ombre portee sur le conteneur (non transforme) plutot que sur chaque face : la couche
+     3D des faces reste compacte, donc le texte du verso reste net (pas de rasterisation
+     d'une grande zone d'ombre). L'ombre dessine une silhouette de carte stable au flip. */
+  box-shadow: var(--shadow-card);
+  /* Prend l'espace vertical libre du deck ; min-block-size:0 autorise la carte a
+     retrecir sur un petit ecran pour que les controles restent visibles. */
+  flex: 1 1 auto;
+  min-block-size: 0;
 }
 
 .flipWrap:focus-visible {
@@ -119,7 +140,13 @@
 
 .flipInner {
   display: grid;
+  grid-template-rows: 100%;
+  block-size: 100%;
+  min-block-size: 0;
   transform-style: preserve-3d;
+  /* Indice de couche : aide le navigateur a rasteriser la face a la bonne resolution
+     (texte du verso plus net sur ecran haute densite). */
+  will-change: transform;
   transition: transform var(--flip-duration) var(--flip-ease);
 }
 
@@ -138,19 +165,18 @@
   transition: none;
 }
 
-/* Les deux faces occupent la meme cellule : la carte prend la hauteur de la plus grande,
-   sans hauteur figee, donc aucune image n'est rognee. */
+/* Les deux faces occupent la meme cellule et remplissent la hauteur allouee a la carte
+   (bornee par la fenetre). Un contenu plus long defile a l'interieur de la face. */
 .face {
   grid-area: 1 / 1;
   -webkit-backface-visibility: hidden;
   backface-visibility: hidden;
   display: flex;
   flex-direction: column;
-  min-block-size: 340px;
+  min-block-size: 0;
   background: var(--color-card-bg);
   border: 1px solid var(--color-border);
   border-radius: var(--radius-lg);
-  box-shadow: var(--shadow-card);
   /* Horizontal masque (coins arrondis sur l'image) ; vertical defilant en secours :
      un contenu plus long que la carte s'aligne en haut et defile au lieu d'etre rogne. */
   overflow: hidden auto;
@@ -176,11 +202,33 @@
 }
 
 /* --- Modele IMAGE --- */
-/* Image servie sans rognage : largeur pleine, hauteur naturelle (comme la frise). */
+/* Zone qui recoit l'image : prend l'espace libre de la face (au-dessus de l'indice) et
+   centre un carre dedans. Sa taille est entierement bornee par la fenetre (chaine flex),
+   donc l'ecran tient sans defilement. */
+.imageBox {
+  flex: 1 1 auto;
+  min-block-size: 0;
+  inline-size: 100%;
+  display: grid;
+  place-items: center;
+  overflow: hidden;
+}
+
+/* Cadre CARRE (aspect-ratio 1/1), meme regle partout (aucune media query de format).
+   L'image est le plus grand carre qui tient dans la zone disponible : bornee par sa
+   largeur ET sa hauteur (max-block-size/max-inline-size a 100%), le cote vaut le plus
+   petit des deux. L'image REMPLIT le carre (cover, centree), quitte a rogner les bords ;
+   toutes les cartes affichent donc le meme carre a viewport donne. */
 .image {
   display: block;
-  inline-size: 100%;
+  max-inline-size: 100%;
+  max-block-size: 100%;
+  inline-size: auto;
   block-size: auto;
+  aspect-ratio: 1 / 1;
+  object-fit: cover;
+  object-position: center;
+  border-radius: var(--radius-lg);
 }
 
 .epoque {
