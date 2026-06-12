@@ -123,6 +123,10 @@
   perspective: var(--flip-perspective);
   cursor: pointer;
   border-radius: var(--radius-lg);
+  /* Ombre portee sur le conteneur (non transforme) plutot que sur chaque face : la couche
+     3D des faces reste compacte, donc le texte du verso reste net (pas de rasterisation
+     d'une grande zone d'ombre). L'ombre dessine une silhouette de carte stable au flip. */
+  box-shadow: var(--shadow-card);
   /* Prend l'espace vertical libre du deck ; min-block-size:0 autorise la carte a
      retrecir sur un petit ecran pour que les controles restent visibles. */
   flex: 1 1 auto;
@@ -140,6 +144,9 @@
   block-size: 100%;
   min-block-size: 0;
   transform-style: preserve-3d;
+  /* Indice de couche : aide le navigateur a rasteriser la face a la bonne resolution
+     (texte du verso plus net sur ecran haute densite). */
+  will-change: transform;
   transition: transform var(--flip-duration) var(--flip-ease);
 }
 
@@ -170,7 +177,6 @@
   background: var(--color-card-bg);
   border: 1px solid var(--color-border);
   border-radius: var(--radius-lg);
-  box-shadow: var(--shadow-card);
   /* Horizontal masque (coins arrondis sur l'image) ; vertical defilant en secours :
      un contenu plus long que la carte s'aligne en haut et defile au lieu d'etre rogne. */
   overflow: hidden auto;

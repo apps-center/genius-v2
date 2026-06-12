@@ -229,6 +229,12 @@ export function Deck({ ctx, pack }: { ctx: AppContext; pack: FlashcardsPack }) {
       </div>
 
       <Carte
+        // Remonter la carte a chaque changement de position : la nouvelle carte naît sur
+        // son recto et AUCUNE transition CSS ne se declenche au montage. Le retournement
+        // parasite (retour anime au recto avant d'afficher la suivante) est ainsi exclu,
+        // sans dependre du timing du navigateur. Le flip volontaire (meme position, donc
+        // meme cle) conserve son animation.
+        key={state.position}
         carte={carte}
         revelee={state.revelee}
         sansAnim={sansAnim}
