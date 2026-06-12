@@ -103,6 +103,12 @@
   /* --- Largeur max d'une carte (colonne de lecture des briques a carte) --- */
   --card-max-width: 440px;
 
+  /* Hauteur reservee autour du cadre image en mode revision flashcards : tout ce qui
+     n'est pas l'image (barre du haut, en-tete, progression, indice, boutons, marges).
+     Le cote du carre est plafonne a 100dvh moins cette reserve, donc l'ecran de
+     revision tient sans defilement, du mobile au bureau. A ajuster si l'en-tete change. */
+  --flashcards-image-reserve: 480px;
+
   /* --- Couches (z-index) --- */
   --z-modal: 1000;
   /* Croix flottante : au-dessus du contenu defilant, dans le calque modale. */

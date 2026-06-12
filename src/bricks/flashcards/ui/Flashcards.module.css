@@ -1,7 +1,7 @@
 .wrap {
   max-width: 720px;
   margin: 0 auto;
-  padding: var(--space-4) var(--space-4) var(--space-8);
+  padding: var(--space-4) var(--space-4) var(--space-5);
 }
 
 /* --- Etats de chargement / erreur (memes codes que la frise) --- */
@@ -176,15 +176,22 @@
 }
 
 /* --- Modele IMAGE --- */
-/* Cadre CARRE de taille fixe, identique sur mobile et desktop (une seule regle, aucune
-   media query de format) : largeur pleine bornee par la largeur max de carte, hauteur
-   egale a la largeur (aspect-ratio 1/1). L'image REMPLIT le carre (cover, centree),
-   quitte a rogner les bords. Toutes les cartes image ont donc exactement la meme taille,
-   plus de carte qui deborde en hauteur, plus de sautillement en navigation. */
+/* Cadre CARRE (aspect-ratio 1/1), meme regle sur mobile et desktop (aucune media query
+   de format). Le cote est borne par TROIS limites, la plus petite gagne :
+     - 100% de la colonne (sur mobile : la largeur d'ecran moins les marges) ;
+     - la largeur max de carte (--card-max-width) sur grand ecran ;
+     - la hauteur disponible : 100dvh moins la reserve de l'en-tete et des controles.
+   Cette derniere borne garantit que la carte + en-tete + boutons tiennent SANS
+   defilement, du mobile au bureau. L'image REMPLIT le carre (cover, centree), quitte a
+   rogner les bords ; toutes les cartes gardent donc la meme taille a viewport donne. */
 .image {
   display: block;
-  inline-size: 100%;
-  max-inline-size: var(--card-max-width);
+  inline-size: min(
+    100%,
+    var(--card-max-width),
+    calc(100dvh - var(--flashcards-image-reserve))
+  );
+  block-size: auto;
   aspect-ratio: 1 / 1;
   object-fit: cover;
   object-position: center;
