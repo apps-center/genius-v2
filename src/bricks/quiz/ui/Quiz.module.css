@@ -1,5 +1,5 @@
 .wrap {
-  max-width: 720px;
+  max-width: var(--content-medium);
   margin: 0 auto;
   padding: var(--space-6) var(--space-4) var(--space-8);
 }
@@ -212,7 +212,7 @@
 
 /* Etats systeme (chargement / erreur de contenu) */
 .state {
-  max-width: 560px;
+  max-width: var(--content-narrow);
   margin: var(--space-8) auto;
   text-align: center;
   color: var(--color-text-muted);

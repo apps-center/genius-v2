@@ -73,7 +73,7 @@
 }
 
 .section {
-  max-width: 980px;
+  max-width: var(--content-wide);
   margin: 0 auto;
   padding: var(--space-6) var(--space-4) var(--space-8);
 }
@@ -299,7 +299,7 @@
 
 /* --- Ecrans de niveau 2 / 3 --- */
 .screen {
-  max-width: 980px;
+  max-width: var(--content-wide);
   margin: 0 auto;
   padding: var(--space-5) var(--space-4) var(--space-8);
 }
@@ -359,7 +359,7 @@
 
 /* Placeholder "bientot disponible" (modules non migres / modes a venir). */
 .placeholder {
-  max-width: 560px;
+  max-width: var(--content-narrow);
   margin: var(--space-6) auto 0;
   text-align: center;
   background: var(--color-card-bg);
@@ -410,7 +410,7 @@
 
 /* --- Fallback ErrorBoundary --- */
 .fallback {
-  max-width: 560px;
+  max-width: var(--content-narrow);
   margin: var(--space-8) auto;
   text-align: center;
   background: var(--color-card-bg);
