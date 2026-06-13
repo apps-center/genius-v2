@@ -450,3 +450,27 @@
   font-size: var(--font-xs);
   cursor: pointer;
 }
+
+/* Mobile : cartes d'accueil plus compactes (padding, titre, espacements reduits) pour
+   que le grand titre dore reste dominant. Desktop inchange. Valeurs via tokens. */
+@media (max-width: 640px) {
+  .hero {
+    padding: var(--space-6) var(--space-4) var(--space-4);
+  }
+  .section {
+    padding: var(--space-5) var(--space-4) var(--space-6);
+  }
+  .sectionTitle {
+    margin-bottom: var(--space-4);
+  }
+  .grid {
+    gap: var(--space-4);
+  }
+  .card {
+    padding: var(--space-4);
+    gap: var(--space-2);
+  }
+  .cardTitle {
+    font-size: var(--font-md);
+  }
+}
