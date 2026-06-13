@@ -151,6 +151,11 @@
   min-block-size: 0;
   transform-style: preserve-3d;
   -webkit-transform-style: preserve-3d;
+  /* Transform explicite au repos (recto) plutot que `none` : l'element reste TOUJOURS en
+     3D, donc sur une couche compositee stable. Sans ca, le passage none <-> rotateY fait
+     creer/detruire la couche GPU a chaque changement de carte, d'ou un micro-flash (une
+     frame) de la face arriere sur Safari. */
+  transform: rotateY(0deg);
   /* Indice de couche : aide le navigateur a rasteriser la face a la bonne resolution
      (texte du verso plus net sur ecran haute densite). */
   will-change: transform;
