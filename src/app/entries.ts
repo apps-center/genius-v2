@@ -80,7 +80,7 @@ export const ENTRIES: readonly NavEntry[] = [
     sousTitre: 'Teste tes connaissances',
     description:
       'Retourne les cartes, memorise les reponses, accumule les points. Mode ⚡ Genius pour tout melanger.',
-    tags: ['Arts', 'Logique'],
+    tags: ['Histoire', 'Géo', 'Maths'],
     etat: 'disponible',
     // Niveau 2 = grille de decks decouverte du registre (packs 'flashcards'),
     // chaque deck lance la brique flashcards. Ajouter un deck = 1 ligne de CONTENT.
