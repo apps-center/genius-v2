@@ -124,10 +124,21 @@ function GrilleDecks({ entree }: { entree: NavEntry }) {
   // par deck (a venir). Les deux cartes "Bientot" restent clairement desactivees.
   return (
     <div className={styles.grid}>
-      <ReserveCard
-        titre="⚡ Mode Genius"
-        msg="Tous les decks melanges en un seul defi, tous themes confondus."
-      />
+      {/* Mode Genius : jouable, lance la brique flashcards sur TOUS les decks melanges. */}
+      <Link to={`/play/${grille.brickId}?mode=genius`} className={styles.cardLink}>
+        <article className={styles.card}>
+          <div className={styles.cardHead}>
+            <span className={styles.cardIcon} aria-hidden="true">
+              ⚡
+            </span>
+            <span className={styles.badge}>Jouer</span>
+          </div>
+          <h3 className={styles.cardTitle}>Mode Genius</h3>
+          <p className={styles.cardDesc}>
+            Tous les decks melanges en un seul defi, tous themes confondus.
+          </p>
+        </article>
+      </Link>
       {decks.map((deck) => (
         <TuileDeck
           key={`${deck.sujet}:${deck.titre}`}

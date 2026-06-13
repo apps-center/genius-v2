@@ -41,3 +41,23 @@ export const estDerniere = (s: DeckState): boolean => s.position >= s.total - 1;
 
 // Numero affichable de la carte courante (1..total) pour l'indicateur de progression.
 export const numeroCarte = (s: DeckState): number => s.position + 1;
+
+// Melange PUR et deterministe (Fisher-Yates seede) : meme seed => meme ordre, donc
+// reproductible et testable sans navigateur. Ne mute pas l'entree. Utilise par le Mode
+// Genius pour brasser les cartes de tous les decks fusionnes.
+export function melanger<T>(items: readonly T[], seed: number): T[] {
+  let s = seed % 2147483647;
+  if (s <= 0) s += 2147483646;
+  const r = () => (s = (s * 16807) % 2147483647) / 2147483647;
+  const out = [...items];
+  for (let i = out.length - 1; i > 0; i--) {
+    const j = Math.floor(r() * (i + 1));
+    const a = out[i];
+    const b = out[j];
+    if (a !== undefined && b !== undefined) {
+      out[i] = b;
+      out[j] = a;
+    }
+  }
+  return out;
+}

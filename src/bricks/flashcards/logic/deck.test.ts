@@ -7,6 +7,7 @@ import {
   estPremiere,
   estDerniere,
   numeroCarte,
+  melanger,
 } from './deck';
 
 describe('deck flashcards (logique pure)', () => {
@@ -59,5 +60,30 @@ describe('deck flashcards (logique pure)', () => {
     expect(s.revelee).toBe(false);
     s = precedente(s);
     expect(s.position).toBe(0);
+  });
+});
+
+describe('melanger (Mode Genius - melange pur)', () => {
+  const src = [1, 2, 3, 4, 5, 6, 7, 8];
+
+  it('est deterministe : meme seed, meme ordre', () => {
+    expect(melanger(src, 42)).toEqual(melanger(src, 42));
+  });
+
+  it('conserve exactement les memes elements (permutation)', () => {
+    const out = melanger(src, 7);
+    expect(out).toHaveLength(src.length);
+    expect([...out].sort((a, b) => a - b)).toEqual(src);
+  });
+
+  it('ne mute pas le tableau d entree', () => {
+    const copie = [...src];
+    melanger(src, 3);
+    expect(src).toEqual(copie);
+  });
+
+  it('brasse reellement l ordre (au moins un seed le change)', () => {
+    const seeds = [1, 2, 3, 99, 123];
+    expect(seeds.some((g) => melanger(src, g).some((v, i) => v !== src[i]))).toBe(true);
   });
 });
