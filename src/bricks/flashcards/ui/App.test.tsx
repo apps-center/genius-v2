@@ -1,20 +1,14 @@
 // @vitest-environment jsdom
 /*
-  Test de COMPORTEMENT (ui/) : verrouille l'absence de flip parasite a la navigation.
+  Test de COMPORTEMENT (ui/) : la transition de flip n'est ACTIVE que pour un retournement
+  volontaire, jamais lors d'une navigation. C'est ce qui garantit l'absence de retournement
+  parasite (et de flash de la face arriere) quand on change de carte.
 
-  Le bug : depuis le VERSO, cliquer "Suivante"/"Precedente" animait le retour au recto
-  (~0.6s) avant d'afficher la carte suivante. Le correctif coupe la transition (.instant)
-  pendant le changement et ne la retablit qu'apres une peinture confirmee, via un DOUBLE
-  requestAnimationFrame.
-
-  Pourquoi ce test distingue "avant" et "apres" : on pilote rAF a la main (file manuelle).
-  - Ancien code (un seul rAF) : .instant est retire des la 1re frame -> au moment ou la
-    transition serait reactivee, transform vaut encore 180->0, donc le navigateur animerait.
-    L'assertion "instant encore present apres 1 frame" ECHOUE.
-  - Nouveau code (double rAF) : .instant survit a la 1re frame (peinture du recto sans
-    transition) et n'est retire qu'a la 2e. L'assertion PASSE.
+  Mecanique : le composant pose la classe .anime sur l'enveloppe de flip uniquement quand on
+  retourne volontairement la carte. En navigation (Suivante/Precedente), la classe est
+  absente : le retour au recto est donc instantane (le CSS ne transitionne que sous .anime).
 */
-import { describe, it, expect, beforeEach, afterEach, vi } from 'vitest';
+import { describe, it, expect, afterEach, vi } from 'vitest';
 import { act } from 'react';
 import { render, cleanup, fireEvent } from '@testing-library/react';
 import { Deck } from './App';
@@ -43,32 +37,9 @@ function ctxStub(): AppContext {
   } as unknown as AppContext;
 }
 
-// File de rAF pilotee a la main : aucun callback ne s'execute tant qu'on ne "peint" pas.
-let rafQueue: Array<() => void> = [];
+afterEach(() => cleanup());
 
-function flushOneFrame() {
-  const aJouer = rafQueue;
-  rafQueue = [];
-  act(() => {
-    aJouer.forEach((cb) => cb());
-  });
-}
-
-beforeEach(() => {
-  rafQueue = [];
-  vi.stubGlobal('requestAnimationFrame', (cb: () => void) => {
-    rafQueue.push(cb);
-    return rafQueue.length;
-  });
-  vi.stubGlobal('cancelAnimationFrame', () => {});
-});
-
-afterEach(() => {
-  cleanup();
-  vi.unstubAllGlobals();
-});
-
-// Recupere l'enveloppe de flip (role=button portant l'aria-label de la carte).
+// Enveloppe de flip (role=button portant l'aria-label de la carte).
 function flipWrap(container: HTMLElement): HTMLElement {
   const el = container.querySelector<HTMLElement>('[aria-label][role="button"]');
   if (!el) throw new Error('Enveloppe de flip introuvable');
@@ -89,47 +60,37 @@ function boutonParTexte(container: HTMLElement, texte: string): HTMLButtonElemen
   return btn;
 }
 
-describe('Flashcards - pas de flip parasite a la navigation', () => {
-  it('depuis le verso, "Suivante" coupe la transition jusqu\'a une peinture confirmee', () => {
+describe('Flashcards - flip anime seulement volontairement (pas de parasite)', () => {
+  it('au depart, la carte est sur le recto et n anime pas', () => {
     const { container } = render(<Deck ctx={ctxStub()} pack={pack} />);
+    expect(flipInner(container).getAttribute('data-revelee')).toBeNull();
+    expect(flipWrap(container).className).not.toContain(styles.anime);
+  });
 
-    // 1) On revele la carte : le verso est visible (data-revelee pose), flip volontaire anime.
+  it('le retournement volontaire (clic sur la carte) active l animation', () => {
+    const { container } = render(<Deck ctx={ctxStub()} pack={pack} />);
     act(() => {
       fireEvent.click(flipWrap(container));
     });
     expect(flipInner(container).getAttribute('data-revelee')).toBe('true');
-    expect(flipWrap(container).className).not.toContain(styles.instant);
+    expect(flipWrap(container).className).toContain(styles.anime);
+  });
 
-    // 2) Navigation depuis le verso : remise au recto.
+  it('la navigation depuis le verso revient au recto SANS animation (pas de parasite)', () => {
+    const { container } = render(<Deck ctx={ctxStub()} pack={pack} />);
+
+    // On revele la carte : verso visible, animation active.
+    act(() => {
+      fireEvent.click(flipWrap(container));
+    });
+    expect(flipWrap(container).className).toContain(styles.anime);
+
+    // Navigation depuis le verso : remise au recto, et l animation est coupee
+    // (classe .anime retiree) => aucun retournement visible avant la carte suivante.
     act(() => {
       fireEvent.click(boutonParTexte(container, 'Suivante'));
     });
-
-    // Au moment ou data-revelee repasse a false, .instant DOIT etre pose
-    // (transition coupee) : aucun retournement ne peut etre anime.
     expect(flipInner(container).getAttribute('data-revelee')).toBeNull();
-    expect(flipWrap(container).className).toContain(styles.instant);
-
-    // 3) Apres UNE seule frame peinte, .instant doit ENCORE etre present.
-    //    => echoue avec l'ancien correctif (un seul rAF le retirait des cette frame).
-    flushOneFrame();
-    expect(flipWrap(container).className).toContain(styles.instant);
-
-    // 4) Apres la 2e frame, la transition est retablie pour les flips volontaires suivants.
-    flushOneFrame();
-    expect(flipWrap(container).className).not.toContain(styles.instant);
-  });
-
-  it('le retournement VOLONTAIRE (clic sur la carte) reste anime (jamais .instant)', () => {
-    const { container } = render(<Deck ctx={ctxStub()} pack={pack} />);
-
-    act(() => {
-      fireEvent.click(flipWrap(container));
-    });
-
-    // Un flip volontaire ne pose jamais .instant : l'animation de 0.6s est preservee.
-    expect(flipInner(container).getAttribute('data-revelee')).toBe('true');
-    expect(flipWrap(container).className).not.toContain(styles.instant);
-    expect(rafQueue).toHaveLength(0); // aucun cycle "instant" programme
+    expect(flipWrap(container).className).not.toContain(styles.anime);
   });
 });

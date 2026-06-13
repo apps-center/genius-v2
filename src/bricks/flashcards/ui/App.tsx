@@ -158,12 +158,16 @@ export function Deck({ ctx, pack }: { ctx: AppContext; pack: FlashcardsPack }) {
 
   const carte = cartes[state.position];
 
-  // Flip instantane (sans animation) le temps d'un changement de carte : la remise au
-  // recto lors d'une navigation ne doit pas etre animee (sinon la carte se retourne
-  // visiblement avant d'afficher la suivante). Le retournement VOLONTAIRE reste anime.
-  const [flipInstant, setFlipInstant] = useState(false);
+  // La transition de flip n'est ACTIVE que pour un retournement volontaire. Lors d'une
+  // navigation (carte suivante/precedente), elle est coupee : la nouvelle carte apparait
+  // directement sur son recto, sans retournement parasite NI flash de la face arriere.
+  // Approche robuste (vs l'ancienne) : on ne remonte pas le noeud (le remontage d'un
+  // noeud 3D peut faire clignoter la face arriere une frame sur Safari) et on ne depend
+  // d'aucun timing/rAF ; on choisit simplement QUAND la transition s'applique.
+  const [animer, setAnimer] = useState(false);
 
   const flip = useCallback(() => {
+    setAnimer(true); // retournement volontaire : on anime
     setState((s) => {
       const next = retourner(s);
       const courante = cartes[s.position];
@@ -181,33 +185,11 @@ export function Deck({ ctx, pack }: { ctx: AppContext; pack: FlashcardsPack }) {
 
   const aller = useCallback(
     (sens: 'suivante' | 'precedente') => {
-      // Coupe la transition de flip pour ce changement : la nouvelle carte apparait
-      // directement sur son recto, sans retournement parasite.
-      setFlipInstant(true);
+      setAnimer(false); // navigation : aucune transition, remise au recto instantanee
       setState((s) => (sens === 'suivante' ? suivante(s) : precedente(s)));
     },
     [],
   );
-
-  // Une fois la remise au recto peinte sans transition, on retablit l'animation pour
-  // les prochains retournements volontaires. DOUBLE requestAnimationFrame : un seul ne
-  // suffit pas. L'effet passif de React et le rAF peuvent s'executer dans la meme frame
-  // AVANT toute peinture ; le navigateur ne voit alors jamais .instant et anime quand
-  // meme le retour au recto (le flip parasite). Le 1er rAF laisse le navigateur PEINDRE
-  // l'etat recto pendant que .instant coupe la transition (la variation 180deg -> 0 est
-  // donc capturee SANS animation comme nouvelle base) ; le 2e rAF retablit la transition
-  // une fois cette peinture confirmee, transform valant deja 0 -> aucun retournement.
-  useEffect(() => {
-    if (!flipInstant) return;
-    let raf2 = 0;
-    const raf1 = requestAnimationFrame(() => {
-      raf2 = requestAnimationFrame(() => setFlipInstant(false));
-    });
-    return () => {
-      cancelAnimationFrame(raf1);
-      cancelAnimationFrame(raf2);
-    };
-  }, [flipInstant]);
 
   // Evenement de domaine : la derniere carte du deck a ete atteinte (une seule fois).
   useEffect(() => {
@@ -261,16 +243,10 @@ export function Deck({ ctx, pack }: { ctx: AppContext; pack: FlashcardsPack }) {
       </div>
 
       <Carte
-        // Remonter la carte a chaque changement de position : la nouvelle carte naît sur
-        // son recto et AUCUNE transition CSS ne se declenche au montage. Le retournement
-        // parasite (retour anime au recto avant d'afficher la suivante) est ainsi exclu,
-        // sans dependre du timing du navigateur. Le flip volontaire (meme position, donc
-        // meme cle) conserve son animation.
-        key={state.position}
         carte={carte}
         revelee={state.revelee}
-        sansAnim={sansAnim}
-        instant={flipInstant}
+        // Animer seulement un retournement volontaire, et jamais en mouvement reduit.
+        anime={animer && !sansAnim}
         onFlip={flip}
       />
 
@@ -302,14 +278,12 @@ export function Deck({ ctx, pack }: { ctx: AppContext; pack: FlashcardsPack }) {
 function Carte({
   carte,
   revelee,
-  sansAnim,
-  instant,
+  anime,
   onFlip,
 }: {
   carte: Flashcard;
   revelee: boolean;
-  sansAnim: boolean;
-  instant: boolean;
+  anime: boolean;
   onFlip: () => void;
 }) {
   function onKeyDown(e: React.KeyboardEvent) {
@@ -321,9 +295,7 @@ function Carte({
 
   return (
     <div
-      className={`${styles.flipWrap} ${sansAnim ? styles.sansAnim : ''} ${
-        instant ? styles.instant : ''
-      }`}
+      className={`${styles.flipWrap} ${anime ? styles.anime : ''}`}
       role="button"
       tabIndex={0}
       aria-label={revelee ? 'Carte retournee : voir le recto' : 'Reveler la carte'}

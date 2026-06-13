@@ -150,25 +150,23 @@
   block-size: 100%;
   min-block-size: 0;
   transform-style: preserve-3d;
+  -webkit-transform-style: preserve-3d;
   /* Indice de couche : aide le navigateur a rasteriser la face a la bonne resolution
      (texte du verso plus net sur ecran haute densite). */
   will-change: transform;
-  transition: transform var(--flip-duration) var(--flip-ease);
+  /* AUCUNE transition par defaut : un changement de carte (navigation) remet le recto
+     instantanement, sans retournement parasite ni flash de la face arriere. */
 }
 
 .flipInner[data-revelee] {
   transform: rotateY(180deg);
 }
 
-/* Mouvement reduit : on coupe l'animation, le retournement reste instantane. */
-.sansAnim .flipInner {
-  transition: none;
-}
-
-/* Changement de carte : la remise au recto se fait sans transition (pas de flip
-   parasite). Le retournement volontaire, lui, conserve l'animation de flip. */
-.instant .flipInner {
-  transition: none;
+/* Transition de flip activee UNIQUEMENT pour un retournement volontaire (classe .anime
+   posee par le composant). En navigation comme en mouvement reduit, la classe est absente,
+   donc le changement de face est instantane. */
+.anime .flipInner {
+  transition: transform var(--flip-duration) var(--flip-ease);
 }
 
 /* Les deux faces occupent la meme cellule et remplissent la hauteur allouee a la carte
