@@ -68,10 +68,15 @@ function Chronologie({ ctx }: { ctx: AppContext }) {
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
-  // Recharge le pack a chaque changement de branche active.
+  // Recharge le pack a chaque changement de branche active. Anti-a-coup : on NE vide PAS
+  // la frise actuelle pendant le chargement de la nouvelle periode (sinon la page se
+  // contracte sur le message de chargement puis se redeploie). On garde la frise affichee
+  // et on bascule seulement quand le nouveau pack est pret ; l'onglet actif, lui, reagit
+  // tout de suite (feedback immediat). Le message "Chargement" ne s'affiche qu'au tout
+  // premier rendu (aucune frise encore disponible).
   useEffect(() => {
     let actif = true;
-    setChargement({ statut: 'chargement' });
+    setChargement((c) => (c.statut === 'pret' ? c : { statut: 'chargement' }));
     ctx.content
       .loadPack(cible.sujet, 'chronologie', titreActif)
       .then((pack) => actif && setChargement({ statut: 'pret', pack }))
