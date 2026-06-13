@@ -68,7 +68,7 @@
   --font-lg: 22px;
   --font-xl: 32px;
   --font-2xl: 48px;
-  --font-display-xl: clamp(1.25rem, 6vw, 88px);
+  --font-display-xl: clamp(1.5rem, 7vw, 88px);
 
   /* Interlettrage (labels capitales, signature Genius) */
   --tracking-tight: 0.08em;
