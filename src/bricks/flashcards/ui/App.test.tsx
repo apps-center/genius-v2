@@ -76,6 +76,18 @@ describe('Flashcards - flip anime seulement volontairement (pas de parasite)', (
     expect(flipInner(container).className).toContain(styles.anime);
   });
 
+  it('la face verso n existe dans le DOM que lorsqu elle sert (revelee/animation)', () => {
+    const { container } = render(<Deck ctx={ctxStub()} pack={pack} />);
+    // Au repos sur le recto : la face verso n est pas montee (la reponse R1 est absente),
+    // donc aucune face arriere ne peut clignoter lors d une navigation.
+    expect(container.textContent).not.toContain('R1');
+    // Apres retournement volontaire : la face verso est rendue.
+    act(() => {
+      fireEvent.click(flipWrap(container));
+    });
+    expect(container.textContent).toContain('R1');
+  });
+
   it('la navigation depuis le verso revient au recto SANS animation (pas de parasite)', () => {
     const { container } = render(<Deck ctx={ctxStub()} pack={pack} />);
 
