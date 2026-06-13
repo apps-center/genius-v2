@@ -3,7 +3,7 @@
    (sa cible tactile + ses marges, exprimees en tokens). Le contenu interne ne deborde
    jamais : l'en-tete et les controles gardent leur taille, la carte absorbe le reste. */
 .wrap {
-  max-width: 720px;
+  max-width: var(--content-medium);
   margin: 0 auto;
   padding: var(--space-4) var(--space-4) var(--space-5);
   block-size: calc(100dvh - var(--tap-min) - 2 * var(--space-4));
@@ -20,7 +20,7 @@
 }
 
 .error {
-  max-width: 560px;
+  max-width: var(--content-narrow);
   margin: var(--space-7) auto;
   background: var(--color-card-bg);
   border: 1px solid var(--color-border);
@@ -60,7 +60,7 @@
 }
 
 .titre {
-  font-size: clamp(var(--font-xl), 7vw, var(--font-2xl));
+  font-size: var(--font-2xl);
   text-transform: uppercase;
   letter-spacing: var(--tracking-tight);
   background: var(--gradient-gold);
@@ -91,7 +91,7 @@
 /* --- Progression (calque sur la barre du quiz) --- */
 .progress {
   inline-size: 100%;
-  max-width: 560px;
+  max-width: var(--content-narrow);
 }
 
 .compteur {

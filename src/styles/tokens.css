@@ -61,13 +61,17 @@
   --weight-bold: 700;
   --weight-black: 900;
 
-  /* Tailles */
+  /* Tailles
+     Les grandes tailles de titre sont FLUIDES (clamp) : elles s'adaptent seules du mobile
+     au bureau, donc aucun titre ne deborde et toutes les vues restent harmonisees. Changer
+     un palier ici se repercute partout (accueil, ecrans, briques). Le texte courant
+     (xs..lg) reste fixe pour garantir la lisibilite enfant. */
   --font-xs: 12px;
   --font-sm: 14px;
   --font-md: 17px;
   --font-lg: 22px;
-  --font-xl: 32px;
-  --font-2xl: 48px;
+  --font-xl: clamp(1.4rem, 5.5vw, 32px);
+  --font-2xl: clamp(1.5rem, 6.5vw, 48px);
   --font-display-xl: clamp(1.5rem, 7vw, 88px);
 
   /* Interlettrage (labels capitales, signature Genius) */
@@ -99,6 +103,11 @@
 
   /* --- Cible tactile minimale (a11y enfant) --- */
   --tap-min: 44px;
+
+  /* --- Largeurs de colonne (centralisees, reutilisees par toutes les vues) --- */
+  --content-narrow: 560px; /* colonne de lecture : cartes, barres de progression, encarts */
+  --content-medium: 720px; /* zone de jeu d'une brique (quiz, flashcards) */
+  --content-wide: 980px; /* grilles d'accueil et ecrans de niveau 2 */
 
   /* --- Largeur max d'une carte (colonne de lecture des briques a carte) --- */
   --card-max-width: 440px;
