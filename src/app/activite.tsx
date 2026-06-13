@@ -119,38 +119,40 @@ function GrilleDecks({ entree }: { entree: NavEntry }) {
     );
   }
 
+  // Sequence unique (haut -> bas, conservee aussi en grille bureau, ordre de lecture) :
+  // Mode Genius (a venir), puis les decks dans l'ordre du registre, puis Statistiques
+  // par deck (a venir). Les deux cartes "Bientot" restent clairement desactivees.
   return (
-    <>
-      <div className={styles.grid}>
-        {decks.map((deck) => (
-          <TuileDeck
-            key={`${deck.sujet}:${deck.titre}`}
-            deck={deck}
-            brickId={grille.brickId}
-            etat={apercus[`${deck.sujet}:${deck.titre}`] ?? { statut: 'chargement' }}
-          />
-        ))}
-      </div>
+    <div className={styles.grid}>
+      <ReserveCard
+        titre="⚡ Mode Genius"
+        msg="Tous les decks melanges en un seul defi, tous themes confondus."
+      />
+      {decks.map((deck) => (
+        <TuileDeck
+          key={`${deck.sujet}:${deck.titre}`}
+          deck={deck}
+          brickId={grille.brickId}
+          etat={apercus[`${deck.sujet}:${deck.titre}`] ?? { statut: 'chargement' }}
+        />
+      ))}
+      <ReserveCard
+        titre="Statistiques par deck"
+        msg="Cartes vues et progression de chaque deck s'afficheront ici."
+      />
+    </div>
+  );
+}
 
-      {/* Emplacements reserves : materialises mais clairement desactives (zero fausse donnee). */}
-      <h2 className={styles.reserveLabel}>A venir</h2>
-      <div className={styles.reserveGrid}>
-        <section className={styles.reserve} aria-disabled="true">
-          <span className={styles.reserveBadge}>Bientot</span>
-          <h3 className={styles.reserveTitle}>Statistiques par deck</h3>
-          <p className={styles.reserveMsg}>
-            Cartes vues et progression de chaque deck s'afficheront ici.
-          </p>
-        </section>
-        <section className={styles.reserve} aria-disabled="true">
-          <span className={styles.reserveBadge}>Bientot</span>
-          <h3 className={styles.reserveTitle}>⚡ Mode Genius</h3>
-          <p className={styles.reserveMsg}>
-            Tous les decks melanges en un seul defi, tous themes confondus.
-          </p>
-        </section>
-      </div>
-    </>
+// Emplacement reserve : materialise mais clairement desactive (zero fausse donnee),
+// place dans la sequence des decks (Mode Genius en tete, Statistiques en fin).
+function ReserveCard({ titre, msg }: { titre: string; msg: string }) {
+  return (
+    <section className={styles.reserve} aria-disabled="true">
+      <span className={styles.reserveBadge}>Bientot</span>
+      <h3 className={styles.reserveTitle}>{titre}</h3>
+      <p className={styles.reserveMsg}>{msg}</p>
+    </section>
   );
 }
 
