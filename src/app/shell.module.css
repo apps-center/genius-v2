@@ -443,7 +443,10 @@
     padding: var(--space-6) var(--space-4) var(--space-4);
   }
   .section {
-    padding: var(--space-5) var(--space-4) var(--space-6);
+    padding: var(--space-5) var(--space-6) var(--space-6);
+  }
+  .screen {
+    padding: var(--space-5) var(--space-6) var(--space-6);
   }
   .sectionTitle {
     margin-bottom: var(--space-4);
