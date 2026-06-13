@@ -44,9 +44,11 @@
 }
 
 /* --- En-tete --- */
+/* Compact : l'ecran de revision doit laisser la place a un grand carre image sous l'en-tete
+   sans defilement. Marges reduites et titre qui s'adapte a la largeur (borne par tokens). */
 .head {
   text-align: center;
-  padding: var(--space-4) 0 var(--space-6);
+  padding: var(--space-2) 0 var(--space-3);
 }
 
 .kicker {
@@ -58,14 +60,14 @@
 }
 
 .titre {
-  font-size: var(--font-2xl);
+  font-size: clamp(var(--font-xl), 7vw, var(--font-2xl));
   text-transform: uppercase;
   letter-spacing: var(--tracking-tight);
   background: var(--gradient-gold);
   -webkit-background-clip: text;
   background-clip: text;
   color: transparent;
-  margin: var(--space-2) 0;
+  margin: var(--space-1) 0;
 }
 
 .sous {
@@ -80,6 +82,7 @@
   display: flex;
   flex-direction: column;
   align-items: center;
+  justify-content: center;
   flex: 1 1 auto;
   min-block-size: 0;
   inline-size: 100%;
@@ -128,9 +131,12 @@
      d'une grande zone d'ombre). L'ombre dessine une silhouette de carte stable au flip. */
   box-shadow: var(--shadow-card);
   /* Prend l'espace vertical libre du deck ; min-block-size:0 autorise la carte a
-     retrecir sur un petit ecran pour que les controles restent visibles. */
+     retrecir sur un petit ecran pour que les controles restent visibles. La carte est
+     plafonnee a un carre (max-block-size = max-width) : sur grand ecran elle ne s'etire
+     pas en hauteur, le cadre image reste quasi carre. */
   flex: 1 1 auto;
   min-block-size: 0;
+  max-block-size: var(--card-max-width);
 }
 
 .flipWrap:focus-visible {
@@ -202,9 +208,8 @@
 }
 
 /* --- Modele IMAGE --- */
-/* Zone qui recoit l'image : prend l'espace libre de la face (au-dessus de l'indice) et
-   centre un carre dedans. Sa taille est entierement bornee par la fenetre (chaine flex),
-   donc l'ecran tient sans defilement. */
+/* Zone qui recoit l'image : occupe l'espace libre de la face (au-dessus de l'indice) et
+   centre un carre dedans. Sa hauteur est definie et bornee par la fenetre (chaine flex). */
 .imageBox {
   flex: 1 1 auto;
   min-block-size: 0;
@@ -214,18 +219,17 @@
   overflow: hidden;
 }
 
-/* Cadre CARRE (aspect-ratio 1/1), meme regle partout (aucune media query de format).
-   L'image est le plus grand carre qui tient dans la zone disponible : bornee par sa
-   largeur ET sa hauteur (max-block-size/max-inline-size a 100%), le cote vaut le plus
-   petit des deux. L'image REMPLIT le carre (cover, centree), quitte a rogner les bords ;
-   toutes les cartes affichent donc le meme carre a viewport donne. */
+/* L'image est un CARRE dimensionne par la hauteur disponible (block-size 100% de la zone,
+   aspect-ratio 1/1), centre horizontalement, jamais ecrase : si la zone est plus large que
+   haute, le carre garde ses proportions et laisse une marge laterale ; si elle est plus
+   haute que large (carte plafonnee a un carre), il est borne par la largeur. Taille de
+   hauteur EXPLICITE (pas auto) : rendu fiable sur Safari iOS. Remplissage cover, centre. */
 .image {
   display: block;
-  max-inline-size: 100%;
-  max-block-size: 100%;
+  block-size: 100%;
   inline-size: auto;
-  block-size: auto;
   aspect-ratio: 1 / 1;
+  max-inline-size: 100%;
   object-fit: cover;
   object-position: center;
   border-radius: var(--radius-lg);
