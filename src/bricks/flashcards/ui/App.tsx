@@ -312,12 +312,18 @@ function Carte({
             Cliquer pour reveler
           </p>
         </div>
-        <div
-          className={`${styles.face} ${styles.faceVerso}`}
-          aria-hidden={!revelee || undefined}
-        >
-          {carte.type === 'image' ? <VersoImage carte={carte} /> : <VersoQr carte={carte} />}
-        </div>
+        {/* La face verso n'est rendue que lorsqu'elle sert : carte revelee, ou retournement
+            volontaire en cours. Au repos sur le recto (et donc lors d'une navigation), elle
+            n'existe pas dans le DOM : aucune face arriere ne peut clignoter (on ne depend
+            plus de la latence d'occultation du backface-visibility). */}
+        {(revelee || anime) && (
+          <div
+            className={`${styles.face} ${styles.faceVerso}`}
+            aria-hidden={!revelee || undefined}
+          >
+            {carte.type === 'image' ? <VersoImage carte={carte} /> : <VersoQr carte={carte} />}
+          </div>
+        )}
       </div>
     </div>
   );
