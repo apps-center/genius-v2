@@ -82,15 +82,14 @@ export const CONTENT: readonly ContentEntry[] = [
   { sujet: 'histoire', contentKind: 'chronologie', titre: 'Époque contemporaine', load: () => import('../content/chronologie/contemporaine.json') },
   { sujet: 'histoire', contentKind: 'chronologie', titre: 'Histoire du monde', load: () => import('../content/chronologie/monde.json') },
 
-  // Flashcards : un deck = un pack. Deux pilotes, un par modele de carte :
-  // 'arts' = modele IMAGE (recto image, verso fiche), 'logique' = modele QUESTION-REPONSE.
-  // Jouables directement via /play/flashcards?sujet=...&titre=... (pas encore d'entree d'accueil).
-  { sujet: 'arts', contentKind: 'flashcards', titre: 'Arts', load: () => import('../content/flashcards/arts.json') },
-  { sujet: 'logique', contentKind: 'flashcards', titre: 'Logique', load: () => import('../content/flashcards/logique.json') },
+  // Flashcards : un deck = un pack. L'ordre ci-dessous pilote l'ordre d'affichage des
+  // tuiles sur l'ecran d'entree Flashcards (decouverte via ctx.content.list).
+  { sujet: 'histoire', contentKind: 'flashcards', titre: 'Histoire', load: () => import('../content/flashcards/histoire.json') },
   { sujet: 'geographie', contentKind: 'flashcards', titre: 'Géographie', load: () => import('../content/flashcards/geographie.json') },
   { sujet: 'mathematiques', contentKind: 'flashcards', titre: 'Mathématiques', load: () => import('../content/flashcards/mathematiques.json') },
   { sujet: 'sciences', contentKind: 'flashcards', titre: 'Sciences', load: () => import('../content/flashcards/sciences.json') },
-  { sujet: 'histoire', contentKind: 'flashcards', titre: 'Histoire', load: () => import('../content/flashcards/histoire.json') },
+  { sujet: 'logique', contentKind: 'flashcards', titre: 'Logique', load: () => import('../content/flashcards/logique.json') },
+  { sujet: 'arts', contentKind: 'flashcards', titre: 'Arts', load: () => import('../content/flashcards/arts.json') },
 ];
 
 // Apparie chaque pack avec les briques capables de le jouer (par contentKind).

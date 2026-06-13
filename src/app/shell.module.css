@@ -245,23 +245,8 @@
   padding: var(--space-1) var(--space-3);
 }
 
-/* Emplacements reserves (stats par deck, Mode Genius) : presents mais desactives. */
-.reserveLabel {
-  text-align: center;
-  font-family: var(--font-display);
-  font-size: var(--font-xs);
-  letter-spacing: var(--tracking-wide);
-  text-transform: uppercase;
-  color: var(--color-text-muted);
-  margin: var(--space-8) 0 var(--space-5);
-}
-
-.reserveGrid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-  gap: var(--space-5);
-}
-
+/* Emplacements reserves (stats par deck, Mode Genius) : presents mais desactives.
+   Rendus dans la grille principale des decks (cf. activite.tsx), dans la sequence voulue. */
 .reserve {
   background: var(--color-card-bg);
   border: 1px dashed var(--color-border);
