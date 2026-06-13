@@ -163,9 +163,11 @@
 }
 
 /* Transition de flip activee UNIQUEMENT pour un retournement volontaire (classe .anime
-   posee par le composant). En navigation comme en mouvement reduit, la classe est absente,
-   donc le changement de face est instantane. */
-.anime .flipInner {
+   posee SUR le flipInner lui-meme - jamais via un ancetre : la transition et la propriete
+   animee doivent etre sur le MEME element, sinon Safari ne re-evalue pas la transition dans
+   la frame ou la classe disparait et anime quand meme le retour au recto). En navigation
+   comme en mouvement reduit, la classe est absente : le changement de face est instantane. */
+.flipInner.anime {
   transition: transform var(--flip-duration) var(--flip-ease);
 }
 

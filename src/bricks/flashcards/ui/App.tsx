@@ -295,14 +295,17 @@ function Carte({
 
   return (
     <div
-      className={`${styles.flipWrap} ${anime ? styles.anime : ''}`}
+      className={styles.flipWrap}
       role="button"
       tabIndex={0}
       aria-label={revelee ? 'Carte retournee : voir le recto' : 'Reveler la carte'}
       onClick={onFlip}
       onKeyDown={onKeyDown}
     >
-      <div className={styles.flipInner} data-revelee={revelee || undefined}>
+      <div
+        className={`${styles.flipInner} ${anime ? styles.anime : ''}`}
+        data-revelee={revelee || undefined}
+      >
         <div className={`${styles.face} ${styles.faceRecto}`} aria-hidden={revelee || undefined}>
           {carte.type === 'image' ? <RectoImage carte={carte} /> : <RectoQr carte={carte} />}
           <p className={styles.hint} aria-hidden="true">
