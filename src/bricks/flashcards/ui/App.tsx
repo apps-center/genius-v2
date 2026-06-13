@@ -15,6 +15,7 @@ import {
   estPremiere,
   estDerniere,
   numeroCarte,
+  melanger,
   type DeckState,
 } from '../logic/deck';
 import { manifest } from '../manifest';
@@ -33,6 +34,8 @@ import styles from './Flashcards.module.css';
 interface Cible {
   sujet: string;
   titre: string | undefined;
+  // Mode Genius : pas un deck precis, mais TOUS les decks flashcards fusionnes et melanges.
+  genius: boolean;
 }
 
 function cibleDepuisUrl(): Cible {
@@ -40,8 +43,12 @@ function cibleDepuisUrl(): Cible {
   return {
     sujet: params.get('sujet') ?? '',
     titre: params.get('titre') ?? undefined,
+    genius: params.get('mode') === 'genius',
   };
 }
+
+// Titre affiche par le Mode Genius (sujet synthetique, jamais un fichier precis).
+const TITRE_GENIUS = 'Mode Genius';
 
 export function App({ ctx }: { ctx: AppContext }) {
   return (
@@ -62,31 +69,56 @@ function Flashcards({ ctx }: { ctx: AppContext }) {
 
   // Evenement de domaine : debut de consultation (consomme par gamification/telemetrie).
   useEffect(() => {
-    ctx.events.emit('activity.start', { brick: manifest.id, sujet: cible.sujet });
+    ctx.events.emit('activity.start', {
+      brick: manifest.id,
+      sujet: cible.genius ? 'genius' : cible.sujet,
+    });
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
   useEffect(() => {
     let actif = true;
     setChargement({ statut: 'chargement' });
-    ctx.content
-      .loadPack(cible.sujet, 'flashcards', cible.titre)
+
+    // Mode Genius : on DECOUVRE tous les decks au registre (ctx.content.list), on charge
+    // chacun, on fusionne leurs cartes et on les melange. Aucun deck code en dur : un
+    // futur deck ajoute au registre entre automatiquement dans le Mode Genius.
+    const promesse: Promise<FlashcardsPack> = cible.genius
+      ? Promise.all(
+          ctx.content
+            .list('flashcards')
+            .map((e) => ctx.content.loadPack(e.sujet, 'flashcards', e.titre)),
+        ).then((packs) => ({
+          contentKind: 'flashcards',
+          sujet: 'genius',
+          titre: TITRE_GENIUS,
+          cartes: melanger(
+            packs.flatMap((p) => p.cartes),
+            Date.now(),
+          ),
+        }))
+      : ctx.content.loadPack(cible.sujet, 'flashcards', cible.titre);
+
+    promesse
       .then((pack) => actif && setChargement({ statut: 'pret', pack }))
       .catch((err: unknown) => {
         if (!actif) return;
         const message =
           err instanceof ContentError
             ? err.message
-            : `Deck introuvable pour le sujet "${cible.sujet}".`;
+            : cible.genius
+              ? 'Impossible de constituer le Mode Genius (un deck est introuvable).'
+              : `Deck introuvable pour le sujet "${cible.sujet}".`;
         setChargement({ statut: 'erreur', message });
       });
     return () => {
       actif = false;
     };
-  }, [ctx, cible.sujet, cible.titre]);
+  }, [ctx, cible.sujet, cible.titre, cible.genius]);
 
   const pack = chargement.statut === 'pret' ? chargement.pack : undefined;
-  const titreAffiche = pack?.titre ?? cible.titre ?? 'Flashcards';
+  const titreAffiche =
+    pack?.titre ?? (cible.genius ? TITRE_GENIUS : cible.titre) ?? 'Flashcards';
 
   return (
     <div className={styles.wrap}>
