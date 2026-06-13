@@ -64,7 +64,7 @@ describe('Flashcards - flip anime seulement volontairement (pas de parasite)', (
   it('au depart, la carte est sur le recto et n anime pas', () => {
     const { container } = render(<Deck ctx={ctxStub()} pack={pack} />);
     expect(flipInner(container).getAttribute('data-revelee')).toBeNull();
-    expect(flipWrap(container).className).not.toContain(styles.anime);
+    expect(flipInner(container).className).not.toContain(styles.anime);
   });
 
   it('le retournement volontaire (clic sur la carte) active l animation', () => {
@@ -73,7 +73,7 @@ describe('Flashcards - flip anime seulement volontairement (pas de parasite)', (
       fireEvent.click(flipWrap(container));
     });
     expect(flipInner(container).getAttribute('data-revelee')).toBe('true');
-    expect(flipWrap(container).className).toContain(styles.anime);
+    expect(flipInner(container).className).toContain(styles.anime);
   });
 
   it('la navigation depuis le verso revient au recto SANS animation (pas de parasite)', () => {
@@ -83,14 +83,14 @@ describe('Flashcards - flip anime seulement volontairement (pas de parasite)', (
     act(() => {
       fireEvent.click(flipWrap(container));
     });
-    expect(flipWrap(container).className).toContain(styles.anime);
+    expect(flipInner(container).className).toContain(styles.anime);
 
     // Navigation depuis le verso : remise au recto, et l animation est coupee
-    // (classe .anime retiree) => aucun retournement visible avant la carte suivante.
+    // (classe .anime retiree DU MEME element qui tourne) => aucun retournement visible.
     act(() => {
       fireEvent.click(boutonParTexte(container, 'Suivante'));
     });
     expect(flipInner(container).getAttribute('data-revelee')).toBeNull();
-    expect(flipWrap(container).className).not.toContain(styles.anime);
+    expect(flipInner(container).className).not.toContain(styles.anime);
   });
 });
