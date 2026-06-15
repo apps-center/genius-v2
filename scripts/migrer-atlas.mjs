@@ -153,6 +153,49 @@ const GROUPES_RESSOURCES = {
   },
 };
 
+// --- Reclassement de la couche EAU sur WRI Aqueduct 2023 ---
+// Les donnees d'origine confondaient aridite/secheresse et stress hydrique de base
+// (ratio prelevements/ressources) : l'Afrique subsaharienne etait sur-stressee via un
+// repli continental "eleve", l'Inde/le Chili/la Grece etaient sous-evalues, et le niveau
+// "modere" n'etait jamais utilise. On remplace par une classification curee a 4 niveaux,
+// approximation pedagogique du classement WRI Aqueduct 2023 (baseline water stress).
+// Tout pays non liste est "faible" par defaut (neutre), continents inclus.
+const EAU_WRI = {
+  critique: [
+    // Moyen-Orient et Afrique du Nord
+    'SA', 'AE', 'QA', 'KW', 'OM', 'YE', 'IL', 'JO', 'LB', 'SY', 'IQ', 'IR',
+    'EG', 'LY', 'TN', 'MA', 'DZ', 'CY', 'CY_2',
+    // Asie du Sud et centrale
+    'IN', 'PK', 'AF', 'TM', 'UZ',
+    // Reste (figurent au top mondial WRI 2023)
+    'CL', 'GR', 'BE', 'BW', 'NA', 'ZA',
+  ],
+  eleve: [
+    'ES', 'PT', 'IT', 'TR', 'DJ', 'ER', 'SO', 'SO_', 'SD', 'MR', 'EH',
+    'AZ', 'AM', 'GE', 'KZ', 'KG', 'TJ', 'CN', 'KR', 'MX', 'AU', 'MN', 'LK',
+  ],
+  modere: [
+    'US', 'FR', 'DE', 'PL', 'RO', 'UA', 'BG', 'RS', 'HU', 'SK',
+    'NG', 'GH', 'SN', 'KE', 'ET', 'TD', 'ML', 'NE', 'MZ', 'TZ', 'UG', 'ZW', 'BF', 'SS',
+    'TH', 'VN', 'PH', 'JP', 'NP', 'KH', 'MM', 'BD',
+  ],
+};
+// Couleurs canoniques de la legende (les 4 niveaux apparaissent desormais sur la carte).
+const EAU_COULEURS = { critique: '#be2a10', eleve: '#a86838', modere: '#6a9848', faible: '#289848' };
+function construireCoucheEau() {
+  const pays = {};
+  for (const [niveau, codes] of Object.entries(EAU_WRI)) {
+    for (const iso of codes) pays[iso] = EAU_COULEURS[niveau];
+  }
+  // Repli neutre : tout pays non classe est "faible" (au lieu du brun "eleve" d'origine).
+  const faible = EAU_COULEURS.faible;
+  const continentDefaut = {
+    Europe: faible, Asia: faible, 'North America': faible,
+    'South America': faible, Africa: faible, Oceania: faible,
+  };
+  return { ...COLORS_META.water, pays, continentDefaut };
+}
+
 // Navigation des couches : structure NAV_CONFIG du legacy + le type de rendu de chacune.
 const NAV_CONFIG = [
   {
@@ -204,6 +247,11 @@ const pays = WORLD.map((c) => ({
 
 const couchesColors = {};
 for (const id of ['demo', 'water', 'energy']) {
+  if (id === 'water') {
+    // Couche eau : classification curee (WRI Aqueduct 2023), pas les donnees d'origine.
+    couchesColors.water = construireCoucheEau();
+    continue;
+  }
   if (!layerColors[id]) continue;
   couchesColors[id] = {
     ...COLORS_META[id],
