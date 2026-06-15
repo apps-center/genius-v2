@@ -4,6 +4,7 @@ import type { AppContext } from '../core/context';
 import * as quizBrick from '../bricks/quiz/brick';
 import * as chronologieBrick from '../bricks/chronologie/brick';
 import * as flashcardsBrick from '../bricks/flashcards/brick';
+import * as atlasBrick from '../bricks/atlas/brick';
 
 /*
   REGISTRE - source unique de verite : briques + packs de contenu + entrees de nav.
@@ -39,6 +40,7 @@ export const BRICKS: readonly BrickModule[] = [
   quizBrick,
   chronologieBrick,
   flashcardsBrick,
+  atlasBrick,
   // <- ajouter ici logique... (1 ligne par activite)
 ];
 
@@ -90,6 +92,10 @@ export const CONTENT: readonly ContentEntry[] = [
   { sujet: 'sciences', contentKind: 'flashcards', titre: 'Sciences', load: () => import('../content/flashcards/sciences.json') },
   { sujet: 'logique', contentKind: 'flashcards', titre: 'Logique', load: () => import('../content/flashcards/logique.json') },
   { sujet: 'arts', contentKind: 'flashcards', titre: 'Arts', load: () => import('../content/flashcards/arts.json') },
+
+  // Atlas (carte du monde interactive) : un seul pack pour le module entier
+  // (geometrie + couches + fiches). Ajouter un sujet d'atlas = 1 ligne + 1 .json.
+  { sujet: 'geographie', contentKind: 'atlas', titre: 'Monde', load: () => import('../content/atlas/monde.json') },
 ];
 
 // Apparie chaque pack avec les briques capables de le jouer (par contentKind).

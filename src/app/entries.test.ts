@@ -33,11 +33,11 @@ describe('registre de navigation (entries)', () => {
     ]);
   });
 
-  it('entrees disponibles : Flashcards, Quiz et Chronologie Historique ; le reste a venir', () => {
+  it('entrees disponibles : Flashcards, Quiz, Chronologie et Atlas ; le reste a venir', () => {
     const dispo = ENTRIES.filter((e) => e.etat === 'disponible')
       .map((e) => e.id)
       .sort();
-    expect(dispo).toEqual(['chronologie', 'flashcards', 'quiz']);
+    expect(dispo).toEqual(['atlas', 'chronologie', 'flashcards', 'quiz']);
   });
 
   it('la Flashcards ouvre une grille de decks branchee sur la brique flashcards', () => {
@@ -57,6 +57,17 @@ describe('registre de navigation (entries)', () => {
       contentKind: 'chronologie',
       sujet: 'histoire',
       titre: 'Antiquité',
+    });
+  });
+
+  it('l Atlas lance directement la brique atlas sur le pack Monde', () => {
+    const atlas = entreeParId('atlas');
+    expect(atlas?.etat).toBe('disponible');
+    expect(atlas?.lancement).toEqual({
+      brickId: 'atlas',
+      contentKind: 'atlas',
+      sujet: 'geographie',
+      titre: 'Monde',
     });
   });
 

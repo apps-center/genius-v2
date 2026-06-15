@@ -20,6 +20,10 @@ export interface DomainEvents {
   'card.flipped': { brick: string; sujet: string; cardId: string; face: 'recto' | 'verso' };
   // Flashcards : la derniere carte du deck a ete atteinte.
   'deck.completed': { brick: string; sujet: string; total: number };
+  // Atlas : un pays a ete selectionne (ouverture de sa fiche).
+  'atlas.country.selected': { brick: string; sujet: string; iso: string };
+  // Atlas : la couche thematique affichee a change.
+  'atlas.layer.changed': { brick: string; sujet: string; layer: string };
 }
 
 export type DomainEventName = keyof DomainEvents;

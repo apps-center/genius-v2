@@ -2,6 +2,7 @@ import { z } from 'zod';
 import { QcmPack } from './qcm.schema';
 import { ChronologiePack } from './chronologie.schema';
 import { FlashcardsPack } from './flashcards.schema';
+import { AtlasPack } from './atlas.schema';
 
 /*
   Chargement + validation des packs. ZERO React.
@@ -31,6 +32,7 @@ const SCHEMAS = {
   qcm: QcmPack,
   chronologie: ChronologiePack,
   flashcards: FlashcardsPack,
+  atlas: AtlasPack,
 } as const;
 
 export type ContentKind = keyof typeof SCHEMAS;
