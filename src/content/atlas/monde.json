@@ -11672,6 +11672,134 @@
           "color": "#a0d8f0",
           "w": 1.2,
           "traffic": "Émergente (+2°C)"
+        },
+        {
+          "name": "Atlantique Nord (Europe - Amerique)",
+          "pts": [
+            [
+              2,
+              51
+            ],
+            [
+              -12,
+              50
+            ],
+            [
+              -35,
+              47
+            ],
+            [
+              -60,
+              42
+            ],
+            [
+              -74,
+              40
+            ]
+          ],
+          "color": "#b090f0",
+          "w": 3,
+          "traffic": "~12 000 navires/an"
+        },
+        {
+          "name": "Cote Atlantique des Ameriques",
+          "pts": [
+            [
+              -74,
+              40
+            ],
+            [
+              -70,
+              25
+            ],
+            [
+              -62,
+              12
+            ],
+            [
+              -50,
+              0
+            ],
+            [
+              -43,
+              -23
+            ],
+            [
+              -56,
+              -35
+            ]
+          ],
+          "color": "#58b0e0",
+          "w": 2.5,
+          "traffic": "~6 000 navires/an"
+        },
+        {
+          "name": "Cote Pacifique des Ameriques",
+          "pts": [
+            [
+              -122,
+              37
+            ],
+            [
+              -112,
+              23
+            ],
+            [
+              -100,
+              16
+            ],
+            [
+              -87,
+              11
+            ],
+            [
+              -79,
+              8
+            ],
+            [
+              -77,
+              -12
+            ],
+            [
+              -71,
+              -33
+            ]
+          ],
+          "color": "#e06aa0",
+          "w": 2.5,
+          "traffic": "~4 000 navires/an"
+        },
+        {
+          "name": "Asie - Australie",
+          "pts": [
+            [
+              110,
+              4
+            ],
+            [
+              112,
+              -2
+            ],
+            [
+              118,
+              -8
+            ],
+            [
+              128,
+              -12
+            ],
+            [
+              142,
+              -18
+            ],
+            [
+              151,
+              -34
+            ]
+          ],
+          "color": "#30c8a8",
+          "w": 2.5,
+          "traffic": "~5 000 navires/an"
         }
       ],
       "detroits": [
