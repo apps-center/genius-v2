@@ -196,6 +196,32 @@ function construireCoucheEau() {
   return { ...COLORS_META.water, pays, continentDefaut };
 }
 
+// --- Completion / correction de la couche CLIMAT ---
+// Les donnees d'origine laissaient 42 territoires sans zone (ils s'affichaient alors
+// dans leur couleur de base, incoherent sur une carte climatique) et placaient le Perou
+// en "desert" (il est majoritairement amazonien). On comble les manques et on corrige,
+// en restant sur le principe "une zone dominante par pays" (simplification assumee ;
+// les zones disponibles sont celles de climat_colors.json).
+const CLIMAT_OVERRIDE = {
+  // Correction
+  PE: 'tropical', // Perou : Amazonie dominante (etait "desert")
+  // Asie de l'Est / Sud
+  JP: 'temperate', KR: 'temperate', KP: 'continental', TW: 'monsoon',
+  LK: 'tropical', NP: 'monsoon', BT: 'continental', IQ: 'desert',
+  // Ameriques
+  CL: 'mediterranean', CU: 'tropical', DO: 'tropical', HT: 'tropical', JM: 'tropical',
+  PR: 'tropical', BS: 'tropical', TT: 'tropical', GT: 'tropical', HN: 'tropical',
+  NI: 'tropical', CR: 'tropical', PA: 'tropical', SV: 'tropical', BZ: 'tropical',
+  PY: 'tropical', UY: 'temperate', FK: 'subarctic',
+  // Europe / Mediterranee
+  CY: 'mediterranean', CY_2: 'mediterranean', XK: 'continental', PS: 'mediterranean',
+  // Afrique
+  MW: 'tropical', LS: 'continental', SZ: 'tropical', GM: 'monsoon', GW: 'monsoon',
+  GQ: 'tropical', EH: 'desert', SO_: 'desert',
+  // Oceanie / zones polaires
+  FJ: 'tropical', VU: 'tropical', SL_2: 'tropical', NC: 'tropical', TF: 'polar',
+};
+
 // --- Reclassement de la couche POPULATION (croissance demographique) ---
 // Approximation pedagogique des tendances ONU DESA 2024 (3 niveaux) :
 //  - forte croissance : forte fecondite, population en hausse rapide (Afrique sub-
@@ -311,7 +337,7 @@ const pack = normaliser({
   fiches,
   couches: {
     colors: couchesColors,
-    climat: { label: 'Zones climatiques', data: climatData, zones: climatZones },
+    climat: { label: 'Zones climatiques', data: { ...climatData, ...CLIMAT_OVERRIDE }, zones: climatZones },
     ressources: { meta: ressourcesMeta, data: ressourcesData, groupes: GROUPES_RESSOURCES },
     maritime: {
       label: 'Routes & Détroits maritimes',
