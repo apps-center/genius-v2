@@ -1,6 +1,6 @@
 import type { CouchesAtlas } from '../../../core/content/atlas.schema';
 import { ressourcesFiltrees } from '../logic/colors';
-import { lonlatVersSvg, polylignePoints } from '../logic/projection';
+import { lonlatVersSvg, polylignePoints, SVG_LARGEUR } from '../logic/projection';
 import styles from './Atlas.module.css';
 
 /*
@@ -86,14 +86,24 @@ export function MaritimeOverlay({ maritime }: { maritime: NonNullable<CouchesAtl
   return (
     <g>
       <g className={styles.overlayInert}>
-        {maritime.routes.map((r, i) => (
-          <polyline
-            key={i}
-            points={polylignePoints(r.pts)}
-            className={styles.routeLine}
-            style={{ stroke: r.color, strokeWidth: r.w }}
-          />
-        ))}
+        {maritime.routes.map((r, i) => {
+          const points = polylignePoints(r.pts);
+          // Triple copie decalee d'une largeur de monde : une route qui sort par un bord
+          // (passage de l'antimeridien, ex. Trans-Pacifique) reapparait par l'autre.
+          return (
+            <g key={i}>
+              {[-SVG_LARGEUR, 0, SVG_LARGEUR].map((dx) => (
+                <polyline
+                  key={dx}
+                  points={points}
+                  transform={`translate(${dx},0)`}
+                  className={styles.routeLine}
+                  style={{ stroke: r.color, strokeWidth: r.w }}
+                />
+              ))}
+            </g>
+          );
+        })}
       </g>
       {maritime.detroits.map((d) => {
         const [x, y] = lonlatVersSvg(d.lon, d.lat);
