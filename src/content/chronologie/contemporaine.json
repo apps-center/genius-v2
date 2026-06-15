@@ -278,6 +278,25 @@
           ]
         },
         {
+          "title": "Le Traité de Versailles",
+          "date": "28 juin 1919",
+          "tag": "Événement",
+          "icon": "📜",
+          "desc": "Signé dans la galerie des Glaces du château de Versailles, le traité met officiellement fin à la Première Guerre mondiale. Il impose à l'Allemagne de lourdes réparations et la perte de territoires. Cette paix vécue comme une humiliation nourrit les rancœurs et prépare, malgré elle, le terrain des conflits à venir.",
+          "kind": "histoire",
+          "img": "/img/chronologie/traite-de-versailles.webp",
+          "anecdotes": [
+            {
+              "t": "<b>Le maréchal Foch jugea le traité bien trop clément :</b> « Ce n'est pas une paix, c'est un armistice de vingt ans. » Il se trompa de quelques mois seulement - la guerre éclata en 1939.",
+              "e": "⏳"
+            },
+            {
+              "t": "<b>L'article 231 rendait l'Allemagne seule responsable de la guerre.</b> Cette « clause de culpabilité » fut ressentie comme une injustice par les Allemands et servit d'argument à tous les partis qui rêvaient de revanche.",
+              "e": "✍️"
+            }
+          ]
+        },
+        {
           "title": "Les Années Folles",
           "date": "1920 - 1929",
           "tag": "Époque",
@@ -316,6 +335,25 @@
           ]
         },
         {
+          "title": "La Montée des Fascismes",
+          "date": "1922 - 1939",
+          "tag": "Époque",
+          "icon": "🔥",
+          "desc": "Mussolini prend le pouvoir en Italie (1922), Hitler en Allemagne (1933). Ces régimes totalitaires se nourrissent de la crise économique, du chômage et des rancunes de l'après-guerre. Nationalisme exacerbé, culte du chef, propagande et violence d'État plongent peu à peu l'Europe vers un nouveau conflit mondial.",
+          "kind": "histoire",
+          "img": "/img/chronologie/montee-des-fascismes.webp",
+          "anecdotes": [
+            {
+              "t": "<b>Hitler accéda au pouvoir légalement,</b> nommé chancelier en janvier 1933 après des élections. La démocratie allemande s'est en quelque sorte suicidée par les urnes, en quelques mois seulement.",
+              "e": "🗳️"
+            },
+            {
+              "t": "<b>Le mot « fascisme » vient du latin « fasces »,</b> le faisceau de baguettes liées autour d'une hache, symbole d'autorité dans la Rome antique. Mussolini le reprit pour incarner l'union forcée du peuple derrière un chef unique.",
+              "e": "🪓"
+            }
+          ]
+        },
+        {
           "title": "Deuxième Guerre Mondiale",
           "date": "1939 - 1945",
           "tag": "Événement",
@@ -346,6 +384,25 @@
             {
               "t": "<b>Sur Omaha Beach, les Américains perdirent 2 000 hommes en quelques heures.</b> Les images de Spielberg dans Il faut sauver le soldat Ryan sont fidèles : les soldats mouraient avant même de toucher le sable. Aucune préparation n'avait neutralisé les bunkers allemands.",
               "e": "🩸"
+            }
+          ]
+        },
+        {
+          "title": "La Création de l'ONU",
+          "date": "26 juin 1945",
+          "tag": "Événement",
+          "icon": "🕊️",
+          "desc": "Au sortir de la Seconde Guerre mondiale, 51 États signent la Charte de San Francisco et fondent l'Organisation des Nations unies. Son but : préserver la paix, garantir la sécurité et développer la coopération entre les peuples pour éviter qu'une telle guerre ne se reproduise. La France y obtient un siège permanent au Conseil de sécurité.",
+          "kind": "histoire",
+          "img": "/img/chronologie/creation-de-l-onu.webp",
+          "anecdotes": [
+            {
+              "t": "<b>La France est l'un des 5 membres permanents du Conseil de sécurité</b> avec un droit de veto, aux côtés des États-Unis, du Royaume-Uni, de la Russie et de la Chine. Un seul de ces pays peut à lui seul bloquer une décision.",
+              "e": "🌍"
+            },
+            {
+              "t": "<b>L'ONU remplaçait la Société des Nations,</b> créée après 1918 mais incapable d'empêcher la Seconde Guerre mondiale. Les vainqueurs voulurent cette fois une organisation dotée de vrais moyens d'action.",
+              "e": "🤝"
             }
           ]
         }
