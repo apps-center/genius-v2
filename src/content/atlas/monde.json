@@ -1506,9 +1506,7 @@
     "MG": "Antananarivo",
     "MW": "Lilongwe",
     "MY": "Kuala Lumpur",
-    "MV": "Malé",
     "ML": "Bamako",
-    "MT": "La Valette",
     "MR": "Nouakchott",
     "MX": "Mexico",
     "MD": "Chișinău",
@@ -1857,13 +1855,13 @@
       -8,
       39
     ],
-    "SW": [
-      32,
-      -26
+    "ES": [
+      -3.7,
+      40.3
     ],
-    "BRA": [
-      -52,
-      -10
+    "ET": [
+      39.5,
+      9.1
     ]
   },
   "fiches": {
@@ -10717,7 +10715,6 @@
         "YE": "desert",
         "KW": "desert",
         "QA": "desert",
-        "BH": "desert",
         "LY": "desert",
         "EG": "desert",
         "DZ": "desert",
@@ -10775,7 +10772,6 @@
         "ID": "tropical",
         "MY": "tropical",
         "BN": "tropical",
-        "SG": "tropical",
         "PG": "tropical",
         "TL": "tropical",
         "IN": "monsoon",
@@ -11046,6 +11042,11 @@
           "color": "#ffe040",
           "label": "Énergie solaire",
           "bg": "#2a2000"
+        },
+        "silver": {
+          "icon": "🥈",
+          "color": "#9aa0a6",
+          "label": "Argent"
         }
       },
       "data": {
@@ -11055,18 +11056,20 @@
           "solar"
         ],
         "RU": [
-          "diamond",
           "oil",
           "gas",
+          "coal",
           "nickel",
-          "gold"
+          "gold",
+          "diamond"
         ],
         "US": [
           "oil",
           "gas",
           "coal",
           "uranium",
-          "rare"
+          "rare",
+          "gold"
         ],
         "IR": [
           "oil",
@@ -11085,7 +11088,8 @@
           "oil"
         ],
         "VE": [
-          "oil"
+          "oil",
+          "gold"
         ],
         "NG": [
           "oil",
@@ -11096,6 +11100,7 @@
         ],
         "KZ": [
           "uranium",
+          "oil",
           "coal"
         ],
         "NO": [
@@ -11103,13 +11108,15 @@
           "gas"
         ],
         "MX": [
-          "gold",
           "silver",
-          "solar"
+          "gold",
+          "oil"
         ],
         "BR": [
-          "diamond",
-          "iron"
+          "iron",
+          "bauxite",
+          "gold",
+          "diamond"
         ],
         "DZ": [
           "oil",
@@ -11133,18 +11140,23 @@
           "gas"
         ],
         "ID": [
-          "wood",
-          "coal"
+          "nickel",
+          "coal",
+          "wood"
         ],
         "MY": [
           "wood"
         ],
         "CO": [
-          "wood"
+          "coal",
+          "oil",
+          "gold"
         ],
         "CN": [
-          "salt",
-          "solar"
+          "coal",
+          "rare",
+          "gold",
+          "salt"
         ],
         "CA": [
           "oil",
@@ -11161,8 +11173,11 @@
           "gas"
         ],
         "AU": [
-          "diamond",
-          "solar"
+          "iron",
+          "coal",
+          "lithium",
+          "uranium",
+          "gold"
         ],
         "UZ": [
           "uranium"
@@ -11172,8 +11187,9 @@
           "coal"
         ],
         "IN": [
-          "salt",
-          "solar"
+          "coal",
+          "iron",
+          "salt"
         ],
         "ZA": [
           "diamond",
@@ -11203,16 +11219,14 @@
           "iron"
         ],
         "CL": [
-          "lithium",
           "copper",
-          "solar"
+          "lithium",
+          "silver"
         ],
         "PE": [
-          "wood"
-        ],
-        "DRC": [
           "copper",
-          "cobalt"
+          "gold",
+          "silver"
         ],
         "CD": [
           "diamond",
@@ -11253,10 +11267,14 @@
           "wood"
         ],
         "AR": [
-          "lithium"
+          "lithium",
+          "oil",
+          "gas"
         ],
         "BO": [
-          "wood"
+          "lithium",
+          "silver",
+          "gas"
         ],
         "ZW": [
           "lithium"
@@ -11283,9 +11301,6 @@
         ],
         "SN": [
           "phosphate"
-        ],
-        "BRA": [
-          "rare"
         ],
         "VN": [
           "rare"
@@ -11342,6 +11357,7 @@
             "copper",
             "bauxite",
             "gold",
+            "silver",
             "lithium",
             "cobalt",
             "nickel",
