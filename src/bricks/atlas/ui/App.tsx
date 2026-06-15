@@ -114,9 +114,19 @@ interface Survol {
 function Carte({ ctx, pack }: { ctx: AppContext; pack: AtlasPack }) {
   const svgRef = useRef<SVGSVGElement>(null);
   const zoneRef = useRef<HTMLDivElement>(null);
-  const vue = useViewport(svgRef);
   const [selectionne, setSelectionne] = useState<string | null>(null);
   const [survol, setSurvol] = useState<Survol | null>(null);
+  // Pays sous le pointeur au debut du geste : selectionne au "tap" (clic sans glissement).
+  const candidat = useRef<string | null>(null);
+
+  function onTap() {
+    const iso = candidat.current;
+    if (!iso) return;
+    setSelectionne(iso);
+    ctx.events.emit('atlas.country.selected', { brick: manifest.id, sujet: pack.sujet, iso });
+  }
+
+  const vue = useViewport(svgRef, onTap);
 
   // Couche active : la couche de base (Monde) par defaut, sinon la premiere declaree.
   const coucheParDefaut = useMemo(() => couchePremiere(pack), [pack]);
@@ -129,13 +139,6 @@ function Carte({ ctx, pack }: { ctx: AppContext; pack: AtlasPack }) {
   function onChangerCouche(c: EntreeCouche) {
     setCouche(c);
     ctx.events.emit('atlas.layer.changed', { brick: manifest.id, sujet: pack.sujet, layer: c.id });
-  }
-
-  function onClicPays(iso: string) {
-    // Ignore le clic si le geste etait en realite un glissement de la carte.
-    if (vue.vientDeBouger()) return;
-    setSelectionne(iso);
-    ctx.events.emit('atlas.country.selected', { brick: manifest.id, sujet: pack.sujet, iso });
   }
 
   function onSurvol(iso: string, nom: string, e: React.PointerEvent) {
@@ -167,7 +170,16 @@ function Carte({ ctx, pack }: { ctx: AppContext; pack: AtlasPack }) {
         onPointerCancel={vue.onPointerUp}
         onPointerLeave={() => setSurvol(null)}
       >
-        <rect x="0" y="0" width="1200" height="600" className={styles.ocean} />
+        <rect
+          x="0"
+          y="0"
+          width="1200"
+          height="600"
+          className={styles.ocean}
+          onPointerDown={() => {
+            candidat.current = null;
+          }}
+        />
         {/* Epaisseur de trait posee sur le groupe (valeur dynamique derivee du zoom),
             heritee par tous les traces : les frontieres restent fines a fort zoom. */}
         <g transform={transformCss(vue.vp)} style={{ strokeWidth: strokeWidth(vue.vp) }}>
@@ -177,9 +189,11 @@ function Carte({ ctx, pack }: { ctx: AppContext; pack: AtlasPack }) {
               d={p.d}
               fill={fillPays(p, couche.id, couche.type, pack.couches)}
               className={`${styles.land} ${selectionne === p.id ? styles.landSel : ''}`}
+              onPointerDown={() => {
+                candidat.current = p.id;
+              }}
               onPointerEnter={(e) => onSurvol(p.id, p.name, e)}
               onPointerMove={(e) => onSurvol(p.id, p.name, e)}
-              onClick={() => onClicPays(p.id)}
             />
           ))}
           {couche.type === 'ressources' && (
