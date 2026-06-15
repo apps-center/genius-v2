@@ -177,8 +177,11 @@ function Carte({ ctx, pack }: { ctx: AppContext; pack: AtlasPack }) {
           height="600"
           className={styles.ocean}
           onPointerDown={() => {
+            // Clic dans l'ocean : aucun pays vise (pas de fiche au relachement).
             candidat.current = null;
           }}
+          onPointerEnter={() => setSurvol(null)}
+          onPointerMove={() => setSurvol(null)}
         />
         {/* Epaisseur de trait posee sur le groupe (valeur dynamique derivee du zoom),
             heritee par tous les traces : les frontieres restent fines a fort zoom. */}
