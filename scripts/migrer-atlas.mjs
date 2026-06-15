@@ -257,6 +257,51 @@ function construireCoucheDemo() {
   return { ...COLORS_META.demo, pays, continentDefaut };
 }
 
+// --- Reclassement de la couche ENERGIE (dependance energetique) ---
+// Le legacy mettait l'Afrique subsaharienne et l'Amerique du Sud en "exportateur" par
+// repli continental (faux : la plupart importent leur energie). On rebatit une
+// classification curee (balance energetique nette, ordre de grandeur AIE) : liste
+// explicite des exportateurs et des tres dependants, repli neutre "equilibre".
+const ENERGIE_COULEURS = { exportateur: '#289828', equilibre: '#908838', dependant: '#c01818' };
+const ENERGIE = {
+  exportateur: [
+    // Golfe / Moyen-Orient
+    'SA', 'AE', 'QA', 'KW', 'OM', 'IR', 'IQ',
+    // Ex-URSS / Caspienne
+    'RU', 'KZ', 'AZ', 'TM', 'UZ',
+    // Afrique productrice d'hydrocarbures
+    'DZ', 'LY', 'NG', 'AO', 'GA', 'CG', 'GQ', 'SS', 'TD',
+    // Ameriques
+    'CA', 'US', 'VE', 'CO', 'EC', 'BO', 'TT', 'GY', 'BR',
+    // Europe / Asie-Pacifique
+    'NO', 'AU', 'ID', 'MY', 'BN', 'PG', 'MN',
+  ],
+  dependant: [
+    // Europe (importatrice nette)
+    'DE', 'IT', 'ES', 'FR', 'BE', 'NL', 'PT', 'GR', 'IE', 'CH', 'AT', 'PL', 'CZ', 'SK',
+    'HU', 'RS', 'HR', 'SI', 'BA', 'AL', 'MK', 'ME', 'BG', 'BY', 'UA', 'LT', 'LV', 'EE',
+    'FI', 'SE', 'GB', 'LU', 'MD', 'XK',
+    // Asie de l'Est / du Sud / du Sud-Est
+    'JP', 'KR', 'TW', 'IN', 'PK', 'BD', 'LK', 'NP', 'TH', 'PH', 'SG',
+    // Levant / Mediterranee importatrice
+    'JO', 'LB', 'SY', 'TR', 'MA', 'TN',
+    // Ameriques importatrices notables
+    'CL', 'CU',
+  ],
+};
+function construireCoucheEnergie() {
+  const pays = {};
+  for (const [niveau, codes] of Object.entries(ENERGIE)) {
+    for (const iso of codes) pays[iso] = ENERGIE_COULEURS[niveau];
+  }
+  // Repli neutre "equilibre" partout (au lieu du "exportateur" errone sur l'Afrique).
+  const eq = ENERGIE_COULEURS.equilibre;
+  const continentDefaut = {
+    Europe: eq, Asia: eq, 'North America': eq, 'South America': eq, Africa: eq, Oceania: eq,
+  };
+  return { ...COLORS_META.energy, pays, continentDefaut };
+}
+
 // Navigation des couches : structure NAV_CONFIG du legacy + le type de rendu de chacune.
 const NAV_CONFIG = [
   {
@@ -316,6 +361,11 @@ for (const id of ['demo', 'water', 'energy']) {
   if (id === 'demo') {
     // Couche population : classification curee (tendances ONU DESA 2024).
     couchesColors.demo = construireCoucheDemo();
+    continue;
+  }
+  if (id === 'energy') {
+    // Couche energie : classification curee (balance energetique nette, AIE).
+    couchesColors.energy = construireCoucheEnergie();
     continue;
   }
   if (!layerColors[id]) continue;
