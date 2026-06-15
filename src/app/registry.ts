@@ -90,6 +90,10 @@ export const CONTENT: readonly ContentEntry[] = [
   { sujet: 'sciences', contentKind: 'flashcards', titre: 'Sciences', load: () => import('../content/flashcards/sciences.json') },
   { sujet: 'logique', contentKind: 'flashcards', titre: 'Logique', load: () => import('../content/flashcards/logique.json') },
   { sujet: 'arts', contentKind: 'flashcards', titre: 'Arts', load: () => import('../content/flashcards/arts.json') },
+
+  // Atlas (carte du monde interactive) : un seul pack pour le module entier
+  // (geometrie + couches + fiches). Ajouter un sujet d'atlas = 1 ligne + 1 .json.
+  { sujet: 'geographie', contentKind: 'atlas', titre: 'Monde', load: () => import('../content/atlas/monde.json') },
 ];
 
 // Apparie chaque pack avec les briques capables de le jouer (par contentKind).
