@@ -196,6 +196,41 @@ function construireCoucheEau() {
   return { ...COLORS_META.water, pays, continentDefaut };
 }
 
+// --- Reclassement de la couche POPULATION (croissance demographique) ---
+// Approximation pedagogique des tendances ONU DESA 2024 (3 niveaux) :
+//  - forte croissance : forte fecondite, population en hausse rapide (Afrique sub-
+//    saharienne surtout, plus Afghanistan, Pakistan, Yemen, Irak...) ;
+//  - transition : fecondite proche du seuil de remplacement, croissance ralentie
+//    (Amerique latine, Asie du Sud et du Sud-Est, Maghreb, Amerique du Nord...) ;
+//  - vieillissement : fecondite sous le seuil, population qui plafonne ou decline
+//    (Europe, Russie, Japon, Coree, Chine depuis 2023, Thailande...).
+// Replis continentaux : Afrique = forte croissance, Europe = vieillissement, le reste
+// = transition. Les exceptions notables sont listees explicitement.
+const DEMO_COULEURS = { forte: '#c81818', transition: '#608880', vieillissement: '#1858be' };
+const DEMO_ONU = {
+  // Hors Afrique (qui est deja "forte" par defaut) : pays a forte croissance.
+  forte: ['AF', 'PK', 'YE', 'IQ', 'PS', 'TL', 'PG'],
+  // Vieillissement hors Europe (Europe = vieillissement par defaut).
+  vieillissement: ['CN', 'JP', 'KR', 'TW', 'TH', 'SG', 'CU'],
+  // Transition : exceptions africaines (transition demographique avancee) + Maghreb.
+  transition: ['ZA', 'BW', 'NA', 'LS', 'SZ', 'MA', 'DZ', 'TN', 'LY', 'EG'],
+};
+function construireCoucheDemo() {
+  const pays = {};
+  for (const [niveau, codes] of Object.entries(DEMO_ONU)) {
+    for (const iso of codes) pays[iso] = DEMO_COULEURS[niveau];
+  }
+  const continentDefaut = {
+    Africa: DEMO_COULEURS.forte,
+    Europe: DEMO_COULEURS.vieillissement,
+    Asia: DEMO_COULEURS.transition,
+    'North America': DEMO_COULEURS.transition,
+    'South America': DEMO_COULEURS.transition,
+    Oceania: DEMO_COULEURS.transition,
+  };
+  return { ...COLORS_META.demo, pays, continentDefaut };
+}
+
 // Navigation des couches : structure NAV_CONFIG du legacy + le type de rendu de chacune.
 const NAV_CONFIG = [
   {
@@ -250,6 +285,11 @@ for (const id of ['demo', 'water', 'energy']) {
   if (id === 'water') {
     // Couche eau : classification curee (WRI Aqueduct 2023), pas les donnees d'origine.
     couchesColors.water = construireCoucheEau();
+    continue;
+  }
+  if (id === 'demo') {
+    // Couche population : classification curee (tendances ONU DESA 2024).
+    couchesColors.demo = construireCoucheDemo();
     continue;
   }
   if (!layerColors[id]) continue;
