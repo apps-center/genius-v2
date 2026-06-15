@@ -89,6 +89,32 @@ const ressourcesMeta = lireJson('legacy/json/atlas/ressources_meta.json');
 const routes = lireJson('legacy/json/atlas/routes_maritimes.json');
 const detroits = lireJson('legacy/json/atlas/detroits.json');
 
+// Routes ajoutees : le jeu d'origine (7) etait tres eurasiatique et laissait les
+// Ameriques et le Pacifique presque vides. On complete avec 4 grandes lignes pour une
+// couverture mondiale equilibree (coordonnees [lon, lat]).
+const ROUTES_AJOUTS = [
+  {
+    name: 'Atlantique Nord (Europe - Amerique)',
+    pts: [[2, 51], [-12, 50], [-35, 47], [-60, 42], [-74, 40]],
+    color: '#b090f0', w: 3, traffic: '~12 000 navires/an',
+  },
+  {
+    name: 'Cote Atlantique des Ameriques',
+    pts: [[-74, 40], [-70, 25], [-62, 12], [-50, 0], [-43, -23], [-56, -35]],
+    color: '#58b0e0', w: 2.5, traffic: '~6 000 navires/an',
+  },
+  {
+    name: 'Cote Pacifique des Ameriques',
+    pts: [[-122, 37], [-112, 23], [-100, 16], [-87, 11], [-79, 8], [-77, -12], [-71, -33]],
+    color: '#e06aa0', w: 2.5, traffic: '~4 000 navires/an',
+  },
+  {
+    name: 'Asie - Australie',
+    pts: [[110, 4], [112, -2], [118, -8], [128, -12], [142, -18], [151, -34]],
+    color: '#30c8a8', w: 2.5, traffic: '~5 000 navires/an',
+  },
+];
+
 // --- Enrichissement / correction de la couche RESSOURCES ---
 // Les donnees d'origine sous-representaient de gros producteurs (Australie, Chine, Inde,
 // Indonesie...) et etiquetaient Perou/Bolivie/Colombie en "bois" au lieu de leurs
@@ -427,7 +453,7 @@ const pack = normaliser({
     ressources: { meta: ressourcesMeta, data: ressourcesData, groupes: GROUPES_RESSOURCES },
     maritime: {
       label: 'Routes & Détroits maritimes',
-      routes,
+      routes: [...routes, ...ROUTES_AJOUTS],
       detroits,
       niveauCouleurs: { critical: '#e83030', high: '#e87830', medium: '#e8c030' },
     },
@@ -445,6 +471,6 @@ console.log(`  pays (traces SVG) : ${pack.pays.length}`);
 console.log(`  fiches pays : ${Object.keys(pack.fiches).length}`);
 console.log(`  capitales : ${Object.keys(pack.capitales).length}`);
 console.log(`  couches choropleth : ${Object.keys(couchesColors).join(', ')}`);
-console.log(`  routes maritimes : ${routes.length} | detroits : ${detroits.length}`);
+console.log(`  routes maritimes : ${routes.length + ROUTES_AJOUTS.length} | detroits : ${detroits.length}`);
 console.log(`  zones climat : ${Object.keys(climatZones).length} | types ressources : ${Object.keys(ressourcesMeta).length}`);
 console.log(`  ecrit : ${sortie}`);
