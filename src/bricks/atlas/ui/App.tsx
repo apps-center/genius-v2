@@ -2,11 +2,15 @@ import { useEffect, useMemo, useRef, useState } from 'react';
 import type { AppContext } from '../../../core/context';
 import { AppProvider } from '../../../core/context';
 import { ContentError } from '../../../core/content/load';
-import type { AtlasPack } from '../../../core/content/atlas.schema';
+import type { AtlasPack, EntreeCouche } from '../../../core/content/atlas.schema';
 import { manifest } from '../manifest';
 import { transformCss, strokeWidth } from '../logic/viewport';
+import { fillPays } from '../logic/colors';
 import { useViewport } from './useViewport';
 import { Fiche } from './Fiche';
+import { LayerBar } from './LayerBar';
+import { Legende } from './Legende';
+import { RessourcesOverlay, MaritimeOverlay } from './Overlays';
 import styles from './Atlas.module.css';
 
 /*
@@ -114,9 +118,18 @@ function Carte({ ctx, pack }: { ctx: AppContext; pack: AtlasPack }) {
   const [selectionne, setSelectionne] = useState<string | null>(null);
   const [survol, setSurvol] = useState<Survol | null>(null);
 
+  // Couche active : la couche de base (Monde) par defaut, sinon la premiere declaree.
+  const coucheParDefaut = useMemo(() => couchePremiere(pack), [pack]);
+  const [couche, setCouche] = useState<EntreeCouche>(coucheParDefaut);
+
   // Index iso -> trace, pour retrouver nom/continent au clic (repli si pas de fiche).
   const parIso = useMemo(() => new Map(pack.pays.map((p) => [p.id, p])), [pack.pays]);
   const paysSelectionne = selectionne ? parIso.get(selectionne) : undefined;
+
+  function onChangerCouche(c: EntreeCouche) {
+    setCouche(c);
+    ctx.events.emit('atlas.layer.changed', { brick: manifest.id, sujet: pack.sujet, layer: c.id });
+  }
 
   function onClicPays(iso: string) {
     // Ignore le clic si le geste etait en realite un glissement de la carte.
@@ -138,6 +151,8 @@ function Carte({ ctx, pack }: { ctx: AppContext; pack: AtlasPack }) {
   }
 
   return (
+    <>
+    <LayerBar pack={pack} coucheActiveId={couche.id} onSelect={onChangerCouche} />
     <div className={styles.mapZone} ref={zoneRef}>
       <svg
         ref={svgRef}
@@ -160,13 +175,19 @@ function Carte({ ctx, pack }: { ctx: AppContext; pack: AtlasPack }) {
             <path
               key={p.id}
               d={p.d}
-              fill={p.baseColor}
+              fill={fillPays(p, couche.id, couche.type, pack.couches)}
               className={`${styles.land} ${selectionne === p.id ? styles.landSel : ''}`}
               onPointerEnter={(e) => onSurvol(p.id, p.name, e)}
               onPointerMove={(e) => onSurvol(p.id, p.name, e)}
               onClick={() => onClicPays(p.id)}
             />
           ))}
+          {couche.type === 'ressources' && (
+            <RessourcesOverlay couches={pack.couches} groupeId={couche.id} centroids={pack.centroids} />
+          )}
+          {couche.type === 'maritime' && pack.couches.maritime && (
+            <MaritimeOverlay maritime={pack.couches.maritime} />
+          )}
         </g>
       </svg>
 
@@ -204,6 +225,8 @@ function Carte({ ctx, pack }: { ctx: AppContext; pack: AtlasPack }) {
         </button>
       </div>
 
+      <Legende pack={pack} couche={couche} />
+
       {paysSelectionne && (
         <Fiche
           key={paysSelectionne.id}
@@ -215,5 +238,12 @@ function Carte({ ctx, pack }: { ctx: AppContext; pack: AtlasPack }) {
         />
       )}
     </div>
+    </>
   );
+}
+
+// Couche affichee par defaut : la couche de base (Monde) si presente, sinon la premiere.
+function couchePremiere(pack: AtlasPack): EntreeCouche {
+  const toutes = pack.navConfig.flatMap((c) => c.layers);
+  return toutes.find((l) => l.type === 'base') ?? toutes[0] ?? { id: 'world', label: 'Monde', type: 'base' };
 }

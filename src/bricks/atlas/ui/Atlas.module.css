@@ -385,3 +385,195 @@
     border-radius: var(--radius-lg) var(--radius-lg) 0 0;
   }
 }
+
+/* --- Barre de couches --- */
+.layerBar {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-3) var(--space-5);
+  align-items: flex-end;
+  padding: 0 var(--space-1);
+}
+
+.layerCat {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-2);
+}
+
+.layerCatLabel {
+  font-family: var(--font-display);
+  font-size: 10px;
+  letter-spacing: var(--tracking-wide);
+  text-transform: uppercase;
+  color: var(--color-text-muted);
+}
+
+.layerBtns {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-1);
+}
+
+.layerBtn {
+  font-family: var(--font-display);
+  font-size: var(--font-xs);
+  color: var(--color-text-muted);
+  background: var(--color-surface);
+  border: 1px solid var(--color-line);
+  border-radius: var(--radius);
+  padding: var(--space-2) var(--space-3);
+  min-height: var(--tap-min);
+  cursor: pointer;
+  transition: var(--transition);
+}
+
+.layerBtn:hover {
+  color: var(--color-text);
+  border-color: var(--color-accent);
+}
+
+.layerBtn:focus-visible {
+  outline: none;
+  box-shadow: var(--shadow-focus);
+}
+
+.layerBtnActif {
+  color: var(--color-bg);
+  background: var(--color-gold);
+  border-color: var(--color-gold);
+  font-weight: var(--weight-semibold);
+}
+
+/* --- Legende --- */
+.legende {
+  position: absolute;
+  left: var(--space-3);
+  bottom: var(--space-3);
+  max-width: min(320px, 70%);
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-1);
+  padding: var(--space-3);
+  background: var(--color-card-bg);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius);
+  box-shadow: var(--shadow-soft);
+}
+
+.legendeTitre {
+  font-family: var(--font-display);
+  font-size: var(--font-xs);
+  letter-spacing: var(--tracking-tight);
+  text-transform: uppercase;
+  color: var(--color-gold);
+}
+
+.legendeListe {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-1) var(--space-3);
+}
+
+.legendeItem {
+  display: flex;
+  align-items: center;
+  gap: var(--space-2);
+  font-family: var(--font-body);
+  font-size: var(--font-xs);
+  color: var(--color-text);
+}
+
+.legendePastille {
+  width: 12px;
+  height: 12px;
+  border-radius: var(--radius-sm);
+  flex-shrink: 0;
+}
+
+.legendeLigne {
+  width: 22px;
+  height: 3px;
+  border-radius: var(--radius-pill);
+  flex-shrink: 0;
+}
+
+.legendeEmoji {
+  font-size: var(--font-sm);
+  flex-shrink: 0;
+}
+
+.legendeSource {
+  font-family: var(--font-body);
+  font-size: 10px;
+  color: var(--color-text-muted);
+  font-style: italic;
+}
+
+/* --- Surimpressions (ressources, maritime) --- */
+.overlayInert {
+  pointer-events: none;
+}
+
+.resDot {
+  fill-opacity: 0.88;
+  stroke: rgba(0, 0, 0, 0.5);
+  stroke-width: 0.8;
+}
+
+.resEmoji {
+  font-size: 8px;
+  text-anchor: middle;
+  dominant-baseline: middle;
+  pointer-events: none;
+}
+
+.routeLine {
+  fill: none;
+  stroke-dasharray: 6 3;
+  stroke-linecap: round;
+  opacity: 0.8;
+  animation: dash-flow 2.5s linear infinite;
+}
+
+@keyframes dash-flow {
+  to {
+    stroke-dashoffset: -18;
+  }
+}
+
+.detroit {
+  cursor: help;
+}
+
+.detroitDot {
+  stroke: rgba(0, 0, 0, 0.5);
+  stroke-width: 0.6;
+}
+
+.detroitPulse {
+  transform-box: fill-box;
+  transform-origin: center;
+  animation: pulse-ring 2s ease-out infinite;
+}
+
+@keyframes pulse-ring {
+  0% {
+    opacity: 0.7;
+    transform: scale(1);
+  }
+  100% {
+    opacity: 0;
+    transform: scale(2.4);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .routeLine,
+  .detroitPulse {
+    animation: none;
+  }
+}
