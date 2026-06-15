@@ -20,13 +20,13 @@ export function Shell() {
 
   return (
     <div className={styles.shell}>
-      <div className={styles.topbar}>
-        {!surAccueil && (
+      {!surAccueil && (
+        <div className={styles.topbar}>
           <Link to="/" className={styles.back}>
             <span aria-hidden="true">&larr;</span> Accueil
           </Link>
-        )}
-      </div>
+        </div>
+      )}
       <main className={styles.main}>
         <Outlet />
       </main>
