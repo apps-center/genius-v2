@@ -158,7 +158,13 @@ export const ENTRIES: readonly NavEntry[] = [
     description:
       "Explore les nations, les continents et les grandes dynamiques economiques mondiales. Superficie, population, PIB, richesses naturelles - la Terre comme tu ne l'as jamais vue.",
     tags: ['Geographie', 'Economie', 'Capitales', 'Continents'],
-    etat: 'a-venir',
+    etat: 'disponible',
+    lancement: {
+      brickId: 'atlas',
+      contentKind: 'atlas',
+      sujet: 'geographie',
+      titre: 'Monde',
+    },
   },
   {
     id: 'arts',

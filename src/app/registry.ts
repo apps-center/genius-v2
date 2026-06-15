@@ -4,6 +4,7 @@ import type { AppContext } from '../core/context';
 import * as quizBrick from '../bricks/quiz/brick';
 import * as chronologieBrick from '../bricks/chronologie/brick';
 import * as flashcardsBrick from '../bricks/flashcards/brick';
+import * as atlasBrick from '../bricks/atlas/brick';
 
 /*
   REGISTRE - source unique de verite : briques + packs de contenu + entrees de nav.
@@ -39,6 +40,7 @@ export const BRICKS: readonly BrickModule[] = [
   quizBrick,
   chronologieBrick,
   flashcardsBrick,
+  atlasBrick,
   // <- ajouter ici logique... (1 ligne par activite)
 ];
 
