@@ -89,6 +89,42 @@ const ressourcesMeta = lireJson('legacy/json/atlas/ressources_meta.json');
 const routes = lireJson('legacy/json/atlas/routes_maritimes.json');
 const detroits = lireJson('legacy/json/atlas/detroits.json');
 
+// --- Enrichissement / correction de la couche RESSOURCES ---
+// Les donnees d'origine sous-representaient de gros producteurs (Australie, Chine, Inde,
+// Indonesie...) et etiquetaient Perou/Bolivie/Colombie en "bois" au lieu de leurs
+// minerais signatures. On ajoute le type "argent" (Mexique/Perou/Bolivie/Chili) et on
+// reecrit les ressources SIGNATURES de ces pays (quelques items marquants, pas une liste
+// exhaustive : la carte montre des reperes, pas un inventaire).
+ressourcesMeta.silver = { icon: '🥈', color: '#9aa0a6', label: 'Argent' };
+const RESSOURCES_OVERRIDE = {
+  AU: ['iron', 'coal', 'lithium', 'uranium', 'gold'],
+  CN: ['coal', 'rare', 'gold', 'salt'],
+  IN: ['coal', 'iron', 'salt'],
+  ID: ['nickel', 'coal', 'wood'],
+  RU: ['oil', 'gas', 'coal', 'nickel', 'gold', 'diamond'],
+  US: ['oil', 'gas', 'coal', 'uranium', 'rare', 'gold'],
+  BR: ['iron', 'bauxite', 'gold', 'diamond'],
+  KZ: ['uranium', 'oil', 'coal'],
+  AR: ['lithium', 'oil', 'gas'],
+  VE: ['oil', 'gold'],
+  MX: ['silver', 'gold', 'oil'],
+  CL: ['copper', 'lithium', 'silver'],
+  PE: ['copper', 'gold', 'silver'],
+  BO: ['lithium', 'silver', 'gas'],
+  CO: ['coal', 'oil', 'gold'],
+};
+Object.assign(ressourcesData, RESSOURCES_OVERRIDE);
+
+// Centroides manquants (sinon les icones de ressources ne s'affichent pas).
+Object.assign(centroids, { ES: [-3.7, 40.3], ET: [39.5, 9.1] });
+
+// Nettoyage : on ne garde que les cles correspondant a un trace de la carte (supprime
+// les doublons morts du legacy comme "DRC"/"BRA", la vraie cle etant "CD"/"BR").
+const idsCarte = new Set(WORLD.map((c) => c.id));
+for (const obj of [ressourcesData, centroids, capitales, climatData]) {
+  for (const cle of Object.keys(obj)) if (!idsCarte.has(cle)) delete obj[cle];
+}
+
 // Replis continentaux des couches choropleth (codes en dur dans setLayer du legacy ;
 // les cles `_X_default` du JSON layer_colors n'etaient jamais lues). On les fige ici.
 const CONT_DEFAUTS = {
@@ -149,7 +185,7 @@ const GROUPES_RESSOURCES = {
   },
   minerais: {
     label: 'Minerais & Matières premières',
-    types: ['iron', 'copper', 'bauxite', 'gold', 'lithium', 'cobalt', 'nickel', 'phosphate', 'rare', 'diamond', 'wood', 'salt'],
+    types: ['iron', 'copper', 'bauxite', 'gold', 'silver', 'lithium', 'cobalt', 'nickel', 'phosphate', 'rare', 'diamond', 'wood', 'salt'],
   },
 };
 
