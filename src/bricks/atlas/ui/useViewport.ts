@@ -115,8 +115,12 @@ export function useViewport(
           aBouge.current = true;
         }
         const cur = ecranVersSvg(e.clientX, e.clientY);
-        setVp((v) => panBy(v, cur.x - dernierPoint.current!.x, cur.y - dernierPoint.current!.y));
+        // Delta capture MAINTENANT : l'updater setVp s'execute de facon differee, et
+        // dernierPoint.current peut etre remis a null entre-temps (pointerup tactile).
+        const dvx = cur.x - dernierPoint.current.x;
+        const dvy = cur.y - dernierPoint.current.y;
         dernierPoint.current = cur;
+        setVp((v) => panBy(v, dvx, dvy));
       }
     },
     [ecranVersSvg],
