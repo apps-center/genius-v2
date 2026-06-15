@@ -6,6 +6,7 @@ import type { AtlasPack } from '../../../core/content/atlas.schema';
 import { manifest } from '../manifest';
 import { transformCss, strokeWidth } from '../logic/viewport';
 import { useViewport } from './useViewport';
+import { Fiche } from './Fiche';
 import styles from './Atlas.module.css';
 
 /*
@@ -113,6 +114,10 @@ function Carte({ ctx, pack }: { ctx: AppContext; pack: AtlasPack }) {
   const [selectionne, setSelectionne] = useState<string | null>(null);
   const [survol, setSurvol] = useState<Survol | null>(null);
 
+  // Index iso -> trace, pour retrouver nom/continent au clic (repli si pas de fiche).
+  const parIso = useMemo(() => new Map(pack.pays.map((p) => [p.id, p])), [pack.pays]);
+  const paysSelectionne = selectionne ? parIso.get(selectionne) : undefined;
+
   function onClicPays(iso: string) {
     // Ignore le clic si le geste etait en realite un glissement de la carte.
     if (vue.vientDeBouger()) return;
@@ -198,6 +203,17 @@ function Carte({ ctx, pack }: { ctx: AppContext; pack: AtlasPack }) {
           &#8634;
         </button>
       </div>
+
+      {paysSelectionne && (
+        <Fiche
+          key={paysSelectionne.id}
+          nomCarte={paysSelectionne.name}
+          continentCarte={paysSelectionne.cont}
+          fiche={pack.fiches[paysSelectionne.id]}
+          capitale={pack.capitales[paysSelectionne.id]}
+          onFermer={() => setSelectionne(null)}
+        />
+      )}
     </div>
   );
 }

@@ -178,3 +178,210 @@
   outline: none;
   box-shadow: var(--shadow-focus);
 }
+
+/* --- Panneau de fiche pays --- */
+.panel {
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  width: min(380px, 88%);
+  background: var(--color-modal-bg);
+  border-left: 1px solid var(--color-border);
+  box-shadow: var(--shadow-card);
+  z-index: var(--z-sticky);
+  display: flex;
+  flex-direction: column;
+}
+
+.panelClose {
+  position: absolute;
+  top: var(--space-3);
+  right: var(--space-3);
+  width: var(--tap-min);
+  height: var(--tap-min);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: var(--font-md);
+  color: var(--color-text-muted);
+  background: var(--color-card-bg);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius);
+  cursor: pointer;
+  z-index: 1;
+  transition: var(--transition);
+}
+
+.panelClose:hover {
+  color: var(--color-text);
+  border-color: var(--color-accent);
+}
+
+.panelClose:focus-visible {
+  outline: none;
+  box-shadow: var(--shadow-focus);
+}
+
+.panelScroll {
+  overflow-y: auto;
+  padding: var(--space-5) var(--space-4) var(--space-6);
+}
+
+.panelHead {
+  margin-bottom: var(--space-4);
+  padding-right: var(--tap-min);
+}
+
+.panelFlag {
+  font-size: var(--font-2xl);
+  display: block;
+  margin-bottom: var(--space-2);
+}
+
+.panelNom {
+  font-family: var(--font-display);
+  font-weight: var(--weight-bold);
+  font-size: var(--font-lg);
+  color: var(--color-text);
+  margin: 0;
+}
+
+.panelMeta {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-1) var(--space-3);
+  font-family: var(--font-body);
+  font-size: var(--font-sm);
+  color: var(--color-accent);
+  margin: var(--space-2) 0 0;
+}
+
+.panelStats {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: var(--space-2);
+  margin-bottom: var(--space-4);
+}
+
+.stat {
+  background: var(--color-surface);
+  border: 1px solid var(--color-line);
+  border-radius: var(--radius);
+  padding: var(--space-2) var(--space-3);
+}
+
+.statLabel {
+  display: block;
+  font-family: var(--font-display);
+  font-size: 10px;
+  letter-spacing: var(--tracking-tight);
+  text-transform: uppercase;
+  color: var(--color-text-muted);
+}
+
+.statValeur {
+  font-family: var(--font-body);
+  font-size: var(--font-sm);
+  color: var(--color-text);
+}
+
+/* Onglets de la fiche */
+.panelTabs {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-1);
+  margin-bottom: var(--space-4);
+  position: sticky;
+  top: 0;
+  background: var(--color-modal-bg);
+  padding-bottom: var(--space-2);
+}
+
+.panelTab {
+  font-family: var(--font-display);
+  font-size: var(--font-xs);
+  color: var(--color-text-muted);
+  background: var(--color-surface);
+  border: 1px solid var(--color-line);
+  border-radius: var(--radius-pill);
+  padding: var(--space-2) var(--space-3);
+  min-height: var(--tap-min);
+  cursor: pointer;
+  transition: var(--transition);
+}
+
+.panelTab:hover {
+  color: var(--color-text);
+  border-color: var(--color-accent);
+}
+
+.panelTab:focus-visible {
+  outline: none;
+  box-shadow: var(--shadow-focus);
+}
+
+.panelTabActif {
+  color: var(--color-bg);
+  background: var(--color-gold);
+  border-color: var(--color-gold);
+}
+
+.panelSection {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-4);
+}
+
+.champ {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-1);
+}
+
+.champLabel {
+  font-family: var(--font-display);
+  font-size: 10px;
+  letter-spacing: var(--tracking-tight);
+  text-transform: uppercase;
+  color: var(--color-accent);
+}
+
+.champTexte {
+  font-family: var(--font-body);
+  font-size: var(--font-sm);
+  line-height: 1.6;
+  color: var(--color-text);
+  margin: 0;
+}
+
+.champListe {
+  margin: 0;
+  padding-left: var(--space-5);
+  font-family: var(--font-body);
+  font-size: var(--font-sm);
+  line-height: 1.6;
+  color: var(--color-text);
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-1);
+}
+
+.panelVide {
+  font-family: var(--font-body);
+  font-size: var(--font-sm);
+  color: var(--color-text-muted);
+  line-height: 1.6;
+}
+
+/* Sur petit ecran : la fiche occupe le bas de la zone (feuille). */
+@media (max-width: 640px) {
+  .panel {
+    top: auto;
+    width: 100%;
+    height: 72%;
+    border-left: none;
+    border-top: 1px solid var(--color-border);
+    border-radius: var(--radius-lg) var(--radius-lg) 0 0;
+  }
+}
