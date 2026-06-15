@@ -69,6 +69,9 @@ export function useViewport(
 
   const onPointerDown = useCallback(
     (e: React.PointerEvent<SVGSVGElement>) => {
+      // Empeche la selection / le drag natif du navigateur, qui sinon volent les
+      // pointermove pendant le glissement (la carte semblerait alors figee).
+      e.preventDefault();
       e.currentTarget.setPointerCapture(e.pointerId);
       pointeurs.current.set(e.pointerId, { x: e.clientX, y: e.clientY });
       if (pointeurs.current.size === 1) {

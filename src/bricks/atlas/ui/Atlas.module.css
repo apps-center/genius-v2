@@ -86,6 +86,8 @@
   width: 100%;
   height: auto;
   touch-action: none; /* on gere nous-memes pan/zoom via Pointer Events */
+  -webkit-user-select: none;
+  user-select: none; /* pas de selection de texte/trace pendant le glissement */
   cursor: grab;
 }
 
