@@ -13,14 +13,17 @@ import {
   maths (translate/scale, focal, bornes) viennent de logic/viewport ; ici on ne fait
   que capter les gestes et convertir l'ecran vers le repere viewBox via la CTM du SVG.
 
+  Detection de "tap" : un geste a un seul pointeur qui ne depasse pas un petit seuil de
+  deplacement est considere comme un clic (et non un glissement). On le signale via
+  onTap, ce qui evite de dependre du onClick natif (perturbe par setPointerCapture).
+
   Demontage propre : le seul listener natif (wheel, en passive:false pour pouvoir
   bloquer le scroll de page) est retire au cleanup. Les listeners pointeur sont des
   handlers React poses sur le <svg> (liberes avec le noeud).
 */
 
-interface GestePinch {
-  distance: number;
-}
+// Seuil de deplacement (px ecran) au-dela duquel un geste devient un glissement.
+const SEUIL_TAP = 6;
 
 export interface ControleurViewport {
   vp: Viewport;
@@ -30,20 +33,24 @@ export interface ControleurViewport {
   zoomBouton: (facteur: number) => void;
   reset: () => void;
   enDeplacement: boolean;
-  // Vrai si le dernier geste a reellement deplace/zoome la carte : sert a distinguer
-  // un clic sur un pays d'un simple glissement relache (on ignore alors le clic).
-  vientDeBouger: () => boolean;
 }
 
-export function useViewport(svgRef: React.RefObject<SVGSVGElement>): ControleurViewport {
+export function useViewport(
+  svgRef: React.RefObject<SVGSVGElement>,
+  onTap?: () => void,
+): ControleurViewport {
   const [vp, setVp] = useState<Viewport>(VIEWPORT_INITIAL);
   const [enDeplacement, setEnDeplacement] = useState(false);
 
   // Etat transient des gestes (refs : ne declenche pas de rendu).
   const pointeurs = useRef<Map<number, { x: number; y: number }>>(new Map());
   const dernierPoint = useRef<{ x: number; y: number } | null>(null);
-  const pinch = useRef<GestePinch | null>(null);
-  const aBouge = useRef(false);
+  const debut = useRef<{ x: number; y: number } | null>(null); // origine ecran du geste
+  const pinch = useRef<{ distance: number } | null>(null);
+  const aBouge = useRef(false); // a depasse le seuil de deplacement
+  const multi = useRef(false); // au moins deux doigts pendant le geste
+  const onTapRef = useRef(onTap);
+  onTapRef.current = onTap;
 
   // Convertit un point ecran (clientX/Y) en coordonnees viewBox via la CTM du SVG.
   const ecranVersSvg = useCallback(
@@ -64,12 +71,14 @@ export function useViewport(svgRef: React.RefObject<SVGSVGElement>): ControleurV
     (e: React.PointerEvent<SVGSVGElement>) => {
       e.currentTarget.setPointerCapture(e.pointerId);
       pointeurs.current.set(e.pointerId, { x: e.clientX, y: e.clientY });
-      aBouge.current = false;
       if (pointeurs.current.size === 1) {
+        debut.current = { x: e.clientX, y: e.clientY };
+        aBouge.current = false;
+        multi.current = false;
         dernierPoint.current = ecranVersSvg(e.clientX, e.clientY);
         setEnDeplacement(true);
       } else if (pointeurs.current.size === 2) {
-        // Debut de pincement : on memorise la distance entre les deux doigts.
+        multi.current = true;
         const [a, b] = [...pointeurs.current.values()];
         if (a && b) pinch.current = { distance: Math.hypot(a.x - b.x, a.y - b.y) };
         dernierPoint.current = null;
@@ -84,7 +93,6 @@ export function useViewport(svgRef: React.RefObject<SVGSVGElement>): ControleurV
       pointeurs.current.set(e.pointerId, { x: e.clientX, y: e.clientY });
 
       if (pointeurs.current.size >= 2 && pinch.current) {
-        // Pincement : ratio de distance = facteur de zoom, centre = milieu des doigts.
         const [a, b] = [...pointeurs.current.values()];
         if (!a || !b) return;
         const distance = Math.hypot(a.x - b.x, a.y - b.y);
@@ -98,34 +106,33 @@ export function useViewport(svgRef: React.RefObject<SVGSVGElement>): ControleurV
         return;
       }
 
-      // Pan a un doigt / souris : delta en unites viewBox.
-      if (dernierPoint.current) {
+      // Pan a un doigt / souris. Au-dela du seuil ecran, le geste devient un glissement.
+      if (dernierPoint.current && debut.current) {
+        if (Math.hypot(e.clientX - debut.current.x, e.clientY - debut.current.y) > SEUIL_TAP) {
+          aBouge.current = true;
+        }
         const cur = ecranVersSvg(e.clientX, e.clientY);
-        const dvx = cur.x - dernierPoint.current.x;
-        const dvy = cur.y - dernierPoint.current.y;
-        if (dvx !== 0 || dvy !== 0) aBouge.current = true;
-        setVp((v) => panBy(v, dvx, dvy));
+        setVp((v) => panBy(v, cur.x - dernierPoint.current!.x, cur.y - dernierPoint.current!.y));
         dernierPoint.current = cur;
       }
     },
     [ecranVersSvg],
   );
 
-  const onPointerUp = useCallback(
-    (e: React.PointerEvent<SVGSVGElement>) => {
-      pointeurs.current.delete(e.pointerId);
-      if (pointeurs.current.size < 2) pinch.current = null;
-      if (pointeurs.current.size === 0) {
-        dernierPoint.current = null;
-        setEnDeplacement(false);
-      } else {
-        // Il reste un doigt : on reprend le pan a sa position (sans saut).
-        const [reste] = [...pointeurs.current.values()];
-        dernierPoint.current = reste ? ecranVersSvg(reste.x, reste.y) : null;
-      }
-    },
-    [ecranVersSvg],
-  );
+  const onPointerUp = useCallback((e: React.PointerEvent<SVGSVGElement>) => {
+    pointeurs.current.delete(e.pointerId);
+    if (pointeurs.current.size < 2) pinch.current = null;
+    if (pointeurs.current.size === 0) {
+      // Geste termine : un tap (un seul pointeur, sous le seuil) declenche la selection.
+      if (!aBouge.current && !multi.current) onTapRef.current?.();
+      dernierPoint.current = null;
+      debut.current = null;
+      setEnDeplacement(false);
+    } else {
+      const [reste] = [...pointeurs.current.values()];
+      dernierPoint.current = reste ? ecranVersSvg(reste.x, reste.y) : null;
+    }
+  }, [ecranVersSvg]);
 
   const zoomBouton = useCallback(
     (facteur: number) => {
@@ -138,7 +145,6 @@ export function useViewport(svgRef: React.RefObject<SVGSVGElement>): ControleurV
   );
 
   const reset = useCallback(() => setVp(resetViewport()), []);
-  const vientDeBouger = useCallback(() => aBouge.current, []);
 
   // Zoom molette : listener natif (passive:false) pour bloquer le scroll de page.
   useEffect(() => {
@@ -154,14 +160,5 @@ export function useViewport(svgRef: React.RefObject<SVGSVGElement>): ControleurV
     return () => svg.removeEventListener('wheel', onWheel);
   }, [svgRef, ecranVersSvg]);
 
-  return {
-    vp,
-    onPointerDown,
-    onPointerMove,
-    onPointerUp,
-    zoomBouton,
-    reset,
-    enDeplacement,
-    vientDeBouger,
-  };
+  return { vp, onPointerDown, onPointerMove, onPointerUp, zoomBouton, reset, enDeplacement };
 }
