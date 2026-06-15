@@ -113,6 +113,8 @@
   --card-max-width: 440px;
 
   /* --- Couches (z-index) --- */
+  /* Barre de navigation epinglee : au-dessus du contenu defilant, sous la modale. */
+  --z-sticky: 100;
   --z-modal: 1000;
   /* Croix flottante : au-dessus du contenu defilant, dans le calque modale. */
   --z-modal-close: calc(var(--z-modal) + 1);
