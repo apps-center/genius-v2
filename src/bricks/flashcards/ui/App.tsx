@@ -27,8 +27,9 @@ import styles from './Flashcards.module.css';
   identiquement montee seule (dev) ou dans le shell. Deux modeles de carte sont rendus
   selon le champ discriminant `type` ('image' | 'qr'), jamais selon un sujet code en dur.
 
-  PERIMETRE : un deck qui se joue. Pas d'ecran d'entree (stats, grille de themes, Mode
-  Genius), pas de filtres categorie/niveau : ces elements viendront plus tard.
+  PERIMETRE : un deck qui se joue, avec un filtre OPTIONNEL declare par le pack (champ
+  `filtres`, ex. les grandes epoques d'histoire). Pas d'ecran d'entree (stats, grille de
+  themes) : ces elements viendront plus tard.
 */
 
 interface Cible {
@@ -120,13 +121,67 @@ function Flashcards({ ctx }: { ctx: AppContext }) {
   const titreAffiche =
     pack?.titre ?? (cible.genius ? TITRE_GENIUS : cible.titre) ?? 'Flashcards';
 
+  // Filtre actif ('' = toutes les cartes). Les filtres sont DECLARES par le pack (champ
+  // `filtres`) : la brique ne connait aucune epoque en dur. Un deck sans `filtres` n'affiche
+  // aucune pilule et se comporte exactement comme avant.
+  const [filtreActif, setFiltreActif] = useState('');
+  // Le pack change (changement de sujet) : on repart de "toutes les cartes".
+  useEffect(() => {
+    setFiltreActif('');
+  }, [pack]);
+
+  // Cartes a afficher selon le filtre. Memoise sur (pack, filtre) pour garder une identite
+  // de tableau STABLE : sinon le Deck (qui se reinitialise quand `cartes` change) repartirait
+  // de la premiere carte a chaque rendu.
+  const cartesAffichees = useMemo(() => {
+    if (!pack) return [];
+    if (!filtreActif) return pack.cartes;
+    const groupe = pack.filtres?.find((f) => f.id === filtreActif);
+    if (!groupe) return pack.cartes;
+    return pack.cartes.filter((c) => {
+      const valeur = c.type === 'image' ? c.epoque : c.categorie;
+      return valeur !== undefined && groupe.valeurs.includes(valeur);
+    });
+  }, [pack, filtreActif]);
+
+  const packAffiche = useMemo(
+    () => (pack ? { ...pack, cartes: cartesAffichees } : undefined),
+    [pack, cartesAffichees],
+  );
+
   return (
     <div className={styles.wrap}>
       <header className={styles.head}>
         <p className={styles.kicker}>Flashcards</p>
         <h1 className={styles.titre}>{titreAffiche}</h1>
-        {pack && <p className={styles.sous}>{pack.cartes.length} cartes a reviser</p>}
+        {pack && (
+          <p className={styles.sous}>{cartesAffichees.length} cartes a reviser</p>
+        )}
       </header>
+
+      {pack && pack.filtres && pack.filtres.length > 0 && (
+        <div className={styles.filtres} role="group" aria-label="Filtrer par epoque">
+          <button
+            type="button"
+            className={`${styles.filtre} ${filtreActif === '' ? styles.filtreActif : ''}`}
+            aria-pressed={filtreActif === ''}
+            onClick={() => setFiltreActif('')}
+          >
+            Toutes les epoques
+          </button>
+          {pack.filtres.map((f) => (
+            <button
+              key={f.id}
+              type="button"
+              className={`${styles.filtre} ${filtreActif === f.id ? styles.filtreActif : ''}`}
+              aria-pressed={filtreActif === f.id}
+              onClick={() => setFiltreActif(f.id)}
+            >
+              {f.label}
+            </button>
+          ))}
+        </div>
+      )}
 
       {chargement.statut === 'chargement' && (
         <p className={styles.state}>Chargement du deck...</p>
@@ -137,7 +192,12 @@ function Flashcards({ ctx }: { ctx: AppContext }) {
           <p className={styles.errorMsg}>{chargement.message}</p>
         </div>
       )}
-      {pack && <Deck ctx={ctx} pack={pack} />}
+      {packAffiche && cartesAffichees.length > 0 && (
+        <Deck ctx={ctx} pack={packAffiche} />
+      )}
+      {packAffiche && cartesAffichees.length === 0 && (
+        <p className={styles.state}>Aucune carte pour cette epoque.</p>
+      )}
     </div>
   );
 }

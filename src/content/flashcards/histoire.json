@@ -2,6 +2,56 @@
   "contentKind": "flashcards",
   "sujet": "histoire",
   "titre": "Histoire",
+  "filtres": [
+    {
+      "id": "prehistoire",
+      "label": "Préhistoire",
+      "valeurs": [
+        "Ère Cosmique",
+        "Ère Biologique",
+        "Préhistoire"
+      ]
+    },
+    {
+      "id": "antiquite",
+      "label": "Antiquité",
+      "valeurs": [
+        "Premières Civilisations -  - 3500 à - 2000",
+        "Égypte, Mésopotamie & Récits Fondateurs -  - 2000 à - 1200",
+        "Proche-Orient & Méditerranée -  - 1200 à - 600",
+        "Grèce Antique & Monde Hellénistique -  - 800 à - 300",
+        "Rome - République & Conquêtes -  - 300 à - 27",
+        "Empire Romain & Naissance du Christianisme -  - 27 à 200",
+        "Gaule Romaine & Déclin de l'Empire - 200 à 476"
+      ]
+    },
+    {
+      "id": "moyenage",
+      "label": "Moyen Âge",
+      "valeurs": [
+        "Haut Moyen Âge",
+        "Mérovingiens",
+        "Carolingiens",
+        "Capétiens & Moyen Âge"
+      ]
+    },
+    {
+      "id": "modernes",
+      "label": "Temps Modernes",
+      "valeurs": [
+        "Renaissance & Réforme",
+        "Monarchie Absolue"
+      ]
+    },
+    {
+      "id": "contemporaine",
+      "label": "Époque Contemporaine",
+      "valeurs": [
+        "Révolution, Empires & XIXe siècle",
+        "France Contemporaine"
+      ]
+    }
+  ],
   "cartes": [
     {
       "type": "image",

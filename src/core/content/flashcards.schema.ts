@@ -62,15 +62,35 @@ export const FlashcardQr = z.object({
 
 export const Flashcard = z.discriminatedUnion('type', [FlashcardImage, FlashcardQr]);
 
+/*
+  Filtres declaratifs OPTIONNELS d'un deck (ex. les grandes epoques d'histoire :
+  Prehistoire / Antiquite / Moyen Age...). Chaque groupe declare le LIBELLE affiche et la
+  liste des valeurs qu'il rassemble : valeurs du champ `epoque` (modele image) ou
+  `categorie` (modele qr). La brique se contente de rendre ces pilules et de filtrer les
+  cartes : AUCUN regroupement code en dur cote brique. Ajouter/retoucher des filtres = editer
+  ce bloc dans le pack JSON, zero code. Champ absent = aucun filtre affiche (cas par defaut,
+  les decks sans filtres restent identiques).
+*/
+export const FlashcardFiltre = z.object({
+  // Identifiant stable du groupe (sert de cle de selection), ex. "prehistoire".
+  id: z.string().min(1),
+  // Libelle affiche sur la pilule, ex. "Prehistoire".
+  label: z.string().min(1),
+  // Valeurs de `epoque`/`categorie` rassemblees sous ce filtre.
+  valeurs: z.array(z.string().min(1)).min(1),
+});
+
 export const FlashcardsPack = z.object({
   contentKind: z.literal('flashcards'),
   sujet: z.string().min(1),
   titre: z.string().min(1),
   cartes: z.array(Flashcard).min(1),
+  filtres: z.array(FlashcardFiltre).optional(),
 });
 
 export type Illustration = z.infer<typeof Illustration>;
 export type FlashcardImage = z.infer<typeof FlashcardImage>;
 export type FlashcardQr = z.infer<typeof FlashcardQr>;
 export type Flashcard = z.infer<typeof Flashcard>;
+export type FlashcardFiltre = z.infer<typeof FlashcardFiltre>;
 export type FlashcardsPack = z.infer<typeof FlashcardsPack>;
